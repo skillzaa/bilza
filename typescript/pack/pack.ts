@@ -1,9 +1,11 @@
 import Ctx from "./ctx.js";
 
 export default class Pack {
-ctx:Ctx;
+private _ctx:Ctx;
 constructor(){
-this.ctx = new Ctx();
+this._ctx = new Ctx();
 }
-
+ctx(){
+return this._ctx;
+}
 }

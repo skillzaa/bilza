@@ -1,4 +1,4 @@
-import Pack from "./pack/pack.js";
+import Pack from "../pack/pack.js";
 export default class Bilzaa2d {
     constructor() {
         this.pack = new Pack();
@@ -7,16 +7,16 @@ export default class Bilzaa2d {
         this.gapV = 5;
     }
     //--function arguments shd be arguments and not classes unless required absoliutely.
-    draw(x = 0, y = 0) {
+    draw(p, x = 0, y = 0) {
         for (let i = 0; i < this.comps.length; i++) {
             //--save ctx
-            this.pack.ctx().save();
-            this.comps[i].draw(this.pack, x, y);
+            p.ctx().save();
+            this.comps[i].draw(p, x, y);
             //--keep both unless resetCtx has all items
-            this.pack.ctx().restore();
-            this.pack.ctx().resetCtx(); //why needed??
-            if (this.comps[i].width(this.pack) > 0) {
-                x += this.comps[i].width(this.pack) + this.gapH;
+            p.ctx().restore();
+            p.ctx().resetCtx(); //why needed??
+            if (this.comps[i].width(p) > 0) {
+                x += this.comps[i].width(p) + this.gapH;
             }
         }
         return true;

@@ -1,7 +1,9 @@
+import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
-export default interface IDrawable {
+export default class Component implements IDrawable {
+    constructor();
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack, startingX: number, startingY: number): boolean;
 }
-//# sourceMappingURL=IDrawable.d.ts.map
+//# sourceMappingURL=component.d.ts.map
