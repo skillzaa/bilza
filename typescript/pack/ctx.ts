@@ -51,6 +51,9 @@ this.ctx.font = fontSize + "px " + fontName;
 public setFontSize(n:number){
     this.fontSize = n;
 }
+public setFontName(n:string){
+    this.fontName = n;
+}
 public chars_width(chars="",fontSize =this.fontSize , fontName=this.fontName){
 this.ctx.save();
 //dont miss gap "px_"
@@ -68,8 +71,13 @@ public draw_line(startX:number,startY:number,endX:number,endY:number){
 }
 public drawText(content:string,x:number,y:number){
     //--must
+    this.ctx.save();
+    this.setFont();
+    this.strokeStyle = this.strokeStyle;
+    this.fillStyle = this.fillStyle;
     this.ctx.textBaseline = "top";
     this.ctx.fillText(content, x, y);
+    this.ctx.restore();
 }
 
 }

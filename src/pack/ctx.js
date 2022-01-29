@@ -43,6 +43,9 @@ export default class Ctx {
     setFontSize(n) {
         this.fontSize = n;
     }
+    setFontName(n) {
+        this.fontName = n;
+    }
     chars_width(chars = "", fontSize = this.fontSize, fontName = this.fontName) {
         this.ctx.save();
         //dont miss gap "px_"
@@ -60,7 +63,12 @@ export default class Ctx {
     }
     drawText(content, x, y) {
         //--must
+        this.ctx.save();
+        this.setFont();
+        this.strokeStyle = this.strokeStyle;
+        this.fillStyle = this.fillStyle;
         this.ctx.textBaseline = "top";
         this.ctx.fillText(content, x, y);
+        this.ctx.restore();
     }
 }

@@ -1,1 +1,0 @@
-{"version":3,"file":"framework.d.ts","sourceRoot":"","sources":["../../typescript/framework/framework.ts"],"names":[],"mappings":"AACA,OAAO,SAAS,MAAM,gBAAgB,CAAC;AAGvC,MAAM,CAAC,OAAO,OAAO,SAAS;IAC9B,OAAO,CAAC,KAAK,CAAa;IACnB,GAAG,EAAC,MAAM,CAAC;IAClB,OAAO,CAAC,KAAK,CAAO;;IAQpB,IAAI,CAAC,CAAC,GAAC,MAAQ,EAAC,CAAC,GAAC,MAAQ,GAAE,OAAO;IAkBnC,QAAQ,CAAC,IAAI,EAAC,SAAS,GAAE,SAAS;CAIjC"}
