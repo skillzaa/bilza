@@ -15,12 +15,12 @@ export default class Text extends Component {
     height(p) {
         return p.ctx().chars_width("Xi");
     }
-    draw(p, startingX, startingY) {
+    draw(p) {
         p.ctx().setFontSize(this.ctxData.fontSize);
         p.ctx().setFontName(this.ctxData.fontName);
         p.ctx().setFillStyle(this.ctxData.fillStyle);
         p.ctx().setStrokeStyle(this.ctxData.strokeStyle);
-        p.ctx().drawText(this.content, startingX + this.x, startingY + this.y);
+        p.ctx().drawText(this.content, this.x, this.y);
         return true;
     }
 }

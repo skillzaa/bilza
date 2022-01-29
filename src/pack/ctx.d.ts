@@ -16,6 +16,7 @@ export default class Ctx {
     resetCtx(): void;
     setFont(fontSize?: number, fontName?: string): void;
     setFontSize(n: number): void;
+    clearCanvas(): void;
     setFontName(n: string): void;
     chars_width(chars?: string, fontSize?: number, fontName?: string): number;
     draw_line(startX: number, startY: number, endX: number, endY: number): void;

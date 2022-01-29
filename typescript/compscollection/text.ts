@@ -5,8 +5,6 @@ import CtxData from "../design/ctxData.js";
 export default class Text extends Component {
 content:string;
 ctxData:CtxData;
-x:number;
-y:number;
 constructor (content:string,x :number=0,y :number=0){
     super();
 this.content = content;    
@@ -22,13 +20,13 @@ height(p:Pack):number {
 return p.ctx().chars_width("Xi");    
 }
 
-draw(p:Pack,startingX :number,startingY :number):boolean{
+draw(p:Pack):boolean{
 p.ctx().setFontSize(this.ctxData.fontSize);    
 p.ctx().setFontName(this.ctxData.fontName);    
 p.ctx().setFillStyle(this.ctxData.fillStyle);    
 p.ctx().setStrokeStyle(this.ctxData.strokeStyle);    
 
-p.ctx().drawText(this.content,startingX + this.x, startingY + this.y);    
+p.ctx().drawText(this.content,this.x, this.y);    
 return true;
 }
 

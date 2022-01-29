@@ -4,25 +4,26 @@ export default class Bilzaa2d {
     constructor() {
         this.pack = new Pack();
         this.comps = [];
-        this.gapH = 5;
-        this.gapV = 5;
+        this.totalFrames = 3000; //5min
+        this.frame = 0;
     }
     //--function arguments shd be arguments and not classes unless required absoliutely.
-    draw(x = 0, y = 0) {
+    draw() {
+        this.frame += 1; /// importanto         
+        this.pack.ctx().clearCanvas();
         this.drawBackground();
         for (let i = 0; i < this.comps.length; i++) {
             let comp = this.comps[i];
             //--save ctx
             this.pack.ctx().save();
             if (comp.drawLayer == DrawLayer.MiddleGround) {
-                comp.draw(this.pack, x, y);
+                if (comp.frameStart < this.frame && comp.frameEnd > this.frame) {
+                    comp.draw(this.pack);
+                }
             }
             //--keep both unless resetCtx has all items
             this.pack.ctx().restore();
             this.pack.ctx().resetCtx(); //why needed??
-            if (comp.width(this.pack) > 0) {
-                x += comp.width(this.pack) + this.gapH;
-            }
         }
         return true;
     }
@@ -32,7 +33,7 @@ export default class Bilzaa2d {
             //--save ctx
             this.pack.ctx().save();
             if (comp.drawLayer == DrawLayer.BackGround) {
-                comp.draw(this.pack, 0, 0);
+                comp.draw(this.pack);
             }
             //--keep both unless resetCtx has all items
             this.pack.ctx().restore();

@@ -51,6 +51,9 @@ this.ctx.font = fontSize + "px " + fontName;
 public setFontSize(n:number){
     this.fontSize = n;
 }
+public clearCanvas(){
+this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);    
+}
 public setFontName(n:string){
     this.fontName = n;
 }

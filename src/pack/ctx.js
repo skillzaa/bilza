@@ -43,6 +43,9 @@ export default class Ctx {
     setFontSize(n) {
         this.fontSize = n;
     }
+    clearCanvas() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
     setFontName(n) {
         this.fontName = n;
     }

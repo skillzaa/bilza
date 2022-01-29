@@ -10,7 +10,7 @@ export default class Grid extends Component {
         this.numbers_fillStyle = "#b1b4c9";
         this.lineColor = "#d9dcf7";
     }
-    draw(p, x, y) {
+    draw(p) {
         this.draw_horizontal(p);
         this.draw_vertical(p);
         return true;

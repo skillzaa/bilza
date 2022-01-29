@@ -19,7 +19,7 @@ this.numbers_fillStyle = "#b1b4c9";
 this.lineColor = "#d9dcf7";
 
 }    
-draw(p:Pack, x: number, y: number): boolean {
+draw(p:Pack): boolean {
     this.draw_horizontal(p);    
     this.draw_vertical(p);    
 return true;

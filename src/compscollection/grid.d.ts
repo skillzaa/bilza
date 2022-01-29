@@ -7,7 +7,7 @@ export default class Grid extends Component {
     cell_width: number;
     show_numbers: boolean;
     constructor();
-    draw(p: Pack, x: number, y: number): boolean;
+    draw(p: Pack): boolean;
     draw_horizontal(p: Pack): void;
     draw_vertical(p: Pack): void;
     draw_line(p: Pack, move_to_x: number, move_to_y: number, line_to_x: number, line_to_y: number): void;
