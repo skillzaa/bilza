@@ -1,4 +1,5 @@
 import Pack from "./pack/pack.js";
+import { DrawLayer } from "./design/drawLayer.js";
 export default class Bilzaa2d {
     constructor() {
         this.pack = new Pack();
@@ -8,16 +9,35 @@ export default class Bilzaa2d {
     }
     //--function arguments shd be arguments and not classes unless required absoliutely.
     draw(x = 0, y = 0) {
+        this.drawBackground();
         for (let i = 0; i < this.comps.length; i++) {
+            let comp = this.comps[i];
             //--save ctx
             this.pack.ctx().save();
-            this.comps[i].draw(this.pack, x, y);
+            if (comp.drawLayer == DrawLayer.MiddleGround) {
+                comp.draw(this.pack, x, y);
+            }
             //--keep both unless resetCtx has all items
             this.pack.ctx().restore();
             this.pack.ctx().resetCtx(); //why needed??
-            if (this.comps[i].width(this.pack) > 0) {
-                x += this.comps[i].width(this.pack) + this.gapH;
+            if (comp.width(this.pack) > 0) {
+                x += comp.width(this.pack) + this.gapH;
             }
+        }
+        return true;
+    }
+    drawBackground() {
+        for (let i = 0; i < this.comps.length; i++) {
+            let comp = this.comps[i];
+            //--save ctx
+            this.pack.ctx().save();
+            if (comp.drawLayer == DrawLayer.BackGround) {
+                comp.draw(this.pack, 0, 0);
+            }
+            //--keep both unless resetCtx has all items
+            this.pack.ctx().restore();
+            this.pack.ctx().resetCtx(); //why needed??
+            //--no width for background items
         }
         return true;
     }

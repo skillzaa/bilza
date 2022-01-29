@@ -1,7 +1,9 @@
 import Component from "../component/component.js";
+import { DrawLayer } from "../design/drawLayer.js";
 export default class Grid extends Component {
     constructor() {
         super();
+        this.drawLayer = DrawLayer.BackGround;
         this.cell_width = 50;
         this.cell_height = 50;
         this.show_numbers = true;

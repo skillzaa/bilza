@@ -1,9 +1,11 @@
 import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
-
+import {DrawLayer} from "../design/drawLayer.js";
 export default class Component implements IDrawable {
-constructor (){
 
+drawLayer : DrawLayer;    
+constructor (){
+this.drawLayer = DrawLayer.MiddleGround;
 }
 width(p: Pack): number {
     return 0;

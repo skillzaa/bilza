@@ -1,5 +1,6 @@
 import Component from "../component/component.js";
 import Pack from "../pack/pack.js";
+import {DrawLayer} from "../design/drawLayer.js";
 
 export default class Grid extends Component {
 numbers_fillStyle:string;
@@ -9,7 +10,8 @@ cell_width:number;
 show_numbers:boolean;
     
 constructor(){
-super();    
+super(); 
+this.drawLayer = DrawLayer.BackGround;   
 this.cell_width = 50;    
 this.cell_height = 50;
 this.show_numbers = true;   
