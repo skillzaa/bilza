@@ -1,0 +1,1 @@
+{"version":3,"file":"IDrawable.d.ts","sourceRoot":"","sources":["../../typescript/design/IDrawable.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,WAAW,SAAS;IAC9B,KAAK,IAAG,MAAM,CAAC;IACf,MAAM,IAAG,MAAM,CAAC;IAChB,IAAI,CAAC,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,MAAM,GAAE,OAAO,CAAC;CACtC"}
