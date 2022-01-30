@@ -1,34 +1,26 @@
+import CtxData from "../design/ctxData.js";
+import ctxDefaultInit from "../design/ctxDefaultInit.js";
 
 export default class Ctx {
 canvas:HTMLCanvasElement;
+private ctxData: CtxData;
 private ctx: CanvasRenderingContext2D;
-private fontName :string;
-private fontSize :number;
-private fillStyle :string;
-private strokeStyle :string;
+private fontSize: number;
+private fontName: string;
 
 constructor(){
-// @ts-expect-error    
+this.ctxData = ctxDefaultInit();
+this.fontName = "serf";    
+this.fontSize = 25;    
+// @ts-expect-error
 this.canvas = document.getElementById("crown");
 this.canvas.width = window.innerWidth;
 this.canvas.height = window.innerHeight;
 // @ts-expect-error    
 this.ctx = this.canvas.getContext('2d');
-this.fillStyle = "#1e1eea";
-this.strokeStyle = "#1e1eea";
-this.fontSize = 100;
-this.fontName = "serif";
 }
 public canvasWidth():number{
 return this.canvas.width;
-}
-public setStrokeStyle(str:string):string{
-this.ctx.strokeStyle = str;
-return str;
-}
-public setFillStyle(str:string):string{
-this.ctx.fillStyle = str;
-return str;
 }
 public canvasHeight():number{
 return this.canvas.height;
@@ -39,48 +31,50 @@ public restore(){
 public save(){
     this.ctx.save();
 }
-public getFontSize(){
-    return this.fontSize;
-}
-public resetCtx(){
-this.ctx.font = this.fontSize + "px " + this.fontName;
-}
-public setFont(fontSize=this.fontSize,fontName=this.fontName){
-this.ctx.font = fontSize + "px " + fontName;
-}
-public setFontSize(n:number){
-    this.fontSize = n;
-}
+
 public clearCanvas(){
 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);    
 }
-public setFontName(n:string){
-    this.fontName = n;
-}
-public chars_width(chars="",fontSize =this.fontSize , fontName=this.fontName){
+
+public chars_width(chars="",fontSize =this.ctxData.fontSize , fontName=this.ctxData.fontName){
 this.ctx.save();
 //dont miss gap "px_"
-let f = this.fontSize + "px " + this.fontName;
+let f = this.ctxData.fontSize + "px " + this.ctxData.fontName;
 this.ctx.font = f;
 let m = this.ctx.measureText(chars).width;
 this.ctx.restore();
 return Math.ceil(m);    
 }
-public draw_line(startX:number,startY:number,endX:number,endY:number){
+public draw_line(startX:number,startY:number,endX:number,endY:number,incomCtx:CtxData=this.ctxData){
+    this.mergeCtx(incomCtx);
+
     this.ctx.beginPath();
     this.ctx.moveTo(startX,startY);
     this.ctx.lineTo(endX,endY);
     this.ctx.stroke();
 }
-public drawText(content:string,x:number,y:number){
+public drawText(content:string,incomCtx:CtxData=this.ctxData){
+    this.mergeCtx(incomCtx);
     //--must
-    this.ctx.save();
-    this.setFont();
-    this.strokeStyle = this.strokeStyle;
-    this.fillStyle = this.fillStyle;
-    this.ctx.textBaseline = "top";
-    this.ctx.fillText(content, x, y);
-    this.ctx.restore();
+       this.ctx.textBaseline = "top";
+    // x and y are not merged   
+    this.ctx.fillText(content, incomCtx.x, incomCtx.y);
 }
+mergeCtx(incomming :CtxData){
+    
+    if (incomming.strokeStyle !== null){
+        this.ctx.strokeStyle = incomming.strokeStyle;
+    }
+    if (incomming.fillStyle !== null){
+        this.ctx.fillStyle = incomming.fillStyle;
+    }
+    if (incomming.fontSize !== null){
+        this.fontSize = incomming.fontSize;
+    }
+    if (incomming.fontName !== null){
+        this.fontName = incomming.fontName;
+    }
+this.ctx.font = this.fontSize + "px " + this.fontName;
 
+}
 }

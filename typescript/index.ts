@@ -1,6 +1,7 @@
 import Pack from "./pack/pack.js";
 import IDrawable from "./design/IDrawable.js";
 import {DrawLayer} from "./design/drawLayer.js";
+import CtxData from "./design/ctxData.js";
 
 export default class Bilzaa2d {
 public comps:IDrawable[];
@@ -23,8 +24,9 @@ let comp = this.comps[i];
         //--save ctx
         if (comp.drawLayer == DrawLayer.MiddleGround ){
             if (comp.frameStart < this.frame && comp.frameEnd > this.frame ){
-                this.pack.ctx().save();
+                //comp 2update its ctxData
                 comp.update(this.frame,this.pack);
+                this.pack.ctx().save();
                 comp.draw(this.pack);
                  //--keep both unless resetCtx has all items
                 this.pack.ctx().restore();
@@ -36,7 +38,6 @@ let comp = this.comps[i];
 return true;
 }
 drawBackground():boolean{    
-
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];        
         //--save ctx
@@ -46,7 +47,6 @@ let comp = this.comps[i];
         }
         //--keep both unless resetCtx has all items
         this.pack.ctx().restore();
-        this.pack.ctx().resetCtx();//why needed??
         //--no width for background items
 }
 return true;

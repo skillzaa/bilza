@@ -1,22 +1,24 @@
 import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
-import AniCtxData from "./aniCtxData.js";
+import CtxData from "../design/ctxData.js";
+import TransitionData from "../design/transitionData.js";
+import ctxDefaultInit from "../design/ctxDefaultInit.js";
 
 export default class Component implements IDrawable {
 drawLayer : DrawLayer; 
-protected animations :any[];
+public ctxData :CtxData;
+public transitions :TransitionData[];
 public frameStart :number;   
 public frameEnd :number;   
-x :number;   
-y :number;   
 
 constructor (){
 this.drawLayer = DrawLayer.MiddleGround;
-this.x = 0;
-this.animations = [];
-this.y = 0;
-this.frameStart = 0;
+this.transitions = [];
+//****************************8 */
+this.ctxData = ctxDefaultInit();
+//****************************8 */
+this.frameStart = 0; //component startand end frames
 this.frameEnd = 3000;
 }
 width(p: Pack): number {
@@ -31,9 +33,9 @@ draw(p: Pack): boolean {
 update(frame: number, p: Pack): boolean {   
 return true;   
 }
-addAnimation(frame :number=0):AniCtxData{
-let sa = new AniCtxData(frame);    
-this.animations.push(sa);
+addTransition(frame :number=0):TransitionData{
+let sa = new TransitionData(frame);    
+this.transitions.push(sa);
 return sa;
 }
 }

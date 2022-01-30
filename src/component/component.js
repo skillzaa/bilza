@@ -1,12 +1,14 @@
 import { DrawLayer } from "../design/drawLayer.js";
-import AniCtxData from "./aniCtxData.js";
+import TransitionData from "../design/transitionData.js";
+import ctxDefaultInit from "../design/ctxDefaultInit.js";
 export default class Component {
     constructor() {
         this.drawLayer = DrawLayer.MiddleGround;
-        this.x = 0;
-        this.animations = [];
-        this.y = 0;
-        this.frameStart = 0;
+        this.transitions = [];
+        //****************************8 */
+        this.ctxData = ctxDefaultInit();
+        //****************************8 */
+        this.frameStart = 0; //component startand end frames
         this.frameEnd = 3000;
     }
     width(p) {
@@ -21,9 +23,9 @@ export default class Component {
     update(frame, p) {
         return true;
     }
-    addAnimation(frame = 0) {
-        let sa = new AniCtxData(frame);
-        this.animations.push(sa);
+    addTransition(frame = 0) {
+        let sa = new TransitionData(frame);
+        this.transitions.push(sa);
         return sa;
     }
 }

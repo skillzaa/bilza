@@ -1,19 +1,19 @@
 import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
 import { DrawLayer } from "../design/drawLayer.js";
-import AniCtxData from "./aniCtxData.js";
+import CtxData from "../design/ctxData.js";
+import TransitionData from "../design/transitionData.js";
 export default class Component implements IDrawable {
     drawLayer: DrawLayer;
-    protected animations: any[];
+    ctxData: CtxData;
+    transitions: TransitionData[];
     frameStart: number;
     frameEnd: number;
-    x: number;
-    y: number;
     constructor();
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;
     update(frame: number, p: Pack): boolean;
-    addAnimation(frame?: number): AniCtxData;
+    addTransition(frame?: number): TransitionData;
 }
 //# sourceMappingURL=component.d.ts.map

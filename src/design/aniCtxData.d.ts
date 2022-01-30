@@ -1,7 +1,7 @@
-export default class CtxData {
+export default class AniCtxData {
     startFrame: number;
-    x: number;
-    y: number;
+    x: number | null;
+    y: number | null;
     fontSize: number | null;
     fontName: string | null;
     fillStyle: string | null;
@@ -9,4 +9,4 @@ export default class CtxData {
     lineWidth: number | null;
     constructor(startFrame?: number);
 }
-//# sourceMappingURL=ctxData.d.ts.map
+//# sourceMappingURL=aniCtxData.d.ts.map

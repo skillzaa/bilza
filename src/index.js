@@ -17,8 +17,9 @@ export default class Bilzaa2d {
             //--save ctx
             if (comp.drawLayer == DrawLayer.MiddleGround) {
                 if (comp.frameStart < this.frame && comp.frameEnd > this.frame) {
-                    this.pack.ctx().save();
+                    //comp 2update its ctxData
                     comp.update(this.frame, this.pack);
+                    this.pack.ctx().save();
                     comp.draw(this.pack);
                     //--keep both unless resetCtx has all items
                     this.pack.ctx().restore();
@@ -38,7 +39,6 @@ export default class Bilzaa2d {
             }
             //--keep both unless resetCtx has all items
             this.pack.ctx().restore();
-            this.pack.ctx().resetCtx(); //why needed??
             //--no width for background items
         }
         return true;
