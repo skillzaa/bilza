@@ -21,15 +21,17 @@ this.drawBackground();
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
         //--save ctx
-        this.pack.ctx().save();
         if (comp.drawLayer == DrawLayer.MiddleGround ){
-                if (comp.frameStart < this.frame && comp.frameEnd > this.frame ){
-                        comp.draw(this.pack);
-                }
+            if (comp.frameStart < this.frame && comp.frameEnd > this.frame ){
+                this.pack.ctx().save();
+                comp.update(this.frame,this.pack);
+                comp.draw(this.pack);
+                 //--keep both unless resetCtx has all items
+                this.pack.ctx().restore();
+                // this.pack.ctx().resetCtx();//why needed??
+            }
+                
         }
-        //--keep both unless resetCtx has all items
-        this.pack.ctx().restore();
-        this.pack.ctx().resetCtx();//why needed??
 }
 return true;
 }
