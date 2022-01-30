@@ -65,8 +65,33 @@ public drawText(content:string,incomCtx:CtxData){
     // x and y are not merged   
     this.ctx.fillText(content, incomCtx.x, incomCtx.y);
 }
+public drawTextstroke(content:string,incomCtx:CtxData){
+    this.commitCtxData(incomCtx);
+    //--must
+       this.ctx.textBaseline = "top";
+    // x and y are not merged   
+    this.ctx.strokeText(content, incomCtx.x, incomCtx.y);
+}
 private commitCtxData(incomCtx:CtxData){
     
+    if (incomCtx.globalAlpha !== null){
+        this.ctx.globalAlpha = incomCtx.globalAlpha;
+    }
+    if (incomCtx.shadowBlur !== null){
+        this.ctx.shadowBlur = incomCtx.shadowBlur;
+    }
+    if (incomCtx.shadowOffsetY !== null){
+        this.ctx.shadowOffsetY = incomCtx.shadowOffsetY;
+    }
+    if (incomCtx.shadowOffsetX !== null){
+        this.ctx.shadowOffsetX = incomCtx.shadowOffsetX;
+    }
+    if (incomCtx.lineWidth !== null){
+        this.ctx.lineWidth = incomCtx.lineWidth;
+    }
+    if (incomCtx.shadowColor !== null){
+        this.ctx.shadowColor = incomCtx.shadowColor;
+    }
     if (incomCtx.strokeStyle !== null){
         this.ctx.strokeStyle = incomCtx.strokeStyle;
     }

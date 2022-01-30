@@ -25,6 +25,10 @@ export default class Component {
         this.transitions.push(sa);
         return sa;
     }
+    newTransition(sa) {
+        this.transitions.push(sa);
+        return true;
+    }
     update(frame, p) {
         this.applyTransitons(frame);
         return true;

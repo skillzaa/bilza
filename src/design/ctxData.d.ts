@@ -8,7 +8,12 @@ export default class CtxData {
     fillStyle: string | null;
     strokeStyle: string | null;
     lineWidth: number | null;
+    shadowColor: string | null;
+    shadowOffsetX: number | null;
+    shadowOffsetY: number | null;
+    shadowBlur: number | null;
+    globalAlpha: number | null;
     constructor(startFrame?: number);
-    merge(incomming: CtxData): void;
+    merge(incom: CtxData): void;
 }
 //# sourceMappingURL=ctxData.d.ts.map

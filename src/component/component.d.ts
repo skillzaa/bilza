@@ -14,6 +14,7 @@ export default class Component implements IDrawable {
     height(p: Pack): number;
     draw(p: Pack): boolean;
     addTransition(frame?: number): TransitionData;
+    newTransition(sa: TransitionData): boolean;
     update(frame: number, p: Pack): boolean;
     applyTransitons(frame: number): void;
 }

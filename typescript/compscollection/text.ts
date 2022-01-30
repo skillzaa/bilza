@@ -3,7 +3,7 @@ import Component from "../component/component.js";
 
 export default class Text extends Component {
 content:string;
-constructor (content:string,x :number=0,y :number=0){
+constructor (content:string){
     super();
 this.content = content;    
 }

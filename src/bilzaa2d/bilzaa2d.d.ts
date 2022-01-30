@@ -3,17 +3,18 @@ import Background from "./background.js";
 import Grid from "../compscollection/grid.js";
 import Text from "../compscollection/text.js";
 export default class Bilzaa2d {
-    comps: IDrawable[];
+    private comps;
     private pack;
-    frame: number;
+    private frame;
     totalFrames: number;
     background: Background;
     constructor();
-    draw(): boolean;
-    drawBackgroundComps(): boolean;
+    private draw;
+    private drawMiddlegroundComps;
+    private drawBackgroundComps;
     add_comp(comp: IDrawable): IDrawable;
     start(): void;
-    addText(content: string, x: number, y: number): Text;
+    addText(content: string): Text;
     addGrid(): Grid;
 }
 //# sourceMappingURL=bilzaa2d.d.ts.map

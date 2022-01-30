@@ -10,21 +10,42 @@ export default class CtxData {
         this.fillStyle = null;
         this.strokeStyle = null;
         this.lineWidth = null;
+        this.shadowColor = null;
+        this.shadowOffsetX = null;
+        this.shadowOffsetY = null;
+        this.shadowBlur = null;
+        this.globalAlpha = null;
     }
-    merge(incomming) {
-        if (incomming.strokeStyle !== null) {
-            this.strokeStyle = incomming.strokeStyle;
+    merge(incom) {
+        if (incom.globalAlpha !== null) {
+            this.globalAlpha = incom.globalAlpha;
         }
-        if (incomming.fillStyle !== null) {
-            this.fillStyle = incomming.fillStyle;
+        if (incom.shadowBlur !== null) {
+            this.shadowBlur = incom.shadowBlur;
         }
-        if (incomming.fontSize !== null) {
-            this.fontSize = incomming.fontSize;
+        if (incom.shadowOffsetY !== null) {
+            this.shadowOffsetY = incom.shadowOffsetY;
         }
-        if (incomming.fontName !== null) {
-            this.fontName = incomming.fontName;
+        if (incom.shadowOffsetX !== null) {
+            this.shadowOffsetX = incom.shadowOffsetX;
         }
-        if (this.fontSize !== null && this.fontName !== null)
-            this.font = this.fontSize + "px " + this.fontName;
+        if (incom.lineWidth !== null) {
+            this.lineWidth = incom.lineWidth;
+        }
+        if (incom.shadowColor !== null) {
+            this.shadowColor = incom.shadowColor;
+        }
+        if (incom.strokeStyle !== null) {
+            this.strokeStyle = incom.strokeStyle;
+        }
+        if (incom.fillStyle !== null) {
+            this.fillStyle = incom.fillStyle;
+        }
+        if (incom.fontSize !== null) {
+            this.fontSize = incom.fontSize;
+        }
+        if (incom.fontName !== null) {
+            this.fontName = incom.fontName;
+        }
     }
 }

@@ -7,9 +7,9 @@ import Grid from "../compscollection/grid.js";
 import Text from "../compscollection/text.js";
 
 export default class Bilzaa2d {
-public comps:IDrawable[];
+private comps:IDrawable[];
 private pack:Pack;
-public frame :number;
+private frame :number;
 public totalFrames :number; //the size of video
 public background :Background;
 constructor (){
@@ -20,7 +20,7 @@ this.totalFrames = 3000; //5min
 this.frame = 0; 
 } 
 //--function arguments shd be arguments and not classes unless required absoliutely.
-draw():boolean{
+private draw():boolean{
 let c = this.pack.ctx();     
 this.frame += 1; /// importanto 
 //---dont know abt pack.ctx() thing        
@@ -31,7 +31,7 @@ this.drawMiddlegroundComps();
 return true;
 }
 
-drawMiddlegroundComps():boolean{ 
+private drawMiddlegroundComps():boolean{ 
 
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
@@ -51,7 +51,7 @@ let comp = this.comps[i];
 return true;
 }
 
-drawBackgroundComps():boolean{    
+private drawBackgroundComps():boolean{    
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];        
         //--save ctx
@@ -78,8 +78,8 @@ setInterval(()=>{
 this.draw();
 },1000);
 }
-addText(content :string,x :number,y :number):Text{
-    let t = new Text(content, x,y);
+addText(content :string):Text{
+    let t = new Text(content);
     this.comps.push(t);
     return t;
 }

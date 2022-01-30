@@ -1,6 +1,6 @@
 import Component from "../component/component.js";
 export default class Text extends Component {
-    constructor(content, x = 0, y = 0) {
+    constructor(content) {
         super();
         this.content = content;
     }

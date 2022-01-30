@@ -1,10 +1,10 @@
 export default class Ctx {
-    constructor() {
+    constructor(canvasId = "crown") {
         // this.ctxData = ctxDefaultInit();
         this.fontName = "serf";
         this.fontSize = 25;
         // @ts-expect-error
-        this.canvas = document.getElementById("crown");
+        this.canvas = document.getElementById(canvasId);
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         // @ts-expect-error    
@@ -54,7 +54,32 @@ export default class Ctx {
         // x and y are not merged   
         this.ctx.fillText(content, incomCtx.x, incomCtx.y);
     }
+    drawTextstroke(content, incomCtx) {
+        this.commitCtxData(incomCtx);
+        //--must
+        this.ctx.textBaseline = "top";
+        // x and y are not merged   
+        this.ctx.strokeText(content, incomCtx.x, incomCtx.y);
+    }
     commitCtxData(incomCtx) {
+        if (incomCtx.globalAlpha !== null) {
+            this.ctx.globalAlpha = incomCtx.globalAlpha;
+        }
+        if (incomCtx.shadowBlur !== null) {
+            this.ctx.shadowBlur = incomCtx.shadowBlur;
+        }
+        if (incomCtx.shadowOffsetY !== null) {
+            this.ctx.shadowOffsetY = incomCtx.shadowOffsetY;
+        }
+        if (incomCtx.shadowOffsetX !== null) {
+            this.ctx.shadowOffsetX = incomCtx.shadowOffsetX;
+        }
+        if (incomCtx.lineWidth !== null) {
+            this.ctx.lineWidth = incomCtx.lineWidth;
+        }
+        if (incomCtx.shadowColor !== null) {
+            this.ctx.shadowColor = incomCtx.shadowColor;
+        }
         if (incomCtx.strokeStyle !== null) {
             this.ctx.strokeStyle = incomCtx.strokeStyle;
         }

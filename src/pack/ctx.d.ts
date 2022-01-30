@@ -4,7 +4,7 @@ export default class Ctx {
     private ctx;
     private fontSize;
     private fontName;
-    constructor();
+    constructor(canvasId?: string);
     drawBackground(color?: string): void;
     canvasWidth(): number;
     canvasHeight(): number;
@@ -15,6 +15,7 @@ export default class Ctx {
     draw_line(startX: number, startY: number, endX: number, endY: number, incomCtx: CtxData): void;
     resetCtx(): void;
     drawText(content: string, incomCtx: CtxData): void;
+    drawTextstroke(content: string, incomCtx: CtxData): void;
     private commitCtxData;
 }
 //# sourceMappingURL=ctx.d.ts.map

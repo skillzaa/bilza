@@ -36,6 +36,10 @@ let sa = new TransitionData(frame);
 this.transitions.push(sa);
 return sa;
 }
+newTransition(sa :TransitionData):boolean{
+this.transitions.push(sa);
+return true;
+}
 update(frame: number, p: Pack): boolean {
 this.applyTransitons(frame);
 return true;    
