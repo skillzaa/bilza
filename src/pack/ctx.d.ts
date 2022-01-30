@@ -1,7 +1,6 @@
 import CtxData from "../design/ctxData.js";
 export default class Ctx {
     canvas: HTMLCanvasElement;
-    private ctxData;
     private ctx;
     private fontSize;
     private fontName;
@@ -11,10 +10,10 @@ export default class Ctx {
     restore(): void;
     save(): void;
     clearCanvas(): void;
-    chars_width(chars?: string, fontSize?: number | null, fontName?: string | null): number;
-    draw_line(startX: number, startY: number, endX: number, endY: number, incomCtx?: CtxData): void;
+    chars_width(chars?: string, fontSize?: number, fontName?: string): number;
+    draw_line(startX: number, startY: number, endX: number, endY: number, incomCtx: CtxData): void;
     resetCtx(): void;
-    drawText(content: string, incomCtx?: CtxData): void;
-    commitCtxData(): void;
+    drawText(content: string, incomCtx: CtxData): void;
+    private commitCtxData;
 }
 //# sourceMappingURL=ctx.d.ts.map

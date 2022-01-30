@@ -37,7 +37,7 @@ this.transitions.push(sa);
 return sa;
 }
 update(frame: number, p: Pack): boolean {
-// this.applyTransitons(frame);
+this.applyTransitons(frame);
 return true;    
 }
 

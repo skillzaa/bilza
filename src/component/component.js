@@ -26,7 +26,7 @@ export default class Component {
         return sa;
     }
     update(frame, p) {
-        // this.applyTransitons(frame);
+        this.applyTransitons(frame);
         return true;
     }
     applyTransitons(frame) {

@@ -1,15 +1,14 @@
 import CtxData from "../design/ctxData.js";
-import ctxDefaultInit from "../design/ctxDefaultInit.js";
 
 export default class Ctx {
 canvas:HTMLCanvasElement;
-private ctxData: CtxData;
+// private ctxData: CtxData; //dont need this anipattern --ctx has this.ctx which holds ctxData 
 private ctx: CanvasRenderingContext2D;
-private fontSize: number;
-private fontName: string;
+private fontSize: number;//for now
+private fontName: string;//for now
 
 constructor(){
-this.ctxData = ctxDefaultInit();
+// this.ctxData = ctxDefaultInit();
 this.fontName = "serf";    
 this.fontSize = 25;    
 // @ts-expect-error
@@ -36,17 +35,17 @@ public clearCanvas(){
 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);    
 }
 
-public chars_width(chars="",fontSize =this.ctxData.fontSize , fontName=this.ctxData.fontName){
+public chars_width(chars="",fontSize =this.fontSize , fontName=this.fontName){
 this.ctx.save();
 //dont miss gap "px_"
-let f = this.ctxData.fontSize + "px " + this.ctxData.fontName;
+let f = this.fontSize + "px " + this.fontName;
 this.ctx.font = f;
 let m = this.ctx.measureText(chars).width;
 this.ctx.restore();
 return Math.ceil(m);    
 }
-public draw_line(startX:number,startY:number,endX:number,endY:number,incomCtx:CtxData=this.ctxData){
-    this.ctxData.merge(incomCtx);
+public draw_line(startX:number,startY:number,endX:number,endY:number,incomCtx:CtxData){
+    this.commitCtxData(incomCtx);
 
     this.ctx.beginPath();
     this.ctx.moveTo(startX,startY);
@@ -55,25 +54,28 @@ public draw_line(startX:number,startY:number,endX:number,endY:number,incomCtx:Ct
 }
 resetCtx(){    
 }
-public drawText(content:string,incomCtx:CtxData=this.ctxData){
-    this.ctxData.merge(incomCtx);
-    this.commitCtxData();
+public drawText(content:string,incomCtx:CtxData){
+    this.commitCtxData(incomCtx);
     //--must
        this.ctx.textBaseline = "top";
     // x and y are not merged   
     this.ctx.fillText(content, incomCtx.x, incomCtx.y);
 }
-commitCtxData(){
+private commitCtxData(incomCtx:CtxData){
     
-    if (this.ctxData.strokeStyle !== null){
-        this.ctx.strokeStyle = this.ctxData.strokeStyle;
+    if (incomCtx.strokeStyle !== null){
+        this.ctx.strokeStyle = incomCtx.strokeStyle;
     }
-    if (this.ctxData.fillStyle !== null){
-        this.ctx.fillStyle = this.ctxData.fillStyle;
+    if (incomCtx.fillStyle !== null){
+        this.ctx.fillStyle = incomCtx.fillStyle;
     }
-if (this.ctxData.fontSize !==null && this.ctxData.fontName !== null){
-    this.ctx.font = this.ctxData.fontSize + "px " + this.ctxData.fontName;
-}   
+    if (incomCtx.fontSize !== null){
+        this.fontSize = incomCtx.fontSize;
+    }
+    if (incomCtx.fontName !== null){
+        this.fontName = incomCtx.fontName;
+    }
+    this.ctx.font = this.fontSize + "px " + this.fontName;
 
 }
 }
