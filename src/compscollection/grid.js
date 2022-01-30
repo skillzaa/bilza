@@ -1,5 +1,6 @@
 import Component from "../component/component.js";
 import { DrawLayer } from "../design/drawLayer.js";
+import CtxData from "../design/ctxData.js";
 export default class Grid extends Component {
     constructor() {
         super();
@@ -46,13 +47,18 @@ export default class Grid extends Component {
         } while (width > x);
     }
     draw_line(p, move_to_x, move_to_y, line_to_x, line_to_y) {
-        p.ctx().setStrokeStyle(this.lineColor);
-        p.ctx().draw_line(move_to_x, move_to_y, line_to_x, line_to_y);
+        let c = new CtxData();
+        c.strokeStyle = this.lineColor;
+        p.ctx().draw_line(move_to_x, move_to_y, line_to_x, line_to_y, c);
     }
     draw_number(p, numberToPrint, x, y) {
-        p.ctx().setFillStyle(this.numbers_fillStyle);
-        p.ctx().setFontSize(10);
-        p.ctx().drawText(numberToPrint.toString(), x, y);
+        let c = new CtxData();
+        c.strokeStyle = this.lineColor;
+        c.fillStyle = this.numbers_fillStyle;
+        c.fontSize = 10;
+        c.x = x;
+        c.y = y;
+        p.ctx().drawText(numberToPrint.toString(), c);
     }
 }
 //=============================

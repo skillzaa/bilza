@@ -13,8 +13,8 @@ t2.ctxData.fillStyle = "#d64848";
 t2.ctxData.x = 100;
 t2.ctxData.y = 100;
 t2.ctxData.fontSize = 70;
-// let g = new Grid();
-// b.add_comp(g);
+let g = new Grid();
+b.add_comp(g);
 
 let t2trans = t2.addTransition();
 t2trans.startFrame = 5;

@@ -1,4 +1,5 @@
 import Bilzaa2d from "../index.js";
+import Grid from "../compscollection/grid.js";
 import Text from "../compscollection/text.js";
 let b = new Bilzaa2d();
 let t = new Text("Alhamdullah, Bilzaa2d finally arrived", 100, 100);
@@ -10,8 +11,8 @@ t2.ctxData.fillStyle = "#d64848";
 t2.ctxData.x = 100;
 t2.ctxData.y = 100;
 t2.ctxData.fontSize = 70;
-// let g = new Grid();
-// b.add_comp(g);
+let g = new Grid();
+b.add_comp(g);
 let t2trans = t2.addTransition();
 t2trans.startFrame = 5;
 t2trans.ctxData.fontSize = 200;
