@@ -25,4 +25,7 @@ height(p: Pack): number {
 draw(p: Pack): boolean {
     return true;
 }
+update(frame: number, p: Pack): boolean {
+    return true;
+}
 }

@@ -11,5 +11,6 @@ export default class Component implements IDrawable {
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;
+    update(frame: number, p: Pack): boolean;
 }
 //# sourceMappingURL=component.d.ts.map

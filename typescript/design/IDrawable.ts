@@ -6,8 +6,9 @@ export default interface IDrawable{
     x:number;
     y:number;
     frameStart :number;
-    frameEnd :number;
+    frameEnd :number;   
     width(p :Pack):number;
     height(p :Pack):number;
     draw(p :Pack):boolean; 
+    update(frame :number, p :Pack):boolean; 
 }

@@ -9,5 +9,6 @@ export default interface IDrawable {
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;
+    update(frame: number, p: Pack): boolean;
 }
 //# sourceMappingURL=IDrawable.d.ts.map

@@ -16,4 +16,7 @@ export default class Component {
     draw(p) {
         return true;
     }
+    update(frame, p) {
+        return true;
+    }
 }
