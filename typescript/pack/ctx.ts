@@ -7,12 +7,12 @@ private ctx: CanvasRenderingContext2D;
 private fontSize: number;//for now
 private fontName: string;//for now
 
-constructor(){
+constructor(canvasId:string = "crown"){
 // this.ctxData = ctxDefaultInit();
 this.fontName = "serf";    
 this.fontSize = 25;    
 // @ts-expect-error
-this.canvas = document.getElementById("crown");
+this.canvas = document.getElementById(canvasId);
 this.canvas.width = window.innerWidth;
 this.canvas.height = window.innerHeight;
 // @ts-expect-error    

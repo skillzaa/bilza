@@ -1,9 +1,8 @@
-import Pack from "../pack/pack.js";
 import IDrawable from "../design/IDrawable.js";
+import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
-import CtxData from "../design/ctxData.js";
 import Background from "./background.js";
-
+//--mayremove them to other place.
 import Grid from "../compscollection/grid.js";
 import Text from "../compscollection/text.js";
 
@@ -21,17 +20,24 @@ this.totalFrames = 3000; //5min
 this.frame = 0; 
 } 
 //--function arguments shd be arguments and not classes unless required absoliutely.
-draw():boolean{ 
-this.frame += 1; /// importanto         
-this.pack.ctx().clearCanvas();          
-this.pack.ctx().drawBackground(this.background.color);          
+draw():boolean{
+let c = this.pack.ctx();     
+this.frame += 1; /// importanto 
+//---dont know abt pack.ctx() thing        
+c.clearCanvas();          
+c.drawBackground(this.background.color);          
 this.drawBackgroundComps();
+this.drawMiddlegroundComps();
+return true;
+}
+
+drawMiddlegroundComps():boolean{ 
+
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
         //--save ctx
         if (comp.drawLayer == DrawLayer.MiddleGround ){
             if (comp.frameStart < this.frame && comp.frameEnd > this.frame ){
-                //comp 2update its ctxData
                 comp.update(this.frame,this.pack);
                 this.pack.ctx().save();
                 comp.draw(this.pack);
@@ -59,7 +65,6 @@ let comp = this.comps[i];
 }
 return true;
 }
-//--so a lat machine can always get segments from outside as long as they complyby IDrawable interface
 add_comp(comp:IDrawable):IDrawable{
 this.comps.push(comp);
 return comp;
