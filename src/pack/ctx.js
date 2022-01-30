@@ -36,32 +36,17 @@ export default class Ctx {
         return Math.ceil(m);
     }
     draw_line(startX, startY, endX, endY, incomCtx = this.ctxData) {
-        this.mergeCtx(incomCtx);
+        this.ctxData.merge(incomCtx);
         this.ctx.beginPath();
         this.ctx.moveTo(startX, startY);
         this.ctx.lineTo(endX, endY);
         this.ctx.stroke();
     }
     drawText(content, incomCtx = this.ctxData) {
-        this.mergeCtx(incomCtx);
+        this.ctxData.merge(incomCtx);
         //--must
         this.ctx.textBaseline = "top";
         // x and y are not merged   
         this.ctx.fillText(content, incomCtx.x, incomCtx.y);
-    }
-    mergeCtx(incomming) {
-        if (incomming.strokeStyle !== null) {
-            this.ctx.strokeStyle = incomming.strokeStyle;
-        }
-        if (incomming.fillStyle !== null) {
-            this.ctx.fillStyle = incomming.fillStyle;
-        }
-        if (incomming.fontSize !== null) {
-            this.fontSize = incomming.fontSize;
-        }
-        if (incomming.fontName !== null) {
-            this.fontName = incomming.fontName;
-        }
-        this.ctx.font = this.fontSize + "px " + this.fontName;
     }
 }

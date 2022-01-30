@@ -30,12 +30,24 @@ height(p: Pack): number {
 draw(p: Pack): boolean {
     return true;
 }
-update(frame: number, p: Pack): boolean {   
-return true;   
-}
+
 addTransition(frame :number=0):TransitionData{
 let sa = new TransitionData(frame);    
 this.transitions.push(sa);
 return sa;
+}
+update(frame: number, p: Pack): boolean {
+this.applyTransitons(frame);
+return true;    
+}
+
+applyTransitons(frame :number){
+for (let i = this.transitions.length -1; i >= 0; i--) {
+    const tr = this.transitions[i];
+    if(tr.startFrame < frame ){
+        this.ctxData.merge(tr.ctxData);
+        this.transitions.splice(i,1);
+    }
+}
 }
 }

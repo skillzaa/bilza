@@ -14,6 +14,5 @@ export default class Ctx {
     chars_width(chars?: string, fontSize?: number | null, fontName?: string | null): number;
     draw_line(startX: number, startY: number, endX: number, endY: number, incomCtx?: CtxData): void;
     drawText(content: string, incomCtx?: CtxData): void;
-    mergeCtx(incomming: CtxData): void;
 }
 //# sourceMappingURL=ctx.d.ts.map

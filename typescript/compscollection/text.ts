@@ -16,22 +16,9 @@ return p.ctx().chars_width("Xi");
 }
 
 draw(p:Pack):boolean{
-    // p.ctx().setFont(this.fontSize);
-    this.ctxData.strokeStyle = "#d64848";
+this.ctxData.strokeStyle = "#d64848";
 p.ctx().drawText(this.content,this.ctxData);    
 return true;
 }
 
-// update(frame: number, p: Pack): boolean {
-// for (let i = 0; i < this.animations.length; i++) {
-//     const ani = this.animations[i];
-//     if (ani.x !== null && ani.startFrame < frame){
-//         this.x = ani.x;
-//     }
-//     if (ani.fontSize !== null && ani.startFrame < frame){
-//            p.ctx().setFontSize(ani.fontSize);
-//     }
-// }
-// return true;    
-// }
 }

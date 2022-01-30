@@ -13,7 +13,8 @@ export default class Component implements IDrawable {
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;
-    update(frame: number, p: Pack): boolean;
     addTransition(frame?: number): TransitionData;
+    update(frame: number, p: Pack): boolean;
+    applyTransitons(frame: number): void;
 }
 //# sourceMappingURL=component.d.ts.map

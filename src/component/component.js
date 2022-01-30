@@ -20,12 +20,22 @@ export default class Component {
     draw(p) {
         return true;
     }
-    update(frame, p) {
-        return true;
-    }
     addTransition(frame = 0) {
         let sa = new TransitionData(frame);
         this.transitions.push(sa);
         return sa;
+    }
+    update(frame, p) {
+        this.applyTransitons(frame);
+        return true;
+    }
+    applyTransitons(frame) {
+        for (let i = this.transitions.length - 1; i >= 0; i--) {
+            const tr = this.transitions[i];
+            if (tr.startFrame < frame) {
+                this.ctxData.merge(tr.ctxData);
+                this.transitions.splice(i, 1);
+            }
+        }
     }
 }
