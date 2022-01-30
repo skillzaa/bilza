@@ -1,12 +1,6 @@
-import IDrawable from "./design/IDrawable.js";
-export default class Bilzaa2d {
-    comps: IDrawable[];
-    private pack;
-    totalFrames: number;
-    frame: number;
-    constructor();
-    draw(): boolean;
-    drawBackground(): boolean;
-    add_comp(comp: IDrawable): IDrawable;
-}
+import Bilzaa2d from "./bilzaa2d.js";
+import Grid from "./compscollection/grid.js";
+import Text from "./compscollection/text.js";
+export default Bilzaa2d;
+export { Grid, Text, };
 //# sourceMappingURL=index.d.ts.map

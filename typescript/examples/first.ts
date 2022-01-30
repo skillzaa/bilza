@@ -30,10 +30,4 @@ b.add_comp(t2);
 // b.draw();
 
 //****************USEFUL DONT DELETE */
-setInterval(function(){
-for (let i = 0; i < b.comps.length; i++) {
-    // const comp = b.comps[i];
-    // comp.x = Math.ceil((Math.random() * 600));
-}
-b.draw();
-},1000);
+b.start();
