@@ -6,4 +6,10 @@ export default class Pack {
     ctx() {
         return this._ctx;
     }
+    drawText(content, ctxData) {
+        this._ctx.drawText(content, ctxData);
+    }
+    chars_width(content) {
+        return this._ctx.chars_width(content);
+    }
 }

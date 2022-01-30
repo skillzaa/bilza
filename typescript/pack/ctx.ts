@@ -18,6 +18,10 @@ this.canvas.height = window.innerHeight;
 // @ts-expect-error    
 this.ctx = this.canvas.getContext('2d');
 }
+public drawBackground(color:string="blue"){ 
+this.ctx.fillStyle = color;
+this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+}   
 public canvasWidth():number{
 return this.canvas.width;
 }

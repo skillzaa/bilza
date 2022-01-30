@@ -5,6 +5,7 @@ export default class Ctx {
     private fontSize;
     private fontName;
     constructor();
+    drawBackground(color?: string): void;
     canvasWidth(): number;
     canvasHeight(): number;
     restore(): void;

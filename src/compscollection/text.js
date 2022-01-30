@@ -5,14 +5,14 @@ export default class Text extends Component {
         this.content = content;
     }
     width(p) {
-        return p.ctx().chars_width(this.content);
+        return p.chars_width(this.content);
         // return 200;    
     }
     height(p) {
-        return p.ctx().chars_width("Xi");
+        return p.chars_width("Xi");
     }
     draw(p) {
-        p.ctx().drawText(this.content, this.ctxData);
+        p.drawText(this.content, this.ctxData);
         return true;
     }
 }

@@ -1,16 +1,22 @@
-import Pack from "./pack/pack.js";
-import IDrawable from "./design/IDrawable.js";
-import {DrawLayer} from "./design/drawLayer.js";
-import CtxData from "./design/ctxData.js";
+import Pack from "../pack/pack.js";
+import IDrawable from "../design/IDrawable.js";
+import {DrawLayer} from "../design/drawLayer.js";
+import CtxData from "../design/ctxData.js";
+import Background from "./background.js";
+
+import Grid from "../compscollection/grid.js";
+import Text from "../compscollection/text.js";
 
 export default class Bilzaa2d {
 public comps:IDrawable[];
 private pack:Pack;
+public frame :number;
 public totalFrames :number; //the size of video
-public frame :number
+public background :Background;
 constructor (){
 this.pack = new Pack();        
 this.comps = [];  
+this.background = new Background();
 this.totalFrames = 3000; //5min
 this.frame = 0; 
 } 
@@ -18,7 +24,8 @@ this.frame = 0;
 draw():boolean{ 
 this.frame += 1; /// importanto         
 this.pack.ctx().clearCanvas();          
-this.drawBackground();
+this.pack.ctx().drawBackground(this.background.color);          
+this.drawBackgroundComps();
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
         //--save ctx
@@ -37,7 +44,8 @@ let comp = this.comps[i];
 }
 return true;
 }
-drawBackground():boolean{    
+
+drawBackgroundComps():boolean{    
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];        
         //--save ctx
@@ -64,5 +72,15 @@ setInterval(()=>{
 // }
 this.draw();
 },1000);
+}
+addText(content :string,x :number,y :number):Text{
+    let t = new Text(content, x,y);
+    this.comps.push(t);
+    return t;
+}
+addGrid():Grid{
+    let g = new Grid();
+    this.comps.push(g);
+    return g;
 }
 }//ends

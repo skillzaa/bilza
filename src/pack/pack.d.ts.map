@@ -1,1 +1,1 @@
-{"version":3,"file":"pack.d.ts","sourceRoot":"","sources":["../../typescript/pack/pack.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,UAAU,CAAC;AAE3B,MAAM,CAAC,OAAO,OAAO,IAAI;IACzB,OAAO,CAAC,IAAI,CAAK;;IAIjB,GAAG;CAGF"}
+{"version":3,"file":"pack.d.ts","sourceRoot":"","sources":["../../typescript/pack/pack.ts"],"names":[],"mappings":"AAAA,OAAO,GAAG,MAAM,UAAU,CAAC;AAC3B,OAAO,OAAO,MAAM,sBAAsB,CAAC;AAE3C,MAAM,CAAC,OAAO,OAAO,IAAI;IACzB,OAAO,CAAC,IAAI,CAAK;;IAIjB,GAAG;IAGH,QAAQ,CAAC,OAAO,EAAC,MAAM,EAAC,OAAO,EAAE,OAAO;IAGxC,WAAW,CAAC,OAAO,EAAC,MAAM,GAAE,MAAM;CAOjC"}

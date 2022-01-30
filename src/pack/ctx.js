@@ -10,6 +10,10 @@ export default class Ctx {
         // @ts-expect-error    
         this.ctx = this.canvas.getContext('2d');
     }
+    drawBackground(color = "blue") {
+        this.ctx.fillStyle = color;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    }
     canvasWidth() {
         return this.canvas.width;
     }

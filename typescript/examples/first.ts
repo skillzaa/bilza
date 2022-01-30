@@ -1,19 +1,17 @@
 import Bilzaa2d from "../index.js";
-import Grid from "../compscollection/grid.js";
-import Text from "../compscollection/text.js";
 
 let b = new Bilzaa2d();
-
-let t = new Text("Alhamdullah, Bilzaa2d finally arrived",100,100);
+let t = b.addText("Alhamdullah, Bilzaa2d finally arrived",100,100);
 t.ctxData.fontSize = 40;
 t.ctxData.fillStyle = "blue";
-let t2 = new Text("Some other text else where",20,200);
+let t2 = b.addText("Some other text else where",20,200);
 t2.ctxData.strokeStyle = "#d64848";
 t2.ctxData.fillStyle = "#d64848";
 t2.ctxData.x = 100;
 t2.ctxData.y = 100;
 t2.ctxData.fontSize = 70;
-let g = new Grid();
+
+let g = b.addGrid();
 b.add_comp(g);
 
 let t2trans = t2.addTransition();

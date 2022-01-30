@@ -1,6 +1,3 @@
-import Bilzaa2d from "./bilzaa2d.js";
-import Grid from "./compscollection/grid.js";
-import Text from "./compscollection/text.js";
+import Bilzaa2d from "./bilzaa2d/bilzaa2d.js";
 export default Bilzaa2d;
-export { Grid, Text, };
 //# sourceMappingURL=index.d.ts.map
