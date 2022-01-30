@@ -15,8 +15,8 @@ height(p:Pack):number {
 return p.ctx().chars_width("Xi");    
 }
 
+
 draw(p:Pack):boolean{
-this.ctxData.strokeStyle = "#d64848";
 p.ctx().drawText(this.content,this.ctxData);    
 return true;
 }

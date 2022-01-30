@@ -13,6 +13,8 @@ export default class Ctx {
     clearCanvas(): void;
     chars_width(chars?: string, fontSize?: number | null, fontName?: string | null): number;
     draw_line(startX: number, startY: number, endX: number, endY: number, incomCtx?: CtxData): void;
+    resetCtx(): void;
     drawText(content: string, incomCtx?: CtxData): void;
+    commitCtxData(): void;
 }
 //# sourceMappingURL=ctx.d.ts.map

@@ -12,7 +12,6 @@ export default class Text extends Component {
         return p.ctx().chars_width("Xi");
     }
     draw(p) {
-        this.ctxData.strokeStyle = "#d64848";
         p.ctx().drawText(this.content, this.ctxData);
         return true;
     }

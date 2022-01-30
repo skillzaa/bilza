@@ -53,28 +53,27 @@ public draw_line(startX:number,startY:number,endX:number,endY:number,incomCtx:Ct
     this.ctx.lineTo(endX,endY);
     this.ctx.stroke();
 }
+resetCtx(){    
+}
 public drawText(content:string,incomCtx:CtxData=this.ctxData){
     this.ctxData.merge(incomCtx);
+    this.commitCtxData();
     //--must
        this.ctx.textBaseline = "top";
     // x and y are not merged   
     this.ctx.fillText(content, incomCtx.x, incomCtx.y);
 }
-// mergeCtx(incomming :CtxData){
+commitCtxData(){
     
-//     if (incomming.strokeStyle !== null){
-//         this.ctx.strokeStyle = incomming.strokeStyle;
-//     }
-//     if (incomming.fillStyle !== null){
-//         this.ctx.fillStyle = incomming.fillStyle;
-//     }
-//     if (incomming.fontSize !== null){
-//         this.fontSize = incomming.fontSize;
-//     }
-//     if (incomming.fontName !== null){
-//         this.fontName = incomming.fontName;
-//     }
-// this.ctx.font = this.fontSize + "px " + this.fontName;
+    if (this.ctxData.strokeStyle !== null){
+        this.ctx.strokeStyle = this.ctxData.strokeStyle;
+    }
+    if (this.ctxData.fillStyle !== null){
+        this.ctx.fillStyle = this.ctxData.fillStyle;
+    }
+if (this.ctxData.fontSize !==null && this.ctxData.fontName !== null){
+    this.ctx.font = this.ctxData.fontSize + "px " + this.ctxData.fontName;
+}   
 
-// }
+}
 }

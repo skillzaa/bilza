@@ -42,11 +42,25 @@ export default class Ctx {
         this.ctx.lineTo(endX, endY);
         this.ctx.stroke();
     }
+    resetCtx() {
+    }
     drawText(content, incomCtx = this.ctxData) {
         this.ctxData.merge(incomCtx);
+        this.commitCtxData();
         //--must
         this.ctx.textBaseline = "top";
         // x and y are not merged   
         this.ctx.fillText(content, incomCtx.x, incomCtx.y);
+    }
+    commitCtxData() {
+        if (this.ctxData.strokeStyle !== null) {
+            this.ctx.strokeStyle = this.ctxData.strokeStyle;
+        }
+        if (this.ctxData.fillStyle !== null) {
+            this.ctx.fillStyle = this.ctxData.fillStyle;
+        }
+        if (this.ctxData.fontSize !== null && this.ctxData.fontName !== null) {
+            this.ctx.font = this.ctxData.fontSize + "px " + this.ctxData.fontName;
+        }
     }
 }
