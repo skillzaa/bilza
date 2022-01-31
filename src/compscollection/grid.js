@@ -58,8 +58,9 @@ export default class Grid extends Component {
         c.fontSize = 10;
         c.x = x;
         c.y = y;
-        let loc = this.Xy(p, this.templ.x, this.templ.y);
-        p.ctx.drawText(numberToPrint.toString(), loc, this.templ);
+        // let x = this.xy.X(this.x,this.width(p),p.ctx.canvasWidth())
+        // let y = this.xy.Y(this.y,this.height(p),p.ctx.canvasHeight())
+        p.ctx.drawText(numberToPrint.toString(), x, y, this.templ);
         // p.ctx.drawText(numberToPrint.toString(), c);
     }
 }

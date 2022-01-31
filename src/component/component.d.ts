@@ -2,13 +2,17 @@ import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
 import { DrawLayer } from "../design/drawLayer.js";
 import Templ from "../design/templ.js";
+import Xy from "../design/xy.js";
 export default class Component implements IDrawable {
     drawLayer: DrawLayer;
     templ: Templ;
     transitions: Templ[];
     frameStart: number;
     frameEnd: number;
-    constructor();
+    protected xy: Xy;
+    protected x: number;
+    protected y: number;
+    constructor(x?: number, y?: number);
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;

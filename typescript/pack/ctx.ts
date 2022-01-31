@@ -59,21 +59,19 @@ public draw_line(startX:number,startY:number,endX:number,endY:number,incomTempl:
 }
 resetCtx(){    
 }
-public drawText(content:string,xy :Xy,incomCtx:Templ){
+public drawText(content:string,x:number,y:number,incomCtx:Templ){
     this.commitCtxData(incomCtx);
     //--must
        this.ctx.textBaseline = "top";
     // x and y are not merged   
-    this.ctx.fillText(content, 
-        xy.X(this.canvas.width), 
-        xy.Y(this.canvas.height) );
+    this.ctx.fillText(content,x,y);
 }
-public drawTextstroke(content:string,incomCtx:Templ){
+public drawTextstroke(content:string,x:number,y:number, incomCtx:Templ){
     this.commitCtxData(incomCtx);
     //--must
        this.ctx.textBaseline = "top";
     // x and y are not merged   
-    this.ctx.strokeText(content, incomCtx.x, incomCtx.y);
+    this.ctx.strokeText(content, x, y);
 }
 private commitCtxData(incomCtx:Templ){
     

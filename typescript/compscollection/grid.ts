@@ -2,6 +2,8 @@ import Component from "../component/component.js";
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
 import CtxData from "../design/templ.js";
+import Xy from "../design/xy.js";
+import {Cornor} from "../design/cornor.js";
 
 export default class Grid extends Component {
 numbers_fillStyle:string;
@@ -68,9 +70,10 @@ draw_number(p:Pack,numberToPrint:number,x:number,y:number){
     c.x= x;
     c.y= y;
 
-let loc = this.Xy(p,this.templ.x,this.templ.y);    
-
-p.ctx.drawText(numberToPrint.toString(),loc,this.templ);
+    // let x = this.xy.X(this.x,this.width(p),p.ctx.canvasWidth())
+    // let y = this.xy.Y(this.y,this.height(p),p.ctx.canvasHeight())
+    
+p.ctx.drawText(numberToPrint.toString(),x,y,this.templ);
 // p.ctx.drawText(numberToPrint.toString(), c);
 }
 

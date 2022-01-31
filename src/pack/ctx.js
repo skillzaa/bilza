@@ -47,19 +47,19 @@ export default class Ctx {
     }
     resetCtx() {
     }
-    drawText(content, xy, incomCtx) {
+    drawText(content, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
         //--must
         this.ctx.textBaseline = "top";
         // x and y are not merged   
-        this.ctx.fillText(content, xy.X(this.canvas.width), xy.Y(this.canvas.height));
+        this.ctx.fillText(content, x, y);
     }
-    drawTextstroke(content, incomCtx) {
+    drawTextstroke(content, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
         //--must
         this.ctx.textBaseline = "top";
         // x and y are not merged   
-        this.ctx.strokeText(content, incomCtx.x, incomCtx.y);
+        this.ctx.strokeText(content, x, y);
     }
     commitCtxData(incomCtx) {
         if (incomCtx.globalAlpha !== null) {

@@ -6,7 +6,5 @@ export default function ctxDefaultInit() {
     ctxData.fontName = "serif";
     ctxData.fontSize = 25;
     ctxData.lineWidth = 2;
-    ctxData.x = 0;
-    ctxData.y = 0;
     return ctxData;
 }

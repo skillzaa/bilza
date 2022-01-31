@@ -1,8 +1,9 @@
 import { DrawLayer } from "../design/drawLayer.js";
 import Templ from "../design/templ.js";
 import ctxDefaultInit from "../design/ctxDefaultInit.js";
+import Xy from "../design/xy.js";
 export default class Component {
-    constructor() {
+    constructor(x = 0, y = 0) {
         this.drawLayer = DrawLayer.MiddleGround;
         this.transitions = [];
         //****************************8 */
@@ -10,6 +11,9 @@ export default class Component {
         //****************************8 */
         this.frameStart = 0; //component startand end frames
         this.frameEnd = 3000;
+        this.xy = new Xy();
+        this.x = x;
+        this.y = y;
     }
     width(p) {
         return 0;
@@ -44,6 +48,12 @@ export default class Component {
             const trctxData = this.transitions[i];
             if (trctxData.startFrame < frame) {
                 this.templ.merge(trctxData);
+                if (trctxData.x !== null) {
+                    this.x = trctxData.x;
+                }
+                if (trctxData.y !== null) {
+                    this.y = trctxData.y;
+                }
                 this.transitions.splice(i, 1);
             }
         }

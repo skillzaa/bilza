@@ -1,27 +1,17 @@
 import {Cornor} from "./cornor.js";
 
-
 export default class Xy {
-cornor :Cornor;
-x :number | null;
-y :number | null;
-width :number;
-height :number;
+public cornor :Cornor;
 
-constructor(x:number=0,y:number=0 ,width :number=0,height :number=0,cornor :Cornor =Cornor.leftTop){
-
+constructor(cornor :Cornor = Cornor.leftTop){
 this.cornor = cornor;
-this.x = this.setBWZeronHundredOrNull(x);
-this.y = this.setBWZeronHundredOrNull(y);
-this.width = this.setBWZeronHundred(width);
-this.height = this.setBWZeronHundred(height);
 }
-X(canvasWidth :number):number | null{
-if (this.x == null){return null;}    
+X(xperc :number, comp_width :number,canvasWidth :number):number{
+xperc = this.setBWZeronHundred(xperc);    
 let x = 0;    
 switch (this.cornor) {
     case Cornor.leftTop:
-    x = ((canvasWidth/100) * this.x);     
+    x = ((canvasWidth/100) * xperc);     
     break;
 
     default:
@@ -29,12 +19,13 @@ switch (this.cornor) {
 }
 return x;
 }
-Y(canvasHeight :number):number | null{
-    if (this.y == null){return null;}     
+Y(yperc :number, comp_width :number,canvasHeight :number):number{
+yperc = this.setBWZeronHundred(yperc);    
+
 let y = 0;    
 switch (this.cornor) {
     case Cornor.leftTop:
-    y = ((canvasHeight/100) * this.y);     
+    y = ((canvasHeight/100) * yperc);     
     break;
 
     default:
@@ -48,10 +39,5 @@ private setBWZeronHundred(n:number):number{
   if (n > 100 ){return 100;}
   return n;  
 }
-private setBWZeronHundredOrNull(n:number | null):number | null{
-    if (n == null ){return null;}
-  if (n < 0 ){return 0;}  
-  if (n > 100 ){return 100;}
-  return n;  
-}
+
 }

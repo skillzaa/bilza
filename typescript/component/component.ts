@@ -3,6 +3,8 @@ import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
 import Templ from "../design/templ.js";
 import ctxDefaultInit from "../design/ctxDefaultInit.js";
+import Xy from "../design/xy.js";
+import {Cornor} from "../design/cornor.js";
 
 export default class Component implements IDrawable {
 drawLayer : DrawLayer; 
@@ -10,8 +12,10 @@ public templ :Templ; //thestarting ctx that merge with transistion ctx
 public transitions :Templ[];
 public frameStart :number;   
 public frameEnd :number;   
-
-constructor (){
+protected xy :Xy;
+protected x :number;
+protected y :number;
+constructor (x=0,y=0){
 this.drawLayer = DrawLayer.MiddleGround;
 this.transitions = [];
 //****************************8 */
@@ -19,6 +23,9 @@ this.templ = ctxDefaultInit();
 //****************************8 */
 this.frameStart = 0; //component startand end frames
 this.frameEnd = 3000;
+this.xy = new Xy();
+this.x = x;
+this.y = y;
 }
 width(p: Pack): number {
     return 0;
@@ -54,6 +61,8 @@ for (let i = this.transitions.length -1; i >= 0; i--) {
     const trctxData = this.transitions[i];
     if(trctxData.startFrame < frame ){
         this.templ.merge(trctxData);
+        if (trctxData.x !== null){this.x = trctxData.x;}
+        if (trctxData.y !== null){this.y = trctxData.y;}
         this.transitions.splice(i,1);
     }
 }

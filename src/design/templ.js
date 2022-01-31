@@ -20,12 +20,6 @@ export default class Templ {
         if (incom.globalAlpha !== null) {
             this.globalAlpha = incom.globalAlpha;
         }
-        if (incom.x !== null) {
-            this.x = incom.x;
-        }
-        if (incom.y !== null) {
-            this.y = incom.y;
-        }
         if (incom.shadowBlur !== null) {
             this.shadowBlur = incom.shadowBlur;
         }

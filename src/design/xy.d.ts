@@ -1,14 +1,9 @@
 import { Cornor } from "./cornor.js";
 export default class Xy {
     cornor: Cornor;
-    x: number | null;
-    y: number | null;
-    width: number;
-    height: number;
-    constructor(x?: number, y?: number, width?: number, height?: number, cornor?: Cornor);
-    X(canvasWidth: number): number | null;
-    Y(canvasHeight: number): number | null;
+    constructor(cornor?: Cornor);
+    X(xperc: number, comp_width: number, canvasWidth: number): number;
+    Y(yperc: number, comp_width: number, canvasHeight: number): number;
     private setBWZeronHundred;
-    private setBWZeronHundredOrNull;
 }
 //# sourceMappingURL=xy.d.ts.map

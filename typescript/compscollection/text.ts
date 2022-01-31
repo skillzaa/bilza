@@ -19,8 +19,9 @@ return p.ctx.chars_width("Xi");
 
 
 draw(p:Pack):boolean{
-let loc = new Xy(this.templ.x,this.templ.y,this.width(p),this.height(p),Cornor.leftTop);    
-p.ctx.drawText(this.content,loc,this.templ);    
+let x = this.xy.X(this.x,this.width(p),p.ctx.canvasWidth())
+let y = this.xy.Y(this.y,this.height(p),p.ctx.canvasHeight())
+p.ctx.drawText(this.content,x,y,this.templ);    
 return true;
 }
 
