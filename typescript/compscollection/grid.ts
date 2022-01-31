@@ -66,7 +66,7 @@ draw_number(p:Pack,numberToPrint:number,x:number,y:number){
     let c = new CtxData();
     c.strokeStyle = this.lineColor;
     c.fillStyle = this.numbers_fillStyle;
-    c.fontSize = 10;
+    c.fontSize = 6;
     c.x= x;
     c.y= y;
 

@@ -1,38 +1,65 @@
 import Bilzaa2d from "../index.js";
-import Templ from "../design/templ.js";
-
+import text01 from "../customTemplates/textTemplates/text01.js";
 let b = new Bilzaa2d();
-b.components.addGrid();
-let t = b.components.addText("Bla bla");
-let tr0 = t.newTransition();
-tr0.startFrame = 2;
-tr0.x = 20;
-tr0.y = 20;
-tr0.fontSize = 70;
-tr0.fillStyle = "blue";
-tr0.shadowOffsetX = 4;
-tr0.shadowOffsetY = 4;
-tr0.shadowBlur = 4;
-tr0.shadowColor = "black";
+let g = b.components.addGrid();
+g.show_numbers = false;
 
-let tr = t.newTransition();
-tr.startFrame = 5;
-tr.x = 80;
-tr.y = 20;
+let title = b.components.addText("The Main  Heading");
+title.templ = text01(0);
+title.x = 30;
+title.y= 10;
 
-let tr2 = t.newTransition();
-tr2.startFrame = 10;
-tr2.x = 80;
-tr2.y = 80;
+let l1 = b.components.addText("Left top Heading");
+l1.templ = text01(0);
+l1.x = 5;
+l1.templ.fontSize = 40;
+l1.templ.shadowOffsetX =1;
+l1.templ.shadowOffsetY =1;
+l1.y= 30;
 
-let tr3 = t.newTransition();
-tr3.startFrame = 15;
-tr3.x = 20;
-tr3.y = 80;
+let l2 = b.components.addText("Left mid Heading");
+l2.templ = text01(0);
+l2.x = 5;
+l2.y= 50;
+l2.templ.fontSize = 40;
+l2.templ.shadowOffsetX =1;
+l2.templ.shadowOffsetY =1;
 
-let tr4 = t.newTransition();
-tr4.startFrame = 20;
-tr4.x = 20;
-tr4.y = 20;
+
+let l3 = b.components.addText("Left mid Heading");
+l3.templ = text01(0);
+l3.x = 5;
+l3.y= 70;
+l3.templ.fontSize = 40;
+l3.templ.shadowOffsetX =1;
+l3.templ.shadowOffsetY =1;
+
+let r1 = b.components.addText("Right top Heading");
+r1.templ = text01(0);
+r1.x = 60;
+r1.templ.fontSize = 40;
+r1.templ.shadowOffsetX =1;
+r1.templ.shadowOffsetY =1;
+r1.y= 30;
+
+let r2 = b.components.addText("Right mid Heading");
+r2.templ = text01(0);
+r2.x = 60;
+r2.y= 50;
+r2.templ.fontSize = 40;
+r2.templ.shadowOffsetX =1;
+r2.templ.shadowOffsetY =1;
+
+
+let r3 = b.components.addText("Right mid Heading");
+r3.templ = text01(0);
+r3.x = 60;
+r3.y= 70;
+r3.templ.fontSize = 40;
+r3.templ.shadowOffsetX =1;
+r3.templ.shadowOffsetY =1;
+
+
+
 
 b.start();

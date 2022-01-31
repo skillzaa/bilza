@@ -1,5 +1,4 @@
 import Templ from "../design/templ.js";
-import Xy from "../design/xy.js";
 
 export default class Ctx {
 canvas:HTMLCanvasElement;
@@ -63,7 +62,7 @@ public drawText(content:string,x:number,y:number,incomCtx:Templ){
     this.commitCtxData(incomCtx);
     //--must
        this.ctx.textBaseline = "top";
-    // x and y are not merged   
+    // x and y are not merged place directly   
     this.ctx.fillText(content,x,y);
 }
 public drawTextstroke(content:string,x:number,y:number, incomCtx:Templ){
@@ -73,6 +72,7 @@ public drawTextstroke(content:string,x:number,y:number, incomCtx:Templ){
     // x and y are not merged   
     this.ctx.strokeText(content, x, y);
 }
+// x and y are not here
 private commitCtxData(incomCtx:Templ){
     
     if (incomCtx.globalAlpha !== null){

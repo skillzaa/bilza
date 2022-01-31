@@ -2,6 +2,7 @@ import { DrawLayer } from "../design/drawLayer.js";
 import Templ from "../design/templ.js";
 import defaultTemplInit from "../design/defaultTemplInit.js";
 import Xy from "../design/xy.js";
+// import {Cornor} from "../design/cornor.js";
 export default class Component {
     constructor(x = 0, y = 0) {
         this.drawLayer = DrawLayer.MiddleGround;
@@ -40,9 +41,6 @@ export default class Component {
         this.applyTransitons(frame);
         return true;
     }
-    /**
-     * Takes the current frame and apply transitions (actually templ objects) and merge with components templ.
-     */
     applyTransitons(frame) {
         for (let i = this.transitions.length - 1; i >= 0; i--) {
             const trctxData = this.transitions[i];

@@ -2,12 +2,13 @@ import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
 import Xy from "../design/xy.js";
 import {Cornor} from "../design/cornor.js";
+import Templ from "../design/templ.js";
 
 export default class Text extends Component {
 content:string;
 constructor (content:string){
     super();
-this.content = content;    
+this.content = content;
 }
 width(p:Pack):number {
 return p.ctx.chars_width(this.content);

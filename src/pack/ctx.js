@@ -51,7 +51,7 @@ export default class Ctx {
         this.commitCtxData(incomCtx);
         //--must
         this.ctx.textBaseline = "top";
-        // x and y are not merged   
+        // x and y are not merged place directly   
         this.ctx.fillText(content, x, y);
     }
     drawTextstroke(content, x, y, incomCtx) {
@@ -61,6 +61,7 @@ export default class Ctx {
         // x and y are not merged   
         this.ctx.strokeText(content, x, y);
     }
+    // x and y are not here
     commitCtxData(incomCtx) {
         if (incomCtx.globalAlpha !== null) {
             this.ctx.globalAlpha = incomCtx.globalAlpha;

@@ -1,0 +1,11 @@
+import Templ from "../design/templ.js";
+let t = new Templ(0);
+t.startFrame = 2;
+t.x = 20;
+t.y = 20;
+t.fontSize = 70;
+t.fillStyle = "blue";
+t.shadowOffsetX = 4;
+t.shadowOffsetY = 4;
+t.shadowBlur = 4;
+t.shadowColor = "black";

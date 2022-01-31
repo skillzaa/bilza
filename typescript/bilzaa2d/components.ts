@@ -2,7 +2,7 @@ import Component from "../component/component.js";
 import Grid from "../compscollection/grid.js";
 import Text from "../compscollection/text.js";
 import IDrawable from "../design/IDrawable.js";
-
+import Templ from "../design/templ.js";
 
 export default class Components {
     private comps:IDrawable[];    

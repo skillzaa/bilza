@@ -4,7 +4,7 @@ import {DrawLayer} from "../design/drawLayer.js";
 import Templ from "../design/templ.js";
 import defaultTemplInit from "../design/defaultTemplInit.js";
 import Xy from "../design/xy.js";
-import {Cornor} from "../design/cornor.js";
+// import {Cornor} from "../design/cornor.js";
 
 export default class Component implements IDrawable {
 drawLayer : DrawLayer; 
@@ -13,8 +13,8 @@ public transitions :Templ[];
 public frameStart :number;   
 public frameEnd :number;   
 protected xy :Xy;
-protected x :number;
-protected y :number;
+public x :number;
+public y :number;
 constructor (x=0,y=0){
 this.drawLayer = DrawLayer.MiddleGround;
 this.transitions = [];
@@ -53,9 +53,7 @@ update(frame: number, p: Pack): boolean {
 this.applyTransitons(frame);
 return true;    
 }
-/**
- * Takes the current frame and apply transitions (actually templ objects) and merge with components templ.
- */
+
 applyTransitons(frame :number){
 for (let i = this.transitions.length -1; i >= 0; i--) {
     const trctxData = this.transitions[i];

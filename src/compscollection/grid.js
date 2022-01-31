@@ -55,7 +55,7 @@ export default class Grid extends Component {
         let c = new CtxData();
         c.strokeStyle = this.lineColor;
         c.fillStyle = this.numbers_fillStyle;
-        c.fontSize = 10;
+        c.fontSize = 6;
         c.x = x;
         c.y = y;
         // let x = this.xy.X(this.x,this.width(p),p.ctx.canvasWidth())

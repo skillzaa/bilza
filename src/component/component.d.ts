@@ -10,8 +10,8 @@ export default class Component implements IDrawable {
     frameStart: number;
     frameEnd: number;
     protected xy: Xy;
-    protected x: number;
-    protected y: number;
+    x: number;
+    y: number;
     constructor(x?: number, y?: number);
     width(p: Pack): number;
     height(p: Pack): number;
@@ -22,9 +22,6 @@ export default class Component implements IDrawable {
      * For now it just apply Transitions. In sub classes if this fn is over ridden then you have to call update of super or apply transitions your self.
      */
     update(frame: number, p: Pack): boolean;
-    /**
-     * Takes the current frame and apply transitions (actually templ objects) and merge with components templ.
-     */
     applyTransitons(frame: number): void;
 }
 //# sourceMappingURL=component.d.ts.map
