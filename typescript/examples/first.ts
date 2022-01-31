@@ -14,11 +14,11 @@ t2.ctxData.fontSize = 70;
 let g = b.addGrid();
 b.add_comp(g);
 
-let t2trans = t2.addTransition();
-t2trans.startFrame = 5;
-t2trans.ctxData.fontSize = 200;
-let t2trans2 = t2.addTransition();
-t2trans2.startFrame = 10;
-t2trans2.ctxData.fontSize = 100;
+let t2trans = t2.newTransition(5);
+
+t2trans.fontSize = 200;
+
+let t2trans2 = t2.newTransition(10);
+t2trans2.fontSize = 100;
 
 b.start();

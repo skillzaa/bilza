@@ -2,13 +2,12 @@ import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
 import CtxData from "../design/ctxData.js";
-import TransitionData from "../design/transitionData.js";
 import ctxDefaultInit from "../design/ctxDefaultInit.js";
 
 export default class Component implements IDrawable {
 drawLayer : DrawLayer; 
-public ctxData :CtxData;
-public transitions :TransitionData[];
+public ctxData :CtxData; //thestarting ctx that merge with transistion ctx
+public transitions :CtxData[];
 public frameStart :number;   
 public frameEnd :number;   
 
@@ -31,25 +30,30 @@ draw(p: Pack): boolean {
     return true;
 }
 
-addTransition(frame :number=0):TransitionData{
-let sa = new TransitionData(frame);    
+newTransition(frame :number=0):CtxData{
+let sa = new CtxData(frame);    
 this.transitions.push(sa);
 return sa;
 }
-newTransition(sa :TransitionData):boolean{
+addTransition(sa :CtxData):boolean{
 this.transitions.push(sa);
 return true;
 }
+/**
+ * For now it just apply Transitions. In sub classes if this fn is over ridden then you have to call update of super or apply transitions your self.
+ */
 update(frame: number, p: Pack): boolean {
 this.applyTransitons(frame);
 return true;    
 }
-
+/**
+ * Takes the current frame and apply transitions (actually ctxData objects) and merge with components ctxData.
+ */
 applyTransitons(frame :number){
 for (let i = this.transitions.length -1; i >= 0; i--) {
-    const tr = this.transitions[i];
-    if(tr.startFrame < frame ){
-        this.ctxData.merge(tr.ctxData);
+    const trctxData = this.transitions[i];
+    if(trctxData.startFrame < frame ){
+        this.ctxData.merge(trctxData);
         this.transitions.splice(i,1);
     }
 }

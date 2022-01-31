@@ -1,18 +1,17 @@
-import TransitionData from "../design/transitionData.js";
+import CtxData from "../design/ctxData.js";
 
 
-export default function textShadow(startFrame:number=0,x:number,y:number):TransitionData{
-let td = new TransitionData();
-td.startFrame = 5;
+export default function textShadow(startFrame:number=0,x:number,y:number):CtxData{
+let ctxData = new CtxData(5);
 
-td.ctxData.startFrame = 3;
-td.ctxData.fontSize = 70;
-td.ctxData.fillStyle = "blue";
-td.ctxData.x = 300;
-td.ctxData.y = 100;
-td.ctxData.shadowOffsetX = 4;
-td.ctxData.shadowOffsetY = 4;
-td.ctxData.shadowBlur = 4;
-td.ctxData.shadowColor = "black";
-return td;
+ctxData.startFrame = 3;
+ctxData.fontSize = 70;
+ctxData.fillStyle = "blue";
+ctxData.x = x;
+ctxData.y = y;
+ctxData.shadowOffsetX = 4;
+ctxData.shadowOffsetY = 4;
+ctxData.shadowBlur = 4;
+ctxData.shadowColor = "black";
+return ctxData;
 }

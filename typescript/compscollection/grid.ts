@@ -28,8 +28,8 @@ return true;
 draw_horizontal(p:Pack){
 let x = 0;
 let y = 0;
-let width = p.ctx().canvasWidth();
-let height = p.ctx().canvasHeight();
+let width = p.ctx.canvasWidth();
+let height = p.ctx.canvasHeight();
 //end y remain the same
 let end_x = x + width;
     do {   
@@ -43,8 +43,8 @@ let end_x = x + width;
 draw_vertical(p:Pack){
 let x = 0;
 let y = 0;
-let width = p.ctx().canvasWidth();
-let height = p.ctx().canvasWidth();
+let width = p.ctx.canvasWidth();
+let height = p.ctx.canvasWidth();
 //end y remain the same
 let end_y = y + height;
     do {   
@@ -58,7 +58,7 @@ let end_y = y + height;
 draw_line(p:Pack,move_to_x:number,move_to_y:number,line_to_x:number,line_to_y:number){
 let c = new CtxData();
 c.strokeStyle = this.lineColor;
-p.ctx().draw_line(move_to_x, move_to_y,line_to_x, line_to_y,c);
+p.ctx.draw_line(move_to_x, move_to_y,line_to_x, line_to_y,c);
 }
 draw_number(p:Pack,numberToPrint:number,x:number,y:number){
     let c = new CtxData();
@@ -67,7 +67,7 @@ draw_number(p:Pack,numberToPrint:number,x:number,y:number){
     c.fontSize = 10;
     c.x= x;
     c.y= y;
-p.ctx().drawText(numberToPrint.toString(), c);
+p.ctx.drawText(numberToPrint.toString(), c);
 }
 
 }

@@ -1,10 +1,9 @@
 import Pack from "../pack/pack.js";
 import CtxData from "./ctxData.js";
 import { DrawLayer } from "./drawLayer.js";
-import TransitionData from "./transitionData.js";
 export default interface IDrawable {
     drawLayer: DrawLayer;
-    transitions: TransitionData[];
+    transitions: CtxData[];
     ctxData: CtxData;
     frameStart: number;
     frameEnd: number;

@@ -2,21 +2,11 @@ import Ctx from "./ctx.js";
 import CtxData from "../design/ctxData.js";
 
 export default class Pack {
-private _ctx:Ctx;
+public ctx:Ctx;
 constructor(){
-this._ctx = new Ctx();
-}
-ctx(){
-return this._ctx;
-}
-drawText(content:string,ctxData :CtxData){
-this._ctx.drawText(content,ctxData);
-}
-chars_width(content:string):number{
-    return this._ctx.chars_width(content);
+this.ctx = new Ctx();
 }
 
-// draw_line(startX:number,startY:number,endX:number,endY:number,incomCtx:CtxData){
 
-// }
+
 }

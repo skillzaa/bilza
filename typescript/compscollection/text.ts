@@ -8,16 +8,16 @@ constructor (content:string){
 this.content = content;    
 }
 width(p:Pack):number {
-return p.chars_width(this.content);
+return p.ctx.chars_width(this.content);
 // return 200;    
 }
 height(p:Pack):number {
-return p.chars_width("Xi");    
+return p.ctx.chars_width("Xi");    
 }
 
 
 draw(p:Pack):boolean{
-p.drawText(this.content,this.ctxData);    
+p.ctx.drawText(this.content,this.ctxData);    
 return true;
 }
 
