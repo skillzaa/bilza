@@ -1,13 +1,13 @@
 import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
-import CtxData from "../design/ctxData.js";
+import Templ from "../design/templ.js";
 import ctxDefaultInit from "../design/ctxDefaultInit.js";
 
 export default class Component implements IDrawable {
 drawLayer : DrawLayer; 
-public ctxData :CtxData; //thestarting ctx that merge with transistion ctx
-public transitions :CtxData[];
+public templ :Templ; //thestarting ctx that merge with transistion ctx
+public transitions :Templ[];
 public frameStart :number;   
 public frameEnd :number;   
 
@@ -15,7 +15,7 @@ constructor (){
 this.drawLayer = DrawLayer.MiddleGround;
 this.transitions = [];
 //****************************8 */
-this.ctxData = ctxDefaultInit();
+this.templ = ctxDefaultInit();
 //****************************8 */
 this.frameStart = 0; //component startand end frames
 this.frameEnd = 3000;
@@ -30,12 +30,12 @@ draw(p: Pack): boolean {
     return true;
 }
 
-newTransition(frame :number=0):CtxData{
-let sa = new CtxData(frame);    
+newTransition(frame :number=0):Templ{
+let sa = new Templ(frame);    
 this.transitions.push(sa);
 return sa;
 }
-addTransition(sa :CtxData):boolean{
+addTransition(sa :Templ):boolean{
 this.transitions.push(sa);
 return true;
 }
@@ -47,13 +47,13 @@ this.applyTransitons(frame);
 return true;    
 }
 /**
- * Takes the current frame and apply transitions (actually ctxData objects) and merge with components ctxData.
+ * Takes the current frame and apply transitions (actually templ objects) and merge with components templ.
  */
 applyTransitons(frame :number){
 for (let i = this.transitions.length -1; i >= 0; i--) {
     const trctxData = this.transitions[i];
     if(trctxData.startFrame < frame ){
-        this.ctxData.merge(trctxData);
+        this.templ.merge(trctxData);
         this.transitions.splice(i,1);
     }
 }

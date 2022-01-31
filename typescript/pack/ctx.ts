@@ -1,13 +1,13 @@
-import CtxData from "../design/ctxData.js";
+import Templ from "../design/templ.js";
+import Xy from "../design/xy.js";
 
 export default class Ctx {
 canvas:HTMLCanvasElement;
-// private ctxData: CtxData; //dont need this anipattern --ctx has this.ctx which holds ctxData 
 private ctx: CanvasRenderingContext2D;
-private fontSize: number;//for now
-private fontName: string;//for now
+private fontSize: number;
+private fontName: string;
 
-constructor(canvasId:string = "crown"){
+constructor(canvasId:string = "bilzaa2d"){
 // this.ctxData = ctxDefaultInit();
 this.fontName = "serf";    
 this.fontSize = 25;    
@@ -15,6 +15,7 @@ this.fontSize = 25;
 this.canvas = document.getElementById(canvasId);
 this.canvas.width = window.innerWidth;
 this.canvas.height = window.innerHeight;
+
 // @ts-expect-error    
 this.ctx = this.canvas.getContext('2d');
 }
@@ -48,8 +49,8 @@ let m = this.ctx.measureText(chars).width;
 this.ctx.restore();
 return Math.ceil(m);    
 }
-public draw_line(startX:number,startY:number,endX:number,endY:number,incomCtx:CtxData){
-    this.commitCtxData(incomCtx);
+public draw_line(startX:number,startY:number,endX:number,endY:number,incomTempl:Templ){
+    this.commitCtxData(incomTempl);
 
     this.ctx.beginPath();
     this.ctx.moveTo(startX,startY);
@@ -58,21 +59,23 @@ public draw_line(startX:number,startY:number,endX:number,endY:number,incomCtx:Ct
 }
 resetCtx(){    
 }
-public drawText(content:string,incomCtx:CtxData){
+public drawText(content:string,xy :Xy,incomCtx:Templ){
     this.commitCtxData(incomCtx);
     //--must
        this.ctx.textBaseline = "top";
     // x and y are not merged   
-    this.ctx.fillText(content, incomCtx.x, incomCtx.y);
+    this.ctx.fillText(content, 
+        xy.X(this.canvas.width), 
+        xy.Y(this.canvas.height) );
 }
-public drawTextstroke(content:string,incomCtx:CtxData){
+public drawTextstroke(content:string,incomCtx:Templ){
     this.commitCtxData(incomCtx);
     //--must
        this.ctx.textBaseline = "top";
     // x and y are not merged   
     this.ctx.strokeText(content, incomCtx.x, incomCtx.y);
 }
-private commitCtxData(incomCtx:CtxData){
+private commitCtxData(incomCtx:Templ){
     
     if (incomCtx.globalAlpha !== null){
         this.ctx.globalAlpha = incomCtx.globalAlpha;

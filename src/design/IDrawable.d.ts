@@ -1,10 +1,10 @@
 import Pack from "../pack/pack.js";
-import CtxData from "./ctxData.js";
+import Templ from "./templ.js";
 import { DrawLayer } from "./drawLayer.js";
 export default interface IDrawable {
     drawLayer: DrawLayer;
-    transitions: CtxData[];
-    ctxData: CtxData;
+    transitions: Templ[];
+    templ: Templ;
     frameStart: number;
     frameEnd: number;
     width(p: Pack): number;

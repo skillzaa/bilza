@@ -1,1 +1,0 @@
-{"version":3,"file":"transitionData.d.ts","sourceRoot":"","sources":["../../typescript/design/transitionData.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,cAAc,CAAC;AAInC,MAAM,CAAC,OAAO,OAAO,cAAc;IACzB,OAAO,EAAC,OAAO,CAAC;IAChB,UAAU,EAAE,MAAM,CAAC;gBACjB,KAAK,SAAE;CAMlB"}

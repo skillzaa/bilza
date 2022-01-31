@@ -1,12 +1,12 @@
 import { DrawLayer } from "../design/drawLayer.js";
-import CtxData from "../design/ctxData.js";
+import Templ from "../design/templ.js";
 import ctxDefaultInit from "../design/ctxDefaultInit.js";
 export default class Component {
     constructor() {
         this.drawLayer = DrawLayer.MiddleGround;
         this.transitions = [];
         //****************************8 */
-        this.ctxData = ctxDefaultInit();
+        this.templ = ctxDefaultInit();
         //****************************8 */
         this.frameStart = 0; //component startand end frames
         this.frameEnd = 3000;
@@ -21,7 +21,7 @@ export default class Component {
         return true;
     }
     newTransition(frame = 0) {
-        let sa = new CtxData(frame);
+        let sa = new Templ(frame);
         this.transitions.push(sa);
         return sa;
     }
@@ -37,13 +37,13 @@ export default class Component {
         return true;
     }
     /**
-     * Takes the current frame and apply transitions (actually ctxData objects) and merge with components ctxData.
+     * Takes the current frame and apply transitions (actually templ objects) and merge with components templ.
      */
     applyTransitons(frame) {
         for (let i = this.transitions.length - 1; i >= 0; i--) {
             const trctxData = this.transitions[i];
             if (trctxData.startFrame < frame) {
-                this.ctxData.merge(trctxData);
+                this.templ.merge(trctxData);
                 this.transitions.splice(i, 1);
             }
         }

@@ -1,5 +1,5 @@
 export default class Ctx {
-    constructor(canvasId = "crown") {
+    constructor(canvasId = "bilzaa2d") {
         // this.ctxData = ctxDefaultInit();
         this.fontName = "serf";
         this.fontSize = 25;
@@ -38,8 +38,8 @@ export default class Ctx {
         this.ctx.restore();
         return Math.ceil(m);
     }
-    draw_line(startX, startY, endX, endY, incomCtx) {
-        this.commitCtxData(incomCtx);
+    draw_line(startX, startY, endX, endY, incomTempl) {
+        this.commitCtxData(incomTempl);
         this.ctx.beginPath();
         this.ctx.moveTo(startX, startY);
         this.ctx.lineTo(endX, endY);
@@ -47,12 +47,12 @@ export default class Ctx {
     }
     resetCtx() {
     }
-    drawText(content, incomCtx) {
+    drawText(content, xy, incomCtx) {
         this.commitCtxData(incomCtx);
         //--must
         this.ctx.textBaseline = "top";
         // x and y are not merged   
-        this.ctx.fillText(content, incomCtx.x, incomCtx.y);
+        this.ctx.fillText(content, xy.X(this.canvas.width), xy.Y(this.canvas.height));
     }
     drawTextstroke(content, incomCtx) {
         this.commitCtxData(incomCtx);

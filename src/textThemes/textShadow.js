@@ -1,4 +1,4 @@
-import CtxData from "../design/ctxData.js";
+import CtxData from "../design/templ.js";
 export default function textShadow(startFrame = 0, x, y) {
     let ctxData = new CtxData(5);
     ctxData.startFrame = 3;

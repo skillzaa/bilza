@@ -1,4 +1,4 @@
-import CtxData from "../design/ctxData.js";
+import CtxData from "./templ.js";
 
 
 export default function ctxDefaultInit ():CtxData{

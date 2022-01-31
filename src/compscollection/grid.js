@@ -1,6 +1,6 @@
 import Component from "../component/component.js";
 import { DrawLayer } from "../design/drawLayer.js";
-import CtxData from "../design/ctxData.js";
+import CtxData from "../design/templ.js";
 export default class Grid extends Component {
     constructor() {
         super();
@@ -58,7 +58,9 @@ export default class Grid extends Component {
         c.fontSize = 10;
         c.x = x;
         c.y = y;
-        p.ctx.drawText(numberToPrint.toString(), c);
+        let loc = this.Xy(p, this.templ.x, this.templ.y);
+        p.ctx.drawText(numberToPrint.toString(), loc, this.templ);
+        // p.ctx.drawText(numberToPrint.toString(), c);
     }
 }
 //=============================
