@@ -1,7 +1,7 @@
 import Bilzaa2d from "../index.js";
 let b = new Bilzaa2d();
-b.addGrid();
-let t = b.addText("Bla bla");
+b.components.addGrid();
+let t = b.components.addText("Bla bla");
 let tr0 = t.newTransition();
 tr0.startFrame = 2;
 tr0.x = 20;

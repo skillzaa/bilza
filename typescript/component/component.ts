@@ -2,7 +2,7 @@ import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
 import Templ from "../design/templ.js";
-import ctxDefaultInit from "../design/ctxDefaultInit.js";
+import defaultTemplInit from "../design/defaultTemplInit.js";
 import Xy from "../design/xy.js";
 import {Cornor} from "../design/cornor.js";
 
@@ -19,7 +19,7 @@ constructor (x=0,y=0){
 this.drawLayer = DrawLayer.MiddleGround;
 this.transitions = [];
 //****************************8 */
-this.templ = ctxDefaultInit();
+this.templ = defaultTemplInit();
 //****************************8 */
 this.frameStart = 0; //component startand end frames
 this.frameEnd = 3000;
@@ -61,6 +61,7 @@ for (let i = this.transitions.length -1; i >= 0; i--) {
     const trctxData = this.transitions[i];
     if(trctxData.startFrame < frame ){
         this.templ.merge(trctxData);
+        //--x and y removed form templ and placed in comp since they cannot be null just like elms in templ has to since we filter out null elms of a templ during transition
         if (trctxData.x !== null){this.x = trctxData.x;}
         if (trctxData.y !== null){this.y = trctxData.y;}
         this.transitions.splice(i,1);

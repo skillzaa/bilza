@@ -2,22 +2,21 @@ import IDrawable from "../design/IDrawable.js";
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
 import Background from "./background.js";
-//--mayremove them to other place.
-import Grid from "../compscollection/grid.js";
-import Text from "../compscollection/text.js";
-
+import Components from "./components.js";
 export default class Bilzaa2d {
 private comps:IDrawable[];
 private pack:Pack;
 private frame :number;
 public totalFrames :number; //the size of video
 public background :Background;
+public components :Components;
 constructor (){
 this.pack = new Pack();        
 this.comps = [];  
 this.background = new Background();
 this.totalFrames = 3000; //5min
 this.frame = 0; 
+this.components = new Components(this.comps);
 } 
 //--function arguments shd be arguments and not classes unless required absoliutely.
 private draw():boolean{
@@ -78,14 +77,5 @@ setInterval(()=>{
 this.draw();
 },1000);
 }
-addText(content :string):Text{
-    let t = new Text(content);
-    this.comps.push(t);
-    return t;
-}
-addGrid():Grid{
-    let g = new Grid();
-    this.comps.push(g);
-    return g;
-}
+
 }//ends

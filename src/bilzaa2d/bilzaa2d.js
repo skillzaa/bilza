@@ -1,9 +1,7 @@
 import Pack from "../pack/pack.js";
 import { DrawLayer } from "../design/drawLayer.js";
 import Background from "./background.js";
-//--mayremove them to other place.
-import Grid from "../compscollection/grid.js";
-import Text from "../compscollection/text.js";
+import Components from "./components.js";
 export default class Bilzaa2d {
     constructor() {
         this.pack = new Pack();
@@ -11,6 +9,7 @@ export default class Bilzaa2d {
         this.background = new Background();
         this.totalFrames = 3000; //5min
         this.frame = 0;
+        this.components = new Components(this.comps);
     }
     //--function arguments shd be arguments and not classes unless required absoliutely.
     draw() {
@@ -66,15 +65,5 @@ export default class Bilzaa2d {
             // }
             this.draw();
         }, 1000);
-    }
-    addText(content) {
-        let t = new Text(content);
-        this.comps.push(t);
-        return t;
-    }
-    addGrid() {
-        let g = new Grid();
-        this.comps.push(g);
-        return g;
     }
 } //ends
