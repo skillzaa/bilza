@@ -38,7 +38,7 @@ export default class Component {
      * For now it just apply Transitions. In sub classes if this fn is over ridden then you have to call update of super or apply transitions your self.
      */
     update(frame, p) {
-        this.applyTransitons(frame);
+        this.applyTransitons(frame); //--important!!
         return true;
     }
     applyTransitons(frame) {
