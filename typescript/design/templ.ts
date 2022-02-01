@@ -15,6 +15,7 @@ shadowOffsetX:number | null;
 shadowOffsetY:number | null;
 shadowBlur :number | null;
 globalAlpha :number | null;
+lineCap : string | null;
 
 constructor(startFrame :number = 0){
 this.startFrame = startFrame;
@@ -31,9 +32,13 @@ this.shadowOffsetX = null;
 this.shadowOffsetY = null;
 this.shadowBlur = null;
 this.globalAlpha = null;
+this.lineCap = null;
 }
 merge(incom :Templ){
 
+    if (incom.lineCap !== null){
+        this.lineCap = incom.lineCap;
+    }
     if (incom.globalAlpha !== null){
         this.globalAlpha = incom.globalAlpha;
     }

@@ -1,5 +1,5 @@
-import Grid from "../compscollection/grid.js";
-import Text from "../compscollection/text.js";
+import Grid from "../corecomps/grid.js";
+import Text from "../corecomps/text.js";
 export default class Components {
     constructor(comps) {
         this.comps = comps;

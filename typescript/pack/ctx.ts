@@ -58,6 +58,25 @@ public draw_line(startX:number,startY:number,endX:number,endY:number,incomTempl:
 }
 resetCtx(){    
 }
+public draw_rect(x :number, y:number, width:number,height:number,incomCtx:Templ){
+    this.commitCtxData(incomCtx);
+this.ctx.beginPath();
+this.ctx.rect(x,y,width,height);
+this.ctx.stroke();
+}
+public draw_fillRect(x :number, y:number, width:number,height:number,incomCtx:Templ){
+    this.commitCtxData(incomCtx);
+    this.ctx.fillRect(x,y,width,height);
+}
+public draw_circle(x :number, y:number, radius:number,fill :boolean,incomCtx:Templ){
+this.commitCtxData(incomCtx);
+this.ctx.beginPath();
+this.ctx.arc(x + radius, y+radius, radius, 0, 2 * Math.PI, false);
+                if (fill == true){
+                    this.ctx.fill();
+                }
+this.ctx.stroke();
+}
 public drawText(content:string,x:number,y:number,incomCtx:Templ){
     this.commitCtxData(incomCtx);
     //--must
@@ -75,6 +94,9 @@ public drawTextstroke(content:string,x:number,y:number, incomCtx:Templ){
 // x and y are not here
 private commitCtxData(incomCtx:Templ){
     
+    if (incomCtx.lineCap !== null){
+        this.ctx.lineCap = "round";
+    }
     if (incomCtx.globalAlpha !== null){
         this.ctx.globalAlpha = incomCtx.globalAlpha;
     }

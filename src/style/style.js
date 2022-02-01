@@ -1,5 +1,5 @@
 // these are ctx valuesto be set in caseof any change in ctx
-export default class Templ {
+export default class Style {
     constructor(startFrame = 0) {
         this.startFrame = startFrame;
         this.x = null;
@@ -18,9 +18,6 @@ export default class Templ {
         this.lineCap = null;
     }
     merge(incom) {
-        if (incom.lineCap !== null) {
-            this.lineCap = incom.lineCap;
-        }
         if (incom.globalAlpha !== null) {
             this.globalAlpha = incom.globalAlpha;
         }

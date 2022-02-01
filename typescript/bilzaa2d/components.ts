@@ -1,6 +1,6 @@
 import Component from "../component/component.js";
-import Grid from "../compscollection/grid.js";
-import Text from "../compscollection/text.js";
+import Grid from "../corecomps/grid.js";
+import Text from "../corecomps/text.js";
 import IDrawable from "../design/IDrawable.js";
 import Templ from "../design/templ.js";
 

@@ -13,7 +13,6 @@ export default class Templ {
     shadowOffsetY: number | null;
     shadowBlur: number | null;
     globalAlpha: number | null;
-    lineCap: string | null;
     constructor(startFrame?: number);
     merge(incom: Templ): void;
 }

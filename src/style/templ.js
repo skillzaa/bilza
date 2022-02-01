@@ -15,12 +15,8 @@ export default class Templ {
         this.shadowOffsetY = null;
         this.shadowBlur = null;
         this.globalAlpha = null;
-        this.lineCap = null;
     }
     merge(incom) {
-        if (incom.lineCap !== null) {
-            this.lineCap = incom.lineCap;
-        }
         if (incom.globalAlpha !== null) {
             this.globalAlpha = incom.globalAlpha;
         }

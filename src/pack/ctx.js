@@ -47,6 +47,25 @@ export default class Ctx {
     }
     resetCtx() {
     }
+    draw_rect(x, y, width, height, incomCtx) {
+        this.commitCtxData(incomCtx);
+        this.ctx.beginPath();
+        this.ctx.rect(x, y, width, height);
+        this.ctx.stroke();
+    }
+    draw_fillRect(x, y, width, height, incomCtx) {
+        this.commitCtxData(incomCtx);
+        this.ctx.fillRect(x, y, width, height);
+    }
+    draw_circle(x, y, radius, fill, incomCtx) {
+        this.commitCtxData(incomCtx);
+        this.ctx.beginPath();
+        this.ctx.arc(x + radius, y + radius, radius, 0, 2 * Math.PI, false);
+        if (fill == true) {
+            this.ctx.fill();
+        }
+        this.ctx.stroke();
+    }
     drawText(content, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
         //--must
@@ -63,6 +82,9 @@ export default class Ctx {
     }
     // x and y are not here
     commitCtxData(incomCtx) {
+        if (incomCtx.lineCap !== null) {
+            this.ctx.lineCap = "round";
+        }
         if (incomCtx.globalAlpha !== null) {
             this.ctx.globalAlpha = incomCtx.globalAlpha;
         }

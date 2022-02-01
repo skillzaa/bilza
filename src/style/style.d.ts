@@ -13,8 +13,7 @@ export default class Templ {
     shadowOffsetY: number | null;
     shadowBlur: number | null;
     globalAlpha: number | null;
-    lineCap: string | null;
     constructor(startFrame?: number);
     merge(incom: Templ): void;
 }
-//# sourceMappingURL=templ.d.ts.map
+//# sourceMappingURL=style.d.ts.map
