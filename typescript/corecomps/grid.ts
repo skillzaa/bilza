@@ -1,7 +1,7 @@
 import Component from "../component/component.js";
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
-import CtxData from "../design/templ.js";
+import Style from "../style/style.js";
 import Xy from "../design/xy.js";
 import {Cornor} from "../design/cornor.js";
 
@@ -58,12 +58,12 @@ let end_y = y + height;
     } while (width > x );
 }
 draw_line(p:Pack,move_to_x:number,move_to_y:number,line_to_x:number,line_to_y:number){
-let c = new CtxData();
+let c = new Style();
 c.strokeStyle = this.lineColor;
 p.ctx.draw_line(move_to_x, move_to_y,line_to_x, line_to_y,c);
 }
 draw_number(p:Pack,numberToPrint:number,x:number,y:number){
-    let c = new CtxData();
+    let c = new Style();
     c.strokeStyle = this.lineColor;
     c.fillStyle = this.numbers_fillStyle;
     c.fontSize = 6;
@@ -73,7 +73,7 @@ draw_number(p:Pack,numberToPrint:number,x:number,y:number){
     // let x = this.xy.X(this.x,this.width(p),p.ctx.canvasWidth())
     // let y = this.xy.Y(this.y,this.height(p),p.ctx.canvasHeight())
     
-p.ctx.drawText(numberToPrint.toString(),x,y,this.templ);
+p.ctx.drawText(numberToPrint.toString(),x,y,this.style);
 // p.ctx.drawText(numberToPrint.toString(), c);
 }
 

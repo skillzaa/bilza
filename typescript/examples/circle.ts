@@ -1,16 +1,17 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
 import Circle from "../corecomps/circle.js";
-import Templ from "../design/templ.js";
+import Style from "../style/style.js";
+import {LineCapStyle} from "../style/lineCapStyle.js";
 
 let b = new Bilzaa2d();
 b.background.color = "#e0f9f1";
 // let g = b.components.addGrid();
 // g.show_numbers = false;
-let incom = new Templ();
+let incom = new Style();
 incom.fillStyle = "yellow";
 incom.strokeStyle = "red";
 incom.lineWidth = 5;
-incom.lineCap = "round";
+incom.lineCap = LineCapStyle.Round;
 let l = new Circle(10,10,100,incom);
 // l.fill = false;
 // let l2 = new Line(1100,100,1100,400,incom);

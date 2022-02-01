@@ -1,10 +1,11 @@
-export default class Templ {
+import { LineCapStyle } from "./lineCapStyle.js";
+import { FontNames } from "./fontNames.js";
+export default class Style {
     startFrame: number;
     x: number | null;
     y: number | null;
     fontSize: number | null;
-    font: string | null;
-    fontName: string | null;
+    fontName: FontNames | null;
     fillStyle: string | null;
     strokeStyle: string | null;
     lineWidth: number | null;
@@ -13,7 +14,8 @@ export default class Templ {
     shadowOffsetY: number | null;
     shadowBlur: number | null;
     globalAlpha: number | null;
+    lineCap: LineCapStyle | null;
     constructor(startFrame?: number);
-    merge(incom: Templ): void;
+    merge(incom: Style): void;
 }
 //# sourceMappingURL=style.d.ts.map

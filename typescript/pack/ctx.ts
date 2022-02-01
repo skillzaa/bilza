@@ -1,4 +1,4 @@
-import Templ from "../design/templ.js";
+import Style from "../style/style.js";
 
 export default class Ctx {
 canvas:HTMLCanvasElement;
@@ -48,7 +48,7 @@ let m = this.ctx.measureText(chars).width;
 this.ctx.restore();
 return Math.ceil(m);    
 }
-public draw_line(startX:number,startY:number,endX:number,endY:number,incomTempl:Templ){
+public draw_line(startX:number,startY:number,endX:number,endY:number,incomTempl:Style){
     this.commitCtxData(incomTempl);
 
     this.ctx.beginPath();
@@ -58,17 +58,17 @@ public draw_line(startX:number,startY:number,endX:number,endY:number,incomTempl:
 }
 resetCtx(){    
 }
-public draw_rect(x :number, y:number, width:number,height:number,incomCtx:Templ){
+public draw_rect(x :number, y:number, width:number,height:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
 this.ctx.beginPath();
 this.ctx.rect(x,y,width,height);
 this.ctx.stroke();
 }
-public draw_fillRect(x :number, y:number, width:number,height:number,incomCtx:Templ){
+public draw_fillRect(x :number, y:number, width:number,height:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
     this.ctx.fillRect(x,y,width,height);
 }
-public draw_circle(x :number, y:number, radius:number,fill :boolean,incomCtx:Templ){
+public draw_circle(x :number, y:number, radius:number,fill :boolean,incomCtx:Style){
 this.commitCtxData(incomCtx);
 this.ctx.beginPath();
 this.ctx.arc(x + radius, y+radius, radius, 0, 2 * Math.PI, false);
@@ -77,14 +77,14 @@ this.ctx.arc(x + radius, y+radius, radius, 0, 2 * Math.PI, false);
                 }
 this.ctx.stroke();
 }
-public drawText(content:string,x:number,y:number,incomCtx:Templ){
+public drawText(content:string,x:number,y:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
     //--must
        this.ctx.textBaseline = "top";
     // x and y are not merged place directly   
     this.ctx.fillText(content,x,y);
 }
-public drawTextstroke(content:string,x:number,y:number, incomCtx:Templ){
+public drawTextstroke(content:string,x:number,y:number, incomCtx:Style){
     this.commitCtxData(incomCtx);
     //--must
        this.ctx.textBaseline = "top";
@@ -92,7 +92,7 @@ public drawTextstroke(content:string,x:number,y:number, incomCtx:Templ){
     this.ctx.strokeText(content, x, y);
 }
 // x and y are not here
-private commitCtxData(incomCtx:Templ){
+private commitCtxData(incomCtx:Style){
     
     if (incomCtx.lineCap !== null){
         this.ctx.lineCap = "round";

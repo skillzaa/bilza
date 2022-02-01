@@ -31,13 +31,13 @@ function hdg (
     let t = new Text(content);
     t.x = x;
     t.y = y;
-    t.templ.fontSize = fontSize;
+    t.style.fontSize = fontSize;
 
-    t.templ.fillStyle = color;
-    t.templ.shadowOffsetX = 1;
-    t.templ.shadowOffsetY = 1;
-    t.templ.shadowBlur = 1;
-    t.templ.shadowColor = "black";
+    t.style.fillStyle = color;
+    t.style.shadowOffsetX = 1;
+    t.style.shadowOffsetY = 1;
+    t.style.shadowBlur = 1;
+    t.style.shadowColor = "black";
 
     return t;
 }

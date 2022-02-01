@@ -1,12 +1,12 @@
 import Pack from "../pack/pack.js";
-import Templ from "./templ.js";
+import Style from "../style/style.js";
 import {DrawLayer} from "./drawLayer.js";
 
 
 export default interface IDrawable{
     drawLayer:DrawLayer;
-    transitions : Templ[];
-    templ:Templ;
+    styleTransitions : Style[];
+    style:Style;
     frameStart :number;
     frameEnd :number;   
     width(p :Pack):number;

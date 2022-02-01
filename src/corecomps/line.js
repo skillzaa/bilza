@@ -6,7 +6,7 @@ export default class Line extends Component {
         this.startY = startY;
         this.endX = endX;
         this.endY = endY;
-        this.templ.merge(incomTempl);
+        this.style.merge(incomTempl);
     }
     width(p) {
         return this.endX - this.x;
@@ -17,7 +17,7 @@ export default class Line extends Component {
     draw(p) {
         let x = this.xy.X(this.x, this.width(p), p.ctx.canvasWidth());
         let y = this.xy.Y(this.y, this.height(p), p.ctx.canvasHeight());
-        p.ctx.draw_line(this.startX, this.startY, this.endX, this.endY, this.templ);
+        p.ctx.draw_line(this.startX, this.startY, this.endX, this.endY, this.style);
         return true;
     }
 }

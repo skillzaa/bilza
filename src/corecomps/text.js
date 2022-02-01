@@ -14,7 +14,7 @@ export default class Text extends Component {
     draw(p) {
         let x = this.xy.X(this.x, this.width(p), p.ctx.canvasWidth());
         let y = this.xy.Y(this.y, this.height(p), p.ctx.canvasHeight());
-        p.ctx.drawText(this.content, x, y, this.templ);
+        p.ctx.drawText(this.content, x, y, this.style);
         return true;
     }
 }

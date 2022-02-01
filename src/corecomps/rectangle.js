@@ -6,7 +6,7 @@ export default class Rectangle extends Component {
         this.y = y;
         this.rectWidth = width;
         this.rectHeight = height;
-        this.templ.merge(incomTempl);
+        this.style.merge(incomTempl);
     }
     width(p) {
         return this.rectWidth;
@@ -17,7 +17,7 @@ export default class Rectangle extends Component {
     draw(p) {
         let x = this.xy.X(this.x, this.width(p), p.ctx.canvasWidth());
         let y = this.xy.Y(this.y, this.height(p), p.ctx.canvasHeight());
-        p.ctx.draw_rect(this.x, this.y, this.rectWidth, this.rectHeight, this.templ);
+        p.ctx.draw_rect(this.x, this.y, this.rectWidth, this.rectHeight, this.style);
         return true;
     }
 }

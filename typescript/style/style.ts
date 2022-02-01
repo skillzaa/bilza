@@ -1,12 +1,14 @@
+import {LineCapStyle} from "./lineCapStyle.js";
+import {FontNames} from "./fontNames.js";
 // these are ctx valuesto be set in caseof any change in ctx
-export default class Templ {
+export default class Style {
 //--at this frame this template will become the template of the component. every component must start with one template which can later be changed with transitions- which is just another template obj    
 startFrame:number; //cant be null--why this here
 x:number | null; 
 y:number | null;
 fontSize:number | null;
-font:string | null;
-fontName:string | null;
+// font:string | null; //may not be req
+fontName: FontNames | null;
 fillStyle:string | null;
 strokeStyle:string | null;
 lineWidth:number | null;
@@ -15,26 +17,27 @@ shadowOffsetX:number | null;
 shadowOffsetY:number | null;
 shadowBlur :number | null;
 globalAlpha :number | null;
-lineCap : string | null;
+lineCap : LineCapStyle | null;
 
 constructor(startFrame :number = 0){
+
 this.startFrame = startFrame;
 this.x = null;
 this.y = null;
-this.font = null;
-this.fontSize = null;
-this.fontName = null;
-this.fillStyle = null;
-this.strokeStyle = null;
-this.lineWidth = null;
-this.shadowColor = null;
-this.shadowOffsetX = null;
-this.shadowOffsetY = null;
-this.shadowBlur = null;
-this.globalAlpha = null;
-this.lineCap = null;
+// this.font = null; //may not be req
+this.fontSize = 25;
+this.fontName = FontNames.Luminari;
+this.fillStyle = "green";
+this.strokeStyle = "red";
+this.lineWidth = 2;
+this.shadowColor = "black";
+this.shadowOffsetX = 0;
+this.shadowOffsetY = 0;
+this.shadowBlur = 0;
+this.globalAlpha = 1;
+this.lineCap = LineCapStyle.Round;
 }
-merge(incom :Templ){
+merge(incom :Style){
 
     if (incom.lineCap !== null){
         this.lineCap = incom.lineCap;

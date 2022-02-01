@@ -1,14 +1,13 @@
 import { DrawLayer } from "../design/drawLayer.js";
-import Templ from "../design/templ.js";
-import defaultTemplInit from "../design/defaultTemplInit.js";
+import Style from "../style/style.js";
 import Xy from "../design/xy.js";
 // import {Cornor} from "../design/cornor.js";
 export default class Component {
     constructor(x = 0, y = 0) {
         this.drawLayer = DrawLayer.MiddleGround;
-        this.transitions = [];
+        this.styleTransitions = [];
         //****************************8 */
-        this.templ = defaultTemplInit();
+        this.style = new Style();
         //****************************8 */
         this.frameStart = 0; //component startand end frames
         this.frameEnd = 3000;
@@ -26,12 +25,12 @@ export default class Component {
         return true;
     }
     newTransition(frame = 0) {
-        let sa = new Templ(frame);
-        this.transitions.push(sa);
+        let sa = new Style(frame);
+        this.styleTransitions.push(sa);
         return sa;
     }
     addTransition(sa) {
-        this.transitions.push(sa);
+        this.styleTransitions.push(sa);
         return true;
     }
     /**
@@ -42,10 +41,10 @@ export default class Component {
         return true;
     }
     applyTransitons(frame) {
-        for (let i = this.transitions.length - 1; i >= 0; i--) {
-            const trctxData = this.transitions[i];
+        for (let i = this.styleTransitions.length - 1; i >= 0; i--) {
+            const trctxData = this.styleTransitions[i];
             if (trctxData.startFrame < frame) {
-                this.templ.merge(trctxData);
+                this.style.merge(trctxData);
                 //--x and y removed form templ and placed in comp since they cannot be null just like elms in templ has to since we filter out null elms of a templ during transition
                 if (trctxData.x !== null) {
                     this.x = trctxData.x;
@@ -53,7 +52,7 @@ export default class Component {
                 if (trctxData.y !== null) {
                     this.y = trctxData.y;
                 }
-                this.transitions.splice(i, 1);
+                this.styleTransitions.splice(i, 1);
             }
         }
     }
