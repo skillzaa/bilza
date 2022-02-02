@@ -1,11 +1,11 @@
-import CompExt from "../component/CompExt.js";
+import CompRaw from "../component/rawComp/CompRaw.js";
 
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
 
 
 let b = new Bilzaa2d();
 
-let f = new CompExt();
+let f = new CompRaw();
 f.compData.x = 100;
 f.compData.y = 100;
 let tr = f.newStyleTransition();

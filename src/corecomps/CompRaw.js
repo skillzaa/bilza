@@ -1,6 +1,6 @@
 import Style from "../style/style.js";
 import BaseComp from "./baseComp.js";
-class FirstData {
+class RawData {
     constructor(frameStart = 0) {
         this.frameStart = frameStart;
         this.content = "some text";
@@ -8,7 +8,7 @@ class FirstData {
         this.y = 0;
     }
 }
-export default class CompExt extends BaseComp {
+export default class CompRaw extends BaseComp {
     constructor(content = "some text", x = 0, y = 0, firstdata = new FirstData(), style = new Style()) {
         super(style);
         this.compData = firstdata;

@@ -1,29 +1,18 @@
-import IDrawable from "../design/IDrawable.js";
-import Pack from "../pack/pack.js";
-import {DrawLayer} from "../design/drawLayer.js";
-import Style from "../style/style.js";
-import Xy from "../design/xy.js";
-import IFrameStart from "./IFrameStart.js";
-import BaseComp from "./baseComp.js";
+import Pack from "../../pack/pack.js";
+import Style from "../../style/style.js";
+import BaseComp from "../baseComp.js";
+import RawData from "./rawData.js";
+import RawDataNull from "./rawDataNull.js";
 
-class FirstData  {
-    frameStart :number;
-    x :number | null;
-    y :number | null;
-    content:string | null;
-constructor(frameStart=0){
-this.frameStart = frameStart;
-this.content = "some text";
-this.x = 0;
-this.y = 0;
-}    
-}
-export default class CompExt extends BaseComp {
-    dataTransitions : FirstData[];
-    compData:FirstData;
-constructor (content="some text",x=0,y=0,firstdata:FirstData = new FirstData(),style = new Style()){
+export default class CompRaw extends BaseComp {
+    dataTransitions : RawDataNull[];
+    compData:RawData;
+constructor (content="some text",x=0,y=0,style = new Style()){
     super(style);
-    this.compData = firstdata;
+    this.compData = new RawData();
+    this.compData.content = content;
+    this.compData.x = x;
+    this.compData.y = y;
     this.compData.content = content; 
     this.compData.x = x; 
     this.compData.y = y; 
@@ -40,12 +29,12 @@ draw(p: Pack): boolean {
     return true;
 }
 
-newDataTransition(frame :number=0):FirstData{
-let t = new FirstData(frame);
+newDataTransition(frame :number=0):RawDataNull{
+let t = new RawDataNull(frame);
 this.dataTransitions.push(t);
 return t;
 }
-addDataTransition(cd :FirstData):boolean{
+addDataTransition(cd :RawDataNull):boolean{
 this.dataTransitions.push(cd);
 return true;
 }
@@ -61,7 +50,7 @@ for (let i = this.dataTransitions.length -1; i >= 0; i--) {
 }
 
 //--this merge is only for compData for style ithas its own merge fn.
-merge(subset:FirstData):boolean{
+merge(subset:RawDataNull):boolean{
 if (subset.content !== null){
     this.compData.content = subset.content;
 }
