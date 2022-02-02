@@ -25,6 +25,7 @@ height(p: Pack): number {
     return 0;
 }
 draw(p: Pack): boolean {
+    p.ctx.drawBackground("green");
     p.ctx.drawText(this.compData.content,this.compData.x,this.compData.y,this.style);
     return true;
 }

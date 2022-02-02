@@ -21,6 +21,7 @@ export default class CompRaw extends BaseComp {
         return 0;
     }
     draw(p) {
+        p.ctx.drawBackground("green");
         p.ctx.drawText(this.compData.content, this.compData.x, this.compData.y, this.style);
         return true;
     }
