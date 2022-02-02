@@ -1,4 +1,4 @@
-import CompRaw from "../component/rawComp/CompRaw.js";
+import CompRaw from "../corecomps/rawComp/CompRaw.js";
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
 let b = new Bilzaa2d();
 let f = new CompRaw();

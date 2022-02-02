@@ -1,17 +1,14 @@
 import Style from "../../style/style.js";
-import BaseComp from "../../baseComp.js";
-class RawData {
-    constructor(frameStart = 0) {
-        this.frameStart = frameStart;
-        this.content = "some text";
-        this.x = 0;
-        this.y = 0;
-    }
-}
+import BaseComp from "../../component/baseComp.js";
+import RawData from "./rawData.js";
+import RawDataNull from "./rawDataNull.js";
 export default class CompRaw extends BaseComp {
-    constructor(content = "some text", x = 0, y = 0, firstdata = new FirstData(), style = new Style()) {
+    constructor(content = "some text", x = 0, y = 0, style = new Style()) {
         super(style);
-        this.compData = firstdata;
+        this.compData = new RawData();
+        this.compData.content = content;
+        this.compData.x = x;
+        this.compData.y = y;
         this.compData.content = content;
         this.compData.x = x;
         this.compData.y = y;
@@ -24,11 +21,12 @@ export default class CompRaw extends BaseComp {
         return 0;
     }
     draw(p) {
+        p.ctx.drawBackground("green");
         p.ctx.drawText(this.compData.content, this.compData.x, this.compData.y, this.style);
         return true;
     }
     newDataTransition(frame = 0) {
-        let t = new FirstData(frame);
+        let t = new RawDataNull(frame);
         this.dataTransitions.push(t);
         return t;
     }

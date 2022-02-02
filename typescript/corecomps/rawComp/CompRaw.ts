@@ -1,6 +1,6 @@
 import Pack from "../../pack/pack.js";
 import Style from "../../style/style.js";
-import BaseComp from "../baseComp.js";
+import BaseComp from "../../component/baseComp.js";
 import RawData from "./rawData.js";
 import RawDataNull from "./rawDataNull.js";
 
