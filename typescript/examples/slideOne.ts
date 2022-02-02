@@ -3,8 +3,8 @@ import Text from "../corecomps/text.js";
 
 let b = new Bilzaa2d();
 b.background.color = "#e0f9f1";
-let g = b.components.addGrid();
-g.show_numbers = false;
+// let g = b.components.addGrid();
+// g.show_numbers = false;
 
 b.add_comp(hdg("The Main  Heading",30,10,"red",70));
 
@@ -28,17 +28,22 @@ function hdg (
 
 ):Text{
 
-    let t = new Text(content);
-    t.x = x;
-    t.y = y;
+    let t = new Text(0,content,x,y);
+    // t.compData.x = x;
+    // t.compData.y = y;
     t.style.fontSize = fontSize;
-
     t.style.fillStyle = color;
     t.style.shadowOffsetX = 1;
     t.style.shadowOffsetY = 1;
     t.style.shadowBlur = 1;
     t.style.shadowColor = "black";
 
+
+    let st = t.newStyleTransition();
+    // st.fillStyle = "red";
+    st.fontSize = 30;
+    st.frameStart = 5;
+    console.log("t", t);
     return t;
 }
 

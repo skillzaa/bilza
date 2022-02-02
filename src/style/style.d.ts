@@ -1,9 +1,8 @@
 import { LineCapStyle } from "./lineCapStyle.js";
 import { FontNames } from "./fontNames.js";
-export default class Style {
-    startFrame: number;
-    x: number | null;
-    y: number | null;
+import IFrameStart from "../component/IFrameStart.js";
+export default class Style implements IFrameStart {
+    frameStart: number;
     fontSize: number | null;
     fontName: FontNames | null;
     fillStyle: string | null;
@@ -15,7 +14,7 @@ export default class Style {
     shadowBlur: number | null;
     globalAlpha: number | null;
     lineCap: LineCapStyle | null;
-    constructor(startFrame?: number);
+    constructor(frameStart?: number);
     merge(incom: Style): void;
 }
 //# sourceMappingURL=style.d.ts.map

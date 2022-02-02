@@ -1,5 +1,5 @@
 import Pack from "../pack/pack.js";
-import Component from "../component/component.js";
+import Component from "../component/baseComp.js";
 import Style from "../style/style.js";
 export default class Circle extends Component {
     x: number;

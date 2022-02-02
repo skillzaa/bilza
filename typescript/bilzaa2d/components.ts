@@ -1,8 +1,7 @@
-import Component from "../component/component.js";
-import Grid from "../corecomps/grid.js";
+// import BaseComp from "../component/baseComp.js";
+// import Grid from "../corecomps/grid.js";
 import Text from "../corecomps/text.js";
 import IDrawable from "../design/IDrawable.js";
-import Templ from "../design/templ.js";
 
 export default class Components {
     private comps:IDrawable[];    
@@ -10,14 +9,14 @@ constructor(comps:IDrawable[]){
 this.comps = comps;    
 }    
 addText(content :string):Text{
-    let t = new Text(content);
+    let t = new Text(0,content,100,100);
     this.comps.push(t);
     return t;
 }
-addGrid():Grid{
-    let g = new Grid();
-    this.comps.push(g);
-    return g;
-}
+// addGrid():Grid{
+//     let g = new Grid();
+//     this.comps.push(g);
+//     return g;
+// }
 
 }

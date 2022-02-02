@@ -1,4 +1,4 @@
-import Component from "../component/component.js";
+import Component from "../component/baseComp.js";
 export default class Line extends Component {
     constructor(startX, startY, endX, endY, incomTempl) {
         super();

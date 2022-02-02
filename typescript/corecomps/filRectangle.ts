@@ -1,5 +1,5 @@
 import Pack from "../pack/pack.js";
-import Component from "../component/component.js";
+import Component from "../component/baseComp.js";
 import Xy from "../design/xy.js";
 import {Cornor} from "../design/cornor.js";
 import Style from "../style/style.js";

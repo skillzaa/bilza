@@ -1,11 +1,10 @@
 import {LineCapStyle} from "./lineCapStyle.js";
 import {FontNames} from "./fontNames.js";
+import IFrameStart from "../component/IFrameStart.js";
 // these are ctx valuesto be set in caseof any change in ctx
-export default class Style {
+export default class Style implements IFrameStart {
 //--at this frame this template will become the template of the component. every component must start with one template which can later be changed with transitions- which is just another template obj    
-startFrame:number; //cant be null--why this here
-x:number | null; 
-y:number | null;
+frameStart:number; //cant be null--
 fontSize:number | null;
 // font:string | null; //may not be req
 fontName: FontNames | null;
@@ -19,11 +18,9 @@ shadowBlur :number | null;
 globalAlpha :number | null;
 lineCap : LineCapStyle | null;
 
-constructor(startFrame :number = 0){
+constructor(frameStart :number = 0){
 
-this.startFrame = startFrame;
-this.x = null;
-this.y = null;
+this.frameStart = frameStart;
 // this.font = null; //may not be req
 this.fontSize = 25;
 this.fontName = FontNames.Luminari;

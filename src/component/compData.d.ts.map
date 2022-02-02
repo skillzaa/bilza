@@ -1,0 +1,1 @@
+{"version":3,"file":"compData.d.ts","sourceRoot":"","sources":["../../typescript/component/compData.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,OAAO,QAAQ;IAE7B,UAAU,EAAE,MAAM,CAAC;IACnB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACjB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;gBAEL,UAAU,GAAE,MAAU;CAMjC"}

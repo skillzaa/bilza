@@ -1,4 +1,4 @@
-import Component from "../component/component.js";
+import Component from "../component/baseComp.js";
 import Pack from "../pack/pack.js";
 export default class Grid extends Component {
     numbers_fillStyle: string;

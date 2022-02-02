@@ -2,10 +2,8 @@ import { LineCapStyle } from "./lineCapStyle.js";
 import { FontNames } from "./fontNames.js";
 // these are ctx valuesto be set in caseof any change in ctx
 export default class Style {
-    constructor(startFrame = 0) {
-        this.startFrame = startFrame;
-        this.x = null;
-        this.y = null;
+    constructor(frameStart = 0) {
+        this.frameStart = frameStart;
         // this.font = null; //may not be req
         this.fontSize = 25;
         this.fontName = FontNames.Luminari;

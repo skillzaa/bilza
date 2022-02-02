@@ -1,4 +1,4 @@
-import Component from "../component/component.js";
+import Component from "../component/baseComp.js";
 import { DrawLayer } from "../design/drawLayer.js";
 import Style from "../style/style.js";
 export default class Grid extends Component {

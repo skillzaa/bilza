@@ -1,4 +1,4 @@
-import Component from "../component/component.js";
+import Component from "../component/baseComp.js";
 export default class FillRectangle extends Component {
     constructor(x, y, width, height, incomTempl) {
         super();
