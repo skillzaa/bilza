@@ -1,6 +1,5 @@
-import Pack from "../../pack/pack.js";
-import Style from "../../style/style.js";
-import BaseComp from "../../component/baseComp.js";
+import {BaseComp,Pack,Style } from "../../bilzaa2d/index.js";
+
 import RawData from "./rawData.js";
 import RawDataNull from "./rawDataNull.js";
 
@@ -18,15 +17,17 @@ constructor (content="some text",x=0,y=0,style = new Style()){
     this.compData.y = y; 
     this.dataTransitions = [];
 }
-width(p: Pack): number {
-    return 0;
+width( p: Pack ): number {
+return p.chars_width(this.compData.content);
 }
 height(p: Pack): number {
-    return 0;
+return p.chars_width("Xi");    
 }
 draw(p: Pack): boolean {
-    p.ctx.drawBackground("green");
-    p.ctx.drawText(this.compData.content,this.compData.x,this.compData.y,this.style);
+    // p.drawBackground("green");
+let x = this.xy.X(this.compData.x,this.width(p),p.canvasWidth())
+let y = this.xy.Y(this.compData.y,this.height(p),p.canvasHeight())
+    p.drawText(this.compData.content,x,y,this.style);
     return true;
 }
 

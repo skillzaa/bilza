@@ -1,4 +1,3 @@
-import Component from "../component/baseComp.js";
 export default class Circle extends Component {
     constructor(x, y, radius, incomTempl) {
         super();

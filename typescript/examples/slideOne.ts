@@ -1,5 +1,5 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import Text from "../corecomps/text.js";
+import Text from "../corecomps/text/text.js";
 
 let b = new Bilzaa2d();
 b.background.color = "#e0f9f1";
@@ -28,7 +28,7 @@ function hdg (
 
 ):Text{
 
-    let t = new Text(0,content,x,y);
+    let t = new Text(content,x,y);
     // t.compData.x = x;
     // t.compData.y = y;
     t.style.fontSize = fontSize;
@@ -39,11 +39,11 @@ function hdg (
     t.style.shadowColor = "black";
 
 
-    let st = t.newStyleTransition();
+    // let st = t.newStyleTransition();
     // st.fillStyle = "red";
-    st.fontSize = 30;
-    st.frameStart = 5;
-    console.log("t", t);
+    // st.fontSize = 30;
+    // st.frameStart = 5;
+    // console.log("t", t);
     return t;
 }
 

@@ -1,5 +1,5 @@
-import Component from "../component/baseComp.js";
-export default class Rectangle extends Component {
+import { BaseComp } from "../../bilzaa2d/index.js";
+export default class Rectangle extends BaseComp {
     constructor(x, y, width, height, incomTempl) {
         super();
         this.x = x;

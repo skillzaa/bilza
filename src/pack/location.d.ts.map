@@ -1,1 +1,0 @@
-{"version":3,"file":"location.d.ts","sourceRoot":"","sources":["../../typescript/pack/location.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,MAAM,EAAC,MAAM,qBAAqB,CAAC;AAG3C,MAAM,CAAC,OAAO,OAAO,QAAQ;IAE7B,CAAC,EAAC,MAAM,CAAC;IACT,CAAC,EAAC,MAAM,CAAC;IACT,MAAM,EAAE,MAAM,CAAC;gBACH,CAAC,GAAC,MAAQ,EAAC,CAAC,GAAC,MAAQ;IASjC,CAAC;IAGD,CAAC;CAIA"}

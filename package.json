@@ -1,6 +1,6 @@
 {
   "name": "bilzaa2d",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A 2D drawing Engine for educational content",
   "main": "src/index.js",
   

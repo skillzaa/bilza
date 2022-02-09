@@ -1,5 +1,5 @@
-import Pack from "../pack/pack.js";
-import { DrawLayer } from "../design/drawLayer.js";
+import Pack from "./pack/pack.js";
+import { DrawLayer } from "./design/drawLayer.js";
 import Background from "./background.js";
 import Components from "./components.js";
 export default class Bilzaa2d {
@@ -13,7 +13,7 @@ export default class Bilzaa2d {
     }
     //--function arguments shd be arguments and not classes unless required absoliutely.
     draw() {
-        let c = this.pack.ctx;
+        let c = this.pack;
         this.frame += 1; /// importanto 
         //---dont know abt pack.ctx() thing        
         c.clearCanvas();
@@ -29,10 +29,10 @@ export default class Bilzaa2d {
             if (comp.drawLayer == DrawLayer.MiddleGround) {
                 if (comp.frameStart < this.frame && comp.frameEnd > this.frame) {
                     comp.update(this.frame, this.pack);
-                    this.pack.ctx.save();
+                    this.pack.save();
                     comp.draw(this.pack);
                     //--keep both unless resetCtx has all items
-                    this.pack.ctx.restore();
+                    this.pack.restore();
                     // this.pack.ctx().resetCtx();//why needed??
                 }
             }
@@ -43,12 +43,12 @@ export default class Bilzaa2d {
         for (let i = 0; i < this.comps.length; i++) {
             let comp = this.comps[i];
             //--save ctx
-            this.pack.ctx.save();
+            this.pack.save();
             if (comp.drawLayer == DrawLayer.BackGround) {
                 comp.draw(this.pack);
             }
             //--keep both unless resetCtx has all items
-            this.pack.ctx.restore();
+            this.pack.restore();
             //--no width for background items
         }
         return true;

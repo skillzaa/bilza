@@ -1,5 +1,5 @@
-import BaseComp from "../component/baseComp.js";
-import pack from "../pack/pack.js";
+import BaseComp from "../bilzaa2d/baseComp.js";
+import pack from "../bilzaa2d/pack/pack.js";
 export default class First extends BaseComp {
     constructor();
     draw(p: pack): boolean;

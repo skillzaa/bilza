@@ -1,6 +1,4 @@
-import Pack from "../../pack/pack.js";
-import Style from "../../style/style.js";
-import BaseComp from "../../component/baseComp.js";
+import { BaseComp, Pack, Style } from "../../bilzaa2d/index.js";
 import RawData from "./rawData.js";
 import RawDataNull from "./rawDataNull.js";
 export default class CompRaw extends BaseComp {

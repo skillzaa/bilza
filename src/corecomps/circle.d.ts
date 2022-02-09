@@ -1,6 +1,6 @@
-import Pack from "../pack/pack.js";
-import Component from "../component/baseComp.js";
-import Style from "../style/style.js";
+import Pack from "../bilzaa2d/pack/pack.js";
+import Component from "../bilzaa2d/baseComp.js";
+import Style from "../bilzaa2d/style/style.js";
 export default class Circle extends Component {
     x: number;
     y: number;

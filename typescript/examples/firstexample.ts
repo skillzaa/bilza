@@ -1,13 +1,13 @@
-import CompRaw from "../corecomps/rawComp/CompRaw.js";
 
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
+import Text from "../corecomps/text/text.js";
 
 
 let b = new Bilzaa2d();
 
-let f = new CompRaw();
-f.compData.x = 100;
-f.compData.y = 100;
+let f = new Text();
+f.compData.x = 10;
+f.compData.y = 10;
 f.style.fillStyle = "brown";
 f.style.fontSize = 22;
 

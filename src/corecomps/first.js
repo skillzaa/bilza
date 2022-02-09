@@ -1,10 +1,10 @@
-import BaseComp from "../component/baseComp.js";
+import BaseComp from "../bilzaa2d/baseComp.js";
 export default class First extends BaseComp {
     constructor() {
         super();
     }
     draw(p) {
-        p.ctx.drawText("aaaaa", 100, 100, this.style);
+        p.drawText("aaaaa", 100, 100, this.style);
         return true;
     }
 }

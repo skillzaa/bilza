@@ -1,7 +1,7 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import Rectangle from "../corecomps/rectangle.js";
-import Style from "../style/style.js";
-import { LineCapStyle } from "../style/lineCapStyle.js";
+import Rectangle from "../corecomps/rectangle/rectangle.js";
+import Style from "../bilzaa2d/style/style.js";
+import { LineCapStyle } from "../bilzaa2d/style/lineCapStyle.js";
 let b = new Bilzaa2d();
 b.background.color = "#e0f9f1";
 // let g = b.components.addGrid();

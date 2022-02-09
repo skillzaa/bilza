@@ -1,15 +1,12 @@
-import Component from "../component/baseComp.js";
-import { DrawLayer } from "../design/drawLayer.js";
-import Style from "../style/style.js";
-export default class Grid extends Component {
+import { BaseComp, Style, DrawLayer } from "../../bilzaa2d/index.js";
+export default class Grid extends BaseComp {
     constructor() {
         super();
+        this.lineStyle = new Style();
         this.drawLayer = DrawLayer.BackGround;
         this.cell_width = 50;
         this.cell_height = 50;
-        this.show_numbers = true;
-        this.numbers_fillStyle = "#b1b4c9";
-        this.lineColor = "#d9dcf7";
+        this.show_numbers = false;
     }
     draw(p) {
         this.draw_horizontal(p);
@@ -24,9 +21,10 @@ export default class Grid extends Component {
         //end y remain the same
         let end_x = x + width;
         do {
-            this.draw_line(p, x, y, end_x, y);
+            // this.draw_line(p,x,y,end_x,y);
+            p.ctx.draw_line(x, y, end_x, y, this.lineStyle);
             if (this.show_numbers == true) {
-                this.draw_number(p, y, x, y);
+                p.ctx.drawText(y.toString(), x, y, this.style);
             }
             y += this.cell_height;
         } while (height > y);
@@ -39,29 +37,13 @@ export default class Grid extends Component {
         //end y remain the same
         let end_y = y + height;
         do {
-            this.draw_line(p, x, y, x, end_y);
+            // this.draw_line(p,x,y,x,end_y);
+            p.ctx.draw_line(x, y, x, end_y, this.lineStyle);
             if (this.show_numbers == true) {
-                this.draw_number(p, x, x, y);
+                p.ctx.drawText(x.toString(), x, y, this.style);
             }
             x += this.cell_width;
         } while (width > x);
-    }
-    draw_line(p, move_to_x, move_to_y, line_to_x, line_to_y) {
-        let c = new Style();
-        c.strokeStyle = this.lineColor;
-        p.ctx.draw_line(move_to_x, move_to_y, line_to_x, line_to_y, c);
-    }
-    draw_number(p, numberToPrint, x, y) {
-        let c = new Style();
-        c.strokeStyle = this.lineColor;
-        c.fillStyle = this.numbers_fillStyle;
-        c.fontSize = 6;
-        c.x = x;
-        c.y = y;
-        // let x = this.xy.X(this.x,this.width(p),p.ctx.canvasWidth())
-        // let y = this.xy.Y(this.y,this.height(p),p.ctx.canvasHeight())
-        p.ctx.drawText(numberToPrint.toString(), x, y, this.style);
-        // p.ctx.drawText(numberToPrint.toString(), c);
     }
 }
 //=============================

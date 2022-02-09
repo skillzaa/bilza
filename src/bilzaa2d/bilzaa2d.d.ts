@@ -1,4 +1,4 @@
-import IDrawable from "../design/IDrawable.js";
+import IDrawable from "./design/IDrawable.js";
 import Background from "./background.js";
 import Components from "./components.js";
 export default class Bilzaa2d {
