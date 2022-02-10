@@ -7,9 +7,9 @@ export default class BaseComp {
     constructor(style = new Style()) {
         this.xy = new Xy();
         this.drawLayer = DrawLayer.MiddleGround;
-        this.styleTransitions = [];
-        //****************************8 */
+        /*****************************/
         this.style = style;
+        this.styleTransitions = [];
         //****************************8 */
         this.frameStart = 0; //component startand end frames
         this.frameEnd = 3000;

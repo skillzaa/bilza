@@ -13,11 +13,11 @@ public frameStart :number;
 public frameEnd :number;
 public xy:Xy;   
 constructor (style = new Style()){
-    this.xy = new Xy();
-    this.drawLayer = DrawLayer.MiddleGround;
-    this.styleTransitions = [];
-//****************************8 */
+this.xy = new Xy();
+this.drawLayer = DrawLayer.MiddleGround;
+/*****************************/
 this.style = style;
+this.styleTransitions = [];
 //****************************8 */
 this.frameStart = 0; //component startand end frames
 this.frameEnd = 3000;
