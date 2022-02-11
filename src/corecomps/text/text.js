@@ -17,4 +17,9 @@ export default class Text extends Component {
         p.drawText(this.compData.data.content, this.xPerc(this.compData.data.x, p), this.yPerc(this.compData.data.y, p), this.style);
         return true;
     }
+    update(frame, p) {
+        this.applyStyleTransitons(frame); //--important!!
+        this.compData.apply(frame); //--important!!
+        return true;
+    }
 }

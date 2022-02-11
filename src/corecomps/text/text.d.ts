@@ -6,5 +6,6 @@ export default class Text extends Component {
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;
+    update(frame: number, p: Pack): boolean;
 }
 //# sourceMappingURL=text.d.ts.map

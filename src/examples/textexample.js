@@ -7,13 +7,14 @@ f.compData.data.y = 10;
 f.style.fillStyle = "brown";
 f.style.fontSize = 22;
 let tr = f.newStyleTransition();
-tr.frameStart = 4;
+tr.frameStart = 1;
 tr.fontSize = 230;
 tr.fillStyle = "red";
 // let data_trans = f.newDataTransition(5);
 // data_trans.content = "New York";
-let trans = f.compData.add(4);
+let trans = f.compData.add(3);
 trans.content = "New York";
+// trans
 b.add_comp(f);
 console.log("b", b);
 b.start();

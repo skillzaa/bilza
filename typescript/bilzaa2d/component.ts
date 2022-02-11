@@ -47,7 +47,7 @@ return true;
  */
 update(frame: number, p: Pack): boolean {
 this.applyStyleTransitons(frame); //--important!!
-this.applyDataTransitons(frame); //--important!!
+// this.applyDataTransitons(frame); //--important!!
 return true;    
 }
 

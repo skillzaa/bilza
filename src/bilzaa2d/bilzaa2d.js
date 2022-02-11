@@ -28,8 +28,8 @@ export default class Bilzaa2d {
             //--save ctx
             if (comp.drawLayer == DrawLayer.MiddleGround) {
                 if (comp.frameStart < this.frame && comp.frameEnd > this.frame) {
-                    comp.update(this.frame, this.pack);
                     this.pack.save();
+                    comp.update(this.frame, this.pack);
                     comp.draw(this.pack);
                     //--keep both unless resetCtx has all items
                     this.pack.restore();

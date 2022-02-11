@@ -37,7 +37,7 @@ export default class Component {
      */
     update(frame, p) {
         this.applyStyleTransitons(frame); //--important!!
-        this.applyDataTransitons(frame); //--important!!
+        // this.applyDataTransitons(frame); //--important!!
         return true;
     }
     applyStyleTransitons(frame) {

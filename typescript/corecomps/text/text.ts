@@ -24,5 +24,10 @@ draw(p: Pack): boolean {
         this.yPerc(this.compData.data.y,p),this.style);
     return true;
 }
+update(frame: number, p: Pack): boolean {
+this.applyStyleTransitons(frame); //--important!!
+this.compData.apply(frame); //--important!!
+return true;    
+}
 
 }
