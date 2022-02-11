@@ -1,30 +1,44 @@
-// import {BaseComp,Pack,Style } from "../../bilzaa2d/index.js";
+import {Component,Pack,Style } from "../../bilzaa2d/index.js";
 
-// export default class FrameCounter extends BaseComp {
-// frame:number;  
-// rectStyle:Style;  
-// constructor (){
-//     super();
-//     this.frame=0;
-//     this.rectStyle = new Style();
-//     this.style.fillStyle = "yellow";
-//     this.rectStyle.fillStyle = "grey";
-// }
-// width( p: Pack ): number {
-// return p.chars_width("Frame #:0000");
-// }
-// height(p: Pack): number {
-// return p.chars_width("Xi");    
-// }
-// update(frame: number, p: Pack): boolean {
-//     this.frame = frame;
-//     return super.update(frame, p);
-// }
-// draw(p: Pack): boolean {
-//     let s = "Frame : " + this.frame
-// p.draw_fillRect(0,0,p.text_width("Frame #:0000",this.rectStyle),this.height(p)+10, this.rectStyle);    
-// p.drawText(s,5,5,this.style);
-//     return true;
-// }
+export default class FrameCounter extends Component {
+frame:number;  
+styleRectangle:Style;  
+styleNumbers:Style;
+padding :number;  
+x :number;  
+y :number;  
+constructor (){
+    super();
+    this.x=0;
+    this.y=0;
+    this.frame=0;
+    this.padding = 4;
+    this.styleRectangle = new Style();
+    this.styleNumbers = new Style();
+    //------default ??
+    this.styleRectangle.fillStyle = "black";
+    this.styleNumbers.fillStyle = "yellow";
+}
+width( p: Pack ): number {
+return p.textWidth("Frame #:0000",this.styleNumbers);
+}
+height(p: Pack): number {
+return p.textWidth("Xi",this.styleNumbers);    
+}
+update(frame: number, p: Pack): boolean {
+    this.frame = frame;
+    return true;
+    // return super.update(frame, p);
+}
+draw(p: Pack): boolean {
+// it is upto the component author to use xPerc    
+let x = this.xPerc(this.x,p);    
+let y = this.yPerc(this.y,p);    
+    let s = "Frame : " + this.frame
+p.drawFillRect(x,y,this.width(p)+ this.padding,this.height(p)+this.padding, this.styleRectangle); 
 
-// }
+p.drawText(s,x + (this.padding/2),y + (this.padding/2),this.styleNumbers);
+    return true;
+}
+
+}

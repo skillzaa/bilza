@@ -12,7 +12,7 @@ export default class Pack {
     save(): void;
     clearCanvas(): void;
     chars_width(chars?: string, fontSize?: number, fontName?: string): number;
-    text_width(chars: string | undefined, incomTempl: Style): number;
+    textWidth(chars: string | undefined, incomTempl: Style): number;
     drawLine(startX: number, startY: number, endX: number, endY: number, incomTempl: Style): void;
     resetCtx(): void;
     drawRect(x: number, y: number, width: number, height: number, incomCtx: Style): void;

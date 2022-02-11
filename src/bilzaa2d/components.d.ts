@@ -1,4 +1,4 @@
-import Grid from "../corecomps/grid/grid.js";
+import Grid from "../corecomps/grid.js";
 import IDrawable from "./design/IDrawable.js";
 export default class Components {
     private comps;

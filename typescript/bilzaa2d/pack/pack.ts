@@ -48,7 +48,7 @@ let m = this.ctx.measureText(chars).width;
 this.ctx.restore();
 return Math.ceil(m);    
 }
-public text_width(chars="",incomTempl:Style){
+public textWidth(chars="",incomTempl:Style){
     this.commitCtxData(incomTempl);
 
 this.ctx.save();

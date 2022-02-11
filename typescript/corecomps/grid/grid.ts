@@ -5,10 +5,12 @@ export default class Grid extends Component {
 cell_height:number;
 cell_width:number;
 show_numbers:boolean;
-lineStyle:Style;    
+styleLine:Style;    
+styleNumber:Style;    
 constructor(){
 super(); 
-this.lineStyle = new Style();
+this.styleLine = new Style();
+this.styleNumber = new Style();
 this.drawLayer = DrawLayer.BackGround;   
 this.cell_width = 50;    
 this.cell_height = 50;
@@ -28,9 +30,9 @@ let height = p.canvasHeight();
 let end_x = x + width;
     do {   
     // this.draw_line(p,x,y,end_x,y);
-    p.draw_line(x,y,end_x,y,this.lineStyle);
+    p.drawLine(x,y,end_x,y,this.styleLine);
         if (this.show_numbers == true){
-            p.drawText(y.toString(),x,y,this.style);
+            p.drawText(y.toString(),x,y,this.styleNumber);
 
         }
     y += this.cell_height;
@@ -45,10 +47,10 @@ let height = p.canvasWidth();
 let end_y = y + height;
     do {   
     // this.draw_line(p,x,y,x,end_y);
-    p.draw_line(x,y,x,end_y,this.lineStyle);
+    p.drawLine(x,y,x,end_y,this.styleLine);
 
             if (this.show_numbers == true){
-                p.drawText(x.toString(),x,y,this.style);
+                p.drawText(x.toString(),x,y,this.styleNumber);
             }
     x += this.cell_width;
     } while (width > x );

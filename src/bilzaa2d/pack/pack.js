@@ -38,7 +38,7 @@ export default class Pack {
         this.ctx.restore();
         return Math.ceil(m);
     }
-    text_width(chars = "", incomTempl) {
+    textWidth(chars = "", incomTempl) {
         this.commitCtxData(incomTempl);
         this.ctx.save();
         //dont miss gap "px_"

@@ -1,5 +1,5 @@
 // import BaseComp from "../component/baseComp.js";
-import Grid from "../corecomps/grid/grid.js";
+import Grid from "../corecomps/grid.js";
 export default class Components {
     constructor(comps) {
         this.comps = comps;

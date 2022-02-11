@@ -3,7 +3,8 @@ export default class Grid extends Component {
     cell_height: number;
     cell_width: number;
     show_numbers: boolean;
-    lineStyle: Style;
+    styleLine: Style;
+    styleNumber: Style;
     constructor();
     draw(p: Pack): boolean;
     draw_horizontal(p: Pack): void;

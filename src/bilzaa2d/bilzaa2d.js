@@ -1,15 +1,16 @@
 import Pack from "./pack/pack.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import Background from "./background.js";
-import Components from "./components.js";
+// import Components from "./components.js";
 export default class Bilzaa2d {
+    // public components :Components;
     constructor() {
         this.pack = new Pack();
         this.comps = [];
         this.background = new Background();
         this.totalFrames = 3000; //5min
         this.frame = 0;
-        this.components = new Components(this.comps);
+        // this.components = new Components(this.comps);
     }
     //--function arguments shd be arguments and not classes unless required absoliutely.
     draw() {

@@ -9,8 +9,8 @@ let f = new Text();
 f.compData.data.x = 10;
 f.compData.data.y = 10;
 
-f.style.fillStyle = "crimson";
-f.style.fontSize = 50;
+f.styleText.fillStyle = "crimson";
+f.styleText.fontSize = 50;
 
 
 // let data_trans = f.newDataTransition(5);

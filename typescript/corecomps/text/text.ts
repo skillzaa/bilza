@@ -6,9 +6,10 @@ export default class Text extends Component {
     
     compData:Transition<TextData>;
     // dataTransitions:TextData[]; //-dontuse not req
-
-constructor (style = new Style()){
-    super(style);
+    styleText:Style;
+constructor (){
+    super();
+    this.styleText = new Style();
     this.compData = new Transition(DataFn);
 }
 width( p: Pack ): number {
@@ -21,12 +22,11 @@ draw(p: Pack): boolean {
     // p.drawBackground("green");
     p.drawText(this.compData.data.content,
         this.xPerc(this.compData.data.x,p),
-        this.yPerc(this.compData.data.y,p),this.style);
+        this.yPerc(this.compData.data.y,p),this.styleText);
     return true;
 }
 update(frame: number, p: Pack): boolean {
-this.applyStyleTransitons(frame); //--important!!
-this.compData.apply(frame); //--important!!
+// this.compData.apply(frame); //--important!!
 return true;    
 }
 

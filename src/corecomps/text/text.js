@@ -1,9 +1,9 @@
 import { Component, Style, Transition } from "../../bilzaa2d/index.js";
 import DataFn from "./DataFn.js";
 export default class Text extends Component {
-    // dataTransitions:TextData[]; //-dontuse not req
-    constructor(style = new Style()) {
-        super(style);
+    constructor() {
+        super();
+        this.styleText = new Style();
         this.compData = new Transition(DataFn);
     }
     width(p) {
@@ -14,12 +14,11 @@ export default class Text extends Component {
     }
     draw(p) {
         // p.drawBackground("green");
-        p.drawText(this.compData.data.content, this.xPerc(this.compData.data.x, p), this.yPerc(this.compData.data.y, p), this.style);
+        p.drawText(this.compData.data.content, this.xPerc(this.compData.data.x, p), this.yPerc(this.compData.data.y, p), this.styleText);
         return true;
     }
     update(frame, p) {
-        this.applyStyleTransitons(frame); //--important!!
-        this.compData.apply(frame); //--important!!
+        // this.compData.apply(frame); //--important!!
         return true;
     }
 }
