@@ -5,7 +5,7 @@ import Style from "./style/style.js";
 import Xy from "./design/xy.js";
 //--This is an Abstract class
 //--Do not use CompData here but in sub-classes extend thatfor their own comp data class.
-export default class BaseComp implements IDrawable {
+export default class Component  implements IDrawable {
 public drawLayer : DrawLayer; 
 public style :Style; 
 public styleTransitions :Style[];
@@ -18,7 +18,7 @@ this.drawLayer = DrawLayer.MiddleGround;
 /*****************************/
 this.style = style;
 this.styleTransitions = [];
-//****************************8 */
+//**************************** */
 this.frameStart = 0; //component startand end frames
 this.frameEnd = 3000;
 }
@@ -61,8 +61,7 @@ for (let i = this.styleTransitions.length -1; i >= 0; i--) {
 }
 }
 applyDataTransitons(frame :number){
-
-    
+//--- every comp must fill this   
 }
 
 xPerc(n :number , p :Pack):number{

@@ -1,4 +1,4 @@
-import BaseComp from "../bilzaa2d/baseComp.js";
+import BaseComp from "../bilzaa2d/component.js";
 export default class First extends BaseComp {
     constructor() {
         super();

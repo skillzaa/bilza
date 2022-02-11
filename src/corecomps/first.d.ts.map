@@ -1,1 +1,1 @@
-{"version":3,"file":"first.d.ts","sourceRoot":"","sources":["../../typescript/corecomps/first.ts"],"names":[],"mappings":"AACA,OAAO,QAAQ,MAAM,yBAAyB,CAAC;AAC/C,OAAO,IAAI,MAAM,0BAA0B,CAAC;AAE5C,MAAM,CAAC,OAAO,OAAO,KAAM,SAAQ,QAAQ;;IAK3C,IAAI,CAAC,CAAC,EAAE,IAAI,GAAG,OAAO;CAKrB"}
+{"version":3,"file":"first.d.ts","sourceRoot":"","sources":["../../typescript/corecomps/first.ts"],"names":[],"mappings":"AACA,OAAO,QAAQ,MAAM,0BAA0B,CAAC;AAChD,OAAO,IAAI,MAAM,0BAA0B,CAAC;AAE5C,MAAM,CAAC,OAAO,OAAO,KAAM,SAAQ,QAAQ;;IAK3C,IAAI,CAAC,CAAC,EAAE,IAAI,GAAG,OAAO;CAKrB"}

@@ -1,5 +1,5 @@
-import { BaseComp, Style, DrawLayer } from "../../bilzaa2d/index.js";
-export default class Grid extends BaseComp {
+import { Component, Style, DrawLayer } from "../../bilzaa2d/index.js";
+export default class Grid extends Component {
     constructor() {
         super();
         this.lineStyle = new Style();

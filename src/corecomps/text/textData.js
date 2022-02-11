@@ -1,8 +1,9 @@
-export default class TextData {
-    constructor(frameStart = 0, content = "some text", x = 0, y = 0) {
-        this.frameStart = frameStart;
-        this.content = content;
-        this.x = x;
-        this.y = y;
-    }
+export default function DataFn() {
+    let a = {
+        frameStart: 0,
+        x: 0,
+        y: 0,
+        content: "some text",
+    };
+    return a;
 }

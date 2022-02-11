@@ -6,8 +6,9 @@ import Text from "../corecomps/text/text.js";
 let b = new Bilzaa2d();
 
 let f = new Text();
-f.compData.x = 10;
-f.compData.y = 10;
+f.compData.data.x = 10;
+f.compData.data.y = 10;
+
 f.style.fillStyle = "brown";
 f.style.fontSize = 22;
 
@@ -16,8 +17,11 @@ tr.frameStart = 4;
 tr.fontSize = 230;
 tr.fillStyle = "red";
 
-let data_trans = f.newDataTransition(5);
-data_trans.content = "New York";
+// let data_trans = f.newDataTransition(5);
+// data_trans.content = "New York";
+let trans = f.compData.add(4);
+trans.content = "New York";
+
 
 b.add_comp(f);
 

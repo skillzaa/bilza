@@ -1,0 +1,1 @@
+{"version":3,"file":"textData.d.ts","sourceRoot":"","sources":["../../../typescript/corecomps/text-old/textData.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,OAAO,QAAQ;IACzB,UAAU,EAAE,MAAM,CAAC;IACnB,CAAC,EAAE,MAAM,CAAE;IACX,CAAC,EAAE,MAAM,CAAE;IACX,OAAO,EAAC,MAAM,CAAE;gBACR,UAAU,SAAE,EAAC,OAAO,SAAY,EAAC,CAAC,SAAE,EAAC,CAAC,SAAE;CAMnD"}

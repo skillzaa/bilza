@@ -1,5 +1,5 @@
-import { BaseComp, Pack, Style } from "../../bilzaa2d/index.js";
-export default class Grid extends BaseComp {
+import { Component, Pack, Style } from "../../bilzaa2d/index.js";
+export default class Grid extends Component {
     cell_height: number;
     cell_width: number;
     show_numbers: boolean;

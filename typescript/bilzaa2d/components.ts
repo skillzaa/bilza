@@ -8,11 +8,11 @@ export default class Components {
 constructor(comps:IDrawable[]){
 this.comps = comps;    
 }    
-addText(content :string):Text{
-    let t = new Text(content);
-    this.comps.push(t);
-    return t;
-}
+// addText(content :string):Text{
+//     let t = new Text(content);
+//     this.comps.push(t);
+//     return t;
+// }
 addGrid():Grid{
     let g = new Grid();
     this.comps.push(g);

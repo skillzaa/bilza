@@ -10,7 +10,7 @@ export default class BaseComp {
         /*****************************/
         this.style = style;
         this.styleTransitions = [];
-        //****************************8 */
+        //**************************** */
         this.frameStart = 0; //component startand end frames
         this.frameEnd = 3000;
     }
@@ -50,6 +50,7 @@ export default class BaseComp {
         }
     }
     applyDataTransitons(frame) {
+        //--- every comp must fill this   
     }
     xPerc(n, p) {
         let xy = new Xy();
@@ -58,5 +59,9 @@ export default class BaseComp {
     yPerc(n, p) {
         let xy = new Xy();
         return xy.X(n, this.width(p), p.canvasWidth());
+    }
+    addnew(Data) {
+        let d = new Data();
+        return d;
     }
 }

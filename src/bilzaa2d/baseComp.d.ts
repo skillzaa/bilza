@@ -24,5 +24,6 @@ export default class BaseComp implements IDrawable {
     applyDataTransitons(frame: number): void;
     xPerc(n: number, p: Pack): number;
     yPerc(n: number, p: Pack): number;
+    addnew(Data: Object): any;
 }
 //# sourceMappingURL=baseComp.d.ts.map
