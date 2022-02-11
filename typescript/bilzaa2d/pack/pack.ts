@@ -59,7 +59,7 @@ let m = this.ctx.measureText(chars).width;
 this.ctx.restore();
 return Math.ceil(m);    
 }
-public draw_line(startX:number,startY:number,endX:number,endY:number,incomTempl:Style){
+public drawLine(startX:number,startY:number,endX:number,endY:number,incomTempl:Style){
     this.commitCtxData(incomTempl);
 
     this.ctx.beginPath();
@@ -69,13 +69,13 @@ public draw_line(startX:number,startY:number,endX:number,endY:number,incomTempl:
 }
 resetCtx(){    
 }
-public draw_rect(x :number, y:number, width:number,height:number,incomCtx:Style){
+public drawRect(x :number, y:number, width:number,height:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
 this.ctx.beginPath();
 this.ctx.rect(x,y,width,height);
 this.ctx.stroke();
 }
-public draw_fillRect(x :number, y:number, width:number,height:number,incomCtx:Style){
+public drawFillRect(x :number, y:number, width:number,height:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
     this.ctx.fillRect(x,y,width,height);
 }

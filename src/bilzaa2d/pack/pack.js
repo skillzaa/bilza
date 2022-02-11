@@ -48,7 +48,7 @@ export default class Pack {
         this.ctx.restore();
         return Math.ceil(m);
     }
-    draw_line(startX, startY, endX, endY, incomTempl) {
+    drawLine(startX, startY, endX, endY, incomTempl) {
         this.commitCtxData(incomTempl);
         this.ctx.beginPath();
         this.ctx.moveTo(startX, startY);
@@ -57,13 +57,13 @@ export default class Pack {
     }
     resetCtx() {
     }
-    draw_rect(x, y, width, height, incomCtx) {
+    drawRect(x, y, width, height, incomCtx) {
         this.commitCtxData(incomCtx);
         this.ctx.beginPath();
         this.ctx.rect(x, y, width, height);
         this.ctx.stroke();
     }
-    draw_fillRect(x, y, width, height, incomCtx) {
+    drawFillRect(x, y, width, height, incomCtx) {
         this.commitCtxData(incomCtx);
         this.ctx.fillRect(x, y, width, height);
     }
