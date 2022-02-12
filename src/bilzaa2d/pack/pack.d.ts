@@ -2,8 +2,6 @@ import Style from "../style/style.js";
 export default class Pack {
     canvas: HTMLCanvasElement;
     private ctx;
-    private fontSize;
-    private fontName;
     constructor(canvasId?: string);
     drawBackground(color?: string): void;
     canvasWidth(): number;
@@ -11,8 +9,8 @@ export default class Pack {
     restore(): void;
     save(): void;
     clearCanvas(): void;
-    chars_width(chars?: string, fontSize?: number, fontName?: string): number;
-    textWidth(chars: string | undefined, incomTempl: Style): number;
+    charsWidth(chars: string | undefined, fontSize: number, fontName: string): number;
+    textWidth(chars: string, incomTempl: Style): number;
     drawLine(startX: number, startY: number, endX: number, endY: number, incomTempl: Style): void;
     resetCtx(): void;
     drawRect(x: number, y: number, width: number, height: number, incomCtx: Style): void;
@@ -22,5 +20,9 @@ export default class Pack {
     drawIcon(code: number, x: number, y: number, incomCtx: Style): void;
     drawTextstroke(content: string, x: number, y: number, incomCtx: Style): void;
     private commitCtxData;
+    private setFont;
+    xPerc(perc: number): number;
+    yPerc(perc: number): number;
+    private setBwZeroNhundred;
 }
 //# sourceMappingURL=pack.d.ts.map

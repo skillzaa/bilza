@@ -1,9 +1,9 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import Circle from "../corecomps/circle/circle.js";
+import Circle from "../components/circle/circle.js";
 import Style from "../bilzaa2d/style/style.js";
 import { LineCapStyle } from "../bilzaa2d/style/lineCapStyle.js";
-import Rectangle from "../corecomps/rectangle/rectangle.js";
-import FillRectangle from "../corecomps/fillRectangle/fillRectangle.js";
+import Rectangle from "../components/rectangle/rectangle.js";
+import FillRectangle from "../components/fillRectangle/fillRectangle.js";
 let b = new Bilzaa2d();
 b.background.color = "#e0f9f1";
 // let g = b.components.addGrid();

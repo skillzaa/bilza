@@ -1,6 +1,6 @@
 
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import Text from "../corecomps/text/text.js";
+import Text from "../components/text/text.js";
 
 
 let b = new Bilzaa2d();

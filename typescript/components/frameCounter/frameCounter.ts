@@ -6,11 +6,13 @@ styleRectangle:Style;
 styleNumbers:Style;
 padding :number;  
 x :number;  
-y :number;  
+y :number;
+content :string;  
 constructor (){
     super();
     this.x=0;
     this.y=0;
+    this.content = "sec: ";
     this.frame=0;
     this.padding = 4;
     this.styleRectangle = new Style();
@@ -20,7 +22,7 @@ constructor (){
     this.styleNumbers.fillStyle = "yellow";
 }
 width( p: Pack ): number {
-return p.textWidth("Frame #:0000",this.styleNumbers);
+return p.textWidth(this.content + "0000",this.styleNumbers);
 }
 height(p: Pack): number {
 return p.textWidth("Xi",this.styleNumbers);    

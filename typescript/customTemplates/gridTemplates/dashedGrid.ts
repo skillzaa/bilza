@@ -1,4 +1,4 @@
-import Grid from "../../corecomps/grid/grid.js";
+import Grid from "../../components/grid/grid.js";
 
 
 export default function DashedGrid(){

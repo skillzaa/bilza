@@ -4,20 +4,20 @@ import {FontNames} from "./fontNames.js";
 export default class Style {
 //--at this frame this template will become the template of the component. every component must start with one template which can later be changed with transitions- which is just another template obj    
 frameStart:number; //cant be null--
-fontSize:number | null;
-// font:string | null; //may not be req
-fontName: FontNames | null;
-fillStyle:string | null;
-strokeStyle:string | null;
-lineWidth:number | null;
-shadowColor:string | null;
-shadowOffsetX:number | null;
-shadowOffsetY:number | null;
-shadowBlur :number | null;
-globalAlpha :number | null;
-lineDashWidth :number | null;
-lineDashGap :number | null;
-lineCap : LineCapStyle | null;
+fontSize:number ;
+// font:string ; //may not be req
+fontName: FontNames ;
+fillStyle:string ;
+strokeStyle:string ;
+lineWidth:number ;
+shadowColor:string ;
+shadowOffsetX:number ;
+shadowOffsetY:number ;
+shadowBlur :number ;
+globalAlpha :number ;
+lineDashWidth :number ;
+lineDashGap :number ;
+lineCap : LineCapStyle ;
 
 constructor(frameStart :number = 0){
 

@@ -1,8 +1,5 @@
 export default class Pack {
     constructor(canvasId = "bilzaa2d") {
-        // this.ctxData = ctxDefaultInit();
-        this.fontName = "serf";
-        this.fontSize = 25;
         // @ts-expect-error
         this.canvas = document.getElementById(canvasId);
         this.canvas.width = window.innerWidth;
@@ -29,21 +26,17 @@ export default class Pack {
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-    chars_width(chars = "", fontSize = this.fontSize, fontName = this.fontName) {
+    charsWidth(chars = "", fontSize, fontName) {
         this.ctx.save();
-        //dont miss gap "px_"
-        let f = this.fontSize + "px " + this.fontName;
-        this.ctx.font = f;
+        this.setFont(fontSize, fontName);
         let m = this.ctx.measureText(chars).width;
         this.ctx.restore();
         return Math.ceil(m);
     }
-    textWidth(chars = "", incomTempl) {
-        this.commitCtxData(incomTempl);
+    textWidth(chars, incomTempl) {
         this.ctx.save();
-        //dont miss gap "px_"
-        let f = this.fontSize + "px " + this.fontName;
-        this.ctx.font = f;
+        this.commitCtxData(incomTempl);
+        this.setFont(incomTempl.fontSize, incomTempl.fontName);
         let m = this.ctx.measureText(chars).width;
         this.ctx.restore();
         return Math.ceil(m);
@@ -126,15 +119,31 @@ export default class Pack {
         if (incomCtx.fillStyle !== null) {
             this.ctx.fillStyle = incomCtx.fillStyle;
         }
-        if (incomCtx.fontSize !== null) {
-            this.fontSize = incomCtx.fontSize;
-        }
-        if (incomCtx.fontName !== null) {
-            this.fontName = incomCtx.fontName;
-        }
         if (incomCtx.lineDashWidth !== null && incomCtx.lineDashGap !== null) {
             this.ctx.setLineDash([incomCtx.lineDashWidth, incomCtx.lineDashGap]);
         }
-        this.ctx.font = this.fontSize + "px " + this.fontName;
+        //---important change
+        this.setFont(incomCtx.fontSize, incomCtx.fontName);
+    }
+    setFont(fontSize, fontName) {
+        let f = fontSize + "px " + fontName;
+        this.ctx.font = f;
+    }
+    xPerc(perc) {
+        let checked = this.setBwZeroNhundred(perc);
+        return ((this.canvas.width / 100) * checked);
+    }
+    yPerc(perc) {
+        let checked = this.setBwZeroNhundred(perc);
+        return ((this.canvas.height / 100) * checked);
+    }
+    setBwZeroNhundred(n) {
+        if (n < 0) {
+            return 0;
+        }
+        if (n > 100) {
+            return 100;
+        }
+        return n;
     }
 }

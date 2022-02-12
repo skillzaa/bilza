@@ -1,5 +1,5 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import FrameCounter from "../corecomps/frameCounter/frameCounter.js";
+import FrameCounter from "../components/frameCounter/frameCounter.js";
 import dashedGrid from "../customTemplates/gridTemplates/dashedGrid.js";
 
 
@@ -12,6 +12,7 @@ fc.x = 10;
 fc.y = 30;
 
 fc.styleNumbers.fontSize = 30;
+fc.styleRectangle.fillStyle = "black";
 b.add_comp(fc);
 
 
