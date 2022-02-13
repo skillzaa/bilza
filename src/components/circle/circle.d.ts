@@ -6,6 +6,7 @@ export default class Circle extends Component {
     endAngle: number;
     radius: number;
     fill: boolean;
+    style: Style;
     constructor(x: number, y: number, radius: number, incomTempl: Style);
     width(p: Pack): number;
     height(p: Pack): number;

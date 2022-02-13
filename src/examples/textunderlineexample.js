@@ -1,0 +1,28 @@
+import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
+import { XAlignment } from "../bilzaa2d/index.js";
+import TextUnderline from "../components/textUnderline.js";
+import FrameCounter from "../components/frameCounter/frameCounter.js";
+import Icon from "../components/icon/icon.js";
+import dashedGrid from "../customTemplates/gridTemplates/dashedGrid.js";
+import { UTFIcons } from "../components/icon/utfIcons.js";
+let b = new Bilzaa2d();
+let dg = dashedGrid();
+let fc = new FrameCounter();
+fc.x = 90;
+fc.y = 90;
+b.add_comp(fc);
+let f1 = new TextUnderline("Main Slide Heading", 50, 10, "green", "black");
+// dg.show_numbers = true;
+b.add_comp(dg);
+b.add_comp(f1);
+let f2 = new TextUnderline("First Point", 5, 35, "green", "blue", 40);
+f2.xAlignment = XAlignment.Left;
+b.add_comp(f2);
+//--icons
+let icon = new Icon(UTFIcons.HeavyCheckMark);
+icon.style.fontSize = 75;
+icon.style.fillStyle = "crimson";
+icon.x = 50;
+icon.y = 50;
+b.add_comp(icon);
+b.start();

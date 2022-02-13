@@ -58,6 +58,10 @@ export default class Bilzaa2d {
         this.comps.push(comp);
         return comp;
     }
+    add(comp) {
+        this.comps.push(comp);
+        return comp;
+    }
     start() {
         setInterval(() => {
             // for (let i = 0; i < this.comps.length; i++) {

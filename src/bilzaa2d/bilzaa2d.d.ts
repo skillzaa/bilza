@@ -11,6 +11,7 @@ export default class Bilzaa2d {
     private drawMiddlegroundComps;
     private drawBackgroundComps;
     add_comp(comp: IDrawable): IDrawable;
+    add(comp: IDrawable): IDrawable;
     start(): void;
 }
 //# sourceMappingURL=bilzaa2d.d.ts.map

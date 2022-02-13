@@ -1,12 +1,15 @@
 export default class Pack {
     constructor(canvasId = "bilzaa2d") {
+        //--put this in a try-catch
         // @ts-expect-error
         this.canvas = document.getElementById(canvasId);
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
+        //--put this in a try-catch
         // @ts-expect-error    
         this.ctx = this.canvas.getContext('2d');
     }
+    //--- look at this fn again
     drawBackground(color = "blue") {
         this.ctx.fillStyle = color;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -28,6 +31,7 @@ export default class Pack {
     }
     charsWidth(chars = "", fontSize, fontName) {
         this.ctx.save();
+        //--no commitCtxData thus setFont is required
         this.setFont(fontSize, fontName);
         let m = this.ctx.measureText(chars).width;
         this.ctx.restore();
@@ -36,7 +40,8 @@ export default class Pack {
     textWidth(chars, incomTempl) {
         this.ctx.save();
         this.commitCtxData(incomTempl);
-        this.setFont(incomTempl.fontSize, incomTempl.fontName);
+        //not required since its done in commitCtxData
+        // this.setFont(incomTempl.fontSize,incomTempl.fontName);
         let m = this.ctx.measureText(chars).width;
         this.ctx.restore();
         return Math.ceil(m);
@@ -47,8 +52,6 @@ export default class Pack {
         this.ctx.moveTo(startX, startY);
         this.ctx.lineTo(endX, endY);
         this.ctx.stroke();
-    }
-    resetCtx() {
     }
     drawRect(x, y, width, height, incomCtx) {
         this.commitCtxData(incomCtx);
@@ -89,6 +92,24 @@ export default class Pack {
         this.ctx.textBaseline = "top";
         // x and y are not merged   
         this.ctx.strokeText(content, x, y);
+    }
+    //very simple function just do not put abstractions here-- keep it simple and pure 
+    drawLines(positions, incomCtx, fill = true) {
+        this.commitCtxData(incomCtx);
+        this.ctx.beginPath();
+        this.ctx.moveTo(positions[0].x, positions[0].y);
+        for (let i = 1; i < positions.length; i++) {
+            const pos = positions[i];
+            this.ctx.lineTo(pos.x, pos.y);
+        }
+        //--do not draw the last line
+        this.ctx.closePath(); //importantay
+        if (fill == true) {
+            this.ctx.fill();
+        }
+        else {
+            this.ctx.stroke();
+        }
     }
     // x and y are not here
     commitCtxData(incomCtx) {

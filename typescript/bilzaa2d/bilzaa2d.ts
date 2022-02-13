@@ -67,6 +67,10 @@ add_comp(comp:IDrawable):IDrawable{
 this.comps.push(comp);
 return comp;
 }
+add(comp:IDrawable):IDrawable{
+this.comps.push(comp);
+return comp;
+}
 start(){
 setInterval(()=>{
 // for (let i = 0; i < this.comps.length; i++) {

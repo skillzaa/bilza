@@ -1,18 +1,20 @@
-import Style from "../style/style.js";
-
+import Style from "./style.js";
+import Position from "../design/Position.js";
 export default class Pack {
 canvas:HTMLCanvasElement;
 private ctx: CanvasRenderingContext2D;
 
 constructor(canvasId:string = "bilzaa2d"){
-// @ts-expect-error
+//--put this in a try-catch
+    // @ts-expect-error
 this.canvas = document.getElementById(canvasId);
 this.canvas.width = window.innerWidth;
 this.canvas.height = window.innerHeight;
-
+//--put this in a try-catch
 // @ts-expect-error    
 this.ctx = this.canvas.getContext('2d');
 }
+//--- look at this fn again
 public drawBackground(color:string="blue"){ 
 this.ctx.fillStyle = color;
 this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -36,7 +38,7 @@ this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
 public charsWidth(chars="",fontSize:number,fontName:string){
 this.ctx.save();
-
+//--no commitCtxData thus setFont is required
 this.setFont(fontSize,fontName);
 
 let m = this.ctx.measureText(chars).width;
@@ -44,26 +46,22 @@ this.ctx.restore();
 return Math.ceil(m);    
 }
 public textWidth(chars:string,incomTempl:Style){
-    
     this.ctx.save();
     this.commitCtxData(incomTempl);
-
-this.setFont(incomTempl.fontSize,incomTempl.fontName);
-
+//not required since its done in commitCtxData
+    // this.setFont(incomTempl.fontSize,incomTempl.fontName);
 let m = this.ctx.measureText(chars).width;
 this.ctx.restore();
 return Math.ceil(m);    
 }
 public drawLine(startX:number,startY:number,endX:number,endY:number,incomTempl:Style){
     this.commitCtxData(incomTempl);
-
     this.ctx.beginPath();
     this.ctx.moveTo(startX,startY);
     this.ctx.lineTo(endX,endY);
     this.ctx.stroke();
 }
-resetCtx(){    
-}
+
 public drawRect(x :number, y:number, width:number,height:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
 this.ctx.beginPath();
@@ -103,6 +101,25 @@ public drawTextstroke(content:string,x:number,y:number, incomCtx:Style){
        this.ctx.textBaseline = "top";
     // x and y are not merged   
     this.ctx.strokeText(content, x, y);
+}
+//very simple function just do not put abstractions here-- keep it simple and pure 
+public drawLines(positions :Position[] ,incomCtx:Style ,fill=true){
+    this.commitCtxData(incomCtx);
+   
+    this.ctx.beginPath(); 
+    this.ctx.moveTo(positions[0].x,positions[0].y);
+
+    for (let i = 1; i < positions.length; i++) {
+        const pos = positions[i];
+        this.ctx.lineTo(pos.x,pos.y);
+    }
+    //--do not draw the last line
+    this.ctx.closePath(); //importantay
+        if (fill == true){
+            this.ctx.fill();
+        }else {
+            this.ctx.stroke();
+        }
 }
 // x and y are not here
 private commitCtxData(incomCtx:Style){
@@ -160,5 +177,6 @@ private setBwZeroNhundred(n:number):number{
   if (n > 100 ){return 100;}
   return n;  
 }
+
 
 }
