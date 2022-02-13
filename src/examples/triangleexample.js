@@ -6,5 +6,9 @@ let tri = new Triangle();
 // tri.d.data.showVertexMarker = false;
 // tri.d.data.
 b.add(tri);
+// let dot = new Dot("crimson",200);
+// b.add(dot);
+// let l = new Line();
+// b.add(l);
 console.log("b", b);
 b.start();

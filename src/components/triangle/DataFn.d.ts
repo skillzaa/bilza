@@ -13,9 +13,6 @@ export declare class TriangleData {
     vertexMarkerAColor: string;
     vertexMarkerBColor: string;
     vertexMarkerCColor: string;
-    vertexMarkerAWidth: number;
-    vertexMarkerBWidth: number;
-    vertexMarkerCWidth: number;
     showVertexMarker: boolean;
     fill: boolean;
     fillColor: string;

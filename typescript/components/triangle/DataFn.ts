@@ -15,9 +15,9 @@ import {Position,Style} from "../../bilzaa2d/index.js";
     vertexMarkerAColor :string ;
     vertexMarkerBColor :string ;
     vertexMarkerCColor :string ;
-    vertexMarkerAWidth :number ;
-    vertexMarkerBWidth :number ;
-    vertexMarkerCWidth :number ;
+    // vertexMarkerAWidth :number ;
+    // vertexMarkerBWidth :number ;
+    // vertexMarkerCWidth :number ;
 
     showVertexMarker:boolean;
     fill:boolean;
@@ -25,25 +25,25 @@ import {Position,Style} from "../../bilzaa2d/index.js";
 
     constructor(){
     this.frameStart = 0;
-    this.a = new Position(100,200);
-    this.b = new Position(200,200);
+    this.a = new Position(200,500);
+    this.b = new Position(500,500);
     this.c = new Position(200,100);
 
     this.lineColorAB = "red" ;
     this.lineColorBC = "green" ;
     this.lineColorCA = "blue" ;
 
-    this.lineWidthAB = 1;
-    this.lineWidthBC = 4;
-    this.lineWidthCA = 8;
+    this.lineWidthAB = 3;
+    this.lineWidthBC = 3;
+    this.lineWidthCA = 3;
 
     this.vertexMarkerAColor = "yellow";
     this.vertexMarkerBColor = "crimson" ;
     this.vertexMarkerCColor = "orange";
 
-    this.vertexMarkerAWidth = 1;
-    this.vertexMarkerBWidth = 2;
-    this.vertexMarkerCWidth = 3;
+    // this.vertexMarkerAWidth = 1;
+    // this.vertexMarkerBWidth = 2;
+    // this.vertexMarkerCWidth = 3;
 
     this.showVertexMarker = true;
     this.fill = true;
