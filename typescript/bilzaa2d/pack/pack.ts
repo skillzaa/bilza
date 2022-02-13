@@ -61,7 +61,26 @@ public drawLine(startX:number,startY:number,endX:number,endY:number,incomTempl:S
     this.ctx.lineTo(endX,endY);
     this.ctx.stroke();
 }
-
+public beginPath(){
+    this.ctx.beginPath();
+}
+public closePath(){
+    this.ctx.closePath();
+}
+public moveTo(x :number,y :number){
+    this.ctx.moveTo(x,y);
+}
+public lineTo(x :number,y :number,style:Style){
+    this.commitCtxData(style);
+    this.ctx.lineTo(x,y);
+}
+public fill(style:Style){
+    this.commitCtxData(style);
+    this.ctx.fill();
+}
+public stroke(){
+    this.ctx.stroke();
+}
 public drawRect(x :number, y:number, width:number,height:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
 this.ctx.beginPath();

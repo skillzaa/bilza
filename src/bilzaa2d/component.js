@@ -15,6 +15,7 @@ export default class Component {
     height(p) {
         return 0;
     }
+    // brilent do not send frame in draw args just send frame in update-
     draw(p) {
         return true;
     }

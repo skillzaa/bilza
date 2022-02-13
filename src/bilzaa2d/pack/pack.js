@@ -53,6 +53,26 @@ export default class Pack {
         this.ctx.lineTo(endX, endY);
         this.ctx.stroke();
     }
+    beginPath() {
+        this.ctx.beginPath();
+    }
+    closePath() {
+        this.ctx.closePath();
+    }
+    moveTo(x, y) {
+        this.ctx.moveTo(x, y);
+    }
+    lineTo(x, y, style) {
+        this.commitCtxData(style);
+        this.ctx.lineTo(x, y);
+    }
+    fill(style) {
+        this.commitCtxData(style);
+        this.ctx.fill();
+    }
+    stroke() {
+        this.ctx.stroke();
+    }
     drawRect(x, y, width, height, incomCtx) {
         this.commitCtxData(incomCtx);
         this.ctx.beginPath();
