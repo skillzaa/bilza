@@ -14,9 +14,6 @@ export class TriangleData {
         this.vertexMarkerAColor = "yellow";
         this.vertexMarkerBColor = "crimson";
         this.vertexMarkerCColor = "orange";
-        // this.vertexMarkerAWidth = 1;
-        // this.vertexMarkerBWidth = 2;
-        // this.vertexMarkerCWidth = 3;
         this.showVertexMarker = true;
         this.fill = true;
         this.fillColor = "blue";

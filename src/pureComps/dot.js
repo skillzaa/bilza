@@ -8,7 +8,6 @@ export default class Dot extends Component {
         this.colorFill = color;
         this.radius = radius;
         this.style = new Style();
-        this.style.lineWidth = 1; //fixed for now
     }
     width(p) {
         return this.radius * 2;

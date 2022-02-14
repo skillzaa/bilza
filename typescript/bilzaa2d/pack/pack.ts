@@ -25,6 +25,13 @@ return this.canvas.width;
 public canvasHeight():number{
 return this.canvas.height;
 }
+public quadraticCurveTo(start :Position,end :Position,controlPoint :Position, style :Style){
+    this.commitCtxData(style);
+    this.beginPath();
+this.moveTo(start);
+this.ctx.quadraticCurveTo(controlPoint.x, controlPoint.y, end.x, end.y);
+this.stroke();
+}
 public restore(){
     this.ctx.restore();
 }
@@ -61,14 +68,20 @@ public drawLine(startX:number,startY:number,endX:number,endY:number,incomTempl:S
     this.ctx.lineTo(endX,endY);
     this.ctx.stroke();
 }
+public line(startX:number,startY:number,endX:number,endY:number){
+    this.ctx.beginPath();
+    this.ctx.moveTo(startX,startY);
+    this.ctx.lineTo(endX,endY);
+    this.ctx.stroke();
+}
 public beginPath(){
     this.ctx.beginPath();
 }
 public closePath(){
     this.ctx.closePath();
 }
-public moveTo(x :number,y :number){
-    this.ctx.moveTo(x,y);
+public moveTo(pos :Position){
+    this.ctx.moveTo(pos.x,pos.y);
 }
 public lineTo(x :number,y :number,style:Style){
     this.commitCtxData(style);
@@ -90,6 +103,11 @@ this.ctx.stroke();
 public drawFillRect(x :number, y:number, width:number,height:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
     this.ctx.fillRect(x,y,width,height);
+}
+public arcTo(start:Position,end:Position,style :Style,radius :number=20){
+this.commitCtxData(style);
+
+this.ctx.arcTo(start.x,start.y,end.x,end.y,radius);    
 }
 public drawCircle(x :number, y:number, radius:number,fill :boolean,incomCtx:Style,startAngle=0 , endAngle= 2 * Math.PI){
 this.commitCtxData(incomCtx);

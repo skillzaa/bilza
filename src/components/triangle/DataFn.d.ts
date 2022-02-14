@@ -5,10 +5,10 @@ export declare class TriangleData {
     b: Position;
     c: Position;
     lineColorAB: string;
-    lineColorBC: string;
-    lineColorCA: string;
     lineWidthAB: number;
+    lineColorBC: string;
     lineWidthBC: number;
+    lineColorCA: string;
     lineWidthCA: number;
     vertexMarkerAColor: string;
     vertexMarkerBColor: string;

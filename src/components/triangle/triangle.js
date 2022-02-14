@@ -26,6 +26,8 @@ export default class Triangle extends Component {
             this.drawVertexMarker(p, this.d.b.x, this.d.b.y, this.d.vertexMarkerBColor);
             this.drawVertexMarker(p, this.d.c.x, this.d.c.y, this.d.vertexMarkerCColor);
         }
+        //----------------------------------
+        //----------------------------------
         return true;
     }
     drawVertexMarker(p, x, y, color) {

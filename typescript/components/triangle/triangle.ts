@@ -34,6 +34,10 @@ this.drawVertexMarker(p,this.d.a.x,this.d.a.y,this.d.vertexMarkerAColor);
 this.drawVertexMarker(p,this.d.b.x,this.d.b.y,this.d.vertexMarkerBColor);
 this.drawVertexMarker(p,this.d.c.x,this.d.c.y,this.d.vertexMarkerCColor);
 }
+
+//----------------------------------
+
+//----------------------------------
 return true;
 }
 

@@ -7,5 +7,7 @@ import Transition from "./transition/transition.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import { XAlignment } from "./design/xAlignment.js";
 import { YAlignment } from "./design/yAlignment.js";
-export { Bilzaa2d, Pack, DrawLayer, Style, Component, Transition, XAlignment, YAlignment, Position };
+import IDrawable from "./design/IDrawable.js";
+import Clip from "./clip/clip.js";
+export { Bilzaa2d, Pack, DrawLayer, Style, Component, Transition, XAlignment, YAlignment, Position, IDrawable, Clip };
 //# sourceMappingURL=index.d.ts.map

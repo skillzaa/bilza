@@ -20,6 +20,13 @@ export default class Pack {
     canvasHeight() {
         return this.canvas.height;
     }
+    quadraticCurveTo(start, end, controlPoint, style) {
+        this.commitCtxData(style);
+        this.beginPath();
+        this.moveTo(start);
+        this.ctx.quadraticCurveTo(controlPoint.x, controlPoint.y, end.x, end.y);
+        this.stroke();
+    }
     restore() {
         this.ctx.restore();
     }
@@ -53,14 +60,20 @@ export default class Pack {
         this.ctx.lineTo(endX, endY);
         this.ctx.stroke();
     }
+    line(startX, startY, endX, endY) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(startX, startY);
+        this.ctx.lineTo(endX, endY);
+        this.ctx.stroke();
+    }
     beginPath() {
         this.ctx.beginPath();
     }
     closePath() {
         this.ctx.closePath();
     }
-    moveTo(x, y) {
-        this.ctx.moveTo(x, y);
+    moveTo(pos) {
+        this.ctx.moveTo(pos.x, pos.y);
     }
     lineTo(x, y, style) {
         this.commitCtxData(style);
@@ -82,6 +95,10 @@ export default class Pack {
     drawFillRect(x, y, width, height, incomCtx) {
         this.commitCtxData(incomCtx);
         this.ctx.fillRect(x, y, width, height);
+    }
+    arcTo(start, end, style, radius = 20) {
+        this.commitCtxData(style);
+        this.ctx.arcTo(start.x, start.y, end.x, end.y, radius);
     }
     drawCircle(x, y, radius, fill, incomCtx, startAngle = 0, endAngle = 2 * Math.PI) {
         this.commitCtxData(incomCtx);
