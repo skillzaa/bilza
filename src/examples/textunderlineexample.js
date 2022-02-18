@@ -1,10 +1,10 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
 import { XAlignment } from "../bilzaa2d/index.js";
-import TextUnderline from "../components/textUnderline.js";
-import FrameCounter from "../components/frameCounter/frameCounter.js";
-import Icon from "../components/icon/icon.js";
+import TextUnderline from "../containers/textUnderline.js";
+import FrameCounter from "../containers/frameCounter/frameCounter.js";
+import Icon from "../containers/icon/icon.js";
 import dashedGrid from "../customTemplates/gridTemplates/dashedGrid.js";
-import { UTFIcons } from "../components/icon/utfIcons.js";
+import { UTFIcons } from "../containers/icon/utfIcons.js";
 let b = new Bilzaa2d();
 let dg = dashedGrid();
 let fc = new FrameCounter();

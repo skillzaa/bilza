@@ -1,5 +1,5 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import Grid from "../components/grid/grid.js";
+import Grid from "../containers/grid/grid.js";
 let b = new Bilzaa2d();
 b.background.color = "#FFF8DC";
 let g = new Grid();

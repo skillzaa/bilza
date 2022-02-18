@@ -121,7 +121,10 @@ this.ctx.stroke();
 public drawText(content:string,x:number,y:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
     //--must
+    //    this.ctx.textBaseline = "middle";
        this.ctx.textBaseline = "top";
+    //    this.ctx.textBaseline = "bottom";
+    //    this.ctx.font = "200px sans-serif";
     // x and y are not merged place directly   
     this.ctx.fillText(content,x,y);
 }
@@ -197,7 +200,10 @@ private commitCtxData(incomCtx:Style){
 
 }
 private setFont(fontSize:number,fontName:string){
-let f = fontSize + "px " + fontName;
+// let f = fontSize + "px " + fontName;
+let f = `${fontSize}px ${fontName}`;
+// let f = `${fontSize}px fantasy`;
+// let f = "200px Charcoal";
 this.ctx.font = f;
 }
 public xPerc(perc :number):number{

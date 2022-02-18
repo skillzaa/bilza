@@ -1,5 +1,5 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import Triangle from "../components/triangle/triangle.js";
+import Triangle from "../containers/triangle/triangle.js";
 let b = new Bilzaa2d();
 b.background.color = "whitesmoke";
 let tri = new Triangle();

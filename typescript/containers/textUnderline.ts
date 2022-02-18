@@ -1,6 +1,5 @@
 import {Component,Pack,Style,Transition,XAlignment} from "../bilzaa2d/index.js";
 
-
 export default class TextUnderline extends Component {
     content :string;
     x :number;

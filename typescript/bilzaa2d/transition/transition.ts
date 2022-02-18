@@ -1,4 +1,5 @@
 import IFrameStart from "./IFrameStart.js";
+
 export default class Transition <T extends IFrameStart>{
 
 private newDataObjFn :() => T;

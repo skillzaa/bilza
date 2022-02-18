@@ -1,5 +1,5 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import Text from "../components/text/text.js";
+import Text from "../containers/text-old/text.js";
 let b = new Bilzaa2d();
 let f = new Text();
 f.compData.data.x = 10;
