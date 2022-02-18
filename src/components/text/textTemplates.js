@@ -8,12 +8,9 @@ export default class TextTemplates {
         f.y = 0;
         f.underline = true;
         f.overline = false;
-        f.fontSize = 100;
         f.shadow = false;
         f.fontColor = color;
         f.underlineColor = color;
-        f.underlineWidth = 10;
-        f.overlineWidth = 10;
         f.overlineColor = color;
         return f;
     }

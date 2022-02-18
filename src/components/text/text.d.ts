@@ -30,6 +30,7 @@ export default class Text extends Component {
     style: Style;
     constructor(content: string);
     private finalX;
+    private finalY;
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;

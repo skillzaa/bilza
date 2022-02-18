@@ -33,18 +33,36 @@ export default class Text extends Component {
         this.style = new Style();
     }
     finalX(p) {
-        let xPix = p.xPerc(this.x);
+        let ret = this.x;
+        ret = p.xPerc(this.x);
         switch (this.xAlignment) {
             case XAlignment.Left:
-                return xPix;
+                // nothing req;
                 break;
             case XAlignment.Mid:
-                return xPix - (this.width(p) / 2);
+                ret -= (this.width(p) / 2);
                 break;
             case XAlignment.Right:
-                return xPix - (this.width(p));
+                ret -= (this.width(p));
                 break;
         }
+        return ret;
+    }
+    finalY(p) {
+        let ret = this.y;
+        ret = p.yPerc(this.y);
+        switch (this.yAlignment) {
+            case YAlignment.Top:
+                // nothing req;
+                break;
+            case YAlignment.Mid:
+                ret -= (this.height(p) / 2);
+                break;
+            case YAlignment.Bottom:
+                ret -= (this.height(p));
+                break;
+        }
+        return ret;
     }
     width(p) {
         return p.charsWidth(this.content, this.style.fontSize, this.style.fontName);
@@ -68,16 +86,15 @@ export default class Text extends Component {
     drawHighlight(p) {
         if (this.highlight == true) {
             this.style.fillStyle = this.highlightColor;
-            p.drawFillRect(this.finalX(p), p.yPerc(this.y), this.width(p), this.height(p), this.style);
+            p.drawFillRect(this.finalX(p), this.finalY(p), this.width(p), this.height(p), this.style);
         }
     }
     drawUnderline(p) {
         if (this.underline == true) {
-            let yperc = p.yPerc(this.y);
             this.style.fillStyle = this.underlineColor;
             this.style.strokeStyle = this.underlineColor;
             this.style.lineWidth = this.underlineWidth;
-            p.drawLine(this.finalX(p), yperc + this.height(p), this.finalX(p) + this.width(p), yperc + this.height(p), this.style);
+            p.drawLine(this.finalX(p), this.finalY(p) + this.height(p), this.finalX(p) + this.width(p), this.finalY(p) + this.height(p), this.style);
         }
     }
     drawOverline(p) {
@@ -86,7 +103,7 @@ export default class Text extends Component {
             this.style.fillStyle = this.overlineColor;
             this.style.strokeStyle = this.overlineColor;
             this.style.lineWidth = this.overlineWidth;
-            p.drawLine(this.finalX(p), yperc, this.finalX(p) + this.width(p), yperc, this.style);
+            p.drawLine(this.finalX(p), this.finalY(p), this.finalX(p) + this.width(p), this.finalY(p), this.style);
         }
     }
     drawContent(p) {
@@ -99,6 +116,6 @@ export default class Text extends Component {
             this.style.shadowOffsetX = this.shadowOffsetX;
             this.style.shadowOffsetY = this.shadowOffsetY;
         }
-        p.drawText(this.content, this.finalX(p), p.yPerc(this.y), this.style);
+        p.drawText(this.content, this.finalX(p), this.finalY(p), this.style);
     }
 }

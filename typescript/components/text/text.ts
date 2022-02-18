@@ -65,20 +65,38 @@ this.shadowOffsetY = 8;
 this.style = new Style();
 }
 private finalX(p :Pack):number{
-    let xPix = p.xPerc(this.x);
-
+let ret = this.x;    
+ret = p.xPerc(this.x);
     switch (this.xAlignment) {
         case XAlignment.Left:
-            return xPix;
+            // nothing req;
             break;
         case XAlignment.Mid:
-            return xPix - (this.width(p)/2);
+            ret -= (this.width(p)/2);
             break;
         case XAlignment.Right:
-            return xPix - (this.width(p));
+            ret -= (this.width(p));
             break;
     
     }
+return ret;    
+}
+private finalY(p :Pack):number{
+let ret = this.y;    
+ret = p.yPerc(this.y);
+    switch (this.yAlignment) {
+        case YAlignment.Top:
+            // nothing req;
+            break;
+        case YAlignment.Mid:
+            ret -= (this.height(p)/2);
+            break;
+        case YAlignment.Bottom:
+            ret -= (this.height(p));
+            break;
+    
+    }
+return ret;    
 }
 width( p: Pack ): number {
 return p.charsWidth(this.content,this.style.fontSize, this.style.fontName);
@@ -86,7 +104,6 @@ return p.charsWidth(this.content,this.style.fontSize, this.style.fontName);
 height(p: Pack): number {
 return p.charsWidth("W",this.style.fontSize, this.style.fontName);
 }
-
 draw(p: Pack): boolean {
     if (this.highlight == true){
         this.drawHighlight(p);
@@ -101,33 +118,29 @@ draw(p: Pack): boolean {
     }
     return true;
 }
-
 private drawHighlight(p :Pack){
     if (this.highlight == true){
         this.style.fillStyle = this.highlightColor;
         p.drawFillRect(
             this.finalX(p),
-            p.yPerc(this.y),
+            this.finalY(p),
             this.width(p),this.height(p),this.style);
     }
 }
-
-
 private drawUnderline(p :Pack){
     if (this.underline == true){
-let yperc = p.yPerc(this.y);        
         this.style.fillStyle = this.underlineColor;
         this.style.strokeStyle = this.underlineColor;
         this.style.lineWidth = this.underlineWidth;
         p.drawLine(
             this.finalX(p),
-            yperc + this.height(p),
-            this.finalX(p) + this.width(p),yperc + this.height(p),
+            this.finalY(p) + this.height(p),
+            this.finalX(p) + this.width(p),
+            this.finalY(p) + this.height(p),
         this.style);
         
     }
 }
-
 private drawOverline(p :Pack){
     if (this.underline == true){
 let yperc = p.yPerc(this.y);        
@@ -136,14 +149,13 @@ let yperc = p.yPerc(this.y);
         this.style.lineWidth = this.overlineWidth;
         p.drawLine(
             this.finalX(p),
-            yperc ,
+            this.finalY(p) ,
             this.finalX(p) + this.width(p),
-            yperc,
+            this.finalY(p),
         this.style);
         
     }
 }
-
 private drawContent(p :Pack){
     this.style.fillStyle = this.fontColor;
     this.style.strokeStyle = this.fontColor;
@@ -157,7 +169,7 @@ private drawContent(p :Pack){
     }
     p.drawText(this.content,
         this.finalX(p),
-        p.yPerc(this.y),
+        this.finalY(p),
         this.style);
 }
 }

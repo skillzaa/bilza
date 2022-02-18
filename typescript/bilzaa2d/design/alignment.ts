@@ -3,11 +3,13 @@
 export enum  XAlignment {
     Left = "LEFT",
     Right = "RIGHT",
-    Mid = "MID"
+    Mid = "MID",
+    Off = "OFF"
 }
 
 export enum  YAlignment {
     Top = "TOP",
     Mid = "MID",
-    Bottom = "BOTTOM"
+    Bottom = "BOTTOM",
+    Off = "OFF"
 }
