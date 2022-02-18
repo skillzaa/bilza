@@ -9,12 +9,12 @@ a.y=5;;
 bilzaa.add_comp(a);
 
 let b = TextTemplates.normal("Blue","blue");
-b.x=5;
+b.x=50;
 b.y=25;;
 bilzaa.add_comp(b);
 
 let c = TextTemplates.shadow("Shadow","blue");
-c.x=5;
+c.x=50;
 c.y=45;;
 bilzaa.add_comp(c);
 

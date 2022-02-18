@@ -8,4 +8,4 @@ export declare enum YAlignment {
     Mid = "MID",
     Bottom = "BOTTOM"
 }
-//# sourceMappingURL=xAlignment.d.ts.map
+//# sourceMappingURL=alignment.d.ts.map

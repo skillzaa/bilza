@@ -1,9 +1,12 @@
 import {Component,Pack,Style,Transition } from "../../bilzaa2d/index.js";
 import TextTemplates from "./textTemplates.js";
 export {TextTemplates};
+import {XAlignment,YAlignment} from "../../bilzaa2d/design/alignment.js";
 //this is simple text / word
 export default class Text extends Component {
 x :number;
+xAlignment:XAlignment;
+yAlignment:YAlignment;
 y :number;
 content:string;
 fontSize:number;
@@ -33,6 +36,8 @@ style:Style;
 constructor(content :string){
 super();
 this.x = 0;
+this.xAlignment = XAlignment.Mid; 
+this.yAlignment = YAlignment.Top; 
 this.y = 0;
 this.content = content;
 this.fontColor = "blue";
@@ -58,6 +63,22 @@ this.shadowOffsetX = 8;
 this.shadowOffsetY = 8;
 
 this.style = new Style();
+}
+private finalX(p :Pack):number{
+    let xPix = p.xPerc(this.x);
+
+    switch (this.xAlignment) {
+        case XAlignment.Left:
+            return xPix;
+            break;
+        case XAlignment.Mid:
+            return xPix - (this.width(p)/2);
+            break;
+        case XAlignment.Right:
+            return xPix - (this.width(p));
+            break;
+    
+    }
 }
 width( p: Pack ): number {
 return p.charsWidth(this.content,this.style.fontSize, this.style.fontName);
@@ -85,7 +106,7 @@ private drawHighlight(p :Pack){
     if (this.highlight == true){
         this.style.fillStyle = this.highlightColor;
         p.drawFillRect(
-            p.xPerc(this.x),
+            this.finalX(p),
             p.yPerc(this.y),
             this.width(p),this.height(p),this.style);
     }
@@ -94,30 +115,29 @@ private drawHighlight(p :Pack){
 
 private drawUnderline(p :Pack){
     if (this.underline == true){
-let xperc = p.xPerc(this.x);        
 let yperc = p.yPerc(this.y);        
         this.style.fillStyle = this.underlineColor;
         this.style.strokeStyle = this.underlineColor;
         this.style.lineWidth = this.underlineWidth;
         p.drawLine(
-            xperc,
+            this.finalX(p),
             yperc + this.height(p),
-            xperc + this.width(p),yperc + this.height(p),
+            this.finalX(p) + this.width(p),yperc + this.height(p),
         this.style);
         
     }
 }
+
 private drawOverline(p :Pack){
     if (this.underline == true){
-let xperc = p.xPerc(this.x);        
 let yperc = p.yPerc(this.y);        
         this.style.fillStyle = this.overlineColor;
         this.style.strokeStyle = this.overlineColor;
         this.style.lineWidth = this.overlineWidth;
         p.drawLine(
-            xperc,
+            this.finalX(p),
             yperc ,
-            xperc + this.width(p),
+            this.finalX(p) + this.width(p),
             yperc,
         this.style);
         
@@ -136,7 +156,7 @@ private drawContent(p :Pack){
         this.style.shadowOffsetY = this.shadowOffsetY;
     }
     p.drawText(this.content,
-        p.xPerc(this.x),
+        this.finalX(p),
         p.yPerc(this.y),
         this.style);
 }

@@ -1,6 +1,5 @@
 import { DrawLayer } from "./design/drawLayer.js";
-import { XAlignment } from "./design/xAlignment.js";
-import { YAlignment } from "./design/yAlignment.js";
+import { XAlignment, YAlignment } from "./design/alignment.js";
 //--This is an Abstract class
 //--Do not use CompData here but in sub-classes extend thatfor their own comp data class.
 export default class Component {

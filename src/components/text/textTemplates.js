@@ -4,8 +4,8 @@ export default class TextTemplates {
     static normal(content, color = "black", fontSize = 40) {
         let f = new Text(content);
         f.fontSize = fontSize;
-        f.x = 2;
-        f.y = 2;
+        f.x = 0;
+        f.y = 0;
         f.underline = true;
         f.overline = false;
         f.fontSize = 100;
@@ -20,8 +20,8 @@ export default class TextTemplates {
     static shadow(content, color = "black", fontSize = 40) {
         let f = new Text(content);
         f.fontSize = fontSize;
-        f.x = 2;
-        f.y = 2;
+        f.x = 0;
+        f.y = 0;
         f.underline = true;
         f.overline = false;
         f.fontSize = 100;

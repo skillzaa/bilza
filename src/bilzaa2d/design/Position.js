@@ -1,5 +1,4 @@
-import { XAlignment } from "./xAlignment.js";
-import { YAlignment } from "./yAlignment.js";
+import { XAlignment, YAlignment } from "./alignment.js";
 export default class Position {
     constructor(x = 0, y = 0) {
         this.xAlignment = XAlignment.Left;

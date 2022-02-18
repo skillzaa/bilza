@@ -1,8 +1,7 @@
 import IDrawable from "./design/IDrawable.js";
 import Pack from "./pack/pack.js";
 import { DrawLayer } from "./design/drawLayer.js";
-import { XAlignment } from "./design/xAlignment.js";
-import { YAlignment } from "./design/yAlignment.js";
+import { XAlignment, YAlignment } from "./design/alignment.js";
 export default class Component implements IDrawable {
     drawLayer: DrawLayer;
     frameStart: number;

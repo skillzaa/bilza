@@ -1,8 +1,11 @@
 import { Component, Pack, Style } from "../../bilzaa2d/index.js";
 import TextTemplates from "./textTemplates.js";
 export { TextTemplates };
+import { XAlignment, YAlignment } from "../../bilzaa2d/design/alignment.js";
 export default class Text extends Component {
     x: number;
+    xAlignment: XAlignment;
+    yAlignment: YAlignment;
     y: number;
     content: string;
     fontSize: number;
@@ -26,6 +29,7 @@ export default class Text extends Component {
     shadowColor: string;
     style: Style;
     constructor(content: string);
+    private finalX;
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;

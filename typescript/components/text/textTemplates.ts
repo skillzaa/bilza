@@ -7,8 +7,8 @@ constructor(){}
 static normal(content :string,color="black",fontSize=40):Text{
 let f = new Text(content);
 f.fontSize = fontSize;
-f.x = 2;
-f.y = 2;
+f.x = 0;
+f.y = 0;
 f.underline = true;
 f.overline = false;
 f.fontSize = 100;
@@ -23,8 +23,8 @@ return f;
 static shadow(content :string,color="black",fontSize=40):Text{
 let f = new Text(content);
 f.fontSize = fontSize;
-f.x = 2;
-f.y = 2;
+f.x = 0;
+f.y = 0;
 f.underline = true;
 f.overline = false;
 f.fontSize = 100;
