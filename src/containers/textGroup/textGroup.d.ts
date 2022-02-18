@@ -1,5 +1,5 @@
 import { Component, Pack, Style } from "../../bilzaa2d/index.js";
-import ContentObject from "./contentObject.js";
+import Word from "../../components/text/text.js";
 import { ObjectData } from "./DataFn.js";
 export default class TextGroup extends Component {
     private compData;
@@ -7,7 +7,7 @@ export default class TextGroup extends Component {
     styleUnderline: Style;
     styleOverline: Style;
     d: ObjectData;
-    contentObjs: ContentObject[];
+    contentObjs: Word[];
     constructor(content: string);
     width(p: Pack): number;
     height(p: Pack): number;
@@ -18,8 +18,10 @@ export default class TextGroup extends Component {
     private drawUnderline;
     private drawOverline;
     private drawContent;
-    getContentObj(content: string): ContentObject[];
+    getContentObj(content: string): Word[];
     setFontColor(lookfor: string, color?: string): void;
     setFontSize(lookfor: string, fontSize?: number): void;
+    underline(index: number): void;
+    overline(index: number): void;
 }
 //# sourceMappingURL=textGroup.d.ts.map

@@ -1,4 +1,5 @@
-export default class Word {
+import { Component } from "../../bilzaa2d/index.js";
+export default class Word extends Component {
     constructor() {
         this.content = "";
         this.fontColor = "blue";

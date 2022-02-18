@@ -1,8 +1,5 @@
 import { Component, Style } from "../../bilzaa2d/index.js";
-import TextTemplates from "./textTemplates.js";
-export { TextTemplates };
-//this is simple text / word
-export default class Text extends Component {
+export default class Word extends Component {
     constructor(content) {
         super();
         this.x = 0;

@@ -1,4 +1,5 @@
-export default class Word {
+import { Component } from "../../bilzaa2d/index.js";
+export default class Word extends Component {
     content: string;
     fontSize: number;
     fontColor: string;
@@ -14,4 +15,4 @@ export default class Word {
     highlightColor: string;
     constructor();
 }
-//# sourceMappingURL=contentObject.d.ts.map
+//# sourceMappingURL=word.d.ts.map

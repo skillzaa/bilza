@@ -1,7 +1,5 @@
 import { Component, Pack, Style } from "../../bilzaa2d/index.js";
-import TextTemplates from "./textTemplates.js";
-export { TextTemplates };
-export default class Text extends Component {
+export default class Word extends Component {
     x: number;
     y: number;
     content: string;
@@ -34,4 +32,4 @@ export default class Text extends Component {
     private drawOverline;
     private drawContent;
 }
-//# sourceMappingURL=text.d.ts.map
+//# sourceMappingURL=word.d.ts.map

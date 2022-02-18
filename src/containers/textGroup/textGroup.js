@@ -1,5 +1,5 @@
 import { Component, Style, Transition } from "../../bilzaa2d/index.js";
-import ContentObject from "./contentObject.js";
+import Word from "../../components/text/text.js";
 import DataFn from "./DataFn.js";
 export default class TextGroup extends Component {
     constructor(content) {
@@ -52,13 +52,12 @@ export default class TextGroup extends Component {
         //         this.width(p),this.height(p),this.styleBorder);
         // }
     }
-    drawUnderline(p) {
-        if (this.d.underline == true) {
-            this.styleUnderline.fillStyle = this.d.underlineColor;
-            this.styleUnderline.strokeStyle = this.d.underlineColor;
-            this.styleUnderline.lineWidth = this.d.underlineWidth;
-            p.drawLine(p.xPerc(this.d.x), p.yPerc(this.d.y) + this.height(p), p.xPerc(this.d.x) + this.width(p), p.yPerc(this.d.y) + this.height(p), this.styleUnderline);
-        }
+    drawUnderline(p, index) {
+        let elm = this.contentObjs[index];
+        // this.styleUnderline.fillStyle = this.d.underlineColor;
+        // this.styleUnderline.strokeStyle = this.d.underlineColor;
+        // this.styleUnderline.lineWidth = this.d.underlineWidth;
+        p.drawLine(p.xPerc(elm), p.yPerc(this.d.y) + this.height(p), p.xPerc(this.d.x) + this.width(p), p.yPerc(this.d.y) + this.height(p), this.styleUnderline);
     }
     drawOverline(p) {
         if (this.d.overline == true) {
@@ -78,7 +77,17 @@ export default class TextGroup extends Component {
             this.styleText.fontSize = elm.fontSize;
             // this.styleText.fontName = this.d.fontName;
             p.drawText(elm.content, x, y, this.styleText);
-            x += (p.charsWidth(elm.content, elm.fontSize, elm.fontName) + this.d.gapBwWords);
+            //---------------------------------------------
+            let width = (p.charsWidth(elm.content, elm.fontSize, elm.fontFamily) + this.d.gapBwWords); //gap is incl
+            //---------------------------------------------
+            this.styleUnderline.fillStyle = elm.underlineColor;
+            this.styleUnderline.strokeStyle = elm.underlineColor;
+            let elmWidth = p.textWidth("W", this.styleText);
+            if (elm.underline == true) {
+                p.drawLine(x, y + elmWidth, x + width, y + elmWidth, this.styleUnderline);
+            }
+            //---------------------------------------------
+            x += width;
         }
     }
     getContentObj(content) {
@@ -86,10 +95,9 @@ export default class TextGroup extends Component {
         let words = content.split(" ");
         for (let i = 0; i < words.length; i++) {
             const item = words[i];
-            let o = new ContentObject();
+            let o = new Word();
             o.fontSize = 100;
             o.fontColor = "red";
-            // o.fontName = "serif";
             o.content = item;
             r.push(o);
         }
@@ -112,4 +120,31 @@ export default class TextGroup extends Component {
             }
         }
     }
+    // underlineFrom(from :number, to :number, color :string){
+    // if (from >= this.contentObjs.length || from < 0 ){
+    //     throw new Error("the value of from should be from 0 upto one less than the total words");
+    // }
+    // if (to < 1 || to >  this.contentObjs.length ){
+    //     throw new Error("the value of to should be from 0 upto one less than the total words");
+    // }
+    underline(index) {
+        if (index < 0 || index > this.contentObjs.length) {
+            throw new Error("The value of index can not be less than zero or greater than the number of words");
+        }
+        this.contentObjs[index].underline = true;
+    }
+    overline(index) {
+        if (index < 0 || index > this.contentObjs.length) {
+            throw new Error("The value of index can not be less than zero or greater than the number of words");
+        }
+        this.contentObjs[index].overline = true;
+    }
 }
+// getContentFromContentObj(){
+//     let s:string= "";
+// for (let i = 0; i < this.contentObjs.length; i++) {
+//     const elm = this.contentObjs[i];
+//     s += elm.content;
+// }
+// return s;
+// }

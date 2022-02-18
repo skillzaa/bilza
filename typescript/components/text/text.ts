@@ -1,101 +1,143 @@
 import {Component,Pack,Style,Transition } from "../../bilzaa2d/index.js";
-
-import DataFn , {ObjectData} from "./DataFn.js";
-
+import TextTemplates from "./textTemplates.js";
+export {TextTemplates};
+//this is simple text / word
 export default class Text extends Component {
-    
-    private compData:Transition<ObjectData>;
-    styleText:Style;
-    styleBackground:Style;
-    styleBorder:Style;
-    styleUnderline:Style;
-    styleOverline:Style;
-    d :ObjectData;
-constructor (){
-    super();
-    this.styleText = new Style();
-    this.styleBackground = new Style();
-    this.styleBorder = new Style();
-    this.styleUnderline = new Style();
-    this.styleOverline = new Style();
-    this.compData = new Transition(DataFn);
-    this.d = this.compData.data;
+x :number;
+y :number;
+content:string;
+fontSize:number;
+fontColor:string;
+fontFamily:string;
+underline:boolean;
+underlineExtend:boolean;
+underlineColor:string;
+underlineWidth:number;
+overline:boolean;
+overlineExtend:boolean;
+overlineColor:string;
+overlineWidth:number;
+
+highlight:boolean;
+highlightExtend:boolean;
+highlightColor:string;
+
+shadow :boolean;
+shadowBlur:number;
+shadowOffsetX:number;
+shadowOffsetY:number;
+shadowColor:string;
+
+style:Style;
+
+constructor(content :string){
+super();
+this.x = 0;
+this.y = 0;
+this.content = content;
+this.fontColor = "blue";
+this.fontSize = 22;
+this.fontFamily = "serif";
+this.underline = false;
+this.underlineExtend = false ;
+this.underlineColor = "black";
+this.underlineWidth = 2;
+this.overlineWidth = 2;
+
+this.overline = false;
+this.overlineExtend = false ;
+this.overlineColor = "black";
+this.highlight = false;
+this.highlightExtend = false ;
+this.highlightColor = "yellow";
+
+this.shadow = true;
+this.shadowBlur = 5;
+this.shadowColor = "grey";
+this.shadowOffsetX = 8;
+this.shadowOffsetY = 8;
+
+this.style = new Style();
 }
 width( p: Pack ): number {
-return p.charsWidth(this.compData.data.content,this.styleText.fontSize, this.styleText.fontName);
+return p.charsWidth(this.content,this.style.fontSize, this.style.fontName);
 }
 height(p: Pack): number {
-return p.charsWidth("W",this.styleText.fontSize, this.styleText.fontName);
-
+return p.charsWidth("W",this.style.fontSize, this.style.fontName);
 }
+
 draw(p: Pack): boolean {
-    this.drawBackground(p);
-    this.drawBorder(p);
-    // p.drawBackground("green");
+    if (this.highlight == true){
+        this.drawHighlight(p);
+    }
     this.drawContent(p);
-    this.drawUnderline(p);
-    this.drawOverline(p);
+    
+    if (this.underline == true){
+        this.drawUnderline(p);
+    }
+    if (this.overline == true){
+        this.drawOverline(p);
+    }
     return true;
 }
-update(frame: number, p: Pack): boolean {
-this.compData.apply(frame); //--important!!
-return true;    
-}
-private drawBackground(p :Pack){
-    if (this.d.showBackground == true){
-        this.styleBackground.fillStyle = this.d.backgroundColor;
+
+private drawHighlight(p :Pack){
+    if (this.highlight == true){
+        this.style.fillStyle = this.highlightColor;
         p.drawFillRect(
-            p.xPerc(this.d.x),
-            p.yPerc(this.d.y),
-            this.width(p),this.height(p),this.styleBackground);
+            p.xPerc(this.x),
+            p.yPerc(this.y),
+            this.width(p),this.height(p),this.style);
     }
 }
-private drawBorder(p :Pack){
-    if (this.d.showBorder == true){
-        this.styleBorder.fillStyle = this.d.borderColor;
-        this.styleBorder.lineWidth = this.d.borderWidth;
-        p.drawRect(
-            p.xPerc(this.d.x),
-            p.yPerc(this.d.y),
-            this.width(p),this.height(p),this.styleBorder);
-    }
-}
+
+
 private drawUnderline(p :Pack){
-    if (this.d.underline == true){
-        this.styleUnderline.fillStyle = this.d.underlineColor;
-        this.styleUnderline.strokeStyle = this.d.underlineColor;
-        this.styleUnderline.lineWidth = this.d.underlineWidth;
+    if (this.underline == true){
+let xperc = p.xPerc(this.x);        
+let yperc = p.yPerc(this.y);        
+        this.style.fillStyle = this.underlineColor;
+        this.style.strokeStyle = this.underlineColor;
+        this.style.lineWidth = this.underlineWidth;
         p.drawLine(
-            p.xPerc(this.d.x),
-        p.yPerc(this.d.y) + this.height(p),
-        p.xPerc(this.d.x) + this.width(p),p.yPerc(this.d.y)+ this.height(p),
-        this.styleUnderline);
+            xperc,
+            yperc + this.height(p),
+            xperc + this.width(p),yperc + this.height(p),
+        this.style);
         
     }
 }
 private drawOverline(p :Pack){
-    if (this.d.overline == true){
-        this.styleUnderline.fillStyle = this.d.underlineColor;
-        this.styleUnderline.strokeStyle = this.d.underlineColor;
-        this.styleUnderline.lineWidth = this.d.underlineWidth;
+    if (this.underline == true){
+let xperc = p.xPerc(this.x);        
+let yperc = p.yPerc(this.y);        
+        this.style.fillStyle = this.overlineColor;
+        this.style.strokeStyle = this.overlineColor;
+        this.style.lineWidth = this.overlineWidth;
         p.drawLine(
-            p.xPerc(this.d.x),
-        p.yPerc(this.d.y),
-        p.xPerc(this.d.x) + this.width(p),p.yPerc(this.d.y),
-        this.styleUnderline);
+            xperc,
+            yperc ,
+            xperc + this.width(p),
+            yperc,
+        this.style);
         
     }
 }
-private drawContent(p :Pack){
-    this.styleText.fillStyle = this.d.fontColor;
-    this.styleText.strokeStyle = this.d.fontColor;
-    this.styleText.fontSize = this.d.fontSize;
-    this.styleText.fontName = this.d.fontName;
 
-    p.drawText(this.d.content,
-        p.xPerc(this.d.x),
-        p.yPerc(this.d.y),
-        this.styleText);
-   
+private drawContent(p :Pack){
+    this.style.fillStyle = this.fontColor;
+    this.style.strokeStyle = this.fontColor;
+    this.style.fontSize = this.fontSize;
+
+    if (this.shadow == true){
+        this.style.shadowBlur = this.shadowBlur;
+        this.style.shadowColor = this.shadowColor;
+        this.style.shadowOffsetX = this.shadowOffsetX;
+        this.style.shadowOffsetY = this.shadowOffsetY;
+    }
+    p.drawText(this.content,
+        p.xPerc(this.x),
+        p.yPerc(this.y),
+        this.style);
 }
 }
