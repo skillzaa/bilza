@@ -1,6 +1,6 @@
 import { FontNames } from "../bilzaa2d/pack/fontNames.js";
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import Triangle from "../containers/triangle/triangle.js";
+import Triangle from "../components/triangle/triangle.js";
 import Text from "../containers/textGroup/textGroup.js";
 
 let b = new Bilzaa2d();

@@ -1,5 +1,5 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
-import FrameCounter from "../containers/frameCounter/frameCounter.js";
+import FrameCounter from "../components/frameCounter/frameCounter.js";
 import dashedGrid from "../components/grid/dashedGrid.js";
 
 

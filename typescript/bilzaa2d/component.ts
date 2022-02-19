@@ -13,7 +13,7 @@ constructor (){
 this.drawLayer = DrawLayer.MiddleGround;
 this.frameStart = 0; //component startand end frames
 this.visible = true;
-this.frameEnd = 5000;
+this.frameEnd = 500;
 }
 width(p: Pack): number {
     return 0;

@@ -2,36 +2,40 @@ import IDrawable from "./design/IDrawable.js";
 import Pack from "./pack/pack.js";
 import {DrawLayer} from "./design/drawLayer.js";
 import Background from "./background.js";
-// import Components from "./components.js";
+
 export default class Bilzaa2d {
 private comps:IDrawable[];
 private pack:Pack;
 private frame :number;
+private interval :number;
+
+public mspf :number; //the size of video
 public totalFrames :number; //the size of video
 public background :Background;
-// public components :Components;
-constructor (){
+
+constructor (totalFrames=50){
 this.pack = new Pack();        
 this.comps = [];  
 this.background = new Background();
-this.totalFrames = 3000; //5min
+this.totalFrames = totalFrames;
 this.frame = 0; 
-// this.components = new Components(this.comps);
+this.interval = 0;
+this.mspf = 1000;
 } 
-//--function arguments shd be arguments and not classes unless required absoliutely.
+
 private draw():boolean{
-let c = this.pack;     
-this.frame += 1; /// importanto 
-//---dont know abt pack.ctx() thing        
-c.clearCanvas();          
-c.drawBackground(this.background.color);          
+    this.frame += 1; /// importanto
+    //stop if completed
+if(this.frame >= this.totalFrames){ this.stop();}     
+this.pack.clearCanvas();          
+this.pack.drawBackground(this.background.color);          
 this.drawBackgroundComps();
 this.drawMiddlegroundComps();
+this.drawForegroundComps();
 return true;
 }
 
 private drawMiddlegroundComps():boolean{ 
-
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
         //--save ctx
@@ -40,11 +44,8 @@ let comp = this.comps[i];
                 this.pack.save();
                 comp.update(this.frame,this.pack);
                 comp.draw(this.pack);
-                 //--keep both unless resetCtx has all items
                 this.pack.restore();
-                // this.pack.ctx().resetCtx();//why needed??
-            }
-                
+            }   
         }
 }
 return true;
@@ -52,33 +53,39 @@ return true;
 private drawBackgroundComps():boolean{    
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];        
-        //--save ctx
-        this.pack.save();
         if (comp.drawLayer == DrawLayer.BackGround){
-                comp.draw(this.pack);
+            this.pack.save();
+            comp.update(this.frame,this.pack);
+            comp.draw(this.pack);
         }
-        //--keep both unless resetCtx has all items
         this.pack.restore();
-        //--no width for background items
 }
 return true;
 }
-add_comp(comp:IDrawable):IDrawable{
-this.comps.push(comp);
-return comp;
+private drawForegroundComps():boolean{    
+for (let i = 0; i < this.comps.length; i++) {
+let comp = this.comps[i];        
+        if (comp.drawLayer == DrawLayer.ForeGround){
+            this.pack.save();
+            comp.update(this.frame,this.pack);
+            comp.draw(this.pack);
+        }
+        this.pack.restore();
 }
+return true;
+}
+
 add(comp:IDrawable):IDrawable{
 this.comps.push(comp);
 return comp;
 }
 start(){
-setInterval(()=>{
-// for (let i = 0; i < this.comps.length; i++) {
-    // const comp = b.comps[i];
-    // comp.x = Math.ceil((Math.random() * 600));
-// }
+this.interval = setInterval(()=>{
 this.draw();
-},1000);
+},this.mspf);
 }
-
+stop(){
+    console.log("stopped");
+    clearInterval(this.interval);
+}
 }//ends

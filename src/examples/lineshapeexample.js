@@ -1,6 +1,6 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
 import Position from "../bilzaa2d/design/Position.js";
-import FrameCounter from "../containers/frameCounter/frameCounter.js";
+import FrameCounter from "../components/frameCounter/frameCounter.js";
 import Lines from "../containers/lines/lines.js";
 import dashedGrid from "../components/grid/dashedGrid.js";
 let b = new Bilzaa2d();

@@ -1,7 +1,7 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
 import { TextTemplates } from "../components/text/text.js";
 import { GridTemplates } from "../components/grid/grid.js";
-import FrameCounter from "../containers/frameCounter/frameCounter.js";
+import FrameCounter from "../components/frameCounter/frameCounter.js";
 let bilzaa = new Bilzaa2d();
 let fc = new FrameCounter();
 bilzaa.add(fc);

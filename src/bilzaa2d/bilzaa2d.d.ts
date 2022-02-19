@@ -4,6 +4,8 @@ export default class Bilzaa2d {
     private comps;
     private pack;
     private frame;
+    private interval;
+    mspf: number;
     totalFrames: number;
     background: Background;
     constructor();
@@ -13,5 +15,6 @@ export default class Bilzaa2d {
     add_comp(comp: IDrawable): IDrawable;
     add(comp: IDrawable): IDrawable;
     start(): void;
+    stop(): void;
 }
 //# sourceMappingURL=bilzaa2d.d.ts.map

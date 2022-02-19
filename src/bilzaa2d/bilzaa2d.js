@@ -1,22 +1,22 @@
 import Pack from "./pack/pack.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import Background from "./background.js";
-// import Components from "./components.js";
 export default class Bilzaa2d {
-    // public components :Components;
     constructor() {
         this.pack = new Pack();
         this.comps = [];
         this.background = new Background();
-        this.totalFrames = 3000; //5min
+        this.totalFrames = 50; //5min
         this.frame = 0;
-        // this.components = new Components(this.comps);
+        this.interval = 0;
+        this.mspf = 1000;
     }
-    //--function arguments shd be arguments and not classes unless required absoliutely.
     draw() {
+        this.frame += 1; /// importanto
+        if (this.frame >= this.totalFrames) {
+            this.stop();
+        }
         let c = this.pack;
-        this.frame += 1; /// importanto 
-        //---dont know abt pack.ctx() thing        
         c.clearCanvas();
         c.drawBackground(this.background.color);
         this.drawBackgroundComps();
@@ -63,12 +63,12 @@ export default class Bilzaa2d {
         return comp;
     }
     start() {
-        setInterval(() => {
-            // for (let i = 0; i < this.comps.length; i++) {
-            // const comp = b.comps[i];
-            // comp.x = Math.ceil((Math.random() * 600));
-            // }
+        this.interval = setInterval(() => {
             this.draw();
-        }, 1000);
+        }, this.mspf);
+    }
+    stop() {
+        console.log("stopped");
+        clearInterval(this.interval);
     }
 } //ends

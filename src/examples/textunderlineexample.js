@@ -1,7 +1,7 @@
 import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
 import { XAlignment } from "../bilzaa2d/index.js";
 import TextUnderline from "../containers/textUnderline.js";
-import FrameCounter from "../containers/frameCounter/frameCounter.js";
+import FrameCounter from "../components/frameCounter/frameCounter.js";
 import Icon from "../containers/icon/icon.js";
 import dashedGrid from "../components/grid/dashedGrid.js";
 import { UTFIcons } from "../containers/icon/utfIcons.js";

@@ -43,8 +43,6 @@ if (this.showBoundingLines == true){
     
 }
 
-
-
 p.beginPath();
 p.moveTo(this.start);
 // p.ctx.arcTo(this.d.a.x,this.d.a.y,this.d.b.x,this.d.b.y,80);
