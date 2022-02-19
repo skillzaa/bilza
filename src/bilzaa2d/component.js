@@ -6,7 +6,8 @@ export default class Component {
     constructor() {
         this.drawLayer = DrawLayer.MiddleGround;
         this.frameStart = 0; //component startand end frames
-        this.frameEnd = 3000;
+        this.visible = true;
+        this.frameEnd = 5000;
     }
     width(p) {
         return 0;

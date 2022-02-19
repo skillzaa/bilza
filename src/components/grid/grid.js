@@ -1,4 +1,6 @@
 import { Component, Style, DrawLayer } from "../../bilzaa2d/index.js";
+import GridTemplates from "./gridTemplates.js";
+export { GridTemplates };
 export default class Grid extends Component {
     constructor() {
         super();

@@ -1,7 +1,5 @@
-import Grid from "../../containers/grid/grid.js";
-
-
-export default function DashedGrid(){
+import Grid from "../grid/grid.js";
+export default function DashedGrid() {
     let g = new Grid();
     g.styleNumber.fillStyle = "red";
     g.styleNumber.shadowOffsetX = 0;
@@ -15,7 +13,5 @@ export default function DashedGrid(){
     g.styleLine.lineDashWidth = 15;
     g.styleLine.lineDashGap = 5;
     // g.show_numbers = true;
-
     return g;
 }
-

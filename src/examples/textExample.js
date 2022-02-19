@@ -45,5 +45,6 @@ middle.y = 50;
 middle.xAlignment = XAlignment.Mid;
 middle.yAlignment = YAlignment.Mid;
 bilzaa.add_comp(middle);
+console.log("middle.keys", middle.add_state());
 console.log("b", bilzaa);
 bilzaa.start();

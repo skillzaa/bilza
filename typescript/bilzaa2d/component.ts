@@ -8,10 +8,12 @@ export default class Component  implements IDrawable {
 public drawLayer : DrawLayer; 
 public frameStart :number;   
 public frameEnd :number;
+public visible :boolean;
 constructor (){
 this.drawLayer = DrawLayer.MiddleGround;
 this.frameStart = 0; //component startand end frames
-this.frameEnd = 3000;
+this.visible = true;
+this.frameEnd = 5000;
 }
 width(p: Pack): number {
     return 0;
