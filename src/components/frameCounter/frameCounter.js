@@ -1,4 +1,4 @@
-import { Component, Style } from "../../bilzaa2d/index.js";
+import { Component, Style } from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 export default class FrameCounter extends Component {
     constructor() {
         super();

@@ -7,7 +7,6 @@ import Transition from "../transition/transition.js";
 import {DrawLayer} from "./design/drawLayer.js";
 import {XAlignment,YAlignment} from "./design/alignment.js";
 import IDrawable from "./design/IDrawable.js";
-import Clip from "./clip/clip.js";
 // export default class Bilzaa2d;
 export {
 Bilzaa2d,
@@ -19,6 +18,5 @@ Transition,
 XAlignment,
 YAlignment,
 Position,
-IDrawable,
-Clip
+IDrawable
 }

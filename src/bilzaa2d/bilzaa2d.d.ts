@@ -1,18 +1,18 @@
 import IDrawable from "./design/IDrawable.js";
 import Background from "./background.js";
 export default class Bilzaa2d {
-    private comps;
+    comps: IDrawable[];
     private pack;
-    private frame;
-    private interval;
-    mspf: number;
-    totalFrames: number;
+    frame: number;
+    interval: number;
+    fps: number;
+    frameEnd: number;
     background: Background;
-    constructor();
+    constructor(frameEnd?: number);
     private draw;
     private drawMiddlegroundComps;
     private drawBackgroundComps;
-    add_comp(comp: IDrawable): IDrawable;
+    private drawForegroundComps;
     add(comp: IDrawable): IDrawable;
     start(): void;
     stop(): void;

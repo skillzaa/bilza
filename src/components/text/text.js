@@ -1,7 +1,7 @@
-import { Component, Style } from "../../bilzaa2d/index.js";
+import { Component, Style } from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 import TextTemplates from "./textTemplates.js";
 export { TextTemplates };
-import { XAlignment, YAlignment } from "../../bilzaa2d/design/alignment.js";
+import { XAlignment, YAlignment } from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 //this is simple text / word
 export default class Text extends Component {
     constructor(content) {

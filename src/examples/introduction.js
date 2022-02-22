@@ -1,4 +1,4 @@
-import Bilzaa2d from "../bilzaa2d/bilzaa2d.js";
+import { Bilzaa2d } from "../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 import { TextTemplates } from "../components/text/text.js";
 import { GridTemplates } from "../components/grid/grid.js";
 import FrameCounter from "../components/frameCounter/frameCounter.js";

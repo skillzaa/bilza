@@ -1,4 +1,4 @@
-import { Component, Pack, Style } from "../../bilzaa2d/index.js";
+import { Component, Pack, Style } from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 import GridTemplates from "./gridTemplates.js";
 export { GridTemplates };
 export default class Grid extends Component {

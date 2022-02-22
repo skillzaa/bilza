@@ -1,20 +1,20 @@
 {
   "name": "bilzaa2d",
-  "version": "0.2.2",
-  "description": "A 2D drawing Engine for educational content",
+  "version": "0.2.4",
+  "description": "A framework for creating javascript presentations, slides and educational content",
   "main": "src/index.js",
-  
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git@github.com:skillzaa/drawEngine.git"
+    "url": "https://github.com/skillzaa/bilzaa2d"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "Bilal Tariq",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/skillzaa/drawEngine/issues"
+    "url": "https://github.com/skillzaa/bilzaa2d/issues"
+  },
+  "dependencies": {
+    "bilzaa2d": "^0.2.3"
   }
 }

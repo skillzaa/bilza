@@ -1,7 +1,7 @@
-import { Component, Pack, Style } from "../../bilzaa2d/index.js";
+import { Component, Pack, Style } from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 import TextTemplates from "./textTemplates.js";
 export { TextTemplates };
-import { XAlignment, YAlignment } from "../../bilzaa2d/design/alignment.js";
+import { XAlignment, YAlignment } from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 export default class Text extends Component {
     x: number;
     xAlignment: XAlignment;

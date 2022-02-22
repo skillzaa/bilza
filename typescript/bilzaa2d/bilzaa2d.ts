@@ -4,29 +4,29 @@ import {DrawLayer} from "./design/drawLayer.js";
 import Background from "./background.js";
 
 export default class Bilzaa2d {
-private comps:IDrawable[];
+comps:IDrawable[];
 private pack:Pack;
-private frame :number;
-private interval :number;
+frame :number;
+interval :number;
 
-public mspf :number; //the size of video
-public totalFrames :number; //the size of video
+public fps :number; //the size of video
+public frameEnd :number; //the size of video
 public background :Background;
 
-constructor (totalFrames=50){
+constructor (frameEnd=50){
 this.pack = new Pack();        
 this.comps = [];  
 this.background = new Background();
-this.totalFrames = totalFrames;
-this.frame = 0; 
+this.frameEnd = frameEnd;
 this.interval = 0;
-this.mspf = 1000;
+this.frame = 0; 
+this.fps = 1000;
 } 
 
 private draw():boolean{
     this.frame += 1; /// importanto
     //stop if completed
-if(this.frame >= this.totalFrames){ this.stop();}     
+if(this.frame >= this.frameEnd){ this.stop();}     
 this.pack.clearCanvas();          
 this.pack.drawBackground(this.background.color);          
 this.drawBackgroundComps();
@@ -82,7 +82,7 @@ return comp;
 start(){
 this.interval = setInterval(()=>{
 this.draw();
-},this.mspf);
+},this.fps);
 }
 stop(){
     console.log("stopped");
