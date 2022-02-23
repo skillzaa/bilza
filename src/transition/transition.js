@@ -5,7 +5,9 @@ export default class Transition {
         this.transitions = [];
     }
     add(frameStart) {
+        //--gen new obj
         let f = this.newDataObjFn();
+        //--mark all properties as null
         for (const key in f) {
             //@ts-expect-error
             f[key] = null;
@@ -21,19 +23,19 @@ export default class Transition {
     /**Keep in mind that when we apply some frame all the frames before that are deleted, since they have elapsed */
     apply(frame) {
         for (let i = this.transitions.length - 1; i >= 0; i--) {
-            const trctxData = this.transitions[i];
-            if (trctxData.frameStart <= frame) {
-                this.merge(trctxData);
-                this.transitions.splice(i, 1);
+            const trs = this.transitions[i];
+            if (trs.frameStart <= frame) {
+                this.merge(trs); //merge
+                this.transitions.splice(i, 1); //delete
             }
         }
     }
     merge(subset) {
         for (const key in this.data) {
             if (subset.hasOwnProperty(key)) {
-                //@ts-expect-error
+                // @ts-expect-error
                 if (subset[key] !== null) {
-                    //@ts-expect-error
+                    // @ts-expect-error
                     this.data[key] = subset[key];
                 }
             }

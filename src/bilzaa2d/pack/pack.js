@@ -1,10 +1,20 @@
 export default class Pack {
-    constructor(canvasId = "bilzaa2d") {
+    constructor(canvasId = "bilzaa2d", width = 0, height = 0) {
         //--put this in a try-catch
         // @ts-expect-error
         this.canvas = document.getElementById(canvasId);
-        this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+        if (width == 0) {
+            this.canvas.width = window.innerWidth;
+        }
+        else {
+            this.canvas.width = width;
+        }
+        if (height == 0) {
+            this.canvas.height = window.innerHeight;
+        }
+        else {
+            this.canvas.width = height;
+        }
         //--put this in a try-catch
         // @ts-expect-error    
         this.ctx = this.canvas.getContext('2d');
