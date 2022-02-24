@@ -2,16 +2,25 @@ import Pack from "./pack/pack.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import Background from "./background.js";
 export default class Bilzaa2d {
-    constructor(frameEnd = 50) {
-        this.pack = new Pack();
+    constructor(canvasId = "bilzaa2d") {
+        this.canvasId = canvasId;
         this.comps = [];
         this.background = new Background();
-        this.frameEnd = frameEnd;
+        this.frameEnd = 500;
+        this.canvasHeight = 0; //result into full screen
+        this.canvasWidth = 0; //result into full screen
         this.interval = 0;
         this.frame = 0;
         this.fps = 1000;
+        this.pack = new Pack(this.canvasWidth, this.canvasHeight, this.canvasId);
+    }
+    init() {
+        this.pack = new Pack(this.canvasWidth, this.canvasHeight, this.canvasId);
     }
     draw() {
+        if (this.pack == null) {
+            throw new Error("bilzaa is not initialized");
+        }
         this.frame += 1; /// importanto
         //stop if completed
         if (this.frame >= this.frameEnd) {

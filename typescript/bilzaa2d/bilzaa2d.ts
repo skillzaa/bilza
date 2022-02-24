@@ -8,22 +8,32 @@ comps:IDrawable[];
 private pack:Pack;
 frame :number;
 interval :number;
+canvasHeight :number;
+canvasWidth :number;
+canvasId :string;
 
 public fps :number; //the size of video
 public frameEnd :number; //the size of video
 public background :Background;
 
-constructor (frameEnd=50){
-this.pack = new Pack();        
+constructor (canvasId="bilzaa2d"){
+this.canvasId = canvasId;    
 this.comps = [];  
 this.background = new Background();
-this.frameEnd = frameEnd;
+this.frameEnd = 500;
+this.canvasHeight = 0; //result into full screen
+this.canvasWidth = 0;//result into full screen
 this.interval = 0;
 this.frame = 0; 
 this.fps = 1000;
+this.pack = new Pack(this.canvasWidth,this.canvasHeight,this.canvasId); 
 } 
-
+init(){
+this.pack = new Pack(this.canvasWidth,this.canvasHeight,this.canvasId);
+}
 private draw():boolean{
+ if(this.pack == null){
+throw new Error("bilzaa is not initialized");}   
     this.frame += 1; /// importanto
     //stop if completed
 if(this.frame >= this.frameEnd){ this.stop();}     

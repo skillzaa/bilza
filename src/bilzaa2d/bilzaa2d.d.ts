@@ -5,10 +5,14 @@ export default class Bilzaa2d {
     private pack;
     frame: number;
     interval: number;
+    canvasHeight: number;
+    canvasWidth: number;
+    canvasId: string;
     fps: number;
     frameEnd: number;
     background: Background;
-    constructor(frameEnd?: number);
+    constructor(canvasId?: string);
+    init(): void;
     private draw;
     private drawMiddlegroundComps;
     private drawBackgroundComps;

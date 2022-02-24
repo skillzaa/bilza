@@ -1,1 +1,0 @@
-{"version":3,"file":"textDataNull.d.ts","sourceRoot":"","sources":["../../../typescript/corecomps/text/textDataNull.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,OAAO,YAAY;IAC7B,UAAU,EAAE,MAAM,CAAE;IACpB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACjB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACjB,OAAO,EAAC,MAAM,GAAG,IAAI,CAAC;gBACd,UAAU,SAAE;CAMvB"}

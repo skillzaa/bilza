@@ -1,1 +1,0 @@
-{"version":3,"file":"rawDataNull.d.ts","sourceRoot":"","sources":["../../../typescript/corecomps/rawComp/rawDataNull.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,OAAO,OAAO;IACxB,UAAU,EAAE,MAAM,CAAE;IACpB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACjB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACjB,OAAO,EAAC,MAAM,GAAG,IAAI,CAAC;gBACd,UAAU,SAAE;CAMvB"}

@@ -1,8 +1,22 @@
 export default class Pack {
-    constructor(canvasId = "bilzaa2d", width = 0, height = 0) {
-        //--put this in a try-catch
-        // @ts-expect-error
-        this.canvas = document.getElementById(canvasId);
+    constructor(width = 0, height = 0, canvasId = "bilzaa2d") {
+        let lookForCanvas = document.getElementById(canvasId);
+        if (lookForCanvas == null) {
+            this.canvas = document.createElement('canvas');
+            let body = document.getElementsByTagName("body")[0];
+            body.appendChild(this.canvas);
+        }
+        else {
+            this.canvas = lookForCanvas;
+        }
+        this.canvas.id = canvasId;
+        this.canvas.width = width;
+        this.canvas.height = height;
+        this.canvas.style.position = "absolute";
+        this.canvas.style.border = "1px solid red";
+        if (this.canvas == null) {
+            throw new Error("canvas not found");
+        }
         if (width == 0) {
             this.canvas.width = window.innerWidth;
         }
@@ -13,11 +27,13 @@ export default class Pack {
             this.canvas.height = window.innerHeight;
         }
         else {
-            this.canvas.width = height;
+            this.canvas.height = height;
         }
-        //--put this in a try-catch
-        // @ts-expect-error    
+        //===========================
         this.ctx = this.canvas.getContext('2d');
+        if (this.ctx == null) {
+            throw new Error("could not obtain drawing context");
+        }
     }
     //--- look at this fn again
     drawBackground(color = "blue") {
