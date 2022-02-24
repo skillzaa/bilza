@@ -9,11 +9,17 @@ export default class Component  implements IDrawable {
 public drawLayer : DrawLayer; 
 public frameStart :number;   
 public frameEnd :number;
-public visible :boolean;
-constructor (){
+public id :string;
+public name :string;
+public display :boolean;
+public selected :boolean;
+constructor (name = "newcomp"){
 this.drawLayer = DrawLayer.MiddleGround;
+this.id = Math.random().toString(36).slice(2);
+this.name = name;
 this.frameStart = 0; //component startand end frames
-this.visible = true;
+this.display = true;
+this.selected = false;
 this.frameEnd = 500;
 }
 width(p: Pack): number {
