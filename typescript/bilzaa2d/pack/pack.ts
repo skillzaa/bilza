@@ -8,16 +8,17 @@ constructor(width=0,height=0,canvasId="bilzaa2d"){
 let lookForCanvas = document.getElementById(canvasId)as HTMLCanvasElement;
 if (lookForCanvas == null){
     this.canvas = document.createElement('canvas');
-    let body = document.getElementsByTagName("body")[0];body.appendChild(this.canvas);
+    let body = document.getElementsByTagName("body")[0];
+    body.appendChild(this.canvas);
 
 }else {
     this.canvas = lookForCanvas;
 }   
-this.canvas.id = canvasId;
+this.canvas.id = canvasId; // Html5 canvas does not have id
 this.canvas.width = width;
 this.canvas.height = height;
-this.canvas.style.position = "absolute";
-this.canvas.style.border = "1px solid red";
+this.canvas.style.position = "static";
+this.canvas.style.border = "1px solid blue";
     
 if (this.canvas == null ){
     throw new Error("canvas not found");

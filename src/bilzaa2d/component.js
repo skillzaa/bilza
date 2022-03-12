@@ -3,10 +3,13 @@ import { XAlignment, YAlignment } from "./design/alignment.js";
 //--This is an Abstract class
 //--Do not use CompData here but in sub-classes extend thatfor their own comp data class.
 export default class Component {
-    constructor() {
+    constructor(name = "newcomp") {
         this.drawLayer = DrawLayer.MiddleGround;
+        this.id = Math.random().toString(36).slice(2);
+        this.name = name;
         this.frameStart = 0; //component startand end frames
-        this.visible = true;
+        this.display = true;
+        this.selected = false;
         this.frameEnd = 500;
     }
     width(p) {

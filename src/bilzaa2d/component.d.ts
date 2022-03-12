@@ -6,8 +6,11 @@ export default class Component implements IDrawable {
     drawLayer: DrawLayer;
     frameStart: number;
     frameEnd: number;
-    visible: boolean;
-    constructor();
+    id: string;
+    name: string;
+    display: boolean;
+    selected: boolean;
+    constructor(name?: string);
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;

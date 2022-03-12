@@ -13,5 +13,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/skillzaa/bilzaa2d/issues"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
   }
 }
