@@ -5,6 +5,6 @@ import Component from "./component.js";
 import Position from "./design/Position.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import { XAlignment, YAlignment } from "./design/alignment.js";
-import Transition from "../transition/transition.js";
+import Transition from "../components/transition/transition.js";
 // export default class Bilzaa2d;
 export { Bilzaa2d, Pack, DrawLayer, Style, Transition, Component, XAlignment, YAlignment, Position };

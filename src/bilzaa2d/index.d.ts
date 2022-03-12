@@ -6,6 +6,6 @@ import Position from "./design/Position.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import { XAlignment, YAlignment } from "./design/alignment.js";
 import IDrawable from "./design/IDrawable.js";
-import Transition from "../transition/transition.js";
+import Transition from "../components/transition/transition.js";
 export { Bilzaa2d, Pack, DrawLayer, Style, Transition, Component, XAlignment, YAlignment, Position, IDrawable };
 //# sourceMappingURL=index.d.ts.map

@@ -1,5 +1,5 @@
 import { LineCapStyle } from "./lineCapStyle.js";
-import { FontNames } from "./fontNames.js";
+import { FontNames } from "../../util/fontNames.js";
 export default class Style {
     frameStart: number;
     fontSize: number;

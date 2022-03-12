@@ -1,5 +1,5 @@
 import { LineCapStyle } from "./lineCapStyle.js";
-import { FontNames } from "./fontNames.js";
+import { FontNames } from "../../util/fontNames.js";
 // these are ctx valuesto be set in caseof any change in ctx
 export default class Style {
     constructor(frameStart = 0) {
