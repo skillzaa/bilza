@@ -1,18 +1,17 @@
 import Transition from "./transition.js";
 function mydataFn(){
-let mydata = {
-frameStart : 0,
-content: "some text",
-x:0,
-y:0
-
-};
+    let mydata = {
+        frameStart : 0,
+        content: "some text",
+        x:0,
+        y:0
+    };
 return mydata;
 }
 
 
 let t = new Transition(mydataFn);
-t.add(1);
+let one = t.add(1);
 
 let two = t.add(2);
 two.content = "making progress";

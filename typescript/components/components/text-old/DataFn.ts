@@ -1,5 +1,6 @@
 import {FontNames} from "../../bilzaa2d/pack/fontNames.js";
-    export class ObjectData {
+
+export class ObjectData {
     frameStart:number;
     x :number;
     y :number;

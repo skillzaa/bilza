@@ -11,14 +11,24 @@
         margin:0;
       }
       body {
-        overflow: hidden;
+        background-color: rgb(48, 43, 43);
       }
-        canvas { position: absolute;  }
+        /* canvas { position: absolute;  } */
+        #canvasContainer {
+          width: 100%;
+          background-color: rgb(14, 82, 17);
+          text-align: center;
+          margin:10px;
+          padding:40px;
+        }
+
       </style>
 </head>
 <body>
+<div id="canvasContainer">
+  <canvas id="bilzaa"></canvas>
 
-   </canvas>
+</div>
 
 <script type="module" src="./src/examples/first.js"></script>   
 

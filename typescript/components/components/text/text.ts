@@ -5,17 +5,21 @@ export {TextTemplates};
 //this is simple text / word
 export default class Text extends Component {
 x :number;
+y :number;
 xAlignment:XAlignment;
 yAlignment:YAlignment;
-y :number;
+
 content:string;
+
 fontSize:number;
 fontColor:string;
 fontFamily:string;
+
 underline:boolean;
 underlineExtend:boolean;
 underlineColor:string;
 underlineWidth:number;
+
 overline:boolean;
 overlineExtend:boolean;
 overlineColor:string;
@@ -30,7 +34,7 @@ shadowBlur:number;
 shadowOffsetX:number;
 shadowOffsetY:number;
 shadowColor:string;
-
+//--just one style for all components will be reset for each use.
 style:Style;
 
 constructor(content :string){
