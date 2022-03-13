@@ -10,6 +10,10 @@ import Transition from "./transition/transition.js";
 import {FontNames} from "./util/fontNames.js";
 //////////////////--COMPONENTS--/////////////////// 
 import Text from "./components/text/text.js";
+import Grid from "./components/grid/grid.js";
+import GridTemplates from "./components/grid/gridTemplates.js";
+
+
 // export default class Bilzaa2d;
 export {
 Bilzaa2d,
@@ -24,5 +28,7 @@ Position,
 IDrawable,
 FontNames,
 
-Text
+Text,
+Grid,
+GridTemplates
 }

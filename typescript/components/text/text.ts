@@ -41,13 +41,6 @@ draw(p: Pack): boolean {
     }
     return true;
 }
-private drawHighlight(p :Pack){
-        this.style.fillStyle = this.d.highlightColor;
-        p.drawFillRect(
-            this.finalX(p),
-            this.finalY(p),
-            this.width(p),this.height(p),this.style);
-}
 
 private drawContent(p :Pack){
     this.style.fillStyle = this.d.fontColor;
@@ -72,41 +65,38 @@ this.compData.apply(frame); //--important!!
 return true;    
 }
 
-private drawBorder(p :Pack){
-    if (this.d.showBorder == true){
-        this.style.fillStyle = this.d.borderColor;
-        this.style.lineWidth = this.d.borderWidth;
-        p.drawRect(
-            p.xPerc(this.d.x),
-            p.yPerc(this.d.y),
-            this.width(p),this.height(p),this.style);
-    }
-}
+
 private drawUnderline(p :Pack){
-    if (this.d.underline == true){
         this.style.fillStyle = this.d.underlineColor;
         this.style.strokeStyle = this.d.underlineColor;
         this.style.lineWidth = this.d.underlineWidth;
         p.drawLine(
-            p.xPerc(this.d.x),
-        p.yPerc(this.d.y) + this.height(p),
-        p.xPerc(this.d.x) + this.width(p),p.yPerc(this.d.y)+ this.height(p),
-        this.style);
-    }
+            this.finalX(p),
+            this.finalY(p) + this.height(p),
+            this.finalX(p) + this.width(p),
+            this.finalY(p) + this.height(p),
+            this.style
+        )
+       
 }
 private drawOverline(p :Pack){
-    if (this.d.overline == true){
-        this.style.fillStyle = this.d.underlineColor;
-        this.style.strokeStyle = this.d.underlineColor;
-        this.style.lineWidth = this.d.underlineWidth;
+        this.style.fillStyle = this.d.overlineColor;
+        this.style.strokeStyle = this.d.overlineColor;
+        this.style.lineWidth = this.d.overlineWidth;
         p.drawLine(
-            p.xPerc(this.d.x),
-        p.yPerc(this.d.y),
-        p.xPerc(this.d.x) + this.width(p),p.yPerc(this.d.y),
-        this.style);
-    }
+            this.finalX(p),
+            this.finalY(p) ,
+            this.finalX(p) + this.width(p),
+            this.finalY(p) ,
+            this.style
+        )
+       
 }
 
+/**
+ * Great function, converts its relative x into real X usinf p.xPerc and then 
+ * add and remove its own width etc. 
+ */
 private finalX(p :Pack):number{
 let ret = this.d.x;    
 ret = p.xPerc(this.d.x);
