@@ -13,6 +13,7 @@ constructor (){
     this.style = new Style();
     this.compData = new Transition(DataFn);
     this.d = this.compData.data;
+    // this.add = this.compData.add;
     this.data = this.compData.data;
 }
 width( p: Pack ): number {
@@ -22,6 +23,9 @@ height(p: Pack): number {
 return p.charsWidth("W",this.style.fontSize, this.style.fontName);
 }
 
+addTransition(frameStart:number){
+return this.compData.add(frameStart);
+}
 
 draw(p: Pack): boolean {
     if (this.d.highlight == true){
@@ -44,35 +48,7 @@ private drawHighlight(p :Pack){
             this.finalY(p),
             this.width(p),this.height(p),this.style);
 }
-// private drawUnderline(p :Pack){
-//     if (this.d.underline == true){
-//         this.style.fillStyle = this.d.underlineColor;
-//         this.style.strokeStyle = this.d.underlineColor;
-//         this.style.lineWidth = this.d.underlineWidth;
-//         p.drawLine(
-//             this.finalX(p),
-//             this.finalY(p) + this.height(p),
-//             this.finalX(p) + this.width(p),
-//             this.finalY(p) + this.height(p),
-//         this.style);
-        
-//     }
-// }
-// private drawOverline(p :Pack){
-//     if (this.underline == true){
-// let yperc = p.yPerc(this.y);        
-//         this.style.fillStyle = this.overlineColor;
-//         this.style.strokeStyle = this.overlineColor;
-//         this.style.lineWidth = this.overlineWidth;
-//         p.drawLine(
-//             this.finalX(p),
-//             this.finalY(p) ,
-//             this.finalX(p) + this.width(p),
-//             this.finalY(p),
-//         this.style);
-        
-//     }
-// }
+
 private drawContent(p :Pack){
     this.style.fillStyle = this.d.fontColor;
     this.style.strokeStyle = this.d.fontColor;
@@ -116,7 +92,6 @@ private drawUnderline(p :Pack){
         p.yPerc(this.d.y) + this.height(p),
         p.xPerc(this.d.x) + this.width(p),p.yPerc(this.d.y)+ this.height(p),
         this.style);
-        
     }
 }
 private drawOverline(p :Pack){
@@ -129,7 +104,6 @@ private drawOverline(p :Pack){
         p.yPerc(this.d.y),
         p.xPerc(this.d.x) + this.width(p),p.yPerc(this.d.y),
         this.style);
-        
     }
 }
 
@@ -146,7 +120,6 @@ ret = p.xPerc(this.d.x);
         case XAlignment.Right:
             ret -= (this.width(p));
             break;
-    
     }
 return ret;    
 }
@@ -163,7 +136,6 @@ ret = p.yPerc(this.d.y);
         case YAlignment.Bottom:
             ret -= (this.height(p));
             break;
-    
     }
 return ret;    
 }

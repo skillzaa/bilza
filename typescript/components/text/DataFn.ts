@@ -43,7 +43,7 @@ this.frameStart =0;
 this.x =0;
 this.y =0;
 this.content = "Text..";
-this.xAlignment = XAlignment.Mid; 
+this.xAlignment = XAlignment.Left; 
 this.yAlignment = YAlignment.Top; 
 //--Fonts    
 this.fontSize = 50;
