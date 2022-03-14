@@ -10,6 +10,7 @@ calcData :CalcData;
 constructor (){
     super();
     this.calcData = new CalcData();
+    //..............
     this.style = new Style();
     this.compData = new Transition(DataFn);
     this.d = this.compData.data;
@@ -76,8 +77,7 @@ contentHeight(p: Pack,perc= 40): number {
  let charHt = p.charsWidth("X",this.d.fontSize, this.d.fontFamily);
 //   console.log("contentHeight",charHt);
 charHt += (charHt/100 * perc);
- return charHt;
-//  return 0;
+return charHt;
 }
 contentWidth( p: Pack ): number {
 // it is this.d.fontFamily and not this.styleg.fontFamily    

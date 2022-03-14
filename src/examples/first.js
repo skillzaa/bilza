@@ -11,7 +11,10 @@ grid.cell_width = 50;
 b.add(grid);
 
 let item = new BoxSys();
-
+item.d.borderWidth = 10;
+item.d.marginWidth = 10;
+item.d.paddingWidth = 10;
+item.d.fontSize = 50;
 //-----------------------
 b.add(item);
 b.draw();
