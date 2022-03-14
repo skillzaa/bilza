@@ -1,26 +1,18 @@
-import { Bilzaa2d, Text, GridTemplates, XAlignment, YAlignment } from "../index.js";
+import { Bilzaa2d, Grid } from "../index.js";
+import BoxSys from "../components/boxSys/boxSys.js";
+
 let b = new Bilzaa2d("bilzaa");
-b.canvasHeight = 300;
-b.canvasWidth = 400;
+b.canvasWidth = 600;
+b.canvasHeight = 400;
 b.init();
-let grid = GridTemplates.dashedGrid();
+// let grid  = GridTemplates.dashedGrid();
+let grid = new Grid();
+grid.cell_width = 50;
 b.add(grid);
-let leftTop = new Text();
-leftTop.d.fontSize = 80;
-leftTop.d.content = "LeftTop";
-leftTop.d.x = 70;
-leftTop.d.y = 10;
-leftTop.d.xAlignment = XAlignment.Right;
-leftTop.d.yAlignment = YAlignment.Top;
-leftTop.d.fontColor = "red";
+
+let item = new BoxSys();
+
 //-----------------------
-leftTop.d.underline = true;
-leftTop.d.underlineColor = "red";
-leftTop.d.overline = true;
-leftTop.d.overlineColor = "green";
-leftTop.d.highlight = true;
-//-----------------------
-b.add(leftTop);
+b.add(item);
 b.draw();
 // b.start();
-console.log(b);

@@ -5,7 +5,8 @@ frameStart:number;
 x :number;
 y :number;
 content :string;
-//--Fonts    
+
+//--Alignment    
 xAlignment = XAlignment.Mid; 
 yAlignment = YAlignment.Top; 
 //--Fonts  
@@ -22,20 +23,24 @@ overline = false;
 overlineExtend = false ;
 overlineColor = "black";
 overlineWidth = 2;
-// //--Highlight
-// highlight = false;
-// highlightExtend = false ;
-// highlightColor = "yellow";
+//--Highlight
+highlight = false;
+highlightExtend = false ;
+highlightColor = "yellow";
 //--Shadow
-shadow = true;
+shadow:boolean;
 shadowBlur = 5;
 shadowColor = "grey";
 shadowOffsetX = 8;
 shadowOffsetY = 8;
+
+//--Margin Padding
+padding:number;
+margin:number;
 //--Borders
-// showBorder = true;
-// borderColor = "black";
-// borderWidth = 8;
+border:boolean;
+borderColor = "black";
+borderWidth = 8;
 
 
 constructor(){
@@ -60,19 +65,23 @@ this.overlineExtend = false ;
 this.overlineColor = "black";
 this.overlineWidth = 2;
 //--Highlight
-// this.highlight = false;
-// this.highlightExtend = false ;
-// this.highlightColor = "yellow";
+this.highlight = false;
+this.highlightColor = "yellow";
 //--Shadow
-this.shadow = true;
+this.shadow = false;
 this.shadowBlur = 5;
 this.shadowColor = "grey";
 this.shadowOffsetX = 8;
 this.shadowOffsetY = 8;
+
+//--MArgin and Padding
+this.margin = 0;
+this.padding = 0;
+
 //--Borders
-// this.showBorder = true;
-// this.borderColor = "black";
-// this.borderWidth = 8;
+this.border = false;
+this.borderColor = "black";
+this.borderWidth = 8;
 
 }
 };

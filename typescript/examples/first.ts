@@ -1,34 +1,31 @@
 
-import {Bilzaa2d,Text,GridTemplates,XAlignment,YAlignment} from "../index.js";
+import {Bilzaa2d,Text,GridTemplates,XAlignment,YAlignment, Grid} from "../index.js";
+import Rectangle from "../components/rectangle/rectangle.js";
 
 let b = new Bilzaa2d("bilzaa");
-b.canvasHeight = 300;
 b.canvasWidth = 400;
+b.canvasHeight = 400;
 b.init();
 
-let grid  = GridTemplates.dashedGrid();
+// let grid  = GridTemplates.dashedGrid();
+let grid  = new Grid();
+grid.cell_width = 50;
 b.add(grid);
 
-let leftTop = new Text();
-leftTop.d.fontSize = 80;
-leftTop.d.content = "LeftTop" ;
-leftTop.d.x = 70 ;
-leftTop.d.y = 10 ;
-leftTop.d.xAlignment = XAlignment.Right;
-leftTop.d.yAlignment = YAlignment.Top;
-leftTop.d.fontColor = "red";
+let rec = new Rectangle();
+rec.d.x = 50;
+rec.d.y = 50;
+rec.d.width = 50;
+rec.d.height = 200;
+rec.d.borderWidth = 50;
+rec.d.margin = 50;
+// b.add(grid);
 //-----------------------
-leftTop.d.underline = true;
-leftTop.d.underlineColor = "red";
+b.add(rec);
 
-leftTop.d.overline = true;
-leftTop.d.overlineColor = "green";
-
-leftTop.d.highlight = true;
-//-----------------------
-b.add(leftTop);
-
+console.log("margin",rec.d.margin);
+console.log("border",rec.d.borderWidth);
+// console.log("width",rec.width());
 
    b.draw();
    // b.start();
-console.log(b);
