@@ -13,9 +13,9 @@ allVisible(content="All Visible",x=0,y=0):Text{
     let g = new Text(DataFn);
     //----very imp
     this.addToArray.push(g);
+    g.d.content = content;
     g.d.x = x;
     g.d.y = y;
-    g.d.content = content;
     //---------set all flags true    
     g.d.flagDrawBorder = true;
     g.d.flagDrawContentArea = true;
@@ -39,6 +39,7 @@ txt(content="text",x=0,y=0,textColor:string="black"):Text{
     let g = new Text(DataFn);
     //----very imp
     this.addToArray.push(g);
+    g.d.content = content;
     g.d.x = x;
     g.d.y = y;
     //---------set all flags true    
@@ -57,6 +58,7 @@ colorBg="black",padding=10):Text{
     let g = new Text(DataFn);
     //----very imp
     this.addToArray.push(g);
+    g.d.content = content;
     g.d.x = x;
     g.d.y = y;
     //---------set all flags true    

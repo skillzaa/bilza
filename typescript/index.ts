@@ -11,8 +11,8 @@ import {FontNames} from "./util/fontNames.js";
 import IFrameStart from "./transition/IFrameStart.js";
 //////////////////--COMPONENTS--/////////////////// 
 import Text from "./components/text/text.js";
-import Grid from "./components/grid/grid.js";
-import GridTemplates from "./components/grid/gridTemplates.js";
+// import Grid from "./components/grid/grid.js";
+// import GridTemplates from "./components/grid/gridTemplates.js";
 
 
 // export default class Bilzaa2d;
@@ -29,7 +29,7 @@ Position,
 IDrawable,
 FontNames,
 
-Text,
-Grid,
-GridTemplates
+// Grid,
+// GridTemplates
+Text
 }
