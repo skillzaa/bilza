@@ -1,7 +1,10 @@
 export default class Transition {
     constructor(newDataObjFn) {
+        //this is the fn that will gen the data    
         this.newDataObjFn = newDataObjFn;
+        //the current data
         this.data = this.newDataObjFn();
+        // the transisiotns
         this.transitions = [];
     }
     add(frameStart) {

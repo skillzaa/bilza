@@ -13,6 +13,7 @@ public id :string;
 public name :string;
 public display :boolean;
 public selected :boolean;
+
 constructor (name = "newcomp"){
 this.drawLayer = DrawLayer.MiddleGround;
 this.id = Math.random().toString(36).slice(2);

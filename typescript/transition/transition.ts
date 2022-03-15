@@ -7,8 +7,11 @@ data:T;
 private transitions:T[];
 
 constructor(newDataObjFn :()=> T){
+//this is the fn that will gen the data    
 this.newDataObjFn = newDataObjFn;    
+//the current data
 this.data = this.newDataObjFn();    
+// the transisiotns
 this.transitions = [];
 }
 
