@@ -8,6 +8,7 @@ import {DrawLayer} from "./bilzaa2d/design/drawLayer.js";
 import IDrawable from "./bilzaa2d/design/IDrawable.js";
 import Transition from "./transition/transition.js";
 import {FontNames} from "./util/fontNames.js";
+import IFrameStart from "./transition/IFrameStart.js";
 //////////////////--COMPONENTS--/////////////////// 
 import Text from "./components/text/text.js";
 import Grid from "./components/grid/grid.js";
@@ -22,7 +23,7 @@ DrawLayer,
 Style,
 Transition,
 Component,
-// XAlignment,
+IFrameStart,
 // YAlignment,
 Position,
 IDrawable,

@@ -1,4 +1,4 @@
-import {Bilzaa2d,Text,GridTemplates,XAlignment,YAlignment, Grid} from "../index.js";
+import {Bilzaa2d,Text,GridTemplates, Grid} from "../index.js";
 import TextTemplates from "../components/text/textTemplates.js";
 
 let b = new Bilzaa2d("bilzaa");
@@ -6,9 +6,9 @@ b.canvasWidth = 600;
 b.canvasHeight = 1400;
 b.init();
 
-let grid  = GridTemplates.dashedGrid();
-grid.cell_width = 50;
-b.add(grid);
+// let grid  = GridTemplates.dashedGrid();
+// grid.cell_width = 50;
+// b.add(grid);
 
 let txt01 = Text.templates().allVisible();
 txt01.d.x = 150;
