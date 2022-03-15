@@ -2,11 +2,11 @@ import IFrameStart from "./IFrameStart.js";
 
 export default class Transition <T extends IFrameStart>{
 
-private newDataObjFn :() => T;
+private newDataObjFn :()=>T;
 data:T;
 private transitions:T[];
 
-constructor(newDataObjFn :()=> T){
+constructor(newDataObjFn :()=>T){
 //this is the fn that will gen the data    
 this.newDataObjFn = newDataObjFn;    
 //the current data

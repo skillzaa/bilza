@@ -10,7 +10,7 @@ data :ObjectData;
 // templates :TextTemplates;
 protected calcData :CalcData;
 
-constructor (content="text..",DataFn :){
+constructor (content="text.."){
     super();
     this.calcData = new CalcData();
     // this.templates = new TextTemplates();
