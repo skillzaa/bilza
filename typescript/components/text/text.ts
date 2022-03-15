@@ -1,21 +1,29 @@
 import {Component,Pack,Style,Transition} from "../../index.js";
 import DataFn , {ObjectData,CalcData} from "./DataFn.js";
+import TextTemplates from "./textTemplates.js";
 
 export default class Text extends Component {
 private compData:Transition<ObjectData>;
 style:Style;
 d :ObjectData;
 data :ObjectData;
+// templates :TextTemplates;
 protected calcData :CalcData;
+
 constructor (content="text.."){
     super();
     this.calcData = new CalcData();
+    // this.templates = new TextTemplates();
     //..............
     this.style = new Style();
     this.compData = new Transition(DataFn);
     this.d = this.compData.data;
     this.d.content = content;
     this.data = this.compData.data;
+}
+static templates():TextTemplates{
+    let r =  new TextTemplates();
+    return r;
 }
 width( p: Pack ): number {
  return  0;

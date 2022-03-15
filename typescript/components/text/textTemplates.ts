@@ -3,8 +3,10 @@ import {FontNames} from "../../index.js";
 
 export default class TextTemplates {
 constructor(){}
-
-static allVisible(content="All Visible",x=0,y=0):Text{
+normal(){
+    console.log("textTemplates normal fn");
+}
+allVisible(content="All Visible",x=0,y=0):Text{
     let g = new Text(content);
     //---x and y = 50;
     g.d.x = x;
@@ -28,7 +30,7 @@ static allVisible(content="All Visible",x=0,y=0):Text{
 
     return g;
 }
-static txt(x=0,y=0,content="text",textColor:string="black"):Text{
+txt(x=0,y=0,content="text",textColor:string="black"):Text{
     let g = new Text(content);
     //---x and y = 50;
     g.d.x = x;
@@ -44,7 +46,7 @@ static txt(x=0,y=0,content="text",textColor:string="black"):Text{
     g.d.fontFamily = FontNames.Helvetica;
     return g;
 }
-static txtBg(x=0,y=0,content="text",textColor:string="yellow",
+txtBg(x=0,y=0,content="text",textColor:string="yellow",
 colorBg="black",padding=10):Text{
     let g = new Text(content);
     //---x and y = 50;
