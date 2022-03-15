@@ -1,8 +1,4 @@
-import IDrawable from "../design/IDrawable.js";
-import Pack from "../pack/pack.js";
-import {DrawLayer} from "../design/drawLayer.js";
-import {XAlignment,YAlignment} from "../design/alignment.js";
-// import Transition from "../components/transition/transition.js";
+import {Style,Pack,IDrawable,DrawLayer,Transition} from "../../index.js";
 //--This is an Abstract class
 //--Do not use CompData here but in sub-classes extend thatfor their own comp data class.
 export default class Component  implements IDrawable {
@@ -13,10 +9,12 @@ public id :string;
 public name :string;
 public display :boolean;
 public selected :boolean;
-
+public style:Style;
 constructor (name = "newcomp"){
 this.drawLayer = DrawLayer.MiddleGround;
 this.id = Math.random().toString(36).slice(2);
+this.style = new Style();
+
 this.name = name;
 this.frameStart = 0; //component startand end frames
 this.display = true;
@@ -36,36 +34,36 @@ draw(p: Pack): boolean {
 update(frame: number, p: Pack): boolean {
 return true;    
 }
-moveX(x :number, p: Pack, xAlign :XAlignment = XAlignment.Mid){
-switch (xAlign) {
-    case XAlignment.Left:
-        return x;
-    break;
-    case XAlignment.Right:
-        return x - (this.width(p));
-    break;
-    case XAlignment.Mid:
-        return x - (this.width(p)/2);
-    break;
-    default:
-        return x;
-        break;
-}
-}
-moveY(y :number, p: Pack, yAlign :YAlignment = YAlignment.Bottom){
-switch (yAlign) {
-    case YAlignment.Bottom:
-        return y;
-    break;
-    case YAlignment.Top:
-        return y - (this.height(p));
-    break;
-    case YAlignment.Mid:
-        return y - (this.height(p)/2);
-    break;
-    default:
-        return y;
-        break;
-}
-}
+// moveX(x :number, p: Pack, xAlign :XAlignment = XAlignment.Mid){
+// switch (xAlign) {
+//     case XAlignment.Left:
+//         return x;
+//     break;
+//     case XAlignment.Right:
+//         return x - (this.width(p));
+//     break;
+//     case XAlignment.Mid:
+//         return x - (this.width(p)/2);
+//     break;
+//     default:
+//         return x;
+//         break;
+// }
+// }
+// moveY(y :number, p: Pack, yAlign :YAlignment = YAlignment.Bottom){
+// switch (yAlign) {
+//     case YAlignment.Bottom:
+//         return y;
+//     break;
+//     case YAlignment.Top:
+//         return y - (this.height(p));
+//     break;
+//     case YAlignment.Mid:
+//         return y - (this.height(p)/2);
+//     break;
+//     default:
+//         return y;
+//         break;
+// }
+// }
 }

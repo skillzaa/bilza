@@ -4,18 +4,17 @@ import TextTemplates from "./textTemplates.js";
 
 export default class Text extends Component {
 private compData:Transition<ObjectData>;
-style:Style;
+
 d :ObjectData;
 data :ObjectData;
 // templates :TextTemplates;
 protected calcData :CalcData;
 
-constructor (content="text.."){
+constructor (content="text..",DataFn :){
     super();
     this.calcData = new CalcData();
     // this.templates = new TextTemplates();
     //..............
-    this.style = new Style();
     this.compData = new Transition(DataFn);
     this.d = this.compData.data;
     this.d.content = content;
