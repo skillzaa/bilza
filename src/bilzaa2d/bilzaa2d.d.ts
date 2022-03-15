@@ -1,5 +1,6 @@
-import IDrawable from "./design/IDrawable.js";
+import { IDrawable } from "../index.js";
 import Background from "./background.js";
+import AddFacade from "./addFacade/addFacade.js";
 export default class Bilzaa2d {
     comps: IDrawable[];
     private pack;
@@ -8,16 +9,16 @@ export default class Bilzaa2d {
     canvasHeight: number;
     canvasWidth: number;
     canvasId: string;
+    add: AddFacade;
     fps: number;
     frameEnd: number;
     background: Background;
-    constructor(canvasId?: string);
+    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: number);
     init(): void;
-    private draw;
+    draw(): boolean;
     private drawMiddlegroundComps;
     private drawBackgroundComps;
     private drawForegroundComps;
-    add(comp: IDrawable): IDrawable;
     start(): void;
     stop(): void;
 }

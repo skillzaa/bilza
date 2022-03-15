@@ -1,7 +1,6 @@
-import IDrawable from "./design/IDrawable.js";
-import Pack from "./pack/pack.js";
-import {DrawLayer} from "./design/drawLayer.js";
+import {DrawLayer,IDrawable,Pack,Component} from "../index.js";
 import Background from "./background.js";
+import AddFacade from "./addFacade/addFacade.js";
 
 export default class Bilzaa2d {
 comps:IDrawable[];
@@ -12,26 +11,28 @@ canvasHeight :number;
 canvasWidth :number;
 canvasId :string;
 
+add :AddFacade; 
 public fps :number; //the size of video
 public frameEnd :number; //the size of video
 public background :Background;
 
-constructor (canvasId="bilzaa2d"){
+constructor (canvasId="bilzaa2d",canvasWidth=800,canvasHeight=350){
 this.canvasId = canvasId;    
 this.comps = [];  
 this.background = new Background();
 this.frameEnd = 500;
-this.canvasHeight = 0; //result into full screen
-this.canvasWidth = 0;//result into full screen
+this.canvasWidth = canvasWidth;//result into full screen
+this.canvasHeight = canvasHeight; //result into full screen
 this.interval = 0;
 this.frame = 0; 
 this.fps = 1000;
 this.pack = new Pack(this.canvasWidth,this.canvasHeight,this.canvasId); 
+this.add = new AddFacade(this.comps);
 } 
 init(){
 this.pack = new Pack(this.canvasWidth,this.canvasHeight,this.canvasId);
 }
-private draw():boolean{
+draw():boolean{
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   
     this.frame += 1; /// importanto
@@ -85,10 +86,11 @@ let comp = this.comps[i];
 return true;
 }
 
-add(comp:IDrawable):IDrawable{
-this.comps.push(comp);
-return comp;
-}
+
+// add(comp:IDrawable):IDrawable{
+// this.comps.push(comp);
+// return comp;
+// }
 start(){
 this.interval = setInterval(()=>{
 this.draw();

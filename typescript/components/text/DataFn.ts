@@ -1,4 +1,4 @@
-import {FontNames,XAlignment,YAlignment} from "../../index.js";
+import {FontNames} from "../../index.js";
 
 export class ObjectData {
 frameStart:number;
