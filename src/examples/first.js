@@ -1,21 +1,15 @@
 import { Bilzaa2d, Grid } from "../index.js";
-import BoxSys from "../components/boxSys/boxSys.js";
-
+import FrameCounter from "../components/frameCounter/frameCounter.js";
 let b = new Bilzaa2d("bilzaa");
-b.canvasWidth = 600;
+b.canvasWidth = 400;
 b.canvasHeight = 400;
 b.init();
 // let grid  = GridTemplates.dashedGrid();
 let grid = new Grid();
 grid.cell_width = 50;
 b.add(grid);
-
-let item = new BoxSys();
-item.d.borderWidth = 10;
-item.d.marginWidth = 10;
-item.d.paddingWidth = 10;
-item.d.fontSize = 50;
-//-----------------------
-b.add(item);
+let fc = new FrameCounter();
+fc.x = 50;
+b.add(fc);
 b.draw();
 // b.start();

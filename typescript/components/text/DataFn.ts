@@ -4,85 +4,51 @@ export class ObjectData {
 frameStart:number;
 x :number;
 y :number;
-content :string;
+//at the heart of a box system is either text or an image at the moment this is text
+content:string; 
+//--width of each 4 rectangles
+widthMargin :number;
+widthBorder :number;
+widthPadding :number;
 
-//--Alignment    
-xAlignment = XAlignment.Mid; 
-yAlignment = YAlignment.Top; 
-//--Fonts  
+flagDrawMargin : boolean;
+flagDrawBorder : boolean;
+flagDrawPadding : boolean;
+flagDrawContentArea : boolean;
+flagDrawText : boolean;
+
+//--colors for each of the 4 blocks and for text
+colorMargin :string;
+colorBorder :string;
+colorPadding :string;
+colorContentBg :string;
+
+fontColor :string;
 fontSize :number;
-fontFamily : FontNames;    
-fontColor : string;    
-//--underline   
-underline = false;
-underlineExtend = false ;
-underlineColor = "black";
-underlineWidth = 2;
-//--Overline
-overline = false;
-overlineExtend = false ;
-overlineColor = "black";
-overlineWidth = 2;
-//--Highlight
-highlight = false;
-highlightExtend = false ;
-highlightColor = "yellow";
-//--Shadow
-shadow:boolean;
-shadowBlur = 5;
-shadowColor = "grey";
-shadowOffsetX = 8;
-shadowOffsetY = 8;
-
-//--Margin Padding
-padding:number;
-margin:number;
-//--Borders
-border:boolean;
-borderColor = "black";
-borderWidth = 8;
-
+fontFamily :FontNames;
 
 constructor(){
 this.frameStart =0;
-this.x =0;
-this.y =0;
-this.content = "Text..";
-this.xAlignment = XAlignment.Left; 
-this.yAlignment = YAlignment.Top; 
-//--Fonts    
-this.fontSize = 50;
-this.fontFamily = FontNames.Courier;    
-this.fontColor =  "black";    
-//--underline   
-this.underline = false;
-this.underlineExtend = false ;
-this.underlineColor = "black";
-this.underlineWidth = 2;
-//--Overline
-this.overline = false;
-this.overlineExtend = false ;
-this.overlineColor = "black";
-this.overlineWidth = 2;
-//--Highlight
-this.highlight = false;
-this.highlightColor = "yellow";
-//--Shadow
-this.shadow = false;
-this.shadowBlur = 5;
-this.shadowColor = "grey";
-this.shadowOffsetX = 8;
-this.shadowOffsetY = 8;
-
-//--MArgin and Padding
-this.margin = 0;
-this.padding = 0;
-
-//--Borders
-this.border = false;
-this.borderColor = "black";
-this.borderWidth = 8;
-
+this.x = 0;
+this.y = 0;
+this.content = "text!"; 
+this.widthMargin = 0;
+this.widthBorder = 0;
+this.widthPadding = 0;
+ 
+this.colorMargin = "red";
+this.colorBorder = "green";
+this.colorPadding = "blue";
+this.colorContentBg = "yellow";
+this.fontColor = "black";
+this.fontSize = 32;
+this.fontFamily = FontNames.Courier;
+//-----
+this.flagDrawMargin = false;
+this.flagDrawBorder = false;
+this.flagDrawPadding = false;
+this.flagDrawContentArea = false;
+this.flagDrawText = true; // kep this true
 }
 };
 
@@ -91,3 +57,34 @@ export default function DataFn ():ObjectData  {
 let td = new ObjectData();
 return td;
 }
+
+
+export class CalcData {
+
+marginX:number;    
+marginY:number;  
+borderX:number;    
+borderY:number;
+paddingX:number;    
+paddingY:number; 
+contentAreaX:number;    
+contentAreaY:number; 
+//-------------------
+contentWidth :number;
+contentHeight :number;
+
+constructor(){
+this.marginX = 0;     
+this.marginY = 0;   
+this.borderX = 0;     
+this.borderY = 0; 
+this.paddingX = 0;     
+this.paddingY = 0;  
+this.contentAreaX = 0;     
+this.contentAreaY = 0;  
+//.........
+this.contentWidth = 0;
+this.contentHeight = 0;
+
+}
+};

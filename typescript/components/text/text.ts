@@ -1,187 +1,148 @@
-import {Component,Pack,Style,Transition,XAlignment,YAlignment } from "../../index.js";
-
-import DataFn , {ObjectData} from "./DataFn.js";
+import {Component,Pack,Style,Transition} from "../../index.js";
+import DataFn , {ObjectData,CalcData} from "./DataFn.js";
 
 export default class Text extends Component {
-    
-    private compData:Transition<ObjectData>;
-    style:Style;
-    d :ObjectData;
-    data :ObjectData;
-constructor (){
+private compData:Transition<ObjectData>;
+style:Style;
+d :ObjectData;
+data :ObjectData;
+protected calcData :CalcData;
+constructor (content="text.."){
     super();
+    this.calcData = new CalcData();
+    //..............
     this.style = new Style();
     this.compData = new Transition(DataFn);
     this.d = this.compData.data;
-    // this.add = this.compData.add;
+    this.d.content = content;
     this.data = this.compData.data;
 }
 width( p: Pack ): number {
- return  ((this.d.margin * 2) + (this.d.padding * 2) + this.contentWidth(p)) ;
-}
-contentWidth( p: Pack ): number {
- this.style.fontSize = this.d.fontSize;
- //--error fontFamily and Name   
- this.style.fontName = this.d.fontFamily;   
- let r =  p.charsWidth(this.d.content,this.style.fontSize, this.style.fontName);
- console.log("content width",r);
- return r;
+ return  0;
 }
 height(p: Pack,perc=0): number {
- let dblMargin = (this.d.margin * 2);
- let dblpadding = (this.d.padding * 2);
- let dblBorder = (this.d.borderWidth * 2);
- let percentInc = ((this.contentHeight(p) / 100) * perc) ;
- let h =   Math.ceil(this.contentHeight(p) + dblMargin + dblpadding + dblBorder+ percentInc);  
- console.log("height",h);
- return h;
-}
-contentHeight(p: Pack,perc=40): number {
-this.style.fontSize = this.d.fontSize;
- //--error fontFamily and Name   
- this.style.fontName = this.d.fontFamily;   
- let charHt = p.charsWidth("X",this.style.fontSize, this.style.fontName);
-  console.log("contentHeight",charHt);
- return charHt;
+ return 0;
 }
 
 addTransition(frameStart:number){
 return this.compData.add(frameStart);
 }
-
-draw(p: Pack): boolean {
-    // if (this.d.highlight == true){
-    //     this.drawHighlight(p);
-    // }
-    this.drawContent(p);
-    
-    if (this.d.underline == true){
-        this.drawUnderline(p);
-    }
-    if (this.d.overline == true){
-        this.drawOverline(p);
-    }
-    if (this.d.border == true){
-        this.drawBorder(p);
-    }
-    this.drawBoundingRectangle(p);
-    return true;
-}
-
-drawContent(p :Pack){
-    this.style.fillStyle = this.d.fontColor;
-    this.style.strokeStyle = this.d.fontColor;
-    this.style.fontSize = this.d.fontSize;
-    this.style.fontName = this.d.fontFamily;
-
-    if (this.d.shadow == true){
-        this.style.shadowBlur = this.d.shadowBlur;
-        this.style.shadowColor = this.d.shadowColor;
-        this.style.shadowOffsetX = this.d.shadowOffsetX;
-        this.style.shadowOffsetY = this.d.shadowOffsetY;
-    }
-    p.drawText(
-        this.d.content,
-        this.finalX(p) + this.d.margin + this.d.borderWidth + this.d.padding,
-        this.finalY(p) + this.d.margin + this.d.borderWidth + this.d.padding,
-        this.style);
-}
-
-
 update(frame: number, p: Pack): boolean {
 this.compData.apply(frame); //--important!!
+//-----update all variables req for draw-and then just draw
+this.calcData.marginX = this.d.x;
+this.calcData.marginY = this.d.y;
+
+this.calcData.borderX = this.d.x + this.d.widthMargin; 
+this.calcData.borderY = this.d.y + this.d.widthMargin;
+ 
+this.calcData.paddingX = this.d.x + this.d.widthMargin + this.d.widthBorder; 
+this.calcData.paddingY = this.d.y + this.d.widthMargin + this.d.widthBorder;
+
+this.calcData.contentAreaX = this.d.x + this.d.widthMargin + this.d.widthBorder + this.d.widthPadding; 
+this.calcData.contentAreaY = this.d.y + this.d.widthMargin + this.d.widthBorder + this.d.widthPadding;
+//...
+this.calcData.contentWidth = this.contentWidth(p);
+this.calcData.contentHeight = this.contentHeight(p);
 return true;    
 }
 
+draw(p: Pack):boolean {
+
+   this.drawMargin(p); 
+   this.drawBorder(p); 
+   this.drawPadding(p); 
+   this.drawContentArea(p); 
+   this.drawText(p); 
+  console.log("Box system...!!!!!");
+return true;    
+}
+drawContentArea(p :Pack){
+    if (this.d.flagDrawContentArea == false) {return;}
+this.style.fillStyle = this.d.colorContentBg;
+// this.style.fillStyle = "pink";
+// this.style.fontName = this.d.fontFamily;
+// this.style.fontSize = this.d.fontSize;
+
+p.drawFillRect(
+    this.calcData.contentAreaX,
+    this.calcData.contentAreaY,
+    this.contentWidth(p),
+    this.contentHeight(p),
+    this.style);
+
+}
+drawText(p :Pack){
+if (this.d.flagDrawText == false) {return;}
+
+    this.style.fillStyle = this.d.fontColor;
+    this.style.fontSize = this.d.fontSize;
+    this.style.fontName = this.d.fontFamily;
+    p.drawText(this.d.content,
+        this.calcData.contentAreaX,
+        this.calcData.contentAreaY,
+        this.style);    
+}
+contentHeight(p: Pack,perc= 40): number {
+ let charHt = p.charsWidth("X",this.d.fontSize, this.d.fontFamily);
+//   console.log("contentHeight",charHt);
+charHt += (charHt/100 * perc);
+return charHt;
+}
+contentWidth( p: Pack ): number {
+// it is this.d.fontFamily and not this.styleg.fontFamily    
+let r = p.charsWidth(this.d.content,this.d.fontSize, this.d.fontFamily);
+// console.log("content width",r);
+return r;
+// return 50;
+}
+drawPadding(p :Pack){
+    if (this.d.flagDrawPadding == false) {return;}    
+this.style.fillStyle = this.d.colorPadding;    
+p.drawFillRect(
+    this.calcData.paddingX,
+    this.calcData.paddingY,
+    (this.d.widthPadding * 2) + this.calcData.contentWidth,
+    (this.d.widthPadding * 2) + this.calcData.contentHeight,
+    this.style);
+}
+
 drawBorder(p :Pack){
-        this.style.fillStyle = this.d.borderColor;
-        this.style.strokeStyle = this.d.borderColor;
-        // this.style.lineWidth = this.d.borderWidth;
-        this.style.lineWidth = 50;
-        let boderX = this.finalX(p) + this.d.margin + (this.d.borderWidth/2);
-        console.log("boderX==",boderX); 
-        p.drawRect(
-            0 + 50 + 35 ,
-            (this.finalY(p) + this.d.margin) + (this.d.borderWidth/2),
-            this.contentWidth(p) + (this.d.padding * 2) ,
-            this.height(p),
-            this.style
-        );
-        // console.log("char height",p.ctx.measureText("X").width);
-       
+    if (this.d.flagDrawBorder == false) {return;}    
+this.style.fillStyle = this.d.colorBorder;    
+p.drawFillRect(
+    this.calcData.borderX,
+    this.calcData.borderY,
+    ((this.d.widthBorder*2)+(this.d.widthPadding*2)+ this.calcData.contentWidth),
+    //this.calcData.contentWidth should be contentHeight
+    ((this.d.widthBorder*2)+(this.d.widthPadding*2)+ this.calcData.contentHeight),
+    this.style);
 }
-drawBoundingRectangle(p :Pack){
-    this.style.fillStyle = "blue"; //change later
-    this.style.strokeStyle = "blue";//change later
-    this.style.lineWidth = 1;//change later
-    p.drawRect(
-        this.finalX(p) ,
-        this.finalY(p),
-        this.width(p),
-        this.height(p),
-        this.style
-    );
+drawMargin(p :Pack){
+    //it does not get drawn but is still counted in the calculations
+    if (this.d.flagDrawMargin == false) {return;}    
+this.style.fillStyle = this.d.colorMargin; 
+this.style.strokeStyle = this.d.colorMargin; 
+this.style.lineWidth = this.d.widthMargin; 
+p.drawFillRect(
+    this.calcData.marginX,
+    this.calcData.marginY,
+    ((this.d.widthMargin*2)+(this.d.widthBorder*2)+(this.d.widthPadding*2)+ this.calcData.contentWidth),
+    ((this.d.widthMargin*2)+(this.d.widthBorder*2)+(this.d.widthPadding*2)+ this.calcData.contentHeight),
+    this.style);
 }
-drawUnderline(p :Pack){
-        this.style.fillStyle = this.d.underlineColor;
-        this.style.strokeStyle = this.d.underlineColor;
-        this.style.lineWidth = this.d.underlineWidth;
-        p.drawLine(
-            this.finalX(p),
-            this.finalY(p) + this.height(p),
-            this.finalX(p) + this.width(p),
-            this.finalY(p) + this.height(p),
-            this.style
-        )
-       
-}
-drawOverline(p :Pack){
-        this.style.fillStyle = this.d.overlineColor;
-        this.style.strokeStyle = this.d.overlineColor;
-        this.style.lineWidth = this.d.overlineWidth;
-        p.drawLine(
-            this.finalX(p),
-            this.finalY(p) ,
-            this.finalX(p) + this.width(p),
-            this.finalY(p) ,
-            this.style
-        )
-       
-}
-/**
- * Great function, converts its relative x into real X usinf p.xPerc and then 
- * add and remove its own width etc. 
- */
-private finalX(p :Pack):number{
-let ret = this.d.x;    
-ret = p.xPerc(this.d.x);
-    switch (this.d.xAlignment) {
-        case XAlignment.Left:
-            // nothing req;
-            break;
-        case XAlignment.Mid:
-            ret -= (this.width(p)/2);
-            break;
-        case XAlignment.Right:
-            ret -= (this.width(p));
-            break;
-    }
-return Math.floor(ret);    
-}
-private finalY(p :Pack):number{
-let ret = this.d.y;    
-ret = p.yPerc(this.d.y);
-    switch (this.d.yAlignment) {
-        case YAlignment.Top:
-            // nothing req;
-            break;
-        case YAlignment.Mid:
-            ret -= (this.height(p)/2);
-            break;
-        case YAlignment.Bottom:
-            ret -= (this.height(p));
-            break;
-    }
-return Math.floor(ret);    
-}
+
+// drawBoundingRectangle(p :Pack){
+//     this.style.fillStyle = "blue"; //change later
+//     this.style.strokeStyle = "blue";//change later
+//     this.style.lineWidth = 1;//change later
+//     p.drawRect(
+//         p.xPerc(this.d.x) ,
+//         p.xPerc(this.d.y) ,
+//         this.width(p),
+//         this.height(p),
+//         this.style
+//     );
+// }    
+   
 }

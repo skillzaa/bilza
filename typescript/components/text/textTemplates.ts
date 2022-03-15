@@ -1,54 +1,68 @@
 import Text from "./text.js";
-import {XAlignment,YAlignment} from "../../index.js";
+import {FontNames} from "../../index.js";
 
 export default class TextTemplates {
 constructor(){}
 
-static lineMid(content :string,y :number=0,color="black",fontSize=45):Text {
-let f = new Text(content);
-f.y = y;
-f.x=  50; //mid
-f.xAlignment = XAlignment.Mid;
-f.fontSize = fontSize;
-f.underline = false;
-f.overline = false;
-f.shadow = false;
-f.fontColor = color;
-return f;
-}
-static h1Mid(content :string="New Text",fontSize=80,fontColor :string ="red", underlineColor :string = "green",y=15):Text{
-let f = new Text(content);
-f.fontColor = fontColor;
-f.underlineColor = underlineColor;
-f.x=50;
-f.y= y; //incase want to move y
-f.fontSize = fontSize;
-f.underline = true;
-f.underlineColor = "green";
-f.underlineWidth = 8;
-f.shadow = true;
-f.shadowOffsetX = 10;
-f.shadowOffsetY = 10;
-f.shadowBlur = 8;
-f.xAlignment = XAlignment.Mid;
-f.yAlignment = YAlignment.Mid;
-return f;
-}
-static shadow(content :string,color="black",fontSize=40):Text{
-let f = new Text(content);
-f.fontSize = fontSize;
-f.x = 0;
-f.y = 0;
-f.underline = true;
-f.overline = false;
-f.fontSize = 100;
-f.fontColor = color;
-f.underlineColor = color;
-f.underlineWidth = 10;
-f.overlineWidth = 10;
-f.overlineColor = color;
-return f;
-}
+static allVisible(content="All Visible",x=0,y=0):Text{
+    let g = new Text(content);
+    //---x and y = 50;
+    g.d.x = x;
+    g.d.y = y;
+    //---------set all flags true    
+    g.d.flagDrawBorder = true;
+    g.d.flagDrawContentArea = true;
+    g.d.flagDrawMargin = true;
+    g.d.flagDrawPadding = true;
+    g.d.flagDrawText = true;
+    //---------set colors
+    g.d.colorMargin = "red";
+    g.d.colorBorder = "green";
+    g.d.colorPadding = "blue";
+    g.d.colorContentBg = "black";
+    g.d.fontColor = "yellow";
+    //---widen all
+    g.d.widthBorder = 10;
+    g.d.widthMargin = 10;
+    g.d.widthPadding = 10;
 
+    return g;
+}
+static txt(x=0,y=0,content="text",textColor:string="black"):Text{
+    let g = new Text(content);
+    //---x and y = 50;
+    g.d.x = x;
+    g.d.y = y;
+    //---------set all flags true    
+    g.d.flagDrawBorder = false;
+    g.d.flagDrawContentArea = false;
+    g.d.flagDrawMargin = false;
+    g.d.flagDrawPadding = false;
+    g.d.flagDrawText = true; // keep it true
+    //..
+    g.d.fontColor = textColor;
+    g.d.fontFamily = FontNames.Helvetica;
+    return g;
+}
+static txtBg(x=0,y=0,content="text",textColor:string="yellow",
+colorBg="black",padding=10):Text{
+    let g = new Text(content);
+    //---x and y = 50;
+    g.d.x = x;
+    g.d.y = y;
+    //---------set all flags true    
+    g.d.flagDrawBorder = false;
+    g.d.flagDrawContentArea = true;
+    g.d.flagDrawMargin = false;
+    g.d.flagDrawPadding = true;
+    g.d.flagDrawText = true; // keep it true
+    //...
+    g.d.widthPadding = padding;
+    g.d.colorContentBg = colorBg; 
+    g.d.colorPadding = colorBg; 
+    g.d.fontColor = textColor;
+    g.d.fontFamily = FontNames.Helvetica;
+    return g;
+}
 
 }
