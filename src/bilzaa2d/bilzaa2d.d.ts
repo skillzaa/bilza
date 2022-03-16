@@ -19,6 +19,7 @@ export default class Bilzaa2d {
     private drawMiddlegroundComps;
     private drawBackgroundComps;
     private drawForegroundComps;
+    insert(comp: IDrawable): IDrawable;
     start(): void;
     stop(): void;
 }

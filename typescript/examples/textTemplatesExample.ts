@@ -1,13 +1,14 @@
-import {Bilzaa2d,Text} from "../index.js";
-
+import {Bilzaa2d,Grid} from "../index.js";
+import DataFn from "../components/grid/DataFn.js";
 let b = new Bilzaa2d("bilzaa");
 b.canvasWidth = 600;
 b.canvasHeight = 1400;
 b.init();
 
 // let grid  = GridTemplates.dashedGrid();
+let grid  = new Grid(DataFn);
 // grid.cell_width = 50;
-// b.add(grid);
+b.insert(grid);
 
 let txt01 =  b.add.textTempl.allVisible("Is it final?");
 txt01.d.x = 150;

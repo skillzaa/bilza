@@ -11,7 +11,7 @@ import {FontNames} from "./util/fontNames.js";
 import IFrameStart from "./transition/IFrameStart.js";
 //////////////////--COMPONENTS--/////////////////// 
 import Text from "./components/text/text.js";
-// import Grid from "./components/grid/grid.js";
+import Grid from "./components/grid/grid.js";
 // import GridTemplates from "./components/grid/gridTemplates.js";
 
 
@@ -29,7 +29,7 @@ Position,
 IDrawable,
 FontNames,
 
-// Grid,
+Grid,
 // GridTemplates
 Text
 }

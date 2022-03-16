@@ -87,10 +87,10 @@ return true;
 }
 
 
-// add(comp:IDrawable):IDrawable{
-// this.comps.push(comp);
-// return comp;
-// }
+insert(comp:IDrawable):IDrawable{
+this.comps.push(comp);
+return comp;
+}
 start(){
 this.interval = setInterval(()=>{
 this.draw();
