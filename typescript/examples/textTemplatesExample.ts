@@ -13,6 +13,8 @@ let txt01 =  b.add.textTempl.allVisible("Is it final?");
 txt01.d.x = 150;
 txt01.d.y = 150;
 let txt = b.add.textTempl.txt("oyaaa mumboo jumboo",5,10);
+txt.d.fontFamily =   txt.fontFamilyNames.CourierNew;
+
 let txtBg = b.add.textTempl.txtBg("I guess it is",5,50);
 
    b.draw();

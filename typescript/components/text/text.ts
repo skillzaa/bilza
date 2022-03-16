@@ -1,29 +1,20 @@
-import {Component,Pack,Transition} from "../../index.js";
-import DataFn , {ObjectData,CalcData} from "./DataFn.js";
-// import TextTemplates from "./textTemplates.js";
+import {Component,Pack,FontNames} from "../../index.js";
+import {ObjectData,CalcData} from "./DataFn.js";
 
 export default class Text extends Component<ObjectData> {
-// private compData:Transition<ObjectData>;
 
-// d :ObjectData;
-// data :ObjectData;
-// templates :TextTemplates;
 protected calcData :CalcData;
+//--This is how to expose another object from inside
+public fontFamilyNames :typeof FontNames;
 
 constructor (DataFn :()=>ObjectData){
     super(DataFn);
     this.calcData = new CalcData();
-    // this.templates = new TextTemplates();
-    //..............
-    // this.compData = new Transition(DataFn);
-    // this.d = this.compData.data;
-    // this.d.content = content;
-    // this.data = this.compData.data;
+    //--Exposes an Enum
+    this.fontFamilyNames = FontNames;
 }
-// static templates():TextTemplates{
-//     let r =  new TextTemplates();
-//     return r;
-// }
+/////////////////////////////////////////
+/////////////////////////////////////////
 width( p: Pack ): number {
  return  0;
 }
@@ -31,9 +22,6 @@ height(p: Pack,perc=0): number {
  return 0;
 }
 
-addTransition(frameStart:number){
-return this.compData.add(frameStart);
-}
 update(frame: number, p: Pack): boolean {
 this.compData.apply(frame); //--important!!
 //-----update all variables req for draw-and then just draw
@@ -55,7 +43,6 @@ return true;
 }
 
 draw(p: Pack):boolean {
-
    this.drawMargin(p); 
    this.drawBorder(p); 
    this.drawPadding(p); 
@@ -67,9 +54,6 @@ return true;
 drawContentArea(p :Pack){
     if (this.d.flagDrawContentArea == false) {return;}
 this.style.fillStyle = this.d.colorContentBg;
-// this.style.fillStyle = "pink";
-// this.style.fontName = this.d.fontFamily;
-// this.style.fontSize = this.d.fontSize;
 
 p.drawFillRect(
     this.calcData.contentAreaX,

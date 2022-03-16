@@ -1,5 +1,5 @@
 import {FontNames} from "../../index.js";
-
+ 
 export class ObjectData {
 frameStart:number;
 x :number;

@@ -37,6 +37,10 @@ width(p: Pack): number {
 height(p: Pack): number {
     return 0;
 }
+
+addTransition(frameStart:number){
+return this.compData.add(frameStart);
+}
 // brilent do not send frame in draw args just send frame in update-
 draw(p: Pack): boolean {
     return true;
