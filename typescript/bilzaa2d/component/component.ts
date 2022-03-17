@@ -29,7 +29,7 @@ this.style = new Style();
 this.frameStart = 0; //component startand end frames
 this.display = true;
 this.selected = false;
-this.frameEnd = 500;
+this.frameEnd = 3600;
 }
 width(p: Pack): number {
     return 0;
