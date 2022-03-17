@@ -16,10 +16,11 @@ constructor (DataFn :()=>ObjectData){
 /////////////////////////////////////////
 /////////////////////////////////////////
 width( p: Pack ): number {
- return  0;
+ return  ( (this.d.widthMargin *2) +(this.d.widthPadding *2) + this.calcData.contentWidth);
 }
 height(p: Pack,perc=0): number {
- return 0;
+return  ( (this.d.widthMargin *2) +(this.d.widthPadding *2) + this.calcData.contentHeight);
+
 }
 
 update(frame: number, p: Pack): boolean {
@@ -48,6 +49,7 @@ draw(p: Pack):boolean {
    this.drawPadding(p); 
    this.drawContentArea(p); 
    this.drawText(p); 
+   this.drawBoundingRectangle(p);
   console.log("Box system...!!!!!");
 return true;    
 }
@@ -123,17 +125,17 @@ p.drawFillRect(
     this.style);
 }
 
-// drawBoundingRectangle(p :Pack){
-//     this.style.fillStyle = "blue"; //change later
-//     this.style.strokeStyle = "blue";//change later
-//     this.style.lineWidth = 1;//change later
-//     p.drawRect(
-//         p.xPerc(this.d.x) ,
-//         p.xPerc(this.d.y) ,
-//         this.width(p),
-//         this.height(p),
-//         this.style
-//     );
-// }    
-   
+drawBoundingRectangle(p :Pack,color="red",lineWidth=4){
+if(this.d.flagDrawBoundingRectangle == false){return;}    
+    this.style.fillStyle = color; //change later
+    this.style.strokeStyle = color;//change later
+    this.style.lineWidth = lineWidth;//change later
+    p.drawRect(
+        this.d.x ,
+        this.d.y ,
+        this.width(p),
+        this.height(p),
+        this.style
+    );
+}       
 }

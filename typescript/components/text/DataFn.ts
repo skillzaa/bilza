@@ -15,6 +15,7 @@ flagDrawMargin : boolean;
 flagDrawBorder : boolean;
 flagDrawPadding : boolean;
 flagDrawContentArea : boolean;
+flagDrawBoundingRectangle : boolean;
 flagDrawText : boolean;
 
 //--colors for each of the 4 blocks and for text
@@ -48,6 +49,7 @@ this.flagDrawMargin = false;
 this.flagDrawBorder = false;
 this.flagDrawPadding = false;
 this.flagDrawContentArea = false;
+this.flagDrawBoundingRectangle = false;
 this.flagDrawText = true; // kep this true
 }
 };

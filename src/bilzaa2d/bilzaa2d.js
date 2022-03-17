@@ -31,16 +31,16 @@ export default class Bilzaa2d {
         }
         this.pack.clearCanvas();
         this.pack.drawBackground(this.background.color);
-        this.drawBackgroundComps();
-        this.drawMiddlegroundComps();
-        this.drawForegroundComps();
+        this.drawByDrawLayer(DrawLayer.BackGround);
+        this.drawByDrawLayer(DrawLayer.ForeGround);
+        this.drawByDrawLayer(DrawLayer.MiddleGround);
         return true;
     }
-    drawMiddlegroundComps() {
+    drawByDrawLayer(drawLayer) {
         for (let i = 0; i < this.comps.length; i++) {
             let comp = this.comps[i];
             //--save ctx
-            if (comp.drawLayer == DrawLayer.MiddleGround) {
+            if (comp.drawLayer == drawLayer) {
                 if (comp.frameStart < this.frame && comp.frameEnd > this.frame) {
                     this.pack.save();
                     comp.update(this.frame, this.pack);
@@ -48,30 +48,6 @@ export default class Bilzaa2d {
                     this.pack.restore();
                 }
             }
-        }
-        return true;
-    }
-    drawBackgroundComps() {
-        for (let i = 0; i < this.comps.length; i++) {
-            let comp = this.comps[i];
-            if (comp.drawLayer == DrawLayer.BackGround) {
-                this.pack.save();
-                comp.update(this.frame, this.pack);
-                comp.draw(this.pack);
-            }
-            this.pack.restore();
-        }
-        return true;
-    }
-    drawForegroundComps() {
-        for (let i = 0; i < this.comps.length; i++) {
-            let comp = this.comps[i];
-            if (comp.drawLayer == DrawLayer.ForeGround) {
-                this.pack.save();
-                comp.update(this.frame, this.pack);
-                comp.draw(this.pack);
-            }
-            this.pack.restore();
         }
         return true;
     }

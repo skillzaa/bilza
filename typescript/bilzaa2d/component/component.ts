@@ -48,39 +48,6 @@ draw(p: Pack): boolean {
 update(frame: number, p: Pack): boolean {
 return true;    
 }
-// chqCollission(x :number, y :number){
-// if (x > this.d.x && x < this.width())
-// }
-// moveX(x :number, p: Pack, xAlign :XAlignment = XAlignment.Mid){
-// switch (xAlign) {
-//     case XAlignment.Left:
-//         return x;
-//     break;
-//     case XAlignment.Right:
-//         return x - (this.width(p));
-//     break;
-//     case XAlignment.Mid:
-//         return x - (this.width(p)/2);
-//     break;
-//     default:
-//         return x;
-//         break;
-// }
-// }
-// moveY(y :number, p: Pack, yAlign :YAlignment = YAlignment.Bottom){
-// switch (yAlign) {
-//     case YAlignment.Bottom:
-//         return y;
-//     break;
-//     case YAlignment.Top:
-//         return y - (this.height(p));
-//     break;
-//     case YAlignment.Mid:
-//         return y - (this.height(p)/2);
-//     break;
-//     default:
-//         return y;
-//         break;
-// }
-// }
+
+
 }

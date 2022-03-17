@@ -17,9 +17,7 @@ export default class Bilzaa2d {
     constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: number);
     init(): void;
     draw(): boolean;
-    private drawMiddlegroundComps;
-    private drawBackgroundComps;
-    private drawForegroundComps;
+    private drawByDrawLayer;
     chqCollision(x: number, y: number): IDrawable | null;
     insert(comp: IDrawable): IDrawable;
     start(): void;

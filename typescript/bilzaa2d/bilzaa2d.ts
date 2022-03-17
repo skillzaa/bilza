@@ -42,17 +42,16 @@ throw new Error("bilzaa is not initialized");}
 if(this.frame >= this.frameEnd){ this.stop();}     
 this.pack.clearCanvas();          
 this.pack.drawBackground(this.background.color);          
-this.drawBackgroundComps();
-this.drawMiddlegroundComps();
-this.drawForegroundComps();
+this.drawByDrawLayer(DrawLayer.BackGround);
+this.drawByDrawLayer(DrawLayer.ForeGround);
+this.drawByDrawLayer(DrawLayer.MiddleGround);
 return true;
 }
-
-private drawMiddlegroundComps():boolean{ 
+private drawByDrawLayer(drawLayer :DrawLayer):boolean{ 
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
         //--save ctx
-        if (comp.drawLayer == DrawLayer.MiddleGround ){
+        if (comp.drawLayer == drawLayer ){
             if (comp.frameStart < this.frame && comp.frameEnd > this.frame ){
                 this.pack.save();
                 comp.update(this.frame,this.pack);
@@ -60,30 +59,6 @@ let comp = this.comps[i];
                 this.pack.restore();
             }   
         }
-}
-return true;
-}
-private drawBackgroundComps():boolean{    
-for (let i = 0; i < this.comps.length; i++) {
-let comp = this.comps[i];        
-        if (comp.drawLayer == DrawLayer.BackGround){
-            this.pack.save();
-            comp.update(this.frame,this.pack);
-            comp.draw(this.pack);
-        }
-        this.pack.restore();
-}
-return true;
-}
-private drawForegroundComps():boolean{    
-for (let i = 0; i < this.comps.length; i++) {
-let comp = this.comps[i];        
-        if (comp.drawLayer == DrawLayer.ForeGround){
-            this.pack.save();
-            comp.update(this.frame,this.pack);
-            comp.draw(this.pack);
-        }
-        this.pack.restore();
 }
 return true;
 }
