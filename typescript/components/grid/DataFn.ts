@@ -1,8 +1,8 @@
 
 export class ObjectData {
 frameStart:number;
-x :number;
-y :number;
+// x :number;
+// y :number;
 cellWidth :number;    
 cellHeight :number;
 colorHorizontalLines :string ;   
@@ -14,8 +14,8 @@ flagDrawVertical :boolean ;
 
 constructor(){
 this.frameStart =0;
-this.x = 0;
-this.y = 0;
+// this.x = 0;
+// this.y = 0;
 this.cellWidth = 50;    
 this.cellHeight = 50;
 this.colorHorizontalLines = "black";   

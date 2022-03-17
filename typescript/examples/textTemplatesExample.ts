@@ -17,6 +17,6 @@ let txt = b.add.textTempl.txt("oyaaa mumboo jumboo",5,10);
 txt.d.fontFamily =   txt.fontFamilyNames.CourierNew;
 
 let txtBg = b.add.textTempl.txtBg("I guess it is",5,50);
-
+console.log("b.chqCollision(160,160)",b.chqCollision(160,160));
    b.draw();
    // b.start();

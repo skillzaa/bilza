@@ -1,6 +1,7 @@
 import { DrawLayer, Pack } from "../index.js";
 import Background from "./background.js";
 import AddFacade from "./addFacade/addFacade.js";
+import CompActions from "./component/compActions.js";
 export default class Bilzaa2d {
     constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350) {
         this.canvasId = canvasId;
@@ -14,6 +15,7 @@ export default class Bilzaa2d {
         this.fps = 1000;
         this.pack = new Pack(this.canvasWidth, this.canvasHeight, this.canvasId);
         this.add = new AddFacade(this.comps);
+        this.compActions = new CompActions(this.comps, this.pack);
     }
     init() {
         this.pack = new Pack(this.canvasWidth, this.canvasHeight, this.canvasId);
@@ -72,6 +74,9 @@ export default class Bilzaa2d {
             this.pack.restore();
         }
         return true;
+    }
+    chqCollision(x, y) {
+        return this.compActions.chqCollision(x, y);
     }
     insert(comp) {
         this.comps.push(comp);

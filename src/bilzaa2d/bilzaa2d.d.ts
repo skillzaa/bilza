@@ -4,6 +4,7 @@ import AddFacade from "./addFacade/addFacade.js";
 export default class Bilzaa2d {
     comps: IDrawable[];
     private pack;
+    private compActions;
     frame: number;
     interval: number;
     canvasHeight: number;
@@ -19,6 +20,7 @@ export default class Bilzaa2d {
     private drawMiddlegroundComps;
     private drawBackgroundComps;
     private drawForegroundComps;
+    chqCollision(x: number, y: number): IDrawable | null;
     insert(comp: IDrawable): IDrawable;
     start(): void;
     stop(): void;

@@ -1,10 +1,11 @@
 import {DrawLayer,IDrawable,Pack,Component} from "../index.js";
 import Background from "./background.js";
 import AddFacade from "./addFacade/addFacade.js";
-
+import CompActions from "./component/compActions.js";
 export default class Bilzaa2d {
 comps:IDrawable[];
 private pack:Pack;
+private compActions :CompActions;
 frame :number;
 interval :number;
 canvasHeight :number;
@@ -28,6 +29,7 @@ this.frame = 0;
 this.fps = 1000;
 this.pack = new Pack(this.canvasWidth,this.canvasHeight,this.canvasId); 
 this.add = new AddFacade(this.comps);
+this.compActions = new CompActions(this.comps,this.pack);
 } 
 init(){
 this.pack = new Pack(this.canvasWidth,this.canvasHeight,this.canvasId);
@@ -86,7 +88,9 @@ let comp = this.comps[i];
 return true;
 }
 
-
+chqCollision(x :number, y :number):IDrawable | null{
+   return this.compActions.chqCollision(x,y);
+}
 insert(comp:IDrawable):IDrawable{
 this.comps.push(comp);
 return comp;
