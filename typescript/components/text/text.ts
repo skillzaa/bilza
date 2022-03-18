@@ -1,5 +1,5 @@
 import {Component,Pack,FontNames} from "../../index.js";
-import {ObjectData,CalcData} from "./DataFn.js";
+import DataFn,{ObjectData,CalcData} from "./DataFn.js";
 
 export default class Text extends Component<ObjectData> {
 
@@ -7,7 +7,7 @@ protected calcData :CalcData;
 //--This is how to expose another object from inside
 public fontFamilyNames :typeof FontNames;
 
-constructor (DataFn :()=>ObjectData){
+constructor (){
     super(DataFn);
     this.calcData = new CalcData();
     //--Exposes an Enum

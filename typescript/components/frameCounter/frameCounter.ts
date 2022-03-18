@@ -1,46 +1,36 @@
-// import {Component,Pack,Style } from "../../index.js";
+import {Component,Pack,Style } from "../../index.js";
+import DataFn,{ObjectData} from "./DataFn.js";
+export default class FrameCounter extends Component<ObjectData> {
 
-// export default class FrameCounter extends Component {
-// frame:number;  
-// styleRectangle:Style;  
-// styleNumbers:Style;
-// padding :number;  
-// x :number;  
-// y :number;
-// content :string;  
-// constructor (){
-//     super();
-//     this.x=0;
-//     this.y=0;
-//     this.content = "sec: ";
-//     this.frame=0;
-//     this.padding = 4;
-//     this.styleRectangle = new Style();
-//     this.styleNumbers = new Style();
-//     //------default ??
-//     this.styleRectangle.fillStyle = "black";
-//     this.styleNumbers.fillStyle = "yellow";
-// }
-// width( p: Pack ): number {
-// return p.textWidth(this.content + "0000",this.styleNumbers);
-// }
-// height(p: Pack): number {
-// return p.textWidth("Xi",this.styleNumbers);    
-// }
-// update(frame: number, p: Pack): boolean {
-//     this.frame = frame;
-//     return true;
-//     // return super.update(frame, p);
-// }
-// draw(p: Pack): boolean {
-// // it is upto the component author to use xPerc    
+    
+constructor (){
+    super(DataFn);
+    
+}
+width( p: Pack ): number {
+this.style.fontSize = this.d.fontSize;    
+return p.textWidth(this.d.content + "0000",this.style);
+}
+height(p: Pack): number {
+this.style.fontSize = this.d.fontSize;    
+return p.textWidth("Xi",this.style);    
+}
+update(frame: number, p: Pack): boolean {
+    this.d.frame = frame;
+    return true;
+    // return super.update(frame, p);
+}
+draw(p: Pack): boolean {
+// it is upto the component author to use xPerc    
 // let x = p.xPerc(this.x);    
 // let y = p.yPerc(this.y);    
-//     let s = "Frame:" + this.frame
-// p.drawFillRect(x,y,this.width(p)+ this.padding,this.height(p)+this.padding, this.styleRectangle); 
+    let s = "Frame:" + this.d.frame
+    this.style.fillStyle = this.d.colorRectangle;
+    p.drawFillRect(this.d.x,this.d.y,this.width(p)+ this.d.padding,this.height(p)+this.d.padding, this.style); 
+    
+    this.style.fillStyle = this.d.colorNumbers;
+p.drawText(s,this.d.x + (this.d.padding/2),this.d.y + (this.d.padding/2),this.style);
+    return true;
+}
 
-// p.drawText(s,x + (this.padding/2),y + (this.padding/2),this.styleNumbers);
-//     return true;
-// }
-
-// }
+}

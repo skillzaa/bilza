@@ -1,7 +1,9 @@
-import {IDrawable,Component,Text} from "../../index.js";
-// import Text from "../../components/text/text.js";
-import DataFn,{ObjectData,CalcData} from "../../components/text/DataFn.js";
+import {IDrawable,Component} from "../../index.js";
+import Text from "../../components/text/text.js";
+import Grid from "../../components/grid/grid.js";
+import FrameCounter from "../../components/frameCounter/frameCounter.js";
 import AddTextTemplates from "./addTextTemplates.js";
+// import FrameCounter from "../../components/frameCounter/frameCounter.js";
 
 export default class AddFacade {
 private addToArray :IDrawable[];
@@ -13,12 +15,34 @@ this.textTempl = new AddTextTemplates(comps);
 }
 
 text(content :string ="..!", frameStart :number =0, frameEnd :number = 5000):Text{
-    let bs = new Text(DataFn);
+    let bs = new Text();
     bs.frameStart = frameStart;
     bs.frameEnd = frameEnd;
     bs.d.content = content;
     this.addToArray.push(bs);
     return bs;    
 }
-
+grid(){
+    let g = new Grid();
+    this.addToArray.push(g);
+    // g.d.colorNumbers = "red";
+    // g.styleNumber.fillStyle = "red";
+    // g.d..lineWidth = 1;
+    // g.fontSize = 15;
+    // g.styleLine.strokeStyle = "#dee1e2";
+    // g.styleLine.fillStyle = "green";
+    // g.styleLine.fontSize = 2;
+    // g.styleLine.lineWidth = 1;
+    // g.styleLine.lineDashWidth = 15;
+    // g.styleLine.lineDashGap = 5;
+    g.frameStart = 0;
+    g.frameEnd = 5000;
+    return g;
+}
+frameCounter(x :number=100,y :number=100){
+    let item = new FrameCounter();
+    item.d.x = x;
+    item.d.y = y;
+    this.addToArray.push(item);
+}
 }

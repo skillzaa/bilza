@@ -1,5 +1,5 @@
 import {Component,Pack,DrawLayer} from "../../index.js";
-import {ObjectData} from "./DataFn.js";
+import DataFn,{ObjectData} from "./DataFn.js";
 
 //import GridTemplates from "./gridTemplates.js";
 //export {GridTemplates};
@@ -7,7 +7,7 @@ import {ObjectData} from "./DataFn.js";
 
 export default class Grid extends Component<ObjectData> {
 
-constructor (DataFn :()=>ObjectData){
+constructor (){
 super(DataFn);
 this.drawLayer = DrawLayer.BackGround;   
 }    

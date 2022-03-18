@@ -1,6 +1,6 @@
-import {IDrawable,FontNames,Component,Text} from "../../index.js";
-// import Text from "../../components/text/text.js";
-import DataFn,{ObjectData,CalcData} from "../../components/text/DataFn.js";
+import {IDrawable,FontNames} from "../../index.js";
+import Text from "../../components/text/text.js";
+// import DataFn,{ObjectData,CalcData} from "../../components/text/DataFn.js";
 
 export default class AddTextTemplates {
 private addToArray :IDrawable[];
@@ -10,7 +10,7 @@ constructor(comps :IDrawable[]){
 this.addToArray = comps;
 }
 allVisible(content="All Visible",x=0,y=0):Text{
-    let g = new Text(DataFn);
+    let g = new Text();
     //----very imp
     this.addToArray.push(g);
     g.d.content = content;
@@ -36,7 +36,7 @@ allVisible(content="All Visible",x=0,y=0):Text{
     return g;
 }
 txt(content="text",x=0,y=0,textColor:string="black"):Text{
-    let g = new Text(DataFn);
+    let g = new Text();
     //----very imp
     this.addToArray.push(g);
     g.d.content = content;
@@ -55,7 +55,7 @@ txt(content="text",x=0,y=0,textColor:string="black"):Text{
 }
 txtBg(content="text",x=0,y=0,textColor:string="yellow",
 colorBg="black",padding=10):Text{
-    let g = new Text(DataFn);
+    let g = new Text();
     //----very imp
     this.addToArray.push(g);
     g.d.content = content;
