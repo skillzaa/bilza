@@ -12,8 +12,11 @@ this.addToArray = comps;
 this.textTempl = new AddTextTemplates(comps);
 }
 
-text():Text{
+text(content :string ="..!", frameStart :number =0, frameEnd :number = 5000):Text{
     let bs = new Text(DataFn);
+    bs.frameStart = frameStart;
+    bs.frameEnd = frameEnd;
+    bs.d.content = content;
     this.addToArray.push(bs);
     return bs;    
 }
