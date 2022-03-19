@@ -1,9 +1,6 @@
 import {Bilzaa2d} from "../index.js";
 import DataFn from "../components/grid/DataFn.js";
-let b = new Bilzaa2d("bilzaa");
-b.canvasWidth = 1100;
-b.canvasHeight = 600;
-b.init();
+let b = new Bilzaa2d("bilzaa",1100,600);
 
 // let grid  = GridTemplates.dashedGrid();
 // let grid  = b.add.grid();

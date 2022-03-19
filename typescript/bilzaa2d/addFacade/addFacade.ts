@@ -14,10 +14,10 @@ this.addToArray = comps;
 this.textTempl = new AddTextTemplates(comps);
 }
 
-text(content :string ="..!", frameStart :number =0, frameEnd :number = 5000):Text{
+text(content :string ="..!", msStart :number =0, msEnd :number = 5000):Text{
     let bs = new Text();
-    bs.frameStart = frameStart;
-    bs.frameEnd = frameEnd;
+    bs.setStart(msStart);
+    bs.setEnd(msEnd);
     bs.d.content = content;
     this.addToArray.push(bs);
     return bs;    
@@ -35,8 +35,8 @@ grid(){
     // g.styleLine.lineWidth = 1;
     // g.styleLine.lineDashWidth = 15;
     // g.styleLine.lineDashGap = 5;
-    g.frameStart = 0;
-    g.frameEnd = 5000;
+    g.setStart(0);
+    g.setEnd(5000);
     return g;
 }
 frameCounter(x :number=100,y :number=100){

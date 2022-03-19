@@ -3,48 +3,58 @@ import Background from "./background.js";
 import AddFacade from "./addFacade/addFacade.js";
 import CompActions from "./component/compActions.js";
 export default class Bilzaa2d {
-    constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350) {
+    //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350, timeEnd = 3600) {
         this.canvasId = canvasId;
         this.comps = [];
         this.background = new Background();
-        this.frameEnd = 500;
-        this.canvasWidth = canvasWidth; //result into full screen
-        this.canvasHeight = canvasHeight; //result into full screen
+        this.timeStart = null;
+        this.timeEnd = timeEnd;
+        // this.canvasWidth = canvasWidth;//result into full screen
+        // this.canvasHeight = canvasHeight; //result into full screen
         this.interval = 0;
-        this.frame = 0;
-        this.fps = 1000;
-        this.pack = new Pack(this.canvasWidth, this.canvasHeight, this.canvasId);
+        // this.frame = 0; 
+        this.msPerFrame = 1000;
+        // this.setCanvas(canvasWidth,canvasHeight);
+        this.pack = new Pack(canvasWidth, canvasHeight, this.canvasId);
         this.add = new AddFacade(this.comps);
         this.compActions = new CompActions(this.comps, this.pack);
     }
-    init() {
-        this.pack = new Pack(this.canvasWidth, this.canvasHeight, this.canvasId);
+    setCanvas(width = 800, height = 400) {
+        this.pack = new Pack(width, height, this.canvasId);
+    }
+    getCanvasHeight() {
+        return this.pack.canvasHeight;
+    }
+    getCanvasWidth() {
+        return this.pack.canvasWidth;
     }
     draw() {
         if (this.pack == null) {
             throw new Error("bilzaa is not initialized");
         }
-        this.frame += 1; /// importanto
+        // this.frame += 1; /// use later if req internally
+        let msDelta = this.getMsDelta();
         //stop if completed
-        if (this.frame >= this.frameEnd) {
+        if (msDelta >= this.timeEnd) {
             this.stop();
         }
         this.pack.clearCanvas();
         this.pack.drawBackground(this.background.color);
-        this.drawByDrawLayer(DrawLayer.BackGround);
-        this.drawByDrawLayer(DrawLayer.ForeGround);
-        this.drawByDrawLayer(DrawLayer.MiddleGround);
+        this.drawByDrawLayer(msDelta, DrawLayer.BackGround);
+        this.drawByDrawLayer(msDelta, DrawLayer.ForeGround);
+        this.drawByDrawLayer(msDelta, DrawLayer.MiddleGround);
         return true;
     }
-    drawByDrawLayer(drawLayer) {
+    drawByDrawLayer(msDelta, drawLayer) {
         for (let i = 0; i < this.comps.length; i++) {
             let comp = this.comps[i];
             //--save ctx
             if (comp.drawLayer == drawLayer) {
-                if (comp.frameStart < this.frame && comp.frameEnd > this.frame) {
+                if (comp.getStart() < msDelta && comp.getEnd() > msDelta) {
                     this.pack.save();
-                    comp.update(this.frame, this.pack);
-                    comp.draw(this.pack);
+                    comp.update(msDelta, this.pack);
+                    comp.draw(this.pack); //waoooo no msDelta
                     this.pack.restore();
                 }
             }
@@ -58,13 +68,31 @@ export default class Bilzaa2d {
         this.comps.push(comp);
         return comp;
     }
+    getMsDelta() {
+        if (this.timeStart == null) {
+            return 0;
+        }
+        else {
+            let curTime = new Date().getTime();
+            return curTime - this.timeStart;
+        }
+    }
     start() {
-        this.interval = setInterval(() => {
-            this.draw();
-        }, this.fps);
+        if (this.timeStart !== null) {
+            return false;
+        }
+        else {
+            this.stop();
+            this.timeStart = new Date().getTime();
+            this.interval = setInterval(() => {
+                this.draw();
+            }, this.msPerFrame);
+            return true;
+        }
     }
     stop() {
-        console.log("stopped");
+        // console.log("stopped");
+        this.timeStart = null;
         clearInterval(this.interval);
     }
 } //ends

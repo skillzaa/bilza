@@ -23,8 +23,8 @@ return  ( (this.d.widthMargin *2) +(this.d.widthPadding *2) + this.calcData.cont
 
 }
 
-update(frame: number, p: Pack): boolean {
-this.compData.apply(frame); //--important!!
+update(ms :number, p: Pack): boolean {
+this.compData.apply(ms); //--important!!
 //-----update all variables req for draw-and then just draw
 this.calcData.marginX = this.d.x;
 this.calcData.marginY = this.d.y;
@@ -137,5 +137,14 @@ if(this.d.flagDrawBoundingRectangle == false){return;}
         this.height(p),
         this.style
     );
-}       
+} 
+
+checkCollision(x: number, y: number, p: Pack): boolean {
+if (x > this.d.x && x < this.width(p)){
+    if (y > this.d.y && y < this.height(p)){
+        return true;
+    }
+}
+return false;
+}
 }

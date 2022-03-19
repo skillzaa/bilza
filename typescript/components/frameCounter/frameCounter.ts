@@ -15,8 +15,8 @@ height(p: Pack): number {
 this.style.fontSize = this.d.fontSize;    
 return p.textWidth("Xi",this.style);    
 }
-update(frame: number, p: Pack): boolean {
-    this.d.frame = frame;
+update(msDelat :number, p: Pack): boolean {
+    this.d.frame = msDelat/1000; //to seconds
     return true;
     // return super.update(frame, p);
 }

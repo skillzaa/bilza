@@ -2,25 +2,26 @@ import { IDrawable } from "../index.js";
 import Background from "./background.js";
 import AddFacade from "./addFacade/addFacade.js";
 export default class Bilzaa2d {
-    comps: IDrawable[];
+    private comps;
     private pack;
     private compActions;
-    frame: number;
-    interval: number;
-    canvasHeight: number;
-    canvasWidth: number;
-    canvasId: string;
+    private interval;
+    private canvasId;
+    private msPerFrame;
+    private timeStart;
+    private timeEnd;
     add: AddFacade;
-    fps: number;
-    frameEnd: number;
     background: Background;
-    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: number);
-    init(): void;
+    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: number, timeEnd?: number);
+    setCanvas(width?: number, height?: number): void;
+    getCanvasHeight(): () => number;
+    getCanvasWidth(): () => number;
     draw(): boolean;
     private drawByDrawLayer;
     chqCollision(x: number, y: number): IDrawable | null;
     insert(comp: IDrawable): IDrawable;
-    start(): void;
+    private getMsDelta;
+    start(): boolean;
     stop(): void;
 }
 //# sourceMappingURL=bilzaa2d.d.ts.map

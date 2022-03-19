@@ -15,6 +15,10 @@ this.data = this.newDataObjFn();
 this.transitions = [];
 }
 
+/** Why is there an error ?
+ * ans: since i am making this for transition array which will have only some of the elms and not all rest are marked as null, so that both the arrays merge.
+ * Better Ans: this array should have just those items which have been used and not a long list of nulls, this is a design error.
+ */
 add(frameStart :number):T{
     //--gen new obj
     let f = this.newDataObjFn();
@@ -24,7 +28,7 @@ add(frameStart :number):T{
         f[key] = null;
     }
     f.frameStart = frameStart; //must
-    this.transitions.push(f);
+    this.transitions.push(f); // here it is added to the array
     return f;
 }
 insert(f:T):T{
@@ -41,7 +45,7 @@ for (let i = this.transitions.length -1; i >= 0; i--) {
     }
 }
 }
-
+//---when is this used
 private merge(subset:IFrameStart):boolean{
     for (const key in this.data) {
         if (subset.hasOwnProperty(key)){

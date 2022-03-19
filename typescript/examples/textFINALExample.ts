@@ -1,4 +1,4 @@
-import {Bilzaa2d,Text} from "../index.js";
+import {Bilzaa2d} from "../index.js";
 import DataFn , {ObjectData,CalcData} from "../components/text/DataFn.js";
 
 let b = new Bilzaa2d("bilzaa",400,400);
