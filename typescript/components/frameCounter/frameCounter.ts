@@ -1,15 +1,17 @@
 import {Component,Pack,Style } from "../../index.js";
 import DataFn,{ObjectData} from "./DataFn.js";
-export default class FrameCounter extends Component<ObjectData> {
 
+export default class FrameCounter extends Component<ObjectData> {
     
 constructor (){
     super(DataFn);
-    
 }
 width( p: Pack ): number {
 this.style.fontSize = this.d.fontSize;    
-return p.textWidth(this.d.content + "0000",this.style);
+const thestr = `   ${this.d.content}   ${parseInt(this.d.frame.toString())} `;
+const contentWidth =  p.textWidth( thestr,this.style);
+return ( (contentWidth + (this.d.padding *2)) +10);
+  
 }
 height(p: Pack): number {
 this.style.fontSize = this.d.fontSize;    
@@ -21,16 +23,12 @@ update(msDelat :number, p: Pack): boolean {
     // return super.update(frame, p);
 }
 draw(p: Pack): boolean {
-// it is upto the component author to use xPerc    
-// let x = p.xPerc(this.x);    
-// let y = p.yPerc(this.y);    
-    let s = "Frame:" + this.d.frame
+    let s = "Frame:" + parseInt(this.d.frame.toString());
     this.style.fillStyle = this.d.colorRectangle;
     p.drawFillRect(this.d.x,this.d.y,this.width(p)+ this.d.padding,this.height(p)+this.d.padding, this.style); 
     
     this.style.fillStyle = this.d.colorNumbers;
-p.drawText(s,this.d.x + (this.d.padding/2),this.d.y + (this.d.padding/2),this.style);
+p.drawText(s,this.d.x + (this.d.padding),this.d.y + (this.d.padding),this.style);
     return true;
 }
-
 }

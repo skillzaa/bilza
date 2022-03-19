@@ -14,7 +14,7 @@ this.addToArray = comps;
 this.textTempl = new AddTextTemplates(comps);
 }
 
-text(content :string ="..!", msStart :number =0, msEnd :number = 5000):Text{
+text(content :string ="..!", msStart :number =0, msEnd :number = 60000):Text{
     let bs = new Text();
     bs.setStart(msStart);
     bs.setEnd(msEnd);
@@ -25,7 +25,7 @@ text(content :string ="..!", msStart :number =0, msEnd :number = 5000):Text{
 grid(){
     let g = new Grid();
     this.addToArray.push(g);
-    // g.d.colorNumbers = "red";
+    // item.d.colorNumbers = "red";
     // g.styleNumber.fillStyle = "red";
     // g.d..lineWidth = 1;
     // g.fontSize = 15;
@@ -36,19 +36,21 @@ grid(){
     // g.styleLine.lineDashWidth = 15;
     // g.styleLine.lineDashGap = 5;
     g.setStart(0);
-    g.setEnd(5000);
+    g.setEnd(60000);
     return g;
 }
 frameCounter(x :number=100,y :number=100){
     let item = new FrameCounter();
     item.d.x = x;
     item.d.y = y;
+    item.setEnd(60000);
     this.addToArray.push(item);
 }
 circle(x :number=100, y :number=100){
     let item = new Circle();
     item.d.x = x;
     item.d.y = y;
+    item.setEnd(60000);
     this.addToArray.push(item);
 }
 randomBgShapes(){

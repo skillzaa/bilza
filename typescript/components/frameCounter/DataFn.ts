@@ -5,13 +5,13 @@ fontSize :number;
 frame :number;
 x :number;
 y:number;
-content = "sec: ";
+content :string;
 padding :number;
-colorRectangle  = "black";
-colorNumbers = "yellow";
+colorRectangle  :string;
+colorNumbers :string;
 
 constructor(){
-this.frameStart =0;
+this.frameStart =0; // i just need it since its req by component
 this.x=0;
 this.y=0;
 this.fontSize = 30;

@@ -4,7 +4,7 @@ import AddFacade from "./addFacade/addFacade.js";
 import CompActions from "./component/compActions.js";
 export default class Bilzaa2d {
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350, timeEnd = 3600) {
+    constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350, timeEnd = Number.MAX_SAFE_INTEGER) {
         this.canvasId = canvasId;
         this.comps = [];
         this.background = new Background();

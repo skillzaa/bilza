@@ -11,6 +11,7 @@ this.addToArray = comps;
 }
 allVisible(content="All Visible",x=0,y=0):Text{
     let g = new Text();
+    // g.setEnd(60000);
     //----very imp
     this.addToArray.push(g);
     g.d.content = content;
@@ -37,6 +38,7 @@ allVisible(content="All Visible",x=0,y=0):Text{
 }
 txt(content="text",x=0,y=0,textColor:string="black"):Text{
     let g = new Text();
+    // g.setEnd(60000);
     //----very imp
     this.addToArray.push(g);
     g.d.content = content;
@@ -56,6 +58,7 @@ txt(content="text",x=0,y=0,textColor:string="black"):Text{
 txtBg(content="text",x=0,y=0,textColor:string="yellow",
 colorBg="black",padding=10):Text{
     let g = new Text();
+    // g.setEnd(60000);
     //----very imp
     this.addToArray.push(g);
     g.d.content = content;

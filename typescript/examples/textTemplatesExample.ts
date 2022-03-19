@@ -5,6 +5,7 @@ let b = new Bilzaa2d("bilzaa",1100,600);
 // let grid  = GridTemplates.dashedGrid();
 // let grid  = b.add.grid();
 let randomBg  = b.add.randomBgShapes();
+// randomBg.
 let circle  = b.add.circle();
 let fc  = b.add.frameCounter(400,100);
 // grid.cell_width = 50;
