@@ -1,10 +1,12 @@
-import {Component,Pack,Style } from "../../index.js";
+import {Component,Pack,DrawLayer } from "../../index.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class FrameCounter extends Component<ObjectData> {
-    
-constructor (){
-    super(DataFn);
+
+constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
+super(DataFn,msStart,msEnd);
+this.drawLayer = DrawLayer.MiddleGround;   
+
 }
 width( p: Pack ): number {
 this.style.fontSize = this.d.fontSize;    

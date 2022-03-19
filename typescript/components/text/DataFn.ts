@@ -30,8 +30,8 @@ fontFamily :FontNames;
 
 constructor(){
 this.frameStart =0;
-this.x = 0;
-this.y = 0;
+this.x = 50;
+this.y = 50;
 this.content = "text!"; 
 this.widthMargin = 0;
 this.widthBorder = 0;

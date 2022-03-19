@@ -7,8 +7,9 @@ import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class Grid extends Component<ObjectData> {
 
-constructor (){
-super(DataFn);
+constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
+super(DataFn,msStart,msEnd);
+
 this.drawLayer = DrawLayer.BackGround;   
 }    
 draw(p:Pack): boolean {

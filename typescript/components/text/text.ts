@@ -7,11 +7,16 @@ protected calcData :CalcData;
 //--This is how to expose another object from inside
 public fontFamilyNames :typeof FontNames;
 
-constructor (){
-    super(DataFn);
+constructor (content :string="",fontColor :string="black",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,x=50,y=50){
+    super(DataFn,msStart,msEnd);
     this.calcData = new CalcData();
     //--Exposes an Enum
     this.fontFamilyNames = FontNames;
+    //----get values
+    this.d.content = content;
+    this.d.x = x;
+    this.d.y = y;
+    this.d.fontColor = fontColor;
 }
 /////////////////////////////////////////
 /////////////////////////////////////////

@@ -35,7 +35,7 @@ constructor (DataFn :()=>T,msStart=0,msEnd= Number.MAX_SAFE_INTEGER){
 this.compData = new Transition(DataFn);    
 this.d = this.compData.data;
 this.data = this.compData.data;
-//-----------------------------------------
+//--------------------------------
 //--must
 this.drawLayer = DrawLayer.MiddleGround;
 //--must
@@ -46,10 +46,10 @@ this.style = new Style();
 this.display = true;
 this.selected = false;
 
-this.msStart = msStart; //component startand end frames
-//--what should be its value????
-// Number.MAX_SAFE_INTEGER
+this.msStart = msStart; //typescript deamnds it
 this.msEnd = msEnd;
+this.setStart(msStart);//in future i may run some otehr code in these fn
+this.setEnd(msEnd);
 }
 getSelected() :boolean{
 return this.selected;

@@ -62,7 +62,7 @@ let msDelta = this.getMsDelta();
     //stop if completed
 if(msDelta >= this.timeEnd){ this.stop();}     
 this.pack.clearCanvas();          
-this.pack.drawBackground(this.background.color);          
+this.pack.drawBackground(this.background.color); //fornow         
 this.drawByDrawLayer(msDelta,DrawLayer.BackGround);
 this.drawByDrawLayer(msDelta,DrawLayer.ForeGround);
 this.drawByDrawLayer(msDelta,DrawLayer.MiddleGround);
