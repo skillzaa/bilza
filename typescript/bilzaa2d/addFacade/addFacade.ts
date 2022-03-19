@@ -2,9 +2,9 @@ import {IDrawable,Component} from "../../index.js";
 import Text from "../../components/text/text.js";
 import Grid from "../../components/grid/grid.js";
 import FrameCounter from "../../components/frameCounter/frameCounter.js";
+import Circle from "../../components/circle/circle.js";
 import AddTextTemplates from "./addTextTemplates.js";
-// import FrameCounter from "../../components/frameCounter/frameCounter.js";
-
+import RandomBgShapes from "../../components/randomBgShapes/randomBgShapes.js";
 export default class AddFacade {
 private addToArray :IDrawable[];
 textTempl :AddTextTemplates;
@@ -43,6 +43,16 @@ frameCounter(x :number=100,y :number=100){
     let item = new FrameCounter();
     item.d.x = x;
     item.d.y = y;
+    this.addToArray.push(item);
+}
+circle(x :number=100, y :number=100){
+    let item = new Circle();
+    item.d.x = x;
+    item.d.y = y;
+    this.addToArray.push(item);
+}
+randomBgShapes(){
+    let item = new RandomBgShapes();
     this.addToArray.push(item);
 }
 }
