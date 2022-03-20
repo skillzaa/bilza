@@ -4,7 +4,10 @@
   "description": "A framework for creating javascript presentations, slides and educational content",
   "main": "src/index.js",
   "scripts": {
-    // "start": "snowpack dev"
+    "rollup:help": "rollup --help",
+    "rollup:es": "rollup ./src/index.js --file ./build/bundle.js --format es",
+    "rollup:cjs": "rollup ./src/index.js --file ./build/bundle_cjs.js --format cjs",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,9 @@
     "url": "https://github.com/skillzaa/bilzaa2d/issues"
   },
   "devDependencies": {
-    // "snowpack": "^3.8.8",
+    "jest": "^27.5.1",
+    "jsdom": "^19.0.0",
+    "rollup": "^2.70.1",
     "typescript": "^4.5.5"
   }
 }
