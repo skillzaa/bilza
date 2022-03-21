@@ -5,7 +5,7 @@
        "declaration": true,                   
        "declarationMap": true, 
        "removeComments": true,               
-       "outDir": "src/",                      
+       "outDir": "./src",                      
        "rootDir": "./typescript",
       "strict": true,  
       "strictNullChecks":true,                        

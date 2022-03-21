@@ -7,7 +7,9 @@ protected calcData :CalcData;
 //--This is how to expose another object from inside
 public fontFamilyNames :typeof FontNames;
 
-constructor (content :string="",fontColor :string="black",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,x=50,y=50){
+constructor (content :string="",fontColor :string="black",fontSize=40,
+msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,x=50,y=50){
+
     super(DataFn,msStart,msEnd);
     this.calcData = new CalcData();
     //--Exposes an Enum
@@ -17,6 +19,7 @@ constructor (content :string="",fontColor :string="black",msStart=0,msEnd :numbe
     this.d.x = x;
     this.d.y = y;
     this.d.fontColor = fontColor;
+    this.d.fontSize = fontSize;
 }
 /////////////////////////////////////////
 /////////////////////////////////////////
@@ -25,7 +28,6 @@ width( p: Pack ): number {
 }
 height(p: Pack,perc=0): number {
 return  ( (this.d.widthMargin *2) +(this.d.widthPadding *2) + this.calcData.contentHeight);
-
 }
 
 update(ms :number, p: Pack): boolean {

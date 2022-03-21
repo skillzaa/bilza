@@ -7,7 +7,7 @@
        "removeComments": true,               
        "outDir": "build/",                      
        "rootDir": "./typescript",
-       "outFile": "build/bilzaa2d.js",
+       "outFile": "bilzaa2d.js",
       "strict": true,  
       "strictNullChecks":true,                        
       "esModuleInterop": true,                  

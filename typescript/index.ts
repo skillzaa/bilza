@@ -1,11 +1,11 @@
-import Component from "./bilzaa2d/component/component.js";
-import Pack from "./bilzaa2d/pack/pack.js";
-import Style from "./bilzaa2d/pack/style.js";
-import Bilzaa2d from "./bilzaa2d/bilzaa2d.js";
-import Position from "./bilzaa2d/design/Position.js";
-import {DrawLayer} from "./bilzaa2d/design/drawLayer.js";
-// import {XAlignment,YAlignment} from "./bilzaa2d/design/alignment.js";
-import IDrawable from "./bilzaa2d/design/IDrawable.js";
+import Component from "./bilza/component/component.js";
+import Pack from "./bilza/pack/pack.js";
+import Style from "./bilza/pack/style.js";
+import Bilza from "./bilza/bilza.js";
+import Position from "./bilza/design/Position.js";
+import {DrawLayer} from "./bilza/design/drawLayer.js";
+// import {XAlignment,YAlignment} from "./bilza/design/alignment.js";
+import IDrawable from "./bilza/design/IDrawable.js";
 import Transition from "./transition/transition.js";
 import {FontNames} from "./util/fontNames.js";
 import IFrameStart from "./transition/IFrameStart.js";
@@ -14,10 +14,9 @@ import IFrameStart from "./transition/IFrameStart.js";
 // import Grid from "./components/grid/grid.js";
 // import GridTemplates from "./components/grid/gridTemplates.js";
 
-
-// export default class Bilzaa2d;
+export default Bilza;
+// export default class bilza;
 export {
-Bilzaa2d,
 Pack,
 DrawLayer,
 Style,

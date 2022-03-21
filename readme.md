@@ -1,4 +1,4 @@
-# Bilzaa2d
+# Bilza
 > Bilzaa2d is a framework for creating javascript presentations, slides and educational content.
 
 ---

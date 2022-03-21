@@ -3,7 +3,7 @@ import Background from "./background.js";
 import AddFacade from "./addFacade/addFacade.js";
 import CompActions from "./component/compActions.js";
 
-export default class Bilzaa2d {
+export default class Bilza {
 private comps:IDrawable[]; 
 private pack:Pack; //---later
 private compActions :CompActions; //---later
@@ -47,6 +47,13 @@ this.compActions = new CompActions(this.comps,this.pack);
 } 
 setCanvas(width :number = 800,height :number = 400){
 this.pack = new Pack(width,height,this.canvasId);
+}
+getTimeEnd():number{
+return this.timeEnd;
+}
+setTimeEnd(n :number) :number{
+this.timeEnd = n;
+return this.timeEnd;
 }
 getCanvasHeight(){
 return this.pack.canvasHeight;    

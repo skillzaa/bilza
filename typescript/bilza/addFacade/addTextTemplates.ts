@@ -5,7 +5,7 @@ import Text from "../../components/text/text.js";
 export default class AddTextTemplates {
 private addToArray :IDrawable[];
 
-
+ 
 constructor(comps :IDrawable[]){
 this.addToArray = comps;
 }
