@@ -1,12 +1,12 @@
 {
   "name": "bilzaa2d",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "A framework for creating javascript presentations, slides and educational content",
-  "main": "src/index.js",
+  "main": "build/bilzaa2d.js",
   "scripts": {
     "rollup:help": "rollup --help",
-    "rollup:es": "rollup ./src/index.js --file ./build/bundle.js --format es",
-    "rollup:cjs": "rollup ./src/index.js --file ./build/bundle_cjs.js --format cjs",
+    "rollup:es": "rollup ./src/index.js --file ./build/bilzaa2d.js --format es",
+    "rollup:cjs": "rollup ./src/index.js --file ./build/bilzaa2d_cjs.js --format cjs",
     "test": "jest"
   },
   "repository": {
@@ -20,9 +20,17 @@
     "url": "https://github.com/skillzaa/bilzaa2d/issues"
   },
   "devDependencies": {
+    "jasmine-browser-runner": "^1.0.0",
+    "jasmine-core": "^4.0.1",
     "jest": "^27.5.1",
     "jsdom": "^19.0.0",
     "rollup": "^2.70.1",
     "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "jest-canvas-mock": "^2.3.1"
+  },
+  "jest": {
+    "setupFiles": ["jest-canvas-mock"]
   }
 }

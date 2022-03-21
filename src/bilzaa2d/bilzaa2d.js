@@ -12,7 +12,7 @@ export default class Bilzaa2d {
         this.timeEnd = timeEnd;
         // this.canvasWidth = canvasWidth;//result into full screen
         // this.canvasHeight = canvasHeight; //result into full screen
-        this.interval = 0;
+        this.interval = null;
         // this.frame = 0; 
         this.msPerFrame = 1000;
         // this.setCanvas(canvasWidth,canvasHeight);
@@ -93,6 +93,8 @@ export default class Bilzaa2d {
     stop() {
         // console.log("stopped");
         this.timeStart = null;
-        clearInterval(this.interval);
+        if (this.interval !== null) {
+            clearInterval(this.interval);
+        }
     }
 } //ends

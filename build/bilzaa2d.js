@@ -1,7 +1,3 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
 //--This is an Abstract class
 class Component {
     // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -11,7 +7,7 @@ class Component {
         this.data = this.compData.data;
         //--------------------------------
         //--must
-        this.drawLayer = exports.DrawLayer.MiddleGround;
+        this.drawLayer = DrawLayer.MiddleGround;
         //--must
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
@@ -320,7 +316,7 @@ var LineCapStyle;
     LineCapStyle["Square"] = "square";
 })(LineCapStyle || (LineCapStyle = {}));
 
-exports.FontNames = void 0;
+var FontNames;
 (function (FontNames) {
     FontNames["Arial"] = "Arial";
     FontNames["ArialBlack"] = "Arial Black";
@@ -343,7 +339,7 @@ exports.FontNames = void 0;
     FontNames["BrushScript"] = "Brush Script";
     FontNames["Luminari"] = "Luminari";
     //----------------------------
-})(exports.FontNames || (exports.FontNames = {}));
+})(FontNames || (FontNames = {}));
 
 // these are ctx valuesto be set in caseof any change in ctx
 class Style {
@@ -351,7 +347,7 @@ class Style {
         this.frameStart = frameStart;
         // this.font = null; //may not be req
         this.fontSize = 25;
-        this.fontName = exports.FontNames.Luminari;
+        this.fontName = FontNames.Luminari;
         this.fillStyle = "green";
         this.strokeStyle = "red";
         this.lineWidth = 2;
@@ -428,7 +424,7 @@ class ObjectData$4 {
         this.colorContentBg = "yellow";
         this.fontColor = "black";
         this.fontSize = 32;
-        this.fontFamily = exports.FontNames.Courier;
+        this.fontFamily = FontNames.Courier;
         //-----
         this.flagDrawMargin = false;
         this.flagDrawBorder = false;
@@ -463,7 +459,7 @@ class Text extends Component {
         super(DataFn$4, msStart, msEnd);
         this.calcData = new CalcData();
         //--Exposes an Enum
-        this.fontFamilyNames = exports.FontNames;
+        this.fontFamilyNames = FontNames;
         //----get values
         this.d.content = content;
         this.d.x = x;
@@ -603,7 +599,7 @@ function DataFn$3() {
 class Grid extends Component {
     constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         super(DataFn$3, msStart, msEnd);
-        this.drawLayer = exports.DrawLayer.BackGround;
+        this.drawLayer = DrawLayer.BackGround;
     }
     draw(p) {
         this.draw_horizontal(p);
@@ -668,7 +664,7 @@ function DataFn$2() {
 class FrameCounter extends Component {
     constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         super(DataFn$2, msStart, msEnd);
-        this.drawLayer = exports.DrawLayer.MiddleGround;
+        this.drawLayer = DrawLayer.MiddleGround;
     }
     width(p) {
         this.style.fontSize = this.d.fontSize;
@@ -747,7 +743,7 @@ function DataFn() {
 class RandomBgShapes extends Component {
     constructor() {
         super(DataFn);
-        this.drawLayer = exports.DrawLayer.BackGround;
+        this.drawLayer = DrawLayer.BackGround;
     }
     width(p) {
         return 0;
@@ -812,7 +808,7 @@ class AddTextTemplates {
         g.d.flagDrawText = true; // keep it true
         //..
         // g.d.fontColor = textColor;
-        g.d.fontFamily = exports.FontNames.Helvetica;
+        g.d.fontFamily = FontNames.Helvetica;
         return g;
     }
     txtBg(content = "", textColor = "black", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
@@ -834,7 +830,7 @@ class AddTextTemplates {
         // g.d.colorContentBg = colorBg; 
         // g.d.colorPadding = colorBg; 
         // g.d.fontColor = textColor;
-        g.d.fontFamily = exports.FontNames.Helvetica;
+        g.d.fontFamily = FontNames.Helvetica;
         return g;
     }
 }
@@ -905,7 +901,7 @@ class Bilzaa2d {
         this.timeEnd = timeEnd;
         // this.canvasWidth = canvasWidth;//result into full screen
         // this.canvasHeight = canvasHeight; //result into full screen
-        this.interval = 0;
+        this.interval = null;
         // this.frame = 0; 
         this.msPerFrame = 1000;
         // this.setCanvas(canvasWidth,canvasHeight);
@@ -934,9 +930,9 @@ class Bilzaa2d {
         }
         this.pack.clearCanvas();
         this.pack.drawBackground(this.background.color); //fornow         
-        this.drawByDrawLayer(msDelta, exports.DrawLayer.BackGround);
-        this.drawByDrawLayer(msDelta, exports.DrawLayer.ForeGround);
-        this.drawByDrawLayer(msDelta, exports.DrawLayer.MiddleGround);
+        this.drawByDrawLayer(msDelta, DrawLayer.BackGround);
+        this.drawByDrawLayer(msDelta, DrawLayer.ForeGround);
+        this.drawByDrawLayer(msDelta, DrawLayer.MiddleGround);
         return true;
     }
     drawByDrawLayer(msDelta, drawLayer) {
@@ -986,7 +982,9 @@ class Bilzaa2d {
     stop() {
         // console.log("stopped");
         this.timeStart = null;
-        clearInterval(this.interval);
+        if (this.interval !== null) {
+            clearInterval(this.interval);
+        }
     }
 } //ends
 
@@ -1014,12 +1012,12 @@ class Position {
     }
 }
 
-exports.DrawLayer = void 0;
+var DrawLayer;
 (function (DrawLayer) {
     DrawLayer["BackGround"] = "BACKGROUND";
     DrawLayer["MiddleGround"] = "MIDDLEGROUND";
     DrawLayer["ForeGround"] = "FOREGROUND";
-})(exports.DrawLayer || (exports.DrawLayer = {}));
+})(DrawLayer || (DrawLayer = {}));
 
 class Transition {
     constructor(newDataObjFn) {
@@ -1076,9 +1074,4 @@ class Transition {
 }
 ////---------------
 
-exports.Bilzaa2d = Bilzaa2d;
-exports.Component = Component;
-exports.Pack = Pack;
-exports.Position = Position;
-exports.Style = Style;
-exports.Transition = Transition;
+export { Bilzaa2d, Component, DrawLayer, FontNames, Pack, Position, Style, Transition };

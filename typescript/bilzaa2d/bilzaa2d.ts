@@ -10,7 +10,7 @@ private compActions :CompActions; //---later
 //---A frame = just the number of draw calls to the main draw fn
 // private frame :number; //just use internally
 ///--this is used for setInterval 
-private interval :number;
+private interval : NodeJS.Timer | null;
 //-shd be fn
 // private canvasHeight :number;
 //-shd be fn
@@ -37,7 +37,7 @@ this.timeStart = null;
 this.timeEnd = timeEnd;
 // this.canvasWidth = canvasWidth;//result into full screen
 // this.canvasHeight = canvasHeight; //result into full screen
-this.interval = 0;
+this.interval = null;
 // this.frame = 0; 
 this.msPerFrame = 1000;
 // this.setCanvas(canvasWidth,canvasHeight);
@@ -114,6 +114,8 @@ else {
 stop(){
     // console.log("stopped");
     this.timeStart = null;
-    clearInterval(this.interval);
+    if (this.interval !== null){
+        clearInterval(this.interval);
+    }
 }
 }//ends
