@@ -1,4 +1,4 @@
-import Bilza  from "../../src/index.js";
+import Bilza  from "../src/index.js";
 //---lets create a 60 seconds clip
 let bilzaa = new Bilza("bilza",800,350,15000);
 
