@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
       "target": "ES2016",                       
-      "module": "es6",            
+      "module": "amd",            
        "declaration": true,                   
        "declarationMap": true, 
        "removeComments": true,               
-       "outDir": "src/",                      
+       "outDir": "build/",                      
        "rootDir": "./typescript",
+       "outFile": "build/bilzaa2d.js",
       "strict": true,  
       "strictNullChecks":true,                        
       "esModuleInterop": true,                  

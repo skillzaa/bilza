@@ -5,3 +5,4 @@ export default {
       format: 'es'
     }
   };
+  //not req use npm run

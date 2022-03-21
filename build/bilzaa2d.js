@@ -1,21 +1,16 @@
-//--This is an Abstract class
 class Component {
-    // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     constructor(DataFn, msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         this.compData = new Transition(DataFn);
         this.d = this.compData.data;
         this.data = this.compData.data;
-        //--------------------------------
-        //--must
         this.drawLayer = DrawLayer.MiddleGround;
-        //--must
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
         this.display = true;
         this.selected = false;
-        this.msStart = msStart; //typescript deamnds it
+        this.msStart = msStart;
         this.msEnd = msEnd;
-        this.setStart(msStart); //in future i may run some otehr code in these fn
+        this.setStart(msStart);
         this.setEnd(msEnd);
     }
     getSelected() {
@@ -52,22 +47,19 @@ class Component {
     height(p) {
         return 0;
     }
-    // brilent do not send frame in draw args just send frame in update-
     draw(p) {
         return true;
     }
     update(msDelta, p) {
         return true;
     }
-    ////////////////////////////////////////////////////////
-    // following methods are not IDrawable
     addTransition(msStart) {
         return this.compData.add(msStart);
     }
     checkCollision(x, y, p) {
         return false;
     }
-} //component ends
+}
 
 class Pack {
     constructor(width = 0, height = 0, canvasId = "bilzaa2d") {
@@ -80,7 +72,7 @@ class Pack {
         else {
             this.canvas = lookForCanvas;
         }
-        this.canvas.id = canvasId; // Html5 canvas does not have id
+        this.canvas.id = canvasId;
         this.canvas.width = width;
         this.canvas.height = height;
         this.canvas.style.position = "static";
@@ -100,13 +92,11 @@ class Pack {
         else {
             this.canvas.height = height;
         }
-        //===========================
         this.ctx = this.canvas.getContext('2d');
         if (this.ctx == null) {
             throw new Error("could not obtain drawing context");
         }
     }
-    //--- look at this fn again
     drawBackground(color = "blue") {
         this.ctx.fillStyle = color;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -135,7 +125,6 @@ class Pack {
     }
     charsWidth(chars = "", fontSize, fontName) {
         this.ctx.save();
-        //--no commitCtxData thus setFont is required
         this.setFont(fontSize, fontName);
         let m = this.ctx.measureText(chars).width;
         this.ctx.restore();
@@ -144,8 +133,6 @@ class Pack {
     textWidth(chars, incomTempl) {
         this.ctx.save();
         this.commitCtxData(incomTempl);
-        //not required since its done in commitCtxData
-        // this.setFont(incomTempl.fontSize,incomTempl.fontName);
         let m = this.ctx.measureText(chars).width;
         this.ctx.restore();
         return Math.ceil(m);
@@ -208,29 +195,19 @@ class Pack {
     }
     drawText(content, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
-        //--must
-        //    this.ctx.textBaseline = "middle";
         this.ctx.textBaseline = "top";
-        //    this.ctx.textBaseline = "bottom";
-        //    this.ctx.font = "200px sans-serif";
-        // x and y are not merged place directly   
         this.ctx.fillText(content, x, y);
     }
     drawIcon(code, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
-        //--must
         this.ctx.textBaseline = "top";
-        // x and y are not merged place directly   
         this.ctx.fillText(String.fromCharCode(code), x, y);
     }
     drawTextstroke(content, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
-        //--must
         this.ctx.textBaseline = "top";
-        // x and y are not merged   
         this.ctx.strokeText(content, x, y);
     }
-    //very simple function just do not put abstractions here-- keep it simple and pure 
     drawLines(positions, incomCtx, fill = true) {
         this.commitCtxData(incomCtx);
         this.ctx.beginPath();
@@ -239,8 +216,7 @@ class Pack {
             const pos = positions[i];
             this.ctx.lineTo(pos.x, pos.y);
         }
-        //--do not draw the last line
-        this.ctx.closePath(); //importantay
+        this.ctx.closePath();
         if (fill == true) {
             this.ctx.fill();
         }
@@ -248,7 +224,6 @@ class Pack {
             this.ctx.stroke();
         }
     }
-    // x and y are not here
     commitCtxData(incomCtx) {
         if (incomCtx.lineCap !== null) {
             this.ctx.lineCap = "round";
@@ -280,14 +255,10 @@ class Pack {
         if (incomCtx.lineDashWidth !== null && incomCtx.lineDashGap !== null) {
             this.ctx.setLineDash([incomCtx.lineDashWidth, incomCtx.lineDashGap]);
         }
-        //---important change
         this.setFont(incomCtx.fontSize, incomCtx.fontName);
     }
     setFont(fontSize, fontName) {
-        // let f = fontSize + "px " + fontName;
         let f = `${fontSize}px ${fontName}`;
-        // let f = `${fontSize}px fantasy`;
-        // let f = "200px Charcoal";
         this.ctx.font = f;
     }
     xPerc(perc) {
@@ -338,14 +309,11 @@ var FontNames;
     FontNames["BrushScriptMT"] = "Brush Script MT";
     FontNames["BrushScript"] = "Brush Script";
     FontNames["Luminari"] = "Luminari";
-    //----------------------------
 })(FontNames || (FontNames = {}));
 
-// these are ctx valuesto be set in caseof any change in ctx
 class Style {
     constructor(frameStart = 0) {
         this.frameStart = frameStart;
-        // this.font = null; //may not be req
         this.fontSize = 25;
         this.fontName = FontNames.Luminari;
         this.fillStyle = "green";
@@ -425,13 +393,12 @@ class ObjectData$4 {
         this.fontColor = "black";
         this.fontSize = 32;
         this.fontFamily = FontNames.Courier;
-        //-----
         this.flagDrawMargin = false;
         this.flagDrawBorder = false;
         this.flagDrawPadding = false;
         this.flagDrawContentArea = false;
         this.flagDrawBoundingRectangle = false;
-        this.flagDrawText = true; // kep this true
+        this.flagDrawText = true;
     }
 }
 function DataFn$4() {
@@ -448,7 +415,6 @@ class CalcData {
         this.paddingY = 0;
         this.contentAreaX = 0;
         this.contentAreaY = 0;
-        //.........
         this.contentWidth = 0;
         this.contentHeight = 0;
     }
@@ -458,16 +424,12 @@ class Text extends Component {
     constructor(content = "", fontColor = "black", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
         super(DataFn$4, msStart, msEnd);
         this.calcData = new CalcData();
-        //--Exposes an Enum
         this.fontFamilyNames = FontNames;
-        //----get values
         this.d.content = content;
         this.d.x = x;
         this.d.y = y;
         this.d.fontColor = fontColor;
     }
-    /////////////////////////////////////////
-    /////////////////////////////////////////
     width(p) {
         return ((this.d.widthMargin * 2) + (this.d.widthPadding * 2) + this.calcData.contentWidth);
     }
@@ -475,8 +437,7 @@ class Text extends Component {
         return ((this.d.widthMargin * 2) + (this.d.widthPadding * 2) + this.calcData.contentHeight);
     }
     update(ms, p) {
-        this.compData.apply(ms); //--important!!
-        //-----update all variables req for draw-and then just draw
+        this.compData.apply(ms);
         this.calcData.marginX = this.d.x;
         this.calcData.marginY = this.d.y;
         this.calcData.borderX = this.d.x + this.d.widthMargin;
@@ -485,7 +446,6 @@ class Text extends Component {
         this.calcData.paddingY = this.d.y + this.d.widthMargin + this.d.widthBorder;
         this.calcData.contentAreaX = this.d.x + this.d.widthMargin + this.d.widthBorder + this.d.widthPadding;
         this.calcData.contentAreaY = this.d.y + this.d.widthMargin + this.d.widthBorder + this.d.widthPadding;
-        //...
         this.calcData.contentWidth = this.contentWidth(p);
         this.calcData.contentHeight = this.contentHeight(p);
         return true;
@@ -518,16 +478,12 @@ class Text extends Component {
     }
     contentHeight(p, perc = 40) {
         let charHt = p.charsWidth("X", this.d.fontSize, this.d.fontFamily);
-        //   console.log("contentHeight",charHt);
         charHt += (charHt / 100 * perc);
         return charHt;
     }
     contentWidth(p) {
-        // it is this.d.fontFamily and not this.styleg.fontFamily    
         let r = p.charsWidth(this.d.content, this.d.fontSize, this.d.fontFamily);
-        // console.log("content width",r);
         return r;
-        // return 50;
     }
     drawPadding(p) {
         if (this.d.flagDrawPadding == false) {
@@ -541,12 +497,9 @@ class Text extends Component {
             return;
         }
         this.style.fillStyle = this.d.colorBorder;
-        p.drawFillRect(this.calcData.borderX, this.calcData.borderY, ((this.d.widthBorder * 2) + (this.d.widthPadding * 2) + this.calcData.contentWidth), 
-        //this.calcData.contentWidth should be contentHeight
-        ((this.d.widthBorder * 2) + (this.d.widthPadding * 2) + this.calcData.contentHeight), this.style);
+        p.drawFillRect(this.calcData.borderX, this.calcData.borderY, ((this.d.widthBorder * 2) + (this.d.widthPadding * 2) + this.calcData.contentWidth), ((this.d.widthBorder * 2) + (this.d.widthPadding * 2) + this.calcData.contentHeight), this.style);
     }
     drawMargin(p) {
-        //it does not get drawn but is still counted in the calculations
         if (this.d.flagDrawMargin == false) {
             return;
         }
@@ -559,9 +512,9 @@ class Text extends Component {
         if (this.d.flagDrawBoundingRectangle == false) {
             return;
         }
-        this.style.fillStyle = color; //change later
-        this.style.strokeStyle = color; //change later
-        this.style.lineWidth = lineWidth; //change later
+        this.style.fillStyle = color;
+        this.style.strokeStyle = color;
+        this.style.lineWidth = lineWidth;
         p.drawRect(this.d.x, this.d.y, this.width(p), this.height(p), this.style);
     }
     checkCollision(x, y, p) {
@@ -577,8 +530,6 @@ class Text extends Component {
 class ObjectData$3 {
     constructor() {
         this.frameStart = 0;
-        // this.x = 0;
-        // this.y = 0;
         this.cellWidth = 50;
         this.cellHeight = 50;
         this.colorHorizontalLines = "black";
@@ -594,8 +545,6 @@ function DataFn$3() {
     return td;
 }
 
-//import GridTemplates from "./gridTemplates.js";
-//export {GridTemplates};
 class Grid extends Component {
     constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         super(DataFn$3, msStart, msEnd);
@@ -611,7 +560,6 @@ class Grid extends Component {
         let y = 0;
         let width = p.canvasWidth();
         let height = p.canvasHeight();
-        //end y remain the same
         let end_x = x + width;
         do {
             this.style.strokeStyle = this.d.colorHorizontalLines;
@@ -628,7 +576,6 @@ class Grid extends Component {
         let y = 0;
         let width = p.canvasWidth();
         let height = p.canvasHeight();
-        //end y remain the same
         let end_y = y + height;
         do {
             this.style.strokeStyle = this.d.colorVerticalLines;
@@ -641,11 +588,10 @@ class Grid extends Component {
         } while (width > x);
     }
 }
-//=============================
 
 class ObjectData$2 {
     constructor() {
-        this.frameStart = 0; // i just need it since its req by component
+        this.frameStart = 0;
         this.x = 0;
         this.y = 0;
         this.fontSize = 30;
@@ -677,9 +623,8 @@ class FrameCounter extends Component {
         return p.textWidth("Xi", this.style);
     }
     update(msDelat, p) {
-        this.d.frame = msDelat / 1000; //to seconds
+        this.d.frame = msDelat / 1000;
         return true;
-        // return super.update(frame, p);
     }
     draw(p) {
         let s = "Frame:" + parseInt(this.d.frame.toString());
@@ -761,89 +706,48 @@ class RandomBgShapes extends Component {
     }
 }
 
-// import DataFn,{ObjectData,CalcData} from "../../components/text/DataFn.js";
 class AddTextTemplates {
     constructor(comps) {
         this.addToArray = comps;
     }
-    // allVisible(content :string="",textColor:string="yellow",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,x=50,y=50):Text{
-    //     let g = new Text(content,x,y,msStart,msEnd);
-    //     g.d.fontColor = textColor;
-    //     //----very imp
-    //     this.addToArray.push(g);
-    //     g.d.content = content;
-    //     g.d.x = x;
-    //     g.d.y = y;
-    //     //---------set all flags true    
-    //     g.d.flagDrawBorder = true;
-    //     g.d.flagDrawContentArea = true;
-    //     g.d.flagDrawMargin = true;
-    //     g.d.flagDrawPadding = true;
-    //     g.d.flagDrawText = true;
-    //     //---------set colors
-    //     g.d.colorMargin = "red";
-    //     g.d.colorBorder = "green";
-    //     g.d.colorPadding = "blue";
-    //     g.d.colorContentBg = "black";
-    //     // g.d.fontColor = "yellow";
-    //     //---widen all
-    //     g.d.widthBorder = 10;
-    //     g.d.widthMargin = 10;
-    //     g.d.widthPadding = 10;
-    //     return g;
-    // }
     txt(content = "", textColor = "black", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
         let g = new Text();
         g.d.fontColor = textColor;
-        //----very imp
         this.addToArray.push(g);
         g.d.content = content;
         g.d.x = x;
         g.d.y = y;
-        //---------set all flags true    
         g.d.flagDrawBorder = false;
         g.d.flagDrawContentArea = false;
         g.d.flagDrawMargin = false;
         g.d.flagDrawPadding = false;
-        g.d.flagDrawText = true; // keep it true
-        //..
-        // g.d.fontColor = textColor;
+        g.d.flagDrawText = true;
         g.d.fontFamily = FontNames.Helvetica;
         return g;
     }
     txtBg(content = "", textColor = "black", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
         let g = new Text();
         g.d.fontColor = textColor;
-        //----very imp
         this.addToArray.push(g);
         g.d.content = content;
         g.d.x = x;
         g.d.y = y;
-        //---------set all flags true    
         g.d.flagDrawBorder = false;
         g.d.flagDrawContentArea = true;
         g.d.flagDrawMargin = false;
         g.d.flagDrawPadding = true;
-        g.d.flagDrawText = true; // keep it true
-        //...
-        // g.d.widthPadding = padding;
-        // g.d.colorContentBg = colorBg; 
-        // g.d.colorPadding = colorBg; 
-        // g.d.fontColor = textColor;
+        g.d.flagDrawText = true;
         g.d.fontFamily = FontNames.Helvetica;
         return g;
     }
 }
 
-//--components
 class AddFacade {
     constructor(comps) {
         this.addToArray = comps;
         this.textTempl = new AddTextTemplates(comps);
     }
-    //(DataFn :()=>T,msStart=0,msEnd= Number.MAX_SAFE_INTEGER)
     text(content = "text", fontColor = "black", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
-        // let bs = new Text();
         let bs = new Text(content, fontColor, msStart, msEnd, x, y);
         this.addToArray.push(bs);
         return bs;
@@ -877,34 +781,19 @@ class CompActions {
         this.p = p;
     }
     chqCollision(x, y) {
-        // for (let i = 0; i < this.arr.length; i++) {
-        //     const elm = this.arr[i];
-        //     // if (x > elm.d.x && x < elm.width(this.p)){
-        //     if (x > elm.d.x && x < (elm.d.x + 200) ){
-        //         // if (y > elm.draw.y && y < elm.height(this.p)){
-        //         if (y > elm.d.y && y < (elm.d.y + 200) ){
-        //             return elm;
-        //         }
-        //     }
-        // }
         return null;
     }
-} //comps end
+}
 
 class Bilzaa2d {
-    //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350, timeEnd = Number.MAX_SAFE_INTEGER) {
         this.canvasId = canvasId;
         this.comps = [];
         this.background = new Background();
         this.timeStart = null;
         this.timeEnd = timeEnd;
-        // this.canvasWidth = canvasWidth;//result into full screen
-        // this.canvasHeight = canvasHeight; //result into full screen
         this.interval = null;
-        // this.frame = 0; 
         this.msPerFrame = 1000;
-        // this.setCanvas(canvasWidth,canvasHeight);
         this.pack = new Pack(canvasWidth, canvasHeight, this.canvasId);
         this.add = new AddFacade(this.comps);
         this.compActions = new CompActions(this.comps, this.pack);
@@ -922,14 +811,12 @@ class Bilzaa2d {
         if (this.pack == null) {
             throw new Error("bilzaa is not initialized");
         }
-        // this.frame += 1; /// use later if req internally
         let msDelta = this.getMsDelta();
-        //stop if completed
         if (msDelta >= this.timeEnd) {
             this.stop();
         }
         this.pack.clearCanvas();
-        this.pack.drawBackground(this.background.color); //fornow         
+        this.pack.drawBackground(this.background.color);
         this.drawByDrawLayer(msDelta, DrawLayer.BackGround);
         this.drawByDrawLayer(msDelta, DrawLayer.ForeGround);
         this.drawByDrawLayer(msDelta, DrawLayer.MiddleGround);
@@ -938,12 +825,11 @@ class Bilzaa2d {
     drawByDrawLayer(msDelta, drawLayer) {
         for (let i = 0; i < this.comps.length; i++) {
             let comp = this.comps[i];
-            //--save ctx
             if (comp.drawLayer == drawLayer) {
                 if (comp.getStart() < msDelta && comp.getEnd() > msDelta) {
                     this.pack.save();
                     comp.update(msDelta, this.pack);
-                    comp.draw(this.pack); //waoooo no msDelta
+                    comp.draw(this.pack);
                     this.pack.restore();
                 }
             }
@@ -980,13 +866,12 @@ class Bilzaa2d {
         }
     }
     stop() {
-        // console.log("stopped");
         this.timeStart = null;
         if (this.interval !== null) {
             clearInterval(this.interval);
         }
     }
-} //ends
+}
 
 var XAlignment;
 (function (XAlignment) {
@@ -1021,50 +906,36 @@ var DrawLayer;
 
 class Transition {
     constructor(newDataObjFn) {
-        //this is the fn that will gen the data    
         this.newDataObjFn = newDataObjFn;
-        //the current data
         this.data = this.newDataObjFn();
-        // the transisiotns
         this.transitions = [];
     }
-    /** Why is there an error ?
-     * ans: since i am making this for transition array which will have only some of the elms and not all rest are marked as null, so that both the arrays merge.
-     * Better Ans: this array should have just those items which have been used and not a long list of nulls, this is a design error.
-     */
     add(frameStart) {
-        //--gen new obj
         let f = this.newDataObjFn();
-        //--mark all properties as null
         for (const key in f) {
-            //@ts-expect-error
             f[key] = null;
         }
-        f.frameStart = frameStart; //must
-        this.transitions.push(f); // here it is added to the array
+        f.frameStart = frameStart;
+        this.transitions.push(f);
         return f;
     }
     insert(f) {
         this.transitions.push(f);
         return f;
     }
-    /**Keep in mind that when we apply some frame all the frames before that are deleted, since they have elapsed */
     apply(frame) {
         for (let i = this.transitions.length - 1; i >= 0; i--) {
             const trs = this.transitions[i];
             if (trs.frameStart <= frame) {
-                this.merge(trs); //merge
-                this.transitions.splice(i, 1); //delete
+                this.merge(trs);
+                this.transitions.splice(i, 1);
             }
         }
     }
-    //---when is this used
     merge(subset) {
         for (const key in this.data) {
             if (subset.hasOwnProperty(key)) {
-                // @ts-expect-error
                 if (subset[key] !== null) {
-                    // @ts-expect-error
                     this.data[key] = subset[key];
                 }
             }
@@ -1072,6 +943,5 @@ class Transition {
         return true;
     }
 }
-////---------------
 
 export { Bilzaa2d, Component, DrawLayer, FontNames, Pack, Position, Style, Transition };

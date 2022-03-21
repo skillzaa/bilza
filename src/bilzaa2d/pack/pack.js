@@ -9,7 +9,7 @@ export default class Pack {
         else {
             this.canvas = lookForCanvas;
         }
-        this.canvas.id = canvasId; // Html5 canvas does not have id
+        this.canvas.id = canvasId;
         this.canvas.width = width;
         this.canvas.height = height;
         this.canvas.style.position = "static";
@@ -29,13 +29,11 @@ export default class Pack {
         else {
             this.canvas.height = height;
         }
-        //===========================
         this.ctx = this.canvas.getContext('2d');
         if (this.ctx == null) {
             throw new Error("could not obtain drawing context");
         }
     }
-    //--- look at this fn again
     drawBackground(color = "blue") {
         this.ctx.fillStyle = color;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -64,7 +62,6 @@ export default class Pack {
     }
     charsWidth(chars = "", fontSize, fontName) {
         this.ctx.save();
-        //--no commitCtxData thus setFont is required
         this.setFont(fontSize, fontName);
         let m = this.ctx.measureText(chars).width;
         this.ctx.restore();
@@ -73,8 +70,6 @@ export default class Pack {
     textWidth(chars, incomTempl) {
         this.ctx.save();
         this.commitCtxData(incomTempl);
-        //not required since its done in commitCtxData
-        // this.setFont(incomTempl.fontSize,incomTempl.fontName);
         let m = this.ctx.measureText(chars).width;
         this.ctx.restore();
         return Math.ceil(m);
@@ -137,29 +132,19 @@ export default class Pack {
     }
     drawText(content, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
-        //--must
-        //    this.ctx.textBaseline = "middle";
         this.ctx.textBaseline = "top";
-        //    this.ctx.textBaseline = "bottom";
-        //    this.ctx.font = "200px sans-serif";
-        // x and y are not merged place directly   
         this.ctx.fillText(content, x, y);
     }
     drawIcon(code, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
-        //--must
         this.ctx.textBaseline = "top";
-        // x and y are not merged place directly   
         this.ctx.fillText(String.fromCharCode(code), x, y);
     }
     drawTextstroke(content, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
-        //--must
         this.ctx.textBaseline = "top";
-        // x and y are not merged   
         this.ctx.strokeText(content, x, y);
     }
-    //very simple function just do not put abstractions here-- keep it simple and pure 
     drawLines(positions, incomCtx, fill = true) {
         this.commitCtxData(incomCtx);
         this.ctx.beginPath();
@@ -168,8 +153,7 @@ export default class Pack {
             const pos = positions[i];
             this.ctx.lineTo(pos.x, pos.y);
         }
-        //--do not draw the last line
-        this.ctx.closePath(); //importantay
+        this.ctx.closePath();
         if (fill == true) {
             this.ctx.fill();
         }
@@ -177,7 +161,6 @@ export default class Pack {
             this.ctx.stroke();
         }
     }
-    // x and y are not here
     commitCtxData(incomCtx) {
         if (incomCtx.lineCap !== null) {
             this.ctx.lineCap = "round";
@@ -209,14 +192,10 @@ export default class Pack {
         if (incomCtx.lineDashWidth !== null && incomCtx.lineDashGap !== null) {
             this.ctx.setLineDash([incomCtx.lineDashWidth, incomCtx.lineDashGap]);
         }
-        //---important change
         this.setFont(incomCtx.fontSize, incomCtx.fontName);
     }
     setFont(fontSize, fontName) {
-        // let f = fontSize + "px " + fontName;
         let f = `${fontSize}px ${fontName}`;
-        // let f = `${fontSize}px fantasy`;
-        // let f = "200px Charcoal";
         this.ctx.font = f;
     }
     xPerc(perc) {
