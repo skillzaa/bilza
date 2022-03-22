@@ -25,8 +25,8 @@ let bs = new Text(content,fontColor,fontSize,msStart,msEnd,x,y);
     this.addToArray.push(bs);
     return bs;    
 }
-list(x=10,y=10,msStart=0,msEnd=80000):List{
-let bs = new List(x,y,msStart,msEnd);
+list(x=10,y=10,fontSize=30,msStart=0,msEnd=80000):List{
+let bs = new List(x,y,fontSize,msStart,msEnd);
     this.addToArray.push(bs);
     return bs;    
 }

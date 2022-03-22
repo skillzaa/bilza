@@ -6,11 +6,12 @@ import DataFn,{ObjectData} from "./DataFn.js";
 export default class List extends Component<ObjectData> {
 
 private widthExtra :number;
-constructor (x=10,y=10,msStart=0,msEnd=80000){
+constructor (x=10,y=10,fontSize=30,msStart=0,msEnd=80000){
     super(DataFn,msStart,msEnd);   
     this.widthExtra = 10; 
     this.d.x = x;
     this.d.y = y;
+    this.d.fontSize = fontSize;
 }
 /////////////////////////////////////////
 /////////////////////////////////////////
@@ -43,6 +44,10 @@ for (let i = 0; i < this.d.items.length; i++) {
     const item = this.d.items[i];
     // startX += 50;
     // item.d.x = startX + this.d.paddingX;
+    //---------------------------------------------
+    item.d.fontSize = this.d.fontSize;
+    item.d.fontColor = this.d.fontColor;
+    //---------------------------------------------
     const movableArea = this.width(p) - item.width(p);
     const movableAreaHalf = movableArea/2; 
     item.d.x = startX  + movableAreaHalf;
@@ -52,11 +57,35 @@ for (let i = 0; i < this.d.items.length; i++) {
     startY += item.height(p); 
     item.update(ms,p);
 }
-    
+/////------------------------------------
+this.updateFocus();    
+this.updateHighlight();    
+this.updateDim();    
+/////------------------------------------    
 this.compData.apply(ms); //--important!!
 return true;    
 }
-
+updateFocus(){
+    for (let i = 0; i < this.d.listFocus.length; i++) {
+        this.d.items[this.d.listFocus[i]].d.fontColor = this.d.focusFontColor;
+        this.d.items[this.d.listFocus[i]].d.colorPadding = this.d.focusBgColor;   
+        this.d.items[this.d.listFocus[i]].d.colorBorder = this.d.focusBorderColor;   
+    }
+}
+updateHighlight(){
+    for (let i = 0; i < this.d.listHighlight.length; i++) {
+        this.d.items[this.d.listHighlight[i]].d.fontColor = this.d.highlightFontColor;
+        this.d.items[this.d.listHighlight[i]].d.colorPadding = this.d.highlightBgColor;   
+        this.d.items[this.d.listHighlight[i]].d.colorBorder = this.d.highlightBorderColor;   
+    }
+}
+updateDim(){
+    for (let i = 0; i < this.d.listDim.length; i++) {
+        this.d.items[this.d.listDim[i]].d.fontColor = this.d.dimFontColor;
+        this.d.items[this.d.listDim[i]].d.colorPadding = this.d.dimBgColor;   
+        this.d.items[this.d.listDim[i]].d.colorBorder = this.d.dimBorderColor;   
+    }
+}
 draw(p: Pack):boolean {
     this.style.fillStyle = this.d.colorBg;
     p.drawFillRect(this.d.x,this.d.y,this.width(p),

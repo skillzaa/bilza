@@ -8,19 +8,57 @@ y :number;
 colorBg :string;
 // colorBorder :string;
 gap :number;
+//--------------------------
+listDim :number[];
+dimFontColor :string;
+dimBgColor :string;
+dimBorderColor :string;
+//--------------------------
+//--------------------------
+listFocus :number[];
+focusFontColor :string;
+focusBgColor :string;
+focusBorderColor :string;
+//--------------------------
+//--------------------------
+listHighlight :number[];
+highlightFontColor :string;
+highlightBgColor :string;
+highlightBorderColor :string;
+//--------------------------
+
 paddingX :number;
 paddingY :number;
 fontSize :number;
+fontColor :string;
 items :Text[];
 constructor(){
 this.frameStart =0;
 this.x = 50;
 this.y = 50;
+
+this.listDim = [];
+this.dimFontColor = "grey";
+this.dimBgColor = "#6B726D";
+this.dimBorderColor = "grey";
+
+this.listFocus = [];
+this.focusFontColor = "blue";
+this.focusBgColor = "white";
+this.focusBorderColor = "blue";
+
+this.listHighlight = [];
+this.highlightFontColor = "red";
+this.highlightBgColor = "#0404a3";
+this.highlightBorderColor = "red";
+//--------------------------
+
 this.fontSize = 30;
 this.colorBg = "blue";
 this.paddingX = 4;
 this.paddingY = 4;
 this.gap = 4;
+this.fontColor = "black";
 this.items = [];
 }
 };
