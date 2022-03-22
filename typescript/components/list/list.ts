@@ -42,15 +42,13 @@ let startY = this.d.y + this.d.paddingY;
 
 for (let i = 0; i < this.d.items.length; i++) {
     const item = this.d.items[i];
-    // startX += 50;
-    // item.d.x = startX + this.d.paddingX;
     //---------------------------------------------
     item.d.fontSize = this.d.fontSize;
     item.d.fontColor = this.d.fontColor;
     //---------------------------------------------
-    const movableArea = this.width(p) - item.width(p);
-    const movableAreaHalf = movableArea/2; 
-    item.d.x = startX  + movableAreaHalf;
+    // const movableArea = this.width(p) - item.width(p);
+    // const movableAreaHalf = movableArea/2; 
+    item.d.x = startX  + this.setX(item,p);
     let itemY = startY  + this.d.gap; 
     item.d.y = itemY;
     startY = itemY;
@@ -124,5 +122,22 @@ item.d.fontColor = "yellow";
 item.d.fontSize = this.d.fontSize;
 // item.d.fontFamily = ;
     this.d.items.push(item);
+}
+setX(item:Text,p :Pack):number{
+    const movableArea = this.width(p) - item.width(p);
+    let answer = 0;
+    switch (this.d.align) {
+        case "left":
+            answer =  0;
+            break;
+        case "right":
+            answer =  movableArea - this.d.paddingX;
+            break;
+        case "centre":
+            answer =  movableArea/2; 
+        default:
+            break;
+    }
+    return answer;
 }
 }

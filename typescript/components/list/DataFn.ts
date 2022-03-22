@@ -6,6 +6,7 @@ frameStart:number;
 x :number;
 y :number;
 colorBg :string;
+align :string;
 // colorBorder :string;
 gap :number;
 //--------------------------
@@ -34,11 +35,12 @@ fontColor :string;
 items :Text[];
 constructor(){
 this.frameStart =0;
+this.align = "left";
 this.x = 50;
 this.y = 50;
 
 this.listDim = [];
-this.dimFontColor = "grey";
+this.dimFontColor = "#efeded";
 this.dimBgColor = "#6B726D";
 this.dimBorderColor = "grey";
 
@@ -68,34 +70,3 @@ export default function DataFn ():ObjectData  {
 let td = new ObjectData();
 return td;
 }
-
-
-// export class CalcData {
-
-// marginX:number;    
-// marginY:number;  
-// borderX:number;    
-// borderY:number;
-// paddingX:number;    
-// paddingY:number; 
-// contentAreaX:number;    
-// contentAreaY:number; 
-// //-------------------
-// contentWidth :number;
-// contentHeight :number;
-
-// constructor(){
-// this.marginX = 0;     
-// this.marginY = 0;   
-// this.borderX = 0;     
-// this.borderY = 0; 
-// this.paddingX = 0;     
-// this.paddingY = 0;  
-// this.contentAreaX = 0;     
-// this.contentAreaY = 0;  
-// //.........
-// this.contentWidth = 0;
-// this.contentHeight = 0;
-
-// }
-// };
