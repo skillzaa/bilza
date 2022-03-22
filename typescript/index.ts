@@ -2,7 +2,7 @@ import Component from "./bilza/component/component.js";
 import Pack from "./bilza/pack/pack.js";
 import Style from "./bilza/pack/style.js";
 import Bilza from "./bilza/bilza.js";
-import Position from "./bilza/design/Position.js";
+// import Position from "./bilza/design/Position.js";
 import {DrawLayer} from "./bilza/design/drawLayer.js";
 // import {XAlignment,YAlignment} from "./bilza/design/alignment.js";
 import IDrawable from "./bilza/design/IDrawable.js";
@@ -23,12 +23,6 @@ Style,
 Transition,
 Component,
 IFrameStart,
-// YAlignment,
-Position,
 IDrawable,
 FontNames,
-
-// Grid,
-// GridTemplates
-// Text
 }

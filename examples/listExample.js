@@ -1,0 +1,13 @@
+import Bilza from "../src/index.js";
+let bilzaa = new Bilza("bilza", 800, 350, 15000);
+bilzaa.add.grid();
+bilzaa.add.frameCounter(0, 300, bilzaa.getTimeEnd());
+let lst = bilzaa.add.list(100,50);
+lst.d.gap = 6;
+lst.addItem("The first point");
+lst.addItem("Secondly its important");
+lst.addItem("Third is the charm");
+lst.addItem("Fourth times is hardwork");
+lst.addItem("Fifth should be expert by now");
+//lst.d.items[0].d.fontSize = 90;
+bilzaa.start();

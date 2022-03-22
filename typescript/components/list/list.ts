@@ -1,0 +1,99 @@
+import {Component,Pack} from "../../index.js";
+//Getting text dir since its no more exported by index.js
+import Text from "../text/text.js";
+import DataFn,{ObjectData} from "./DataFn.js";
+
+export default class List extends Component<ObjectData> {
+
+private widthExtra :number;
+constructor (x=10,y=10,msStart=0,msEnd=80000){
+    super(DataFn,msStart,msEnd);   
+    this.widthExtra = 10; 
+    this.d.x = x;
+    this.d.y = y;
+}
+/////////////////////////////////////////
+/////////////////////////////////////////
+width( p: Pack ): number {
+    let wd = 0;
+    for (let i = 0; i < this.d.items.length; i++) {
+        const item = this.d.items[i];
+        if (item.width(p) > wd){
+            wd = item.width(p);
+        }
+    }
+ const wdPadding =   wd + (this.d.paddingX * 4);
+ return wdPadding + (wdPadding/100*this.widthExtra);
+}
+height(p: Pack,perc=0): number {
+    let ht = this.d.paddingY; //top gap
+    for (let i = 0; i < this.d.items.length; i++) {
+        const item = this.d.items[i];
+            ht += item.height(p);
+            ht += this.d.gap;
+    }
+ return  ht + (this.d.paddingY);
+}
+
+update(ms :number, p: Pack): boolean {
+let startX = this.d.x;
+let startY = this.d.y + this.d.paddingY;
+
+for (let i = 0; i < this.d.items.length; i++) {
+    const item = this.d.items[i];
+    // startX += 50;
+    // item.d.x = startX + this.d.paddingX;
+    const movableArea = this.width(p) - item.width(p);
+    const movableAreaHalf = movableArea/2; 
+    item.d.x = startX  + movableAreaHalf;
+    let itemY = startY  + this.d.gap; 
+    item.d.y = itemY;
+    startY = itemY;
+    startY += item.height(p); 
+    item.update(ms,p);
+}
+    
+this.compData.apply(ms); //--important!!
+return true;    
+}
+
+draw(p: Pack):boolean {
+    this.style.fillStyle = this.d.colorBg;
+    p.drawFillRect(this.d.x,this.d.y,this.width(p),
+    this.height(p),this.style);
+    for (let i = 0; i < this.d.items.length; i++) {
+        const item = this.d.items[i];
+        // item.d.====> Everything is avaialble
+        item.draw(p);
+    }
+    
+return true;    
+}
+addItem(content=""){
+    let item = new Text(content);
+//     x :number;
+// y :number;
+item.d.widthMargin = 2;
+item.d.widthBorder = 2;
+item.d.widthPadding = 2;
+
+item.d.flagDrawMargin = false;
+item.d.flagDrawBorder = true;
+//-i will draw padding rectang and that is my contentArea Bg
+item.d.flagDrawPadding = true;
+item.d.flagDrawContentArea = false; //am using padding
+item.d.flagDrawBoundingRectangle = false ;
+item.d.flagDrawText = true;
+
+// //--colors for each of the 4 blocks and for text
+// item.d.colorMargin = "black";
+item.d.colorBorder = "#4242ff";
+item.d.colorPadding = this.d.colorBg;//keep it in sync with list
+// item.d.colorContentBg = ;
+
+item.d.fontColor = "yellow";
+item.d.fontSize = this.d.fontSize;
+// item.d.fontFamily = ;
+    this.d.items.push(item);
+}
+}
