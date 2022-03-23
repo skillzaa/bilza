@@ -1,4 +1,4 @@
-import Bilza  from "../src/index.js";
+import Bilza  from "../index.js";
 //---lets create a 60 seconds clip
 let bilzaa = new Bilza("bilza",800,350,15000);
 
@@ -15,7 +15,7 @@ title.d.flagDrawBorder = true;
 title.d.flagDrawContentArea = true;
 //----heading fn
 
-function createItem(content,msStart=0,y){
+function createItem(content :string,msStart=0,y :number){
     let itemOne = bilzaa.add.text(content,"green",25,msStart,
     bilzaa.getTimeEnd(),10,y);
     let trans  = itemOne.addTransition(msStart + 1000);

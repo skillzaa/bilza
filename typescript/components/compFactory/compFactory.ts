@@ -1,19 +1,19 @@
 import {IDrawable} from "../../index.js";
 //--components
-import Text from "../../components/text/text.js";
-import Grid from "../../components/grid/grid.js";
-import FrameCounter from "../../components/frameCounter/frameCounter.js";
-import Circle from "../../components/circle/circle.js";
-import RandomBgShapes from "../../components/randomBgShapes/randomBgShapes.js";
-import List from "../../components/list/list.js";
+import Text from "../text/text.js";
+import Grid from "../grid/grid.js";
+import FrameCounter from "../frameCounter/frameCounter.js";
+import Circle from "../circle/circle.js";
+import RandomBgShapes from "../randomBgShapes/randomBgShapes.js";
+import List from "../list/list.js";
 //---Templates 
 import AddTextTemplates from "./addTextTemplates.js";
 
-export default class AddFacade {
+export default class CompFactory {
 private addToArray :IDrawable[];
 textTempl :AddTextTemplates;
 
-constructor(comps :IDrawable[]){
+constructor(comps :IDrawable[]=[]){
 this.addToArray = comps;
 this.textTempl = new AddTextTemplates(comps);
 }
@@ -51,4 +51,6 @@ randomBgShapes(){
     let item = new RandomBgShapes();
     this.addToArray.push(item);
 }
+
+spit(){return this.addToArray;}
 }

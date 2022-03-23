@@ -2,10 +2,10 @@
     "compilerOptions": {
       "target": "ES2016",                       
       "module": "es6",            
-       "declaration": true,                   
-       "declarationMap": true, 
+       "declaration": false,                   
+       "declarationMap": false, 
        "removeComments": true,               
-       "outDir": "./src",                      
+       "outDir": "src",                      
        "rootDir": "./typescript",
       "strict": true,  
       "strictNullChecks":true,                        

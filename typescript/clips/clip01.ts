@@ -1,9 +1,16 @@
-import Bilza from "../src/index.js";
-let bilzaa = new Bilza("bilza", 800, 350, 15000);
-bilzaa.add.grid();
-bilzaa.add.frameCounter(0, 0, bilzaa.getTimeEnd());
+import {CompFactory,IDrawable} from "../index.js";
 
-let lst = bilzaa.add.list(10,100,38);
+export default function clip01() :IDrawable[]{
+
+let factory = new CompFactory([]);
+// c.grid();
+// c.text("This is a Clip","red",55,0,60000,100,10);
+// c.frameCounter();
+// return c.spit();
+factory.grid();
+factory.frameCounter(0, 0, 60000);
+
+let lst = factory.list(10,100,38);
 lst.d.gap = 6;
 lst.d.fontColor = "white";
 lst.addItem("The first point");
@@ -33,5 +40,5 @@ let tr05 = lst.addTransition(11000);
 tr05.listDim = [0,1,2,3]; //--This changes everything 
 tr05.listHighlight = [4]; //--This changes everything 
 
-
-bilzaa.start();
+return factory.spit();
+}

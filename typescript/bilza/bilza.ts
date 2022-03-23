@@ -1,12 +1,9 @@
-import {DrawLayer,IDrawable,Pack} from "../index.js";
+import {CompFactory, DrawLayer,IDrawable,Pack} from "../index.js";
 import Background from "./background.js";
-import AddFacade from "./addFacade/addFacade.js";
-import CompActions from "./component/compActions.js";
 
 export default class Bilza {
 private comps:IDrawable[]; 
 private pack:Pack; //---later
-private compActions :CompActions; //---later
 //---A frame = just the number of draw calls to the main draw fn
 // private frame :number; //just use internally
 ///--this is used for setInterval 
@@ -25,7 +22,7 @@ private timeStart :number | null; //the size of video-length in milli seconds
 private timeEnd :number; //the size of video-length in milli seconds
 //==================PUBLIC API
 
-public add :AddFacade; 
+public add :CompFactory; 
 public background :Background;
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -42,8 +39,7 @@ this.interval = null;
 this.msPerFrame = 1000;
 // this.setCanvas(canvasWidth,canvasHeight);
 this.pack = new Pack(canvasWidth,canvasHeight,this.canvasId);
-this.add = new AddFacade(this.comps);
-this.compActions = new CompActions(this.comps,this.pack);
+this.add = new CompFactory(this.comps);
 } 
 setCanvas(width :number = 800,height :number = 400){
 this.pack = new Pack(width,height,this.canvasId);
@@ -92,7 +88,7 @@ return true;
 }
 
 chqCollision(x :number, y :number):IDrawable | null{
-   return this.compActions.chqCollision(x,y);
+   return null;
 }
 insert(comp:IDrawable):IDrawable{
 this.comps.push(comp);
@@ -124,5 +120,13 @@ stop(){
     if (this.interval !== null){
         clearInterval(this.interval);
     }
+}
+mergeClip(clip :IDrawable[]):boolean{
+    // this.comps.concat(clip);
+    // this.comps = clip;
+    for (let i = 0; i < clip.length; i++) {
+        this.comps.push(clip[i]);
+    }
+return true;
 }
 }//ends
