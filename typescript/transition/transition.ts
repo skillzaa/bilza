@@ -1,4 +1,4 @@
-import IFrameStart from "./IFrameStart.js";
+import IFrameStart from "../design/IFrameStart.js";
 
 export default class Transition <T extends IFrameStart>{
 

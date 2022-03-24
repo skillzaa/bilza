@@ -1,5 +1,5 @@
 import {LineCapStyle} from "./lineCapStyle.js";
-import {FontNames} from "../../util/fontNames.js";
+import {FontNames} from "../util/fontNames.js";
 // these are ctx valuesto be set in caseof any change in ctx
 export default class Style {
 //--at this frame this template will become the template of the component. every component must start with one template which can later be changed with transitions- which is just another template obj    
