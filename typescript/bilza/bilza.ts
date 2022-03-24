@@ -19,12 +19,8 @@ this.canvasId = canvasId;
 this.background = new Background();
 this.timeStart = null; 
 this.timeEnd = timeEnd;
-// this.canvasWidth = canvasWidth;//result into full screen
-// this.canvasHeight = canvasHeight; //result into full screen
 this.interval = null;
-// this.frame = 0; 
 this.msPerFrame = 1000;
-// this.setCanvas(canvasWidth,canvasHeight);
 this.pack = new Pack(canvasWidth,canvasHeight,this.canvasId);
 this.add = new CompFactory(this.comps);
 } 
