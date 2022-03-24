@@ -1,5 +1,5 @@
-import {IDrawable,FontNames} from "../../index.js";
-import Text from "../text/text.js";
+import {IDrawable,FontNames} from "../index.js";
+import Text from "../components/text/text.js";
 
 export default class AddTextTemplates {
 private addToArray :IDrawable[];

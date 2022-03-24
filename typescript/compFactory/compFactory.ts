@@ -1,11 +1,11 @@
-import {IDrawable} from "../../index.js";
+import {IDrawable} from "../index.js";
 //--components
-import Text from "../text/text.js";
-import Grid from "../grid/grid.js";
-import FrameCounter from "../frameCounter/frameCounter.js";
-import Circle from "../circle/circle.js";
-import RandomBgShapes from "../randomBgShapes/randomBgShapes.js";
-import List from "../list/list.js";
+import Text from "../components/text/text.js";
+import Grid from "../components/grid/grid.js";
+import FrameCounter from "../components/frameCounter/frameCounter.js";
+import Circle from "../components/circle/circle.js";
+import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
+import List from "../components/list/list.js";
 //---Templates 
 import AddTextTemplates from "./addTextTemplates.js";
 

@@ -56,7 +56,7 @@ return this.pack.canvasHeight;
 }
 getCanvasWidth(){
 return this.pack.canvasWidth;    
-}
+} 
 draw():boolean{
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   

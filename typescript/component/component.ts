@@ -1,4 +1,4 @@
-import {Style,Pack,IDrawable,DrawLayer,Transition,IFrameStart} from "../../index.js";
+import {Style,Pack,IDrawable,DrawLayer,Transition,IFrameStart} from "../index.js";
 //--This is an Abstract class
 export default class Component  <T extends IFrameStart> implements IDrawable {
 //compData is the transition object and T is the obj it takes in
