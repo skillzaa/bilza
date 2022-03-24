@@ -1,0 +1,30 @@
+import { CompFactory } from "../index.js";
+export default function clip01() {
+    let factory = new CompFactory([]);
+    factory.grid();
+    factory.frameCounter(0, 0, 60000);
+    let lst = factory.list(10, 100, 38);
+    lst.d.gap = 6;
+    lst.d.fontColor = "white";
+    lst.addItem("The first point");
+    lst.addItem("Secondly its important");
+    lst.addItem("Third is the charm");
+    lst.addItem("Fourth times is hardwork");
+    lst.addItem("Fifth should be expert by now");
+    let tr = lst.addTransition(3000);
+    tr.listDim = [1, 2, 3, 4];
+    tr.listHighlight = [0];
+    let tr02 = lst.addTransition(5000);
+    tr02.listDim = [0, 2, 3, 4];
+    tr02.listHighlight = [1];
+    let tr03 = lst.addTransition(7000);
+    tr03.listDim = [0, 1, 3, 4];
+    tr03.listHighlight = [2];
+    let tr04 = lst.addTransition(9000);
+    tr04.listDim = [0, 1, 2, 4];
+    tr04.listHighlight = [3];
+    let tr05 = lst.addTransition(11000);
+    tr05.listDim = [0, 1, 2, 3];
+    tr05.listHighlight = [4];
+    return factory.spit();
+}

@@ -5,7 +5,7 @@
 > Bilza is a framework for creating javascript presentations, slides and educational content.
 ---
 
-## What is Bilza.js is Not
+## What Bilza.js is Not
  
  - Bilza.js is NOT fast, currently I am running it on 1 frame per second. which by any animation standerds is as low as it gets.
  - Bilza.js is not an animation framework.
@@ -26,7 +26,7 @@
 ```javascript
 //--You have to change the path 
 import Bilza  from "./node_modules/bilza/index.js";
-//---lets create a 60 seconds clip
+//---lets create a 15 seconds clip
 let bilzaa = new Bilza("bilza",800,350,15000);
 
 ///-----Add components
