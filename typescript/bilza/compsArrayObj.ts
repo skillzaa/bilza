@@ -1,7 +1,7 @@
 import {DrawLayer,IDrawable,Pack} from "../index.js";
 
 export default class CompsArrayObj {
-private comps:IDrawable[]; 
+protected comps:IDrawable[]; 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (){
 this.comps = [];  

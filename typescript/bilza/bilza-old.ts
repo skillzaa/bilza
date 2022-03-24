@@ -1,21 +1,34 @@
 import {CompFactory, DrawLayer,IDrawable,Pack} from "../index.js";
 import Background from "./background.js";
-import CompArrayObj from "./compsArrayObj.js";
 
-export default class Bilza extends CompArrayObj {
+export default class Bilza {
+private comps:IDrawable[]; 
 private pack:Pack; //---later
+//---A frame = just the number of draw calls to the main draw fn
+// private frame :number; //just use internally
+///--this is used for setInterval 
 private interval : NodeJS.Timer | null;
+//-shd be fn
+// private canvasHeight :number;
+//-shd be fn
+// private canvasWidth :number;
+//- private
 private canvasId :string;
+
 private  msPerFrame :number; //????
+
+// public readonly msStart =0; //the size of video//noneed
 private timeStart :number | null; //the size of video-length in milli seconds
 private timeEnd :number; //the size of video-length in milli seconds
 //==================PUBLIC API
+
 public add :CompFactory; 
 public background :Background;
+
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilzaa2d",canvasWidth=800,canvasHeight=350,timeEnd=Number.MAX_SAFE_INTEGER){
-super();
-this.canvasId = canvasId; 
+this.canvasId = canvasId;    
+this.comps = [];  
 this.background = new Background();
 this.timeStart = null; 
 this.timeEnd = timeEnd;
@@ -53,16 +66,34 @@ let msDelta = this.getMsDelta();
 if(msDelta >= this.timeEnd){ this.stop();}     
 this.pack.clearCanvas();          
 this.pack.drawBackground(this.background.color); //fornow         
-this.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
-this.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
-this.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
+this.drawByDrawLayer(msDelta,DrawLayer.BackGround);
+this.drawByDrawLayer(msDelta,DrawLayer.ForeGround);
+this.drawByDrawLayer(msDelta,DrawLayer.MiddleGround);
+return true;
+}
+private drawByDrawLayer(msDelta :number,drawLayer :DrawLayer):boolean{ 
+for (let i = 0; i < this.comps.length; i++) {
+let comp = this.comps[i];       
+        //--save ctx
+        if (comp.drawLayer == drawLayer ){
+            if (comp.getStart() < msDelta && comp.getEnd() > msDelta ){
+                this.pack.save();
+                comp.update(msDelta,this.pack);
+                comp.draw(this.pack);//waoooo no msDelta
+                this.pack.restore();
+            }   
+        }
+}
 return true;
 }
 
 chqCollision(x :number, y :number):IDrawable | null{
    return null;
 }
-
+insert(comp:IDrawable):IDrawable{
+this.comps.push(comp);
+return comp;
+}
 private getMsDelta() :number{
 if (this.timeStart ==null){   
     return 0;
@@ -76,6 +107,7 @@ if (this.timeStart !== null){return false;}
 else {
     this.stop();
     this.timeStart = new Date().getTime();
+
         this.interval = setInterval(()=>{
         this.draw();
         },this.msPerFrame);
@@ -83,12 +115,15 @@ else {
 }    
 }
 stop(){
+    // console.log("stopped");
     this.timeStart = null;
     if (this.interval !== null){
         clearInterval(this.interval);
     }
 }
 mergeClip(clip :IDrawable[]):boolean{
+    // this.comps.concat(clip);
+    // this.comps = clip;
     for (let i = 0; i < clip.length; i++) {
         this.comps.push(clip[i]);
     }
