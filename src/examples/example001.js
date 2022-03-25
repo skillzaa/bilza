@@ -18,6 +18,6 @@ function createItem(content, msStart = 0, y) {
 }
 createItem("A framework for creating javascript presentations", 2000, 70);
 createItem("Emphasis is on education", 4000, 120);
-createItem("slides, presentation etc", 6000, 170);
+createItem("slides and presentation", 6000, 170);
 createItem("formulas, tables, lists", 8000, 220);
 bilzaa.start();

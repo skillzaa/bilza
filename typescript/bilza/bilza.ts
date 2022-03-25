@@ -4,7 +4,7 @@ import CompArrayObj from "./compsArrayObj.js";
 
 export default class Bilza extends CompArrayObj {
 private pack:Pack; //---later
-private interval : NodeJS.Timer | null;
+private interval : number | null;
 private canvasId :string;
 private  msPerFrame :number; //????
 private timeStart :number | null; //the size of video-length in milli seconds
