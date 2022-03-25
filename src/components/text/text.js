@@ -1,5 +1,6 @@
 import { Component, FontNames } from "../../index.js";
-import DataFn, { CalcData } from "./DataFn.js";
+import DataFn from "./DataFn.js";
+import CalcData from "./calcData.js";
 export default class Text extends Component {
     constructor(content = "", fontColor = "black", fontSize = 40, msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
         super(DataFn, msStart, msEnd);
@@ -38,7 +39,6 @@ export default class Text extends Component {
         this.drawContentArea(p);
         this.drawText(p);
         this.drawBoundingRectangle(p);
-        console.log("Box system...!!!!!");
         return true;
     }
     drawContentArea(p) {
@@ -51,6 +51,17 @@ export default class Text extends Component {
     drawText(p) {
         if (this.d.flagDrawText == false) {
             return;
+        }
+        if (this.d.flagTextShadow == true) {
+            this.style.shadowColor = this.d.textShadowColor;
+            this.style.shadowOffsetX = this.d.textShadowOffsetX;
+            this.style.shadowOffsetY = this.d.textShadowOffsetY;
+            this.style.shadowBlur = this.d.textShadowBlur;
+        }
+        else {
+            this.style.shadowOffsetX = 0;
+            this.style.shadowOffsetY = 0;
+            this.style.shadowBlur = 0;
         }
         this.style.fillStyle = this.d.fontColor;
         this.style.fontSize = this.d.fontSize;
@@ -93,10 +104,20 @@ export default class Text extends Component {
         if (this.d.flagDrawBoundingRectangle == false) {
             return;
         }
-        this.style.fillStyle = color;
-        this.style.strokeStyle = color;
-        this.style.lineWidth = lineWidth;
-        p.drawRect(this.d.x, this.d.y, this.width(p), this.height(p), this.style);
+        if (this.d.flagBoundingRectShadow == true) {
+            this.style.fillStyle = this.d.colorBoundingRect;
+            this.style.strokeStyle = this.d.colorBoundingRect;
+            this.style.shadowColor = this.d.boundingRectShadowColor;
+            this.style.shadowOffsetX = this.d.boundingRectShadowOffsetX;
+            this.style.shadowOffsetY = this.d.boundingRectShadowOffsetY;
+            this.style.shadowBlur = this.d.boundingRectShadowBlur;
+        }
+        else {
+            this.style.shadowOffsetX = 0;
+            this.style.shadowOffsetY = 0;
+            this.style.shadowBlur = 0;
+        }
+        p.drawRect(this.d.x - (this.d.boundingRectXYExtra[0] / 2), this.d.y - (this.d.boundingRectXYExtra[1] / 2), this.width(p) + this.d.boundingRectXYExtra[0], this.height(p) + this.d.boundingRectXYExtra[1], this.style);
     }
     checkCollision(x, y, p) {
         if (x > this.d.x && x < this.width(p)) {

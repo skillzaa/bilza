@@ -1,6 +1,6 @@
 
 export class ObjectData {
-frameStart:number;
+msStart:number;
 fontSize :number;
 frame :number;
 x :number;
@@ -11,7 +11,7 @@ colorRectangle  :string;
 colorNumbers :string;
 
 constructor(){
-this.frameStart =0; // i just need it since its req by component
+this.msStart =0; // i just need it since its req by component
 this.x=0;
 this.y=0;
 this.fontSize = 30;

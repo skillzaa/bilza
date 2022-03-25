@@ -1,7 +1,7 @@
 import {Component,Pack,DrawLayer } from "../../index.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 
-export default class FrameCounter extends Component<ObjectData> {
+export default class Counter extends Component<ObjectData> {
 
 constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
 super(DataFn,msStart,msEnd);

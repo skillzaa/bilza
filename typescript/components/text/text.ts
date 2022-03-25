@@ -1,6 +1,6 @@
 import {Component,Pack,FontNames} from "../../index.js";
-import DataFn,{ObjectData,CalcData} from "./DataFn.js";
-
+import DataFn,{ObjectData} from "./DataFn.js";
+import CalcData from "./calcData.js";
 export default class Text extends Component<ObjectData> {
 
 protected calcData :CalcData;
@@ -35,7 +35,7 @@ this.compData.apply(ms); //--important!!
 //-----update all variables req for draw-and then just draw
 this.calcData.marginX = this.d.x;
 this.calcData.marginY = this.d.y;
-
+ 
 this.calcData.borderX = this.d.x + this.d.widthMargin; 
 this.calcData.borderY = this.d.y + this.d.widthMargin;
  
@@ -57,9 +57,9 @@ draw(p: Pack):boolean {
    this.drawContentArea(p); 
    this.drawText(p); 
    this.drawBoundingRectangle(p);
-  console.log("Box system...!!!!!");
 return true;    
 }
+
 drawContentArea(p :Pack){
     if (this.d.flagDrawContentArea == false) {return;}
 this.style.fillStyle = this.d.colorContentBg;
@@ -74,7 +74,17 @@ p.drawFillRect(
 }
 drawText(p :Pack){
 if (this.d.flagDrawText == false) {return;}
-
+if (this.d.flagTextShadow == true){
+    this.style.shadowColor = this.d.textShadowColor;
+    this.style.shadowOffsetX = this.d.textShadowOffsetX; 
+    this.style.shadowOffsetY = this.d.textShadowOffsetY; 
+    this.style.shadowBlur = this.d.textShadowBlur; 
+}else {
+    // this.style.shadowColor = 0;
+    this.style.shadowOffsetX = 0; 
+    this.style.shadowOffsetY = 0; 
+    this.style.shadowBlur = 0; 
+}
     this.style.fillStyle = this.d.fontColor;
     this.style.fontSize = this.d.fontSize;
     this.style.fontName = this.d.fontFamily;
@@ -133,15 +143,25 @@ p.drawFillRect(
 }
 
 drawBoundingRectangle(p :Pack,color="red",lineWidth=4){
-if(this.d.flagDrawBoundingRectangle == false){return;}    
-    this.style.fillStyle = color; //change later
-    this.style.strokeStyle = color;//change later
-    this.style.lineWidth = lineWidth;//change later
+if(this.d.flagDrawBoundingRectangle == false){return;}
+
+if (this.d.flagBoundingRectShadow == true){
+    this.style.fillStyle = this.d.colorBoundingRect; //not a mistake
+    this.style.strokeStyle = this.d.colorBoundingRect;//not a mistake
+    this.style.shadowColor = this.d.boundingRectShadowColor;
+    this.style.shadowOffsetX = this.d.boundingRectShadowOffsetX; 
+    this.style.shadowOffsetY = this.d.boundingRectShadowOffsetY; 
+    this.style.shadowBlur = this.d.boundingRectShadowBlur; 
+}else {
+    this.style.shadowOffsetX = 0; 
+    this.style.shadowOffsetY = 0; 
+    this.style.shadowBlur = 0; 
+}    
     p.drawRect(
-        this.d.x ,
-        this.d.y ,
-        this.width(p),
-        this.height(p),
+        this.d.x - (this.d.boundingRectXYExtra[0]/2) ,
+        this.d.y - (this.d.boundingRectXYExtra[1]/2),
+        this.width(p) + this.d.boundingRectXYExtra[0],
+        this.height(p) + this.d.boundingRectXYExtra[1],
         this.style
     );
 } 

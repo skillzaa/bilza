@@ -1,6 +1,6 @@
 export class ObjectData {
     constructor() {
-        this.frameStart = 0;
+        this.msStart = 0;
         this.cellWidth = 50;
         this.cellHeight = 50;
         this.colorHorizontalLines = "black";

@@ -1,6 +1,6 @@
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
-import FrameCounter from "../components/frameCounter/frameCounter.js";
+import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
 import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
@@ -25,8 +25,8 @@ export default class CompFactory {
         this.addToArray.push(g);
         return g;
     }
-    frameCounter(x = 100, y = 100, msEnd = Number.MAX_SAFE_INTEGER) {
-        let item = new FrameCounter();
+    counter(x = 100, y = 100, msEnd = Number.MAX_SAFE_INTEGER) {
+        let item = new Counter();
         item.d.x = x;
         item.d.y = y;
         this.addToArray.push(item);

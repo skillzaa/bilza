@@ -2,7 +2,7 @@
 import Text from "../text/text.js";
  
 export class ObjectData {
-frameStart:number;
+msStart:number;
 x :number;
 y :number;
 colorBg :string;
@@ -34,7 +34,7 @@ fontSize :number;
 fontColor :string;
 items :Text[];
 constructor(){
-this.frameStart =0;
+this.msStart =0;
 this.align = "left";
 this.x = 50;
 this.y = 50;

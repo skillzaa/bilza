@@ -1,10 +1,10 @@
 
 export class ObjectData {
-frameStart:number;
+    msStart:number;
 //////////////////////////
 count :number;
 constructor(){
-this.frameStart =0;
+this.msStart =0;
 this.count = 200;
 }
 };

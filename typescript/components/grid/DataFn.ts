@@ -1,6 +1,6 @@
 
 export class ObjectData {
-frameStart:number;
+msStart:number;
 // x :number;
 // y :number;
 cellWidth :number;    
@@ -13,7 +13,7 @@ flagDrawHorizontal :boolean ;
 flagDrawVertical :boolean ;   
 
 constructor(){
-this.frameStart =0;
+this.msStart =0;
 // this.x = 0;
 // this.y = 0;
 this.cellWidth = 50;    

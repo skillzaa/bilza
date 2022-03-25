@@ -7,7 +7,7 @@ private addToArray :IDrawable[];
 constructor(comps :IDrawable[]){
 this.addToArray = comps;
 }
-demo(content :string="",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER, fontColor :string="yellow",fontSize=40)
+demo(content :string="Bilza.js",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER, fontColor :string="yellow",fontSize=40,x=100,y=100)
 :Text{
     let g = new Text(content,fontColor,fontSize,
     msStart,msEnd);
@@ -29,10 +29,12 @@ demo(content :string="",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER, fontC
     g.d.widthBorder = 10;
     g.d.widthMargin = 10;
     g.d.widthPadding = 10;
+    g.d.x = x;
+    g.d.y = y;
 
     return g;
 }
-txt(content :string="",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,fontColor :string="black",fontSize=40)
+txt(content :string="Bilza.js",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,fontColor :string="black",fontSize=40,x=100,y=100)
 :Text{
     let g = new Text(content,fontColor,fontSize,
     msStart,msEnd);
@@ -47,10 +49,12 @@ txt(content :string="",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,fontCol
     //..
     // g.d.fontColor = textColor;
     g.d.fontFamily = FontNames.Helvetica;
+    g.d.x=x;
+    g.d.y=y;
     return g;
 }
-txtBg(content:string="",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,fontColor="yellow",bgColor="#051854"):Text{
-    let g = new Text(content,fontColor,50,
+txtBg(content:string="Bilza.js",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,fontColor="yellow",fontSize=50,bgColor="#051854",x=100,y=100):Text{
+    let g = new Text(content,fontColor,fontSize,
         msStart,msEnd);
         g.d.colorContentBg = bgColor;
     //----very imp
@@ -62,7 +66,21 @@ txtBg(content:string="",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,fontCo
     g.d.flagDrawPadding = true;
     g.d.flagDrawText = true; // keep it true
     g.d.fontFamily = FontNames.Helvetica;
+    g.d.x = x;
+    g.d.y = y;
     return g;
+}
+shadowRect (content:string="Bilza.js",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER, fontColor="black",rectColor="black",fontSize=50,x=100,y=100):Text{
+let one = new Text(content,fontColor,fontSize,msStart,msEnd);   
+ //----very imp
+ this.addToArray.push(one); 
+one.d.flagDrawBoundingRectangle = true;
+one.d.flagBoundingRectShadow = true;
+one.d.flagTextShadow = true;
+one.d.x = x;
+one.d.colorBoundingRect = rectColor;
+one.d.y = y;
+return one;
 }
 
 }

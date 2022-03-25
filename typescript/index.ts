@@ -6,7 +6,7 @@ import {DrawLayer} from "./design/drawLayer.js";
 import IDrawable from "./design/IDrawable.js";
 import Transition from "./transition/transition.js";
 import {FontNames} from "./design/fontNames.js";
-import IFrameStart from "./design/IFrameStart.js";
+import IMsStart from "./design/IMsStart.js";
 ////////////////////////////
 import CompFactory from "./compFactory/compFactory.js";
 
@@ -18,7 +18,7 @@ DrawLayer,
 Style,
 Transition,
 Component,
-IFrameStart,
+IMsStart,
 IDrawable,
 FontNames,
 CompFactory

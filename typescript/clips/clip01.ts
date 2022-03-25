@@ -8,7 +8,7 @@ let factory = new CompFactory([]);
 // c.frameCounter();
 // return c.spit();
 factory.grid();
-factory.frameCounter(0, 0, 60000);
+factory.counter(0, 0, 60000);
 
 let lst = factory.list(10,100,38);
 lst.d.gap = 6;

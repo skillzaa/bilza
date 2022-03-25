@@ -1,7 +1,7 @@
 import Transition from "./transition.js";
 function mydataFn(){
 let mydata = {
-frameStart : 0,
+    msStart : 0,
 content: "some text",
 x:0,
 y:0

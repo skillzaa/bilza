@@ -4,12 +4,12 @@ export default class Transition {
         this.data = this.newDataObjFn();
         this.transitions = [];
     }
-    add(frameStart) {
+    add(msStart) {
         let f = this.newDataObjFn();
         for (const key in f) {
             f[key] = null;
         }
-        f.frameStart = frameStart;
+        f.msStart = msStart;
         this.transitions.push(f);
         return f;
     }
@@ -20,7 +20,7 @@ export default class Transition {
     apply(frame) {
         for (let i = this.transitions.length - 1; i >= 0; i--) {
             const trs = this.transitions[i];
-            if (trs.frameStart <= frame) {
+            if (trs.msStart <= frame) {
                 this.merge(trs);
                 this.transitions.splice(i, 1);
             }

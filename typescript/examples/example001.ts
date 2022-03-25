@@ -8,7 +8,7 @@ let bilzaa = new Bilza("bilza",800,350,15000);
 //---Add a Grid
 bilzaa.add.grid();
 //---- Add a frame counter (counter)
-bilzaa.add.frameCounter(0,300,bilzaa.getTimeEnd());
+bilzaa.add.counter(0,300,bilzaa.getTimeEnd());
 
 //--Add text
 let title = bilzaa.add.text("Introducing Bilza Library","yellow",40,0,

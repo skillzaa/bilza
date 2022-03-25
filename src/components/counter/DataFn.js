@@ -3,10 +3,12 @@ export class ObjectData {
         this.msStart = 0;
         this.x = 0;
         this.y = 0;
-        this.startAngle = 0;
-        this.endAngle = 2 * Math.PI;
-        this.radius = 100;
-        this.fill = true;
+        this.fontSize = 30;
+        this.content = "sec: ";
+        this.frame = 0;
+        this.padding = 4;
+        this.colorRectangle = "black";
+        this.colorNumbers = "yellow";
     }
 }
 ;

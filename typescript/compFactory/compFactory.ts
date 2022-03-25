@@ -2,7 +2,7 @@ import {IDrawable} from "../index.js";
 //--components
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
-import FrameCounter from "../components/frameCounter/frameCounter.js";
+import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
 import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
@@ -35,8 +35,8 @@ grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
     this.addToArray.push(g);
     return g;
 }
-frameCounter(x :number=100,y :number=100,msEnd :number = Number.MAX_SAFE_INTEGER){
-    let item = new FrameCounter();
+counter(x :number=100,y :number=100,msEnd :number = Number.MAX_SAFE_INTEGER){
+    let item = new Counter();
     item.d.x = x;
     item.d.y = y;
     this.addToArray.push(item);

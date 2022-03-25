@@ -2,7 +2,7 @@ import { CompFactory } from "../index.js";
 export default function clip01() {
     let factory = new CompFactory([]);
     factory.grid();
-    factory.frameCounter(0, 0, 60000);
+    factory.counter(0, 0, 60000);
     let lst = factory.list(10, 100, 38);
     lst.d.gap = 6;
     lst.d.fontColor = "white";

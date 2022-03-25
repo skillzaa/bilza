@@ -1,6 +1,6 @@
 export class ObjectData {
     constructor() {
-        this.frameStart = 0;
+        this.msStart = 0;
         this.align = "left";
         this.x = 50;
         this.y = 50;
