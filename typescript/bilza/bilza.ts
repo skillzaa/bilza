@@ -1,5 +1,6 @@
 import {CompFactory, DrawLayer,IDrawable,Pack} from "../index.js";
 import Background from "./background.js";
+
 import CompArrayObj from "./compsArrayObj.js";
 
 export default class Bilza extends CompArrayObj {
