@@ -8,7 +8,7 @@ private addToArray :IDrawable[];
 constructor(comps :IDrawable[]){
 this.addToArray = comps;
 }
-dashedGrid():Grid{
+dashed(linesColor :string = "#dee1e2"):Grid{
     let g = new Grid();
     g.shadowsOff();
     this.addToArray.push(g);
@@ -17,8 +17,8 @@ dashedGrid():Grid{
     g.d.lineWidthHorizontal = 1;
     g.d.lineWidthVertical = 1;
     g.d.fontSize = 15;
-    g.d.colorHorizontalLines = "#dee1e2";
-    g.d.colorVerticalLines = "#dee1e2";
+    g.d.colorHorizontalLines = linesColor;
+    g.d.colorVerticalLines = linesColor;
     g.d.lineDash = [15,5];
     return g;
 }
@@ -36,5 +36,12 @@ grid.d.colorVerticalLines = "brown";
 grid.d.lineWidthVertical = 10;
 grid.d.lineWidthHorizontal = 2;
 return grid;
+}
+simple(linesColor :string = "#dee1e2"){
+    let grid = new Grid();    
+    this.addToArray.push(grid);
+    grid.d.colorHorizontalLines = linesColor;
+    grid.d.colorVerticalLines = linesColor;
+    return grid;       
 }
 }
