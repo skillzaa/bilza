@@ -1,7 +1,7 @@
 {
   "name": "bilza",
-  "version": "0.0.6",
-  "description": "A framework for creating javascript presentations, slides and educational content",
+  "version": "0.0.7",
+  "description": "Bilza is a javascript framework for creating business and educational visualizations in the browser using HTML5 canvas",
   "main": "src/index.js",
   "scripts": {
     "rollup:help": "rollup --help",

@@ -1,17 +1,33 @@
 ###### 25-March-2022 (version 0.0.5)
+###### 26-March-2022 (version 0.0.7)
 
 # What is Bilza.js
 
 ---
-> Bilza is a framework for creating javascript presentations, slides and educational content.
+> Bilza.js is a javascript framework for creating business and educational visualizations in the browser using HTML5 canvas.
 ---
 
+
 ## What Bilza is Not
- 
- - Bilza is NOT fast. Currently I am running it on 1 frame per second. which by any animation standerds is as low as it gets.
+ - Bilza is NOT fast, currently I am running it on 1 frame per second which by any animation standerds is as low as it gets.
  - Bilza is not an animation framework.
  - Bilza is not a game engine.
-  
+ - The output code is simple javascript which will draw its content on a HTML5 canvas.
+- Bilza is not interactive (since its a lot of work, may be some day).
+
+## How Bilza Works (the layman explanation)
+- Bilza gets the id of a canvas element (if not then creates one) and then draw onto it what ever you tell it to draw.
+- You can use bilza to just draw an image onto canvas or to run an animation /presentation. You have to spicify the duration of the animation /presentation.
+- The drawing is done throught components like Text, Counter, Grid, List etc etc.
+- Every component also has a start time and an end time. If a Text component has start time = 2000 ms and end time = 10,000 ms; in this case the said text will be visible on the screen only between second 2 and 10.
+- Every component has a ton of properties / attributes. These peoperties are accessable throught **objectName.data.propertyName** or simple **objectName.d.propertyName**.
+- We can create a component and then change any of its properties to suit our selves.
+- Component properties are like fontSize, colorText, lineWidth etc. One can change any of these properties and when the component is draw it will reflect those changes. *A component is always drawn as per the current state of the properties*. 
+- We also do have a large collection (working on it) of templates. Templates are pre-styled components to save you time.
+- So we can create a component and then alter its properties **BUT** we can also change those properties at some specic time. We can do so by adding **Transitions** to components. *A Transition is just a time and a set of properites of that component. Bilza will apply those properties to the component at the time specified*.
+- Using **components** , **component properties** and **transitions** we can create animations that we can run in the browser using HTML5 canvas.
+- Once the animation is created we can run and stop it like a normal video (work in progress).
+
 ## How Bilza Works
 1. First **create a bilza instance** giving it the dimentions of the canvas element that we want to create and the length of the animation in milli seconds (1 minute = 60,000 ms).
 2. Secondly We **add some components** to this bilza instance. We specify the starting time and ending time (again in milli seconds) for each component. A component is just displayed during its given start time and end time only.
