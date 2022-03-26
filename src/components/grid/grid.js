@@ -5,9 +5,6 @@ export default class Grid extends Component {
         super(DataFn, msStart, msEnd);
         this.drawLayer = DrawLayer.BackGround;
     }
-    update(msDelta, p) {
-        return true;
-    }
     draw(p) {
         this.draw_horizontal(p);
         this.draw_vertical(p);
@@ -21,6 +18,7 @@ export default class Grid extends Component {
         let end_x = x + width;
         do {
             this.style.strokeStyle = this.d.colorHorizontalLines;
+            this.style.lineDash = this.d.lineDash;
             this.style.lineWidth = this.d.lineWidthHorizontal;
             p.drawLine(x, y, end_x, y, this.style);
             if (this.d.flagDrawNumbers == true) {
@@ -39,6 +37,7 @@ export default class Grid extends Component {
         do {
             this.style.strokeStyle = this.d.colorVerticalLines;
             this.style.lineWidth = this.d.lineWidthVertical;
+            this.style.lineDash = this.d.lineDash;
             p.drawLine(x, y, x, end_y, this.style);
             if (this.d.flagDrawNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;

@@ -15,10 +15,9 @@ shadowOffsetX:number ;
 shadowOffsetY:number ;
 shadowBlur :number ;
 globalAlpha :number ;
-lineDashWidth :number ;
-lineDashGap :number ;
 lineCap : LineCapStyle ;
 
+lineDash :number[];
 constructor(frameStart :number = 0){
 
 this.frameStart = frameStart;
@@ -34,8 +33,7 @@ this.shadowOffsetY = 0;
 this.shadowBlur = 0;
 this.globalAlpha = 1;
 this.lineCap = LineCapStyle.Round;
-this.lineDashWidth = 0;
-this.lineDashGap = 0;
+this.lineDash = [];
 }
 merge(incom :Style){
 
@@ -72,12 +70,12 @@ merge(incom :Style){
     if (incom.fontName !== null){
         this.fontName = incom.fontName;
     }
-    if (incom.lineDashWidth !== null){
-        this.lineDashWidth = incom.lineDashWidth;
+    if (incom.lineDash !== null){
+        this.lineDash = incom.lineDash;
     }
-    if (incom.lineDashGap !== null){
-        this.lineDashGap = incom.lineDashGap;
-    }
+    // if (incom.lineDashGap !== null){
+    //     this.lineDashGap = incom.lineDashGap;
+    // }
 }
 
 

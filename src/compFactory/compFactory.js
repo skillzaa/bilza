@@ -4,11 +4,13 @@ import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
 import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
-import AddTextTemplates from "./addTextTemplates.js";
+import TextTemplates from "./textTemplates.js";
+import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
     constructor(comps = []) {
         this.addToArray = comps;
-        this.textTempl = new AddTextTemplates(comps);
+        this.textTempl = new TextTemplates(comps);
+        this.gridTempl = new GridTemplates(comps);
     }
     text(content = "", fontColor = "black", fontSize = 40, msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
         let bs = new Text(content, fontColor, fontSize, msStart, msEnd, x, y);

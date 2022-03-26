@@ -102,5 +102,10 @@ addTransition(msStart:number){
 checkCollision(x: number, y: number, p: Pack): boolean {
     return false;
 }
+shadowsOff(){
+this.style.shadowBlur = 0;
+this.style.shadowOffsetX = 0;
+this.style.shadowOffsetY = 0;
+}
 ////////////////////////////////////////////////////////
 }//component ends

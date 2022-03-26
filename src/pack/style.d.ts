@@ -12,9 +12,8 @@ export default class Style {
     shadowOffsetY: number;
     shadowBlur: number;
     globalAlpha: number;
-    lineDashWidth: number;
-    lineDashGap: number;
     lineCap: LineCapStyle;
+    lineDash: number[];
     constructor(frameStart?: number);
     merge(incom: Style): void;
 }

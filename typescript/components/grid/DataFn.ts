@@ -22,8 +22,7 @@ flagDrawVertical :boolean ;
 lineWidthVertical :number;
 lineWidthHorizontal :number;
 fontSize :number;
-lineDashWidth :number;
-lineDashGap :number;
+lineDash :number[];
 
 constructor(){
 this.msStart =0;
@@ -43,8 +42,7 @@ this.flagDrawHorizontal = false;
 this.flagDrawVertical = false;   
 this.lineWidthVertical = 1;
 this.lineWidthHorizontal = 1;
-this.lineDashWidth = 15;
-this.lineDashGap = 5;
+this.lineDash = [];
 }
 }
 

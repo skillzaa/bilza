@@ -25,5 +25,6 @@ export default class Component<T extends IMsStart> implements IDrawable {
     update(msDelta: number, p: Pack): boolean;
     addTransition(msStart: number): T;
     checkCollision(x: number, y: number, p: Pack): boolean;
+    shadowsOff(): void;
 }
 //# sourceMappingURL=component.d.ts.map

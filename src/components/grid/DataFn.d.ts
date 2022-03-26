@@ -12,8 +12,7 @@ export declare class ObjectData {
     lineWidthVertical: number;
     lineWidthHorizontal: number;
     fontSize: number;
-    lineDashWidth: number;
-    lineDashGap: number;
+    lineDash: number[];
     constructor();
 }
 //# sourceMappingURL=DataFn.d.ts.map

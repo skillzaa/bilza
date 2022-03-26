@@ -1,7 +1,7 @@
 import {IDrawable,FontNames} from "../index.js";
 import Text from "../components/text/text.js";
 
-export default class AddTextTemplates {
+export default class TextTemplates {
 private addToArray :IDrawable[];
  
 constructor(comps :IDrawable[]){

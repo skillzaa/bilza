@@ -60,4 +60,9 @@ export default class Component {
     checkCollision(x, y, p) {
         return false;
     }
+    shadowsOff() {
+        this.style.shadowBlur = 0;
+        this.style.shadowOffsetX = 0;
+        this.style.shadowOffsetY = 0;
+    }
 }

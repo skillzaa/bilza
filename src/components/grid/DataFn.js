@@ -16,7 +16,6 @@ export class ObjectData {
         this.flagDrawVertical = false;
         this.lineWidthVertical = 1;
         this.lineWidthHorizontal = 1;
-        this.lineDashWidth = 15;
-        this.lineDashGap = 5;
+        this.lineDash = [];
     }
 }

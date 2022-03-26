@@ -7,15 +7,18 @@ import Circle from "../components/circle/circle.js";
 import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
 //---Templates 
-import AddTextTemplates from "./addTextTemplates.js";
+import TextTemplates from "./textTemplates.js";
+import GridTemplates from "./gridTemplates.js";
 
 export default class CompFactory {
 private addToArray :IDrawable[];
-textTempl :AddTextTemplates;
+textTempl :TextTemplates;
+gridTempl :GridTemplates;
 
 constructor(comps :IDrawable[]=[]){
 this.addToArray = comps;
-this.textTempl = new AddTextTemplates(comps);
+this.textTempl = new TextTemplates(comps);
+this.gridTempl = new GridTemplates(comps);
 }
 
 text(content :string="",fontColor :string="black",fontSize=40,

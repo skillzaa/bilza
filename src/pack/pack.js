@@ -189,8 +189,8 @@ export default class Pack {
         if (incomCtx.fillStyle !== null) {
             this.ctx.fillStyle = incomCtx.fillStyle;
         }
-        if (incomCtx.lineDashWidth !== null && incomCtx.lineDashGap !== null) {
-            this.ctx.setLineDash([incomCtx.lineDashWidth, incomCtx.lineDashGap]);
+        if (incomCtx.lineDash !== null) {
+            this.ctx.setLineDash(incomCtx.lineDash);
         }
         this.setFont(incomCtx.fontSize, incomCtx.fontName);
     }
