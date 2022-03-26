@@ -1,4 +1,4 @@
-// import Grid from "./grid.js";
+// import Grid from "../components/grid/grid.js";
 
 
 // export default class GridTemplates {

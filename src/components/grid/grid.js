@@ -5,6 +5,9 @@ export default class Grid extends Component {
         super(DataFn, msStart, msEnd);
         this.drawLayer = DrawLayer.BackGround;
     }
+    update(msDelta, p) {
+        return true;
+    }
     draw(p) {
         this.draw_horizontal(p);
         this.draw_vertical(p);
@@ -18,10 +21,11 @@ export default class Grid extends Component {
         let end_x = x + width;
         do {
             this.style.strokeStyle = this.d.colorHorizontalLines;
+            this.style.lineWidth = this.d.lineWidthHorizontal;
             p.drawLine(x, y, end_x, y, this.style);
             if (this.d.flagDrawNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
-                p.drawText(y.toString(), x, y, this.style);
+                this.drawText(p, y, x, y);
             }
             y += this.d.cellHeight;
         } while (height > y);
@@ -34,12 +38,19 @@ export default class Grid extends Component {
         let end_y = y + height;
         do {
             this.style.strokeStyle = this.d.colorVerticalLines;
+            this.style.lineWidth = this.d.lineWidthVertical;
             p.drawLine(x, y, x, end_y, this.style);
             if (this.d.flagDrawNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
-                p.drawText(x.toString(), x, y, this.style);
+                this.drawText(p, x, x, y);
             }
             x += this.d.cellWidth;
         } while (width > x);
+    }
+    drawText(p, content, x, y) {
+        this.style.fontSize = this.d.fontSize;
+        this.style.strokeStyle = this.d.colorNumbers;
+        this.style.fillStyle = this.d.colorNumbers;
+        p.drawText(content.toString(), x + this.d.lineWidthVertical - 2, y + this.d.lineWidthHorizontal, this.style);
     }
 }

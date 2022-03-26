@@ -1,35 +1,50 @@
 
+export default function DataFn ():ObjectData  {
+    let td = new ObjectData();
+    return td;
+}
+    
 export class ObjectData {
 msStart:number;
-// x :number;
-// y :number;
+
 cellWidth :number;    
 cellHeight :number;
+
 colorHorizontalLines :string ;   
-colorVerticalLines :string ;   
+colorVerticalLines :string ;
+
 colorNumbers :string ;   
+
 flagDrawNumbers :boolean ;   
 flagDrawHorizontal :boolean ;   
 flagDrawVertical :boolean ;   
 
+lineWidthVertical :number;
+lineWidthHorizontal :number;
+fontSize :number;
+lineDashWidth :number;
+lineDashGap :number;
+
 constructor(){
 this.msStart =0;
-// this.x = 0;
-// this.y = 0;
+
+this.fontSize = 8;
+
 this.cellWidth = 50;    
 this.cellHeight = 50;
-this.colorHorizontalLines = "black";   
-this.colorVerticalLines = "black";   
-this.colorNumbers = "black";   
+
+this.colorHorizontalLines = "grey";   
+this.colorVerticalLines = "grey";   
+
+this.colorNumbers = "grey"; 
+
 this.flagDrawNumbers = false;   
 this.flagDrawHorizontal = false;   
 this.flagDrawVertical = false;   
-
+this.lineWidthVertical = 1;
+this.lineWidthHorizontal = 1;
+this.lineDashWidth = 15;
+this.lineDashGap = 5;
 }
-};
-
-
-export default function DataFn ():ObjectData  {
-let td = new ObjectData();
-return td;
 }
+

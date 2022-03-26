@@ -1,10 +1,6 @@
 import {Component,Pack,DrawLayer} from "../../index.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 
-//import GridTemplates from "./gridTemplates.js";
-//export {GridTemplates};
-
-
 export default class Grid extends Component<ObjectData> {
 
 constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
@@ -12,6 +8,14 @@ super(DataFn,msStart,msEnd);
 
 this.drawLayer = DrawLayer.BackGround;   
 }    
+update(msDelta: number, p: Pack): boolean {
+   
+// lineWidth :number;
+// fontSize :number;
+// lineDashWidth :number;
+// lineDashGap :number;
+    return true;
+}
 draw(p:Pack): boolean {
     this.draw_horizontal(p);    
     this.draw_vertical(p);    
@@ -26,11 +30,12 @@ let height = p.canvasHeight();
 let end_x = x + width;
     do {   
         this.style.strokeStyle = this.d.colorHorizontalLines;        
+        this.style.lineWidth = this.d.lineWidthHorizontal;        
     p.drawLine(x,y,end_x,y,this.style);
         if (this.d.flagDrawNumbers == true){
             this.style.strokeStyle = this.d.colorNumbers;
-            p.drawText(y.toString(),x,y,this.style);
-
+            // p.drawText(y.toString(),x,y,this.style);
+            this.drawText(p,y,x,y);
         }
     y += this.d.cellHeight;
     } while (height > y );
@@ -44,16 +49,27 @@ let height = p.canvasHeight();
 let end_y = y + height;
     do {   
     this.style.strokeStyle = this.d.colorVerticalLines;
+    this.style.lineWidth = this.d.lineWidthVertical;        
     p.drawLine(x,y,x,end_y,this.style);
 
             if (this.d.flagDrawNumbers == true){
                 this.style.strokeStyle = this.d.colorNumbers;
-                p.drawText(x.toString(),x,y,this.style);
+                this.drawText(p,x,x,y);//2nd x = content
+                // p.drawText(x.toString(),x,y,this.style);
             }
     x += this.d.cellWidth;
     } while (width > x );
 }
 
-
+drawText(p :Pack,content :number,x :number,y :number){
+this.style.fontSize = this.d.fontSize;    
+this.style.strokeStyle = this.d.colorNumbers;    
+this.style.fillStyle = this.d.colorNumbers;    
+p.drawText(
+    content.toString(),
+    x + this.d.lineWidthVertical -2, //why -2 error
+    y + this.d.lineWidthHorizontal,
+    this.style);    
+}
 }
 //=============================
