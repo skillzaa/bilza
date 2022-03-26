@@ -1,0 +1,1 @@
+{"version":3,"file":"Position.d.ts","sourceRoot":"","sources":["../../typescript/design/Position.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,UAAU,EAAC,UAAU,EAAC,MAAM,gBAAgB,CAAC;AACrD,MAAM,CAAC,OAAO,OAAO,QAAQ;IAC7B,CAAC,EAAE,MAAM,CAAC;IACV,CAAC,EAAE,MAAM,CAAC;IACV,UAAU,EAAE,UAAU,CAAC;IACvB,UAAU,EAAE,UAAU,CAAC;gBAEX,CAAC,SAAE,EAAC,CAAC,SAAE;CAQlB"}

@@ -25,7 +25,7 @@
 - We can create a component and then change any of its properties to suit our selves.
 - Component properties are like fontSize, colorText, lineWidth etc. One can change any of these properties and when the component is draw it will reflect those changes. *A component is always drawn as per the current state of the properties*. 
 - We also do have a large collection (working on it) of templates. Templates are pre-styled components to save you time.
-- So we can create a component and then alter its properties **BUT** we can also change those properties at some specic time. We can do so by adding **Transitions** to components. *A Transition is just a time and a set of properites of that component. Bilza will apply those properties to the component at the time specified*.
+- So we can create a component and then alter its properties **BUT** we can also change those properties at some specific time. We can do so by adding **Transitions** to components. *A Transition is just a time and a set of properites of that component. Bilza will apply those properties to the component at the time specified*.
 - Using **components** , **component properties** and **transitions** we can create animations that we can run in the browser using HTML5 canvas.
 - Once the animation is created we can run and stop it like a normal video (work in progress).
 
@@ -53,7 +53,7 @@ let bilzaa = new Bilza("bilza",800,350,15000);
 bilzaa.add.grid();
 
 //---- Add a frame counter (counter)
-bilzaa.add.frameCounter(0,300,bilzaa.getTimeEnd());
+bilzaa.add.counter(0,300,bilzaa.getTimeEnd());
 bilzaa.start();
 ```
 ---
@@ -76,7 +76,7 @@ let bilzaa = new Bilza("bilza",800,350,15000);
 //---Add a Grid
 bilzaa.add.grid();
 //---- Add a frame counter (counter)
-bilzaa.add.frameCounter(0,300,bilzaa.getTimeEnd());
+bilzaa.add.counter(0,300,bilzaa.getTimeEnd());
 //--Add text
 let title = bilzaa.add.text("Introducing Bilza Library","yellow",40,0,
 bilzaa.getTimeEnd(),50,20);

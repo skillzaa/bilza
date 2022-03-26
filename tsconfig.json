@@ -2,8 +2,8 @@
     "compilerOptions": {
       "target": "ES2016",                       
       "module": "es6",            
-       "declaration": false,                   
-       "declarationMap": false, 
+       "declaration": true,                   
+       "declarationMap": true, 
        "removeComments": true,               
        "outDir": "src",                      
        "rootDir": "./typescript",

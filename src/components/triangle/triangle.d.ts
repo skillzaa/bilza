@@ -1,0 +1,1 @@
+//# sourceMappingURL=triangle.d.ts.map
