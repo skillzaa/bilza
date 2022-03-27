@@ -1,4 +1,4 @@
-const bilzaa = require('../build/bilzaa2d_cjs');
+const bilzaa = require('../build/bilza_cjs');
 
 const style = new bilzaa.Style(0);
 // console.log(style);

@@ -1,0 +1,14 @@
+
+
+export default class State {
+
+
+constructor(){
+
+}
+
+
+
+
+//////////////////////////////////
+}//////////////--class ends

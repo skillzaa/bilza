@@ -45,3 +45,6 @@ export default class CompFactory {
     }
     spit() { return this.addToArray; }
 }
+function blabla() {
+    console.log("blabla");
+}

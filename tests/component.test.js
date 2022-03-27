@@ -1,6 +1,6 @@
 
-const Bilza = require("../build/bilzaa2d_cjs").default;
-
+const Bilza = require("../build/bilza_cjs").default;
+ 
 
 let bilza = new Bilza();
 

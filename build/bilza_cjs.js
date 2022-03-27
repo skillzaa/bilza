@@ -63,6 +63,11 @@ class Component {
     checkCollision(x, y, p) {
         return false;
     }
+    shadowsOff() {
+        this.style.shadowBlur = 0;
+        this.style.shadowOffsetX = 0;
+        this.style.shadowOffsetY = 0;
+    }
 }
 
 class Pack {
@@ -256,8 +261,8 @@ class Pack {
         if (incomCtx.fillStyle !== null) {
             this.ctx.fillStyle = incomCtx.fillStyle;
         }
-        if (incomCtx.lineDashWidth !== null && incomCtx.lineDashGap !== null) {
-            this.ctx.setLineDash([incomCtx.lineDashWidth, incomCtx.lineDashGap]);
+        if (incomCtx.lineDash !== null) {
+            this.ctx.setLineDash(incomCtx.lineDash);
         }
         this.setFont(incomCtx.fontSize, incomCtx.fontName);
     }
@@ -329,8 +334,7 @@ class Style {
         this.shadowBlur = 0;
         this.globalAlpha = 1;
         this.lineCap = LineCapStyle.Round;
-        this.lineDashWidth = 0;
-        this.lineDashGap = 0;
+        this.lineDash = [];
     }
     merge(incom) {
         if (incom.lineCap !== null) {
@@ -366,11 +370,8 @@ class Style {
         if (incom.fontName !== null) {
             this.fontName = incom.fontName;
         }
-        if (incom.lineDashWidth !== null) {
-            this.lineDashWidth = incom.lineDashWidth;
-        }
-        if (incom.lineDashGap !== null) {
-            this.lineDashGap = incom.lineDashGap;
+        if (incom.lineDash !== null) {
+            this.lineDash = incom.lineDash;
         }
     }
 }
@@ -381,58 +382,19 @@ class Background {
     }
 }
 
-class Bilza {
-    constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350, timeEnd = Number.MAX_SAFE_INTEGER) {
-        this.canvasId = canvasId;
+class CompsArrayObj {
+    constructor() {
         this.comps = [];
-        this.background = new Background();
-        this.timeStart = null;
-        this.timeEnd = timeEnd;
-        this.interval = null;
-        this.msPerFrame = 1000;
-        this.pack = new Pack(canvasWidth, canvasHeight, this.canvasId);
-        this.add = new CompFactory(this.comps);
     }
-    setCanvas(width = 800, height = 400) {
-        this.pack = new Pack(width, height, this.canvasId);
-    }
-    getTimeEnd() {
-        return this.timeEnd;
-    }
-    setTimeEnd(n) {
-        this.timeEnd = n;
-        return this.timeEnd;
-    }
-    getCanvasHeight() {
-        return this.pack.canvasHeight;
-    }
-    getCanvasWidth() {
-        return this.pack.canvasWidth;
-    }
-    draw() {
-        if (this.pack == null) {
-            throw new Error("bilzaa is not initialized");
-        }
-        let msDelta = this.getMsDelta();
-        if (msDelta >= this.timeEnd) {
-            this.stop();
-        }
-        this.pack.clearCanvas();
-        this.pack.drawBackground(this.background.color);
-        this.drawByDrawLayer(msDelta, exports.DrawLayer.BackGround);
-        this.drawByDrawLayer(msDelta, exports.DrawLayer.ForeGround);
-        this.drawByDrawLayer(msDelta, exports.DrawLayer.MiddleGround);
-        return true;
-    }
-    drawByDrawLayer(msDelta, drawLayer) {
+    drawByDrawLayer(msDelta, drawLayer, pack) {
         for (let i = 0; i < this.comps.length; i++) {
             let comp = this.comps[i];
             if (comp.drawLayer == drawLayer) {
-                if (comp.getStart() < msDelta && comp.getEnd() > msDelta) {
-                    this.pack.save();
-                    comp.update(msDelta, this.pack);
-                    comp.draw(this.pack);
-                    this.pack.restore();
+                if (comp.getStart() <= msDelta && comp.getEnd() > msDelta) {
+                    pack.save();
+                    comp.update(msDelta, pack);
+                    comp.draw(pack);
+                    pack.restore();
                 }
             }
         }
@@ -445,6 +407,23 @@ class Bilza {
         this.comps.push(comp);
         return comp;
     }
+}
+
+class BilzaTimer extends CompsArrayObj {
+    constructor(timeEnd = Number.MAX_SAFE_INTEGER) {
+        super();
+        this.timeStart = null;
+        this.timeEnd = timeEnd;
+        this.interval = null;
+        this.msPerFrame = 1000;
+    }
+    getTimeEnd() {
+        return this.timeEnd;
+    }
+    setTimeEnd(n) {
+        this.timeEnd = n;
+        return this.timeEnd;
+    }
     getMsDelta() {
         if (this.timeStart == null) {
             return 0;
@@ -454,6 +433,37 @@ class Bilza {
             return curTime - this.timeStart;
         }
     }
+    stop() {
+        this.timeStart = null;
+        if (this.interval !== null) {
+            clearInterval(this.interval);
+        }
+    }
+}
+
+class BilzaCanvasSetup extends BilzaTimer {
+    constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350, timeEnd = Number.MAX_SAFE_INTEGER) {
+        super(timeEnd);
+        this.canvasId = canvasId;
+        this.pack = new Pack(canvasWidth, canvasHeight, this.canvasId);
+    }
+    setCanvas(width = 800, height = 400) {
+        this.pack = new Pack(width, height, this.canvasId);
+    }
+    getCanvasHeight() {
+        return this.pack.canvasHeight;
+    }
+    getCanvasWidth() {
+        return this.pack.canvasWidth;
+    }
+}
+
+class Bilza extends BilzaCanvasSetup {
+    constructor(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350, timeEnd = Number.MAX_SAFE_INTEGER) {
+        super(canvasId = "bilzaa2d", canvasWidth = 800, canvasHeight = 350, timeEnd = Number.MAX_SAFE_INTEGER);
+        this.background = new Background();
+        this.add = new CompFactory(this.comps);
+    }
     start() {
         if (this.timeStart !== null) {
             return false;
@@ -461,17 +471,29 @@ class Bilza {
         else {
             this.stop();
             this.timeStart = new Date().getTime();
-            this.interval = setInterval(() => {
+            this.interval = window.setInterval(() => {
                 this.draw();
             }, this.msPerFrame);
             return true;
         }
     }
-    stop() {
-        this.timeStart = null;
-        if (this.interval !== null) {
-            clearInterval(this.interval);
+    draw() {
+        if (this.pack == null) {
+            throw new Error("bilzaa is not initialized");
         }
+        let msDelta = this.getMsDelta();
+        if (msDelta >= this.timeEnd) {
+            this.stop();
+        }
+        this.pack.clearCanvas();
+        this.pack.drawBackground(this.background.color);
+        this.drawByDrawLayer(msDelta, exports.DrawLayer.BackGround, this.pack);
+        this.drawByDrawLayer(msDelta, exports.DrawLayer.ForeGround, this.pack);
+        this.drawByDrawLayer(msDelta, exports.DrawLayer.MiddleGround, this.pack);
+        return true;
+    }
+    chqCollision(x, y) {
+        return null;
     }
     mergeClip(clip) {
         for (let i = 0; i < clip.length; i++) {
@@ -494,12 +516,12 @@ class Transition {
         this.data = this.newDataObjFn();
         this.transitions = [];
     }
-    add(frameStart) {
+    add(msStart) {
         let f = this.newDataObjFn();
         for (const key in f) {
             f[key] = null;
         }
-        f.frameStart = frameStart;
+        f.msStart = msStart;
         this.transitions.push(f);
         return f;
     }
@@ -510,7 +532,7 @@ class Transition {
     apply(frame) {
         for (let i = this.transitions.length - 1; i >= 0; i--) {
             const trs = this.transitions[i];
-            if (trs.frameStart <= frame) {
+            if (trs.msStart <= frame) {
                 this.merge(trs);
                 this.transitions.splice(i, 1);
             }
@@ -530,13 +552,15 @@ class Transition {
 
 class ObjectData$5 {
     constructor() {
-        this.frameStart = 0;
+        this.msStart = 0;
         this.x = 50;
         this.y = 50;
         this.content = "text!";
         this.widthMargin = 0;
         this.widthBorder = 0;
         this.widthPadding = 0;
+        this.boundingRectXYExtra = [50, 50];
+        this.colorBoundingRect = "black";
         this.colorMargin = "red";
         this.colorBorder = "green";
         this.colorPadding = "blue";
@@ -550,12 +574,23 @@ class ObjectData$5 {
         this.flagDrawContentArea = false;
         this.flagDrawBoundingRectangle = false;
         this.flagDrawText = true;
+        this.flagTextShadow = false;
+        this.flagBoundingRectShadow = false;
+        this.textShadowColor = "grey";
+        this.textShadowOffsetX = 10;
+        this.textShadowOffsetY = 10;
+        this.textShadowBlur = 5;
+        this.boundingRectShadowColor = "grey";
+        this.boundingRectShadowOffsetX = 15;
+        this.boundingRectShadowOffsetY = 15;
+        this.boundingRectShadowBlur = 5;
     }
 }
 function DataFn$5() {
     let td = new ObjectData$5();
     return td;
 }
+
 class CalcData {
     constructor() {
         this.marginX = 0;
@@ -609,7 +644,6 @@ class Text extends Component {
         this.drawContentArea(p);
         this.drawText(p);
         this.drawBoundingRectangle(p);
-        console.log("Box system...!!!!!");
         return true;
     }
     drawContentArea(p) {
@@ -622,6 +656,17 @@ class Text extends Component {
     drawText(p) {
         if (this.d.flagDrawText == false) {
             return;
+        }
+        if (this.d.flagTextShadow == true) {
+            this.style.shadowColor = this.d.textShadowColor;
+            this.style.shadowOffsetX = this.d.textShadowOffsetX;
+            this.style.shadowOffsetY = this.d.textShadowOffsetY;
+            this.style.shadowBlur = this.d.textShadowBlur;
+        }
+        else {
+            this.style.shadowOffsetX = 0;
+            this.style.shadowOffsetY = 0;
+            this.style.shadowBlur = 0;
         }
         this.style.fillStyle = this.d.fontColor;
         this.style.fontSize = this.d.fontSize;
@@ -664,10 +709,20 @@ class Text extends Component {
         if (this.d.flagDrawBoundingRectangle == false) {
             return;
         }
-        this.style.fillStyle = color;
-        this.style.strokeStyle = color;
-        this.style.lineWidth = lineWidth;
-        p.drawRect(this.d.x, this.d.y, this.width(p), this.height(p), this.style);
+        if (this.d.flagBoundingRectShadow == true) {
+            this.style.fillStyle = this.d.colorBoundingRect;
+            this.style.strokeStyle = this.d.colorBoundingRect;
+            this.style.shadowColor = this.d.boundingRectShadowColor;
+            this.style.shadowOffsetX = this.d.boundingRectShadowOffsetX;
+            this.style.shadowOffsetY = this.d.boundingRectShadowOffsetY;
+            this.style.shadowBlur = this.d.boundingRectShadowBlur;
+        }
+        else {
+            this.style.shadowOffsetX = 0;
+            this.style.shadowOffsetY = 0;
+            this.style.shadowBlur = 0;
+        }
+        p.drawRect(this.d.x - (this.d.boundingRectXYExtra[0] / 2), this.d.y - (this.d.boundingRectXYExtra[1] / 2), this.width(p) + this.d.boundingRectXYExtra[0], this.height(p) + this.d.boundingRectXYExtra[1], this.style);
     }
     checkCollision(x, y, p) {
         if (x > this.d.x && x < this.width(p)) {
@@ -679,22 +734,26 @@ class Text extends Component {
     }
 }
 
-class ObjectData$4 {
-    constructor() {
-        this.frameStart = 0;
-        this.cellWidth = 50;
-        this.cellHeight = 50;
-        this.colorHorizontalLines = "black";
-        this.colorVerticalLines = "black";
-        this.colorNumbers = "black";
-        this.flagDrawNumbers = false;
-        this.flagDrawHorizontal = false;
-        this.flagDrawVertical = false;
-    }
-}
 function DataFn$4() {
     let td = new ObjectData$4();
     return td;
+}
+class ObjectData$4 {
+    constructor() {
+        this.msStart = 0;
+        this.fontSize = 8;
+        this.cellWidth = 50;
+        this.cellHeight = 50;
+        this.colorHorizontalLines = "grey";
+        this.colorVerticalLines = "grey";
+        this.colorNumbers = "grey";
+        this.flagDrawNumbers = false;
+        this.flagDrawHorizontal = false;
+        this.flagDrawVertical = false;
+        this.lineWidthVertical = 1;
+        this.lineWidthHorizontal = 1;
+        this.lineDash = [];
+    }
 }
 
 class Grid extends Component {
@@ -715,10 +774,12 @@ class Grid extends Component {
         let end_x = x + width;
         do {
             this.style.strokeStyle = this.d.colorHorizontalLines;
+            this.style.lineDash = this.d.lineDash;
+            this.style.lineWidth = this.d.lineWidthHorizontal;
             p.drawLine(x, y, end_x, y, this.style);
             if (this.d.flagDrawNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
-                p.drawText(y.toString(), x, y, this.style);
+                this.drawText(p, y, x, y);
             }
             y += this.d.cellHeight;
         } while (height > y);
@@ -731,19 +792,27 @@ class Grid extends Component {
         let end_y = y + height;
         do {
             this.style.strokeStyle = this.d.colorVerticalLines;
+            this.style.lineWidth = this.d.lineWidthVertical;
+            this.style.lineDash = this.d.lineDash;
             p.drawLine(x, y, x, end_y, this.style);
             if (this.d.flagDrawNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
-                p.drawText(x.toString(), x, y, this.style);
+                this.drawText(p, x, x, y);
             }
             x += this.d.cellWidth;
         } while (width > x);
+    }
+    drawText(p, content, x, y) {
+        this.style.fontSize = this.d.fontSize;
+        this.style.strokeStyle = this.d.colorNumbers;
+        this.style.fillStyle = this.d.colorNumbers;
+        p.drawText(content.toString(), x + this.d.lineWidthVertical - 2, y + this.d.lineWidthHorizontal, this.style);
     }
 }
 
 class ObjectData$3 {
     constructor() {
-        this.frameStart = 0;
+        this.msStart = 0;
         this.x = 0;
         this.y = 0;
         this.fontSize = 30;
@@ -759,7 +828,7 @@ function DataFn$3() {
     return td;
 }
 
-class FrameCounter extends Component {
+class Counter extends Component {
     constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         super(DataFn$3, msStart, msEnd);
         this.drawLayer = exports.DrawLayer.MiddleGround;
@@ -790,7 +859,7 @@ class FrameCounter extends Component {
 
 class ObjectData$2 {
     constructor() {
-        this.frameStart = 0;
+        this.msStart = 0;
         this.x = 0;
         this.y = 0;
         this.startAngle = 0;
@@ -828,7 +897,7 @@ class Circle extends Component {
 
 class ObjectData$1 {
     constructor() {
-        this.frameStart = 0;
+        this.msStart = 0;
         this.count = 200;
     }
 }
@@ -860,7 +929,7 @@ class RandomBgShapes extends Component {
 
 class ObjectData {
     constructor() {
-        this.frameStart = 0;
+        this.msStart = 0;
         this.align = "left";
         this.x = 50;
         this.y = 50;
@@ -1002,11 +1071,11 @@ class List extends Component {
     }
 }
 
-class AddTextTemplates {
+class TextTemplates {
     constructor(comps) {
         this.addToArray = comps;
     }
-    demo(content = "", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, fontColor = "yellow", fontSize = 40) {
+    demo(content = "Bilza.js", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, fontColor = "yellow", fontSize = 40, x = 100, y = 100) {
         let g = new Text(content, fontColor, fontSize, msStart, msEnd);
         this.addToArray.push(g);
         g.d.flagDrawBorder = true;
@@ -1021,9 +1090,11 @@ class AddTextTemplates {
         g.d.widthBorder = 10;
         g.d.widthMargin = 10;
         g.d.widthPadding = 10;
+        g.d.x = x;
+        g.d.y = y;
         return g;
     }
-    txt(content = "", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, fontColor = "black", fontSize = 40) {
+    txt(content = "Bilza.js", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, fontColor = "black", fontSize = 40, x = 100, y = 100) {
         let g = new Text(content, fontColor, fontSize, msStart, msEnd);
         this.addToArray.push(g);
         g.d.flagDrawBorder = false;
@@ -1032,10 +1103,12 @@ class AddTextTemplates {
         g.d.flagDrawPadding = false;
         g.d.flagDrawText = true;
         g.d.fontFamily = exports.FontNames.Helvetica;
+        g.d.x = x;
+        g.d.y = y;
         return g;
     }
-    txtBg(content = "", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, fontColor = "yellow", bgColor = "#051854") {
-        let g = new Text(content, fontColor, 50, msStart, msEnd);
+    txtBg(content = "Bilza.js", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, fontColor = "yellow", fontSize = 50, bgColor = "#051854", x = 100, y = 100) {
+        let g = new Text(content, fontColor, fontSize, msStart, msEnd);
         g.d.colorContentBg = bgColor;
         this.addToArray.push(g);
         g.d.flagDrawBorder = false;
@@ -1044,14 +1117,69 @@ class AddTextTemplates {
         g.d.flagDrawPadding = true;
         g.d.flagDrawText = true;
         g.d.fontFamily = exports.FontNames.Helvetica;
+        g.d.x = x;
+        g.d.y = y;
         return g;
+    }
+    shadowRect(content = "Bilza.js", msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, fontColor = "black", rectColor = "black", fontSize = 50, x = 100, y = 100) {
+        let one = new Text(content, fontColor, fontSize, msStart, msEnd);
+        this.addToArray.push(one);
+        one.d.flagDrawBoundingRectangle = true;
+        one.d.flagBoundingRectShadow = true;
+        one.d.flagTextShadow = true;
+        one.d.x = x;
+        one.d.colorBoundingRect = rectColor;
+        one.d.y = y;
+        return one;
+    }
+}
+
+class GridTemplates {
+    constructor(comps) {
+        this.addToArray = comps;
+    }
+    dashed(linesColor = "#dee1e2") {
+        let g = new Grid();
+        g.shadowsOff();
+        this.addToArray.push(g);
+        g.d.flagDrawNumbers = false;
+        g.d.colorNumbers = "red";
+        g.d.lineWidthHorizontal = 1;
+        g.d.lineWidthVertical = 1;
+        g.d.fontSize = 15;
+        g.d.colorHorizontalLines = linesColor;
+        g.d.colorVerticalLines = linesColor;
+        g.d.lineDash = [15, 5];
+        return g;
+    }
+    demo() {
+        let grid = new Grid();
+        this.addToArray.push(grid);
+        grid.d.flagDrawNumbers = true;
+        grid.data.colorNumbers = "red";
+        grid.d.fontSize = 12;
+        grid.d.cellWidth = 100;
+        grid.d.cellHeight = 20;
+        grid.d.colorHorizontalLines = "blue";
+        grid.d.colorVerticalLines = "brown";
+        grid.d.lineWidthVertical = 10;
+        grid.d.lineWidthHorizontal = 2;
+        return grid;
+    }
+    simple(linesColor = "#dee1e2") {
+        let grid = new Grid();
+        this.addToArray.push(grid);
+        grid.d.colorHorizontalLines = linesColor;
+        grid.d.colorVerticalLines = linesColor;
+        return grid;
     }
 }
 
 class CompFactory {
     constructor(comps = []) {
         this.addToArray = comps;
-        this.textTempl = new AddTextTemplates(comps);
+        this.textTempl = new TextTemplates(comps);
+        this.gridTempl = new GridTemplates(comps);
     }
     text(content = "", fontColor = "black", fontSize = 40, msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
         let bs = new Text(content, fontColor, fontSize, msStart, msEnd, x, y);
@@ -1068,8 +1196,8 @@ class CompFactory {
         this.addToArray.push(g);
         return g;
     }
-    frameCounter(x = 100, y = 100, msEnd = Number.MAX_SAFE_INTEGER) {
-        let item = new FrameCounter();
+    counter(x = 100, y = 100, msEnd = Number.MAX_SAFE_INTEGER) {
+        let item = new Counter();
         item.d.x = x;
         item.d.y = y;
         this.addToArray.push(item);

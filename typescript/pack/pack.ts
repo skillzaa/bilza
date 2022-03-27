@@ -19,7 +19,7 @@ this.canvas.width = width;
 this.canvas.height = height;
 this.canvas.style.position = "static";
 this.canvas.style.border = "1px solid blue";
-    
+     
 if (this.canvas == null ){
     throw new Error("canvas not found");
 }

@@ -34,7 +34,7 @@ this.shadowBlur = 0;
 this.globalAlpha = 1;
 this.lineCap = LineCapStyle.Round;
 this.lineDash = [];
-}
+} 
 merge(incom :Style){
 
     if (incom.lineCap !== null){

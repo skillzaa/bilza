@@ -35,6 +35,7 @@ let bs = new List(x,y,fontSize,msStart,msEnd);
 }
 grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
     let g = new Grid(msStart, msEnd);
+    // g.blabla = function (){ console.log("blabla")};
     this.addToArray.push(g);
     return g;
 }
@@ -56,4 +57,9 @@ randomBgShapes(){
 }
 
 spit(){return this.addToArray;}
+}
+
+
+function blabla(){
+    console.log("blabla");
 }
