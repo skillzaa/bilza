@@ -1,4 +1,4 @@
-import { CompFactory } from "../index.js";
+import { CompFactory } from "../Bilza.js";
 export default function clip01() {
     let factory = new CompFactory([]);
     factory.grid();

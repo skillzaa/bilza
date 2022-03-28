@@ -1,4 +1,4 @@
-import { Component, DrawLayer } from "../../index.js";
+import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class Counter extends Component {
     constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {

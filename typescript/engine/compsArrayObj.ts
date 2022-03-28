@@ -1,4 +1,4 @@
-import {DrawLayer,IComponent,Pack} from "../index.js";
+import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 
 export default class CompsArrayObj {
 protected comps:IComponent[]; 

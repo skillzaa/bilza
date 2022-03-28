@@ -1,4 +1,4 @@
-import {CompFactory,IComponent} from "../index.js";
+import {CompFactory,IComponent} from "../Bilza.js";
 
 export default function clip01() :IComponent[]{
 

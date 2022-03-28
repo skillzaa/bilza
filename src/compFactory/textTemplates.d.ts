@@ -1,4 +1,4 @@
-import { IComponent } from "../index.js";
+import { IComponent } from "../Bilza.js";
 import Text from "../components/text/text.js";
 export default class TextTemplates {
     private addToArray;

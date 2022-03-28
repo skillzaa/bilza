@@ -1,4 +1,4 @@
-import { IComponent } from "../index.js";
+import { IComponent } from "../Bilza.js";
 import Grid from "../components/grid/grid.js";
 
 

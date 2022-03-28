@@ -1,4 +1,4 @@
-import {Component,Pack} from "../../index.js";
+import {Component,Pack} from "../../Bilza.js";
 //Getting text dir since its no more exported by index.js
 import Text from "../text/text.js";
 import DataFn,{ObjectData} from "./DataFn.js";

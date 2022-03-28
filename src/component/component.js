@@ -1,4 +1,4 @@
-import { Style, DrawLayer, Transition } from "../index.js";
+import { Style, DrawLayer, Transition } from "../Bilza.js";
 export default class Component {
     constructor(DataFn, msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         this.compData = new Transition(DataFn);

@@ -1,4 +1,4 @@
-import { Style, Pack, IComponent, DrawLayer, Transition, IMsStart } from "../index.js";
+import { Style, Pack, IComponent, DrawLayer, Transition, IMsStart } from "../Bilza.js";
 export default class Component<T extends IMsStart> implements IComponent {
     protected compData: Transition<T>;
     d: T;

@@ -1,4 +1,4 @@
-import { Component } from "../../index.js";
+import { Component } from "../../Bilza.js";
 import Text from "../text/text.js";
 import DataFn from "./DataFn.js";
 export default class List extends Component {

@@ -1,4 +1,4 @@
-import {Pack} from "../index.js";
+import {Pack} from "../Bilza.js";
 import BilzaTimer from "./bilzaTimer.js";
  
 export default class BilzaCanvasSetup extends BilzaTimer {

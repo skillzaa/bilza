@@ -1,4 +1,4 @@
-import { Component } from "../../index.js";
+import { Component } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class Circle extends Component {
     constructor() {

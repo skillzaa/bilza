@@ -1,4 +1,4 @@
-import {CompFactory, DrawLayer,IComponent,Pack} from "../index.js";
+import {CompFactory, DrawLayer,IComponent,Pack} from "../Bilza.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./bilzaCanvasSetup.js";
 

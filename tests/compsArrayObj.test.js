@@ -11,7 +11,8 @@ test('comps exist', () => {
 test('comps exist', () => {
     expect(bilza.chqCollision()).toBeNull();
 });
-
 test('comps exist', () => {
-    expect(bilza.chqCollision()).toBeNull();
+    // where are the args ????
+    expect(bilza.drawByDrawLayer()).toBeTruthy();
 });
+

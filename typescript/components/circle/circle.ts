@@ -1,4 +1,4 @@
-import {Component,Pack,Style } from "../../index.js";
+import {Component,Pack,Style } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 export default class Circle extends Component<ObjectData> {
 

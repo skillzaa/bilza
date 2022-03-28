@@ -1,4 +1,4 @@
-import { Component, FontNames } from "../../index.js";
+import { Component, FontNames } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 import CalcData from "./calcData.js";
 export default class Text extends Component {

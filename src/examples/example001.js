@@ -1,4 +1,4 @@
-import Bilza from "../index.js";
+import Bilza from "../Bilza.js";
 let bilzaa = new Bilza("bilza", 800, 350, 15000);
 bilzaa.add.grid();
 bilzaa.add.counter(0, 300, bilzaa.getTimeEnd());

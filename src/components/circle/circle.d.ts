@@ -1,4 +1,4 @@
-import { Component, Pack } from "../../index.js";
+import { Component, Pack } from "../../Bilza.js";
 import { ObjectData } from "./DataFn.js";
 export default class Circle extends Component<ObjectData> {
     constructor();

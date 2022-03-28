@@ -1,4 +1,4 @@
-import {Component,Pack,DrawLayer } from "../../index.js";
+import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 export default class RandomBgShapes extends Component<ObjectData> {
 

@@ -1,4 +1,4 @@
-import {FontNames} from "../../index.js";
+import {FontNames} from "../../Bilza.js";
  
 export class ObjectData {
 msStart:number;

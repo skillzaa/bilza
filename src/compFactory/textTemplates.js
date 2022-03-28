@@ -1,4 +1,4 @@
-import { FontNames } from "../index.js";
+import { FontNames } from "../Bilza.js";
 import Text from "../components/text/text.js";
 export default class TextTemplates {
     constructor(comps) {
