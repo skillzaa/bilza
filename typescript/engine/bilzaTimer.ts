@@ -33,23 +33,14 @@ let curTime = new Date().getTime();
 return curTime - this.timeStart;
 }
 }
-// start() :boolean{
-// //it has to be null or else its still running    
-// if (this.timeStart !== null){return false;}
-// else {
-//     this.stop();
-//     this.timeStart = new Date().getTime();
-//         this.interval = window.setInterval(()=>{
-//         this.draw();
-//         },this.msPerFrame);
-//         return true;
-//      }    
-// }
-stop(){
+
+
+stop():boolean{
     this.timeStart = null;
     if (this.interval !== null){
         clearInterval(this.interval);
     }
+return true;    
 }
 
 }//ends

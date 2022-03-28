@@ -28,5 +28,6 @@ export default class BilzaTimer extends CompArrayObj {
         if (this.interval !== null) {
             clearInterval(this.interval);
         }
+        return true;
     }
 }

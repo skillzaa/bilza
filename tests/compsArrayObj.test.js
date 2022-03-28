@@ -1,6 +1,6 @@
 "use strict";
 
-import Bilza from "../src/index.js";
+import Bilza from "../src/Bilza.js";
 
 const bilza = new Bilza();
 

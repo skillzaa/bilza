@@ -32,19 +32,19 @@ export default class CompFactory {
         item.d.x = x;
         item.d.y = y;
         this.addToArray.push(item);
+        return item;
     }
     circle(x = 100, y = 100) {
         let item = new Circle();
         item.d.x = x;
         item.d.y = y;
         this.addToArray.push(item);
+        return item;
     }
     randomBgShapes() {
         let item = new RandomBgShapes();
         this.addToArray.push(item);
+        return item;
     }
     spit() { return this.addToArray; }
-}
-function blabla() {
-    console.log("blabla");
 }

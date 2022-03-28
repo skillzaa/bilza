@@ -1,5 +1,5 @@
 export default class Pack {
-    constructor(width = 0, height = 0, canvasId = "bilzaa2d") {
+    constructor(canvasId = "bilza", width = 0, height = 0) {
         let lookForCanvas = document.getElementById(canvasId);
         if (lookForCanvas == null) {
             this.canvas = document.createElement('canvas');
@@ -37,6 +37,7 @@ export default class Pack {
     drawBackground(color = "blue") {
         this.ctx.fillStyle = color;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        return this.ctx.fillStyle;
     }
     canvasWidth() {
         return this.canvas.width;

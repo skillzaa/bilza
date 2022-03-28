@@ -1,5 +1,5 @@
 
-import {Style} from "../src/index.js";
+import {Style} from "../src/Bilza.js";
 const style = new Style();
 //--style has total 18 prop
 // console.log(style);

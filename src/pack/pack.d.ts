@@ -1,10 +1,10 @@
-import Style from "./style.js";
+import Style from "../style.js";
 import Position from "../design/Position.js";
 export default class Pack {
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
-    constructor(width?: number, height?: number, canvasId?: string);
-    drawBackground(color?: string): void;
+    constructor(canvasId?: string, width?: number, height?: number);
+    drawBackground(color?: string): string;
     canvasWidth(): number;
     canvasHeight(): number;
     quadraticCurveTo(start: Position, end: Position, controlPoint: Position, style: Style): void;

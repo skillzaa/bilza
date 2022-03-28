@@ -4,7 +4,7 @@ export default class Pack {
 canvas :HTMLCanvasElement;
 ctx :CanvasRenderingContext2D;
 
-constructor(width=0,height=0,canvasId="bilzaa2d"){
+constructor(canvasId="bilza",width=0,height=0){
 let lookForCanvas = document.getElementById(canvasId)as HTMLCanvasElement;
 if (lookForCanvas == null){
     this.canvas = document.createElement('canvas');
@@ -40,9 +40,10 @@ if (this.ctx == null ){
 }    
 }
 //--- look at this fn again
-public drawBackground(color:string="blue"){ 
+public drawBackground(color:string="blue"):string{ 
 this.ctx.fillStyle = color;
 this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+return this.ctx.fillStyle;
 }   
 public canvasWidth():number{
 return this.canvas.width;

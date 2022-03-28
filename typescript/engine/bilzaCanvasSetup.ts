@@ -6,14 +6,14 @@ protected pack:Pack; //---later
 protected canvasId :string;
 //==================PUBLIC API
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilzaa2d",canvasWidth=800,canvasHeight=350,timeEnd=Number.MAX_SAFE_INTEGER){
+constructor (canvasId="bilza",canvasWidth=800,canvasHeight=350,timeEnd=Number.MAX_SAFE_INTEGER){
 super(timeEnd);
 this.canvasId = canvasId; 
-this.pack = new Pack(canvasWidth,canvasHeight,this.canvasId);
+this.pack = new Pack(this.canvasId,canvasWidth,canvasHeight);
 } 
 //--This should be in Pack---////////////////
 setCanvas(width :number = 800,height :number = 400){
-this.pack = new Pack(width,height,this.canvasId);
+this.pack = new Pack(this.canvasId,width,height);
 }
 //
 getCanvasHeight(){

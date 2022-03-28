@@ -7,8 +7,8 @@ export default class Bilza extends BilzaCanvasSetup {
 public add :CompFactory; 
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilzaa2d",canvasWidth=800,canvasHeight=350,timeEnd=Number.MAX_SAFE_INTEGER){
-super(canvasId="bilzaa2d",canvasWidth=800,canvasHeight=350,timeEnd=Number.MAX_SAFE_INTEGER);
+constructor (canvasId="bilza",canvasWidth=800,canvasHeight=350,timeEnd=Number.MAX_SAFE_INTEGER){
+super(canvasId="bilza",canvasWidth,canvasHeight,timeEnd);
 this.background = new Background();
 this.add = new CompFactory(this.comps);
 } 

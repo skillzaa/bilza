@@ -1,5 +1,3 @@
-###### 25-March-2022 (version 0.0.5)
-###### 26-March-2022 (version 0.0.7)
 ###### Everything is underconstruction please.
 
 # What is Bilza.js
@@ -43,7 +41,7 @@
 
 ```javascript
 //--You have to change the path if its different
-import Bilza  from "./node_modules/bilza/index.js";
+import Bilza  from "./node_modules/bilza/Bilza.js";
 //---lets create a 15 seconds clip
 let bilzaa = new Bilza("bilza",800,350,15000);
 
@@ -68,7 +66,7 @@ bilzaa.start();
 
 ```javascript
 //--You have to change the path 
-import Bilza  from "./node_modules/bilza/index.js";
+import Bilza  from "./node_modules/bilza/Bilzaa.js";
 //---lets create a 15 seconds clip
 let bilzaa = new Bilza("bilza",800,350,15000);
 
@@ -115,7 +113,11 @@ bilzaa.start();
 If you want to be in touch or send me a bug report please use github issues.
 I will add some tests and then improve documentations.
 
-
+-----
+###### 25-March-2022 (version 0.0.5)
+###### 26-March-2022 (version 0.0.7)
+###### 27-March-2022 (version 0.0.10)
+###### 28-March-2022 (version 0.0.11)
 
 
 
