@@ -1,9 +1,9 @@
-// import {Bilzaa2d,XAlignment,YAlignment,IDrawable} from "../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
+// import {Bilzaa2d,XAlignment,YAlignment,IComponent} from "../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 // import Text from "../../components/text-new/text.js.js";
 
 
 // export default function testClip(frameStart=1,frameEnd=100,content="This is A Test Clip")
-// :IDrawable{
+// :IComponent{
 // let f = new Text(content);
 // f.frameStart = frameStart;
 // f.frameEnd = frameEnd;

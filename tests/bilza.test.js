@@ -4,7 +4,7 @@
 import Bilza from "../src/index.js";
 const bilza = new Bilza();
 // style.
-console.log(bilza);
+// console.log(bilza);
 
 test('Adds 1 + 2 to equal 3', () => {
     expect(bilza.background.color).toBe("#efeee3");

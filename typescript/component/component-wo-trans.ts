@@ -1,11 +1,11 @@
-// import IDrawable from "./design/IDrawable.js";
+// import IComponent from "./design/IComponent.js";
 // import Pack from "./pack/pack.js";
 // import {DrawLayer} from "./design/drawLayer.js";
 // import {XAlignment,YAlignment} from "./design/alignment.js";
 // // import Transition from "../components/transition/transition.js";
 // //--This is an Abstract class
 // //--Do not use CompData here but in sub-classes extend thatfor their own comp data class.
-// export default class Component  implements IDrawable {
+// export default class Component  implements IComponent {
 // public drawLayer : DrawLayer; 
 // public frameStart :number;   
 // public frameEnd :number;

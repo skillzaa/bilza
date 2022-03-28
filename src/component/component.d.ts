@@ -1,5 +1,5 @@
-import { Style, Pack, IDrawable, DrawLayer, Transition, IMsStart } from "../index.js";
-export default class Component<T extends IMsStart> implements IDrawable {
+import { Style, Pack, IComponent, DrawLayer, Transition, IMsStart } from "../index.js";
+export default class Component<T extends IMsStart> implements IComponent {
     protected compData: Transition<T>;
     d: T;
     data: T;

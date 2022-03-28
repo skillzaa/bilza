@@ -1,4 +1,4 @@
-import {CompFactory, DrawLayer,IDrawable,Pack} from "../index.js";
+import {CompFactory, DrawLayer,IComponent,Pack} from "../index.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./bilzaCanvasSetup.js";
 
@@ -42,11 +42,11 @@ this.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
 return true;
 }
 //----seperate class
-chqCollision(x :number, y :number):IDrawable | null{
+chqCollision(x :number, y :number):IComponent | null{
    return null;
 }
 
-mergeClip(clip :IDrawable[]):boolean{
+mergeClip(clip :IComponent[]):boolean{
     for (let i = 0; i < clip.length; i++) {
         this.comps.push(clip[i]);
     }

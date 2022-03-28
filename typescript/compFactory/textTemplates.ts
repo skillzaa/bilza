@@ -1,10 +1,10 @@
-import {IDrawable,FontNames} from "../index.js";
+import {IComponent,FontNames} from "../index.js";
 import Text from "../components/text/text.js";
 
 export default class TextTemplates {
-private addToArray :IDrawable[];
+private addToArray :IComponent[];
  
-constructor(comps :IDrawable[]){
+constructor(comps :IComponent[]){
 this.addToArray = comps;
 }
 demo(content :string="Bilza.js",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER, fontColor :string="yellow",fontSize=40,x=100,y=100)

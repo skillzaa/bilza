@@ -1,10 +1,10 @@
-import {DrawLayer,IDrawable,Pack} from "../index.js";
+import {DrawLayer,IComponent,Pack} from "../index.js";
 
 export default class CompsArrayObj {
-protected comps:IDrawable[]; 
+protected comps:IComponent[]; 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (){
-this.comps = [];  
+    this.comps = [];  
 } 
 
 protected drawByDrawLayer(msDelta :number,drawLayer :DrawLayer,pack :Pack):boolean{ 
@@ -23,11 +23,11 @@ let comp = this.comps[i];
 return true;
 }
 
-chqCollision(x :number, y :number):IDrawable | null{
+chqCollision(x :number, y :number):IComponent | null{
    return null;
 }
 
-insert(comp:IDrawable):IDrawable{
+insert(comp:IComponent):IComponent{
 this.comps.push(comp);
 return comp;
 }

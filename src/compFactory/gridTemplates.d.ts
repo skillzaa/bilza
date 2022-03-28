@@ -1,8 +1,8 @@
-import { IDrawable } from "../index.js";
+import { IComponent } from "../index.js";
 import Grid from "../components/grid/grid.js";
 export default class GridTemplates {
     private addToArray;
-    constructor(comps: IDrawable[]);
+    constructor(comps: IComponent[]);
     dashed(linesColor?: string): Grid;
     demo(): Grid;
     simple(linesColor?: string): Grid;

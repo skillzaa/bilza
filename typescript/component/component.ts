@@ -1,6 +1,6 @@
-import {Style,Pack,IDrawable,DrawLayer,Transition,IMsStart} from "../index.js";
+import {Style,Pack,IComponent,DrawLayer,Transition,IMsStart} from "../index.js";
 //--This is an Abstract class
-export default class Component  <T extends IMsStart> implements IDrawable {
+export default class Component  <T extends IMsStart> implements IComponent {
 //compData is the transition object and T is the obj it takes in
 // a transition group all the public properties in this.d and expose them. the user can then add different set of these properties which are then implemented (merged) as per the given millisecond.
 protected compData:Transition<T>; 
@@ -95,7 +95,7 @@ update(msDelta :number, p: Pack): boolean {
 return true;    
 }
 ////////////////////////////////////////////////////////
-// following methods are not IDrawable
+// following methods are not IComponent
 addTransition(msStart:number){
     return this.compData.add(msStart);
 }    

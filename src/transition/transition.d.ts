@@ -6,7 +6,7 @@ export default class Transition<T extends IMsStart> {
     constructor(newDataObjFn: () => T);
     add(msStart: number): T;
     insert(f: T): T;
-    apply(frame: number): void;
+    apply(msDelta: number): void;
     private merge;
 }
 //# sourceMappingURL=transition.d.ts.map

@@ -73,9 +73,7 @@ merge(incom :Style){
     if (incom.lineDash !== null){
         this.lineDash = incom.lineDash;
     }
-    // if (incom.lineDashGap !== null){
-    //     this.lineDashGap = incom.lineDashGap;
-    // }
+   
 }
 
 

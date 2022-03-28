@@ -1,1 +1,1 @@
-{"version":3,"file":"clip01.d.ts","sourceRoot":"","sources":["../../typescript/clips/clip01.ts"],"names":[],"mappings":"AAAA,OAAO,EAAa,SAAS,EAAC,MAAM,aAAa,CAAC;AAElD,MAAM,CAAC,OAAO,UAAU,MAAM,IAAI,SAAS,EAAE,CAyC5C"}
+{"version":3,"file":"clip01.d.ts","sourceRoot":"","sources":["../../typescript/clips/clip01.ts"],"names":[],"mappings":"AAAA,OAAO,EAAa,UAAU,EAAC,MAAM,aAAa,CAAC;AAEnD,MAAM,CAAC,OAAO,UAAU,MAAM,IAAI,UAAU,EAAE,CAyC7C"}

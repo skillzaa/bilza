@@ -36,18 +36,18 @@ insert(f:T):T{
     return f;
 }
 /**Keep in mind that when we apply some frame all the frames before that are deleted, since they have elapsed */
-apply(frame :number){
+apply(msDelta :number){
 for (let i = this.transitions.length -1; i >= 0; i--) {
     const trs = this.transitions[i];
-    if(trs.msStart <= frame ){
+    if(trs.msStart <= msDelta ){
         this.merge(trs); //merge
         this.transitions.splice(i,1); //delete
     }
 }
 }
-//---when is this used
+//---In the this.apply we merge the object
 private merge(subset:IMsStart):boolean{
-    for (const key in this.data) {
+    for (const key in this.data) {  //====> Note this.data
         if (subset.hasOwnProperty(key)){
 // @ts-expect-error
             if (subset[key] !== null){

@@ -1,6 +1,6 @@
-import {CompFactory,IDrawable} from "../index.js";
+import {CompFactory,IComponent} from "../index.js";
 
-export default function clip01() :IDrawable[]{
+export default function clip01() :IComponent[]{
 
 let factory = new CompFactory([]);
 // c.grid();

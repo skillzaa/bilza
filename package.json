@@ -7,7 +7,7 @@
     "rollup:help": "rollup --help",
     "rollup:es": "rollup ./src/index.js --file ./build/bilza.js --format es",
     "rollup:cjs": "rollup ./src/index.js --file ./build/bilza_cjs.js --format cjs",
-    "test": "jest"
+    "test": "jest --watchAll --detectOpenHandles"
   },
   "repository": {
     "type": "git",

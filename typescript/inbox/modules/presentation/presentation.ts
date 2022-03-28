@@ -1,4 +1,4 @@
-// import {Bilzaa2d,XAlignment,YAlignment,IDrawable} from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
+// import {Bilzaa2d,XAlignment,YAlignment,IComponent} from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 // import Text from "../../../components/text-new/text.js.js";
 // import {GridTemplates} from "../../../components/grid/grid.js";
 // import FrameCounter from "../../../components/frameCounter/frameCounter.js";
@@ -9,12 +9,12 @@
 // this.bilzaa = new Bilzaa2d();
 // }
 // // a slide is a clip - in this module (presentation) a clip is slide
-// addClip(clips:IDrawable[]){
+// addClip(clips:IComponent[]){
 // for (let i = 0; i < clips.length; i++) {
 //     this.bilzaa.add(clips[i]);
 // }
 // }
-// add(f :IDrawable){
+// add(f :IComponent){
 //    this.bilzaa.add(f);  
 // }
 // addGrid(){

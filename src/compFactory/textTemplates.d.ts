@@ -1,8 +1,8 @@
-import { IDrawable } from "../index.js";
+import { IComponent } from "../index.js";
 import Text from "../components/text/text.js";
 export default class TextTemplates {
     private addToArray;
-    constructor(comps: IDrawable[]);
+    constructor(comps: IComponent[]);
     demo(content?: string, msStart?: number, msEnd?: number, fontColor?: string, fontSize?: number, x?: number, y?: number): Text;
     txt(content?: string, msStart?: number, msEnd?: number, fontColor?: string, fontSize?: number, x?: number, y?: number): Text;
     txtBg(content?: string, msStart?: number, msEnd?: number, fontColor?: string, fontSize?: number, bgColor?: string, x?: number, y?: number): Text;

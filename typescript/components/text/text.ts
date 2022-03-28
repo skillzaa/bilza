@@ -1,6 +1,7 @@
 import {Component,Pack,FontNames} from "../../index.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 import CalcData from "./calcData.js";
+
 export default class Text extends Component<ObjectData> {
 
 protected calcData :CalcData;

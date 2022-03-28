@@ -1,11 +1,11 @@
-// import {Bilzaa2d,XAlignment,YAlignment,IDrawable} from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
+// import {Bilzaa2d,XAlignment,YAlignment,IComponent} from "../../../node_modules/bilzaa2d/src/bilzaa2d/index.js";
 // import Text from "../../../components/text-new/text.js.js";
 // import {GridTemplates} from "../../../components/grid/grid.js";
 // import FrameCounter from "../../../components/frameCounter/frameCounter.js";
 
 
 // export default function textSlide(frameStart :number,frameEnd :number,hdg:string,lineOne:string,lineTwo:string){
-// let r:IDrawable[] = [];
+// let r:IComponent[] = [];
 
 // r.push(h1mid(hdg,frameStart,frameEnd));
 
@@ -15,7 +15,7 @@
 // return r;
 // }
 
-// function h1mid(content:string,frameStart=1,frameEnd=100,fontSize=80,fontColor :string ="red", underlineColor :string = "green",y=15):IDrawable{
+// function h1mid(content:string,frameStart=1,frameEnd=100,fontSize=80,fontColor :string ="red", underlineColor :string = "green",y=15):IComponent{
 // let f = new Text(content);
 // f.frameStart = frameStart;
 // f.frameEnd = frameEnd;
@@ -35,7 +35,7 @@
 // f.yAlignment = YAlignment.Mid;    
 // return f;
 // }
-// function lineMid(content:string,frameStart = 1,frameEnd=100,y=45,fontSize=40,color="blue"):IDrawable{
+// function lineMid(content:string,frameStart = 1,frameEnd=100,y=45,fontSize=40,color="blue"):IComponent{
 
 // let f = new Text(content);
 // f.frameStart = frameStart;

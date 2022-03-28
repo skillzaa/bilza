@@ -1,11 +1,11 @@
-import { IDrawable } from "../index.js";
+import { IComponent } from "../index.js";
 import Grid from "../components/grid/grid.js";
 
 
 export default class GridTemplates {
-private addToArray :IDrawable[];
+private addToArray :IComponent[];
  
-constructor(comps :IDrawable[]){
+constructor(comps :IComponent[]){
 this.addToArray = comps;
 }
 dashed(linesColor :string = "#dee1e2"):Grid{

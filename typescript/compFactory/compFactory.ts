@@ -1,4 +1,4 @@
-import {IDrawable} from "../index.js";
+import {IComponent} from "../index.js";
 //--components
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
@@ -11,11 +11,11 @@ import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 
 export default class CompFactory {
-private addToArray :IDrawable[];
+private addToArray :IComponent[];
 textTempl :TextTemplates;
 gridTempl :GridTemplates;
 
-constructor(comps :IDrawable[]=[]){
+constructor(comps :IComponent[]=[]){
 this.addToArray = comps;
 this.textTempl = new TextTemplates(comps);
 this.gridTempl = new GridTemplates(comps);

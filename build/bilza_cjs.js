@@ -529,10 +529,10 @@ class Transition {
         this.transitions.push(f);
         return f;
     }
-    apply(frame) {
+    apply(msDelta) {
         for (let i = this.transitions.length - 1; i >= 0; i--) {
             const trs = this.transitions[i];
-            if (trs.msStart <= frame) {
+            if (trs.msStart <= msDelta) {
                 this.merge(trs);
                 this.transitions.splice(i, 1);
             }
