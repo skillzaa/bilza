@@ -1,4 +1,4 @@
-import {Style,Pack,IComponent,DrawLayer,Transition,IMsStart} from "../Bilza.js";
+import {Style,Pack,IComponent,DrawLayer,Transition,IMsStart} from "./Bilza.js";
 //--This is an Abstract class
 export default class Component  <T extends IMsStart> implements IComponent {
 //compData is the transition object and T is the obj it takes in

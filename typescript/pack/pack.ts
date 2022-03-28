@@ -1,4 +1,4 @@
-import Style from "./style.js";
+import Style from "../style.js";
 import Position from "../design/Position.js";
 export default class Pack {
 canvas :HTMLCanvasElement;

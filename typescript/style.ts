@@ -1,5 +1,5 @@
-import {LineCapStyle} from "../design/lineCapStyle.js";
-import {FontNames} from "../design/fontNames.js";
+import {LineCapStyle} from "./design/lineCapStyle.js";
+import {FontNames} from "./design/fontNames.js";
 // these are ctx valuesto be set in caseof any change in ctx
 export default class Style {
 //---13 prop    

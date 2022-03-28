@@ -1,6 +1,6 @@
-import Component from "./component/component.js";
+import Component from "./component.js";
 import Pack from "./pack/pack.js";
-import Style from "./pack/style.js";
+import Style from "./style.js";
 //--the name shd be Bilza and not BilzaEngine
 import Bilza from "./engine/bilzaEngine.js";
 import {DrawLayer} from "./design/drawLayer.js";
