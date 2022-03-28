@@ -186,7 +186,8 @@ public drawLines(positions :Position[] ,incomCtx:Style ,fill=true){
             this.ctx.stroke();
         }
 }
-// x and y are not here
+//--the commitCtxData fn of the pack is coupling of my style data and ctx
+
 private commitCtxData(incomCtx:Style){
     
     if (incomCtx.lineCap !== null){

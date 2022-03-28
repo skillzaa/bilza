@@ -1,8 +1,8 @@
 import { LineCapStyle } from "../design/lineCapStyle.js";
 import { FontNames } from "../design/fontNames.js";
 export default class Style {
-    constructor(frameStart = 0) {
-        this.frameStart = frameStart;
+    constructor(msStart = 0) {
+        this.msStart = msStart;
         this.fontSize = 25;
         this.fontName = FontNames.Luminari;
         this.fillStyle = "green";

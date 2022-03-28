@@ -1,6 +1,6 @@
 import {Pack} from "../index.js";
 import BilzaTimer from "./bilzaTimer.js";
-
+ 
 export default class BilzaCanvasSetup extends BilzaTimer {
 protected pack:Pack; //---later
 protected canvasId :string;

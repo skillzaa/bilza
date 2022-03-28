@@ -1,9 +1,25 @@
-const bilzaa = require('../build/bilza_cjs');
 
-const style = new bilzaa.Style(0);
+import {Style} from "../src/index.js";
+const style = new Style();
+//--style has total 18 prop
 // console.log(style);
-test('adds 1 + 2 to equal 3', () => {
-    // expect(sum()).toBe(10);
-    expect(style.fontSize).toEqual(25);
-  });
+test('5 string props of style', () => {
+  expect(style.fontName).toBeDefined();
+  expect(style.fillStyle).toBeDefined();
+  expect(style.strokeStyle).toBeDefined();
+  expect(style.shadowColor).toBeDefined();
+  expect(style.lineCap).toBeDefined();
+
+});
+test('8 numeric props of style', () => {
+    expect(style.msStart).toEqual(0); //default value
+    expect(style.fontSize).toBeGreaterThanOrEqual(0);
+    expect(style.lineWidth).toBeGreaterThanOrEqual(0);
+    expect(style.shadowOffsetX).toBeGreaterThanOrEqual(0);
+    expect(style.shadowOffsetY).toBeGreaterThanOrEqual(0);
+    expect(style.shadowBlur).toBeGreaterThanOrEqual(0);
+    expect(style.globalAlpha).toBeGreaterThanOrEqual(0);
+    expect(style.lineDash).toEqual([]);
+
+});
 

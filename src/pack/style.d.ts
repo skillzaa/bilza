@@ -1,7 +1,7 @@
 import { LineCapStyle } from "../design/lineCapStyle.js";
 import { FontNames } from "../design/fontNames.js";
 export default class Style {
-    frameStart: number;
+    msStart: number;
     fontSize: number;
     fontName: FontNames;
     fillStyle: string;
@@ -14,7 +14,7 @@ export default class Style {
     globalAlpha: number;
     lineCap: LineCapStyle;
     lineDash: number[];
-    constructor(frameStart?: number);
+    constructor(msStart?: number);
     merge(incom: Style): void;
 }
 //# sourceMappingURL=style.d.ts.map

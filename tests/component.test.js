@@ -1,5 +1,5 @@
 
-const Bilza = require("../build/bilza_cjs").default;
+import Bilza from "../src/index.js";
  
 
 let bilza = new Bilza();

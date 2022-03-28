@@ -1,11 +1,17 @@
 "use strict";
-// const bilza = require('../build/bilza_cjs');
 
-import CompsArrayObj from "../src/bilza/compsArrayObj.js";
-const cc = new CompsArrayObj();
-// style.
-// console.log(cc);
+import Bilza from "../src/index.js";
 
-test('Adds 1 + 2 to equal 3', () => {
-    expect(cc.comps.length).toEqual(0);
+const bilza = new Bilza();
+
+test('comps exist', () => {
+    expect(bilza.comps.length).toBeDefined();
+});
+
+test('comps exist', () => {
+    expect(bilza.chqCollision()).toBeNull();
+});
+
+test('comps exist', () => {
+    expect(bilza.chqCollision()).toBeNull();
 });

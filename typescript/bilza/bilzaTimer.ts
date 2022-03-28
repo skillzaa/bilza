@@ -1,7 +1,7 @@
 import CompArrayObj from "./compsArrayObj.js";
 
 export default class BilzaTimer extends CompArrayObj {
-
+ 
 protected interval : number | null;
 protected  msPerFrame :number; //????
 protected timeStart :number | null; //the size of video-length in milli seconds
