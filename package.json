@@ -4,6 +4,7 @@
   "description": "Bilza is a javascript framework for creating business and educational visualizations in the browser using HTML5 canvas",
   "main": "src/index.js",
   "scripts": {
+    "rollup": "rollup -c",
     "rollup:help": "rollup --help",
     "rollup:es": "rollup ./src/index.js --file ./build/bilza.js --format es",
     "rollup:cjs": "rollup ./src/index.js --file ./build/bilza_cjs.js --format cjs",
@@ -26,6 +27,7 @@
     "jest": "^27.5.1",
     "jest-canvas-mock": "^2.3.1",
     "rollup": "^2.70.1",
+    "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.5.5"
   }
 }
