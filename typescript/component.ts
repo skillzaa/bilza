@@ -30,7 +30,6 @@ protected msStart :number;
 protected msEnd :number;
 //--previously I was using many style obj in my component sub-classes but now i have atleast one this.style available, if a component sub-classes (tool class) wants it can have its own styles as well. loose coupling.
 public style:Style;
-public dynamicResize;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 constructor (DataFn :()=>T,msStart=0,msEnd= Number.MAX_SAFE_INTEGER){
 this.compData = new Transition(DataFn);    
@@ -107,6 +106,9 @@ shadowsOff(){
 this.style.shadowBlur = 0;
 this.style.shadowOffsetX = 0;
 this.style.shadowOffsetY = 0;
+}
+resize(width :number,height :number):number{
+ return 0;
 }
 ////////////////////////////////////////////////////////
 }//component ends

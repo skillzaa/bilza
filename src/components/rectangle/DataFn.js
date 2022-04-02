@@ -14,6 +14,8 @@ export class ObjectData {
         this.shadowOffsetX = 0;
         this.shadowOffsetY = 0;
         this.shadowBlur = 0;
+        this.widthPercent = 10;
+        this.heightPercent = 10;
     }
 }
 ;

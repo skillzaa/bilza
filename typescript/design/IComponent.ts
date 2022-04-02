@@ -38,6 +38,6 @@ export default interface IComponent{
 
     ///----check collision
     checkCollision(x :number,y :number, p :Pack):boolean;
-
+    resize(width :number,height :number):number;
 
 }

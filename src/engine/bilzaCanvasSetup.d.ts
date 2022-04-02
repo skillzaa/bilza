@@ -6,7 +6,7 @@ export default class BilzaCanvasSetup extends BilzaTimer {
     dynamicResizing: boolean;
     constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: number, timeEnd?: number);
     setCanvas(width?: number, height?: number): void;
-    getCanvasHeight(): () => number;
-    getCanvasWidth(): () => number;
+    getCanvasHeight(): number;
+    getCanvasWidth(): number;
 }
 //# sourceMappingURL=bilzaCanvasSetup.d.ts.map

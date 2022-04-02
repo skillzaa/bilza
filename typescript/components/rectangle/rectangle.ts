@@ -2,15 +2,18 @@ import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 export default class RandomBgShapes extends Component<ObjectData> {
 
-constructor (){
+constructor (widthPercent :number=10, heightPercent :number=10){
     super(DataFn);
+    this.d.widthPercent = widthPercent;
+    this.d.heightPercent = heightPercent;
     this.drawLayer = DrawLayer.MiddleGround;
 }
 width(p:Pack):number {
-    return this.d.width;
+return  ((p.canvasWidth() /100) * this.d.widthPercent);    
+    // return this.d.width;
 }
 height(p:Pack):number {
-    return this.d.height;
+return  ((p.canvasHeight() /100) * this.d.heightPercent);    
 }
 
 draw(p:Pack):boolean{
@@ -21,15 +24,16 @@ let newY = p.yPerc(this.d.y);
    p.drawFillRect(
     newX,
     newY,
-    this.d.width,
-    this.d.height,
+    this.width(p),
+    this.height(p),
     this.style
     );
 return true;
 }
 
-resize(canvasWidth :number,canvasHeight :number){
-    
-
-}//setWidth
+resize(width: number, height: number):number {
+// this.d.width = (width /100) * this.d.widthPercent;    
+//     return this.d.width;
+return 0;
+}
 }

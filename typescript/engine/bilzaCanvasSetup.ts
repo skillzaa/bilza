@@ -21,12 +21,12 @@ if (this.dynamicResizing == true){
 }
 }
 //
-getCanvasHeight(){
-return this.pack.canvasHeight;    
+getCanvasHeight():number{
+return this.pack.canvasHeight();    
 }
 
-getCanvasWidth(){
-return this.pack.canvasWidth;    
+getCanvasWidth():number{
+return this.pack.canvasWidth();    
 }
 
 ///////////////////////////////////////////////////

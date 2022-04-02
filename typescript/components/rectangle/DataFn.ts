@@ -7,6 +7,8 @@ x :number;
 y :number;
 width :number;
 height :number;
+widthPercent :number;
+heightPercent :number;
 borderWidth :number;
 
 flagFilled :boolean;
@@ -22,7 +24,7 @@ shadowBlur :number;
 
 constructor(){
 this.msStart =0;
-
+ 
 this.x = 10 ;
 this.y = 10 ;
 
@@ -41,6 +43,9 @@ this.colorShadow = "grey" ;
 this.shadowOffsetX = 0 ;
 this.shadowOffsetY = 0 ;
 this.shadowBlur = 0 ;
+
+this.widthPercent = 10;
+this.heightPercent = 10;
 }
 };
 

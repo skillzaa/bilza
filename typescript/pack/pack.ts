@@ -4,7 +4,7 @@ export default class Pack {
 canvas :HTMLCanvasElement;
 ctx :CanvasRenderingContext2D;
 
-constructor(canvasId="bilza",width=0,height=0){
+constructor(canvasId="bilza",width :number=0,height :number=0){
 let lookForCanvas = document.getElementById(canvasId)as HTMLCanvasElement;
 if (lookForCanvas == null){
     this.canvas = document.createElement('canvas');

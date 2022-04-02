@@ -4,6 +4,8 @@ export declare class ObjectData {
     y: number;
     width: number;
     height: number;
+    widthPercent: number;
+    heightPercent: number;
     borderWidth: number;
     flagFilled: boolean;
     flagShadow: boolean;

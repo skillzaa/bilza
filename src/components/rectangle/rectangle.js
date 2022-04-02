@@ -1,24 +1,27 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class RandomBgShapes extends Component {
-    constructor() {
+    constructor(widthPercent = 10, heightPercent = 10) {
         super(DataFn);
+        this.d.widthPercent = widthPercent;
+        this.d.heightPercent = heightPercent;
         this.drawLayer = DrawLayer.MiddleGround;
     }
     width(p) {
-        return this.d.width;
+        return ((p.canvasWidth() / 100) * this.d.widthPercent);
     }
     height(p) {
-        return this.d.height;
+        return ((p.canvasHeight() / 100) * this.d.heightPercent);
     }
     draw(p) {
         this.style.fillStyle = this.d.colorFill;
         this.style.strokeStyle = this.d.colorBorder;
         let newX = p.xPerc(this.d.x);
         let newY = p.yPerc(this.d.y);
-        p.drawFillRect(newX, newY, this.d.width, this.d.height, this.style);
+        p.drawFillRect(newX, newY, this.width(p), this.height(p), this.style);
         return true;
     }
-    resize(canvasWidth, canvasHeight) {
+    resize(width, height) {
+        return 0;
     }
 }

@@ -15,5 +15,6 @@ export default interface IComponent {
     update(ms: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;
+    resize(width: number, height: number): number;
 }
 //# sourceMappingURL=IComponent.d.ts.map

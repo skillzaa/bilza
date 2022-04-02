@@ -14,9 +14,9 @@ export default class BilzaCanvasSetup extends BilzaTimer {
         }
     }
     getCanvasHeight() {
-        return this.pack.canvasHeight;
+        return this.pack.canvasHeight();
     }
     getCanvasWidth() {
-        return this.pack.canvasWidth;
+        return this.pack.canvasWidth();
     }
 }

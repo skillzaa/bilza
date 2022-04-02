@@ -65,4 +65,7 @@ export default class Component {
         this.style.shadowOffsetX = 0;
         this.style.shadowOffsetY = 0;
     }
+    resize(width, height) {
+        return 0;
+    }
 }
