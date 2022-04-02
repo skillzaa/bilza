@@ -10,6 +10,7 @@ export default class Component<T extends IMsStart> implements IComponent {
     protected msStart: number;
     protected msEnd: number;
     style: Style;
+    dynamicResize: any;
     constructor(DataFn: () => T, msStart?: number, msEnd?: number);
     getSelected(): boolean;
     setSelected(b: boolean): boolean;

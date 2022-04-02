@@ -33,5 +33,11 @@ this.comps.push(comp);
 return comp;
 }
 
+resize(width :number = 800,height :number = 400){
+    for (let i = 0; i < this.comps.length; i++) {
+        const element = this.comps[i];
+        element.resize(width,height); 
+    }
+}
 
 }//ends

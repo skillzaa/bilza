@@ -2,6 +2,8 @@ import {IComponent} from "../Bilza.js";
 //--components
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
+import Rectangle from "../components/rectangle/rectangle.js";
+import GridR from "../components/gridR/gridR.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
 import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
@@ -20,7 +22,11 @@ this.addToArray = comps;
 this.textTempl = new TextTemplates(comps);
 this.gridTempl = new GridTemplates(comps);
 }
-
+rectangle(){
+    let bs = new Rectangle();
+    this.addToArray.push(bs);
+    return bs;        
+}
 text(content :string="",fontColor :string="black",fontSize=40,
 msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,x=50,y=50)
 :Text{
@@ -35,6 +41,11 @@ let bs = new List(x,y,fontSize,msStart,msEnd);
 }
 grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
     let g = new Grid(msStart, msEnd);
+    this.addToArray.push(g);
+    return g;
+}
+gridR(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
+    let g = new GridR(msStart, msEnd);
     this.addToArray.push(g);
     return g;
 }

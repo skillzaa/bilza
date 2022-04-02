@@ -1,4 +1,4 @@
-import Bilza  from "../Bilza.js";
+import Bilza  from "../../Bilza.js";
 //---lets create a 60 seconds clip
 let bilzaa = new Bilza("bilza",800,350,15000);
 
@@ -6,7 +6,7 @@ let bilzaa = new Bilza("bilza",800,350,15000);
 ///-----Add components
 
 //---Add a Grid
-bilzaa.add.grid();
+bilzaa.add.gridR();
 //---- Add a frame counter (counter)
 bilzaa.add.counter(0,300,bilzaa.getTimeEnd());
 

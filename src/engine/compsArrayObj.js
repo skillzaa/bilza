@@ -23,4 +23,10 @@ export default class CompsArrayObj {
         this.comps.push(comp);
         return comp;
     }
+    resize(width = 800, height = 400) {
+        for (let i = 0; i < this.comps.length; i++) {
+            const element = this.comps[i];
+            element.resize(width, height);
+        }
+    }
 }
