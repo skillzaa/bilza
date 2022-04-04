@@ -2,15 +2,11 @@ export declare class ObjectData {
     msStart: number;
     x: number;
     y: number;
-    width: number;
-    height: number;
     widthPercent: number;
     heightPercent: number;
-    flagFilled: boolean;
-    flagShadow: boolean;
-    colorFill: string;
-    colorBorder: string;
+    color: string;
     colorShadow: string;
+    flagShadow: boolean;
     shadowOffsetX: number;
     shadowOffsetY: number;
     shadowBlur: number;

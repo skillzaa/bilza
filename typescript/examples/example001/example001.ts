@@ -6,7 +6,7 @@ let bilzaa = new Bilza("bilza",800,350,15000);
 ///-----Add components
 
 //---Add a Grid
-bilzaa.add.gridR();
+bilzaa.add.grid();
 //---- Add a frame counter (counter)
 bilzaa.add.counter(0,300,bilzaa.getTimeEnd());
 

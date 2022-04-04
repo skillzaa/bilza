@@ -23,7 +23,7 @@ lineWidthVertical :number;
 lineWidthHorizontal :number;
 fontSize :number;
 lineDash :number[];
-
+ 
 constructor(){
 this.msStart =0;
 

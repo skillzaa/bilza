@@ -1,10 +1,7 @@
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
-import Rectangle from "../components/rectangle/rectangle.js";
-import GridR from "../components/gridR/gridR.js";
+import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
-import Circle from "../components/circle/circle.js";
-import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
@@ -14,8 +11,8 @@ export default class CompFactory {
         this.textTempl = new TextTemplates(comps);
         this.gridTempl = new GridTemplates(comps);
     }
-    rectangle() {
-        let bs = new Rectangle();
+    fillRect() {
+        let bs = new FillRect();
         this.addToArray.push(bs);
         return bs;
     }
@@ -34,27 +31,10 @@ export default class CompFactory {
         this.addToArray.push(g);
         return g;
     }
-    gridR(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
-        let g = new GridR(msStart, msEnd);
-        this.addToArray.push(g);
-        return g;
-    }
     counter(x = 100, y = 100, msEnd = Number.MAX_SAFE_INTEGER) {
         let item = new Counter();
         item.d.x = x;
         item.d.y = y;
-        this.addToArray.push(item);
-        return item;
-    }
-    circle(x = 100, y = 100) {
-        let item = new Circle();
-        item.d.x = x;
-        item.d.y = y;
-        this.addToArray.push(item);
-        return item;
-    }
-    randomBgShapes() {
-        let item = new RandomBgShapes();
         this.addToArray.push(item);
         return item;
     }

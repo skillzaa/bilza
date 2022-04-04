@@ -2,7 +2,7 @@ import {IComponent} from "../Bilza.js";
 //--components
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
-import Rectangle from "../components/rectangle/rectangle.js";
+import FillRect from "../components/fillRect/fillRect.js";
 import GridR from "../components/gridR/gridR.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
@@ -22,8 +22,8 @@ this.addToArray = comps;
 this.textTempl = new TextTemplates(comps);
 this.gridTempl = new GridTemplates(comps);
 }
-rectangle(){
-    let bs = new Rectangle();
+fillRect(){
+    let bs = new FillRect();
     this.addToArray.push(bs);
     return bs;        
 }
@@ -44,11 +44,11 @@ grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
     this.addToArray.push(g);
     return g;
 }
-gridR(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
-    let g = new GridR(msStart, msEnd);
-    this.addToArray.push(g);
-    return g;
-}
+// gridR(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
+//     let g = new GridR(msStart, msEnd);
+//     this.addToArray.push(g);
+//     return g;
+// }
 counter(x :number=100,y :number=100,msEnd :number = Number.MAX_SAFE_INTEGER){
     let item = new Counter();
     item.d.x = x;
@@ -56,18 +56,18 @@ counter(x :number=100,y :number=100,msEnd :number = Number.MAX_SAFE_INTEGER){
     this.addToArray.push(item);
     return item;
 }
-circle(x :number=100, y :number=100){
-    let item = new Circle();
-    item.d.x = x;
-    item.d.y = y;
-    this.addToArray.push(item);
-    return item;
-}
-randomBgShapes(){
-    let item = new RandomBgShapes();
-    this.addToArray.push(item);
-    return item;
-}
+// circle(x :number=100, y :number=100){
+//     let item = new Circle();
+//     item.d.x = x;
+//     item.d.y = y;
+//     this.addToArray.push(item);
+//     return item;
+// }
+// randomBgShapes(){
+//     let item = new RandomBgShapes();
+//     this.addToArray.push(item);
+//     return item;
+// }
 
 spit(){return this.addToArray;}
 

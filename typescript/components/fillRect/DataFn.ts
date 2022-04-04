@@ -2,22 +2,17 @@
 export class ObjectData {
     msStart:number;
 //////////////////////////
-
 x :number;
 y :number;
-width :number;
-height :number;
+
 widthPercent :number;
 heightPercent :number;
-borderWidth :number;
 
-flagFilled :boolean;
-flagShadow :boolean;
 
-colorFill :string;
-colorBorder :string;
+color :string;
 colorShadow :string;
 
+flagShadow :boolean;
 shadowOffsetX :number;
 shadowOffsetY :number;
 shadowBlur :number;
@@ -28,22 +23,19 @@ this.msStart =0;
 this.x = 10 ;
 this.y = 10 ;
 
-this.width = 200 ;
-this.height = 50 ;
-this.borderWidth = 4 ; //if drawing empty rect
+this.widthPercent = 200 ;
+this.heightPercent = 50 ;
 
 //--flags
 this.flagShadow = false ;
-this.flagFilled = false ;
 
-this.colorBorder = "black" ;
-this.colorFill = "red" ;
+this.color = "red" ;
 this.colorShadow = "grey" ;
 
 this.shadowOffsetX = 0 ;
 this.shadowOffsetY = 0 ;
 this.shadowBlur = 0 ;
-
+ 
 this.widthPercent = 10;
 this.heightPercent = 10;
 }

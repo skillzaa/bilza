@@ -1,6 +1,7 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
-export default class RandomBgShapes extends Component<ObjectData> {
+
+export default class FillRect extends Component<ObjectData> {
 
 constructor (widthPercent :number=10, heightPercent :number=10){
     super(DataFn);
@@ -17,8 +18,8 @@ return  ((p.canvasHeight() /100) * this.d.heightPercent);
 }
 
 draw(p:Pack):boolean{
-this.style.fillStyle = this.d.colorFill;    
-this.style.strokeStyle = this.d.colorBorder; 
+this.style.fillStyle = this.d.color;    
+this.style.strokeStyle = this.d.color; 
 let newX = p.xPerc(this.d.x);
 let newY = p.yPerc(this.d.y);
    p.drawFillRect(

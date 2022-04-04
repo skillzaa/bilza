@@ -6,8 +6,8 @@ g.d.fontSize = 12;
 
 bil.dynamicResizing = true;
 /////-------======---///
-let rec = bil.add.rectangle();
-rec.d.width = 400;
+let rec = bil.add.fillRect();
+// rec.d.width = 400;
 rec.d.widthPercent = 50;
 rec.d.heightPercent = 33;
 rec.d.x = 0;
