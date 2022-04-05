@@ -2,6 +2,8 @@ import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
+import Circle from "../components/circle/circle.js";
+import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import TextTemplates from "./textTemplates.js";
@@ -17,8 +19,8 @@ export default class CompFactory {
         this.addToArray.push(bs);
         return bs;
     }
-    line(x1 = 0, y1 = 0, x2 = 100, y2 = 100) {
-        let bs = new Line(x1, y1, x2, y2);
+    line(x1 = 0, y1 = 0, x2 = 100, y2 = 100, color = "black", lineWidth = 2) {
+        let bs = new Line(x1, y1, x2, y2, color, lineWidth);
         this.addToArray.push(bs);
         return bs;
     }
@@ -41,6 +43,18 @@ export default class CompFactory {
         let item = new Counter();
         item.d.x = x;
         item.d.y = y;
+        this.addToArray.push(item);
+        return item;
+    }
+    circle(x = 100, y = 100) {
+        let item = new Circle();
+        item.d.x = x;
+        item.d.y = y;
+        this.addToArray.push(item);
+        return item;
+    }
+    randomBgShapes() {
+        let item = new RandomBgShapes();
         this.addToArray.push(item);
         return item;
     }

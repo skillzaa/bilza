@@ -29,8 +29,8 @@ fillRect(){
     return bs;        
 }
 
-line(x1:number=0,y1:number=0,x2:number=100,y2:number=100){
-    let bs = new Line(x1,y1,x2,y2);
+line(x1:number=0,y1:number=0,x2:number=100,y2:number=100, color:string="black",lineWidth:number=2){
+    let bs = new Line(x1,y1,x2,y2,color,lineWidth);
     this.addToArray.push(bs);
     return bs;        
 }
@@ -64,18 +64,18 @@ counter(x :number=100,y :number=100,msEnd :number = Number.MAX_SAFE_INTEGER){
     this.addToArray.push(item);
     return item;
 }
-// circle(x :number=100, y :number=100){
-//     let item = new Circle();
-//     item.d.x = x;
-//     item.d.y = y;
-//     this.addToArray.push(item);
-//     return item;
-// }
-// randomBgShapes(){
-//     let item = new RandomBgShapes();
-//     this.addToArray.push(item);
-//     return item;
-// }
+circle(x :number=100, y :number=100){
+    let item = new Circle();
+    item.d.x = x;
+    item.d.y = y;
+    this.addToArray.push(item);
+    return item;
+}
+randomBgShapes(){
+    let item = new RandomBgShapes();
+    this.addToArray.push(item);
+    return item;
+}
 
 spit(){return this.addToArray;}
 
