@@ -4,6 +4,7 @@ export declare class ObjectData {
     y1: number;
     x2: number;
     y2: number;
+    lineWidth: number;
     color: string;
     colorShadow: string;
     flagShadow: boolean;

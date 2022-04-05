@@ -8,6 +8,7 @@ import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
 import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
+import Line from "../components/line/line.js";
 //---Templates 
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
@@ -27,6 +28,13 @@ fillRect(){
     this.addToArray.push(bs);
     return bs;        
 }
+
+line(x1:number=0,y1:number=0,x2:number=100,y2:number=100){
+    let bs = new Line(x1,y1,x2,y2);
+    this.addToArray.push(bs);
+    return bs;        
+}
+
 text(content :string="",fontColor :string="black",fontSize=40,
 msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,x=50,y=50)
 :Text{

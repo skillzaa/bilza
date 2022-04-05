@@ -17,7 +17,9 @@ export default class Line extends Component {
     }
     draw(p) {
         this.style.fillStyle = this.d.color;
-        this.style.strokeStyle = this.d.color;
+        this.style.strokeStyle = "red";
+        this.style.lineWidth = 15;
+        p.drawLine(0, 0, 800, 500, this.style);
         return true;
     }
 }

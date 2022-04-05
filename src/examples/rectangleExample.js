@@ -3,6 +3,7 @@ let bil = new Bilza("bilza", 800, 300, 1000);
 let g = bil.add.gridTempl.simple("red");
 g.d.flagDrawNumbers = true;
 g.d.fontSize = 12;
+bil.add.line();
 bil.dynamicResizing = true;
 let recLt = bil.add.fillRect();
 recLt.d.widthPercent = 50;

@@ -3,6 +3,7 @@ import Grid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
 import List from "../components/list/list.js";
+import Line from "../components/line/line.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
@@ -13,6 +14,11 @@ export default class CompFactory {
     }
     fillRect() {
         let bs = new FillRect();
+        this.addToArray.push(bs);
+        return bs;
+    }
+    line(x1 = 0, y1 = 0, x2 = 100, y2 = 100) {
+        let bs = new Line(x1, y1, x2, y2);
         this.addToArray.push(bs);
         return bs;
     }

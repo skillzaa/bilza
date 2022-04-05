@@ -22,15 +22,14 @@ height(p:Pack):number {
 
 draw(p:Pack):boolean{
 this.style.fillStyle = this.d.color;    
-this.style.strokeStyle = this.d.color; 
-
-
+// this.style.strokeStyle = this.d.color; 
+this.style.strokeStyle = "red"; 
+// this.style.lineWidth = this.d.lineWidth; 
+this.style.lineWidth = 15; 
+// p.drawLine(this.d.x1,this.d.y1,this.d.x2,this.d.y2,this.style);
+p.drawLine(0,0,800,500,this.style);
 return true;
 }
 
-// resize(width: number, height: number):number {
-// // this.d.width = (width /100) * this.d.widthPercent;    
-// //     return this.d.width;
-// return 0;
-// }
-}
+
+}//class

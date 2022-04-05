@@ -4,6 +4,8 @@ let g = bil.add.gridTempl.simple("red");
 g.d.flagDrawNumbers = true;
 g.d.fontSize = 12;
 
+
+bil.add.line();
 bil.dynamicResizing = true;
 /////-------======---///
 let recLt = bil.add.fillRect();
