@@ -28,8 +28,7 @@ export default class Pack {
     drawText(content: string, x: number, y: number, incomCtx: Style): void;
     drawIcon(code: number, x: number, y: number, incomCtx: Style): void;
     drawTextstroke(content: string, x: number, y: number, incomCtx: Style): void;
-    drawLines(positions: Position[], incomCtx: Style, fill?: boolean): void;
-    private commitCtxData;
+    commitCtxData(incomCtx: Style): void;
     private setFont;
     xPerc(perc: number): number;
     yPerc(perc: number): number;

@@ -3,6 +3,7 @@ export class ObjectData {
         this.msStart = 0;
         this.lineWidth = 5;
         this.flagShadow = false;
+        this.fill = true;
         this.color = "red";
         this.colorShadow = "grey";
         this.shadowOffsetX = 0;

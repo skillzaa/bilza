@@ -9,6 +9,7 @@ import Circle from "../components/circle/circle.js";
 import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
+import Lines from "../components/lines/lines.js";
 //---Templates 
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
@@ -25,6 +26,11 @@ this.gridTempl = new GridTemplates(comps);
 }
 fillRect(){
     let bs = new FillRect();
+    this.addToArray.push(bs);
+    return bs;        
+}
+lines(x :number=0,y:number=0){
+    let bs = new Lines(x,y);
     this.addToArray.push(bs);
     return bs;        
 }

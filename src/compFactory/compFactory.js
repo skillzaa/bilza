@@ -6,6 +6,7 @@ import Circle from "../components/circle/circle.js";
 import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
+import Lines from "../components/lines/lines.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
@@ -16,6 +17,11 @@ export default class CompFactory {
     }
     fillRect() {
         let bs = new FillRect();
+        this.addToArray.push(bs);
+        return bs;
+    }
+    lines(x = 0, y = 0) {
+        let bs = new Lines(x, y);
         this.addToArray.push(bs);
         return bs;
     }

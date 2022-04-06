@@ -2,7 +2,7 @@
 export class ObjectData {
     msStart:number;
 //////////////////////////
-
+fill:boolean;
 lineWidth :number;
 
 color :string;
@@ -20,7 +20,7 @@ this.msStart =0;
 this.lineWidth = 5;
 //--flags
 this.flagShadow = false ;
-
+this.fill = true;
 this.color = "red" ;
 this.colorShadow = "grey" ;
 

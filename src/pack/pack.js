@@ -146,22 +146,6 @@ export default class Pack {
         this.ctx.textBaseline = "top";
         this.ctx.strokeText(content, x, y);
     }
-    drawLines(positions, incomCtx, fill = true) {
-        this.commitCtxData(incomCtx);
-        this.ctx.beginPath();
-        this.ctx.moveTo(positions[0].x, positions[0].y);
-        for (let i = 1; i < positions.length; i++) {
-            const pos = positions[i];
-            this.ctx.lineTo(pos.x, pos.y);
-        }
-        this.ctx.closePath();
-        if (fill == true) {
-            this.ctx.fill();
-        }
-        else {
-            this.ctx.stroke();
-        }
-    }
     commitCtxData(incomCtx) {
         if (incomCtx.lineCap !== null) {
             this.ctx.lineCap = "round";

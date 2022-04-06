@@ -1,6 +1,6 @@
-export default class Position {
+export default class Vertex {
     x: number;
     y: number;
     constructor(x?: number, y?: number);
 }
-//# sourceMappingURL=Position.d.ts.map
+//# sourceMappingURL=Vertex.d.ts.map
