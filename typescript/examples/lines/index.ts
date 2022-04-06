@@ -10,8 +10,8 @@ counter.d.y = 250;
 
 
 let lines = bil.add.lines(0,10);
-lines.d.fill = false;
-
+lines.d.flagFilled = false;
+lines.d.responsive = false;
 lines.add(100,10);
 lines.add(50,100);
 

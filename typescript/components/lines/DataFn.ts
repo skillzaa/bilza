@@ -2,7 +2,8 @@
 export class ObjectData {
     msStart:number;
 //////////////////////////
-fill:boolean;
+flagFilled:boolean;
+responsive:boolean;
 lineWidth :number;
 
 color :string;
@@ -16,11 +17,11 @@ shadowBlur :number;
 
 constructor(){
 this.msStart =0;
- 
+this.responsive = true; 
 this.lineWidth = 5;
 //--flags
 this.flagShadow = false ;
-this.fill = true;
+this.flagFilled = true;
 this.color = "red" ;
 this.colorShadow = "grey" ;
 

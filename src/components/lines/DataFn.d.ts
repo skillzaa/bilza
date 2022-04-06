@@ -1,6 +1,7 @@
 export declare class ObjectData {
     msStart: number;
-    fill: boolean;
+    flagFilled: boolean;
+    responsive: boolean;
     lineWidth: number;
     color: string;
     colorShadow: string;

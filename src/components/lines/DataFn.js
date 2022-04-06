@@ -1,9 +1,10 @@
 export class ObjectData {
     constructor() {
         this.msStart = 0;
+        this.responsive = true;
         this.lineWidth = 5;
         this.flagShadow = false;
-        this.fill = true;
+        this.flagFilled = true;
         this.color = "red";
         this.colorShadow = "grey";
         this.shadowOffsetX = 0;
