@@ -38,7 +38,7 @@ this.msStart =0;
 this.align = "left";
 this.x = 50;
 this.y = 50;
-
+ 
 this.listDim = [];
 this.dimFontColor = "#efeded";
 this.dimBgColor = "#6B726D";

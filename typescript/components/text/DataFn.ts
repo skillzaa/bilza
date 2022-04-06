@@ -27,7 +27,7 @@ colorMargin :string;
 colorBorder :string;
 colorPadding :string;
 colorContentBg :string;
-
+ 
 fontColor :string;
 fontSize :number;
 fontFamily :FontNames;

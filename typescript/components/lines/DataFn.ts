@@ -14,7 +14,7 @@ flagShadow :boolean;
 shadowOffsetX :number;
 shadowOffsetY :number;
 shadowBlur :number;
-
+ 
 constructor(){
 this.msStart =0;
 this.responsive = true; 

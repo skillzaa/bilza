@@ -20,7 +20,7 @@ this.fill = true;
 
 }
 };
-
+ 
 
 export default function DataFn ():ObjectData  {
 let td = new ObjectData();

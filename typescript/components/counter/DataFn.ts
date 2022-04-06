@@ -9,7 +9,7 @@ content :string;
 padding :number;
 colorRectangle  :string;
 colorNumbers :string;
-
+ 
 constructor(){
 this.msStart =0; // i just need it since its req by component
 this.x=0;

@@ -18,7 +18,7 @@ shadowBlur :number;
 
 constructor(){
 this.msStart =0;
- 
+  
 this.x1 = 0;
 this.y1 = 0;
 this.x2 = 800;

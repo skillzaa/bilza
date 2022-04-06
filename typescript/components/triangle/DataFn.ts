@@ -1,7 +1,7 @@
 // import {Position,Style} from "../../bilzaa2d/index.js";
 //     export class TriangleData {
 //     frameStart:number;
-
+ 
 //     a :Position;
 //     b :Position;
 //     c :Position;

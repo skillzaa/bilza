@@ -40,7 +40,7 @@ this.widthPercent = 10;
 this.heightPercent = 10;
 }
 };
-
+ 
 
 export default function DataFn ():ObjectData  {
 let td = new ObjectData();
