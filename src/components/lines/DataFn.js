@@ -1,11 +1,7 @@
 export class ObjectData {
     constructor() {
         this.msStart = 0;
-        this.x1 = 0;
-        this.y1 = 0;
-        this.x2 = 800;
-        this.y2 = 100;
-        this.lineWidth = 2;
+        this.lineWidth = 5;
         this.flagShadow = false;
         this.color = "red";
         this.colorShadow = "grey";

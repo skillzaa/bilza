@@ -2,13 +2,11 @@
 export class ObjectData {
     msStart:number;
 //////////////////////////
-x1 :number;
-y1 :number;
-x2 :number;
-y2 :number;
+
 lineWidth :number;
 
 color :string;
+
 colorShadow :string;
 
 flagShadow :boolean;
@@ -19,11 +17,7 @@ shadowBlur :number;
 constructor(){
 this.msStart =0;
  
-this.x1 = 0;
-this.y1 = 0;
-this.x2 = 800;
-this.y2 = 100;
-this.lineWidth = 2;
+this.lineWidth = 5;
 //--flags
 this.flagShadow = false ;
 
