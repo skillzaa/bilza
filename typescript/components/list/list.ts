@@ -4,7 +4,7 @@ import Text from "../text/text.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class List extends Component<ObjectData> {
-
+ 
 private widthExtra :number;
 constructor (x=10,y=10,fontSize=30,msStart=0,msEnd=80000){
     super(DataFn,msStart,msEnd);   

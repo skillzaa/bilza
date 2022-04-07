@@ -10,6 +10,10 @@ import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
+import Rect from "../components/rect/rect.js";
+import Txt from "../components/txt/txt.js";
+//-----------composit componenets
+import TextComp from "../composites/textComp/textComp.js";
 //---Templates 
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
@@ -23,6 +27,21 @@ constructor(comps :IComponent[]=[]){
 this.addToArray = comps;
 this.textTempl = new TextTemplates(comps);
 this.gridTempl = new GridTemplates(comps);
+}
+textComp(content :string = "Text"){
+    let bs = new TextComp(content);
+    this.addToArray.push(bs);
+    return bs;        
+}
+txt(content :string = "Text"){
+    let bs = new Txt(content);
+    this.addToArray.push(bs);
+    return bs;        
+}
+rect(){
+    let bs = new Rect();
+    this.addToArray.push(bs);
+    return bs;        
 }
 fillRect(){
     let bs = new FillRect();

@@ -7,6 +7,9 @@ import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
+import Rect from "../components/rect/rect.js";
+import Txt from "../components/txt/txt.js";
+import TextComp from "../composites/textComp/textComp.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
@@ -14,6 +17,21 @@ export default class CompFactory {
         this.addToArray = comps;
         this.textTempl = new TextTemplates(comps);
         this.gridTempl = new GridTemplates(comps);
+    }
+    textComp(content = "Text") {
+        let bs = new TextComp(content);
+        this.addToArray.push(bs);
+        return bs;
+    }
+    txt(content = "Text") {
+        let bs = new Txt(content);
+        this.addToArray.push(bs);
+        return bs;
+    }
+    rect() {
+        let bs = new Rect();
+        this.addToArray.push(bs);
+        return bs;
     }
     fillRect() {
         let bs = new FillRect();

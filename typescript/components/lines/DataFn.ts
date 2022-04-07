@@ -1,34 +1,19 @@
+import CompDataBase from "../../design/CompDataBase.js";
 
-export class ObjectData {
-    msStart:number;
+export class ObjectData extends CompDataBase {
 //////////////////////////
 flagFilled:boolean;
-responsive:boolean;
+// responsive:boolean;
 lineWidth :number;
-
 color :string;
 
-colorShadow :string;
-
-flagShadow :boolean;
-shadowOffsetX :number;
-shadowOffsetY :number;
-shadowBlur :number;
  
 constructor(){
-this.msStart =0;
-this.responsive = true; 
+super();    
 this.lineWidth = 5;
 //--flags
-this.flagShadow = false ;
 this.flagFilled = true;
 this.color = "red" ;
-this.colorShadow = "grey" ;
-
-this.shadowOffsetX = 0 ;
-this.shadowOffsetY = 0 ;
-this.shadowBlur = 0 ;
- 
 
 }
 };

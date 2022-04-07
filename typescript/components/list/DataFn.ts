@@ -33,6 +33,7 @@ paddingY :number;
 fontSize :number;
 fontColor :string;
 items :Text[];
+
 constructor(){
 this.msStart =0;
 this.align = "left";
@@ -54,7 +55,7 @@ this.highlightFontColor = "red";
 this.highlightBgColor = "#0404a3";
 this.highlightBorderColor = "red";
 //--------------------------
-
+ 
 this.fontSize = 30;
 this.colorBg = "blue";
 this.paddingX = 4;

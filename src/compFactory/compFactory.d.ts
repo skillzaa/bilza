@@ -8,6 +8,9 @@ import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
 import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
+import Rect from "../components/rect/rect.js";
+import Txt from "../components/txt/txt.js";
+import TextComp from "../composites/textComp/textComp.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
@@ -15,6 +18,9 @@ export default class CompFactory {
     textTempl: TextTemplates;
     gridTempl: GridTemplates;
     constructor(comps?: IComponent[]);
+    textComp(content?: string): TextComp;
+    txt(content?: string): Txt;
+    rect(): Rect;
     fillRect(): FillRect;
     lines(x?: number, y?: number): Lines;
     line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string, lineWidth?: number): Line;

@@ -5,15 +5,16 @@ msStart :number;
 x :number;
 y :number;
 //-------------shadow-------------------------//    
+displayShadow :boolean; //show or not
 colorShadow :string;
-flagShadow :boolean;
+shadowOffsetX :number;
+shadowOffsetY :number;
+shadowBlur :number;
+//--flags
 responsive :boolean;
 //positioned=true means use x and y, if its false then x and y are useless
 positioned :boolean;
 visible :boolean;
-shadowOffsetX :number;
-shadowOffsetY :number;
-shadowBlur :number;
         
 constructor(){
 this.msStart =0; // i just need it since its req by component
@@ -25,7 +26,7 @@ this.responsive = true;
 this.visible = true;
 //--shadow
 this.colorShadow = "grey";
-this.flagShadow = false;
+this.displayShadow = false;
 this.shadowOffsetX = 0;
 this.shadowOffsetY = 0;
 this.shadowBlur = 0;
