@@ -1,6 +1,7 @@
 import {Style,Pack,IComponent,DrawLayer,Transition,IMsStart} from "./Bilza.js";
+import CompDataBase from "./design/CompDataBase.js";
 //--This is an Abstract class
-export default class Component  <T extends IMsStart> implements IComponent {
+export default class Component  <T extends CompDataBase> implements IComponent {
 //compData is the transition object and T is the obj it takes in
 // a transition group all the public properties in this.d and expose them. the user can then add different set of these properties which are then implemented (merged) as per the given millisecond.
 protected compData:Transition<T>; 
@@ -107,8 +108,19 @@ this.style.shadowBlur = 0;
 this.style.shadowOffsetX = 0;
 this.style.shadowOffsetY = 0;
 }
+shadowsOn(){
+this.style.shadowBlur = 6;
+this.style.shadowOffsetX = 10;
+this.style.shadowOffsetY = 10;
+this.style.shadowColor = "grey";
+}
 resize(width :number,height :number):number{
  return 0;
+}
+drawBoundingRectangle(p :Pack) :boolean{
+this.style.strokeStyle = this.d.colorBoundingRectangle;    
+p.drawRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
+return true;
 }
 ////////////////////////////////////////////////////////
 }//component ends

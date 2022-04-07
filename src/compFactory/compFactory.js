@@ -3,13 +3,9 @@ import Grid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
-import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
-import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
-import Txt from "../components/txt/txt.js";
-import TextComp from "../composites/textComp/textComp.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
@@ -18,13 +14,8 @@ export default class CompFactory {
         this.textTempl = new TextTemplates(comps);
         this.gridTempl = new GridTemplates(comps);
     }
-    textComp(content = "Text") {
-        let bs = new TextComp(content);
-        this.addToArray.push(bs);
-        return bs;
-    }
-    txt(content = "Text") {
-        let bs = new Txt(content);
+    text(content = "", color = "black", x = 0, y = 0, widthPercent = 10) {
+        let bs = new Text(content, color, x, y, widthPercent);
         this.addToArray.push(bs);
         return bs;
     }
@@ -48,16 +39,6 @@ export default class CompFactory {
         this.addToArray.push(bs);
         return bs;
     }
-    text(content = "", fontColor = "black", fontSize = 40, msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 50, y = 50) {
-        let bs = new Text(content, fontColor, fontSize, msStart, msEnd, x, y);
-        this.addToArray.push(bs);
-        return bs;
-    }
-    list(x = 10, y = 10, fontSize = 30, msStart = 0, msEnd = 80000) {
-        let bs = new List(x, y, fontSize, msStart, msEnd);
-        this.addToArray.push(bs);
-        return bs;
-    }
     grid(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         let g = new Grid(msStart, msEnd);
         this.addToArray.push(g);
@@ -74,11 +55,6 @@ export default class CompFactory {
         let item = new Circle();
         item.d.x = x;
         item.d.y = y;
-        this.addToArray.push(item);
-        return item;
-    }
-    randomBgShapes() {
-        let item = new RandomBgShapes();
         this.addToArray.push(item);
         return item;
     }

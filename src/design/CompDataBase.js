@@ -11,5 +11,6 @@ export default class CompDataBase {
         this.shadowOffsetX = 0;
         this.shadowOffsetY = 0;
         this.shadowBlur = 0;
+        this.colorBoundingRectangle = "black";
     }
 }

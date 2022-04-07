@@ -1,7 +1,5 @@
-export declare class ObjectData {
-    msStart: number;
-    x: number;
-    y: number;
+import CompDataBase from "../../design/CompDataBase.js";
+export declare class ObjectData extends CompDataBase {
     startAngle: number;
     endAngle: number;
     radius: number;

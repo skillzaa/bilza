@@ -1,9 +1,11 @@
+import CompDataBase from "../../design/CompDataBase.js";
 export default function DataFn() {
     let td = new ObjectData();
     return td;
 }
-export class ObjectData {
+export class ObjectData extends CompDataBase {
     constructor() {
+        super();
         this.msStart = 0;
         this.fontSize = 8;
         this.cellWidth = 50;

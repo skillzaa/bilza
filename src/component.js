@@ -65,7 +65,18 @@ export default class Component {
         this.style.shadowOffsetX = 0;
         this.style.shadowOffsetY = 0;
     }
+    shadowsOn() {
+        this.style.shadowBlur = 6;
+        this.style.shadowOffsetX = 10;
+        this.style.shadowOffsetY = 10;
+        this.style.shadowColor = "grey";
+    }
     resize(width, height) {
         return 0;
+    }
+    drawBoundingRectangle(p) {
+        this.style.strokeStyle = this.d.colorBoundingRectangle;
+        p.drawRect(p.xPerc(this.d.x), p.yPerc(this.d.y), this.width(p), this.height(p), this.style);
+        return true;
     }
 }

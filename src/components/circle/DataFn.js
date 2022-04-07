@@ -1,5 +1,7 @@
-export class ObjectData {
+import CompDataBase from "../../design/CompDataBase.js";
+export class ObjectData extends CompDataBase {
     constructor() {
+        super();
         this.msStart = 0;
         this.x = 0;
         this.y = 0;

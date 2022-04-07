@@ -1,15 +1,15 @@
+import CompDataBase from "../../design/CompDataBase.js";
 
-export class ObjectData {
-msStart:number;
-//////////////////////////
-x:number;
-y:number;
+export class ObjectData extends CompDataBase {
+
+    
 startAngle:number;
 endAngle:number;
 radius:number;
 fill:boolean;
 
 constructor(){
+    super();
 this.msStart =0;
 this.x = 0;
 this.y = 0;

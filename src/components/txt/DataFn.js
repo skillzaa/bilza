@@ -4,11 +4,16 @@ export class ObjectData extends CompDataBase {
         super();
         this.msStart = 0;
         this.content = "Txt";
-        this.x = 10;
-        this.y = 10;
+        this.x = 0;
+        this.y = 0;
+        this.padding = 2;
+        this.margin = 2;
+        this.colorMargin = "black";
+        this.colorBg = "#EFEEE3";
         this.color = "black";
         this.widthPercent = 10;
-        this.heightPercent = 10;
+        this.flagDrawMargin = true;
+        this.flagDrawBg = true;
     }
 }
 ;

@@ -1,5 +1,6 @@
-import { Style, Pack, IComponent, DrawLayer, Transition, IMsStart } from "./Bilza.js";
-export default class Component<T extends IMsStart> implements IComponent {
+import { Style, Pack, IComponent, DrawLayer, Transition } from "./Bilza.js";
+import CompDataBase from "./design/CompDataBase.js";
+export default class Component<T extends CompDataBase> implements IComponent {
     protected compData: Transition<T>;
     d: T;
     data: T;
@@ -26,6 +27,8 @@ export default class Component<T extends IMsStart> implements IComponent {
     addTransition(msStart: number): T;
     checkCollision(x: number, y: number, p: Pack): boolean;
     shadowsOff(): void;
+    shadowsOn(): void;
     resize(width: number, height: number): number;
+    drawBoundingRectangle(p: Pack): boolean;
 }
 //# sourceMappingURL=component.d.ts.map

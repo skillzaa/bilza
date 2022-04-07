@@ -1,4 +1,5 @@
-export declare class ObjectData {
+import CompDataBase from "../../design/CompDataBase.js";
+export declare class ObjectData extends CompDataBase {
     msStart: number;
     fontSize: number;
     frame: number;

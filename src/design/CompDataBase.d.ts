@@ -2,6 +2,7 @@ export default class CompDataBase {
     msStart: number;
     x: number;
     y: number;
+    colorBoundingRectangle: string;
     displayShadow: boolean;
     colorShadow: string;
     shadowOffsetX: number;

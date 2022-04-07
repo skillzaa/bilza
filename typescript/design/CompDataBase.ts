@@ -4,6 +4,7 @@ export default class CompDataBase {
 msStart :number;
 x :number;
 y :number;
+colorBoundingRectangle:string;
 //-------------shadow-------------------------//    
 displayShadow :boolean; //show or not
 colorShadow :string;
@@ -30,6 +31,8 @@ this.displayShadow = false;
 this.shadowOffsetX = 0;
 this.shadowOffsetY = 0;
 this.shadowBlur = 0;
+//-----------
+this.colorBoundingRectangle = "black";
 }
 
 

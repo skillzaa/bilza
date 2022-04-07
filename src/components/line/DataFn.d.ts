@@ -1,4 +1,5 @@
-export declare class ObjectData {
+import CompDataBase from "../../design/CompDataBase.js";
+export declare class ObjectData extends CompDataBase {
     msStart: number;
     x1: number;
     y1: number;
@@ -6,11 +7,6 @@ export declare class ObjectData {
     y2: number;
     lineWidth: number;
     color: string;
-    colorShadow: string;
-    flagShadow: boolean;
-    shadowOffsetX: number;
-    shadowOffsetY: number;
-    shadowBlur: number;
     constructor();
 }
 export default function DataFn(): ObjectData;

@@ -3,15 +3,14 @@ import {IComponent} from "../Bilza.js";
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
-import GridR from "../components/gridR/gridR.js";
+// import GridR from "../components/gridR/gridR.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
-import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
-import List from "../components/list/list.js";
+// import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
+// import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
-import Txt from "../components/txt/txt.js";
 //-----------composit componenets
 import TextComp from "../composites/textComp/textComp.js";
 //---Templates 
@@ -28,13 +27,9 @@ this.addToArray = comps;
 this.textTempl = new TextTemplates(comps);
 this.gridTempl = new GridTemplates(comps);
 }
-textComp(content :string = "Text"){
-    let bs = new TextComp(content);
-    this.addToArray.push(bs);
-    return bs;        
-}
-txt(content :string = "Text"){
-    let bs = new Txt(content);
+
+text(content :string="",color :string="black",x:number=0,y:number =0, widthPercent:number=10) {
+    let bs = new Text(content,color,x,y,widthPercent);
     this.addToArray.push(bs);
     return bs;        
 }
@@ -60,28 +55,17 @@ line(x1:number=0,y1:number=0,x2:number=100,y2:number=100, color:string="black",l
     return bs;        
 }
 
-text(content :string="",fontColor :string="black",fontSize=40,
-msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER,x=50,y=50)
-:Text{
-let bs = new Text(content,fontColor,fontSize,msStart,msEnd,x,y);
-    this.addToArray.push(bs);
-    return bs;    
-}
-list(x=10,y=10,fontSize=30,msStart=0,msEnd=80000):List{
-let bs = new List(x,y,fontSize,msStart,msEnd);
-    this.addToArray.push(bs);
-    return bs;    
-}
+// list(x=10,y=10,fontSize=30,msStart=0,msEnd=80000):List{
+// let bs = new List(x,y,fontSize,msStart,msEnd);
+//     this.addToArray.push(bs);
+//     return bs;    
+// }
 grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
     let g = new Grid(msStart, msEnd);
     this.addToArray.push(g);
     return g;
 }
-// gridR(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
-//     let g = new GridR(msStart, msEnd);
-//     this.addToArray.push(g);
-//     return g;
-// }
+
 counter(x :number=100,y :number=100,msEnd :number = Number.MAX_SAFE_INTEGER){
     let item = new Counter();
     item.d.x = x;
@@ -93,11 +77,6 @@ circle(x :number=100, y :number=100){
     let item = new Circle();
     item.d.x = x;
     item.d.y = y;
-    this.addToArray.push(item);
-    return item;
-}
-randomBgShapes(){
-    let item = new RandomBgShapes();
     this.addToArray.push(item);
     return item;
 }

@@ -1,17 +1,15 @@
-export class ObjectData {
+import CompDataBase from "../../design/CompDataBase.js";
+export class ObjectData extends CompDataBase {
     constructor() {
+        super();
         this.msStart = 0;
         this.x1 = 0;
         this.y1 = 0;
         this.x2 = 800;
         this.y2 = 100;
         this.lineWidth = 2;
-        this.flagShadow = false;
         this.color = "red";
         this.colorShadow = "grey";
-        this.shadowOffsetX = 0;
-        this.shadowOffsetY = 0;
-        this.shadowBlur = 0;
     }
 }
 ;

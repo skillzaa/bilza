@@ -1,5 +1,6 @@
+import CompDataBase from "../../design/CompDataBase.js";
 
-export class ObjectData {
+export class ObjectData extends CompDataBase {
     msStart:number;
 //////////////////////////
 x1 :number;
@@ -9,14 +10,12 @@ y2 :number;
 lineWidth :number;
 
 color :string;
-colorShadow :string;
+// colorShadow :string;
 
-flagShadow :boolean;
-shadowOffsetX :number;
-shadowOffsetY :number;
-shadowBlur :number;
+// flagShadow :boolean;
 
 constructor(){
+    super();
 this.msStart =0;
   
 this.x1 = 0;
@@ -25,14 +24,10 @@ this.x2 = 800;
 this.y2 = 100;
 this.lineWidth = 2;
 //--flags
-this.flagShadow = false ;
+// this.flagShadow = false ;
 
 this.color = "red" ;
 this.colorShadow = "grey" ;
-
-this.shadowOffsetX = 0 ;
-this.shadowOffsetY = 0 ;
-this.shadowBlur = 0 ;
  
 
 }

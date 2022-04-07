@@ -1,5 +1,6 @@
+import CompDataBase from "../../design/CompDataBase.js";
 
-export class ObjectData {
+export class ObjectData extends CompDataBase {
 msStart:number;
 fontSize :number;
 frame :number;
@@ -11,6 +12,7 @@ colorRectangle  :string;
 colorNumbers :string;
  
 constructor(){
+    super();
 this.msStart =0; // i just need it since its req by component
 this.x=0;
 this.y=0;
