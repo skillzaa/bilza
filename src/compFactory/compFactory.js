@@ -3,6 +3,7 @@ import Grid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
+import BgShapes from "../components/bgShapes/bgShapes.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
@@ -13,6 +14,11 @@ export default class CompFactory {
         this.addToArray = comps;
         this.textTempl = new TextTemplates(comps);
         this.gridTempl = new GridTemplates(comps);
+    }
+    bgShapes(count = 100) {
+        let bs = new BgShapes();
+        this.addToArray.push(bs);
+        return bs;
     }
     text(content = "", color = "black", x = 0, y = 0, widthPercent = 10) {
         let bs = new Text(content, color, x, y, widthPercent);

@@ -6,7 +6,7 @@ import FillRect from "../components/fillRect/fillRect.js";
 // import GridR from "../components/gridR/gridR.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
-// import RandomBgShapes from "../components/randomBgShapes/randomBgShapes.js";
+import BgShapes from "../components/bgShapes/bgShapes.js";
 // import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
@@ -28,6 +28,11 @@ this.textTempl = new TextTemplates(comps);
 this.gridTempl = new GridTemplates(comps);
 }
 
+bgShapes(count:number=100) {
+    let bs = new BgShapes();
+    this.addToArray.push(bs);
+    return bs;        
+}
 text(content :string="",color :string="black",x:number=0,y:number =0, widthPercent:number=10) {
     let bs = new Text(content,color,x,y,widthPercent);
     this.addToArray.push(bs);

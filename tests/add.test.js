@@ -12,10 +12,11 @@ test('', () => {
 let item = bilza.add.counter();    
 expect(item).toBeDefined();
 });
-test('', () => {
-let item = bilza.add.list();    
-expect(item).toBeDefined();
-});
+
+// test('', () => {
+// let item = bilza.add.list();    
+// expect(item).toBeDefined();
+// });
 
 test('', () => {
 let item = bilza.add.grid();    
@@ -28,7 +29,7 @@ expect(item).toBeDefined();
 });
 
 test('', () => {
-let item = bilza.add.randomBgShapes();    
+let item = bilza.add.bgShapes();    
 expect(item).toBeDefined();
 });
 

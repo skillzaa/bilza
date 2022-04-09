@@ -6,9 +6,10 @@ export default class Text extends Component<ObjectData> {
     height(p: Pack): number;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    private setFontSizePerWidth;
+    private setFontSize;
     drawMargin(p: Pack): boolean;
     drawBg(p: Pack): boolean;
     factorsWOFontSize(): number;
+    private getX;
 }
 //# sourceMappingURL=text.d.ts.map
