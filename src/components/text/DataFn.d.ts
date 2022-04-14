@@ -1,16 +1,18 @@
 import CompDataBase from "../../design/CompDataBase.js";
+import { XAlignment } from "./xAlignment.js";
 export declare class ObjectData extends CompDataBase {
     widthPercent: number;
     padding: number;
     margin: number;
     heightPercent: number;
-    color: string;
     content: string;
+    color: string;
     colorMargin: string;
     colorBg: string;
     flagDrawMargin: boolean;
     flagDrawBg: boolean;
-    xAlignment: number;
+    flagDim: boolean;
+    xAlignment: XAlignment;
     constructor();
 }
 export default function DataFn(): ObjectData;

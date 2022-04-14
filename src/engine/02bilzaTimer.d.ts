@@ -4,10 +4,10 @@ export default class BilzaTimer extends CompArrayObj {
     protected msPerFrame: number;
     protected timeStart: number | null;
     protected timeEnd: number;
-    constructor(lengthInSec?: number);
+    constructor(lengthInSec: number);
     getTimeEnd(): number;
     setTimeEnd(n: number): number;
     protected getMsDelta(): number;
     stop(): boolean;
 }
-//# sourceMappingURL=bilzaTimer.d.ts.map
+//# sourceMappingURL=02bilzaTimer.d.ts.map

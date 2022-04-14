@@ -1,6 +1,6 @@
 import CompArrayObj from "./01compsArrayObj.js";
 export default class BilzaTimer extends CompArrayObj {
-    constructor(lengthInSec = 60) {
+    constructor(lengthInSec) {
         super();
         this.timeStart = null;
         this.timeEnd = lengthInSec * 1000;

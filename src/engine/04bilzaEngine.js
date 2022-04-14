@@ -2,8 +2,8 @@ import { CompFactory, DrawLayer } from "../Bilza.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 export default class Bilza extends BilzaCanvasSetup {
-    constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = 350, timeEnd = Number.MAX_SAFE_INTEGER) {
-        super(canvasId = "bilza", canvasWidth, canvasHeight, timeEnd);
+    constructor(canvasId = "bilza", timeEnd = 60, canvasWidth = 800, canvasHeight = 350) {
+        super(canvasId, canvasWidth, canvasHeight, timeEnd);
         this.background = new Background();
         this.add = new CompFactory(this.comps);
     }
@@ -43,5 +43,16 @@ export default class Bilza extends BilzaCanvasSetup {
             this.comps.push(clip[i]);
         }
         return true;
+    }
+    dynamicCanvas(widthInPercent = 100, heightInPercent = 100) {
+        let wd = window.innerWidth / 100 * widthInPercent;
+        let ht = window.innerHeight / 100 * heightInPercent;
+        if (wd < 100 || ht < 100) {
+            return false;
+        }
+        else {
+            this.setCanvas(wd, ht);
+            return true;
+        }
     }
 }

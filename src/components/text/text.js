@@ -1,14 +1,18 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
+import { XAlignment } from "./xAlignment.js";
 export default class Text extends Component {
-    constructor(content = "", color = "black", x = 0, y = 0, widthPercent = 10) {
+    constructor(content = "", color = "black", x = 0, y = 0, widthPercent = 10, heightPercent = 10) {
         super(DataFn);
+        this.xAlignmentOptions = XAlignment;
         this.d.content = content;
         this.d.x = x;
         this.d.y = y;
         this.d.color = color;
         this.d.colorMargin = color;
+        this.d.colorBg = "#e1f4e1";
         this.d.widthPercent = widthPercent;
+        this.d.heightPercent = heightPercent;
         this.drawLayer = DrawLayer.MiddleGround;
     }
     width(p) {
@@ -63,12 +67,12 @@ export default class Text extends Component {
     getX(p) {
         let x = p.xPerc(this.d.x);
         switch (this.d.xAlignment) {
-            case 0:
+            case this.xAlignmentOptions.Left:
                 break;
-            case 1:
+            case this.xAlignmentOptions.Mid:
                 x = x - (this.width(p) / 2);
                 break;
-            case 2:
+            case this.xAlignmentOptions.Right:
                 break;
             default:
                 return x;

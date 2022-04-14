@@ -13,10 +13,10 @@ expect(bilza.timeStart).toBeNull();
 });
 
 test('', () => {
-expect(bilza.timeEnd).toEqual(Number.MAX_SAFE_INTEGER);
+expect(bilza.timeEnd).toEqual(60000);
 });
 test('', () => {
-expect(bilza.getTimeEnd()).toEqual(Number.MAX_SAFE_INTEGER);
+expect(bilza.getTimeEnd()).toEqual(60000);
 });
 
 test('', () => {

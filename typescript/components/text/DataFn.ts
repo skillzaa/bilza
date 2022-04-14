@@ -1,4 +1,5 @@
 import CompDataBase from "../../design/CompDataBase.js";  
+import {XAlignment} from "./xAlignment.js";
 
 export class ObjectData extends CompDataBase{
    
@@ -6,32 +7,44 @@ widthPercent :number;
 padding :number;
 margin :number;
 heightPercent :number;
-color :string;
 content :string;
+color :string;
 colorMargin :string;
 colorBg :string;
+// dimColor :string;
+// dimColorMargin :string;
+// dimColorBg :string;
 flagDrawMargin :boolean;
 flagDrawBg :boolean;
-xAlignment :number;
-  
-constructor(){
-    super();
-this.content = "Text" ; 
+flagDim :boolean;
+// xAlignmentOptions = XAlignment;  
+xAlignment :XAlignment;
 
+constructor(){
+super();
+
+this.xAlignment = XAlignment.Left;
+
+this.content = "Text" ; 
 this.padding = 2;
 this.margin = 2;
 
 this.colorMargin = "black";
 this.colorBg = "#e1f4e1";
+
+
 this.color = "black" ; 
 
 this.widthPercent = 10;
 this.heightPercent = 10;
 
-this.flagDrawMargin = true;
-this.flagDrawBg = true;
-this.xAlignment = 1;
+this.flagDrawMargin = false;
+this.flagDrawBg = false;
+this.flagDim = false;
 
+// this.dimColor = "grey";
+// this.dimColorMargin = "grey" ;
+// this.dimColorBg = "#e5e3e3";
 }
 };
  

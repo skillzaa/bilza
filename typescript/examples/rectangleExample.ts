@@ -6,7 +6,6 @@ g.d.fontSize = 12;
 
 
 bil.add.line();
-bil.dynamicResizing = true;
 /////-------======---///
 let recLt = bil.add.fillRect();
 recLt.d.widthPercent = 50;

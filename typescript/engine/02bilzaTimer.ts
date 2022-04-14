@@ -1,17 +1,17 @@
-import CompArrayObj from "./compsArrayObj.js";
+import CompArrayObj from "./01compsArrayObj.js";
 
 export default class BilzaTimer extends CompArrayObj {
  
 protected interval : number | null;
 protected  msPerFrame :number; //????
-protected timeStart :number | null; //the size of video-length in milli seconds
+protected timeStart :number | null; //when we start video
 protected timeEnd :number; //the size of video-length in milli seconds
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (timeEnd=Number.MAX_SAFE_INTEGER){
+constructor (lengthInSec:number){
 super();
 this.timeStart = null; 
-this.timeEnd = timeEnd;
-this.interval = null;
+this.timeEnd = lengthInSec * 1000; //to convert into milli sec
+this.interval = null; //to save setInterval handler
 this.msPerFrame = 1000;
 } 
 

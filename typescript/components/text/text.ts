@@ -1,16 +1,31 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
+import {XAlignment} from "./xAlignment.js";
 
 export default class Text extends Component<ObjectData> {
-     
-constructor (content :string="",color :string="black",x:number=0,y:number =0, widthPercent:number=10){
+    xAlignmentOptions:typeof XAlignment;   
+// private safeColor:string;
+// private safeColorMargin:string;
+// private safeColorBg:string;
+
+constructor (content :string="",color :string="black",x:number=0,y:number =0, widthPercent:number=10,heightPercent:number=10){
     super(DataFn);
+    this.xAlignmentOptions = XAlignment;
     this.d.content = content;
     this.d.x = x;
     this.d.y = y;
+    //---colors and safe colors --change later
     this.d.color = color;
+    // this.safeColor = color;
     this.d.colorMargin = color;
+    // this.safeColorMargin = color;
+    this.d.colorBg = "#e1f4e1";
+    // this.safeColorBg = "#e1f4e1";
+
     this.d.widthPercent = widthPercent;
+    this.d.heightPercent = heightPercent;
+     
+
     this.drawLayer = DrawLayer.MiddleGround;
 }
 width(p:Pack):number {
@@ -22,9 +37,14 @@ return (p.textWidth("Wi",this.style)+ this.factorsWOFontSize());
 
 update(msDelta: number, p: Pack): boolean {
 this.setFontSize(p);
-    
+// if (this.d.flagDim == true){
+//     this.dim();
+// }else {
+//     this.unDim();
+// }
     return true;
 }
+
 draw(p:Pack):boolean{
 if (this.d.flagDrawBg == true){
     this.drawBg(p);
@@ -88,13 +108,13 @@ return (this.d.padding * 2) + (this.d.margin * 2);
 private getX(p :Pack):number{
 let x =   p.xPerc(this.d.x);  
 switch (this.d.xAlignment) {
-    case 0:
+    case this.xAlignmentOptions.Left:
         break;
-    case 1:
+    case this.xAlignmentOptions.Mid:
          x = x - (this.width(p)/2);
         break;
     
-    case 2:
+    case this.xAlignmentOptions.Right:
         break;
 
     default:
@@ -103,4 +123,20 @@ switch (this.d.xAlignment) {
 }
 return x ;
 }
+// private dim(){
+// //save before change
+// this.safeColor = this.d.color;    
+// this.d.color = "grey";
+// //save before change
+// this.safeColorMargin = this.d.colorMargin;    
+// this.d.colorMargin = "grey";
+// this.safeColorBg = this.d.colorBg;
+// this.d.colorBg = "#e5e3e3";    
+// }
+// private unDim(){
+// this.d.color = this.safeColor;
+// this.d.colorMargin = this.safeColorMargin;
+// this.d.colorBg = this.safeColorBg;    
+// }
+
 }//class
