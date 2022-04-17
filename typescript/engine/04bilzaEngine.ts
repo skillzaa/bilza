@@ -1,13 +1,13 @@
 import {CompFactory, DrawLayer,IComponent} from "../Bilza.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
-
+import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 export default class Bilza extends BilzaCanvasSetup {
 //==================PUBLIC API
 public add :CompFactory; 
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",timeEnd=60,canvasWidth=800,canvasHeight=350){
+constructor (canvasId="bilza",canvasWidth=800,canvasHeight=350,timeEnd=60){
 //internal seq of args is different from enternal seq of args    
 super(canvasId,canvasWidth,canvasHeight,timeEnd);
 this.background = new Background();
@@ -54,8 +54,8 @@ mergeClip(clip :IComponent[]):boolean{
 return true;
 }
 dynamicCanvas(widthInPercent :number=100,heightInPercent :number=100):boolean{
-let wd = window.innerWidth /100 * widthInPercent;
-let ht = window.innerHeight /100 * heightInPercent;
+let wd = window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
+let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
 if (wd < 100 || ht < 100){
     return false;
 }else {

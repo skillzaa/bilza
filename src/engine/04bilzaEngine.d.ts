@@ -4,7 +4,7 @@ import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 export default class Bilza extends BilzaCanvasSetup {
     add: CompFactory;
     background: Background;
-    constructor(canvasId?: string, timeEnd?: number, canvasWidth?: number, canvasHeight?: number);
+    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: number, timeEnd?: number);
     start(): boolean;
     draw(): boolean;
     chqCollision(x: number, y: number): IComponent | null;

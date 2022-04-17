@@ -1,8 +1,9 @@
 import { CompFactory, DrawLayer } from "../Bilza.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
+import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 export default class Bilza extends BilzaCanvasSetup {
-    constructor(canvasId = "bilza", timeEnd = 60, canvasWidth = 800, canvasHeight = 350) {
+    constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = 350, timeEnd = 60) {
         super(canvasId, canvasWidth, canvasHeight, timeEnd);
         this.background = new Background();
         this.add = new CompFactory(this.comps);
@@ -45,8 +46,8 @@ export default class Bilza extends BilzaCanvasSetup {
         return true;
     }
     dynamicCanvas(widthInPercent = 100, heightInPercent = 100) {
-        let wd = window.innerWidth / 100 * widthInPercent;
-        let ht = window.innerHeight / 100 * heightInPercent;
+        let wd = window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
+        let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
         if (wd < 100 || ht < 100) {
             return false;
         }

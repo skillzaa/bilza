@@ -114,10 +114,11 @@ If you want to be in touch or send me a bug report please use github issues.
 I will add some tests and then improve documentations.
 
 -----
-###### 25-March-2022 (version 0.0.5)
-###### 26-March-2022 (version 0.0.7)
-###### 27-March-2022 (version 0.0.10)
+###### 15-Apr-2022   (version 0.0.12)
 ###### 28-March-2022 (version 0.0.11)
+###### 27-March-2022 (version 0.0.10)
+###### 26-March-2022 (version 0.0.7)
+###### 25-March-2022 (version 0.0.5)
 
 
 
