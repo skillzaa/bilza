@@ -1,0 +1,9 @@
+* {
+    margin:0px;
+    padding:0px;
+}
+body {
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: auto;
+}

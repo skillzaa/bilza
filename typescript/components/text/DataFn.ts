@@ -1,5 +1,6 @@
 import CompDataBase from "../../design/CompDataBase.js";  
 import {XAlignment} from "./xAlignment.js";
+import {YAlignment} from "./yAlignment.js";
 
 export class ObjectData extends CompDataBase{
    
@@ -19,11 +20,13 @@ flagDrawBg :boolean;
 flagDim :boolean;
 // xAlignmentOptions = XAlignment;  
 xAlignment :XAlignment;
+yAlignment :YAlignment;
 
 constructor(){
 super();
 
 this.xAlignment = XAlignment.Left;
+this.yAlignment = YAlignment.Top;
 
 this.content = "Text" ; 
 this.padding = 2;
