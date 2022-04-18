@@ -23,13 +23,35 @@
 <h3>Code</h3>
 <pre>
 <code class="language-javascript">
-    
+import Bilza from "../../src/Bilza.js";
+let bil = new Bilza("bilza", 500, 250);
+
+let rgrid = bil.add.rGrid();
+rgrid.d.flagDrawNumbers = true;
+rgrid.d.fontSize = 20;
+
+bil.start();
+
+setTimeout(function(){
+bil.setCanvas(1000,500);
+},5000);    
 </code>
 </pre>
 
 
-<script type="module" src="./dynamicCanvas.js">
+<script type="module" >
+import Bilza from "../../src/Bilza.js";
+let bil = new Bilza("bilza", 500, 250);
 
+let rgrid = bil.add.rGrid();
+rgrid.d.flagDrawNumbers = true;
+rgrid.d.fontSize = 20;
+
+bil.start();
+
+setTimeout(function(){
+bil.setCanvas(1000,500);
+},5000);
 </script>
 
 

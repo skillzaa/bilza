@@ -2,6 +2,7 @@ import {IComponent} from "../Bilza.js";
 //--components
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
+import RGrid from "../components/rGrid/rGrid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 // import GridR from "../components/gridR/gridR.js";
 import Counter from "../components/counter/counter.js";
@@ -12,7 +13,7 @@ import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
 //-----------composit componenets
-import TextComp from "../composites/textComp/textComp.js";
+// import TextComp from "../composites/textComp/textComp.js";
 //---Templates 
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
@@ -67,6 +68,11 @@ line(x1:number=0,y1:number=0,x2:number=100,y2:number=100, color:string="black",l
 // }
 grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
     let g = new Grid(msStart, msEnd);
+    this.addToArray.push(g);
+    return g;
+}
+rGrid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
+    let g = new RGrid(msStart, msEnd);
     this.addToArray.push(g);
     return g;
 }

@@ -1,5 +1,6 @@
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
+import RGrid from "../components/rGrid/rGrid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
@@ -47,6 +48,11 @@ export default class CompFactory {
     }
     grid(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         let g = new Grid(msStart, msEnd);
+        this.addToArray.push(g);
+        return g;
+    }
+    rGrid(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
+        let g = new RGrid(msStart, msEnd);
         this.addToArray.push(g);
         return g;
     }

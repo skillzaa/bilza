@@ -1,25 +1,25 @@
 import Bilza from "../../src/Bilza.js";
-let bil = new Bilza("bilza");
-bil.dynamicCanvas(90,90);
-let g = bil.add.gridTempl.dashed();
+let bil = new Bilza("bilza",500,500);
+// bil.dynamicCanvas(90,90);
 
-let leftTop = bil.add.textTempl.hdg("LT","#ff0000",null,0,0);
-leftTop.d.xAlignment = leftTop.xAlignmentOptions.Left;
+let rgrid = bil.add.rGrid();
+rgrid.d.flagDrawNumbers = true;
+rgrid.d.fontSize = 12;
 
-let rightTop = bil.add.textTempl.hdg("RT","#ff0000",null,100,0);
-rightTop.d.xAlignment = rightTop.xAlignmentOptions.Right;
+let point = bil.add.textTempl.hdg("RT","#ff0000",null,0,0,10,10);
+point.d.margin = 0;
+point.d.xAlignment = point.xAlignmentOptions.Left;
+point.d.yAlignment = point.yAlignmentOptions.Top;
 
-let leftBot = bil.add.textTempl.hdg("LB","#ff0000",null,0,100);
-leftBot.d.xAlignment = leftBot.xAlignmentOptions.Left;
-leftBot.d.yAlignment = leftBot.yAlignmentOptions.Bot;
+let pointTwenty = bil.add.textTempl.hdg("This is twenty percent","#008000",null,10,30,40,10);
+pointTwenty.d.margin = 0;
+pointTwenty.d.xAlignment = point.xAlignmentOptions.Left;
+pointTwenty.d.yAlignment = point.yAlignmentOptions.Top;
 
-let rightBot = bil.add.textTempl.hdg("RB","#ff0000",null,100,100);
-rightBot.d.xAlignment = rightBot.xAlignmentOptions.Right;
-rightBot.d.yAlignment = rightBot.yAlignmentOptions.Bot;
-
-let midMid = bil.add.textTempl.hdg("MD","#ff0000",null,50,50);
-midMid.d.xAlignment = midMid.xAlignmentOptions.Mid;
-midMid.d.yAlignment = midMid.yAlignmentOptions.Mid;
+let point30 = bil.add.textTempl.hdg("This is Fourty percent so can streatch more and more and more and more and more","#008000",null,0,50,90,20);
+point30.d.margin = 0;
+point30.d.xAlignment = point.xAlignmentOptions.Left;
+point30.d.yAlignment = point.yAlignmentOptions.Top;
 
 //////////////////////////////////
 bil.start();

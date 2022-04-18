@@ -1,6 +1,7 @@
 import { IComponent } from "../Bilza.js";
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
+import RGrid from "../components/rGrid/rGrid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
@@ -22,6 +23,7 @@ export default class CompFactory {
     lines(x?: number, y?: number): Lines;
     line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string, lineWidth?: number): Line;
     grid(msStart?: number, msEnd?: number): Grid;
+    rGrid(msStart?: number, msEnd?: number): RGrid;
     counter(x?: number, y?: number, msEnd?: number): Counter;
     circle(x?: number, y?: number): Circle;
     spit(): IComponent[];
