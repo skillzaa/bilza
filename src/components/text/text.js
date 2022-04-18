@@ -21,7 +21,7 @@ export default class Text extends Component {
         return (p.textWidth(this.d.content, this.style) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
     }
     height(p) {
-        return (p.textWidth("Wi", this.style) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
+        return (p.textWidth("W", this.style) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
     }
     update(msDelta, p) {
         this.setFontSize(p);

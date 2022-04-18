@@ -118,7 +118,7 @@ resize(width :number,height :number):number{
  return 0;
 }
 drawBoundingRectangle(p :Pack) :boolean{
-this.style.strokeStyle = this.d.colorBoundingRectangle;    
+this.style.strokeStyle = "black";    
 p.drawRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
 return true;
 }

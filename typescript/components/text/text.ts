@@ -30,7 +30,7 @@ width(p:Pack):number {
 return (p.textWidth(this.d.content,this.style) + (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
 }
 height(p:Pack):number {
-return (p.textWidth("Wi",this.style)+ (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
+return (p.textWidth("W",this.style)+ (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
 }
 
 update(msDelta: number, p: Pack): boolean {
@@ -53,7 +53,8 @@ this.style.strokeStyle = this.d.color;
 p.drawText(this.d.content,
     this.getX(p) + (this.d.margin + this.d.border + this.d.padding),
     this.getY(p) + (this.d.margin + this.d.border + this.d.padding),
-    this.style)
+    this.style);
+    
 return true;
 } 
 private setFontSize(p :Pack):number{
@@ -63,7 +64,7 @@ for (let i = 1; i < 300; i++) {
     this.style.fontSize = i; 
     let newWidth = this.width(p);
     let newHeight = this.height(p);
-
+//---which Ever is reached first
     if (newWidth >= reqWd || newHeight >= reqHt){
         return this.style.fontSize;
     }   

@@ -8,7 +8,7 @@ private addToArray :IComponent[];
 constructor(comps :IComponent[]){
 this.addToArray = comps;
 }
-hdg(content :string="H1",bgHax :string="#008000",fontColor:string|null=null,x:number=50,y:number =5, widthPercent:number=10,heightPercent:number=10):Text{
+hdg(content :string="HDG",bgHax :string="#008000",fontColor:string|null=null,x:number=50,y:number =5, widthPercent:number=10,heightPercent:number=10):Text{
 let txt = new Text(content,bgHax,x,y,widthPercent,heightPercent);
 //----very imp
     this.addToArray.push(txt);
@@ -22,6 +22,34 @@ txt.d.flagDrawBg = true;
 if (fontColor !== null) {txt.d.color = fontColor;}
 return txt;
 }
+li(content :string="li",bgHax :string="#008000",fontColor:string|null=null,x:number=3,y:number =30):Text{
+let txt = new Text(content,bgHax,x,y,60,20);
+//----very imp
+    this.addToArray.push(txt);
+txt.d.padding = 2;
+txt.d.margin = 2;
+txt.d.xAlignment = txt.xAlignmentOptions.Mid;
+// txt.d.colorBg = "#d7edd7";
+txt.d.colorBg = lightenDarkenColor(bgHax,200);
+txt.d.flagDrawBorder = true;
+txt.d.flagDrawBg = true;
+if (fontColor !== null) {txt.d.color = fontColor;}
+return txt;
+}
+h1(content :string="H1",bgHax :string="#008000",fontColor:string|null=null):Text{
+let txt = new Text(content,bgHax,50,1,90,10);
+//----very imp
+    this.addToArray.push(txt);
+txt.d.padding = 5;
+txt.d.margin = 5;
+txt.d.xAlignment = txt.xAlignmentOptions.Mid;
+txt.d.colorBg = lightenDarkenColor(bgHax,200);
+txt.d.flagDrawBorder = true;
+txt.d.flagDrawBg = true;
+if (fontColor !== null) {txt.d.color = fontColor;}
+return txt;
+}
+
 // demo(content :string="Bilza.js",msStart=0,msEnd :number = Number.MAX_SAFE_INTEGER, fontColor :string="yellow",fontSize=40,x=100,y=100)
 // :Text{
 //     let g = new Text(content,fontColor,fontSize,
