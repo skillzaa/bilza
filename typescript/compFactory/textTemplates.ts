@@ -17,7 +17,7 @@ txt.d.margin = 5;
 txt.d.xAlignment = txt.xAlignmentOptions.Mid;
 // txt.d.colorBg = "#d7edd7";
 txt.d.colorBg = lightenDarkenColor(bgHax,200);
-txt.d.flagDrawMargin = true;
+txt.d.flagDrawBorder = true;
 txt.d.flagDrawBg = true;
 if (fontColor !== null) {txt.d.color = fontColor;}
 return txt;

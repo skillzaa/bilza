@@ -29,7 +29,7 @@ let midMid = bil.add.textTempl.hdg("MD","#ff0000",null,50,50);
 midMid.d.xAlignment = midMid.xAlignmentOptions.Mid;
 midMid.d.yAlignment = midMid.yAlignmentOptions.Mid;
 
-let midTop = bil.add.textTempl.hdg("MT","#0000ff",null,50,0);
+let midTop = bil.add.textTempl.hdg("MM","#0000ff",null,50,0);
 midTop.d.xAlignment = midTop.xAlignmentOptions.Mid;
 midTop.d.yAlignment = midTop.yAlignmentOptions.Top;
 

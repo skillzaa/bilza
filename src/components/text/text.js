@@ -11,17 +11,17 @@ export default class Text extends Component {
         this.d.x = x;
         this.d.y = y;
         this.d.color = color;
-        this.d.colorMargin = color;
+        this.d.colorBorder = color;
         this.d.colorBg = "#e1f4e1";
         this.d.widthPercent = widthPercent;
         this.d.heightPercent = heightPercent;
         this.drawLayer = DrawLayer.MiddleGround;
     }
     width(p) {
-        return (p.textWidth(this.d.content, this.style) + this.factorsWOFontSize());
+        return (p.textWidth(this.d.content, this.style) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
     }
     height(p) {
-        return (p.textWidth("Wi", this.style) + this.factorsWOFontSize());
+        return (p.textWidth("Wi", this.style) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
     }
     update(msDelta, p) {
         this.setFontSize(p);
@@ -31,12 +31,12 @@ export default class Text extends Component {
         if (this.d.flagDrawBg == true) {
             this.drawBg(p);
         }
-        if (this.d.flagDrawMargin == true) {
-            this.drawMargin(p);
+        if (this.d.flagDrawBorder == true) {
+            this.drawBorder(p);
         }
         this.style.fillStyle = this.d.color;
         this.style.strokeStyle = this.d.color;
-        p.drawText(this.d.content, this.getX(p) + (this.d.padding + this.d.margin), this.getY(p) + (this.d.padding + this.d.margin), this.style);
+        p.drawText(this.d.content, this.getX(p) + (this.d.margin + this.d.border + this.d.padding), this.getY(p) + (this.d.margin + this.d.border + this.d.padding), this.style);
         return true;
     }
     setFontSize(p) {
@@ -52,19 +52,16 @@ export default class Text extends Component {
         }
         return this.style.fontSize;
     }
-    drawMargin(p) {
-        this.style.strokeStyle = this.d.colorMargin;
-        this.style.lineWidth = this.d.margin;
-        p.drawRect(this.getX(p), this.getY(p), this.width(p), this.height(p), this.style);
+    drawBorder(p) {
+        this.style.strokeStyle = this.d.colorBorder;
+        this.style.lineWidth = this.d.border;
+        p.drawRect(this.getX(p) + this.d.margin, this.getY(p) + this.d.margin, this.width(p), this.height(p), this.style);
         return true;
     }
     drawBg(p) {
         this.style.fillStyle = this.d.colorBg;
-        p.drawFillRect(this.getX(p), this.getY(p), this.width(p), this.height(p), this.style);
+        p.drawFillRect(this.getX(p) + this.d.margin, this.getY(p) + this.d.margin, this.width(p), this.height(p), this.style);
         return true;
-    }
-    factorsWOFontSize() {
-        return (this.d.padding * 2) + (this.d.margin * 2);
     }
     getX(p) {
         let x = p.xPerc(this.d.x);
@@ -76,9 +73,6 @@ export default class Text extends Component {
                 break;
             case this.xAlignmentOptions.Right:
                 x = x - this.width(p);
-                break;
-            default:
-                return x;
                 break;
         }
         return x;

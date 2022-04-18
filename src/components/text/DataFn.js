@@ -9,14 +9,14 @@ export class ObjectData extends CompDataBase {
         this.content = "Text";
         this.padding = 2;
         this.margin = 2;
-        this.colorMargin = "black";
+        this.border = 2;
+        this.colorBorder = "black";
         this.colorBg = "#e1f4e1";
         this.color = "black";
         this.widthPercent = 10;
         this.heightPercent = 10;
-        this.flagDrawMargin = false;
+        this.flagDrawBorder = false;
         this.flagDrawBg = false;
-        this.flagDim = false;
     }
 }
 ;
