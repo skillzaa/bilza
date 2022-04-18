@@ -1,31 +1,14 @@
 import Bilza from "../../src/Bilza.js";
-// let canvasWidth = 800;
-// let canvasHeight = 400;
-let bil = new Bilza("bilza");
-bil.dynamicCanvas(90,90);
-let g = bil.add.gridTempl.dashed();
 
-let first = bil.add.textTempl.hdg("This is First Heading","#0000ff",null,50,1,95,10);
-let listColor = "#b3d640";
-let listStartY = 25;
-let listX = 50;
-let listHeight = 20;
-let listWidth = 50;
+let bil = new Bilza("bilza",500,300);
+// bil.dynamicCanvas(90,90);
 
-let third = bil.add.textTempl.hdg("list item list item list item list item ","#008000",null,listX,listStartY,listWidth,listHeight);
+let g = bil.add.rGrid();
+g.d.flagDrawNumbers = true;
+g.d.fontSize = 14;
 
-let fourth = bil.add.textTempl.hdg("list item list item list item list item ","#008000",null,listX,listStartY + 20,listWidth,listHeight);
-let fifth = bil.add.textTempl.hdg("list item list item list item list item ","#008000",null,listX,listStartY + 40,listWidth,listHeight);
-let sixth = bil.add.textTempl.hdg("list item list item list item list item ","#008000",null,listX,listStartY + 60,listWidth,listHeight);
-//////////////////////////////////
+let slide = bil.add.slideHnL("The is the Title should heat happened to keeping it with in the limit of"); 
+slide.addItem("this is fist item which i am talking about in the name of");
+slide.addItem("this is second item asdf vfnbg fjkdsd rgl;ks lskf;ls lskflks slfksldkf xc,mcvslkdfvsl");
+slide.addItem("this is third item");
 bil.start();
-
-
-// let int = setInterval(function(){
-//     canvasWidth -= 50;
-//     canvasHeight = Math.ceil(canvasWidth/16) * 9;
-//     bil.setCanvas(canvasWidth,canvasHeight);
-//     if (canvasWidth < 200){
-//         clearInterval(int);
-//     }
-// },3000);

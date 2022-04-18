@@ -9,6 +9,7 @@ import BgShapes from "../components/bgShapes/bgShapes.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
+import SlideHnL from "../components/slideHnL/slideHnL.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
@@ -16,6 +17,7 @@ export default class CompFactory {
     textTempl: TextTemplates;
     gridTempl: GridTemplates;
     constructor(comps?: IComponent[]);
+    slideHnL(content: string): SlideHnL;
     bgShapes(count?: number): BgShapes;
     text(content?: string, color?: string, x?: number, y?: number, widthPercent?: number): Text;
     rect(): Rect;

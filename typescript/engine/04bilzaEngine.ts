@@ -56,7 +56,7 @@ return true;
 dynamicCanvas(widthInPercent :number=100,heightInPercent :number=100):boolean{
 let wd = window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
 let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
-if (wd < 100 || ht < 100){
+if (wd < 100 || ht < 100){ //--dont make too small canvas
     return false;
 }else {
     this.setCanvas(wd,ht);  

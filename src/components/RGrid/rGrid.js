@@ -25,7 +25,7 @@ export default class RGrid extends Component {
                 this.style.strokeStyle = this.d.colorNumbers;
                 this.drawText(p, y, x, y);
             }
-            y += ((p.canvasWidth() / 100) * this.d.cellHeightPerc);
+            y += ((p.canvasHeight() / 100) * this.d.cellHeightPerc);
         } while (height > y);
     }
     draw_vertical(p) {

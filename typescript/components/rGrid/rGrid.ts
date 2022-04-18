@@ -32,7 +32,7 @@ let end_x = x + width;
             // p.drawText(y.toString(),x,y,this.style);
             this.drawText(p,y,x,y);
         }
-    y += ((p.canvasWidth()/100) * this.d.cellHeightPerc);
+    y += ((p.canvasHeight()/100) * this.d.cellHeightPerc);
     } while (height > y );
 }
 draw_vertical(p:Pack){
