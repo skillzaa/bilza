@@ -1,7 +1,7 @@
 import { Style, Pack, IComponent, DrawLayer, Transition } from "./Bilza.js";
 import CompDataBase from "./design/CompDataBase.js";
 export default class Component<T extends CompDataBase> implements IComponent {
-    protected compData: Transition<T>;
+    compData: Transition<T>;
     d: T;
     data: T;
     readonly id: string;

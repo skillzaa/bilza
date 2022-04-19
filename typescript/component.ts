@@ -4,7 +4,7 @@ import CompDataBase from "./design/CompDataBase.js";
 export default class Component  <T extends CompDataBase> implements IComponent {
 //compData is the transition object and T is the obj it takes in
 // a transition group all the public properties in this.d and expose them. the user can then add different set of these properties which are then implemented (merged) as per the given millisecond.
-protected compData:Transition<T>; 
+public compData:Transition<T>; 
 // this d and the data will point to the T object inside compData,to 
 // expose them and remove this.compData.data.x into this.d.x or 
 // this.data.x

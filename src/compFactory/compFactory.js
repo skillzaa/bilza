@@ -17,8 +17,8 @@ export default class CompFactory {
         this.textTempl = new TextTemplates(comps);
         this.gridTempl = new GridTemplates(comps);
     }
-    slideHL(content) {
-        let bs = new SlideHL(content);
+    slideHL(contentHdg = "The Title", startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER) {
+        let bs = new SlideHL(contentHdg, startTimeSeconds, endTimeSeconds);
         this.addToArray.push(bs);
         return bs;
     }
