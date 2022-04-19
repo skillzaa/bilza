@@ -7,9 +7,10 @@ export default class SlideHnL extends Component<ObjectData> {
 hdg :Text;
 lis :Text[];
 private dimSeqArray :typeof dimSeq[];
+private unDimSeqArray :typeof dimSeq[];
 private tt :TextTemplates;
 //Args==> content-color-x-y-widthPerc-heightPerc
-constructor (contentHdg :string="The Title")
+constructor (contentHdg :string="The Title",startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER)
 {
     super(DataFn);
     this.tt = new TextTemplates();
@@ -18,30 +19,42 @@ constructor (contentHdg :string="The Title")
     this.lis = [];
     this.drawLayer = DrawLayer.MiddleGround;
     this.dimSeqArray = [];
+    this.unDimSeqArray = [];
+    this.setStartTime(startTimeSeconds * 1000); //into mili sec
+    this.setEndTime(endTimeSeconds * 1000);
     
+}
+unDimSeq(itemIndex:number,TPlusSec :number){
+    this.unDimSeqArray.push([itemIndex,TPlusSec]);
 }
 dimSeq(itemIndex:number,TPlusSec :number){
     this.dimSeqArray.push([itemIndex,TPlusSec]);
-    // this.dimSeqArray.push([22,55]);
-    // this.dimSeqArray.push([67,21]);
-    // console.log(this.dimSeqArray);
+}
+protected applyUnDimSeq(msDelta: number){
+for (let i = 0; i < this.unDimSeqArray.length; i++) {
+    const element = this.unDimSeqArray[i];
+    if(element[1] <= (this.getLocalMsDelta(msDelta))){
+        this.lis[element[0]].d.flagDim = false;
+    }
+}
 }
 protected applyDimSeq(msDelta: number){
 for (let i = 0; i < this.dimSeqArray.length; i++) {
     const element = this.dimSeqArray[i];
     if(element[1] <= (this.getLocalMsDelta(msDelta))){
-        this.lis[element[0]].d.flagDim = false;
+        this.lis[element[0]].d.flagDim = true;
     }
 }
 }
 getLocalMsDelta(msDeltaGlobal :number){
 return Math.abs(Math.ceil(msDeltaGlobal - this.getStartTime()));
 }
-addItem(content :string){
+addItem(content :string, startDim:boolean=true, unDimSecond :number = Number.MAX_SAFE_INTEGER){
 let item = this.tt.li(content,"#0000ff",null,50);   
-    if (this.d.flagStartDim == true){
+    if (startDim == true){
         item.d.flagDim = true;
     }
+this.unDimSeq(this.lis.length -1, unDimSecond * 1000);//convert to ms    
 this.lis.push(item);
 return item; 
 }
@@ -55,7 +68,8 @@ return 0;
 
 update(msDelta: number, p: Pack): boolean {
     this.applyDimSeq(msDelta);
-    console.log("localMsDelta",this.getLocalMsDelta(msDelta));
+    this.applyUnDimSeq(msDelta);
+    // console.log("localMsDelta",this.getLocalMsDelta(msDelta));
     return true;
 }
 

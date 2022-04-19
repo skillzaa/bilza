@@ -8,14 +8,13 @@ listStartY :number;
 listGapFactor :number;
 applyWdHtPerc :boolean;
 maxLiChars :number;
-flagStartDim :boolean;
+
 constructor(){
 super();
 this.listStartY = 30; 
 this.listGapFactor = 10; 
 this.applyWdHtPerc = false; 
 this.maxLiChars = 50; 
-this.flagStartDim = true;
 
 }
 };

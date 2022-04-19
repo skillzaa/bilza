@@ -8,7 +8,7 @@ import BgShapes from "../components/bgShapes/bgShapes.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
-import SlideHnL from "../components/slideHnL/slideHnL.js";
+import SlideHL from "../components/slideHL/slideHL.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
@@ -17,8 +17,8 @@ export default class CompFactory {
         this.textTempl = new TextTemplates(comps);
         this.gridTempl = new GridTemplates(comps);
     }
-    slideHnL(content) {
-        let bs = new SlideHnL(content);
+    slideHL(content) {
+        let bs = new SlideHL(content);
         this.addToArray.push(bs);
         return bs;
     }

@@ -20,4 +20,4 @@ export default class SlideHnL extends Component<ObjectData> {
     draw(p: Pack): boolean;
     drawLis(p: Pack): void;
 }
-//# sourceMappingURL=slideHnL.d.ts.map
+//# sourceMappingURL=slideHL.d.ts.map

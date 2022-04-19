@@ -12,7 +12,7 @@ import BgShapes from "../components/bgShapes/bgShapes.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
-import SlideHnL from "../components/slideHnL/slideHnL.js";
+import SlideHL from "../components/slideHL/slideHL.js";
 //-----------composit componenets
 // import TextComp from "../composites/textComp/textComp.js";
 //---Templates 
@@ -30,8 +30,8 @@ this.textTempl = new TextTemplates(comps);
 this.gridTempl = new GridTemplates(comps);
 }
 
-slideHnL(content :string) {
-    let bs = new SlideHnL(content);
+slideHL(content :string) {
+    let bs = new SlideHL(content);
     this.addToArray.push(bs);
     return bs;        
 }

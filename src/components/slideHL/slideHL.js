@@ -3,7 +3,7 @@ import DataFn from "./DataFn.js";
 import TextTemplates from "../../compFactory/textTemplates.js";
 let dimSeq;
 export default class SlideHnL extends Component {
-    constructor(contentHdg = "The Title") {
+    constructor(contentHdg = "The Title", startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER) {
         super(DataFn);
         this.tt = new TextTemplates();
         this.hdg = this.tt.h1(contentHdg, "#ff0000");
@@ -12,6 +12,8 @@ export default class SlideHnL extends Component {
         this.drawLayer = DrawLayer.MiddleGround;
         this.dimSeqArray = [];
         this.unDimSeqArray = [];
+        this.setStartTime(startTimeSeconds * 1000);
+        this.setEndTime(endTimeSeconds * 1000);
     }
     unDimSeq(itemIndex, TPlusSec) {
         this.unDimSeqArray.push([itemIndex, TPlusSec]);
@@ -38,11 +40,12 @@ export default class SlideHnL extends Component {
     getLocalMsDelta(msDeltaGlobal) {
         return Math.abs(Math.ceil(msDeltaGlobal - this.getStartTime()));
     }
-    addItem(content) {
+    addItem(content, startDim = true, unDimSecond = Number.MAX_SAFE_INTEGER) {
         let item = this.tt.li(content, "#0000ff", null, 50);
-        if (this.d.flagStartDim == true) {
+        if (startDim == true) {
             item.d.flagDim = true;
         }
+        this.unDimSeq(this.lis.length - 1, unDimSecond * 1000);
         this.lis.push(item);
         return item;
     }

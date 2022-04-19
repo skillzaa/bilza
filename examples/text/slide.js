@@ -1,24 +1,30 @@
 import Bilza from "../../src/Bilza.js";
+// import CompFactory from "../../src/compFactory/compFactory.js";
+import SlideHL from "../../src/components/slideHL/slideHL.js";
 
 let bil = new Bilza("bilza",800,300,60);
-// bil.setTimeEnd(15);
 bil.dynamicCanvas(90,90);
-
-let g = bil.add.rGrid();
 let c = bil.add.counter();
-c.d.x=0;
+c.d.y = 300;
+/////////////////////////
+let slide = new SlideHL("The is the Title should heat",5,25); 
 
-let slide = bil.add.slideHnL("The is the Title should heat"); 
+slide.addItem("this is fist item which i am talking which i am talkingwhich i am talking  which i am talking ",true,5);
+slide.addItem("this is second item ",false,10);
+slide.addItem("this is third item",true,15);
+// slide.unDimSeq(0,5000);
+// slide.unDimSeq(1,10000);
+// slide.unDimSeq(2,15000);
+//--
+// slide.unDimSeq(0,20000);
+// slide.unDimSeq(1,25000);
+// slide.unDimSeq(2,30000);
+///known Error :: eek bar undim hoojai then dim nahi hoota
+// slide.dimSeq(0,35000);
+// slide.dimSeq(1,40000);
+// slide.dimSeq(2,45000);
 
-slide.setStartTime(10000);
+///////////////////////////////////////////////////////////
 
-console.log("slide.d.msStart",slide.d.msStart);
-
-slide.addItem("this is fist item which i am talking which i am talkingwhich i am talking  which i am talking ");
-slide.addItem("this is second item ");
-slide.addItem("this is third item");
+bil.insert(slide);
 bil.start();
-
-slide.dimSeq(0,5000);
-slide.dimSeq(1,10000);
-slide.dimSeq(2,15000);
