@@ -122,5 +122,8 @@ this.style.strokeStyle = "black";
 p.drawRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
 return true;
 }
+getLocalMsDelta(msDeltaGlobal :number){
+return Math.abs(Math.ceil(msDeltaGlobal - this.d.msStart));
+}
 ////////////////////////////////////////////////////////
 }//component ends

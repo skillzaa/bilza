@@ -16,9 +16,11 @@ export default class SlideHnL extends Component {
         this.dimSeqArray.push([itemIndex, TPlusSec]);
     }
     applyDimSeq(msDelta) {
+        const secNow = Math.ceil(msDelta / 1000);
+        const secSt = Math.ceil(this.d.msStart / 1000);
         for (let i = 0; i < this.dimSeqArray.length; i++) {
             const element = this.dimSeqArray[i];
-            if (element[1] >= (this.d.msStart + msDelta)) {
+            if (element[1] <= (secSt + secNow)) {
                 this.lis[element[0]].d.flagDim = true;
             }
         }
@@ -39,6 +41,7 @@ export default class SlideHnL extends Component {
     }
     update(msDelta, p) {
         this.applyDimSeq(msDelta);
+        console.log("localMsDelta", this.getLocalMsDelta(msDelta));
         return true;
     }
     draw(p) {

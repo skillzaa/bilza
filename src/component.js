@@ -79,4 +79,7 @@ export default class Component {
         p.drawRect(p.xPerc(this.d.x), p.yPerc(this.d.y), this.width(p), this.height(p), this.style);
         return true;
     }
+    getLocalMsDelta(msDeltaGlobal) {
+        return Math.abs(Math.ceil(msDeltaGlobal - this.d.msStart));
+    }
 }

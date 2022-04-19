@@ -30,5 +30,6 @@ export default class Component<T extends CompDataBase> implements IComponent {
     shadowsOn(): void;
     resize(width: number, height: number): number;
     drawBoundingRectangle(p: Pack): boolean;
+    getLocalMsDelta(msDeltaGlobal: number): number;
 }
 //# sourceMappingURL=component.d.ts.map

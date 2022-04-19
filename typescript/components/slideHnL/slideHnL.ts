@@ -27,9 +27,11 @@ dimSeq(itemIndex:number,TPlusSec :number){
     // console.log(this.dimSeqArray);
 }
 protected applyDimSeq(msDelta: number){
+    const secNow= Math.ceil(msDelta/1000);
+    const secSt = Math.ceil(this.d.msStart/1000);
 for (let i = 0; i < this.dimSeqArray.length; i++) {
     const element = this.dimSeqArray[i];
-    if(element[1] >= (this.d.msStart + msDelta)){
+    if(element[1] <= (secSt + secNow)){
         this.lis[element[0]].d.flagDim = true;
     }
 }
@@ -52,6 +54,7 @@ return 0;
 
 update(msDelta: number, p: Pack): boolean {
     this.applyDimSeq(msDelta);
+    console.log("localMsDelta",this.getLocalMsDelta(msDelta));
     return true;
 }
 
