@@ -13,10 +13,15 @@ export class ObjectData extends CompDataBase {
         this.colorBorder = "black";
         this.colorBg = "#e1f4e1";
         this.color = "black";
+        this.colorDim = "#8e8d8d";
+        this.colorDimBg = "#e8e5e5";
+        this.colorDimBorder = "#8e8d8d";
+        this.flagDim = false;
         this.widthPercent = 10;
         this.heightPercent = 10;
         this.flagDrawBorder = false;
         this.flagDrawBg = false;
+        this.maxDisplayChars = 200;
     }
 }
 ;

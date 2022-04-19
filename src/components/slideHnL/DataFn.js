@@ -4,6 +4,9 @@ export class ObjectData extends CompDataBase {
         super();
         this.listStartY = 30;
         this.listGapFactor = 10;
+        this.applyWdHtPerc = false;
+        this.maxLiChars = 50;
+        this.flagStartDim = true;
     }
 }
 ;

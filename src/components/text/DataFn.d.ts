@@ -11,8 +11,13 @@ export declare class ObjectData extends CompDataBase {
     color: string;
     colorBorder: string;
     colorBg: string;
+    colorDim: string;
+    colorDimBg: string;
+    colorDimBorder: string;
+    flagDim: boolean;
     flagDrawBorder: boolean;
     flagDrawBg: boolean;
+    maxDisplayChars: number;
     xAlignment: XAlignment;
     yAlignment: YAlignment;
     constructor();

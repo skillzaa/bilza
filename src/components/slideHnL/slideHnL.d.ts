@@ -4,9 +4,12 @@ import Text from "../text/text.js";
 export default class SlideHnL extends Component<ObjectData> {
     hdg: Text;
     lis: Text[];
+    private dimSeqArray;
     private tt;
     constructor(contentHdg?: string);
-    addItem(content: string): void;
+    dimSeq(itemIndex: number, TPlusSec: number): void;
+    protected applyDimSeq(msDelta: number): void;
+    addItem(content: string): Text;
     width(p: Pack): number;
     height(p: Pack): number;
     update(msDelta: number, p: Pack): boolean;
