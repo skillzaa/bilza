@@ -49,8 +49,8 @@ this.selected = false;
 
 this.msStart = msStart; //typescript deamnds it
 this.msEnd = msEnd;
-this.setStart(msStart);//in future i may run some otehr code in these fn
-this.setEnd(msEnd);
+this.setStartTime(msStart);//in future i may run some otehr code in these fn
+this.setEndTime(msEnd);
 }
 getSelected() :boolean{
 return this.selected;
@@ -66,17 +66,17 @@ setDisplay(b :boolean):boolean{
 this.display = b;
 return this.display;
 }
-getStart() :number{
+getStartTime() :number{
 return this.msStart;
 }
-setStart(n :number=0):number{
+setStartTime(n :number=0):number{
 this.msStart = n;
 return n;
 }
-getEnd() :number{
+getEndTime() :number{
     return this.msEnd;
 }
-setEnd(n :number=Number.MAX_SAFE_INTEGER):number{
+setEndTime(n :number=Number.MAX_SAFE_INTEGER):number{
 this.msEnd = n;
 return n;
 }
@@ -122,8 +122,6 @@ this.style.strokeStyle = "black";
 p.drawRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
 return true;
 }
-getLocalMsDelta(msDeltaGlobal :number){
-return Math.abs(Math.ceil(msDeltaGlobal - this.d.msStart));
-}
+
 ////////////////////////////////////////////////////////
 }//component ends

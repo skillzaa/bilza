@@ -11,8 +11,8 @@ export default class Component {
         this.selected = false;
         this.msStart = msStart;
         this.msEnd = msEnd;
-        this.setStart(msStart);
-        this.setEnd(msEnd);
+        this.setStartTime(msStart);
+        this.setEndTime(msEnd);
     }
     getSelected() {
         return this.selected;
@@ -28,17 +28,17 @@ export default class Component {
         this.display = b;
         return this.display;
     }
-    getStart() {
+    getStartTime() {
         return this.msStart;
     }
-    setStart(n = 0) {
+    setStartTime(n = 0) {
         this.msStart = n;
         return n;
     }
-    getEnd() {
+    getEndTime() {
         return this.msEnd;
     }
-    setEnd(n = Number.MAX_SAFE_INTEGER) {
+    setEndTime(n = Number.MAX_SAFE_INTEGER) {
         this.msEnd = n;
         return n;
     }
@@ -78,8 +78,5 @@ export default class Component {
         this.style.strokeStyle = "black";
         p.drawRect(p.xPerc(this.d.x), p.yPerc(this.d.y), this.width(p), this.height(p), this.style);
         return true;
-    }
-    getLocalMsDelta(msDeltaGlobal) {
-        return Math.abs(Math.ceil(msDeltaGlobal - this.d.msStart));
     }
 }

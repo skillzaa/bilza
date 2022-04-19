@@ -19,11 +19,11 @@ export default interface IComponent{
     setDisplay(b :boolean):boolean;
 
     //--we can set the start frame and end frame externally
-    getStart():number;
-    setStart(n :number):number;
+    getStartTime():number;
+    setStartTime(n :number):number;
     //--we can set the start frame and end frame externally
-    getEnd():number;
-    setEnd(n :number):number;
+    getEndTime():number;
+    setEndTime(n :number):number;
     
     //--we can get the width and height thus we can use components into array and trees like table,list etc
     //-- since we have to use it externally thus Pack is always avaialbe

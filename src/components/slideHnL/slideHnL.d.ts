@@ -9,6 +9,7 @@ export default class SlideHnL extends Component<ObjectData> {
     constructor(contentHdg?: string);
     dimSeq(itemIndex: number, TPlusSec: number): void;
     protected applyDimSeq(msDelta: number): void;
+    getLocalMsDelta(msDeltaGlobal: number): number;
     addItem(content: string): Text;
     width(p: Pack): number;
     height(p: Pack): number;

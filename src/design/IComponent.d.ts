@@ -6,10 +6,10 @@ export default interface IComponent {
     setSelected(b: boolean): boolean;
     getDisplay(): boolean;
     setDisplay(b: boolean): boolean;
-    getStart(): number;
-    setStart(n: number): number;
-    getEnd(): number;
-    setEnd(n: number): number;
+    getStartTime(): number;
+    setStartTime(n: number): number;
+    getEndTime(): number;
+    setEndTime(n: number): number;
     width(p: Pack): number;
     height(p: Pack): number;
     update(ms: number, p: Pack): boolean;

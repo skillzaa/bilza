@@ -13,7 +13,7 @@ for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
         //--save ctx
         if (comp.drawLayer == drawLayer ){
-            if (comp.getStart() <= msDelta && comp.getEnd() > msDelta ){
+            if (comp.getStartTime() <= msDelta && comp.getEndTime() > msDelta ){
                 pack.save();
                 comp.update(msDelta,pack);
                 comp.draw(pack);//waoooo no msDelta
