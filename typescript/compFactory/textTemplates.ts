@@ -48,7 +48,7 @@ txt.d.colorBg = lightenDarkenColor(bgHax,200);
 txt.d.flagDrawBorder = true;
 txt.d.flagDrawBg = true;
 if (fontColor !== null) {txt.d.color = fontColor;}
-txt.shadowsOn();
+// txt.shadowsOn();
 // txt.d.shadowOffsetX = 8;
 // txt.d.shadowOffsetY = 8;
 // txt.d.shadowBlur = 8;

@@ -45,7 +45,6 @@ export default class TextTemplates {
         if (fontColor !== null) {
             txt.d.color = fontColor;
         }
-        txt.shadowsOn();
         return txt;
     }
 }
