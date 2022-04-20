@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
+    <link rel='stylesheet' href='./water_dark.css'>
     <script src="../misc/prism.js"></script>
     <link rel="stylesheet" href="../misc/prism.css">   
   
@@ -12,16 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bilza examples</title>  
     <style>
-#controls {
-width: 100%;
-border:1px solid red;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-        #range {
-            width: 100%;
-        }
+       
     </style>
 
 </head>
@@ -35,6 +26,7 @@ justify-content: center;
  <div id="controls" >
      <button id="start">Start</button>
      <button id="stop">Stop</button>
+     <div id="counter" class="pad mar">0</div>
      <input type="range" name="range" id="range" min="0" max="60000" value="0">
  </div>
 

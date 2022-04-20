@@ -5,8 +5,6 @@ var bil = new Bilza("bilza",800,300,60);
 ///////////////////////////////////
 bil.dynamicCanvas(90,90);
 bil.background.color = "#e0e0f9";
-let c = bil.add.counter();
-c.d.y = 300;2
 let r = bil.add.bgShapes();
 /////////////////////////
 let slide = bil.add.slideHL("The is Slide # 1",5,25); 
@@ -21,6 +19,8 @@ slide02.addItem("The store is locked but not secured",true,10);
 slide02.addItem("All the items are for sale",true,15);
 ///////////////////////////////////////////////////////////
 
+let counter = document.getElementById("counter");
+// counter.style.padding = 55;
 let rng = document.getElementById("range");
 rng.style.width = window.innerWidth;  
 rng.addEventListener("change",function(e){
@@ -46,17 +46,19 @@ stop.addEventListener("click",function(e){
     bil.stop();
   sound.stop();
   rng.value = 0;
+  counter.innerHTML = 0;
   // console.log("stop");
 });  
 ///////////////Draw Event
 bil.drawEvent = (msDelta) =>{
-  console.log("sound.pos()",sound.pos());
+  // console.log("sound.pos()",sound.pos());
   rng.value = msDelta;    
+  counter.innerHTML = Math.ceil(msDelta/1000); 
   return true;
   }
 /////////////////////
 
-
+//--Howl
 let sound = new Howl({
   src: ['./sound.mp3'],
   autoplay: false,
