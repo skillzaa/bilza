@@ -17,8 +17,8 @@ export default class CompFactory {
         this.textTempl = new TextTemplates(comps);
         this.gridTempl = new GridTemplates(comps);
     }
-    slideHL(contentHdg = "The Title", startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER) {
-        let bs = new SlideHL(contentHdg, startTimeSeconds, endTimeSeconds);
+    slideHL(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, contentHdg = "The Title", themeColor = "#00ff37") {
+        let bs = new SlideHL(startTimeSeconds, endTimeSeconds, contentHdg, themeColor);
         this.addToArray.push(bs);
         return bs;
     }
@@ -27,8 +27,8 @@ export default class CompFactory {
         this.addToArray.push(bs);
         return bs;
     }
-    text(content = "", color = "black", x = 0, y = 0, widthPercent = 10) {
-        let bs = new Text(content, color, x, y, widthPercent);
+    text(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", color = "black", x = 0, y = 0, widthPercent = 10, heightPercent = 10) {
+        let bs = new Text(startTimeSeconds, endTimeSeconds, content, color, x, y, widthPercent, heightPercent);
         this.addToArray.push(bs);
         return bs;
     }

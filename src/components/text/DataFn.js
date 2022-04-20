@@ -20,6 +20,7 @@ export class ObjectData extends CompDataBase {
         this.widthPercent = 10;
         this.heightPercent = 10;
         this.flagDrawBorder = false;
+        this.autoScaleFontSize = false;
         this.flagDrawBg = false;
         this.maxDisplayChars = 200;
     }

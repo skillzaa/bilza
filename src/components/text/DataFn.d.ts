@@ -17,6 +17,7 @@ export declare class ObjectData extends CompDataBase {
     flagDim: boolean;
     flagDrawBorder: boolean;
     flagDrawBg: boolean;
+    autoScaleFontSize: boolean;
     maxDisplayChars: number;
     xAlignment: XAlignment;
     yAlignment: YAlignment;

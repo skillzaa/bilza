@@ -1,5 +1,3 @@
-import { Component, DrawLayer } from "../../Bilza.js";
-import DataFn from "./DataFn.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
 export default class TextBase extends Component {

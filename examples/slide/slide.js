@@ -1,6 +1,6 @@
 import Bilza from "../../src/Bilza.js";
 
-let bil = new Bilza("bilza",800,300,135);
+let bil = new Bilza("bilza",800,300,96);
 let audio = new Audio('./tips.mp3');
 
 ///////////////////////////////////
@@ -8,7 +8,10 @@ bil.dynamicCanvas(90,90);
 bil.background.color = "#e0e0f9";
 let r = bil.add.bgShapes();
 /////////////////////////
-let slide = bil.add.slideHL("The is Slide # 1",5,25); 
+let jt = bil.add.textTempl.jt("Jumbo Tron","blue",0,3);
+// let jt = bil.add.textTempl.h1("Jumbo Tron","blue",0,10);
+/////////////////////////
+let slide = bil.add.slideHL(1,25,"The is Slide # 1","#008000"); 
 slide.addItem("The fist item which is displayed",true,5);
 slide.addItem("222 2222 2222 2222",true,10);
 slide.addItem("Max security is required here",true,15);

@@ -30,8 +30,8 @@ this.textTempl = new TextTemplates(comps);
 this.gridTempl = new GridTemplates(comps);
 }
 
-slideHL(contentHdg :string="The Title",startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER) {
-    let bs = new SlideHL(contentHdg,startTimeSeconds,endTimeSeconds);
+slideHL(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,contentHdg :string="The Title",themeColor :string="#00ff37") {
+    let bs = new SlideHL(startTimeSeconds,endTimeSeconds,contentHdg,themeColor);
     this.addToArray.push(bs);
     return bs;        
 }
@@ -40,8 +40,8 @@ bgShapes(count:number=100) {
     this.addToArray.push(bs);
     return bs;        
 }
-text(content :string="",color :string="black",x:number=0,y:number =0, widthPercent:number=10) {
-    let bs = new Text(content,color,x,y,widthPercent);
+text(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",color :string="black",x:number=0,y:number =0, widthPercent:number=10,heightPercent:number=10) {
+    let bs = new Text(startTimeSeconds,endTimeSeconds,content,color,x,y, widthPercent,heightPercent);
     this.addToArray.push(bs);
     return bs;        
 }

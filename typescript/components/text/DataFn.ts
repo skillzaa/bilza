@@ -25,6 +25,7 @@ flagDim :boolean;
 
 flagDrawBorder :boolean;
 flagDrawBg :boolean;
+autoScaleFontSize :boolean;
 
 maxDisplayChars :number;
 xAlignment :XAlignment;
@@ -44,7 +45,7 @@ this.border = 2;
 this.colorBorder = "black";
 this.colorBg = "#e1f4e1";
 this.color = "black" ; 
-
+//---- these are just flags ??????????
 this.colorDim = "#8e8d8d";
 this.colorDimBg = "#e8e5e5";
 this.colorDimBorder = "#8e8d8d";
@@ -54,6 +55,7 @@ this.widthPercent = 10;
 this.heightPercent = 10;
 
 this.flagDrawBorder = false;
+this.autoScaleFontSize = false;
 this.flagDrawBg = false;
 this.maxDisplayChars = 200;
 

@@ -1,21 +1,28 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
-import TextTemplates from "../../compFactory/textTemplates.js";
+// import TextTemplates from "../../compFactory/textTemplates.js";
+import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import Text from "../text/text.js";
+
 let dimSeq: [number, number];
 export default class SlideHnL extends Component<ObjectData> {
 hdg :Text;
 lis :Text[];
-// private dimSeqArray :typeof dimSeq[];
-// private unDimSeqArray :typeof dimSeq[];
-private tt :TextTemplates;
-//Args==> content-color-x-y-widthPerc-heightPerc
-constructor (contentHdg :string="The Title",startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER)
+
+constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,contentHdg :string="The Title",color :string="#00ff37")
 {
     super(DataFn);
-    this.tt = new TextTemplates();
-    this.hdg = this.tt.h1(contentHdg,"#ff0000");
+    this.hdg = new Text(startTimeSeconds,endTimeSeconds,contentHdg,color);
+    //------------------------------
+    this.hdg.d.x = 50;
     this.hdg.d.y = 5;
+    this.hdg.d.padding = 5;
+    this.hdg.d.margin = 5;
+    this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
+    this.hdg.d.colorBg = lightenDarkenColor(color,200);
+    this.hdg.d.flagDrawBorder = true;
+    this.hdg.d.flagDrawBg = true;
+    //------------------------------
     this.lis = [];
     this.drawLayer = DrawLayer.MiddleGround;
     this.setStartTime(startTimeSeconds * 1000); //into mili sec
@@ -48,7 +55,7 @@ constructor (contentHdg :string="The Title",startTimeSeconds :number=0,endTimeSe
 // return Math.abs(Math.ceil(msDeltaGlobal - this.getStartTime()));
 // }
 addItem(content :string, startDim:boolean=true, unDimSecond :number = Number.MAX_SAFE_INTEGER){
-let item = this.tt.li(content,"#0000ff",null,50);   
+let item = new Text(this.getStartTime(),this.getEndTime(), content,"#0000ff");   
     if (startDim == true){
         item.d.flagDim = true;
         let tr = item.addTransition((unDimSecond * 1000) + this.getStartTime());
@@ -94,5 +101,6 @@ let y = this.d.listStartY;
             y +=  this.lis[i].d.heightPercent + this.d.listGapFactor;
         }    
 }
+
 
 }//class

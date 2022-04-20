@@ -17,9 +17,9 @@ export default class CompFactory {
     textTempl: TextTemplates;
     gridTempl: GridTemplates;
     constructor(comps?: IComponent[]);
-    slideHL(contentHdg?: string, startTimeSeconds?: number, endTimeSeconds?: number): SlideHL;
+    slideHL(startTimeSeconds?: number, endTimeSeconds?: number, contentHdg?: string, themeColor?: string): SlideHL;
     bgShapes(count?: number): BgShapes;
-    text(content?: string, color?: string, x?: number, y?: number, widthPercent?: number): Text;
+    text(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number, widthPercent?: number, heightPercent?: number): Text;
     rect(): Rect;
     fillRect(): FillRect;
     lines(x?: number, y?: number): Lines;
