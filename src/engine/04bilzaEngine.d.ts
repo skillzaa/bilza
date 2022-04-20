@@ -7,6 +7,7 @@ export default class Bilza extends BilzaCanvasSetup {
     constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: number, timeEnd?: number);
     start(): boolean;
     draw(): boolean;
+    drawEvent(msDelta: number): boolean;
     chqCollision(x: number, y: number): IComponent | null;
     mergeClip(clip: IComponent[]): boolean;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number): boolean;

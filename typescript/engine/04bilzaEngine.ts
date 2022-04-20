@@ -40,7 +40,13 @@ this.pack.drawBackground(this.background.color); //fornow
 this.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
 this.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
+///-----connection with outer world
+this.drawEvent(msDelta);
 return true;
+}
+drawEvent(msDelta :number):boolean{
+// console.log("drawEventn");
+    return true;
 }
 //----seperate class
 chqCollision(x :number, y :number):IComponent | null{

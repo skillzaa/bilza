@@ -34,6 +34,10 @@ export default class Bilza extends BilzaCanvasSetup {
         this.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
         this.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);
         this.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
+        this.drawEvent(msDelta);
+        return true;
+    }
+    drawEvent(msDelta) {
         return true;
     }
     chqCollision(x, y) {

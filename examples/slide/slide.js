@@ -1,6 +1,8 @@
 import Bilza from "../../src/Bilza.js";
 
-let bil = new Bilza("bilza",800,300,60);
+var bil = new Bilza("bilza",800,300,60);
+
+///////////////////////////////////
 bil.dynamicCanvas(90,90);
 bil.background.color = "#e0e0f9";
 let c = bil.add.counter();
@@ -23,15 +25,48 @@ let rng = document.getElementById("range");
 rng.style.width = window.innerWidth;  
 rng.addEventListener("change",function(e){
     // console.log( "rr",rng.value);
-    bil.setMsDelta(rng.value);
+    bil.setMsDelta(rng.value);    
+  sound.stop();
+  sound.play();
+
 });  
+////start button
 let start = document.getElementById("start");
 start.addEventListener("click",function(e){
+  sound.stop();
     bil.stop();
-    bil.start();
+    
+    sound.play(); //auto play bil
+    // bil.start();
+  
 });  
-
+////stop button
+let stop = document.getElementById("stop");
+stop.addEventListener("click",function(e){
+    bil.stop();
+  sound.stop();
+  rng.value = 0;
+  // console.log("stop");
+});  
+///////////////Draw Event
+bil.drawEvent = (msDelta) =>{
+  console.log("sound.pos()",sound.pos());
+  rng.value = msDelta;    
+  return true;
+  }
 /////////////////////
-bil.start();
 
 
+let sound = new Howl({
+  src: ['./sound.mp3'],
+  autoplay: false,
+  html5: true,
+  onload: function() {
+    var totalSoundDuration = sound.duration();
+  },
+  onplay: function(getSoundId) {
+    bil.start();
+    // console.log("play");
+},
+});  
+  

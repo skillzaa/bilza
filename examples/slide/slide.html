@@ -12,41 +12,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bilza examples</title>  
     <style>
-        #controls {
-            width: 100%;
-            border:1px solid red;
-        }
+#controls {
+width: 100%;
+border:1px solid red;
+display: flex;
+align-items: center;
+justify-content: center;
+}
         #range {
             width: 100%;
         }
     </style>
+
 </head>
 <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
 <!-- XXXXXXXXXXXXXX--BODY--XXXXXXXXXXXXXXXXXXX -->
 <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
 <body>
- <h6><a href="/bilza/index.html">Home</a></h6>
+ <!-- <h6><a href="/bilza/index.html">Home</a></h6> -->
 
  <canvas id="bilza"></canvas>
  <div id="controls" >
-     <input type="range" name="range" id="range" min="0" max="60000">
      <button id="start">Start</button>
+     <button id="stop">Stop</button>
+     <input type="range" name="range" id="range" min="0" max="60000" value="0">
  </div>
 
-<h3>Code</h3>
-<pre>
-<code class="language-javascript">
-
-    
-</code>
-</pre>
-
+<script src="./howler.js"></script>
 <script type="module" src="./slide.js"></script>
-
-
-<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
-<h6><a href="https://www.npmjs.com/package/bilza" target="_blank">bilza.js</a></h6>    
-<script>
-</script>
 </body>
 </html>
