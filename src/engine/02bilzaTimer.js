@@ -23,6 +23,16 @@ export default class BilzaTimer extends CompArrayObj {
             return curTime - this.timeStart;
         }
     }
+    setMsDelta(n) {
+        if (this.timeStart == null) {
+            return 0;
+        }
+        if (n > this.getTimeEnd() || n < 0) {
+            return 0;
+        }
+        this.timeStart = new Date().getTime() - n;
+        return this.timeStart;
+    }
     stop() {
         this.timeStart = null;
         if (this.interval !== null) {

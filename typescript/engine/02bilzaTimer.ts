@@ -33,6 +33,12 @@ let curTime = new Date().getTime();
 return curTime - this.timeStart;
 }
 }
+public setMsDelta(n :number) :number{
+if (this.timeStart ==null){ return 0;}//error bilza not running
+if (n > this.getTimeEnd() || n < 0){return 0;}//0 = this.timeStart
+this.timeStart = new Date().getTime() - n;
+return this.timeStart;
+}
 
 
 stop():boolean{

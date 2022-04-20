@@ -8,6 +8,7 @@ export default class BilzaTimer extends CompArrayObj {
     getTimeEnd(): number;
     setTimeEnd(n: number): number;
     protected getMsDelta(): number;
+    setMsDelta(n: number): number;
     stop(): boolean;
 }
 //# sourceMappingURL=02bilzaTimer.d.ts.map

@@ -18,5 +18,19 @@ slide02.addItem("Items are random and has no sequence",true,5);
 slide02.addItem("The store is locked but not secured",true,10);
 slide02.addItem("All the items are for sale",true,15);
 ///////////////////////////////////////////////////////////
+let rng = document.getElementById("range");
+rng.style.width = window.innerWidth;  
+rng.addEventListener("change",function(e){
+    // console.log( "rr",rng.value);
+    bil.setMsDelta(rng.value);
+});  
+let start = document.getElementById("start");
+start.addEventListener("click",function(e){
+    bil.stop();
+    bil.start();
+});  
 
+/////////////////////
 bil.start();
+
+
