@@ -56,6 +56,7 @@ export default class Text extends Component {
         return this.style.fontSize;
     }
     drawBorder(p) {
+        this.shadowsOff();
         if (this.d.flagDim == true) {
             this.style.strokeStyle = this.d.colorDimBorder;
         }
@@ -68,6 +69,12 @@ export default class Text extends Component {
         return true;
     }
     drawBg(p) {
+        if (this.d.flagBgShadow == true) {
+            this.shadowsOn();
+        }
+        else {
+            this.shadowsOff();
+        }
         if (this.d.flagDim == true) {
             this.style.fillStyle = this.d.colorDimBg;
         }
@@ -79,6 +86,12 @@ export default class Text extends Component {
         return true;
     }
     drawContent(p) {
+        if (this.d.flagTextShadow == true) {
+            this.shadowsOn();
+        }
+        else {
+            this.shadowsOff();
+        }
         if (this.d.flagDim == true) {
             this.style.fillStyle = this.d.colorDim;
             this.style.strokeStyle = this.d.colorDim;

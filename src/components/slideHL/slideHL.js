@@ -4,17 +4,17 @@ import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import Text from "../text/text.js";
 let dimSeq;
 export default class SlideHnL extends Component {
-    constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, contentHdg = "The Title", color = "#00ff37") {
+    constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "The Title", color = "#00ff37") {
         super(DataFn);
-        this.hdg = new Text(startTimeSeconds, endTimeSeconds, contentHdg, color);
-        this.hdg.d.x = 50;
-        this.hdg.d.y = 5;
+        this.hdg = new Text(startTimeSeconds, endTimeSeconds, content, color, 50, 2, 90, 12);
         this.hdg.d.padding = 5;
         this.hdg.d.margin = 5;
         this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
+        this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
         this.hdg.d.colorBg = lightenDarkenColor(color, 200);
         this.hdg.d.flagDrawBorder = true;
         this.hdg.d.flagDrawBg = true;
+        this.hdg.d.autoScaleFontSize = true;
         this.lis = [];
         this.drawLayer = DrawLayer.MiddleGround;
         this.setStartTime(startTimeSeconds * 1000);

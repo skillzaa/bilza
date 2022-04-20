@@ -9,19 +9,19 @@ export default class SlideHnL extends Component<ObjectData> {
 hdg :Text;
 lis :Text[];
 
-constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,contentHdg :string="The Title",color :string="#00ff37")
+constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="The Title",color :string="#00ff37")
 {
     super(DataFn);
-    this.hdg = new Text(startTimeSeconds,endTimeSeconds,contentHdg,color);
+    this.hdg = new Text(startTimeSeconds,endTimeSeconds,content,color,50,2,90,12);
     //------------------------------
-    this.hdg.d.x = 50;
-    this.hdg.d.y = 5;
     this.hdg.d.padding = 5;
     this.hdg.d.margin = 5;
     this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
+    this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
     this.hdg.d.colorBg = lightenDarkenColor(color,200);
     this.hdg.d.flagDrawBorder = true;
     this.hdg.d.flagDrawBg = true;
+    this.hdg.d.autoScaleFontSize = true;
     //------------------------------
     this.lis = [];
     this.drawLayer = DrawLayer.MiddleGround;

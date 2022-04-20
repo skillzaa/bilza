@@ -4,7 +4,7 @@ import Text from "../text/text.js";
 export default class SlideHnL extends Component<ObjectData> {
     hdg: Text;
     lis: Text[];
-    constructor(startTimeSeconds?: number, endTimeSeconds?: number, contentHdg?: string, color?: string);
+    constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string);
     addItem(content: string, startDim?: boolean, unDimSecond?: number): Text;
     width(p: Pack): number;
     height(p: Pack): number;

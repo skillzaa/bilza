@@ -12,6 +12,7 @@ let jt = bil.add.textTempl.jt("Jumbo Tron","blue",0,3);
 // let jt = bil.add.textTempl.h1("Jumbo Tron","blue",0,10);
 /////////////////////////
 let slide = bil.add.slideHL(1,25,"The is Slide # 1","#008000"); 
+
 slide.addItem("The fist item which is displayed",true,5);
 slide.addItem("222 2222 2222 2222",true,10);
 slide.addItem("Max security is required here",true,15);

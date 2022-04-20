@@ -76,6 +76,7 @@ return this.style.fontSize;
 }
 // =- AM USING drawRect (Empty rect) for border and not line
 drawBorder(p :Pack) :boolean{
+this.shadowsOff();
 if (this.d.flagDim == true){
     this.style.strokeStyle = this.d.colorDimBorder;
 } else {
@@ -93,6 +94,11 @@ p.drawRect(
 return true;
 }
 drawBg(p :Pack) :boolean{
+    if (this.d.flagBgShadow == true){
+        this.shadowsOn();
+    } else {
+        this.shadowsOff();
+    }   
 if (this.d.flagDim == true){
     this.style.fillStyle = this.d.colorDimBg;
 } else {
@@ -108,6 +114,11 @@ p.drawFillRect(
 return true;
 } 
 drawContent(p :Pack){
+if (this.d.flagTextShadow == true){
+    this.shadowsOn();
+} else {
+    this.shadowsOff();
+}       
 if (this.d.flagDim == true){
     this.style.fillStyle = this.d.colorDim;    
     this.style.strokeStyle = this.d.colorDim;      

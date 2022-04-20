@@ -109,10 +109,10 @@ this.style.shadowOffsetX = 0;
 this.style.shadowOffsetY = 0;
 }
 shadowsOn(){
-this.style.shadowBlur = 6;
+this.style.shadowBlur = 8;
 this.style.shadowOffsetX = 10;
 this.style.shadowOffsetY = 10;
-this.style.shadowColor = "grey";
+this.style.shadowColor = "#ada6a6";
 }
 resize(width :number,height :number):number{
  return 0;

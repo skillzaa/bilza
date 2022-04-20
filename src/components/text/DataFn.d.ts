@@ -16,6 +16,8 @@ export declare class ObjectData extends CompDataBase {
     colorDimBorder: string;
     flagDim: boolean;
     flagDrawBorder: boolean;
+    flagTextShadow: boolean;
+    flagBgShadow: boolean;
     flagDrawBg: boolean;
     autoScaleFontSize: boolean;
     maxDisplayChars: number;

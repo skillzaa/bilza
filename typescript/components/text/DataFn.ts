@@ -10,13 +10,13 @@ heightPercent :number;
 padding :number;
 margin :number;
 border :number;
-
+ 
 content :string;
 
 color :string;
 colorBorder :string;
 colorBg :string;
-
+//---remove later
 colorDim :string;
 colorDimBg :string;
 colorDimBorder :string;
@@ -24,10 +24,12 @@ colorDimBorder :string;
 flagDim :boolean;
 
 flagDrawBorder :boolean;
+flagTextShadow :boolean;
+flagBgShadow :boolean;
 flagDrawBg :boolean;
 autoScaleFontSize :boolean;
 
-maxDisplayChars :number;
+maxDisplayChars :number; //implemented
 xAlignment :XAlignment;
 yAlignment :YAlignment;
 
@@ -58,7 +60,8 @@ this.flagDrawBorder = false;
 this.autoScaleFontSize = false;
 this.flagDrawBg = false;
 this.maxDisplayChars = 200;
-
+this.flagTextShadow = false;
+this.flagBgShadow = false
 }
 };
  
