@@ -5,6 +5,7 @@ import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import Text from "../text/text.js";
 
 let dimSeq: [number, number];
+let unDimSeq: [number, number];
 export default class SlideHnL extends Component<ObjectData> {
 hdg :Text;
 lis :Text[];
@@ -54,7 +55,7 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
 // getLocalMsDelta(msDeltaGlobal :number){
 // return Math.abs(Math.ceil(msDeltaGlobal - this.getStartTime()));
 // }
-addItem(content :string, startDim:boolean=true, unDimSecond :number = Number.MAX_SAFE_INTEGER){
+addItem(content :string, startDim:boolean=true, unDimSecond :number = 2){
 let item = new Text(this.getStartTime(),this.getEndTime(), content,"#0000ff");   
     if (startDim == true){
         item.d.flagDim = true;

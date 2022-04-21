@@ -65,6 +65,12 @@ export default class Component {
         this.style.shadowOffsetX = 0;
         this.style.shadowOffsetY = 0;
     }
+    setShadow(shadowBlur = 8, shadowOffsetX = 10, shadowOffsetY = 10, shadowColor = "#ada6a6") {
+        this.style.shadowBlur = shadowBlur;
+        this.style.shadowOffsetX = shadowOffsetX;
+        this.style.shadowOffsetY = shadowOffsetY;
+        this.style.shadowColor = shadowColor;
+    }
     shadowsOn() {
         this.style.shadowBlur = 8;
         this.style.shadowOffsetX = 10;

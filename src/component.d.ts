@@ -27,6 +27,7 @@ export default class Component<T extends CompDataBase> implements IComponent {
     addTransition(msStart: number): T;
     checkCollision(x: number, y: number, p: Pack): boolean;
     shadowsOff(): void;
+    setShadow(shadowBlur?: number, shadowOffsetX?: number, shadowOffsetY?: number, shadowColor?: string): void;
     shadowsOn(): void;
     resize(width: number, height: number): number;
     drawBoundingRectangle(p: Pack): boolean;

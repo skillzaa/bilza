@@ -108,11 +108,17 @@ this.style.shadowBlur = 0;
 this.style.shadowOffsetX = 0;
 this.style.shadowOffsetY = 0;
 }
+setShadow(shadowBlur :number=8,shadowOffsetX :number=10,shadowOffsetY :number =10,shadowColor :string ="#ada6a6" ){
+this.style.shadowBlur = shadowBlur;
+this.style.shadowOffsetX = shadowOffsetX;
+this.style.shadowOffsetY = shadowOffsetY;
+this.style.shadowColor = shadowColor;
+}
 shadowsOn(){
-this.style.shadowBlur = 8;
-this.style.shadowOffsetX = 10;
-this.style.shadowOffsetY = 10;
-this.style.shadowColor = "#ada6a6";
+    this.style.shadowBlur = 8;
+    this.style.shadowOffsetX = 10;
+    this.style.shadowOffsetY = 10;
+    this.style.shadowColor = "#ada6a6";
 }
 resize(width :number,height :number):number{
  return 0;

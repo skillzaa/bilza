@@ -95,7 +95,10 @@ return true;
 }
 drawBg(p :Pack) :boolean{
     if (this.d.flagBgShadow == true){
-        this.shadowsOn();
+    this.style.shadowBlur = this.d.shadowBlur;
+    this.style.shadowOffsetX = this.d.shadowOffsetX;
+    this.style.shadowOffsetY = this.d.shadowOffsetY;
+    this.style.shadowColor = this.d.colorShadow;
     } else {
         this.shadowsOff();
     }   
@@ -115,7 +118,10 @@ return true;
 } 
 drawContent(p :Pack){
 if (this.d.flagTextShadow == true){
-    this.shadowsOn();
+    this.style.shadowBlur = this.d.shadowBlur;
+    this.style.shadowOffsetX = this.d.shadowOffsetX;
+    this.style.shadowOffsetY = this.d.shadowOffsetY;
+    this.style.shadowColor = this.d.colorShadow;
 } else {
     this.shadowsOff();
 }       

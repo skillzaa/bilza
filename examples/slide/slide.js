@@ -23,7 +23,7 @@ slide02.addItem("Items are random and has no sequence",true,5);
 slide02.addItem("The store is locked but not secured",true,10);
 slide02.addItem("All the items are for sale",true,15);
 ///////////////////////////////////////////////////////////
-
+ 
 let counter = document.getElementById("counter");
 // counter.style.padding = 55;
 let rng = document.getElementById("range");
