@@ -1,29 +1,30 @@
 import Bilza from "../../src/Bilza.js";
+import Text from "../../src/components/text/text.js";
+import Para from "../../src/components/para/para.js";
 
-let bil = new Bilza("bilza",800,300,96);
+let bil = new Bilza("bilza",600,300,95);
 let audio = new Audio('./tips.mp3');
 
-///////////////////////////////////
-bil.dynamicCanvas(90,90);
-bil.background.color = "#e0e0f9";
-let r = bil.add.bgShapes();
-/////////////////////////
-let jt = bil.add.textTempl.jt("Jumbo Tron","blue",0,3);
-// let jt = bil.add.textTempl.h1("Jumbo Tron","blue",0,10);
-/////////////////////////
-let slide = bil.add.slideHL(1,25,"The is Slide # 1","#008000"); 
 
-slide.addItem("The fist item which is displayed",true,5);
-slide.addItem("222 2222 2222 2222",true,10);
-slide.addItem("Max security is required here",true,15);
-///////////////////////////////////////////////////////////
-/////////////////////////
-let slide02 = bil.add.slideHL("The is Slide # Two",30,55); 
-slide02.addItem("Items are random and has no sequence",true,5);
-slide02.addItem("The store is locked but not secured",true,10);
-slide02.addItem("All the items are for sale",true,15);
-///////////////////////////////////////////////////////////
- 
+bil.add.bgShapes();
+// let jt = bil.add.textTempl.jt(0,60,"Jumbo Tron","yellow","green");
+// let h1 = bil.add.textTempl.h1(0,60,"Heading One","yellow","black");
+// let li = bil.add.textTempl.li(0,60,"This is li","black","yellow");
+
+let p = new Para(0,100,"abc");
+p.d.y = 30;
+p.d.x = 10;
+p.d.border = 1;
+p.d.colorBorder = "blue";
+p.shadowsOn();
+// p.d.fontColor = "white";
+bil.insert(p);
+p.addLine("Water gives you a healthy start because it helps in");
+p.addLine("proper circulation of nutrients and flush out toxins");
+
+
+////////////////////////////////////////////////////////////////////
+
 let counter = document.getElementById("counter");
 // counter.style.padding = 55;
 let rng = document.getElementById("range");
@@ -86,4 +87,4 @@ bil.drawEvent = (msDelta) => {
 // },
 // });  
   
-bil.draw();
+// bil.draw();
