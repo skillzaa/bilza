@@ -38,7 +38,8 @@ bil.insert(slide05);
 slide05.addLine("Nuts and Seeds are great for snacking between meals");
 slide05.addLine("They provide fiber,fats and vitimins");
 
-
+///extro
+let extro  = bil.add.textTempl.jt(90,96,"Presentation created with bilza.js");
 
 bil.draw();
 ////////////////////////////////////////////////////////////////////
