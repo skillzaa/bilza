@@ -2,12 +2,15 @@ import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 import Text from "../text/text.js";
 export default class Para extends Component {
-    constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "The Title", color = "#00ff37") {
+    constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", color = "#00ff37") {
         super(DataFn);
         this.lines = [];
         this.drawLayer = DrawLayer.MiddleGround;
         this.setStartTime(startTimeSeconds * 1000);
         this.setEndTime(endTimeSeconds * 1000);
+        if (content !== "") {
+            this.addLine(content);
+        }
     }
     addLine(content) {
         let item = new Text(this.getStartTime(), this.getEndTime(), content, "#0000ff");

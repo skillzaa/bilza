@@ -6,7 +6,7 @@ import Text from "../text/text.js";
 
 let dimSeq: [number, number];
 let unDimSeq: [number, number];
-export default class SlideHnL extends Component<ObjectData> {
+export default class SlideHL extends Component<ObjectData> {
 hdg :Text;
 lis :Text[];
 

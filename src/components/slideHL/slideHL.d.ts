@@ -1,7 +1,7 @@
 import { Component, Pack } from "../../Bilza.js";
 import { ObjectData } from "./DataFn.js";
 import Text from "../text/text.js";
-export default class SlideHnL extends Component<ObjectData> {
+export default class SlideHL extends Component<ObjectData> {
     hdg: Text;
     lis: Text[];
     constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string);

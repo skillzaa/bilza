@@ -13,6 +13,7 @@ import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
 import SlideHL from "../components/slideHL/slideHL.js";
+import SlideHP from "../components/slideHP/slideHP.js";
 //-----------composit componenets
 // import TextComp from "../composites/textComp/textComp.js";
 //---Templates 
@@ -32,6 +33,11 @@ this.gridTempl = new GridTemplates(comps);
 
 slideHL(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,contentHdg :string="The Title",themeColor :string="#00ff37") {
     let bs = new SlideHL(startTimeSeconds,endTimeSeconds,contentHdg,themeColor);
+    this.addToArray.push(bs);
+    return bs;        
+}
+slideHP(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,contentHdg :string="The Title",themeColor :string="#00ff37") {
+    let bs = new SlideHP(startTimeSeconds,endTimeSeconds,contentHdg,themeColor);
     this.addToArray.push(bs);
     return bs;        
 }

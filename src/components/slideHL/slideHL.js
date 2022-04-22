@@ -4,7 +4,7 @@ import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import Text from "../text/text.js";
 let dimSeq;
 let unDimSeq;
-export default class SlideHnL extends Component {
+export default class SlideHL extends Component {
     constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "The Title", color = "#00ff37") {
         super(DataFn);
         this.hdg = new Text(startTimeSeconds, endTimeSeconds, content, color, 50, 2, 90, 12);

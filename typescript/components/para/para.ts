@@ -1,13 +1,12 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
-// import TextTemplates from "../../compFactory/textTemplates.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import Text from "../text/text.js";
 
 export default class Para extends Component<ObjectData> {
 lines :Text[];
 
-constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="The Title",color :string="#00ff37")
+constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",color :string="#00ff37")
 {
     super(DataFn);
     //------------------------------
@@ -15,7 +14,9 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
     this.drawLayer = DrawLayer.MiddleGround;
     this.setStartTime(startTimeSeconds * 1000); //into mili sec
     this.setEndTime(endTimeSeconds * 1000);
-    
+        if (content !== ""){
+            this.addLine(content); // was missing
+        }    
 }
 
 addLine(content :string){

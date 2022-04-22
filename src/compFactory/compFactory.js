@@ -9,6 +9,7 @@ import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
 import SlideHL from "../components/slideHL/slideHL.js";
+import SlideHP from "../components/slideHP/slideHP.js";
 import TextTemplates from "./textTemplates.js";
 import GridTemplates from "./gridTemplates.js";
 export default class CompFactory {
@@ -19,6 +20,11 @@ export default class CompFactory {
     }
     slideHL(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, contentHdg = "The Title", themeColor = "#00ff37") {
         let bs = new SlideHL(startTimeSeconds, endTimeSeconds, contentHdg, themeColor);
+        this.addToArray.push(bs);
+        return bs;
+    }
+    slideHP(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, contentHdg = "The Title", themeColor = "#00ff37") {
+        let bs = new SlideHP(startTimeSeconds, endTimeSeconds, contentHdg, themeColor);
         this.addToArray.push(bs);
         return bs;
     }
