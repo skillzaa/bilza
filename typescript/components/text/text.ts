@@ -75,7 +75,7 @@ for (let i = 1; i < 300; i++) {
 return this.style.fontSize;
 }
 // =- AM USING drawRect (Empty rect) for border and not line
-drawBorder(p :Pack) :boolean{
+private drawBorder(p :Pack) :boolean{
 this.shadowsOff();
 if (this.d.flagDim == true){
     this.style.strokeStyle = this.d.colorDimBorder;
@@ -93,12 +93,9 @@ p.drawRect(
     this.style);
 return true;
 }
-drawBg(p :Pack) :boolean{
+private drawBg(p :Pack) :boolean{
     if (this.d.flagBgShadow == true){
-    this.style.shadowBlur = this.d.shadowBlur;
-    this.style.shadowOffsetX = this.d.shadowOffsetX;
-    this.style.shadowOffsetY = this.d.shadowOffsetY;
-    this.style.shadowColor = this.d.colorShadow;
+        this.shadowsOn();
     } else {
         this.shadowsOff();
     }   
@@ -116,7 +113,7 @@ p.drawFillRect(
     this.style);
 return true;
 } 
-drawContent(p :Pack){
+private drawContent(p :Pack){
 if (this.d.flagTextShadow == true){
     this.style.shadowBlur = this.d.shadowBlur;
     this.style.shadowOffsetX = this.d.shadowOffsetX;

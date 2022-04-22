@@ -11,9 +11,9 @@ export default class Text extends Component<ObjectData> {
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     setFontSize(p: Pack): number;
-    drawBorder(p: Pack): boolean;
-    drawBg(p: Pack): boolean;
-    drawContent(p: Pack): void;
+    private drawBorder;
+    private drawBg;
+    private drawContent;
     private getX;
     private getY;
 }

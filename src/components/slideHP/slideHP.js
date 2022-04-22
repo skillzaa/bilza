@@ -8,8 +8,7 @@ let tt = new TextTemplates();
 export default class SlideHP extends Component {
     constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "The Title", color = "#00ff37") {
         super(DataFn);
-        this.hdg = new Text(startTimeSeconds, endTimeSeconds, content, color);
-        this.setHdg(color);
+        this.hdg = this.getHdg(startTimeSeconds, endTimeSeconds, content, color);
         this.para = new Para(startTimeSeconds, endTimeSeconds);
         this.setPara();
         this.drawLayer = DrawLayer.MiddleGround;
@@ -23,18 +22,23 @@ export default class SlideHP extends Component {
         this.para.d.colorBorder = "blue";
         this.para.shadowsOn();
     }
-    setHdg(color) {
-        this.hdg.d.x = 50;
-        this.hdg.d.y = 50;
-        this.hdg.d.margin = 0;
-        this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
-        this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Mid;
-        this.hdg.d.autoScaleFontSize = true;
-        this.hdg.d.flagDrawBg = true;
-        this.hdg.d.flagDrawBorder = true;
-        this.hdg.d.flagBgShadow = true;
-        this.hdg.d.border = 4;
-        this.hdg.d.colorBg = lightenDarkenColor(color, 60);
+    getHdg(startTimeSeconds, endTimeSeconds, content, color) {
+        let txt = new Text(this.getStartTime(), this.getEndTime(), content, color);
+        txt.d.x = 50;
+        txt.d.y = 25;
+        txt.d.border = 4;
+        txt.d.margin = 0;
+        txt.d.widthPercent = 80;
+        txt.d.heightPercent = 15;
+        txt.d.xAlignment = txt.xAlignmentOptions.Mid;
+        txt.d.yAlignment = txt.yAlignmentOptions.Mid;
+        txt.d.autoScaleFontSize = true;
+        txt.d.flagDrawBg = true;
+        txt.d.flagDrawBorder = true;
+        txt.d.flagBgShadow = true;
+        txt.d.colorBg = lightenDarkenColor(color, 60);
+        txt.d.flagBgShadow = true;
+        return txt;
     }
     addLine(content) {
         this.para.addLine(content);

@@ -13,16 +13,14 @@ para :Para;
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="The Title",color :string="#00ff37")
 {
     super(DataFn);
-this.hdg = new Text(startTimeSeconds,endTimeSeconds,content,color);
-this.setHdg(color);
-// this.hdg = tt.jt(0,60,"Jumbo Tron","yellow","green");
-    //------------------------------
-    this.para = new Para(startTimeSeconds,endTimeSeconds);
-    this.setPara();
-    //............................//
-    this.drawLayer = DrawLayer.MiddleGround;
-    this.setStartTime(startTimeSeconds * 1000); //into mili sec
-    this.setEndTime(endTimeSeconds * 1000);
+this.hdg  = this.getHdg(startTimeSeconds,endTimeSeconds,content,color);
+//------------------------------
+this.para = new Para(startTimeSeconds,endTimeSeconds);
+this.setPara();
+//............................//
+this.drawLayer = DrawLayer.MiddleGround;
+this.setStartTime(startTimeSeconds * 1000); //into mili sec
+this.setEndTime(endTimeSeconds * 1000);
     
 }
 setPara(){
@@ -32,18 +30,28 @@ this.para.d.border = 1;
 this.para.d.colorBorder = "blue";
 this.para.shadowsOn();
 }
-setHdg(color :string){
-this.hdg.d.x = 50;
-this.hdg.d.y = 50;
-this.hdg.d.margin = 0;
-this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
-this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Mid;
-this.hdg.d.autoScaleFontSize = true;
-this.hdg.d.flagDrawBg = true;
-this.hdg.d.flagDrawBorder = true;
-this.hdg.d.flagBgShadow = true;
-this.hdg.d.border = 4;
-this.hdg.d.colorBg = lightenDarkenColor(color,60);
+getHdg(startTimeSeconds :number,endTimeSeconds:number,content :string,color :string):Text{
+let txt = new Text(this.getStartTime(),this.getEndTime(),content,color);
+
+txt.d.x = 50;
+txt.d.y = 25;
+txt.d.border = 4;
+txt.d.margin = 0;
+
+txt.d.widthPercent = 80;
+txt.d.heightPercent = 15;
+
+txt.d.xAlignment = txt.xAlignmentOptions.Mid;
+txt.d.yAlignment = txt.yAlignmentOptions.Mid;
+
+txt.d.autoScaleFontSize = true; //if this is not true setFontSize will not work.also widthPercent etc should be set
+txt.d.flagDrawBg = true;
+txt.d.flagDrawBorder = true;
+txt.d.flagBgShadow = true;
+
+txt.d.colorBg = lightenDarkenColor(color,60);
+txt.d.flagBgShadow = true;
+return txt;
 }
 
 addLine(content :string){
@@ -51,7 +59,7 @@ this.para.addLine(content);
 }
 
 draw(p:Pack):boolean{
-this.hdg.setFontSize(p);    
+this.hdg.setFontSize(p);
 this.hdg.draw(p);
 this.para.draw(p);    
 return true;

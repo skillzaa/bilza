@@ -7,18 +7,38 @@ let audio = new Audio('./tips.mp3');
 
 bil.add.bgShapes();
 
-let slide = new SlideHP(0,5,"Start With Water","red");
-
+////////// Starting 
+let intro  = bil.add.textTempl.jt(0,11,"5 Tips to Start Your Day in a Healthy Way","green");
+intro.d.widthPercent = 95;
+intro.d.heightPercent = 60;
+///////////////////////////slide 1
+let slide = new SlideHP(12,25,"Start With Water","green");
 bil.insert(slide);
 slide.addLine("Water gives you a healthy start beacuase it helps in");
 slide.addLine("proper circulation of nutrients and flush out toxins");
-// let jt = bil.add.textTempl.jt(0,60,"Jumbo Tron","yellow","green");
-// let h1 = bil.add.textTempl.h1(0,60,"Heading One","yellow","black");
-// let li = bil.add.textTempl.li(0,60,"This is li","black","yellow");
+
+///////////////////////////slide 2
+let slide02 = new SlideHP(25,43,"Breakfast at the Right Time","green");
+bil.insert(slide02);
+slide02.addLine("Have breakfast with in first hour of waking up");
+slide02.addLine("Start with vegitable juice and follow up on egg or sprout");
+///////////////////////////slide 3
+let slide03 = new SlideHP(43,57,"Exercise Regularly","green");
+bil.insert(slide03);
+slide03.addLine("Workout for atleast 15 minutes in the morning");
+slide03.addLine("You can do jogging, planks, squats or Suria Namaskar");
+///////////////////////////slide 4
+let slide04 = new SlideHP(57,70,"Eat Balanced Meal","green");
+bil.insert(slide04);
+slide04.addLine("Never skip any food group like carbs or fats");
+slide04.addLine("No carb dies may not work");
+///////////////////////////slide 5
+let slide05 = new SlideHP(71,95,"Healthy Snacks","green");
+bil.insert(slide05);
+slide05.addLine("Nuts and Seeds are great for snacking between meals");
+slide05.addLine("They provide fiber,fats and vitimins");
 
 
-// p.addLine("Water gives you a healthy start because it helps in");
-// p.addLine("proper circulation of nutrients and flush out toxins");
 
 bil.draw();
 ////////////////////////////////////////////////////////////////////

@@ -70,10 +70,7 @@ export default class Text extends Component {
     }
     drawBg(p) {
         if (this.d.flagBgShadow == true) {
-            this.style.shadowBlur = this.d.shadowBlur;
-            this.style.shadowOffsetX = this.d.shadowOffsetX;
-            this.style.shadowOffsetY = this.d.shadowOffsetY;
-            this.style.shadowColor = this.d.colorShadow;
+            this.shadowsOn();
         }
         else {
             this.shadowsOff();

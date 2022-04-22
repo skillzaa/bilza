@@ -7,7 +7,7 @@ export default class SlideHP extends Component<ObjectData> {
     para: Para;
     constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string);
     setPara(): void;
-    setHdg(color: string): void;
+    getHdg(startTimeSeconds: number, endTimeSeconds: number, content: string, color: string): Text;
     addLine(content: string): void;
     draw(p: Pack): boolean;
 }
