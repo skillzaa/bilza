@@ -33,7 +33,7 @@ bil.insert(slide04);
 slide04.addLine("Never skip any food group like carbs or fats");
 slide04.addLine("No carb dies may not work");
 ///////////////////////////slide 5
-let slide05 = new SlideHP(71,95,"Healthy Snacks","green");
+let slide05 = new SlideHP(71,90,"Healthy Snacks","green");
 bil.insert(slide05);
 slide05.addLine("Nuts and Seeds are great for snacking between meals");
 slide05.addLine("They provide fiber,fats and vitimins");
