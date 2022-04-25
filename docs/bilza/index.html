@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
+    <script src="../misc/prism.js"></script>
+    <link rel="stylesheet" href="../misc/prism.css">   
+  
+    <link rel="stylesheet" href="../misc/custom.css">   
+
+    <title>Bilza Docs</title>
+</head>
+<body>
+<h6><a href="/bilza/index.html">Home</a></h6>
+
+<h1>Bilza Docs</h1>   
+
+<h2>Bilza.js</h2>
+<ol>
+<li><h3>insert</h3></li>
+insert(comp: IComponent): IComponent;
+<li><h3>resize</h3></li>
+resize(width?: number, height?: number): void;
+<li><h3>chqCollision</h3></li>
+Every component needs to implement this its self. By default it will return null.
+chqCollision(x :number, y :number):IComponent | null;
+<li><h3>getTimeEnd</h3></li>
+getTimeEnd(): number;
+<li><h3>setTimeEnd</h3></li>
+setTimeEnd(n: number): number;
+<li><h3>setMsDelta</h3></li>
+setMsDelta(n: number): number;
+<li><h3>stop</h3></li>
+stop(): boolean;
+<li><h3>setCanvas</h3></li>
+setCanvas(width?: number, height?: number): void;
+<li><h3>getCanvasHeight</h3></li>
+getCanvasHeight(): number;
+<li><h3>getCanvasWidth</h3></li>
+getCanvasWidth(): number;
+<li><h3>start</h3></li>
+start()
+<li><h3>draw</h3></li>
+draw():boolean
+<li><h3>drawEvent</h3></li>
+drawEvent(msDelta :number):boolean
+<li><h3>mergeClip</h3></li>
+mergeClip(clip :IComponent[]):boolean
+</ol>
+
+<hr/>
+<h1>Sub Objects</h1>
+add 
+background :Background;
+
+</body>
+</html>
