@@ -1,7 +1,9 @@
 import CompDataBase from "../../design/CompDataBase.js";
 import { XAlignment } from "../compsDesign/xAlignment.js";
-import { YAlignment } from "../compsDesign/yAlignment.js";
+import { YAlignment } from "../compsDesign/yAlignment.js.js";
 export declare class ObjectData extends CompDataBase {
+    widthPercent: number;
+    heightPercent: number;
     padding: number;
     margin: number;
     border: number;
@@ -15,6 +17,7 @@ export declare class ObjectData extends CompDataBase {
     flagDrawBg: boolean;
     flagTextShadow: boolean;
     flagBgShadow: boolean;
+    dynamicFontSize: boolean;
     maxDisplayChars: number;
     xAlignment: XAlignment;
     yAlignment: YAlignment;

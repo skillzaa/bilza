@@ -37,10 +37,11 @@ let msDelta = this.getMsDelta();
     //stop if completed
 if(msDelta >= this.timeEnd){ this.stop();}     
 this.pack.clearCanvas();          
+//--keep the draw sequence : bg-bg-middle-foreground
 this.pack.drawBackground(this.background.color); //fornow         
 this.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
-this.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
 this.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
+this.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
 ///-----connection with outer world
 this.drawEvent(msDelta);
 return true;

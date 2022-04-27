@@ -33,8 +33,8 @@ export default class Bilza extends BilzaCanvasSetup {
         this.pack.clearCanvas();
         this.pack.drawBackground(this.background.color);
         this.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
-        this.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);
         this.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
+        this.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);
         this.drawEvent(msDelta);
         return true;
     }

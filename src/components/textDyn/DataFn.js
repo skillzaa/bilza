@@ -1,6 +1,6 @@
 import CompDataBase from "../../design/CompDataBase.js";
 import { XAlignment } from "../compsDesign/xAlignment.js";
-import { YAlignment } from "../compsDesign/yAlignment.js";
+import { YAlignment } from "../compsDesign/yAlignment.js.js";
 export class ObjectData extends CompDataBase {
     constructor() {
         super();
@@ -13,9 +13,12 @@ export class ObjectData extends CompDataBase {
         this.colorBorder = "black";
         this.colorBg = "#e1f4e1";
         this.color = "black";
+        this.widthPercent = 10;
+        this.heightPercent = 10;
         this.fontSize = 25;
         this.flagDrawContent = true;
         this.flagDrawBorder = false;
+        this.dynamicFontSize = true;
         this.flagDrawBg = false;
         this.maxDisplayChars = 200;
         this.flagTextShadow = false;
