@@ -8,7 +8,7 @@ export default class Text extends Component<ObjectData> {
     xAlignmentOptions:typeof XAlignment;   
     yAlignmentOptions:typeof YAlignment;  
  
-//Args==> content-color-x-y-widthPerc-heightPerc
+//Args==> start-end-content-color-x-y-widthPerc-heightPerc
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",color :string="black",x:number=0,y:number =0, widthPercent:number=10,heightPercent:number=10){
     super(DataFn);
     this.xAlignmentOptions = XAlignment;
@@ -37,16 +37,13 @@ height(p:Pack):number {
 return (p.textWidth("W",this.style)+ (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
 }
 
-update(msDelta: number, p: Pack): boolean {
-//--on every update setFontSize is must since the user can change width and hight Perc any time. Bilza lib is responsive.
-//--Also to use text comp update one has to use super.update() when overwride.
-if (this.d.autoScaleFontSize == true){
-    this.setFontSize(p);
-}
-    return true;
-}
 
 draw(p:Pack):boolean{
+//--on every update setFontSize is must since the user can change width and hight Perc any time. Bilza lib is responsive.
+//--Also to use text comp update one has to use super.update() when overwride.
+if (this.d.dynamicFontSize == true){
+    this.setDynamicFontSize(p);
+}    
 if (this.d.flagDrawBg == true){
     this.drawBg(p);
 }
@@ -59,16 +56,16 @@ this.drawContent(p);
 
 return true;
 } 
-public setFontSize(p :Pack):number{
+public setDynamicFontSize(p :Pack):number{
 let reqWd = (p.canvasWidth() /100 * this.d.widthPercent);
 let reqHt = (p.canvasWidth() /100 * this.d.heightPercent);
 for (let i = 1; i < 300; i++) {
-    this.style.fontSize = i; 
+    this.d.fontSize = i; 
     let newWidth = this.width(p);
     let newHeight = this.height(p);
 //---which Ever is reached first
     if (newWidth >= reqWd || newHeight >= reqHt){
-        return this.style.fontSize;
+        return this.d.fontSize;
     }   
 }
 
@@ -82,7 +79,8 @@ this.shadowsOff();
 
 this.style.fillStyle = this.d.colorBorder;
 this.style.strokeStyle = this.d.colorBorder;          
-this.style.lineWidth = this.d.border;    
+this.style.lineWidth = this.d.border;  
+this.style.fontSize = this.d.fontSize;  
 
 p.drawRect(
     this.getX(p) + this.d.margin,
@@ -100,6 +98,7 @@ private drawBg(p :Pack) :boolean{
     }   
     this.style.fillStyle = this.d.colorBg;
     this.style.strokeStyle = this.d.colorBg;
+    this.style.fontSize = this.d.fontSize;
       
 p.drawFillRect(
     this.getX(p) + this.d.margin,
@@ -119,7 +118,9 @@ if (this.d.flagTextShadow == true){
     this.shadowsOff();
 }       
     this.style.fillStyle = this.d.color;    
-    this.style.strokeStyle = this.d.color;      
+    this.style.strokeStyle = this.d.color; 
+    //---must--the this.d.fontSize if dynamicFontSize = true will adjest     
+    this.style.fontSize = this.d.fontSize;       
        
 p.drawText(this.d.content.substring(0,this.d.maxDisplayChars),
     this.getX(p) + (this.d.margin + this.d.border + this.d.padding),

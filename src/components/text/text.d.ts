@@ -8,9 +8,8 @@ export default class Text extends Component<ObjectData> {
     constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number, widthPercent?: number, heightPercent?: number);
     width(p: Pack): number;
     height(p: Pack): number;
-    update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    setFontSize(p: Pack): number;
+    setDynamicFontSize(p: Pack): number;
     private drawBorder;
     private drawBg;
     private drawContent;

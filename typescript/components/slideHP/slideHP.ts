@@ -44,7 +44,7 @@ txt.d.heightPercent = 15;
 txt.d.xAlignment = txt.xAlignmentOptions.Mid;
 txt.d.yAlignment = txt.yAlignmentOptions.Mid;
 
-txt.d.autoScaleFontSize = true; //if this is not true setFontSize will not work.also widthPercent etc should be set
+txt.d.dynamicFontSize = true; //if this is not true setFontSize will not work.also widthPercent etc should be set
 txt.d.flagDrawBg = true;
 txt.d.flagDrawBorder = true;
 txt.d.flagBgShadow = true;
@@ -59,7 +59,7 @@ this.para.addLine(content);
 }
 
 draw(p:Pack):boolean{
-this.hdg.setFontSize(p);
+this.hdg.setDynamicFontSize(p);
 this.hdg.draw(p);
 this.para.draw(p);    
 return true;

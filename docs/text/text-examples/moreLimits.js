@@ -1,4 +1,4 @@
-import Bilza from "../../src/Bilza.js";
+import Bilza from "../../../src/Bilza.js";
 let bil = new Bilza("bilza");
 bil.dynamicCanvas(90,90);
 let g = bil.add.gridTempl.dashed();

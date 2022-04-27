@@ -32,7 +32,7 @@ export default class SlideHP extends Component {
         txt.d.heightPercent = 15;
         txt.d.xAlignment = txt.xAlignmentOptions.Mid;
         txt.d.yAlignment = txt.yAlignmentOptions.Mid;
-        txt.d.autoScaleFontSize = true;
+        txt.d.dynamicFontSize = true;
         txt.d.flagDrawBg = true;
         txt.d.flagDrawBorder = true;
         txt.d.flagBgShadow = true;
@@ -44,7 +44,7 @@ export default class SlideHP extends Component {
         this.para.addLine(content);
     }
     draw(p) {
-        this.hdg.setFontSize(p);
+        this.hdg.setDynamicFontSize(p);
         this.hdg.draw(p);
         this.para.draw(p);
         return true;

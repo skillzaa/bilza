@@ -9,7 +9,7 @@ export default class TextTemplates {
         txt.d.margin = 0;
         txt.d.xAlignment = txt.xAlignmentOptions.Mid;
         txt.d.yAlignment = txt.yAlignmentOptions.Mid;
-        txt.d.autoScaleFontSize = true;
+        txt.d.dynamicFontSize = true;
         txt.d.flagDrawBg = true;
         txt.d.flagDrawBorder = true;
         txt.d.flagBgShadow = true;
@@ -25,7 +25,7 @@ export default class TextTemplates {
         txt.d.margin = 0;
         txt.d.xAlignment = txt.xAlignmentOptions.Mid;
         txt.d.yAlignment = txt.yAlignmentOptions.Top;
-        txt.d.autoScaleFontSize = true;
+        txt.d.dynamicFontSize = true;
         txt.d.flagDrawBg = true;
         txt.d.flagDrawBorder = true;
         txt.d.flagBgShadow = true;
@@ -45,7 +45,7 @@ export default class TextTemplates {
         txt.d.margin = 0;
         txt.d.xAlignment = txt.xAlignmentOptions.Mid;
         txt.d.yAlignment = txt.yAlignmentOptions.Top;
-        txt.d.autoScaleFontSize = true;
+        txt.d.dynamicFontSize = true;
         txt.d.flagDrawBg = false;
         txt.d.flagDrawBorder = false;
         txt.d.flagBgShadow = false;

@@ -22,7 +22,7 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
     this.hdg.d.colorBg = lightenDarkenColor(color,200);
     this.hdg.d.flagDrawBorder = true;
     this.hdg.d.flagDrawBg = true;
-    this.hdg.d.autoScaleFontSize = true;
+    this.hdg.d.dynamicFontSize = true;
     //------------------------------
     this.lis = [];
     this.drawLayer = DrawLayer.MiddleGround;
@@ -94,7 +94,7 @@ let y = this.d.listStartY;
         for (let i = 0; i < this.lis.length; i++) {
             this.lis[i].d.y = y;
             if (this.d.applyWdHtPerc == true){
-                this.lis[i].setFontSize(p);
+                this.lis[i].setDynamicFontSize(p);
             }
             this.lis[i].d.maxDisplayChars = this.d.maxLiChars;
             this.lis[i].draw(p);

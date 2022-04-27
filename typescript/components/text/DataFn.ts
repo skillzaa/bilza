@@ -3,33 +3,29 @@ import {XAlignment} from "./xAlignment.js";
 import {YAlignment} from "./yAlignment.js";
 
 export class ObjectData extends CompDataBase{
-   
+//--width and height perc are applicable only if dynamicFontSize = true    
 widthPercent :number;
 heightPercent :number;
 //margin and padding is not to be drawn just counted-they r blank spaces
 padding :number;
 margin :number;
 border :number;
- 
+//-if autoScaleFontSize = true then fontSize is changed dynamically to adjest widthPercentage and heightPercentage. if dynamicFontSize == false then the normal fontSize is used. 
+fontSize :number;
+ //--content
 content :string;
-
+//--colors
 color :string;
 colorBorder :string;
 colorBg :string;
-//---remove later
-// colorDim :string;
-// colorDimBg :string;
-// colorDimBorder :string;
-
-// flagDim :boolean;
-
+//--Flags
 flagDrawContent :boolean;
 flagDrawBorder :boolean;
+flagDrawBg :boolean;
 flagTextShadow :boolean;
 flagBgShadow :boolean;
-flagDrawBg :boolean;
-autoScaleFontSize :boolean;
-
+dynamicFontSize :boolean;
+//--Misc
 maxDisplayChars :number; //implemented
 xAlignment :XAlignment;
 yAlignment :YAlignment;
@@ -48,18 +44,14 @@ this.border = 2;
 this.colorBorder = "black";
 this.colorBg = "#e1f4e1";
 this.color = "black" ; 
-//---- these are just flags ??????????
-// this.colorDim = "#8e8d8d";
-// this.colorDimBg = "#e8e5e5";
-// this.colorDimBorder = "#8e8d8d";
-// this.flagDim = false;
 
 this.widthPercent = 10;
 this.heightPercent = 10;
+this.fontSize = 25;
 
 this.flagDrawContent = true;
 this.flagDrawBorder = false;
-this.autoScaleFontSize = false;
+this.dynamicFontSize = true;
 this.flagDrawBg = false;
 this.maxDisplayChars = 200;
 this.flagTextShadow = false;

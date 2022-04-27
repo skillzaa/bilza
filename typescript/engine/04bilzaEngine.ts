@@ -1,17 +1,18 @@
 import {DrawLayer,IComponent} from "../Bilza.js";
+import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 export default class Bilza extends BilzaCanvasSetup {
 //==================PUBLIC API
-// public add :CompFactory; 
+public add :CompFactory; 
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",canvasWidth=800,canvasHeight=350,timeEnd=60){
 //internal seq of args is different from enternal seq of args    
 super(canvasId,canvasWidth,canvasHeight,timeEnd);
 this.background = new Background();
-// this.add = new CompFactory(this.comps);
+this.add = new CompFactory(this.comps);
 } 
 
 //-- this is not in bilzaTimer due to this.draw

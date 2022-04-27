@@ -16,37 +16,31 @@
 <!-- XXXXXXXXXXXXXX--BODY--XXXXXXXXXXXXXXXXXXX -->
 <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
 <body>
- <h6><a href="/bilza/index.html">Home</a></h6>
+ <h6><a href="/index.html">Home</a></h6>
 
- <canvas id="bilza"></canvas>
-
-
+ <h2>Growing Text</h2>
+ <canvas id="growingText"></canvas>
+ <script type="module" src="./growingText.js"></script>
+ 
 <h3>Code</h3>
 <pre>
 <code class="language-javascript">
-import Bilza from "../../src/Bilza.js";
-let bil = new Bilza("bilza");
-bil.dynamicCanvas(90,90);
-let g = bil.add.gridTempl.dashed();
+import Bilza from "../../build/Bilza_0_0_13.js";
 
-let first = bil.add.textTempl.hdg(
-    "This is the Title",
-    "#0000ff",null,0,0,10,10);
-first.d.xAlignment = first.xAlignmentOptions.Left;
+let bil = new Bilza("growingText",800,300);
+let g = bil.add.gridTempl.dashed();
+let first = bil.add.text(0,60,"Text Sample","red");
 //////////////////////////////////
 bil.start();
 ///////////////////////////////
-setInterval(function(){
+let interval = setInterval(function(){
+    if (first.d.widthPercent > 200) {clearInterval(interval); }    
 first.d.widthPercent += 1; 
 first.d.heightPercent += 1; 
 },150);    
 </code>
 </pre>
 <h6>Image</h6>
-<!-- <img src="../images/headingTestingLimits.png" alt=""> -->
-
-<script type="module" src="./textGrow.js"></script>
-
 
 <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
 <h6><a href="https://www.npmjs.com/package/bilza" target="_blank">bilza.js</a></h6>    

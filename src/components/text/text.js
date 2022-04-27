@@ -26,13 +26,10 @@ export default class Text extends Component {
     height(p) {
         return (p.textWidth("W", this.style) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
     }
-    update(msDelta, p) {
-        if (this.d.autoScaleFontSize == true) {
-            this.setFontSize(p);
-        }
-        return true;
-    }
     draw(p) {
+        if (this.d.dynamicFontSize == true) {
+            this.setDynamicFontSize(p);
+        }
         if (this.d.flagDrawBg == true) {
             this.drawBg(p);
         }
@@ -44,15 +41,15 @@ export default class Text extends Component {
         }
         return true;
     }
-    setFontSize(p) {
+    setDynamicFontSize(p) {
         let reqWd = (p.canvasWidth() / 100 * this.d.widthPercent);
         let reqHt = (p.canvasWidth() / 100 * this.d.heightPercent);
         for (let i = 1; i < 300; i++) {
-            this.style.fontSize = i;
+            this.d.fontSize = i;
             let newWidth = this.width(p);
             let newHeight = this.height(p);
             if (newWidth >= reqWd || newHeight >= reqHt) {
-                return this.style.fontSize;
+                return this.d.fontSize;
             }
         }
         return this.style.fontSize;
@@ -62,6 +59,7 @@ export default class Text extends Component {
         this.style.fillStyle = this.d.colorBorder;
         this.style.strokeStyle = this.d.colorBorder;
         this.style.lineWidth = this.d.border;
+        this.style.fontSize = this.d.fontSize;
         p.drawRect(this.getX(p) + this.d.margin, this.getY(p) + this.d.margin, this.width(p), this.height(p), this.style);
         return true;
     }
@@ -74,6 +72,7 @@ export default class Text extends Component {
         }
         this.style.fillStyle = this.d.colorBg;
         this.style.strokeStyle = this.d.colorBg;
+        this.style.fontSize = this.d.fontSize;
         p.drawFillRect(this.getX(p) + this.d.margin, this.getY(p) + this.d.margin, this.width(p), this.height(p), this.style);
         return true;
     }
@@ -89,6 +88,7 @@ export default class Text extends Component {
         }
         this.style.fillStyle = this.d.color;
         this.style.strokeStyle = this.d.color;
+        this.style.fontSize = this.d.fontSize;
         p.drawText(this.d.content.substring(0, this.d.maxDisplayChars), this.getX(p) + (this.d.margin + this.d.border + this.d.padding), this.getY(p) + (this.d.margin + this.d.border + this.d.padding), this.style);
     }
     getX(p) {
