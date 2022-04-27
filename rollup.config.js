@@ -10,7 +10,7 @@ export default [
     input: './src/Bilza.js',
 
     output: {
-      file: './build/Bilza_lean_01.js',
+      file: './build/Bilza_0_0_13.js',
       format: 'es',
       sourcemap: devMode ? 'inline' : false,
       plugins: [

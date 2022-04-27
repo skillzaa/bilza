@@ -10,14 +10,8 @@ export default interface IComponent{
     //This is read only means cant be changed from outside and its value is set once in contructor internally.
     drawLayer:DrawLayer; //gone into an object--just like ObjectData
 
-    //-we can externally select and de-select components.
-    //--once a comp is selected that can trigger actions internally or externally in bilzaa lib.
-    getSelected():boolean;
-    setSelected(b :boolean):boolean;
-    //--externally set display
-    getDisplay():boolean;
-    setDisplay(b :boolean):boolean;
 
+    
     //--we can set the start frame and end frame externally
     getStartTime():number;
     setStartTime(n :number):number;

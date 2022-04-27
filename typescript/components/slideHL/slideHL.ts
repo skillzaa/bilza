@@ -76,7 +76,7 @@ return 0;
 update(msDelta: number, p: Pack): boolean {
     for (let i = 0; i < this.lis.length; i++) {
         const element = this.lis[i];
-        element.compData.apply(msDelta);
+        element.applyTransition(msDelta);
     }
     // this.applyDimSeq(msDelta);
     // this.applyUnDimSeq(msDelta);

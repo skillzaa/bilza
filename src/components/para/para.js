@@ -40,7 +40,7 @@ export default class Para extends Component {
     update(msDelta, p) {
         for (let i = 0; i < this.lines.length; i++) {
             const element = this.lines[i];
-            element.compData.apply(msDelta);
+            element.applyTransition(msDelta);
         }
         return true;
     }

@@ -47,7 +47,8 @@ return finl;
 update(msDelta: number, p: Pack): boolean {
     for (let i = 0; i < this.lines.length; i++) {
         const element = this.lines[i];
-        element.compData.apply(msDelta);
+        element.applyTransition(msDelta);
+
     }
     return true;
 }

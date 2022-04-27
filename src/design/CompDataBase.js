@@ -3,6 +3,7 @@ export default class CompDataBase {
         this.msStart = 0;
         this.x = 0;
         this.y = 0;
+        this.selected = false;
         this.positioned = true;
         this.responsive = true;
         this.visible = true;

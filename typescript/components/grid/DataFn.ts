@@ -4,9 +4,10 @@ export default function DataFn ():ObjectData  {
     let td = new ObjectData();
     return td;
 }
-    
+     
 export class ObjectData extends CompDataBase {
-msStart:number;
+
+// msStart:number;
 
 cellWidth :number;    
 cellHeight :number;
@@ -27,7 +28,6 @@ lineDash :number[];
   
 constructor(){
     super();
-this.msStart =0;
 
 this.fontSize = 8;
 

@@ -6,7 +6,6 @@ export default function DataFn() {
 export class ObjectData extends CompDataBase {
     constructor() {
         super();
-        this.msStart = 0;
         this.fontSize = 8;
         this.cellWidth = 50;
         this.cellHeight = 50;

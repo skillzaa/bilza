@@ -40,7 +40,7 @@ export default class SlideHL extends Component {
     update(msDelta, p) {
         for (let i = 0; i < this.lis.length; i++) {
             const element = this.lis[i];
-            element.compData.apply(msDelta);
+            element.applyTransition(msDelta);
         }
         return true;
     }

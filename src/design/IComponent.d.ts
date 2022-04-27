@@ -2,10 +2,6 @@ import Pack from "../pack/pack.js";
 import { DrawLayer } from "./drawLayer.js";
 export default interface IComponent {
     drawLayer: DrawLayer;
-    getSelected(): boolean;
-    setSelected(b: boolean): boolean;
-    getDisplay(): boolean;
-    setDisplay(b: boolean): boolean;
     getStartTime(): number;
     setStartTime(n: number): number;
     getEndTime(): number;

@@ -12,6 +12,7 @@ super(timeEnd);
 this.canvasId = canvasId; 
 this.pack = new Pack(this.canvasId,canvasWidth,canvasHeight);
 } 
+
 //--This should be in Pack---////////////////
 setCanvas(width :number = 800,height :number = 400){
 this.pack = new Pack(this.canvasId,width,height);

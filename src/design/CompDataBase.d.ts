@@ -11,6 +11,7 @@ export default class CompDataBase {
     responsive: boolean;
     positioned: boolean;
     visible: boolean;
+    selected: boolean;
     constructor();
 }
 //# sourceMappingURL=CompDataBase.d.ts.map
