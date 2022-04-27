@@ -53,8 +53,10 @@ if (this.d.flagDrawBg == true){
 if (this.d.flagDrawBorder == true){
 this.drawBorder(p);
 }
-
+if (this.d.flagDrawContent == true){
 this.drawContent(p);
+}
+
 return true;
 } 
 public setFontSize(p :Pack):number{
@@ -77,12 +79,9 @@ return this.style.fontSize;
 // =- AM USING drawRect (Empty rect) for border and not line
 private drawBorder(p :Pack) :boolean{
 this.shadowsOff();
-if (this.d.flagDim == true){
-    this.style.strokeStyle = this.d.colorDimBorder;
-} else {
-    this.style.fillStyle = this.d.colorBorder;
-    this.style.strokeStyle = this.d.colorBorder;
-}          
+
+this.style.fillStyle = this.d.colorBorder;
+this.style.strokeStyle = this.d.colorBorder;          
 this.style.lineWidth = this.d.border;    
 
 p.drawRect(
@@ -99,12 +98,9 @@ private drawBg(p :Pack) :boolean{
     } else {
         this.shadowsOff();
     }   
-if (this.d.flagDim == true){
-    this.style.fillStyle = this.d.colorDimBg;
-} else {
     this.style.fillStyle = this.d.colorBg;
     this.style.strokeStyle = this.d.colorBg;
-}       
+      
 p.drawFillRect(
     this.getX(p) + this.d.margin,
     this.getY(p) + this.d.margin,
@@ -122,13 +118,9 @@ if (this.d.flagTextShadow == true){
 } else {
     this.shadowsOff();
 }       
-if (this.d.flagDim == true){
-    this.style.fillStyle = this.d.colorDim;    
-    this.style.strokeStyle = this.d.colorDim;      
-} else {
     this.style.fillStyle = this.d.color;    
     this.style.strokeStyle = this.d.color;      
-}   
+       
 p.drawText(this.d.content.substring(0,this.d.maxDisplayChars),
     this.getX(p) + (this.d.margin + this.d.border + this.d.padding),
     this.getY(p) + (this.d.margin + this.d.border + this.d.padding),

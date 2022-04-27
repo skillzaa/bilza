@@ -39,7 +39,9 @@ export default class Text extends Component {
         if (this.d.flagDrawBorder == true) {
             this.drawBorder(p);
         }
-        this.drawContent(p);
+        if (this.d.flagDrawContent == true) {
+            this.drawContent(p);
+        }
         return true;
     }
     setFontSize(p) {
@@ -57,13 +59,8 @@ export default class Text extends Component {
     }
     drawBorder(p) {
         this.shadowsOff();
-        if (this.d.flagDim == true) {
-            this.style.strokeStyle = this.d.colorDimBorder;
-        }
-        else {
-            this.style.fillStyle = this.d.colorBorder;
-            this.style.strokeStyle = this.d.colorBorder;
-        }
+        this.style.fillStyle = this.d.colorBorder;
+        this.style.strokeStyle = this.d.colorBorder;
         this.style.lineWidth = this.d.border;
         p.drawRect(this.getX(p) + this.d.margin, this.getY(p) + this.d.margin, this.width(p), this.height(p), this.style);
         return true;
@@ -75,13 +72,8 @@ export default class Text extends Component {
         else {
             this.shadowsOff();
         }
-        if (this.d.flagDim == true) {
-            this.style.fillStyle = this.d.colorDimBg;
-        }
-        else {
-            this.style.fillStyle = this.d.colorBg;
-            this.style.strokeStyle = this.d.colorBg;
-        }
+        this.style.fillStyle = this.d.colorBg;
+        this.style.strokeStyle = this.d.colorBg;
         p.drawFillRect(this.getX(p) + this.d.margin, this.getY(p) + this.d.margin, this.width(p), this.height(p), this.style);
         return true;
     }
@@ -95,14 +87,8 @@ export default class Text extends Component {
         else {
             this.shadowsOff();
         }
-        if (this.d.flagDim == true) {
-            this.style.fillStyle = this.d.colorDim;
-            this.style.strokeStyle = this.d.colorDim;
-        }
-        else {
-            this.style.fillStyle = this.d.color;
-            this.style.strokeStyle = this.d.color;
-        }
+        this.style.fillStyle = this.d.color;
+        this.style.strokeStyle = this.d.color;
         p.drawText(this.d.content.substring(0, this.d.maxDisplayChars), this.getX(p) + (this.d.margin + this.d.border + this.d.padding), this.getY(p) + (this.d.margin + this.d.border + this.d.padding), this.style);
     }
     getX(p) {

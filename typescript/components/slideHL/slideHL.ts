@@ -58,9 +58,9 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
 addItem(content :string, startDim:boolean=true, unDimSecond :number = 2){
 let item = new Text(this.getStartTime(),this.getEndTime(), content,"#0000ff");   
     if (startDim == true){
-        item.d.flagDim = true;
+        // item.d.flagDim = true;
         let tr = item.addTransition((unDimSecond * 1000) + this.getStartTime());
-        tr.flagDim = false;
+        // tr.flagDim = false;
     }
 this.lis.push(item);
 return item; 

@@ -24,9 +24,7 @@ export default class SlideHL extends Component {
     addItem(content, startDim = true, unDimSecond = 2) {
         let item = new Text(this.getStartTime(), this.getEndTime(), content, "#0000ff");
         if (startDim == true) {
-            item.d.flagDim = true;
             let tr = item.addTransition((unDimSecond * 1000) + this.getStartTime());
-            tr.flagDim = false;
         }
         this.lis.push(item);
         return item;

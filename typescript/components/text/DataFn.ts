@@ -17,12 +17,13 @@ color :string;
 colorBorder :string;
 colorBg :string;
 //---remove later
-colorDim :string;
-colorDimBg :string;
-colorDimBorder :string;
+// colorDim :string;
+// colorDimBg :string;
+// colorDimBorder :string;
 
-flagDim :boolean;
+// flagDim :boolean;
 
+flagDrawContent :boolean;
 flagDrawBorder :boolean;
 flagTextShadow :boolean;
 flagBgShadow :boolean;
@@ -48,14 +49,15 @@ this.colorBorder = "black";
 this.colorBg = "#e1f4e1";
 this.color = "black" ; 
 //---- these are just flags ??????????
-this.colorDim = "#8e8d8d";
-this.colorDimBg = "#e8e5e5";
-this.colorDimBorder = "#8e8d8d";
-this.flagDim = false;
+// this.colorDim = "#8e8d8d";
+// this.colorDimBg = "#e8e5e5";
+// this.colorDimBorder = "#8e8d8d";
+// this.flagDim = false;
 
 this.widthPercent = 10;
 this.heightPercent = 10;
 
+this.flagDrawContent = true;
 this.flagDrawBorder = false;
 this.autoScaleFontSize = false;
 this.flagDrawBg = false;
@@ -65,7 +67,7 @@ this.flagBgShadow = false
 }
 };
  
-
+ 
 export default function DataFn ():ObjectData  {
 let td = new ObjectData();
 return td;

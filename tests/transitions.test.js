@@ -1,5 +1,5 @@
 import Transition from "../src/transition/transition.js";
-
+// We need a function that return an object with the data (factory function)
 function mydataFn(){
 let mydata = {
     msStart : 0,
@@ -12,10 +12,10 @@ return mydata;
 }
 // this.d is in component
 
-describe('Tweet utilities module', function () {
+describe('new Transition', function () {
     let t = new Transition(mydataFn);
 
-test('', () => {
+test('initial data test', () => {
 expect(t.data.content).toMatch("initial content");
 expect(t.data.x).toEqual(0);
 expect(t.data.y).toEqual(0);
