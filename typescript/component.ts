@@ -21,9 +21,6 @@ public readonly id :string;
 //e.g the background tools does not have x and y etc.?????
 //--we do not keep x and y in component since all tools dont need it
 public drawLayer : DrawLayer; 
-
-
-
 //----------------------
 protected msStart :number;   
 protected msEnd :number;
@@ -72,6 +69,9 @@ height(p: Pack): number {
 }
 
 // brilent do not send frame in draw args just send frame in update-
+init(p: Pack): boolean {
+    return true;
+}
 draw(p: Pack): boolean {
     return true;
 }

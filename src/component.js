@@ -32,6 +32,9 @@ export default class Component {
     height(p) {
         return 0;
     }
+    init(p) {
+        return true;
+    }
     draw(p) {
         return true;
     }

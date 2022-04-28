@@ -8,6 +8,7 @@ export default interface IComponent {
     setEndTime(n: number): number;
     width(p: Pack): number;
     height(p: Pack): number;
+    init(p: Pack): boolean;
     update(ms: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;

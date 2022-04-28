@@ -5,7 +5,7 @@ import { YAlignment } from "../compsDesign/yAlignment.js";
 export default class Text extends Component<ObjectData> {
     xAlignmentOptions: typeof XAlignment;
     yAlignmentOptions: typeof YAlignment;
-    constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number);
+    constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string, x?: number, y?: number);
     width(p: Pack): number;
     height(p: Pack): number;
     draw(p: Pack): boolean;

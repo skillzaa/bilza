@@ -9,7 +9,7 @@ export default class Text extends Component<ObjectData> {
     yAlignmentOptions:typeof YAlignment;  
  
 //Args==> start-end-content-color-x-y-widthPerc-heightPerc
-constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",color :string="black",x:number=0,y:number =0){
+constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000",x:number=0,y:number =0){
     super(DataFn);
     this.xAlignmentOptions = XAlignment;
     this.yAlignmentOptions = YAlignment;
@@ -21,9 +21,9 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
     this.d.x = x;
     this.d.y = y;
     //---colors
-    this.d.color = color;
-    this.d.colorBorder = color;
-    this.d.colorBg = lightenDarkenColor(color,10);
+    this.d.color = colorHax;
+    this.d.colorBorder = colorHax;
+    this.d.colorBg = lightenDarkenColor(colorHax,10);
     //move to base comp class 
     this.drawLayer = DrawLayer.MiddleGround;
 }

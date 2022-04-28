@@ -4,7 +4,7 @@ import { XAlignment } from "../compsDesign/xAlignment.js";
 import { YAlignment } from "../compsDesign/yAlignment.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 export default class Text extends Component {
-    constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", color = "black", x = 0, y = 0) {
+    constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", colorHax = "#000000", x = 0, y = 0) {
         super(DataFn);
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
@@ -13,9 +13,9 @@ export default class Text extends Component {
         this.d.content = content;
         this.d.x = x;
         this.d.y = y;
-        this.d.color = color;
-        this.d.colorBorder = color;
-        this.d.colorBg = lightenDarkenColor(color, 10);
+        this.d.color = colorHax;
+        this.d.colorBorder = colorHax;
+        this.d.colorBg = lightenDarkenColor(colorHax, 10);
         this.drawLayer = DrawLayer.MiddleGround;
     }
     width(p) {

@@ -16,6 +16,7 @@ export default class Component<T extends CompDataBase> implements IComponent {
     setEndTime(n?: number): number;
     width(p: Pack): number;
     height(p: Pack): number;
+    init(p: Pack): boolean;
     draw(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     addTransition(msStart: number): T;
