@@ -60,4 +60,33 @@ export default class Bilza extends BilzaCanvasSetup {
             return true;
         }
     }
+    dynamicFontSize(txt, widthPercent = 10, heightPercent = 10, setFontSize = true) {
+        let reqWd = (this.pack.canvasWidth() / 100 * widthPercent);
+        let reqHt = (this.pack.canvasWidth() / 100 * heightPercent);
+        txt.style.fontSize = txt.d.fontSize;
+        let oldFontSize = txt.d.fontSize;
+        let newWidth = 0;
+        let newHeight = 0;
+        for (let i = 1; i < 900; i++) {
+            txt.style.fontSize = i;
+            newWidth = txt.width(this.pack);
+            newHeight = txt.height(this.pack);
+            console.log("i", i, "newWidth", newWidth, "reqWd", reqWd);
+            console.log("----");
+            if (newWidth >= reqWd || newHeight >= reqHt) {
+                if (setFontSize == false) {
+                    txt.d.fontSize = oldFontSize;
+                    txt.style.fontSize = oldFontSize;
+                    return i;
+                }
+                else {
+                    txt.d.fontSize = i;
+                    txt.style.fontSize = i;
+                    return txt.d.fontSize;
+                }
+            }
+        }
+        console.log("txt.d.fontSize", txt.d.fontSize);
+        return null;
+    }
 }

@@ -4,6 +4,8 @@ import Background from "./background.js";
 import Fn from "../functions/fn.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
+import Text from "../components/text/text.js";
+
 export default class Bilza extends BilzaCanvasSetup {
 //==================PUBLIC API
 public add :CompFactory; 
@@ -70,4 +72,39 @@ if (wd < 100 || ht < 100){ //--dont make too small canvas
 return true;
 }
 }
+//---this is a Text component consumer method- i need seperate files for such type of methods. The Bilza engine is in a vertical hierarchy i.e classic parent to child to grand child.
+public dynamicFontSize(txt :Text,widthPercent :number=10,heightPercent :number=10,setFontSize :boolean=true):number | null{
+let reqWd = (this.pack.canvasWidth() /100 * widthPercent);
+let reqHt = (this.pack.canvasWidth() /100 * heightPercent);
+// if txt.d.fontSize is recently set then txt.style.fontSize may be different since they sync in draw or update fn. So sync then and then just use style and finally sync both
+txt.style.fontSize = txt.d.fontSize;
+let oldFontSize = txt.d.fontSize;
+let newWidth = 0; 
+let newHeight = 0;
+
+    for (let i = 1; i < 900; i++) {
+    //----Big secret found in the code txt.d.fontSize vs text.style.fontSize
+    // txt.d.fontSize = i; 
+    txt.style.fontSize = i; 
+    newWidth = txt.width(this.pack)
+    newHeight = txt.height(this.pack);
+//---which Ever is reached first
+console.log("i",i, "newWidth",newWidth,"reqWd",reqWd);
+console.log("----");
+    if (newWidth >= reqWd || newHeight >= reqHt){
+        // console.log("dynamicFontSize",returnFontSize);
+        if (setFontSize == false){
+            txt.d.fontSize = oldFontSize; 
+            txt.style.fontSize = oldFontSize; 
+            return i;
+        }else {
+            txt.d.fontSize = i; 
+            txt.style.fontSize = i;
+            return txt.d.fontSize;
+        }
+    } 
+}//for end  
+console.log("txt.d.fontSize",txt.d.fontSize);
+return null;
+}//dynamic font size
 }//ends
