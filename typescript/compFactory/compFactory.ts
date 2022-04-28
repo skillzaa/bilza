@@ -46,8 +46,8 @@ bgShapes(count:number=100) {
     this.addToArray.push(bs);
     return bs;        
 }
-text(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",color :string="black",x:number=0,y:number =0, widthPercent:number=10,heightPercent:number=10) {
-    let bs = new Text(startTimeSeconds,endTimeSeconds,content,color,x,y, widthPercent,heightPercent);
+text(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",color :string="black",x:number=0,y:number =0):Text {
+let bs = new Text(startTimeSeconds,endTimeSeconds,content,color,x,y);
     this.addToArray.push(bs);
     return bs;        
 }

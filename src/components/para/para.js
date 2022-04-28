@@ -55,7 +55,6 @@ export default class Para extends Component {
             this.lines[i].d.maxDisplayChars = this.d.maxDisplayCharsPerLine;
             this.lines[i].draw(p);
             let ht = this.lines[i].height(p);
-            y += this.lines[i].d.heightPercent + this.d.listGapFactor;
         }
         return true;
     }

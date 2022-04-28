@@ -25,7 +25,7 @@
 <h3>Code</h3>
 <pre>
 <code class="language-javascript">
-import Bilza from "../../build/Bilza_0_0_13.js";
+import Bilza from "../../src/Bilza.js";
 
 let bil = new Bilza("growingText",800,300);
 let g = bil.add.gridTempl.dashed();
@@ -34,13 +34,12 @@ let first = bil.add.text(0,60,"Text Sample","red");
 bil.start();
 ///////////////////////////////
 let interval = setInterval(function(){
-    if (first.d.widthPercent > 200) {clearInterval(interval); }    
-first.d.widthPercent += 1; 
-first.d.heightPercent += 1; 
-},150);    
+    if (first.d.fontSize > 200) {clearInterval(interval); }    
+first.d.fontSize += 1; 
+},150);
+      
 </code>
 </pre>
-<h6>Image</h6>
 
 <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
 <h6><a href="https://www.npmjs.com/package/bilza" target="_blank">bilza.js</a></h6>    

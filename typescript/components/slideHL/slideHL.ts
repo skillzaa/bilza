@@ -13,7 +13,7 @@ lis :Text[];
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="The Title",color :string="#00ff37")
 {
     super(DataFn);
-    this.hdg = new Text(startTimeSeconds,endTimeSeconds,content,color,50,2,90,12);
+    this.hdg = new Text(startTimeSeconds,endTimeSeconds,content,color);
     //------------------------------
     this.hdg.d.padding = 5;
     this.hdg.d.margin = 5;
@@ -22,7 +22,7 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
     this.hdg.d.colorBg = lightenDarkenColor(color,200);
     this.hdg.d.flagDrawBorder = true;
     this.hdg.d.flagDrawBg = true;
-    this.hdg.d.dynamicFontSize = true;
+    // this.hdg.d.dynamicFontSize = true;
     //------------------------------
     this.lis = [];
     this.drawLayer = DrawLayer.MiddleGround;
@@ -94,12 +94,12 @@ let y = this.d.listStartY;
         for (let i = 0; i < this.lis.length; i++) {
             this.lis[i].d.y = y;
             if (this.d.applyWdHtPerc == true){
-                this.lis[i].setDynamicFontSize(p);
+                // this.lis[i].setDynamicFontSize(p);
             }
             this.lis[i].d.maxDisplayChars = this.d.maxLiChars;
             this.lis[i].draw(p);
             let ht = this.lis[i].height(p); 
-            y +=  this.lis[i].d.heightPercent + this.d.listGapFactor;
+            // y +=  this.lis[i].d.heightPercent + this.d.listGapFactor;
         }    
 }
 

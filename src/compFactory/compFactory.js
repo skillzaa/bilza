@@ -33,8 +33,8 @@ export default class CompFactory {
         this.addToArray.push(bs);
         return bs;
     }
-    text(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", color = "black", x = 0, y = 0, widthPercent = 10, heightPercent = 10) {
-        let bs = new Text(startTimeSeconds, endTimeSeconds, content, color, x, y, widthPercent, heightPercent);
+    text(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", color = "black", x = 0, y = 0) {
+        let bs = new Text(startTimeSeconds, endTimeSeconds, content, color, x, y);
         this.addToArray.push(bs);
         return bs;
     }

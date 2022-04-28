@@ -1,6 +1,7 @@
 import { DrawLayer } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
+import Fn from "../functions/fn.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 export default class Bilza extends BilzaCanvasSetup {
@@ -8,6 +9,7 @@ export default class Bilza extends BilzaCanvasSetup {
         super(canvasId, canvasWidth, canvasHeight, timeEnd);
         this.background = new Background();
         this.add = new CompFactory(this.comps);
+        this.util = new Fn();
     }
     start() {
         if (this.timeStart !== null) {

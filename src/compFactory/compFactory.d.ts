@@ -21,7 +21,7 @@ export default class CompFactory {
     slideHL(startTimeSeconds?: number, endTimeSeconds?: number, contentHdg?: string, themeColor?: string): SlideHL;
     slideHP(startTimeSeconds?: number, endTimeSeconds?: number, contentHdg?: string, themeColor?: string): SlideHP;
     bgShapes(count?: number): BgShapes;
-    text(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number, widthPercent?: number, heightPercent?: number): Text;
+    text(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number): Text;
     rect(): Rect;
     fillRect(): FillRect;
     lines(x?: number, y?: number): Lines;

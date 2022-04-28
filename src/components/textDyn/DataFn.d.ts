@@ -1,6 +1,6 @@
 import CompDataBase from "../../design/CompDataBase.js";
 import { XAlignment } from "../compsDesign/xAlignment.js";
-import { YAlignment } from "../compsDesign/yAlignment.js.js";
+import { YAlignment } from "../compsDesign/yAlignment.js";
 export declare class ObjectData extends CompDataBase {
     widthPercent: number;
     heightPercent: number;
