@@ -1,4 +1,4 @@
-import {Pack} from "../Bilza.js";
+import {Pack,IComponent} from "../Bilza.js";
 import BilzaTimer from "./02bilzaTimer.js";
  
 export default class BilzaCanvasSetup extends BilzaTimer {
@@ -16,7 +16,11 @@ if (canvasHeight ==null){
 } 
 this.pack = new Pack(this.canvasId,canvasWidth,canvasHeight);
 } 
-
+insert(comp:IComponent):IComponent{
+    // comp.init(this.pack);//not req init at creation time
+    this.comps.push(comp);
+    return comp;
+}
 //--This should be in Pack---////////////////
 setCanvas(width :number = 800,height :number|null = null){
     if (height ==null){

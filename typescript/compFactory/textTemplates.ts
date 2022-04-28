@@ -2,18 +2,21 @@ import {IComponent,FontNames} from "../Bilza.js";
 import Text from "../components/text/text.js";
 import lightenDarkenColor from "../functions/lightenDarkenColor.js";
 import Fn from "../functions/fn.js";
+
 export default class TextTemplates {
-private addToArray :IComponent[];
+private insert :(comp :IComponent)=>IComponent;
+
 private util :Fn; 
-constructor(comps :IComponent[]=[]){
-this.addToArray = comps;
+
+constructor(insert :(comp :IComponent)=>IComponent){
+    this.insert = insert;
 this.util = new Fn();
 }
 
 hdg(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",color :string="black",x:number=10,y:number =10):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,color,x,y);
 //----very imp
-this.addToArray.push(txt);
+this.insert(txt);
 
     txt.d.flagDrawBg = true;
     txt.d.colorBg = lightenDarkenColor("#0ab513",175);
@@ -29,7 +32,7 @@ let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,50,50);
 txt.d.xAlignment = txt.xAlignmentOptions.Mid; 
 txt.d.yAlignment = txt.yAlignmentOptions.Mid; 
 //----very imp
-this.addToArray.push(txt);
+this.insert(txt);
 
     txt.d.flagDrawBg = true;
     txt.d.colorBg = lightenDarkenColor("#0ab513",175);

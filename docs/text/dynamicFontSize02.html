@@ -28,29 +28,29 @@
 <h5>The code</h5>
 <pre>
 <code class="language-javascript">
-// import Bilza from "../../build/Bilza_0_0_13.js";
+
+    // import Bilza from "../../build/Bilza_0_0_13.js";
 import Bilza from "../../src/Bilza.js";
-let bil = new Bilza("dynamicFontSize",500);
-let g = bil.add.gridTempl.dashed();
+let bil = new Bilza("dynamicFontSize",800);
+let g = bil.gridTempl.dashed();
 g.d.flagDrawNumbers = true;
 
-let txt = bil.add.textTempl.hdg(0,60,"Sample Text","#008000",0,0);
-bil.dynamicFontSize(txt,100);
+let txt = bil.add.text(0,60,"Dynamic Text","#008000",0,0);
+txt.d.flagUseDynResize = true;
+txt.d.dynWidth = 100;
 //////////////////////////////////
-bil.draw();
+bil.drawInit();
 ///////////////////////////////
 
-let newCanvasWidth = 500;
+let newCanvasWidth = 800;
 let inter = setInterval(function(){
-    if (newCanvasWidth <= 300) { 
+    if (newCanvasWidth <= 200) { 
         clearInterval(inter);
     }
 bil.setCanvas(newCanvasWidth); //just width no height
-bil.dynamicFontSize(txt,100);
-bil.draw();
-newCanvasWidth -=20;
+bil.drawInit();
+newCanvasWidth -=50;
 },1000);
-    
 </code>
 </pre>
 </body>

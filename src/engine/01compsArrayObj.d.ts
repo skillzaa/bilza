@@ -6,7 +6,6 @@ export default class CompsArrayObj {
     constructor();
     protected drawByDrawLayer(msDelta: number, drawLayer: DrawLayer, pack: Pack): boolean;
     chqCollision(x: number, y: number): IComponent | null;
-    insert(comp: IComponent): IComponent;
     resize(width?: number, height?: number): void;
 }
 //# sourceMappingURL=01compsArrayObj.d.ts.map

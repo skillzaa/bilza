@@ -1,7 +1,7 @@
 // import Bilza from "../../build/Bilza_0_0_13.js";
 import Bilza from "../../src/Bilza.js";
 let bil = new Bilza("basicUsage",800,300);
-let g = bil.add.gridTempl.dashed();
+// let g = bil.add.gridTempl.dashed();
 
 let txt01 = bil.add.text(0,500,"Text One","#e54e12",10,3);
 txt01.d.fontSize = 45;

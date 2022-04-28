@@ -3,11 +3,15 @@ import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
+import TextTemplates from "../compFactory/textTemplates.js";
+import GridTemplates from "../compFactory/gridTemplates.js";
 export default class Bilza extends BilzaCanvasSetup {
     constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null, timeEnd = 60) {
         super(canvasId, canvasWidth, canvasHeight, timeEnd);
         this.background = new Background();
-        this.add = new CompFactory(this.comps);
+        this.add = new CompFactory(this.insert.bind(this));
+        this.textTempl = new TextTemplates(this.insert.bind(this));
+        this.gridTempl = new GridTemplates(this.insert.bind(this));
     }
     start() {
         if (this.timeStart !== null) {
@@ -15,12 +19,17 @@ export default class Bilza extends BilzaCanvasSetup {
         }
         else {
             this.stop();
+            this.init();
             this.timeStart = new Date().getTime();
             this.interval = window.setInterval(() => {
                 this.draw();
             }, this.msPerFrame);
             return true;
         }
+    }
+    drawInit() {
+        this.init();
+        this.draw();
     }
     draw() {
         if (this.pack == null) {
@@ -86,5 +95,10 @@ export default class Bilza extends BilzaCanvasSetup {
             }
         }
         return null;
+    }
+    init() {
+        for (let i = 0; i < this.comps.length; i++) {
+            this.comps[i].init(this.pack);
+        }
     }
 }

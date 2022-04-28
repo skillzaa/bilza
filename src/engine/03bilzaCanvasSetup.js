@@ -9,6 +9,10 @@ export default class BilzaCanvasSetup extends BilzaTimer {
         }
         this.pack = new Pack(this.canvasId, canvasWidth, canvasHeight);
     }
+    insert(comp) {
+        this.comps.push(comp);
+        return comp;
+    }
     setCanvas(width = 800, height = null) {
         if (height == null) {
             height = this.util.aspectRatioHeight(width);

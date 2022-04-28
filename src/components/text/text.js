@@ -24,6 +24,12 @@ export default class Text extends Component {
     height(p) {
         return (p.textWidth("W", this.style) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
     }
+    init(p) {
+        if (this.d.flagUseDynResize == true) {
+            this.dynamicFontSize(p);
+        }
+        return true;
+    }
     draw(p) {
         if (this.d.flagDrawBg == true) {
             this.drawBg(p);
@@ -100,5 +106,20 @@ export default class Text extends Component {
                 break;
         }
         return y;
+    }
+    dynamicFontSize(p) {
+        let reqWd = (p.canvasWidth() / 100 * this.d.dynWidth);
+        this.style.fontSize = this.d.fontSize;
+        let newWidth = 0;
+        for (let i = 1; i < 900; i++) {
+            this.style.fontSize = i;
+            newWidth = this.width(p);
+            if (newWidth >= reqWd) {
+                this.d.fontSize = i;
+                this.style.fontSize = i;
+                return this.d.fontSize;
+            }
+        }
+        return null;
     }
 }

@@ -8,11 +8,13 @@ export default class Text extends Component<ObjectData> {
     constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string, x?: number, y?: number);
     width(p: Pack): number;
     height(p: Pack): number;
+    init(p: Pack): boolean;
     draw(p: Pack): boolean;
     private drawBorder;
     private drawBg;
     private drawContent;
     private getX;
     private getY;
+    dynamicFontSize(p: Pack): number | null;
 }
 //# sourceMappingURL=text.d.ts.map

@@ -10,7 +10,7 @@ constructor (){
     this.comps = [];
     this.util = new Fn();  
 } 
- 
+///insert moved to 03Canvas setup since it needs pack for comp.init 
 protected drawByDrawLayer(msDelta :number,drawLayer :DrawLayer,pack :Pack):boolean{ 
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
@@ -31,11 +31,8 @@ chqCollision(x :number, y :number):IComponent | null{
    return null;
 }
 
-insert(comp:IComponent):IComponent{
-this.comps.push(comp);
-return comp;
-}
 
+////---????????
 resize(width :number = 800,height :number = 400){
     for (let i = 0; i < this.comps.length; i++) {
         const element = this.comps[i];

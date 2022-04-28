@@ -35,7 +35,13 @@ height(p:Pack):number {
 return (p.textWidth("W",this.style)+ (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
 }
 
-
+init(p: Pack): boolean {
+    if (this.d.flagUseDynResize ==true){
+        // console.log("init from text");
+        this.dynamicFontSize(p);
+    }
+    return true;
+}
 draw(p:Pack):boolean{
 
 if (this.d.flagDrawBg == true){
@@ -137,5 +143,26 @@ switch (this.d.yAlignment) {
 }
 return y ;
 }
-
+public dynamicFontSize(p :Pack):number | null{
+let reqWd = (p.canvasWidth() /100 * this.d.dynWidth);
+this.style.fontSize = this.d.fontSize; //if not already in sync
+// let oldFontSize = this.d.fontSize;
+let newWidth = 0; 
+    for (let i = 1; i < 900; i++) {
+    //----Big secret found in the code txt.d.fontSize vs text.style.fontSize
+    // txt.d.fontSize = i; 
+    this.style.fontSize = i; 
+    newWidth = this.width(p)
+//---which Ever is reached first
+//console.log("i",i, "newWidth",newWidth,"reqWd",reqWd);
+//console.log("----");
+    // if (newWidth >= reqWd || newHeight >= reqHt){
+    if (newWidth >= reqWd ){
+        this.d.fontSize = i; 
+        this.style.fontSize = i;
+        return this.d.fontSize;
+    } 
+}//for end  
+return null;
+}//dynamic font size
 }//class

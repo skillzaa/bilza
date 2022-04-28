@@ -3,15 +3,16 @@ import Grid from "../components/grid/grid.js";
 
 
 export default class GridTemplates {
-private addToArray :IComponent[];
- 
-constructor(comps :IComponent[]){
-this.addToArray = comps;
+
+private insert :(comp :IComponent)=>IComponent;
+
+constructor(insert :(comp :IComponent)=>IComponent){
+    this.insert = insert;
 }
 dashed(linesColor :string = "#dee1e2"):Grid{
     let g = new Grid();
     g.shadowsOff();
-    this.addToArray.push(g);
+    this.insert(g);
     g.d.flagDrawNumbers =false; //no numbers
     g.d.colorNumbers = "red";
     g.d.lineWidthHorizontal = 1;
@@ -24,7 +25,7 @@ dashed(linesColor :string = "#dee1e2"):Grid{
 }
 demo(){
     let grid = new Grid();    
-this.addToArray.push(grid);
+this.insert(grid);
 
 grid.d.flagDrawNumbers = true;
 grid.data.colorNumbers = "red";
@@ -39,7 +40,7 @@ return grid;
 }
 simple(linesColor :string = "#dee1e2"){
     let grid = new Grid();    
-    this.addToArray.push(grid);
+    this.insert(grid);
     grid.d.colorHorizontalLines = linesColor;
     grid.d.colorVerticalLines = linesColor;
     return grid;       

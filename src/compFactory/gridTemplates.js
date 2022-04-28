@@ -1,12 +1,12 @@
 import Grid from "../components/grid/grid.js";
 export default class GridTemplates {
-    constructor(comps) {
-        this.addToArray = comps;
+    constructor(insert) {
+        this.insert = insert;
     }
     dashed(linesColor = "#dee1e2") {
         let g = new Grid();
         g.shadowsOff();
-        this.addToArray.push(g);
+        this.insert(g);
         g.d.flagDrawNumbers = false;
         g.d.colorNumbers = "red";
         g.d.lineWidthHorizontal = 1;
@@ -19,7 +19,7 @@ export default class GridTemplates {
     }
     demo() {
         let grid = new Grid();
-        this.addToArray.push(grid);
+        this.insert(grid);
         grid.d.flagDrawNumbers = true;
         grid.data.colorNumbers = "red";
         grid.d.fontSize = 12;
@@ -33,7 +33,7 @@ export default class GridTemplates {
     }
     simple(linesColor = "#dee1e2") {
         let grid = new Grid();
-        this.addToArray.push(grid);
+        this.insert(grid);
         grid.d.colorHorizontalLines = linesColor;
         grid.d.colorVerticalLines = linesColor;
         return grid;

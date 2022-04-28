@@ -4,17 +4,24 @@ import Background from "./background.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import Text from "../components/text/text.js";
+//----------Templates
+import TextTemplates from "../compFactory/textTemplates.js";
+import GridTemplates from "../compFactory/gridTemplates.js";
 
 export default class Bilza extends BilzaCanvasSetup {
 //==================PUBLIC API
 public add :CompFactory; 
+public textTempl :TextTemplates; 
+public gridTempl :GridTemplates; 
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",canvasWidth=800,canvasHeight=null,timeEnd=60){
 //internal seq of args is different from enternal seq of args    
 super(canvasId,canvasWidth,canvasHeight,timeEnd);
 this.background = new Background();
-this.add = new CompFactory(this.comps);
+this.add = new CompFactory(this.insert.bind(this));
+this.textTempl = new TextTemplates(this.insert.bind(this));
+this.gridTempl = new GridTemplates(this.insert.bind(this));
 } 
 
 //-- this is not in bilzaTimer due to this.draw
@@ -22,6 +29,7 @@ start() :boolean{
 if (this.timeStart !== null){return false;}
 else {
     this.stop();
+    this.init(); //importantay
     this.timeStart = new Date().getTime();
         this.interval = window.setInterval(()=>{
         this.draw();
@@ -31,6 +39,10 @@ else {
 }
 
 ////////////////////////////////////// 
+public drawInit(){
+    this.init();
+    this.draw();
+}
 draw():boolean{
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   
@@ -105,4 +117,12 @@ let newHeight = 0;
 //console.log("txt.d.fontSize",txt.d.fontSize);
 return null;
 }//dynamic font size
+
+public init(){
+    for (let i = 0; i < this.comps.length; i++) {
+    this.comps[i].init(this.pack);    
+    }
+}
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////
 }//ends

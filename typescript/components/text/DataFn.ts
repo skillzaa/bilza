@@ -8,6 +8,7 @@ padding :number;
 margin :number;
 border :number;
 fontSize :number;
+dynWidth :number;
  //--content
 content :string;
 //--colors
@@ -19,7 +20,8 @@ flagDrawContent :boolean;
 flagDrawBorder :boolean;
 flagDrawBg :boolean;
 flagTextShadow :boolean;
-flagBgShadow :boolean;
+flagBgShadow :boolean; 
+flagUseDynResize:boolean;
 //--Misc
 maxDisplayChars :number; //implemented
 xAlignment :XAlignment;
@@ -35,6 +37,7 @@ this.content = "Text" ;
 this.padding = 2;
 this.margin = 2;
 this.border = 2;
+this.dynWidth = 10;
 
 this.colorBorder = "black";
 this.colorBg = "#e1f4e1";
@@ -47,7 +50,8 @@ this.flagDrawBorder = false;
 this.flagDrawBg = false;
 this.maxDisplayChars = 200;
 this.flagTextShadow = false;
-this.flagBgShadow = false
+this.flagBgShadow = false;
+this.flagUseDynResize = false;
 }
 };
  

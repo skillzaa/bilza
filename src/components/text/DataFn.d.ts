@@ -6,6 +6,7 @@ export declare class ObjectData extends CompDataBase {
     margin: number;
     border: number;
     fontSize: number;
+    dynWidth: number;
     content: string;
     color: string;
     colorBorder: string;
@@ -15,6 +16,7 @@ export declare class ObjectData extends CompDataBase {
     flagDrawBg: boolean;
     flagTextShadow: boolean;
     flagBgShadow: boolean;
+    flagUseDynResize: boolean;
     maxDisplayChars: number;
     xAlignment: XAlignment;
     yAlignment: YAlignment;

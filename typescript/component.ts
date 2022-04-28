@@ -70,6 +70,7 @@ height(p: Pack): number {
 
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {
+    // console.log(this.id,"init");
     return true;
 }
 draw(p: Pack): boolean {
