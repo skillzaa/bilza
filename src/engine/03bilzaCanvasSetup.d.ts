@@ -3,8 +3,8 @@ import BilzaTimer from "./02bilzaTimer.js";
 export default class BilzaCanvasSetup extends BilzaTimer {
     protected pack: Pack;
     protected canvasId: string;
-    constructor(canvasId: string, canvasWidth: number, canvasHeight: number, timeEnd: number);
-    setCanvas(width?: number, height?: number): void;
+    constructor(canvasId: string, canvasWidth: number, canvasHeight: number | null | undefined, timeEnd: number);
+    setCanvas(width?: number, height?: number | null): void;
     getCanvasHeight(): number;
     getCanvasWidth(): number;
 }

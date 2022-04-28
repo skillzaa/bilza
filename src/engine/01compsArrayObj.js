@@ -1,6 +1,8 @@
+import Fn from "../functions/fn.js";
 export default class CompsArrayObj {
     constructor() {
         this.comps = [];
+        this.util = new Fn();
     }
     drawByDrawLayer(msDelta, drawLayer, pack) {
         for (let i = 0; i < this.comps.length; i++) {

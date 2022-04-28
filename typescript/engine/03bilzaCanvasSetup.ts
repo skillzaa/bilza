@@ -7,14 +7,22 @@ protected canvasId :string;
 
 //==================PUBLIC API
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId:string,canvasWidth:number,canvasHeight:number,timeEnd:number){
-super(timeEnd);
-this.canvasId = canvasId; 
+constructor (canvasId:string,canvasWidth:number,canvasHeight:number|null=null,timeEnd:number){
+
+    super(timeEnd);
+this.canvasId = canvasId;
+if (canvasHeight ==null){
+    canvasHeight = this.util.aspectRatioHeight(canvasWidth);
+} 
 this.pack = new Pack(this.canvasId,canvasWidth,canvasHeight);
 } 
 
 //--This should be in Pack---////////////////
-setCanvas(width :number = 800,height :number = 400){
+setCanvas(width :number = 800,height :number|null = null){
+    if (height ==null){
+        height = this.util.aspectRatioHeight(width);
+    }
+
 this.pack = new Pack(this.canvasId,width,height);
     this.resize(width,height);
 }

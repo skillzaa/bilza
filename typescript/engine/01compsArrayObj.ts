@@ -1,11 +1,14 @@
 import {DrawLayer,IComponent,Pack} from "../Bilza.js";
+import Fn from "../functions/fn.js";
 
 export default class CompsArrayObj {
 protected comps:IComponent[]; 
+public util :Fn;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (){
     //--Test created
-    this.comps = [];  
+    this.comps = [];
+    this.util = new Fn();  
 } 
  
 protected drawByDrawLayer(msDelta :number,drawLayer :DrawLayer,pack :Pack):boolean{ 

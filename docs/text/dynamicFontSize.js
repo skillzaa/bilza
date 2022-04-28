@@ -7,7 +7,7 @@ let txt01 = bil.add.textTempl.hdg(0,60,"Sample Text","#008000",0,0);
 //////////////////////////////////
 bil.draw();
 ///////////////////////////////
-
+ 
 let dims = 0;
 let inter = setInterval(function(){
     dims +=10;
@@ -15,6 +15,6 @@ let inter = setInterval(function(){
         bil.setCanvas(400,150);
         clearInterval(inter);
     }
-bil.dynamicFontSize(txt01,dims,dims);
+bil.dynamicFontSize(txt01,dims);
 bil.draw();
 },1000);

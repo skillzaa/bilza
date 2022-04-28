@@ -1,15 +1,13 @@
 import { DrawLayer } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
-import Fn from "../functions/fn.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 export default class Bilza extends BilzaCanvasSetup {
-    constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = 350, timeEnd = 60) {
+    constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null, timeEnd = 60) {
         super(canvasId, canvasWidth, canvasHeight, timeEnd);
         this.background = new Background();
         this.add = new CompFactory(this.comps);
-        this.util = new Fn();
     }
     start() {
         if (this.timeStart !== null) {
@@ -60,7 +58,10 @@ export default class Bilza extends BilzaCanvasSetup {
             return true;
         }
     }
-    dynamicFontSize(txt, widthPercent = 10, heightPercent = 10, setFontSize = true) {
+    dynamicFontSize(txt, widthPercent = 10, heightPercent = null, setFontSize = true) {
+        if (heightPercent == null) {
+            heightPercent = widthPercent;
+        }
         let reqWd = (this.pack.canvasWidth() / 100 * widthPercent);
         let reqHt = (this.pack.canvasWidth() / 100 * heightPercent);
         txt.style.fontSize = txt.d.fontSize;
@@ -71,8 +72,6 @@ export default class Bilza extends BilzaCanvasSetup {
             txt.style.fontSize = i;
             newWidth = txt.width(this.pack);
             newHeight = txt.height(this.pack);
-            console.log("i", i, "newWidth", newWidth, "reqWd", reqWd);
-            console.log("----");
             if (newWidth >= reqWd || newHeight >= reqHt) {
                 if (setFontSize == false) {
                     txt.d.fontSize = oldFontSize;
@@ -86,7 +85,6 @@ export default class Bilza extends BilzaCanvasSetup {
                 }
             }
         }
-        console.log("txt.d.fontSize", txt.d.fontSize);
         return null;
     }
 }
