@@ -19,6 +19,7 @@ export default class Component<T extends CompDataBase> implements IComponent {
     init(p: Pack): boolean;
     draw(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
+    log(msg: string): void;
     addTransition(msStart: number): T;
     checkCollision(x: number, y: number, p: Pack): boolean;
     shadowsOff(): void;

@@ -41,6 +41,9 @@ export default class Component {
     update(msDelta, p) {
         return true;
     }
+    log(msg) {
+        console.log(msg);
+    }
     addTransition(msStart) {
         return this.compData.add(msStart);
     }

@@ -49,6 +49,9 @@ export default class List extends Component {
             item.draw(p);
             y += item.height(p);
             y += this.d.gap;
+            if (y > p.canvasHeight()) {
+                this.log("too long to fit");
+            }
         }
         return true;
     }

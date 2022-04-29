@@ -79,6 +79,9 @@ draw(p: Pack): boolean {
 update(msDelta :number, p: Pack): boolean {
 return true;    
 }
+log(msg :string){
+    console.log(msg);
+}
 ////////////////////////////////////////////////////////
 // following methods are not IComponent
 addTransition(msStart:number){

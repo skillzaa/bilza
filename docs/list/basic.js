@@ -7,6 +7,8 @@ list.addItem("wwwwwwwwwwwwwwwwwwwwwwwzz");
 list.addItem("xxxxxxxxxxxx");
 list.addItem("yyyyyyyyyyyyyyyyyyyyyyyyyy");
 list.addItem("zzzzzzzzzzzzzzzzzzzzzzzzzz");
+list.addItem("wwwwwwwwwwwwwwwwwwwwwwwzz");
+list.addItem("xxxxxxxxxxxx");
 let g = bil.gridTempl.dashed();
 
 
