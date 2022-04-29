@@ -22,6 +22,7 @@ flagDrawBg :boolean;
 flagTextShadow :boolean;
 flagBgShadow :boolean; 
 flagUseDynResize:boolean;
+flagUseRelativeXY:boolean;
 //--Misc
 maxDisplayChars :number; //implemented
 xAlignment :XAlignment;
@@ -52,6 +53,7 @@ this.maxDisplayChars = 200;
 this.flagTextShadow = false;
 this.flagBgShadow = false;
 this.flagUseDynResize = false;
+this.flagUseRelativeXY = true;
 }
 };
  

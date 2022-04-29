@@ -22,6 +22,7 @@ export class ObjectData extends CompDataBase {
         this.flagTextShadow = false;
         this.flagBgShadow = false;
         this.flagUseDynResize = false;
+        this.flagUseRelativeXY = true;
     }
 }
 ;

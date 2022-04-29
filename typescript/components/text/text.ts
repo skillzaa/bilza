@@ -114,7 +114,10 @@ p.drawText(this.d.content.substring(0,this.d.maxDisplayChars),
     
 }
 private getX(p :Pack):number{
-let x =   p.xPerc(this.d.x);  
+let x = this.d.x;    
+        if (this.d.flagUseRelativeXY == true){
+            x =   p.xPerc(this.d.x);  
+        }    
 switch (this.d.xAlignment) {
     case this.xAlignmentOptions.Left:
         break;
@@ -129,7 +132,11 @@ switch (this.d.xAlignment) {
 return x ;
 }
 private getY(p :Pack):number{
-let y =   p.yPerc(this.d.y);  
+    let y = this.d.y;    
+        if (this.d.flagUseRelativeXY == true){
+            y =   p.yPerc(this.d.y);  
+        }    
+
 switch (this.d.yAlignment) {
     case this.yAlignmentOptions.Top:
         break;

@@ -49,22 +49,17 @@ draw(p: Pack):boolean {
         item.d.x = x;
         item.d.y =y;
         item.draw(p);
-        y += item.width(p);
-        // y += 14;
+        y += item.height(p);
+        y += this.d.gap;
     }
     
 return true;    
 }
 addItem(content=""){
 let item = new Text(this.getStartTime(),this.getEndTime(),content);
-// item.d.widthMargin = 2;
-// item.d.widthBorder = 2;
-// item.d.widthPadding = 2;
-
-// item.d.flagDrawMargin = false;
 item.d.flagDrawBorder = true;
+item.d.flagUseRelativeXY = false;
 
-// item.d.fontFamily = ;
     this.d.items.push(item);
 }
 setX(item:Text,p :Pack):number{

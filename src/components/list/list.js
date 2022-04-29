@@ -37,13 +37,15 @@ export default class List extends Component {
             item.d.x = x;
             item.d.y = y;
             item.draw(p);
-            y += item.width(p);
+            y += item.height(p);
+            y += this.d.gap;
         }
         return true;
     }
     addItem(content = "") {
         let item = new Text(this.getStartTime(), this.getEndTime(), content);
         item.d.flagDrawBorder = true;
+        item.d.flagUseRelativeXY = false;
         this.d.items.push(item);
     }
     setX(item, p) {

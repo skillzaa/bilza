@@ -80,7 +80,10 @@ export default class Text extends Component {
         p.drawText(this.d.content.substring(0, this.d.maxDisplayChars), this.getX(p) + (this.d.margin + this.d.border + this.d.padding), this.getY(p) + (this.d.margin + this.d.border + this.d.padding), this.style);
     }
     getX(p) {
-        let x = p.xPerc(this.d.x);
+        let x = this.d.x;
+        if (this.d.flagUseRelativeXY == true) {
+            x = p.xPerc(this.d.x);
+        }
         switch (this.d.xAlignment) {
             case this.xAlignmentOptions.Left:
                 break;
@@ -94,7 +97,10 @@ export default class Text extends Component {
         return x;
     }
     getY(p) {
-        let y = p.yPerc(this.d.y);
+        let y = this.d.y;
+        if (this.d.flagUseRelativeXY == true) {
+            y = p.yPerc(this.d.y);
+        }
         switch (this.d.yAlignment) {
             case this.yAlignmentOptions.Top:
                 break;

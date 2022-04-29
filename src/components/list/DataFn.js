@@ -10,7 +10,7 @@ export class ObjectData extends CompDataBase {
         this.colorBg = "blue";
         this.paddingX = 4;
         this.paddingY = 4;
-        this.gap = 0;
+        this.gap = 10;
         this.colorFont = "black";
         this.colorBorder = "black";
         this.colorBg = "green";
