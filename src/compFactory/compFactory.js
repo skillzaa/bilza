@@ -5,6 +5,7 @@ import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
 import BgShapes from "../components/bgShapes/bgShapes.js";
+import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
@@ -45,6 +46,11 @@ export default class CompFactory {
     }
     line(x1 = 0, y1 = 0, x2 = 100, y2 = 100, color = "black", lineWidth = 2) {
         let bs = new Line(x1, y1, x2, y2, color, lineWidth);
+        this.insert(bs);
+        return bs;
+    }
+    list(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 10, y = 10, widthPerc = 80) {
+        let bs = new List(msStart, msEnd, x, y, widthPerc);
         this.insert(bs);
         return bs;
     }

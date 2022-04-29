@@ -6,6 +6,7 @@ import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
 import BgShapes from "../components/bgShapes/bgShapes.js";
+import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
@@ -20,6 +21,7 @@ export default class CompFactory {
     fillRect(): FillRect;
     lines(x?: number, y?: number): Lines;
     line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string, lineWidth?: number): Line;
+    list(msStart?: number, msEnd?: number, x?: number, y?: number, widthPerc?: number): List;
     grid(msStart?: number, msEnd?: number): Grid;
     rGrid(msStart?: number, msEnd?: number): RGrid;
     counter(x?: number, y?: number, msEnd?: number): Counter;

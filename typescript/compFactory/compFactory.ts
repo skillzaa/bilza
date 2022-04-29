@@ -8,7 +8,7 @@ import FillRect from "../components/fillRect/fillRect.js";
 import Counter from "../components/counter/counter.js";
 import Circle from "../components/circle/circle.js";
 import BgShapes from "../components/bgShapes/bgShapes.js";
-// import List from "../components/list/list.js";
+import List from "../components/list/list.js";
 import Line from "../components/line/line.js";
 import Lines from "../components/lines/lines.js";
 import Rect from "../components/rect/rect.js";
@@ -23,8 +23,6 @@ private insert :(comp :IComponent)=>IComponent;
 
 constructor(insert :(comp :IComponent)=>IComponent){
 this.insert = insert;
-// this.textTempl = new TextTemplates(comps);
-// this.gridTempl = new GridTemplates(comps);
 }
 
 slideHL(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,contentHdg :string="The Title",themeColor :string="#00ff37") {
@@ -69,11 +67,11 @@ line(x1:number=0,y1:number=0,x2:number=100,y2:number=100, color:string="black",l
     return bs;        
 }
 
-// list(x=10,y=10,fontSize=30,msStart=0,msEnd=80000):List{
-// let bs = new List(x,y,fontSize,msStart,msEnd);
-//     this.insert(bs);
-//     return bs;    
-// }
+list(msStart=0,msEnd= Number.MAX_SAFE_INTEGER ,x=10,y=10,widthPerc =80):List{
+let bs = new List(msStart,msEnd,x,y,widthPerc);
+    this.insert(bs);
+    return bs;    
+}
 grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
     let g = new Grid(msStart, msEnd);
     this.insert(g);

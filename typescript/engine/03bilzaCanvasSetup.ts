@@ -17,7 +17,7 @@ if (canvasHeight ==null){
 this.pack = new Pack(this.canvasId,canvasWidth,canvasHeight);
 } 
 insert(comp:IComponent):IComponent{
-    // comp.init(this.pack);//not req init at creation time
+    comp.init(this.pack);
     this.comps.push(comp);
     return comp;
 }
