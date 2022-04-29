@@ -18,7 +18,7 @@ flagShowBg :boolean;
 
 paddingX :number;
 paddingY :number;
-widthPerc :number;
+dynWidth :number;
 items :Text[];
 
 constructor(){
@@ -28,7 +28,7 @@ this.align = "left";
 this.x = 10;
 this.y = 10;
  
-this.widthPerc = 80;
+this.dynWidth = 80;
 this.colorBg = "blue";
 this.paddingX = 4;
 this.paddingY = 4;

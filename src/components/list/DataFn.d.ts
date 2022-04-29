@@ -13,7 +13,7 @@ export declare class ObjectData extends CompDataBase {
     flagShowBg: boolean;
     paddingX: number;
     paddingY: number;
-    widthPerc: number;
+    dynWidth: number;
     items: Text[];
     constructor();
 }

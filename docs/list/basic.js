@@ -3,14 +3,14 @@ import Bilza from "../../src/Bilza.js";
 
 let bil = new Bilza("basicUsage",800,300);
 let list = bil.add.list();
-list.addItem("wwwwwwwwwwwwwwwwwwwww");
-list.addItem("xxxxxxxxxxxxxxxxxxxxxxxxxx");
-list.addItem("yyyyyyyyyyyyyyyyyyyy");
-list.addItem("zzzzzzzzzzzzzzzzzzzzzz");
+list.addItem("wwwwwwwwwwwwwwwwwwwwwwwzz");
+list.addItem("xxxxxxxxxxxx");
+list.addItem("yyyyyyyyyyyyyyyyyyyyyyyyyy");
+list.addItem("zzzzzzzzzzzzzzzzzzzzzzzzzz");
 let g = bil.gridTempl.dashed();
 
 
 //////////////////////////////////
-bil.draw();
+bil.drawInit();
 ///////////////////////////////
 console.log("list",list);
