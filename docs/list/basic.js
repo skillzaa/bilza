@@ -2,16 +2,20 @@
 import Bilza from "../../src/Bilza.js";
 
 let bil = new Bilza("basicUsage",800,300);
-let list = bil.add.list();
-list.addItem("wwwwwwwwwwwwwwwwwwwwwwwzz");
-list.addItem("xxxxxxxxxxxx");
-list.addItem("yyyyyyyyyyyyyyyyyyyyyyyyyy");
-list.addItem("zzzzzzzzzzzzzzzzzzzzzzzzzz");
-list.addItem("wwwwwwwwwwwwwwwwwwwwwwwzz");
-list.addItem("xxxxxxxxxxxx");
+// let txt = bil.add.text(0,600,"John Grishm","#008000",0,0);
+// txt.d.flagUseDynResize = false;
+// txt.style.fontSize = 47;
+// console.log("height",txt.height(bil.pack));
+let list = bil.add.list(0,6000,0,0,100);
+list.addItem("11111111111111111111111111111111XXX");
+list.addItem("2222222");
+list.addItem("3333333");
+list.addItem("4444444");
+list.addItem("5555555");
+list.addItem("6666666");
 let g = bil.gridTempl.dashed();
 
-
+g.d.flagDrawNumbers = true;
 //////////////////////////////////
 bil.drawInit();
 ///////////////////////////////

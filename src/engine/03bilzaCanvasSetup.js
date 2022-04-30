@@ -10,7 +10,6 @@ export default class BilzaCanvasSetup extends BilzaTimer {
         this.pack = new Pack(this.canvasId, canvasWidth, canvasHeight);
     }
     insert(comp) {
-        comp.init(this.pack);
         this.comps.push(comp);
         return comp;
     }

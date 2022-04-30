@@ -68,6 +68,7 @@ let item = new Text(this.getStartTime(),this.getEndTime(),content);
 item.d.flagDrawBorder = true;
 item.d.flagUseRelativeXY = false;
 item.d.flagUseDynResize = true;
+//--change later
 item.d.dynWidth = this.d.dynWidth;
 
     this.d.items.push(item);
