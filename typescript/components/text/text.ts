@@ -113,6 +113,7 @@ p.drawText(this.d.content.substring(0,this.d.maxDisplayChars),
     this.style);
     
 }
+
 private getX(p :Pack):number{
 let x = this.d.x;    
         if (this.d.flagUseRelativeXY == true){

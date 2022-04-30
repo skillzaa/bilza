@@ -7,7 +7,7 @@ let bil = new Bilza("basicUsage",1000,300);
 // txt.style.fontSize = 47;
 // console.log("height",txt.height(bil.pack));
 let list = bil.add.list(0,6000,10,10,25);
-list.addItem("-123456789-123456789");
+list.addItem("123456789-123456789");
 list.addItem("2222222");
 list.addItem("3333333");
 list.addItem("4444444");

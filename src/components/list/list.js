@@ -53,13 +53,12 @@ export default class List extends Component {
         }
     }
     initXY(p) {
-        let x = p.xPerc(this.d.x);
         let y = p.yPerc(this.d.y);
         let fitsVertically = true;
         for (let i = 0; i < this.d.items.length; i++) {
             const item = this.d.items[i];
-            item.d.x = x;
-            item.d.y = y;
+            item.d.x = this.getItemX(p);
+            item.d.y = y + this.d.paddingY;
             y += item.height(p);
             y += this.d.gap;
             if (y > p.canvasHeight()) {
@@ -67,6 +66,30 @@ export default class List extends Component {
             }
         }
         return fitsVertically;
+    }
+    getItemX(p) {
+        let x = p.xPerc(this.d.x);
+        switch (this.d.align) {
+            case "left":
+                break;
+            case "right":
+                x += this.width(p) - (this.d.paddingX + this.d.paddingX + this.d.widthBorder);
+                for (let i = 0; i < this.d.items.length; i++) {
+                    const item = this.d.items[i];
+                    item.d.xAlignment = item.xAlignmentOptions.Right;
+                }
+                break;
+            case "centre":
+                x += this.width(p) / 2;
+                for (let i = 0; i < this.d.items.length; i++) {
+                    const item = this.d.items[i];
+                    item.d.xAlignment = item.xAlignmentOptions.Mid;
+                }
+                break;
+            default:
+                break;
+        }
+        return x + this.d.paddingX;
     }
     shrinkToFitVertically(p) {
         let oldPvtFontSize = this.pvtFontSize;

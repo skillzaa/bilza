@@ -9,6 +9,7 @@ export default class List extends Component<ObjectData> {
     init(p: Pack): boolean;
     private assignFontSizeToAll;
     initXY(p: Pack): boolean;
+    private getItemX;
     private shrinkToFitVertically;
     draw(p: Pack): boolean;
     private drawBorder;

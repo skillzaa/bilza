@@ -3,7 +3,7 @@ export class ObjectData extends CompDataBase {
     constructor() {
         super();
         this.msStart = 0;
-        this.align = "left";
+        this.align = "centre";
         this.x = 10;
         this.y = 10;
         this.widthBorder = 3;

@@ -68,18 +68,46 @@ for (let i = 0; i < this.d.items.length; i++) {
  * if the list does not fit vertically i.e it is longer than canvas then the return value if false;
  */
 initXY(p :Pack) :boolean {
-let x = p.xPerc(this.d.x);
 let y = p.yPerc(this.d.y);
 let fitsVertically = true;
 for (let i = 0; i < this.d.items.length; i++) {
     const item = this.d.items[i];
-    item.d.x = x;
-    item.d.y = y;
+    item.d.x = this.getItemX(p);
+    item.d.y = y + this.d.paddingY;
     y += item.height(p);
     y += this.d.gap;
     if (y > p.canvasHeight()){fitsVertically = false;}
 }
 return fitsVertically;
+}
+private getItemX(p :Pack) :number{
+    let x = p.xPerc(this.d.x);
+    switch (this.d.align) {
+        case "left":
+            
+            break;
+        case "right":
+            x += this.width(p) - (this.d.paddingX + this.d.paddingX + this.d.widthBorder);
+            for (let i = 0; i < this.d.items.length; i++) {
+                const item = this.d.items[i];
+                item.d.xAlignment = item.xAlignmentOptions.Right;
+                // item.d.yAlignment = item.yAlignmentOptions.Mid;
+            }    
+            break;
+        case "centre":
+         x += this.width(p)/2;
+         for (let i = 0; i < this.d.items.length; i++) {
+             const item = this.d.items[i];
+             item.d.xAlignment = item.xAlignmentOptions.Mid;
+            //  item.d.yAlignment = item.yAlignmentOptions.Mid;
+         }   
+            break;
+    
+        default:
+            break;
+    }
+
+return x + this.d.paddingX;
 }
 private shrinkToFitVertically(p :Pack) :boolean{
     let oldPvtFontSize = this.pvtFontSize;    
@@ -95,14 +123,12 @@ draw(p: Pack):boolean {
     this.drawBorder(p);
     this.drawBg(p);
 
-    // p.drawFillRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
-
-
     for (let i = 0; i < this.d.items.length; i++) {
       this.d.items[i].draw(p);
     }
 return true;    
 }
+
 private drawBorder(p :Pack){
     this.style.fillStyle = this.d.colorBorder;
     this.style.strokeStyle = this.d.colorBorder;
