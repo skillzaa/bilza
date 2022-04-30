@@ -9,6 +9,7 @@ margin :number;
 border :number;
 fontSize :number;
 dynWidth :number;
+dynHeight :number;
  //--content
 content :string;
 //--colors
@@ -38,7 +39,8 @@ this.content = "Text" ;
 this.padding = 2;
 this.margin = 2;
 this.border = 2;
-this.dynWidth = 10;
+this.dynWidth = 80;
+this.dynHeight = 30;
 
 this.colorBorder = "black";
 this.colorBg = "#e1f4e1";

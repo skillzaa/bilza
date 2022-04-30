@@ -7,6 +7,7 @@ export declare class ObjectData extends CompDataBase {
     border: number;
     fontSize: number;
     dynWidth: number;
+    dynHeight: number;
     content: string;
     color: string;
     colorBorder: string;

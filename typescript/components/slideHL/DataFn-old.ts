@@ -8,7 +8,7 @@ listStartY :number;
 listGapFactor :number;
 applyWdHtPerc :boolean;
 maxLiChars :number;
-  
+ 
 constructor(){
 super();
 this.listStartY = 30; 

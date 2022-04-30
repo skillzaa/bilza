@@ -10,7 +10,8 @@ export class ObjectData extends CompDataBase {
         this.padding = 2;
         this.margin = 2;
         this.border = 2;
-        this.dynWidth = 10;
+        this.dynWidth = 80;
+        this.dynHeight = 30;
         this.colorBorder = "black";
         this.colorBg = "#e1f4e1";
         this.color = "black";
