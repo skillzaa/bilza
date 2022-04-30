@@ -22,6 +22,10 @@ export declare class ObjectData extends CompDataBase {
     dimFontColor: string;
     dimBgColor: string;
     dimBorderColor: string;
+    listHighlight: number[];
+    highlightFontColor: string;
+    highlightBgColor: string;
+    highlightBorderColor: string;
     constructor();
 }
 export default function DataFn(): ObjectData;

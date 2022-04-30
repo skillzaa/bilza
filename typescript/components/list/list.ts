@@ -52,8 +52,7 @@ for (let i = 0; i < this.d.items.length; i++) {
 for (let i = 0; i < this.d.items.length; i++) {
     this.d.items[i].d.colorBorder = this.d.colorItemBorder;
 }
-//--apply dim
-this.applyDim();
+
 return true;    
 }
 private assignFontSizeToAll(incomFontSize :number){
@@ -62,7 +61,12 @@ for (let i = 0; i < this.d.items.length; i++) {
     this.d.items[i].style.fontSize = incomFontSize;
 }
 }
-
+update(msDelta: number, p: Pack): boolean {
+    //--apply dim
+this.applyDim();
+this.applyHighlight();
+return true;
+}
 /**
  * 
  * @param p :Pack
@@ -194,6 +198,13 @@ for (let i = 0; i < this.d.listDim.length; i++) {
 this.d.items[ this.d.listDim[i] ] .d.color = this.d.dimFontColor;
 this.d.items[ this.d.listDim[i] ] .d.colorBg = this.d.dimBgColor;
 this.d.items[ this.d.listDim[i] ] .d.colorBorder = this.d.dimBorderColor;
+    }
+}
+private applyHighlight(){
+for (let i = 0; i < this.d.listHighlight.length; i++) {
+this.d.items[ this.d.listHighlight[i] ] .d.color = this.d.highlightFontColor;
+this.d.items[ this.d.listHighlight[i] ] .d.colorBg = this.d.highlightBgColor;
+this.d.items[ this.d.listHighlight[i] ] .d.colorBorder = this.d.highlightBorderColor;
     }
 }
 ////////////////////////////////////////////////////////////

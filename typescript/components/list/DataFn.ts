@@ -28,6 +28,10 @@ listDim :number[];
 dimFontColor :string;
 dimBgColor :string;
 dimBorderColor :string;
+listHighlight :number[];
+highlightFontColor :string;
+highlightBgColor :string;
+highlightBorderColor :string;
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -57,6 +61,11 @@ this.listDim = [0,2];
 this.dimFontColor = "grey";
 this.dimBgColor = "#6B726D";
 this.dimBorderColor = "grey";
+////////////////////////////
+this.listHighlight = [3];
+this.highlightFontColor = "red";
+this.highlightBgColor = "blue";
+this.highlightBorderColor = "red";
 
 }
 };

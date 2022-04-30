@@ -24,6 +24,10 @@ export class ObjectData extends CompDataBase {
         this.dimFontColor = "grey";
         this.dimBgColor = "#6B726D";
         this.dimBorderColor = "grey";
+        this.listHighlight = [3];
+        this.highlightFontColor = "red";
+        this.highlightBgColor = "blue";
+        this.highlightBorderColor = "red";
     }
 }
 ;

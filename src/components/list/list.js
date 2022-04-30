@@ -44,7 +44,6 @@ export default class List extends Component {
         for (let i = 0; i < this.d.items.length; i++) {
             this.d.items[i].d.colorBorder = this.d.colorItemBorder;
         }
-        this.applyDim();
         return true;
     }
     assignFontSizeToAll(incomFontSize) {
@@ -52,6 +51,11 @@ export default class List extends Component {
             this.d.items[i].d.fontSize = incomFontSize;
             this.d.items[i].style.fontSize = incomFontSize;
         }
+    }
+    update(msDelta, p) {
+        this.applyDim();
+        this.applyHighlight();
+        return true;
     }
     initXY(p) {
         let y = p.yPerc(this.d.y);
@@ -165,6 +169,13 @@ export default class List extends Component {
             this.d.items[this.d.listDim[i]].d.color = this.d.dimFontColor;
             this.d.items[this.d.listDim[i]].d.colorBg = this.d.dimBgColor;
             this.d.items[this.d.listDim[i]].d.colorBorder = this.d.dimBorderColor;
+        }
+    }
+    applyHighlight() {
+        for (let i = 0; i < this.d.listHighlight.length; i++) {
+            this.d.items[this.d.listHighlight[i]].d.color = this.d.highlightFontColor;
+            this.d.items[this.d.listHighlight[i]].d.colorBg = this.d.highlightBgColor;
+            this.d.items[this.d.listHighlight[i]].d.colorBorder = this.d.highlightBorderColor;
         }
     }
 }
