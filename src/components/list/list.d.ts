@@ -11,6 +11,8 @@ export default class List extends Component<ObjectData> {
     initXY(p: Pack): boolean;
     private shrinkToFitVertically;
     draw(p: Pack): boolean;
+    private drawBorder;
+    private drawBg;
     addItem(content?: string): void;
     setX(item: Text, p: Pack): number;
     private getSmallestFontSize;

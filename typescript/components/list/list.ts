@@ -28,7 +28,7 @@ height(p: Pack,perc=0): number {
     for (let i = 0; i < this.d.items.length; i++) {
         const item = this.d.items[i];
             ht += item.height(p);
-            // ht += this.d.gap;
+            ht += this.d.gap;
     }
  return  ht + (this.d.paddingY);
 }
@@ -41,9 +41,16 @@ init(p: Pack): boolean {
 this.pvtFontSize = this.getSmallestFontSize();  
 this.assignFontSizeToAll(this.pvtFontSize);
 let fitsVertically  = this.initXY(p);
-console.log("fitsVertically",fitsVertically);
-if (fitsVertically == false){
+// console.log("fitsVertically",fitsVertically);
+if (fitsVertically == false && this.d.flagShrinkTofitVertically == true){
     this.shrinkToFitVertically(p);
+}
+///////////---general
+for (let i = 0; i < this.d.items.length; i++) {
+    this.d.items[i].d.color = this.d.colorFont;
+}
+for (let i = 0; i < this.d.items.length; i++) {
+    this.d.items[i].d.colorBorder = this.d.colorItemBorder;
 }
 return true;    
 }
@@ -53,6 +60,7 @@ for (let i = 0; i < this.d.items.length; i++) {
     this.d.items[i].style.fontSize = incomFontSize;
 }
 }
+
 /**
  * 
  * @param p :Pack
@@ -60,8 +68,8 @@ for (let i = 0; i < this.d.items.length; i++) {
  * if the list does not fit vertically i.e it is longer than canvas then the return value if false;
  */
 initXY(p :Pack) :boolean {
-let x = this.d.x;
-let y = this.d.y;
+let x = p.xPerc(this.d.x);
+let y = p.yPerc(this.d.y);
 let fitsVertically = true;
 for (let i = 0; i < this.d.items.length; i++) {
     const item = this.d.items[i];
@@ -84,10 +92,31 @@ for (let i = 0; i < 300; i++) {
 return false;
 }
 draw(p: Pack):boolean {
+    this.drawBorder(p);
+    this.drawBg(p);
+
+    // p.drawFillRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
+
+
     for (let i = 0; i < this.d.items.length; i++) {
       this.d.items[i].draw(p);
     }
 return true;    
+}
+private drawBorder(p :Pack){
+    this.style.fillStyle = this.d.colorBorder;
+    this.style.strokeStyle = this.d.colorBorder;
+    p.drawFillRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
+}
+private drawBg(p :Pack){
+    this.style.fillStyle = this.d.colorBg;
+    this.style.strokeStyle = this.d.colorBg;
+    p.drawFillRect(
+    p.xPerc(this.d.x) + this.d.widthBorder,
+    p.yPerc(this.d.y) + this.d.widthBorder,
+    this.width(p) - (this.d.widthBorder * 2),
+    this.height(p) - (this.d.widthBorder * 2),
+    this.style);
 }
 addItem(content=""){
 let item = new Text(this.getStartTime(),this.getEndTime(),content);

@@ -24,6 +24,7 @@ export default class List extends Component {
         for (let i = 0; i < this.d.items.length; i++) {
             const item = this.d.items[i];
             ht += item.height(p);
+            ht += this.d.gap;
         }
         return ht + (this.d.paddingY);
     }
@@ -34,9 +35,14 @@ export default class List extends Component {
         this.pvtFontSize = this.getSmallestFontSize();
         this.assignFontSizeToAll(this.pvtFontSize);
         let fitsVertically = this.initXY(p);
-        console.log("fitsVertically", fitsVertically);
-        if (fitsVertically == false) {
+        if (fitsVertically == false && this.d.flagShrinkTofitVertically == true) {
             this.shrinkToFitVertically(p);
+        }
+        for (let i = 0; i < this.d.items.length; i++) {
+            this.d.items[i].d.color = this.d.colorFont;
+        }
+        for (let i = 0; i < this.d.items.length; i++) {
+            this.d.items[i].d.colorBorder = this.d.colorItemBorder;
         }
         return true;
     }
@@ -47,8 +53,8 @@ export default class List extends Component {
         }
     }
     initXY(p) {
-        let x = this.d.x;
-        let y = this.d.y;
+        let x = p.xPerc(this.d.x);
+        let y = p.yPerc(this.d.y);
         let fitsVertically = true;
         for (let i = 0; i < this.d.items.length; i++) {
             const item = this.d.items[i];
@@ -75,10 +81,22 @@ export default class List extends Component {
         return false;
     }
     draw(p) {
+        this.drawBorder(p);
+        this.drawBg(p);
         for (let i = 0; i < this.d.items.length; i++) {
             this.d.items[i].draw(p);
         }
         return true;
+    }
+    drawBorder(p) {
+        this.style.fillStyle = this.d.colorBorder;
+        this.style.strokeStyle = this.d.colorBorder;
+        p.drawFillRect(p.xPerc(this.d.x), p.yPerc(this.d.y), this.width(p), this.height(p), this.style);
+    }
+    drawBg(p) {
+        this.style.fillStyle = this.d.colorBg;
+        this.style.strokeStyle = this.d.colorBg;
+        p.drawFillRect(p.xPerc(this.d.x) + this.d.widthBorder, p.yPerc(this.d.y) + this.d.widthBorder, this.width(p) - (this.d.widthBorder * 2), this.height(p) - (this.d.widthBorder * 2), this.style);
     }
     addItem(content = "") {
         let item = new Text(this.getStartTime(), this.getEndTime(), content);
