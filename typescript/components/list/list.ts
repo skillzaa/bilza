@@ -106,16 +106,21 @@ return true;
 private drawBorder(p :Pack){
     this.style.fillStyle = this.d.colorBorder;
     this.style.strokeStyle = this.d.colorBorder;
-    p.drawFillRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
+    p.drawFillRect(
+    p.xPerc(this.d.x)-this.d.widthBorder,
+    p.yPerc(this.d.y)-this.d.widthBorder,
+    this.width(p) + (this.d.widthBorder * 2),
+    this.height(p) + (this.d.widthBorder * 2),
+    this.style);
 }
 private drawBg(p :Pack){
     this.style.fillStyle = this.d.colorBg;
     this.style.strokeStyle = this.d.colorBg;
     p.drawFillRect(
-    p.xPerc(this.d.x) + this.d.widthBorder,
-    p.yPerc(this.d.y) + this.d.widthBorder,
-    this.width(p) - (this.d.widthBorder * 2),
-    this.height(p) - (this.d.widthBorder * 2),
+    p.xPerc(this.d.x) ,
+    p.yPerc(this.d.y) ,
+    this.width(p) ,
+    this.height(p) ,
     this.style);
 }
 addItem(content=""){

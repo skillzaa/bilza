@@ -91,12 +91,12 @@ export default class List extends Component {
     drawBorder(p) {
         this.style.fillStyle = this.d.colorBorder;
         this.style.strokeStyle = this.d.colorBorder;
-        p.drawFillRect(p.xPerc(this.d.x), p.yPerc(this.d.y), this.width(p), this.height(p), this.style);
+        p.drawFillRect(p.xPerc(this.d.x) - this.d.widthBorder, p.yPerc(this.d.y) - this.d.widthBorder, this.width(p) + (this.d.widthBorder * 2), this.height(p) + (this.d.widthBorder * 2), this.style);
     }
     drawBg(p) {
         this.style.fillStyle = this.d.colorBg;
         this.style.strokeStyle = this.d.colorBg;
-        p.drawFillRect(p.xPerc(this.d.x) + this.d.widthBorder, p.yPerc(this.d.y) + this.d.widthBorder, this.width(p) - (this.d.widthBorder * 2), this.height(p) - (this.d.widthBorder * 2), this.style);
+        p.drawFillRect(p.xPerc(this.d.x), p.yPerc(this.d.y), this.width(p), this.height(p), this.style);
     }
     addItem(content = "") {
         let item = new Text(this.getStartTime(), this.getEndTime(), content);
