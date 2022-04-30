@@ -2,11 +2,14 @@ import { Component, Pack } from "../../Bilza.js";
 import Text from "../text/text.js";
 import { ObjectData } from "./DataFn.js";
 export default class List extends Component<ObjectData> {
+    private pvtFontSize;
     constructor(msStart?: number, msEnd?: number, x?: number, y?: number, dynWidth?: number);
     width(p: Pack): number;
     height(p: Pack, perc?: number): number;
     init(p: Pack): boolean;
-    update(ms: number, p: Pack): boolean;
+    private assignFontSizeToAll;
+    initXY(p: Pack): boolean;
+    private shrinkToFitVertically;
     draw(p: Pack): boolean;
     addItem(content?: string): void;
     setX(item: Text, p: Pack): number;

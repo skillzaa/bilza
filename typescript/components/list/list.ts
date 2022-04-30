@@ -4,9 +4,10 @@ import Text from "../text/text.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class List extends Component<ObjectData> {
-
+private pvtFontSize :number;
 constructor (msStart=0,msEnd= Number.MAX_SAFE_INTEGER ,x=10,y=10,dynWidth =80){
     super(DataFn,msStart,msEnd);   
+    this.pvtFontSize = 20;
     this.d.x = x;
     this.d.y = y;
     this.d.dynWidth = dynWidth;
@@ -33,34 +34,59 @@ height(p: Pack,perc=0): number {
 }
 
 init(p: Pack): boolean {
+
     for (let i = 0; i < this.d.items.length; i++) {
         this.d.items[i].init(p);
     }
-let smallestFontSize = this.getSmallestFontSize();    
-for (let i = 0; i < this.d.items.length; i++) {
-    this.d.items[i].d.fontSize = smallestFontSize;
+this.pvtFontSize = this.getSmallestFontSize();  
+this.assignFontSizeToAll(this.pvtFontSize);
+let fitsVertically  = this.initXY(p);
+console.log("fitsVertically",fitsVertically);
+if (fitsVertically == false){
+    this.shrinkToFitVertically(p);
 }
 return true;    
 }
-update(ms :number, p: Pack): boolean {
-return true;
+private assignFontSizeToAll(incomFontSize :number){
+for (let i = 0; i < this.d.items.length; i++) {
+    this.d.items[i].d.fontSize = incomFontSize;
+    this.d.items[i].style.fontSize = incomFontSize;
 }
-
+}
+/**
+ * 
+ * @param p :Pack
+ * @returns :boolean
+ * if the list does not fit vertically i.e it is longer than canvas then the return value if false;
+ */
+initXY(p :Pack) :boolean {
+let x = this.d.x;
+let y = this.d.y;
+let fitsVertically = true;
+for (let i = 0; i < this.d.items.length; i++) {
+    const item = this.d.items[i];
+    item.d.x = x;
+    item.d.y = y;
+    y += item.height(p);
+    y += this.d.gap;
+    if (y > p.canvasHeight()){fitsVertically = false;}
+}
+return fitsVertically;
+}
+private shrinkToFitVertically(p :Pack) :boolean{
+    let oldPvtFontSize = this.pvtFontSize;    
+for (let i = 0; i < 300; i++) {
+    this.pvtFontSize -= 1;
+    this.assignFontSizeToAll(this.pvtFontSize);
+    let res = this.initXY(p);
+    if (res == true){ return true;}
+}
+return false;
+}
 draw(p: Pack):boolean {
-    let x = this.d.x;
-    let y = this.d.y;
-   
     for (let i = 0; i < this.d.items.length; i++) {
-        const item = this.d.items[i];
-        // item.d.====> Everything is avaialble
-        item.d.x = x;
-        item.d.y =y;
-        item.draw(p);
-        y += item.height(p);
-        y += this.d.gap;
-        if (y > p.canvasHeight()){this.log("too long to fit");}
+      this.d.items[i].draw(p);
     }
-    
 return true;    
 }
 addItem(content=""){

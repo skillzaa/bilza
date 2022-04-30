@@ -32,7 +32,7 @@ width(p:Pack):number {
 return (p.textWidth(this.d.content.substring(0,this.d.maxDisplayChars),this.style) + (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
 }
 height(p:Pack):number {
-return (p.textWidth("W",this.style)+ (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
+return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
 }
 
 init(p: Pack): boolean {

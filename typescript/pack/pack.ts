@@ -168,27 +168,7 @@ public drawTextstroke(content:string,x:number,y:number, incomCtx:Style){
     // x and y are not merged   
     this.ctx.strokeText(content, x, y);
 }
-// //very simple function just do not put abstractions here-- keep it simple and pure 
-// public drawLines(positions :Position[] ,incomCtx:Style ,fill=true){
-//     this.commitCtxData(incomCtx);
-   
-//     this.ctx.beginPath(); 
-//     this.ctx.moveTo(positions[0].x,positions[0].y);
 
-//     for (let i = 1; i < positions.length; i++) {
-//         const pos = positions[i];
-//         this.ctx.lineTo(pos.x,pos.y);
-//     }
-//     //--do not draw the last line
-//     this.ctx.closePath(); //importantay
-//         if (fill == true){
-//             this.ctx.fill();
-//         }else {
-//             this.ctx.stroke();
-//         }
-// }
-//--the commitCtxData fn of the pack is coupling of my style data and ctx
-//---made it public ?????
 public commitCtxData(incomCtx:Style){
     
     if (incomCtx.lineCap !== null){
