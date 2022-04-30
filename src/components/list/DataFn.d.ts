@@ -18,6 +18,10 @@ export declare class ObjectData extends CompDataBase {
     paddingY: number;
     dynWidth: number;
     items: Text[];
+    listDim: number[];
+    dimFontColor: string;
+    dimBgColor: string;
+    dimBorderColor: string;
     constructor();
 }
 export default function DataFn(): ObjectData;

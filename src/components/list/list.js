@@ -44,6 +44,7 @@ export default class List extends Component {
         for (let i = 0; i < this.d.items.length; i++) {
             this.d.items[i].d.colorBorder = this.d.colorItemBorder;
         }
+        this.applyDim();
         return true;
     }
     assignFontSizeToAll(incomFontSize) {
@@ -158,5 +159,12 @@ export default class List extends Component {
             }
         }
         return sm;
+    }
+    applyDim() {
+        for (let i = 0; i < this.d.listDim.length; i++) {
+            this.d.items[this.d.listDim[i]].d.color = this.d.dimFontColor;
+            this.d.items[this.d.listDim[i]].d.colorBg = this.d.dimBgColor;
+            this.d.items[this.d.listDim[i]].d.colorBorder = this.d.dimBorderColor;
+        }
     }
 }

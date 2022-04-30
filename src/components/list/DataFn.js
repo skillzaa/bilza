@@ -12,7 +12,7 @@ export class ObjectData extends CompDataBase {
         this.paddingX = 4;
         this.paddingY = 4;
         this.gap = 10;
-        this.colorFont = "red";
+        this.colorFont = "black";
         this.colorBorder = "#10c910";
         this.colorItemBorder = "blue";
         this.colorBg = "green";
@@ -20,6 +20,10 @@ export class ObjectData extends CompDataBase {
         this.flagShowBorder = true;
         this.flagShowBg = true;
         this.flagShrinkTofitVertically = false;
+        this.listDim = [0, 2];
+        this.dimFontColor = "grey";
+        this.dimBgColor = "#6B726D";
+        this.dimBorderColor = "grey";
     }
 }
 ;

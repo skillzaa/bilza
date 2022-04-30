@@ -17,5 +17,6 @@ export default class List extends Component<ObjectData> {
     addItem(content?: string): void;
     setX(item: Text, p: Pack): number;
     private getSmallestFontSize;
+    private applyDim;
 }
 //# sourceMappingURL=list.d.ts.map
