@@ -2,6 +2,7 @@ import { Component } from "../../Bilza.js";
 import Text from "../text/text.js";
 import DataFn from "./DataFn.js";
 import ListUtil from "./listUtil.js";
+import DrawUtil from "./drawUtil.js";
 export default class List extends Component {
     constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, x = 10, y = 10, dynWidth = 80) {
         super(DataFn, msStart, msEnd);
@@ -10,25 +11,7 @@ export default class List extends Component {
         this.d.y = y;
         this.d.dynWidth = dynWidth;
         this.util = new ListUtil(this.d);
-    }
-    width(p) {
-        let wd = 0;
-        for (let i = 0; i < this.d.items.length; i++) {
-            const item = this.d.items[i];
-            if (item.width(p) > wd) {
-                wd = item.width(p);
-            }
-        }
-        return wd + (this.d.paddingX * 4);
-    }
-    height(p, perc = 0) {
-        let ht = this.d.paddingY;
-        for (let i = 0; i < this.d.items.length; i++) {
-            const item = this.d.items[i];
-            ht += item.height(p);
-            ht += this.d.gap;
-        }
-        return ht + (this.d.paddingY);
+        this.drawUtil = new DrawUtil(this.d);
     }
     init(p) {
         this.util.initAllItems(p);
@@ -103,22 +86,12 @@ export default class List extends Component {
         return false;
     }
     draw(p) {
-        this.drawBorder(p);
-        this.drawBg(p);
+        this.drawUtil.drawBorder(p, this.width(p), this.height(p), this.style);
+        this.drawUtil.drawBg(p, this.width(p), this.height(p), this.style);
         for (let i = 0; i < this.d.items.length; i++) {
             this.d.items[i].draw(p);
         }
         return true;
-    }
-    drawBorder(p) {
-        this.style.fillStyle = this.d.colorBorder;
-        this.style.strokeStyle = this.d.colorBorder;
-        p.drawFillRect(p.xPerc(this.d.x) - this.d.widthBorder, p.yPerc(this.d.y) - this.d.widthBorder, this.width(p) + (this.d.widthBorder * 2), this.height(p) + (this.d.widthBorder * 2), this.style);
-    }
-    drawBg(p) {
-        this.style.fillStyle = this.d.colorBg;
-        this.style.strokeStyle = this.d.colorBg;
-        p.drawFillRect(p.xPerc(this.d.x), p.yPerc(this.d.y), this.width(p), this.height(p), this.style);
     }
     addItem(content = "") {
         let item = new Text(this.getStartTime(), this.getEndTime(), content);
@@ -127,5 +100,24 @@ export default class List extends Component {
         item.d.flagUseDynResize = true;
         item.d.dynWidth = this.d.dynWidth;
         this.d.items.push(item);
+    }
+    width(p) {
+        let wd = 0;
+        for (let i = 0; i < this.d.items.length; i++) {
+            const item = this.d.items[i];
+            if (item.width(p) > wd) {
+                wd = item.width(p);
+            }
+        }
+        return wd + (this.d.paddingX * 4);
+    }
+    height(p, perc = 0) {
+        let ht = this.d.paddingY;
+        for (let i = 0; i < this.d.items.length; i++) {
+            const item = this.d.items[i];
+            ht += item.height(p);
+            ht += this.d.gap;
+        }
+        return ht + (this.d.paddingY);
     }
 }
