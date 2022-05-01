@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Demo</title>
+    <style>
+        #canvasContainer {
+            text-align: center;
+        }
+        #optionsDiv {
+            background-color: darkblue;
+            width: 100%;
+            color:white;
+            height: 200px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvasContainer">
+    <canvas id="bilza"></canvas>
+</div>
+<div id="optionsDiv">
+<ol>
+<li><h3>padding :number;</h3></li>
+<input type="range" name="paddingRange" id="paddingRange" min="0" max="20" value="1" width="100%" /><label id="paddingRangeLabel">00</label>
+
+<li><h3>margin :number;</h3></li>
+<input type="range" name="marginRange" id="marginRange" min="0" max="20" value="1" width="100%" /><label id="marginRangeLabel">00</label>
+
+<li><h3>border :number;</h3></li>
+<input type="range" name="borderRange" id="borderRange" min="0" max="50" value="1" width="100%" /><label id="borderRangeLabel">00</label>
+
+<li><h3>fontSize :number;</h3></li>
+<input type="range" name="fontSizeRange" id="fontSizeRange" min="0" max="300" value="25" width="100%" /><label id="fontSizeRangeLabel">00</label>
+
+<li><h3>dynWidth :number;</h3></li>
+<input type="range" name="dynWidthRange" id="dynWidthRange" min="10" max="100" value="25" width="100%" /><label id="dynWidthRangeLabel">00</label>
+
+<li><h3>dynHeight :number;</h3></li>
+<input type="range" name="dynHeightRange" id="dynHeightRange" min="10" max="100" value="25" width="100%" /><label id="dynHeightRangeLabel">00</label>
+
+<li><h3>content :string;</h3></li>
+
+<li><h3>color :string;</h3></li>
+
+<li><h3>colorBorder :string;</h3></li>
+
+<li><h3>colorBg :string;</h3></li>
+
+<li><h3>flagDrawContent :boolean;</h3></li>
+<input type="checkbox" name="flagDrawContentToggle" id="flagDrawContentToggle"><label id="flagDrawContentToggleLabel"></label>
+
+<li><h3>flagDrawBorder :boolean;</h3></li>
+<input type="checkbox" name="flagDrawBorderToggle" id="flagDrawBorderToggle"><label id="flagDrawBorderToggleLabel"></label>
+
+<li><h3>flagDrawBg :boolean;</h3></li>
+<input type="checkbox" name="flagDrawBgToggle" id="flagDrawBgToggle"><label id="flagDrawBgLabel"></label>
+
+<li><h3>flagTextShadow :boolean;</h3></li>
+<input type="checkbox" name="flagTextShadowToggle" id="flagTextShadowToggle"><label id="flagTextShadowLabel"></label>
+
+<li><h3>flagBgShadow :boolean; </h3></li>
+<input type="checkbox" name="flagBgShadowToggle" id="flagBgShadowToggle"><label id="flagBgShadowToggleLabel"></label>
+
+<li><h3>flagUseDynResize:boolean;</h3></li>
+<input type="checkbox" name="flagUseDynResizeToggle" id="flagUseDynResizeToggle"><label id="flagUseDynResizeToggleLabel"></label>
+
+<li><h3>flagShrinkHeightToFit:boolean;</h3></li>
+<input type="checkbox" name="flagShrinkHeightToFitToggle" id="flagShrinkHeightToFitToggle">
+<label id="flagShrinkHeightToFitToggleLabel"></label>
+
+<li><h3>flagUseRelativeXY:boolean;</h3></li>
+<input type="checkbox" name="flagUseRelativeXYToggle" id="flagUseRelativeXYToggle"><label id="flagUseRelativeXYToggleLabel"></label>
+
+<li><h3>maxDisplayChars :number; //implemented</h3></li>
+
+<li><h3>xAlignment :XAlignment;</h3></li>
+
+<li><h3>yAlignment :YAlignment;</h3></li>
+</ol>
+</div>
+<!-- <script src="fontSizeRangeLabel.js" ></script> -->
+<script src="textDemo.js" type="module"></script>
+
+</body>
+</html>
