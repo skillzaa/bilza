@@ -4,11 +4,9 @@ export default class CompDataBase {
         this.x = 0;
         this.y = 0;
         this.selected = false;
-        this.positioned = true;
-        this.responsive = true;
         this.visible = true;
-        this.colorShadow = "grey";
-        this.displayShadow = false;
+        this.shadowColor = "grey";
+        this.shadowDisplay = false;
         this.shadowOffsetX = 0;
         this.shadowOffsetY = 0;
         this.shadowBlur = 0;

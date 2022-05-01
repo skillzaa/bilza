@@ -3,13 +3,11 @@ export default class CompDataBase {
     x: number;
     y: number;
     colorBoundingRectangle: string;
-    displayShadow: boolean;
-    colorShadow: string;
+    shadowDisplay: boolean;
+    shadowColor: string;
     shadowOffsetX: number;
     shadowOffsetY: number;
     shadowBlur: number;
-    responsive: boolean;
-    positioned: boolean;
     visible: boolean;
     selected: boolean;
     constructor();

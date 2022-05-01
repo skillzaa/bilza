@@ -75,7 +75,7 @@ export default class Text extends Component {
             this.style.shadowBlur = this.d.shadowBlur;
             this.style.shadowOffsetX = this.d.shadowOffsetX;
             this.style.shadowOffsetY = this.d.shadowOffsetY;
-            this.style.shadowColor = this.d.colorShadow;
+            this.style.shadowColor = this.d.shadowColor;
         }
         else {
             this.shadowsOff();

@@ -15,9 +15,11 @@ let interval = setInterval(function(){
     bil.drawInit();
 },150);
 ///////////////////////////////
+///////////////////////////////
+///////////////////////////////
 //--------fontSizeRange-------
-let rng = document.getElementById("fontSizeRange");
-rng.addEventListener("input",function(e){
+let fontSizeRange = document.getElementById("fontSizeRange");
+fontSizeRange.addEventListener("input",function(e){
 txt.d.fontSize = parseInt(e.target.value);
     let a = document.getElementById("fontSizeRangeLabel");
     a.innerHTML = txt.d.fontSize; 
@@ -64,6 +66,21 @@ txt.d.maxDisplayChars = parseInt(e.target.value);
 let a = document.getElementById("maxDisplayCharsRangeLabel");
 a.innerHTML = txt.d.maxDisplayChars; 
 });
+////////////////////////////////////////
+let flagUseDynResizeToggle = document.getElementById("flagUseDynResizeToggle");
+flagUseDynResizeToggle.addEventListener("change",function(e){
+let a = document.getElementById("flagUseDynResizeToggleLabel");
+//.......................
+    if (e.currentTarget.checked) {
+      a.innerHTML = "True";
+      txt.d.flagUseDynResize = true;
+    } else {
+        a.innerHTML = "False";
+        txt.d.flagUseDynResize = false;
+    }
+//....................... 
+});
+
 //--------contentInput-------
 let contentInput = document.getElementById("contentInput");
 contentInput.addEventListener("input",function(e){
@@ -171,20 +188,6 @@ let a = document.getElementById("flagTextShadowToggleLabel");
     }
 //....................... 
 });
-////////////////////////////////////////
-let flagUseDynResizeToggle = document.getElementById("flagUseDynResizeToggle");
-flagUseDynResizeToggle.addEventListener("change",function(e){
-let a = document.getElementById("flagUseDynResizeToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.flagUseDynResize = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.flagUseDynResize = false;
-    }
-//....................... 
-});
 
 //-------color picker
 /////////////////////////////////////////////////////
@@ -207,4 +210,37 @@ colorBgPicker.addEventListener("change",function(e){
 let a = document.getElementById("colorBgPickerLabel");
 txt.d.colorBg = (e.target.value);
 a.innerHTML = (txt.d.colorBg);
+});
+///////////////////////////////////////////////////////
+///////////-----------Base Class Variables----////////
+//--------xRange-------
+let xRange = document.getElementById("xRange");
+xRange.addEventListener("input",function(e){
+txt.d.x = parseInt(e.target.value);
+    let a = document.getElementById("xRangeLabel");
+    a.innerHTML = txt.d.x; 
+});
+//--------yRange-------
+let yRange = document.getElementById("yRange");
+yRange.addEventListener("input",function(e){
+txt.d.y = parseInt(e.target.value);
+    let a = document.getElementById("yRangeLabel");
+    a.innerHTML = txt.d.y; 
+});
+let flagUseRelativeXYToggle = document.getElementById("flagUseRelativeXYToggle");
+flagUseRelativeXYToggle.addEventListener("change",function(e){
+let a = document.getElementById("flagUseRelativeXYToggleLabel");
+//.......................
+    if (e.currentTarget.checked) {
+      a.innerHTML = "True";
+      txt.d.flagUseRelativeXY = true;
+      xRange.max = 100;
+      yRange.max = 100;
+    } else {
+        a.innerHTML = "False";
+        txt.d.flagUseRelativeXY = false;
+        xRange.max = 1500;
+        yRange.max = 1500;
+    }
+//....................... 
 });

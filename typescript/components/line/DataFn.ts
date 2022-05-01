@@ -27,7 +27,7 @@ this.lineWidth = 2;
 // this.flagShadow = false ;
 
 this.color = "red" ;
-this.colorShadow = "grey" ;
+// this.shadowColor = "grey" ;
  
 
 }

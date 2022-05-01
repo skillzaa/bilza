@@ -9,7 +9,6 @@ export class ObjectData extends CompDataBase {
         this.y2 = 100;
         this.lineWidth = 2;
         this.color = "red";
-        this.colorShadow = "grey";
     }
 }
 ;

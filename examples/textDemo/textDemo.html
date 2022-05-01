@@ -85,9 +85,6 @@
 <li><h3>flagBgShadow :boolean; </h3></li>
 <input type="checkbox" name="flagBgShadowToggle" id="flagBgShadowToggle"><label id="flagBgShadowToggleLabel"></label>
 
-<li><h3>flagUseRelativeXY:boolean;</h3></li>
-<input type="checkbox" name="flagUseRelativeXYToggle" id="flagUseRelativeXYToggle"><label id="flagUseRelativeXYToggleLabel"></label>
-
 <li><h3>maxDisplayChars :number; //implemented</h3></li>
 <input type="range" name="maxDisplayCharsRange" id="maxDisplayCharsRange" min="1" max="100" value="50" width="100%" /><label id="maxDisplayCharsRangeLabel">00</label>
 
@@ -105,9 +102,28 @@
     <option value="bot">Bottom</option>
   </select>
   
+<hr/>
+<li><h3>x :number;</h3></li>
+<input type="range" name="xRange" id="xRange" min="0" max="1000" value="25" width="100%" /><label id="xRangeLabel">00</label>
+
+<li><h3>y :number;</h3></li>
+<input type="range" name="yRange" id="yRange" min="0" max="1000" value="25" width="100%" /><label id="yRangeLabel">00</label>
+
+
+<li><h3>flagUseRelativeXY:boolean;</h3></li>
+<input type="checkbox" name="flagUseRelativeXYToggle" id="flagUseRelativeXYToggle"><label id="flagUseRelativeXYToggleLabel"></label>
+
+
+<li><h3>colorBoundingRectangle:string;</h3></li>
+<li><h3>shadowDisplay :boolean; //show or not</h3></li>
+<li><h3>shadowColor :string;</h3></li>
+<li><h3>shadowOffsetX :number;</h3></li>
+<li><h3>shadowOffsetY :number;</h3></li>
+<li><h3>shadowBlur :number;</h3></li>
+<li><h3>visible :boolean;</h3></li>
+<li><h3>selected :boolean;</h3></li>
 </ol>
 </div>
-<!-- <script src="fontSizeRangeLabel.js" ></script> -->
 <script src="textDemo.js" type="module"></script>
 
 </body>
