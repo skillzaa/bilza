@@ -10,7 +10,7 @@ export default class Bilza extends BilzaCanvasSetup {
     textTempl: TextTemplates;
     gridTempl: GridTemplates;
     background: Background;
-    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: null, timeEnd?: number);
+    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: null, timeEndSec?: number);
     start(): boolean;
     drawInit(): void;
     draw(): boolean;

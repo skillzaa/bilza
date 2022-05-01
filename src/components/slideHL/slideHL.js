@@ -5,25 +5,11 @@ import List from "../list/list.js";
 export default class SlideHL extends Component {
     constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "The Title", color = "#00ff37") {
         super(DataFn);
-        this.hdg = new Text(startTimeSeconds, endTimeSeconds, content, color, 50, 1);
-        this.hdg.d.border = 2;
-        this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
-        this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
-        this.hdg.d.flagDrawBorder = true;
-        this.hdg.d.flagDrawBg = true;
-        this.hdg.d.dynWidth = 80;
-        this.hdg.d.color = "#008000";
-        this.hdg.d.dynHeight = 25;
-        this.hdg.d.flagUseDynResize = true;
-        this.hdg.d.flagShrinkHeightToFit = true;
-        this.list = new List(0, 6000, 8, 30, 80);
-        this.list.d.colorBg = "#e0e5e0";
-        this.list.d.colorBorder = "#008000";
-        this.list.d.colorItemBorder = "white";
-        this.list.d.colorFont = "#015901";
-        this.drawLayer = DrawLayer.MiddleGround;
         this.setStartTime(startTimeSeconds * 1000);
         this.setEndTime(endTimeSeconds * 1000);
+        this.hdg = this.getHdg();
+        this.list = this.getList();
+        this.drawLayer = DrawLayer.MiddleGround;
     }
     init(p) {
         this.hdg.init(p);
@@ -40,11 +26,35 @@ export default class SlideHL extends Component {
         return 0;
     }
     update(msDelta, p) {
+        this.hdg.update(msDelta, p);
+        this.list.update(msDelta, p);
         return true;
     }
     draw(p) {
         this.hdg.draw(p);
         this.list.draw(p);
         return true;
+    }
+    getList() {
+        let lis = new List(0, 6000, 8, 30, 80);
+        lis.d.colorBg = "#e0e5e0";
+        lis.d.colorBorder = "#008000";
+        lis.d.colorItemBorder = "white";
+        lis.d.colorFont = "#015901";
+        return lis;
+    }
+    getHdg(content = "The Title", color = "#00ff37") {
+        let hdg = new Text(this.getStartTime(), this.getEndTime(), content, color, 50, 1);
+        hdg.d.border = 2;
+        hdg.d.xAlignment = hdg.xAlignmentOptions.Mid;
+        hdg.d.yAlignment = hdg.yAlignmentOptions.Top;
+        hdg.d.flagDrawBorder = true;
+        hdg.d.flagDrawBg = true;
+        hdg.d.dynWidth = 80;
+        hdg.d.color = "#008000";
+        hdg.d.dynHeight = 25;
+        hdg.d.flagUseDynResize = true;
+        hdg.d.flagShrinkHeightToFit = true;
+        return hdg;
     }
 }

@@ -24,11 +24,12 @@ paddingY :number;
 dynWidth :number;
 items :Text[];
 // //--------------------------
-listDim :number[];
+dimList :number[];
 dimFontColor :string;
 dimBgColor :string;
 dimBorderColor :string;
-listHighlight :number[];
+
+highlightList :number[];
 highlightFontColor :string;
 highlightBgColor :string;
 highlightBorderColor :string;
@@ -57,12 +58,12 @@ this.flagShowBorder = true;
 this.flagShowBg = true;
 this.flagShrinkTofitVertically = false;
 //////////////
-this.listDim = [0,2];
+this.dimList = [];
 this.dimFontColor = "grey";
 this.dimBgColor = "#6B726D";
 this.dimBorderColor = "grey";
 ////////////////////////////
-this.listHighlight = [3];
+this.highlightList = [];
 this.highlightFontColor = "red";
 this.highlightBgColor = "blue";
 this.highlightBorderColor = "red";

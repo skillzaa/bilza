@@ -27,17 +27,17 @@ export default class ListUtil {
         }
     }
     applyDim(p) {
-        for (let i = 0; i < this.d.listDim.length; i++) {
-            this.d.items[this.d.listDim[i]].d.color = this.d.dimFontColor;
-            this.d.items[this.d.listDim[i]].d.colorBg = this.d.dimBgColor;
-            this.d.items[this.d.listDim[i]].d.colorBorder = this.d.dimBorderColor;
+        for (let i = 0; i < this.d.dimList.length; i++) {
+            this.d.items[this.d.dimList[i]].d.color = this.d.dimFontColor;
+            this.d.items[this.d.dimList[i]].d.colorBg = this.d.dimBgColor;
+            this.d.items[this.d.dimList[i]].d.colorBorder = this.d.dimBorderColor;
         }
     }
     applyHighlight(p) {
-        for (let i = 0; i < this.d.listHighlight.length; i++) {
-            this.d.items[this.d.listHighlight[i]].d.color = this.d.highlightFontColor;
-            this.d.items[this.d.listHighlight[i]].d.colorBg = this.d.highlightBgColor;
-            this.d.items[this.d.listHighlight[i]].d.colorBorder = this.d.highlightBorderColor;
+        for (let i = 0; i < this.d.highlightList.length; i++) {
+            this.d.items[this.d.highlightList[i]].d.color = this.d.highlightFontColor;
+            this.d.items[this.d.highlightList[i]].d.colorBg = this.d.highlightBgColor;
+            this.d.items[this.d.highlightList[i]].d.colorBorder = this.d.highlightBorderColor;
         }
     }
 }

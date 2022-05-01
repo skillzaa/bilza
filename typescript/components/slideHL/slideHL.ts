@@ -12,30 +12,14 @@ list :List;
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="The Title",color :string="#00ff37")
 {
     super(DataFn);
-    this.hdg = new Text(startTimeSeconds,endTimeSeconds,content,color,50,1);
-    
-    this.hdg.d.border = 2;
-    this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
-    this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
-    this.hdg.d.flagDrawBorder = true;
-    // txt.d.colorBorder = bil.util.lightenDarkenColor("#e54e12",-20);
-    // txt.d.colorBg = bil.util.lightenDarkenColor("#e54e12",175);
-    this.hdg.d.flagDrawBg = true;
-    this.hdg.d.dynWidth = 80;
-    this.hdg.d.color = "#008000";
-    this.hdg.d.dynHeight = 25;
-    this.hdg.d.flagUseDynResize = true;
-    this.hdg.d.flagShrinkHeightToFit = true;
-    //------------------------------
-    this.list = new List(0,6000,8,30,80);
-    this.list.d.colorBg = "#e0e5e0";
-    this.list.d.colorBorder = "#008000";
-    this.list.d.colorItemBorder = "white";
-    this.list.d.colorFont = "#015901";
-    this.drawLayer = DrawLayer.MiddleGround;
     this.setStartTime(startTimeSeconds * 1000); //into mili sec
-    this.setEndTime(endTimeSeconds * 1000);
-     
+    this.setEndTime(endTimeSeconds * 1000); 
+    
+    this.hdg =  this.getHdg();
+    this.list = this.getList();
+    this.drawLayer = DrawLayer.MiddleGround;
+
+        
 }
 init(p: Pack): boolean {
     this.hdg.init(p);
@@ -60,10 +44,8 @@ return 0;
 }
  
 update(msDelta: number, p: Pack): boolean {
-    // for (let i = 0; i < this.lis.length; i++) {
-    //     const element = this.lis[i];
-    //     element.applyTransition(msDelta);
-    // }
+    this.hdg.update(msDelta,p);
+    this.list.update(msDelta,p);    
     return true;
 }
 
@@ -72,5 +54,32 @@ this.hdg.draw(p);
 this.list.draw(p);    
 return true;
 }
+private getList():List{
+  //------------------------------
+  let lis = new List(0,6000,8,30,80);
+  lis.d.colorBg = "#e0e5e0";
+  lis.d.colorBorder = "#008000";
+  lis.d.colorItemBorder = "white";
+  lis.d.colorFont = "#015901";
+return lis;
+}
+private getHdg(content :string="The Title",color :string="#00ff37"):Text{
 
+let hdg = new Text(this.getStartTime(),this.getEndTime(),
+content,color,50,1);
+    
+    hdg.d.border = 2;
+    hdg.d.xAlignment = hdg.xAlignmentOptions.Mid;
+    hdg.d.yAlignment = hdg.yAlignmentOptions.Top;
+    hdg.d.flagDrawBorder = true;
+    // txt.d.colorBorder = bil.util.lightenDarkenColor("#e54e12",-20);
+    // txt.d.colorBg = bil.util.lightenDarkenColor("#e54e12",175);
+    hdg.d.flagDrawBg = true;
+    hdg.d.dynWidth = 80;
+    hdg.d.color = "#008000";
+    hdg.d.dynHeight = 25;
+    hdg.d.flagUseDynResize = true;
+    hdg.d.flagShrinkHeightToFit = true;
+    return hdg;
+}
 }//class

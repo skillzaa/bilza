@@ -1,8 +1,8 @@
 import { Pack } from "../Bilza.js";
 import BilzaTimer from "./02bilzaTimer.js";
 export default class BilzaCanvasSetup extends BilzaTimer {
-    constructor(canvasId, canvasWidth, canvasHeight = null, timeEnd) {
-        super(timeEnd);
+    constructor(canvasId, canvasWidth, canvasHeight = null, timeEndSec) {
+        super(timeEndSec);
         this.canvasId = canvasId;
         if (canvasHeight == null) {
             canvasHeight = this.util.aspectRatioHeight(canvasWidth);

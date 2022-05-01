@@ -15,9 +15,11 @@ public textTempl :TextTemplates;
 public gridTempl :GridTemplates; 
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",canvasWidth=800,canvasHeight=null,timeEnd=60){
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+constructor (canvasId="bilza",canvasWidth=800,canvasHeight=null,timeEndSec=60){
 //internal seq of args is different from enternal seq of args    
-super(canvasId,canvasWidth,canvasHeight,timeEnd);
+super(canvasId,canvasWidth,canvasHeight,timeEndSec);
 this.background = new Background();
 this.add = new CompFactory(this.insert.bind(this));
 this.textTempl = new TextTemplates(this.insert.bind(this));

@@ -7,9 +7,9 @@ protected canvasId :string;
 
 //==================PUBLIC API
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId:string,canvasWidth:number,canvasHeight:number|null=null,timeEnd:number){
+constructor (canvasId:string,canvasWidth:number,canvasHeight:number|null=null,timeEndSec:number){
 
-    super(timeEnd);
+    super(timeEndSec);
 this.canvasId = canvasId;
 if (canvasHeight ==null){
     canvasHeight = this.util.aspectRatioHeight(canvasWidth);

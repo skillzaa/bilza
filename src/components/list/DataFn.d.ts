@@ -18,11 +18,11 @@ export declare class ObjectData extends CompDataBase {
     paddingY: number;
     dynWidth: number;
     items: Text[];
-    listDim: number[];
+    dimList: number[];
     dimFontColor: string;
     dimBgColor: string;
     dimBorderColor: string;
-    listHighlight: number[];
+    highlightList: number[];
     highlightFontColor: string;
     highlightBgColor: string;
     highlightBorderColor: string;
