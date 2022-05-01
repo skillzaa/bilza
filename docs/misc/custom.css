@@ -6,7 +6,6 @@ body {
     text-align: left;
     overflow-x: auto;
     overflow-y: auto;
-    text-align: center;
 }
 #counter {
     background-color: beige;
@@ -39,4 +38,11 @@ padding:7px;
     margin:2px;
     padding:2px;
     border:1px solid grey;
+}
+
+li>h3 {
+color: white;
+font-weight: bolder;
+text-decoration: underline;
+/* font-size: x-large; */
 }

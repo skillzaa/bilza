@@ -1,5 +1,5 @@
 import { Component, Pack } from "../../Bilza.js";
-import { ObjectData } from "./DataFn.js";
+import { ObjectData } from "./textData.js";
 import { XAlignment } from "../compsDesign/xAlignment.js";
 import { YAlignment } from "../compsDesign/yAlignment.js";
 export default class Text extends Component<ObjectData> {

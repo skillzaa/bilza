@@ -3,7 +3,7 @@ import {XAlignment} from "../compsDesign/xAlignment.js";
 import {YAlignment} from "../compsDesign/yAlignment.js";
 
 export class ObjectData extends CompDataBase{
-//margin and padding is not to be drawn just counted-they r blank spaces
+    
 padding :number;
 margin :number;
 border :number;

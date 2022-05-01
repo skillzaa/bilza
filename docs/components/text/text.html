@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
+    <script src="../misc/prism.js"></script>
+    <link rel="stylesheet" href="../misc/prism.css">   
+  
+    <link rel="stylesheet" href="../../misc/custom.css">   
+
+    <title>Bilza Docs-Text Component</title>
+</head>
+<body>
+<h6><a href="/index.html">Home</a></h6>
+
+<h1>Text</h1>
+<h1><a href="./textDemo.html"></a>Text Demo</h1>
+<p>On of the most basic component of bilza library is the Text component.ALmost all of the text displayed on the screen is done using the Text component.</p>
+<p>A text component mainly comprises of <b>margin</b>, <b>border</b>, <b>padding</b> and the text <b>content</b> </p>
+
+<h2>Text Component Data</h2>
+<p>Every component has its data avaialble in a variable called <b>data</b> (or <b>d</b>). This variable is accessed using <b>compName.d.dataValue</b>.</p>
+<ol>
+<li><h3>padding :number;</h3></li>
+padding: is the internal gap between the text and the border.
+<li><h3>margin :number;</h3></li>
+margin: is the gap between the X value of the component and the border of the component. As padding is internal gap, margin is the external gap that a component maintains. 
+
+<li><h3>border :number;</h3></li>
+border: The width of border.
+
+<li><h3>fontSize :number;</h3></li>
+fontSize: is the fontSize of the text, increasing fontSize will increase the size of the text and vice versa. However fontSize is only used if <b>flagUseDynResize</b> is false. if <b>flagUseDynResize</b> is true then when ever the component is <b>init</b> (initialized) it will reset its fontSize based on <b>dynWidth</b> and <b>dynHeight</b>. 
+
+<li><h3>dynWidth :number;(0 to 100)</h3></li>
+dynWidth: This is only use when <b>flagUseDynResize = true</b>. If <b>flagUseDynResize = true</b> then on <b>init</b> the component will dynamically change the fontSize to fit the width of canvas according to dynWidth. <i>dynWidth represents the width of the <b>canvas</b> which the text component should fit in</i>.
+
+<li><h3>dynHeight :number;(0 to 100)</h3></li>
+<p><b>dynHeight is only used if <b>flagShrinkHeightToFit = true</b>.</p> 
+<p>dynHeight: represents the canvas height which should fit in the text component if <b>flagShrinkHeightToFit = true</b>.</p>
+<p>When <b>flagShrinkHeightToFit = true</b> then on <b>init</b> The component will first fit the text according to dynWidth, once that is done the component will shrink the text such that it fits into the canvas height as mentioned by dynHeight.</p>
+
+<li><h3>content :string;</h3></li>
+<p>The content of the component.</p>
+
+<li><h3>color :string;</h3></li>
+<p>The color of the text</p>
+
+<li><h3>colorBorder :string;</h3></li>
+<p>The color of the border;</p>
+
+<li><h3>colorBg :string;</h3></li>
+<p>The background color.</p>
+
+<li><h3>flagDrawContent :boolean;</h3></li>
+<p>we can show or hide the text content using this flag</p>
+
+<li><h3>flagDrawBorder :boolean;</h3></li>
+<p>We can hide or show border using <b>flagDrawBorder</b>. Even when a border is not drawn its width is taken into consideration. If you want to totally remove the width of border from the calculation you have to set <b>txt.d.border = 0</b>.</p>
+
+<li><h3>flagDrawBg :boolean;</h3></li>
+<p>We can show or hide background using <b>flagDrawBg</b></p>
+
+<li><h3>flagTextShadow :boolean;</h3></li>
+<p>We can hide or show text shadow using <b>flagTextShadow</b></p>
+
+<li><h3>flagBgShadow :boolean; </h3></li>
+<p>We can hide or show background shadow using <b>flagBgShadow</b></p>
+
+
+<li><h3>flagUseDynResize:boolean;</h3></li>
+<p>If <b>flagUseDynResize = true</b> the component will not use its fontSize rather on init will reset the fontSize to fit the text into portionof canvas  = dyWidth</p>
+
+<li><h3>flagShrinkHeightToFit:boolean;</h3></li>
+<p>If <b>flagShrinkHeightToFit = true</b> then the component on init will check if the text component is taking more height of canvas than mentioned by <b>dynHeight</b>. If true it will be shrunk to fit the given height as per dynHeight.</p>
+
+<li><h3>flagUseRelativeXY:boolean;</h3></li>
+<p>We can set the x and y value</p>
+<li><h3>maxDisplayChars :number; //implemented</h3></li>
+<p>We can restrict the number of characters shown by the text component</p>
+
+<li><h3>xAlignment :XAlignment;</h3></li>
+<p><b>xAlignment</b> will decide which point of the component is aligned to the <b>x</b> value of the component. The optins available are <b>Left</b>, <b>Mid</b>, <b>Right</b>.</p>
+
+<li><h3>yAlignment :YAlignment;</h3></li>
+<p><b>yAlignment</b> will decide which point of the component is aligned to the <b>y</b> value of the component. The optins available are <b>Top</b>, <b>Mid</b>, <b>Bot</b>.</p>
+
+</ol>
+</body>
+</html>

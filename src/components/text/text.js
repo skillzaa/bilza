@@ -1,5 +1,5 @@
 import { Component, DrawLayer } from "../../Bilza.js";
-import DataFn from "./DataFn.js";
+import DataFn from "./textData.js";
 import { XAlignment } from "../compsDesign/xAlignment.js";
 import { YAlignment } from "../compsDesign/yAlignment.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
