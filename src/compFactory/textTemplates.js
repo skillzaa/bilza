@@ -6,6 +6,20 @@ export default class TextTemplates {
         this.insert = insert;
         this.util = new Fn();
     }
+    h1(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", color = "008000", x = 50, y = 3, dynWidth = 80, dynHeight = 30) {
+        let txt = new Text(startTimeSeconds, endTimeSeconds, content, color, x, y);
+        this.insert(txt);
+        txt.d.border = 2;
+        txt.d.xAlignment = txt.xAlignmentOptions.Mid;
+        txt.d.yAlignment = txt.yAlignmentOptions.Top;
+        txt.d.flagDrawBorder = true;
+        txt.d.flagDrawBg = true;
+        txt.d.dynWidth = dynWidth;
+        txt.d.dynHeight = dynHeight;
+        txt.d.flagUseDynResize = true;
+        txt.d.flagShrinkHeightToFit = true;
+        return txt;
+    }
     hdg(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", color = "black", x = 10, y = 10) {
         let txt = new Text(startTimeSeconds, endTimeSeconds, content, color, x, y);
         this.insert(txt);

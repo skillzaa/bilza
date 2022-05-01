@@ -13,23 +13,25 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
 {
     super(DataFn);
     this.hdg = new Text(startTimeSeconds,endTimeSeconds,content,color,50,1);
-    // //------------------------------
-    this.hdg.d.flagDrawBg = true;
-    this.hdg.d.colorBg = lightenDarkenColor("#0ab513",175);
+    
     this.hdg.d.border = 2;
+    this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
+    this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
     this.hdg.d.flagDrawBorder = true;
-    this.hdg.d.colorBorder = lightenDarkenColor("#0ab513",20);
-    // txt.d.colorBorder = "red";
-    this.hdg.d.fontSize = 75;
+    // txt.d.colorBorder = bil.util.lightenDarkenColor("#e54e12",-20);
+    // txt.d.colorBg = bil.util.lightenDarkenColor("#e54e12",175);
+    this.hdg.d.flagDrawBg = true;
+    this.hdg.d.dynWidth = 80;
+    this.hdg.d.color = "#008000";
+    this.hdg.d.dynHeight = 25;
+    this.hdg.d.flagUseDynResize = true;
+    this.hdg.d.flagShrinkHeightToFit = true;
     //------------------------------
-    this.list = new List(0,6000,8,25,80);
-    this.list.d.colorBg = "#f4e55f";
-    // this.list.addItem("123456789-123456789");
-    // this.list.addItem("2222222");
-    // this.list.addItem("3333333");
-    // this.list.addItem("4444444");
-    // this.list.addItem("5555555");
-
+    this.list = new List(0,6000,8,30,80);
+    this.list.d.colorBg = "#e0e5e0";
+    this.list.d.colorBorder = "#008000";
+    this.list.d.colorItemBorder = "white";
+    this.list.d.colorFont = "#015901";
     this.drawLayer = DrawLayer.MiddleGround;
     this.setStartTime(startTimeSeconds * 1000); //into mili sec
     this.setEndTime(endTimeSeconds * 1000);
