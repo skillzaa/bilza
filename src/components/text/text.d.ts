@@ -16,5 +16,6 @@ export default class Text extends Component<ObjectData> {
     private getX;
     private getY;
     dynamicFontSize(p: Pack): number | null;
+    shrinkHeightToFit(p: Pack): boolean;
 }
 //# sourceMappingURL=text.d.ts.map

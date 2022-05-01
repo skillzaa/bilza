@@ -23,6 +23,7 @@ flagDrawBg :boolean;
 flagTextShadow :boolean;
 flagBgShadow :boolean; 
 flagUseDynResize:boolean;
+flagShrinkHeightToFit:boolean;
 flagUseRelativeXY:boolean;
 //--Misc
 maxDisplayChars :number; //implemented
@@ -55,6 +56,7 @@ this.maxDisplayChars = 200;
 this.flagTextShadow = false;
 this.flagBgShadow = false;
 this.flagUseDynResize = false;
+this.flagShrinkHeightToFit = false;
 this.flagUseRelativeXY = true;
 }
 };

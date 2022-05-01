@@ -36,10 +36,12 @@ return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding *
 }
 
 init(p: Pack): boolean {
-    if (this.d.flagUseDynResize ==true){
-        // console.log("init from text");
-        this.dynamicFontSize(p);
-    }
+if (this.d.flagUseDynResize ==true){
+    this.dynamicFontSize(p);
+}
+if (this.d.flagShrinkHeightToFit ==true){
+    this.shrinkHeightToFit(p);
+}
     return true;
 }
 draw(p:Pack):boolean{
@@ -172,5 +174,21 @@ let newWidth = 0;
     } 
 }//for end  
 return null;
+}//dynamic font size
+public shrinkHeightToFit(p :Pack):boolean{
+let reqHt = (p.canvasHeight() /100 * this.d.dynHeight);
+
+if (this.height(p) < reqHt){return true;}
+this.style.fontSize = this.d.fontSize; 
+const oldFontSize = this.style.fontSize;
+
+//--use style.fontSize
+for (let i = this.style.fontSize; i > 5; i--) {
+        this.style.fontSize -= 1;
+        this.d.fontSize = this.style.fontSize;
+        // const newHt = this.height(p);
+        if (this.height(p) < reqHt){return true;}
+}
+return false;
 }//dynamic font size
 }//class

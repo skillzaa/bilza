@@ -7,15 +7,12 @@ export default class SlideHL extends Component {
     constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "The Title", color = "#00ff37") {
         super(DataFn);
         this.hdg = new Text(startTimeSeconds, endTimeSeconds, content, color, 50, 1);
-        this.hdg.d.padding = 5;
-        this.hdg.d.margin = 5;
-        this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
-        this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
-        this.hdg.d.colorBg = lightenDarkenColor(color, 200);
-        this.hdg.d.flagDrawBorder = true;
         this.hdg.d.flagDrawBg = true;
-        this.hdg.d.flagUseDynResize = true;
-        this.hdg.d.dynWidth = 80;
+        this.hdg.d.colorBg = lightenDarkenColor("#0ab513", 175);
+        this.hdg.d.border = 2;
+        this.hdg.d.flagDrawBorder = true;
+        this.hdg.d.colorBorder = lightenDarkenColor("#0ab513", 20);
+        this.hdg.d.fontSize = 75;
         this.list = new List(0, 6000, 8, 25, 80);
         this.list.d.colorBg = "#f4e55f";
         this.drawLayer = DrawLayer.MiddleGround;

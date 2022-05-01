@@ -18,6 +18,7 @@ export declare class ObjectData extends CompDataBase {
     flagTextShadow: boolean;
     flagBgShadow: boolean;
     flagUseDynResize: boolean;
+    flagShrinkHeightToFit: boolean;
     flagUseRelativeXY: boolean;
     maxDisplayChars: number;
     xAlignment: XAlignment;

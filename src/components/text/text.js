@@ -28,6 +28,9 @@ export default class Text extends Component {
         if (this.d.flagUseDynResize == true) {
             this.dynamicFontSize(p);
         }
+        if (this.d.flagShrinkHeightToFit == true) {
+            this.shrinkHeightToFit(p);
+        }
         return true;
     }
     draw(p) {
@@ -127,5 +130,21 @@ export default class Text extends Component {
             }
         }
         return null;
+    }
+    shrinkHeightToFit(p) {
+        let reqHt = (p.canvasHeight() / 100 * this.d.dynHeight);
+        if (this.height(p) < reqHt) {
+            return true;
+        }
+        this.style.fontSize = this.d.fontSize;
+        const oldFontSize = this.style.fontSize;
+        for (let i = this.style.fontSize; i > 5; i--) {
+            this.style.fontSize -= 1;
+            this.d.fontSize = this.style.fontSize;
+            if (this.height(p) < reqHt) {
+                return true;
+            }
+        }
+        return false;
     }
 }

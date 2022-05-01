@@ -1,6 +1,6 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
-// import TextTemplates from "../../compFactory/textTemplates.js";
+import TextTemplates from "../../compFactory/textTemplates.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import Text from "../text/text.js";
 import List from "../list/list.js";
@@ -14,15 +14,13 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
     super(DataFn);
     this.hdg = new Text(startTimeSeconds,endTimeSeconds,content,color,50,1);
     // //------------------------------
-    this.hdg.d.padding = 5;
-    this.hdg.d.margin = 5;
-    this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
-    this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
-    this.hdg.d.colorBg = lightenDarkenColor(color,200);
-    this.hdg.d.flagDrawBorder = true;
     this.hdg.d.flagDrawBg = true;
-    this.hdg.d.flagUseDynResize = true;
-    this.hdg.d.dynWidth = 80;
+    this.hdg.d.colorBg = lightenDarkenColor("#0ab513",175);
+    this.hdg.d.border = 2;
+    this.hdg.d.flagDrawBorder = true;
+    this.hdg.d.colorBorder = lightenDarkenColor("#0ab513",20);
+    // txt.d.colorBorder = "red";
+    this.hdg.d.fontSize = 75;
     //------------------------------
     this.list = new List(0,6000,8,25,80);
     this.list.d.colorBg = "#f4e55f";
