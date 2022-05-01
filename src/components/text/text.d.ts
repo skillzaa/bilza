@@ -9,6 +9,7 @@ export default class Text extends Component<ObjectData> {
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;
+    update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     private drawBorder;
     private drawBg;

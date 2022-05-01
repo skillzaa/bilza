@@ -42,13 +42,29 @@
 <li><h3>dynHeight :number;</h3></li>
 <input type="range" name="dynHeightRange" id="dynHeightRange" min="10" max="100" value="25" width="100%" /><label id="dynHeightRangeLabel">00</label>
 
+
+<li><h3>flagUseDynResize:boolean;</h3></li>
+<input type="checkbox" name="flagUseDynResizeToggle" id="flagUseDynResizeToggle"><label id="flagUseDynResizeToggleLabel"></label>
+
+
+<li><h3>flagShrinkHeightToFit:boolean;</h3></li>
+<input type="checkbox" name="flagShrinkHeightToFitToggle" id="flagShrinkHeightToFitToggle">
+<label id="flagShrinkHeightToFitToggleLabel"></label>
+
+
 <li><h3>content :string;</h3></li>
 
 <li><h3>color :string;</h3></li>
+<input type="color" id="colorPicker"  value="#ff0000">
+<label id="colorPickerLabel"></label>
 
 <li><h3>colorBorder :string;</h3></li>
+<input type="color" id="colorBorderPicker"  value="#ff0000">
+<label id="colorBorderPickerLabel"></label>
 
 <li><h3>colorBg :string;</h3></li>
+<input type="color" id="colorBgPicker"  value="#ff0000">
+<label id="colorBgPickerLabel"></label>
 
 <li><h3>flagDrawContent :boolean;</h3></li>
 <input type="checkbox" name="flagDrawContentToggle" id="flagDrawContentToggle"><label id="flagDrawContentToggleLabel"></label>
@@ -57,25 +73,19 @@
 <input type="checkbox" name="flagDrawBorderToggle" id="flagDrawBorderToggle"><label id="flagDrawBorderToggleLabel"></label>
 
 <li><h3>flagDrawBg :boolean;</h3></li>
-<input type="checkbox" name="flagDrawBgToggle" id="flagDrawBgToggle"><label id="flagDrawBgLabel"></label>
+<input type="checkbox" name="flagDrawBgToggle" id="flagDrawBgToggle"><label id="flagDrawBgToggleLabel"></label>
 
 <li><h3>flagTextShadow :boolean;</h3></li>
-<input type="checkbox" name="flagTextShadowToggle" id="flagTextShadowToggle"><label id="flagTextShadowLabel"></label>
+<input type="checkbox" name="flagTextShadowToggle" id="flagTextShadowToggle"><label id="flagTextShadowToggleLabel"></label>
 
 <li><h3>flagBgShadow :boolean; </h3></li>
 <input type="checkbox" name="flagBgShadowToggle" id="flagBgShadowToggle"><label id="flagBgShadowToggleLabel"></label>
-
-<li><h3>flagUseDynResize:boolean;</h3></li>
-<input type="checkbox" name="flagUseDynResizeToggle" id="flagUseDynResizeToggle"><label id="flagUseDynResizeToggleLabel"></label>
-
-<li><h3>flagShrinkHeightToFit:boolean;</h3></li>
-<input type="checkbox" name="flagShrinkHeightToFitToggle" id="flagShrinkHeightToFitToggle">
-<label id="flagShrinkHeightToFitToggleLabel"></label>
 
 <li><h3>flagUseRelativeXY:boolean;</h3></li>
 <input type="checkbox" name="flagUseRelativeXYToggle" id="flagUseRelativeXYToggle"><label id="flagUseRelativeXYToggleLabel"></label>
 
 <li><h3>maxDisplayChars :number; //implemented</h3></li>
+<input type="range" name="maxDisplayCharsRange" id="maxDisplayCharsRange" min="1" max="100" value="50" width="100%" /><label id="maxDisplayCharsRangeLabel">00</label>
 
 <li><h3>xAlignment :XAlignment;</h3></li>
 

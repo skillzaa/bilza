@@ -25,6 +25,9 @@ export default class Text extends Component {
         return (p.charsWidth("W", this.d.fontSize, this.style.fontName) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
     }
     init(p) {
+        return true;
+    }
+    update(msDelta, p) {
         if (this.d.flagUseDynResize == true) {
             this.dynamicFontSize(p);
         }

@@ -36,24 +36,34 @@ return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding *
 }
 
 init(p: Pack): boolean {
-if (this.d.flagUseDynResize ==true){
-    this.dynamicFontSize(p);
-}
-if (this.d.flagShrinkHeightToFit ==true){
-    this.shrinkHeightToFit(p);
-}
+// if (this.d.flagUseDynResize ==true){
+//     this.dynamicFontSize(p);
+// }
+// if (this.d.flagShrinkHeightToFit ==true){
+//     this.shrinkHeightToFit(p);
+// }
     return true;
 }
+update(msDelta: number, p: Pack): boolean {
+    if (this.d.flagUseDynResize ==true){
+        this.dynamicFontSize(p);
+    }
+    if (this.d.flagShrinkHeightToFit ==true){
+        this.shrinkHeightToFit(p);
+    }
+    return true;
+}
+
 draw(p:Pack):boolean{
 
 if (this.d.flagDrawBg == true){
     this.drawBg(p);
 }
 if (this.d.flagDrawBorder == true){
-this.drawBorder(p);
+    this.drawBorder(p);
 }
 if (this.d.flagDrawContent == true){
-this.drawContent(p);
+    this.drawContent(p);
 }
 
 return true;
