@@ -52,7 +52,11 @@
 <label id="flagShrinkHeightToFitToggleLabel"></label>
 
 
-<li><h3>content :string;</h3></li>
+<li><h3>content :string;</h3></li> 
+<input type="text"  id="contentInput">
+<br/>
+<label id="contentInputLabel"></label>
+
 
 <li><h3>color :string;</h3></li>
 <input type="color" id="colorPicker"  value="#ff0000">
@@ -87,9 +91,20 @@
 <li><h3>maxDisplayChars :number; //implemented</h3></li>
 <input type="range" name="maxDisplayCharsRange" id="maxDisplayCharsRange" min="1" max="100" value="50" width="100%" /><label id="maxDisplayCharsRangeLabel">00</label>
 
-<li><h3>xAlignment :XAlignment;</h3></li>
+<li><h3>xAlignment :XAlignment;</h3></li><label id="xAlignmentDdLabel"></label>
+<select  id="xAlignmentDd">
+  <option value="left">Left</option>
+  <option value="mid">Mid</option>
+  <option value="right">Right</option>
+</select>
 
-<li><h3>yAlignment :YAlignment;</h3></li>
+<li><h3>yAlignment :YAlignment;</h3></li><label id="yAlignmentDdLabel"></label>
+<select  id="yAlignmentDd">
+    <option value="top">Top</option>
+    <option value="mid">Middle</option>
+    <option value="bot">Bottom</option>
+  </select>
+  
 </ol>
 </div>
 <!-- <script src="fontSizeRangeLabel.js" ></script> -->

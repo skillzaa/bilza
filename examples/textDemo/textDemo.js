@@ -64,7 +64,53 @@ txt.d.maxDisplayChars = parseInt(e.target.value);
 let a = document.getElementById("maxDisplayCharsRangeLabel");
 a.innerHTML = txt.d.maxDisplayChars; 
 });
+//--------contentInput-------
+let contentInput = document.getElementById("contentInput");
+contentInput.addEventListener("input",function(e){
+txt.d.content = (e.target.value);
+let a = document.getElementById("contentInputLabel");
+a.innerHTML = txt.d.content; 
+});
+////////////////////////Drop Down
+let xAlignmentDd = document.getElementById("xAlignmentDd");
+xAlignmentDd.addEventListener("input",function(e){
+switch (e.target.value) {
+    case "left":
+        txt.d.xAlignment = txt.xAlignmentOptions.Left;
+        break;
+    case "right":
+        txt.d.xAlignment = txt.xAlignmentOptions.Right;
+        break;
+    case "mid":
+        txt.d.xAlignment = txt.xAlignmentOptions.Mid;
+        break;
 
+    default:
+        break;
+}
+let a = document.getElementById("xAlignmentDdLabel");
+a.innerHTML = txt.d.xAlignment; 
+});
+////////////////////////Drop Down
+let yAlignmentDd = document.getElementById("yAlignmentDd");
+yAlignmentDd.addEventListener("input",function(e){
+switch (e.target.value) {
+    case "top":
+        txt.d.yAlignment = txt.yAlignmentOptions.Top;
+        break;
+    case "mid":
+        txt.d.yAlignment = txt.yAlignmentOptions.Mid;
+        break;
+    case "bot":
+        txt.d.yAlignment = txt.yAlignmentOptions.Bot;
+        break;
+
+    default:
+        break;
+}
+let a = document.getElementById("yAlignmentDdLabel");
+a.innerHTML = txt.d.yAlignment; 
+});
 
 /////////---flags--------//////////////
 ////////////////////////////////////////
