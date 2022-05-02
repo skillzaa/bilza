@@ -3,7 +3,6 @@ export default class CompDataBase {
     x: number;
     y: number;
     colorBoundingRectangle: string;
-    shadowDisplay: boolean;
     shadowColor: string;
     shadowOffsetX: number;
     shadowOffsetY: number;

@@ -15,6 +15,7 @@ export declare class ObjectData extends CompDataBase {
     flagDrawBorder: boolean;
     flagDrawBg: boolean;
     flagTextShadow: boolean;
+    flagBorderShadow: boolean;
     flagBgShadow: boolean;
     flagUseDynResize: boolean;
     flagShrinkHeightToFit: boolean;

@@ -49,7 +49,12 @@ export default class Text extends Component {
         return true;
     }
     drawBorder(p) {
-        this.shadowsOff();
+        if (this.d.flagBorderShadow == true) {
+            this.setShadow(this.d.shadowBlur, this.d.shadowOffsetX, this.d.shadowOffsetY, this.d.shadowColor);
+        }
+        else {
+            this.shadowsOff();
+        }
         this.style.fillStyle = this.d.colorBorder;
         this.style.strokeStyle = this.d.colorBorder;
         this.style.lineWidth = this.d.border;
@@ -59,7 +64,7 @@ export default class Text extends Component {
     }
     drawBg(p) {
         if (this.d.flagBgShadow == true) {
-            this.shadowsOn();
+            this.setShadow(this.d.shadowBlur, this.d.shadowOffsetX, this.d.shadowOffsetY, this.d.shadowColor);
         }
         else {
             this.shadowsOff();
@@ -72,10 +77,7 @@ export default class Text extends Component {
     }
     drawContent(p) {
         if (this.d.flagTextShadow == true) {
-            this.style.shadowBlur = this.d.shadowBlur;
-            this.style.shadowOffsetX = this.d.shadowOffsetX;
-            this.style.shadowOffsetY = this.d.shadowOffsetY;
-            this.style.shadowColor = this.d.shadowColor;
+            this.setShadow(this.d.shadowBlur, this.d.shadowOffsetX, this.d.shadowOffsetY, this.d.shadowColor);
         }
         else {
             this.shadowsOff();

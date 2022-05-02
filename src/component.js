@@ -55,7 +55,7 @@ export default class Component {
         this.style.shadowOffsetX = 0;
         this.style.shadowOffsetY = 0;
     }
-    setShadow(shadowBlur = 8, shadowOffsetX = 10, shadowOffsetY = 10, shadowColor = "#ada6a6") {
+    setShadow(shadowBlur = 8, shadowOffsetX = 10, shadowOffsetY = 10, shadowColor = "grey") {
         this.style.shadowBlur = shadowBlur;
         this.style.shadowOffsetX = shadowOffsetX;
         this.style.shadowOffsetY = shadowOffsetY;
@@ -65,7 +65,7 @@ export default class Component {
         this.style.shadowBlur = 8;
         this.style.shadowOffsetX = 10;
         this.style.shadowOffsetY = 10;
-        this.style.shadowColor = "#ada6a6";
+        this.style.shadowColor = "grey";
     }
     resize(width, height) {
         return 0;

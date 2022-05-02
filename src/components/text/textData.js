@@ -18,12 +18,22 @@ export class ObjectData extends CompDataBase {
         this.flagDrawContent = true;
         this.flagDrawBorder = false;
         this.flagDrawBg = false;
-        this.maxDisplayChars = 200;
         this.flagTextShadow = false;
         this.flagBgShadow = false;
+        this.flagBorderShadow = false;
+        this.maxDisplayChars = 200;
         this.flagUseDynResize = false;
         this.flagShrinkHeightToFit = false;
         this.flagUseRelativeXY = true;
+        this.x = 0;
+        this.y = 0;
+        this.selected = false;
+        this.visible = true;
+        this.shadowColor = "grey";
+        this.shadowOffsetX = 10;
+        this.shadowOffsetY = 10;
+        this.shadowBlur = 8;
+        this.colorBoundingRectangle = "black";
     }
 }
 ;

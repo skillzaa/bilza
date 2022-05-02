@@ -6,7 +6,6 @@ export default class CompDataBase {
         this.selected = false;
         this.visible = true;
         this.shadowColor = "grey";
-        this.shadowDisplay = false;
         this.shadowOffsetX = 0;
         this.shadowOffsetY = 0;
         this.shadowBlur = 0;

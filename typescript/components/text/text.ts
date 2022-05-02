@@ -71,8 +71,13 @@ return true;
 
 // =- AM USING drawRect (Empty rect) for border and not line
 private drawBorder(p :Pack) :boolean{
-this.shadowsOff();
 
+if (this.d.flagBorderShadow == true){
+    // this.shadowsOn();
+    this.setShadow(this.d.shadowBlur,this.d.shadowOffsetX,this.d.shadowOffsetY,this.d.shadowColor);
+} else {
+    this.shadowsOff();
+}
 this.style.fillStyle = this.d.colorBorder;
 this.style.strokeStyle = this.d.colorBorder;          
 this.style.lineWidth = this.d.border;  
@@ -88,13 +93,13 @@ return true;
 }
 private drawBg(p :Pack) :boolean{
     if (this.d.flagBgShadow == true){
-        this.shadowsOn();
+        // this.shadowsOn();
+        this.setShadow(this.d.shadowBlur,this.d.shadowOffsetX,this.d.shadowOffsetY,this.d.shadowColor);
     } else {
         this.shadowsOff();
-    }   
+    }
     this.style.fillStyle = this.d.colorBg;
     this.style.strokeStyle = this.d.colorBg;
-    
     this.style.fontSize = this.d.fontSize;
       
 p.drawFillRect(
@@ -107,12 +112,11 @@ return true;
 } 
 private drawContent(p :Pack){
 if (this.d.flagTextShadow == true){
-    this.style.shadowBlur = this.d.shadowBlur;
-    this.style.shadowOffsetX = this.d.shadowOffsetX;
-    this.style.shadowOffsetY = this.d.shadowOffsetY;
-    this.style.shadowColor = this.d.shadowColor;
+    // this.shadowsOn();
+    this.setShadow(this.d.shadowBlur,this.d.shadowOffsetX,this.d.shadowOffsetY,this.d.shadowColor);
 } else { 
     this.shadowsOff();
+    
 }       
     this.style.fillStyle = this.d.color;    
     this.style.strokeStyle = this.d.color; 
@@ -122,8 +126,7 @@ if (this.d.flagTextShadow == true){
 p.drawText(this.d.content.substring(0,this.d.maxDisplayChars),
     this.getX(p) + (this.d.border + (this.d.border/2) + this.d.padding),
     this.getY(p) + (this.d.border + (this.d.border/2) + this.d.padding),
-    this.style);
-    
+    this.style);   
 }
 
 private getX(p :Pack):number{

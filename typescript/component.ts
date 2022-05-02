@@ -83,7 +83,6 @@ log(msg :string){
     console.log(msg);
 }
 ////////////////////////////////////////////////////////
-// following methods are not IComponent
 addTransition(msStart:number){
     return this.compData.add(msStart);
 }    
@@ -95,7 +94,7 @@ this.style.shadowBlur = 0;
 this.style.shadowOffsetX = 0;
 this.style.shadowOffsetY = 0;
 }
-setShadow(shadowBlur :number=8,shadowOffsetX :number=10,shadowOffsetY :number =10,shadowColor :string ="#ada6a6" ){
+setShadow(shadowBlur :number=8,shadowOffsetX :number=10,shadowOffsetY :number =10,shadowColor :string ="grey"){
 this.style.shadowBlur = shadowBlur;
 this.style.shadowOffsetX = shadowOffsetX;
 this.style.shadowOffsetY = shadowOffsetY;
@@ -105,7 +104,7 @@ shadowsOn(){
     this.style.shadowBlur = 8;
     this.style.shadowOffsetX = 10;
     this.style.shadowOffsetY = 10;
-    this.style.shadowColor = "#ada6a6";
+    this.style.shadowColor = "grey";
 }
 resize(width :number,height :number):number{
  return 0;

@@ -4,7 +4,8 @@ x :number;
 y :number;
 colorBoundingRectangle:string;
 //-------------shadow-------------------------//    
-shadowDisplay :boolean; //show or not
+// shadowDisplay :boolean; //show or not -- this is abstraction
+//--since it meanssss some thing and the comp need to do something.which is not desired
 shadowColor :string;
 shadowOffsetX :number;
 shadowOffsetY :number;
@@ -22,7 +23,6 @@ this.selected = false;
 this.visible = true;
 //--shadow
 this.shadowColor = "grey";
-this.shadowDisplay = false;
 this.shadowOffsetX = 0;
 this.shadowOffsetY = 0;
 this.shadowBlur = 0;
