@@ -29,10 +29,10 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
 }
 width(p:Pack):number {
 //-- this.d.fontSize is what decides the width and height    
-return (p.textWidth(this.d.content.substring(0,this.d.maxDisplayChars),this.style) + (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
+return (p.textWidth(this.d.content.substring(0,this.d.maxDisplayChars),this.style) + (this.d.padding * 2) + (this.d.border * 2) );
 }
 height(p:Pack):number {
-return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding * 2)+(this.d.margin * 2)+(this.d.border * 2) );
+return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding * 2) + (this.d.border * 2) );
 }
 
 init(p: Pack): boolean {
@@ -79,8 +79,8 @@ this.style.lineWidth = this.d.border;
 this.style.fontSize = this.d.fontSize;       
 
 p.drawRect(
-    this.getX(p) + this.d.margin,
-    this.getY(p) + this.d.margin,
+    this.getX(p) + (this.d.border/2),
+    this.getY(p) + (this.d.border/2),
     this.width(p),
     this.height(p),
     this.style);
@@ -98,8 +98,8 @@ private drawBg(p :Pack) :boolean{
     this.style.fontSize = this.d.fontSize;
       
 p.drawFillRect(
-    this.getX(p) + this.d.margin,
-    this.getY(p) + this.d.margin,
+    this.getX(p) + (this.d.border/2),
+    this.getY(p) + (this.d.border/2),
     this.width(p),
     this.height(p),
     this.style);
@@ -111,7 +111,7 @@ if (this.d.flagTextShadow == true){
     this.style.shadowOffsetX = this.d.shadowOffsetX;
     this.style.shadowOffsetY = this.d.shadowOffsetY;
     this.style.shadowColor = this.d.shadowColor;
-} else {
+} else { 
     this.shadowsOff();
 }       
     this.style.fillStyle = this.d.color;    
@@ -120,8 +120,8 @@ if (this.d.flagTextShadow == true){
     this.style.fontSize = this.d.fontSize;
        
 p.drawText(this.d.content.substring(0,this.d.maxDisplayChars),
-    this.getX(p) + (this.d.margin + this.d.border + this.d.padding),
-    this.getY(p) + (this.d.margin + this.d.border + this.d.padding),
+    this.getX(p) + (this.d.border + (this.d.border/2) + this.d.padding),
+    this.getY(p) + (this.d.border + (this.d.border/2) + this.d.padding),
     this.style);
     
 }

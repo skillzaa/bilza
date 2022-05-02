@@ -6,29 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Demo</title>
     <style>
+        body {background-color: rgba(14, 14, 0, 0);}
         #canvasContainer {
-            text-align: center;
+            width:70%;
+            overflow: hidden;
+        }
+        #gridContainer {
+            position: relative;
+            overflow:hidden;
+            height: 400px;
+            /* height: 100%; */
+            background-color: bisque;
         }
         #optionsDiv {
+            position: absolute;
+            right: 0; 
+            top: 0;
+            /* bottom: 0; */
+            /* left: 75%; */
+            height:600px;
             background-color: darkblue;
-            width: 100%;
             color:white;
-            height: 200px;
-            overflow-y: scroll;
+            overflow-y:scroll;
+            width: 35%;
         }
     </style>
 </head>
 <body>
+<div id="gridContainer">
     <div id="canvasContainer">
     <canvas id="bilza"></canvas>
-</div>
+    </div>
+
 <div id="optionsDiv">
 <ol>
 <li><h3>padding :number;</h3></li>
 <input type="range" name="paddingRange" id="paddingRange" min="0" max="20" value="1" width="100%" /><label id="paddingRangeLabel">00</label>
-
-<li><h3>margin :number;</h3></li>
-<input type="range" name="marginRange" id="marginRange" min="0" max="20" value="1" width="100%" /><label id="marginRangeLabel">00</label>
 
 <li><h3>border :number;</h3></li>
 <input type="range" name="borderRange" id="borderRange" min="0" max="50" value="1" width="100%" /><label id="borderRangeLabel">00</label>
@@ -109,20 +122,41 @@
 <li><h3>y :number;</h3></li>
 <input type="range" name="yRange" id="yRange" min="0" max="1000" value="25" width="100%" /><label id="yRangeLabel">00</label>
 
-
+ 
 <li><h3>flagUseRelativeXY:boolean;</h3></li>
 <input type="checkbox" name="flagUseRelativeXYToggle" id="flagUseRelativeXYToggle"><label id="flagUseRelativeXYToggleLabel"></label>
 
 
 <li><h3>colorBoundingRectangle:string;</h3></li>
+<input type="color" id="colorBoundingRectanglePicker"  value="#ff0000">
+<label id="colorBoundingRectanglePickerLabel"></label>
+
+
+
 <li><h3>shadowDisplay :boolean; //show or not</h3></li>
+<input type="checkbox"  id="shadowDisplayToggle"><label id="shadowDisplayToggleLabel"></label>
+
 <li><h3>shadowColor :string;</h3></li>
+<input type="color" id="colorBoundingRectanglePicker"  value="#ff0000">
+<label id="colorBoundingRectanglePickerLabel"></label>
+
 <li><h3>shadowOffsetX :number;</h3></li>
+<input type="range" id="shadowOffsetXRange" min="1" max="100" value="50" width="100%" /><label id="shadowOffsetXRangeLabel">00</label>
+
 <li><h3>shadowOffsetY :number;</h3></li>
+<input type="range" id="shadowOffsetXRange" min="1" max="100" value="50" width="100%" /><label id="shadowOffsetXRangeLabel">00</label>
+
 <li><h3>shadowBlur :number;</h3></li>
+<input type="range" id="shadowBlurRange" min="1" max="100" value="50" width="100%" /><label id="shadowBlurLabel">00</label>
+
 <li><h3>visible :boolean;</h3></li>
+<input type="checkbox"  id="visibleToggle"><label id="visibleToggleLabel"></label>
+
 <li><h3>selected :boolean;</h3></li>
+<input type="checkbox"  id="selectedToggle"><label id="selectedToggleLabel"></label>
+
 </ol>
+</div>
 </div>
 <script src="textDemo.js" type="module"></script>
 

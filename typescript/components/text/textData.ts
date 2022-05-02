@@ -5,7 +5,8 @@ import {YAlignment} from "../compsDesign/yAlignment.js";
 export class ObjectData extends CompDataBase{
     
 padding :number;
-margin :number;
+//---I do not need margin since i will not use webpage like flow rather components will be used in side list,table etc
+// margin :number;
 border :number;
 fontSize :number;
 dynWidth :number;
@@ -38,7 +39,7 @@ this.yAlignment = YAlignment.Top;
 
 this.content = "Text" ; 
 this.padding = 2;
-this.margin = 2;
+// this.margin = 2;
 this.border = 2;
 this.dynWidth = 80;
 this.dynHeight = 30;
@@ -58,7 +59,7 @@ this.flagBgShadow = false;
 this.flagUseDynResize = false;
 this.flagShrinkHeightToFit = false;
 this.flagUseRelativeXY = true;
-}
+} 
 };
  
  

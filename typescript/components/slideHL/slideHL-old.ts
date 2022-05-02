@@ -16,7 +16,6 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
     this.hdg = new Text(startTimeSeconds,endTimeSeconds,content,color);
     //------------------------------
     this.hdg.d.padding = 5;
-    this.hdg.d.margin = 5;
     this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
     this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
     this.hdg.d.colorBg = lightenDarkenColor(color,200);

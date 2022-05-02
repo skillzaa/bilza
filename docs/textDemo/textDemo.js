@@ -1,7 +1,7 @@
 // import Bilza from "../lib/Bilza_0_0_13.js";
 import Bilza from "../../src/Bilza.js";
-
-let bil = new Bilza("bilza",800,200);
+ 
+let bil = new Bilza("bilza",600,300);
 let g = bil.gridTempl.dashed();
 let txt = bil.add.text(0,60,"Text Sample","red");
 
@@ -38,13 +38,7 @@ txt.d.padding = parseInt(e.target.value);
 let a = document.getElementById("paddingRangeLabel");
 a.innerHTML = txt.d.padding; 
 });
-//--------marginRange-------
-let marginRange = document.getElementById("marginRange");
-marginRange.addEventListener("input",function(e){
-txt.d.margin = parseInt(e.target.value);
-let a = document.getElementById("marginRangeLabel");
-a.innerHTML = txt.d.margin; 
-});
+
 //--------dynWidthRange-------
 let dynWidthRange = document.getElementById("dynWidthRange");
 dynWidthRange.addEventListener("input",function(e){
@@ -241,6 +235,77 @@ let a = document.getElementById("flagUseRelativeXYToggleLabel");
         txt.d.flagUseRelativeXY = false;
         xRange.max = 1500;
         yRange.max = 1500;
+    }
+//....................... 
+});
+/////////////////////////////////////////////////////
+let colorBoundingRectanglePicker = document.getElementById("colorBoundingRectanglePicker");
+colorBoundingRectanglePicker.addEventListener("change",function(e){
+let a = document.getElementById("colorBoundingRectanglePickerLabel");
+txt.d.colorBoundingRectangle = (e.target.value);
+a.innerHTML = (txt.d.colorBoundingRectangle);
+});
+
+/////////////////////////////////////////////
+let shadowDisplayToggle = document.getElementById("shadowDisplayToggle");
+shadowDisplayToggle.addEventListener("change",function(e){
+let a = document.getElementById("shadowDisplayToggleLabel");
+//.......................
+    if (e.currentTarget.checked) {
+      a.innerHTML = "True";
+      txt.d.shadowDisplay = true;
+    } else {
+        a.innerHTML = "False";
+        txt.d.shadowDisplay = false;
+    }
+//....................... 
+});
+///////////////////////////////////////
+let shadowOffsetXRange = document.getElementById("shadowOffsetXRange");
+shadowOffsetXRange.addEventListener("input",function(e){
+txt.d.shadowOffsetX = parseInt(e.target.value);
+    let a = document.getElementById("shadowOffsetXRangeLabel");
+    a.innerHTML = txt.d.shadowOffsetX; 
+});
+///////////////////////////////////////
+let shadowOffsetYRange = document.getElementById("shadowOffsetYRange");
+shadowOffsetYRange.addEventListener("input",function(e){
+txt.d.shadowOffsetY = parseInt(e.target.value);
+    let a = document.getElementById("shadowOffsetYRangeLabel");
+    a.innerHTML = txt.d.shadowOffsetY; 
+});
+///////////////////////////////////////
+let shadowBlurRange = document.getElementById("shadowBlurRange");
+shadowBlurRange.addEventListener("input",function(e){
+txt.d.shadowBlur = parseInt(e.target.value);
+    let a = document.getElementById("shadowBlurRangeLabel");
+    a.innerHTML = txt.d.shadowBlur; 
+});
+////////////////////////////////////////////////
+let visibleToggle = document.getElementById("visibleToggle");
+visibleToggle.addEventListener("change",function(e){
+let a = document.getElementById("visibleToggleLabel");
+//.......................
+    if (e.currentTarget.checked) {
+      a.innerHTML = "True";
+      txt.d.visible = true;
+    } else {
+        a.innerHTML = "False";
+        txt.d.visible = false;
+    }
+//....................... 
+});
+////////////////////////////////////////////////
+let selectedToggle = document.getElementById("selectedToggle");
+selectedToggle.addEventListener("change",function(e){
+let a = document.getElementById("selectedToggleLabel");
+//.......................
+    if (e.currentTarget.checked) {
+      a.innerHTML = "True";
+      txt.d.selected = true;
+    } else {
+        a.innerHTML = "False";
+        txt.d.selected = false;
     }
 //....................... 
 });

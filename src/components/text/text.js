@@ -19,10 +19,10 @@ export default class Text extends Component {
         this.drawLayer = DrawLayer.MiddleGround;
     }
     width(p) {
-        return (p.textWidth(this.d.content.substring(0, this.d.maxDisplayChars), this.style) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
+        return (p.textWidth(this.d.content.substring(0, this.d.maxDisplayChars), this.style) + (this.d.padding * 2) + (this.d.border * 2));
     }
     height(p) {
-        return (p.charsWidth("W", this.d.fontSize, this.style.fontName) + (this.d.padding * 2) + (this.d.margin * 2) + (this.d.border * 2));
+        return (p.charsWidth("W", this.d.fontSize, this.style.fontName) + (this.d.padding * 2) + (this.d.border * 2));
     }
     init(p) {
         return true;
@@ -54,7 +54,7 @@ export default class Text extends Component {
         this.style.strokeStyle = this.d.colorBorder;
         this.style.lineWidth = this.d.border;
         this.style.fontSize = this.d.fontSize;
-        p.drawRect(this.getX(p) + this.d.margin, this.getY(p) + this.d.margin, this.width(p), this.height(p), this.style);
+        p.drawRect(this.getX(p) + (this.d.border / 2), this.getY(p) + (this.d.border / 2), this.width(p), this.height(p), this.style);
         return true;
     }
     drawBg(p) {
@@ -67,7 +67,7 @@ export default class Text extends Component {
         this.style.fillStyle = this.d.colorBg;
         this.style.strokeStyle = this.d.colorBg;
         this.style.fontSize = this.d.fontSize;
-        p.drawFillRect(this.getX(p) + this.d.margin, this.getY(p) + this.d.margin, this.width(p), this.height(p), this.style);
+        p.drawFillRect(this.getX(p) + (this.d.border / 2), this.getY(p) + (this.d.border / 2), this.width(p), this.height(p), this.style);
         return true;
     }
     drawContent(p) {
@@ -83,7 +83,7 @@ export default class Text extends Component {
         this.style.fillStyle = this.d.color;
         this.style.strokeStyle = this.d.color;
         this.style.fontSize = this.d.fontSize;
-        p.drawText(this.d.content.substring(0, this.d.maxDisplayChars), this.getX(p) + (this.d.margin + this.d.border + this.d.padding), this.getY(p) + (this.d.margin + this.d.border + this.d.padding), this.style);
+        p.drawText(this.d.content.substring(0, this.d.maxDisplayChars), this.getX(p) + (this.d.border + (this.d.border / 2) + this.d.padding), this.getY(p) + (this.d.border + (this.d.border / 2) + this.d.padding), this.style);
     }
     getX(p) {
         let x = this.d.x;

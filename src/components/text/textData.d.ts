@@ -3,7 +3,6 @@ import { XAlignment } from "../compsDesign/xAlignment.js";
 import { YAlignment } from "../compsDesign/yAlignment.js";
 export declare class ObjectData extends CompDataBase {
     padding: number;
-    margin: number;
     border: number;
     fontSize: number;
     dynWidth: number;

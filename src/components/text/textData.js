@@ -8,7 +8,6 @@ export class ObjectData extends CompDataBase {
         this.yAlignment = YAlignment.Top;
         this.content = "Text";
         this.padding = 2;
-        this.margin = 2;
         this.border = 2;
         this.dynWidth = 80;
         this.dynHeight = 30;
