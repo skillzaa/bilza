@@ -6,12 +6,28 @@ import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import TextTemplates from "../compFactory/textTemplates.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 export default class Bilza extends BilzaCanvasSetup {
-    constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null, timeEndSec = 60) {
+    constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = 300, timeEndSec = 60) {
         super(canvasId, canvasWidth, canvasHeight, timeEndSec);
         this.background = new Background();
         this.add = new CompFactory(this.insert.bind(this));
         this.textTempl = new TextTemplates(this.insert.bind(this));
         this.gridTempl = new GridTemplates(this.insert.bind(this));
+    }
+    insert(comp) {
+        this.comps.push(comp);
+        return comp;
+    }
+    insertAt(comp, second) {
+        let secondMs = second * 1000;
+        let startTime = comp.getStartTime();
+        let endTime = comp.getEndTime();
+        comp.setStartTime(startTime + secondMs);
+        comp.setEndTime(endTime + secondMs);
+        if (this.getTimeEnd() < comp.getEndTime()) {
+            this.setTimeEnd(comp.getEndTime());
+        }
+        this.comps.push(comp);
+        return comp;
     }
     start() {
         if (this.timeStart !== null) {
@@ -48,12 +64,6 @@ export default class Bilza extends BilzaCanvasSetup {
         return true;
     }
     drawEvent(msDelta) {
-        return true;
-    }
-    mergeClip(clip) {
-        for (let i = 0; i < clip.length; i++) {
-            this.comps.push(clip[i]);
-        }
         return true;
     }
     dynamicCanvas(widthInPercent = 100, heightInPercent = 100) {

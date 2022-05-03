@@ -5,7 +5,7 @@ export default class CompsArrayObj {
 protected comps:IComponent[]; 
 public util :Fn;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (){
+constructor (){ 
     //--Test created
     this.comps = [];
     this.util = new Fn();  

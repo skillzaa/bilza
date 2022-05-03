@@ -8,7 +8,7 @@ protected timeStart :number | null; //when we start video
 protected timeEnd :number; //the size of video-length in milli seconds
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (timeEndSec:number){
-super();
+super(); 
 this.timeStart = null; 
 this.timeEnd = timeEndSec * 1000; //to convert into milli sec
 this.interval = null; //to save setInterval handler

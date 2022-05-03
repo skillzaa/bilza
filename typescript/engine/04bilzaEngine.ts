@@ -15,9 +15,9 @@ public textTempl :TextTemplates;
 public gridTempl :GridTemplates; 
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
+ 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",canvasWidth=800,canvasHeight=null,timeEndSec=60){
+constructor (canvasId="bilza",canvasWidth=800,canvasHeight :null|number=300,timeEndSec=60){
 //internal seq of args is different from enternal seq of args    
 super(canvasId,canvasWidth,canvasHeight,timeEndSec);
 this.background = new Background();
@@ -25,7 +25,24 @@ this.add = new CompFactory(this.insert.bind(this));
 this.textTempl = new TextTemplates(this.insert.bind(this));
 this.gridTempl = new GridTemplates(this.insert.bind(this));
 } 
-
+//--moved her due to  
+insert(comp:IComponent):IComponent{
+    // comp.init(this.pack);
+    this.comps.push(comp);
+    return comp;
+}
+insertAt(comp:IComponent, second :number):IComponent{
+    let secondMs = second * 1000;
+    let startTime = comp.getStartTime();
+    let endTime = comp.getEndTime();
+    comp.setStartTime(startTime + secondMs);
+    comp.setEndTime(endTime + secondMs);
+        if (this.getTimeEnd() < comp.getEndTime()){
+            this.setTimeEnd(comp.getEndTime());
+        }
+    this.comps.push(comp);
+    return comp;
+}
 //-- this is not in bilzaTimer due to this.draw
 start() :boolean{
 if (this.timeStart !== null){return false;}
@@ -67,12 +84,6 @@ drawEvent(msDelta :number):boolean{
     return true;
 }
 
-mergeClip(clip :IComponent[]):boolean{
-    for (let i = 0; i < clip.length; i++) {
-        this.comps.push(clip[i]);
-    }
-return true;
-}
 dynamicCanvas(widthInPercent :number=100,heightInPercent :number=100):boolean{
 let wd = window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
 let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);

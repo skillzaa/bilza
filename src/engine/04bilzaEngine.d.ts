@@ -10,12 +10,13 @@ export default class Bilza extends BilzaCanvasSetup {
     textTempl: TextTemplates;
     gridTempl: GridTemplates;
     background: Background;
-    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: null, timeEndSec?: number);
+    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: null | number, timeEndSec?: number);
+    insert(comp: IComponent): IComponent;
+    insertAt(comp: IComponent, second: number): IComponent;
     start(): boolean;
     drawInit(): void;
     draw(): boolean;
     drawEvent(msDelta: number): boolean;
-    mergeClip(clip: IComponent[]): boolean;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number): boolean;
     dynamicFontSize(txt: Text, widthPercent?: number, heightPercent?: number | null, setFontSize?: boolean): number | null;
     init(): void;
