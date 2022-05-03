@@ -24,7 +24,7 @@
             top: 0;
             /* bottom: 0; */
             /* left: 75%; */
-            height:600px;
+            height:98%;
             background-color: darkblue;
             color:white;
             overflow-y:scroll;
@@ -40,97 +40,105 @@
 
 <div id="optionsDiv">
 <ol>
-<li><h3>padding :number;</h3></li>
-<input type="range" name="paddingRange" id="paddingRange" min="0" max="20" value="1" width="100%" /><label id="paddingRangeLabel">00</label>
-
-<li><h3>border :number;</h3></li>
-<input type="range" name="borderRange" id="borderRange" min="0" max="50" value="1" width="100%" /><label id="borderRangeLabel">00</label>
-
-<li><h3>fontSize :number;</h3></li>
-<input type="range" name="fontSizeRange" id="fontSizeRange" min="0" max="300" value="25" width="100%" /><label id="fontSizeRangeLabel">00</label>
-
-<li><h3>dynWidth :number;</h3></li>
-<input type="range" name="dynWidthRange" id="dynWidthRange" min="10" max="100" value="25" width="100%" /><label id="dynWidthRangeLabel">00</label>
-
-<li><h3>dynHeight :number;</h3></li>
-<input type="range" name="dynHeightRange" id="dynHeightRange" min="10" max="100" value="25" width="100%" /><label id="dynHeightRangeLabel">00</label>
-
-
-<li><h3>flagUseDynResize:boolean;</h3></li>
-<input type="checkbox" name="flagUseDynResizeToggle" id="flagUseDynResizeToggle"><label id="flagUseDynResizeToggleLabel"></label>
-
-
-<li><h3>flagShrinkHeightToFit:boolean;</h3></li>
-<input type="checkbox" name="flagShrinkHeightToFitToggle" id="flagShrinkHeightToFitToggle">
-<label id="flagShrinkHeightToFitToggleLabel"></label>
-
-
+<h5>Basics</h5>
 <li><h3>content :string;</h3></li> 
 <input type="text"  id="contentInput">
 <br/>
 <label id="contentInputLabel"></label>
 
+<li><h3>x</h3></li>
+<input type="text" id="xRange" min="10" max="100" value="25" width="100%" /><label id="xRangeLabel">00</label>
+<li><h3>y</h3></li>
+<input type="text" id="yRange" min="10" max="100" value="25" width="100%" /><label id="yRangeLabel">00</label>
 
-<li><h3>color :string;</h3></li>
-<input type="color" id="colorPicker"  value="#ff0000">
-<label id="colorPickerLabel"></label>
+<li><h3>flagUseRelativeXY</h3></li>
+<input type="checkbox" name="flagUseRelativeXYToggle" id="flagUseRelativeXYToggle"><label id="flagUseRelativeXYToggleLabel"></label>
 
-<li><h3>colorBorder :string;</h3></li>
-<input type="color" id="colorBorderPicker"  value="#ff0000">
-<label id="colorBorderPickerLabel"></label>
-
-<li><h3>colorBg :string;</h3></li>
-<input type="color" id="colorBgPicker"  value="#ff0000">
-<label id="colorBgPickerLabel"></label>
-
-<li><h3>flagDrawContent :boolean;</h3></li>
-<input type="checkbox" name="flagDrawContentToggle" id="flagDrawContentToggle"><label id="flagDrawContentToggleLabel"></label>
-
-<li><h3>flagDrawBorder :boolean;</h3></li>
-<input type="checkbox" name="flagDrawBorderToggle" id="flagDrawBorderToggle"><label id="flagDrawBorderToggleLabel"></label>
-
-<li><h3>flagDrawBg :boolean;</h3></li>
-<input type="checkbox" name="flagDrawBgToggle" id="flagDrawBgToggle"><label id="flagDrawBgToggleLabel"></label>
-
-<li><h3>flagTextShadow :boolean;</h3></li>
-<input type="checkbox" id="flagTextShadowToggle"><label id="flagTextShadowToggleLabel"></label>
-
-<li><h3>flagBgShadow :boolean; </h3></li>
-<input type="checkbox" id="flagBgShadowToggle"><label id="flagBgShadowToggleLabel"></label>
-
-<li><h3>maxDisplayChars :number; //implemented</h3></li>
-<input type="range" name="maxDisplayCharsRange" id="maxDisplayCharsRange" min="1" max="100" value="50" width="100%" /><label id="maxDisplayCharsRangeLabel">00</label>
-
-<li><h3>xAlignment :XAlignment;</h3></li><label id="xAlignmentDdLabel"></label>
+<li><h3>xAlignment</h3></li><label id="xAlignmentDdLabel"></label>
 <select  id="xAlignmentDd">
   <option value="left">Left</option>
   <option value="mid">Mid</option>
   <option value="right">Right</option>
 </select>
 
-<li><h3>yAlignment :YAlignment;</h3></li><label id="yAlignmentDdLabel"></label>
+<li><h3>yAlignment</h3></li><label id="yAlignmentDdLabel"></label>
 <select  id="yAlignmentDd">
     <option value="top">Top</option>
     <option value="mid">Middle</option>
     <option value="bot">Bottom</option>
   </select>
+
+<li><h3>padding</h3></li>
+<input type="range" name="paddingRange" id="paddingRange" min="0" max="20" value="1" width="100%" /><label id="paddingRangeLabel">00</label>
+
+<li><h3>border</h3></li>
+<input type="range" name="borderRange" id="borderRange" min="0" max="50" value="1" width="100%" /><label id="borderRangeLabel">00</label>
+<li><h3>colorBorder :string;</h3></li>
+<input type="color" id="colorBorderPicker"  value="#ff0000">
+<label id="colorBorderPickerLabel"></label>
+
+<li><h3>flagDrawBorder :boolean;</h3></li>
+<input type="checkbox" name="flagDrawBorderToggle" id="flagDrawBorderToggle"><label id="flagDrawBorderToggleLabel"></label>
+
+<li><h3>fontSize</h3></li>
+<input type="range" name="fontSizeRange" id="fontSizeRange" min="0" max="300" value="25" width="100%" /><label id="fontSizeRangeLabel">00</label>
+
+<li><h3>maxDisplayChars</h3></li>
+<input type="range" name="maxDisplayCharsRange" id="maxDisplayCharsRange" min="1" max="100" value="50" width="100%" /><label id="maxDisplayCharsRangeLabel">00</label>
+
+<!-- ///////////////---Basic Ends---/////////////////////// -->
+<h5>Dynamic Dimentions</h5>
+<li><h3>dynWidth</h3></li>
+<input type="range" name="dynWidthRange" id="dynWidthRange" min="10" max="100" value="25" width="100%" /><label id="dynWidthRangeLabel">00</label>
+<li><h3>dynHeight</h3></li>
+<input type="range" name="dynHeightRange" id="dynHeightRange" min="10" max="100" value="25" width="100%" /><label id="dynHeightRangeLabel">00</label>
+<li><h3>flagUseDynResize</h3></li>
+<input type="checkbox" name="flagUseDynResizeToggle" id="flagUseDynResizeToggle"><label id="flagUseDynResizeToggleLabel"></label>
+<li><h3>flagShrinkHeightToFit:boolean;</h3></li>
+<input type="checkbox" name="flagShrinkHeightToFitToggle" id="flagShrinkHeightToFitToggle">
+<label id="flagShrinkHeightToFitToggleLabel"></label>
+
+<li><h3>visible :boolean;</h3></li>
+<input type="checkbox"  id="visibleToggle"><label id="visibleToggleLabel"></label>
+
+<li><h3>selected :boolean;</h3></li>
+<input type="checkbox"  id="selectedToggle"><label id="selectedToggleLabel"></label>
+
+
+<li><h3>Canvas Width</h3></li>
+<input type="range" id="canvasWidthRange" min="200" max="1200" value="600" width="100%" /><label id="canvasWidthRangeLabel">00</label>
+
+<!-- ////////////////////////////////////// -->
+
+<h5>Colors</h5>
+<li><h3>color :string;</h3></li>
+<input type="color" id="colorPicker"  value="#ff0000">
+<label id="colorPickerLabel"></label>
+<li><h3>flagDrawContent :boolean;</h3></li>
+<input type="checkbox" name="flagDrawContentToggle" id="flagDrawContentToggle"><label id="flagDrawContentToggleLabel"></label>
+
+
+<li><h3>colorBg :string;</h3></li>
+<input type="color" id="colorBgPicker"  value="#ff0000">
+<label id="colorBgPickerLabel"></label>
+<li><h3>flagDrawBg :boolean;</h3></li>
+<input type="checkbox" name="flagDrawBgToggle" id="flagDrawBgToggle"><label id="flagDrawBgToggleLabel"></label>
+
+<h5>flags</h5>
+
+<li><h3>flagTextShadow :boolean;</h3></li>
+<input type="checkbox" id="flagTextShadowToggle"><label id="flagTextShadowToggleLabel"></label>
+
+<li><h3>flagBgShadow :boolean; </h3></li>
+<input type="checkbox" id="flagBgShadowToggle"><label id="flagBgShadowToggleLabel"></label>
   
 <hr/>
-<li><h3>x :number;</h3></li>
-<input type="range" name="xRange" id="xRange" min="0" max="1000" value="25" width="100%" /><label id="xRangeLabel">00</label>
-
-<li><h3>y :number;</h3></li>
-<input type="range" name="yRange" id="yRange" min="0" max="1000" value="25" width="100%" /><label id="yRangeLabel">00</label>
-
- 
-<li><h3>flagUseRelativeXY:boolean;</h3></li>
-<input type="checkbox" name="flagUseRelativeXYToggle" id="flagUseRelativeXYToggle"><label id="flagUseRelativeXYToggleLabel"></label>
-
 
 <li><h3>colorBoundingRectangle:string;</h3></li>
 <input type="color" id="colorBoundingRectanglePicker"  value="#ff0000">
 <label id="colorBoundingRectanglePickerLabel"></label>
 
+<h5>Shadow</h5>
 
 <li><h3>shadowColor :string;</h3></li>
 <input type="color" id="shadowColorPicker"  value="#ff0000">
@@ -144,13 +152,8 @@
 
 <li><h3>shadowBlur :number;</h3></li>
 <input type="range" id="shadowBlurRange" min="1" max="100" value="50" width="100%" /><label id="shadowBlurLabel">00</label>
-
-<li><h3>visible :boolean;</h3></li>
-<input type="checkbox"  id="visibleToggle"><label id="visibleToggleLabel"></label>
-
-<li><h3>selected :boolean;</h3></li>
-<input type="checkbox"  id="selectedToggle"><label id="selectedToggleLabel"></label>
-
+<hr>
+<input type="button" value="Spit" id="spitBtn">
 </ol>
 </div>
 </div>

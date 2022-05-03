@@ -1,38 +1,39 @@
 // import Bilza from "../lib/Bilza_0_0_13.js";
 import Bilza from "../../src/Bilza.js";
- 
+import {range,toggle,colorPicker,input} from "../uiHandlers/uiHandlers.js";
+
 let bil = new Bilza("bilza",600,300);
 let g = bil.gridTempl.dashed();
 let txt = bil.add.text(0,60,"Text Sample","red");
+// txt.d.x = 0;
+// txt.d.y = 0;
+// txt.d.shadowColor = "blue";
+// ///////////////////////////////////////////////
+// txt.d.xAlignment = txt.xAlignmentOptions.Left;
+// txt.d.yAlignment = txt.yAlignmentOptions.Top;
+// txt.d.content = "Fix Shadows" ; 
+// txt.d.padding = 0;
+// txt.d.border = 10;
+// txt.d.dynWidth = 80;
+// txt.d.dynHeight = 30;
+// txt.d.colorBorder = "red";
+// txt.d.colorBg = "green";
+// txt.d.color = "blue" ; 
+// txt.d.fontSize = 80;
 
-txt.d.x = 0;
-txt.d.y = 0;
-txt.d.shadowColor = "blue";
-///////////////////////////////////////////////
-txt.d.xAlignment = txt.xAlignmentOptions.Left;
-txt.d.yAlignment = txt.yAlignmentOptions.Top;
-txt.d.content = "Fix Shadows" ; 
-txt.d.padding = 0;
-txt.d.border = 10;
-txt.d.dynWidth = 80;
-txt.d.dynHeight = 30;
-txt.d.colorBorder = "red";
-txt.d.colorBg = "green";
-txt.d.color = "blue" ; 
-txt.d.fontSize = 80;
+// txt.d.flagDrawContent = true;
+// txt.d.flagDrawBorder = true;
+// txt.d.flagDrawBg = true;
 
-txt.d.flagDrawContent = true;
-txt.d.flagDrawBorder = true;
-txt.d.flagDrawBg = true;
+// txt.d.flagTextShadow = true;
+// txt.d.flagBgShadow = true;
+// txt.d.flagBorderShadow = true;
 
-txt.d.flagTextShadow = true;
-txt.d.flagBgShadow = true;
-txt.d.flagBorderShadow = true;
-
-txt.d.maxDisplayChars = 200;
-txt.d.flagUseDynResize = false;
-txt.d.flagShrinkHeightToFit = false;
-txt.d.flagUseRelativeXY = false;
+// txt.d.maxDisplayChars = 200;
+// txt.d.flagUseDynResize = false;
+// txt.d.flagShrinkHeightToFit = false;
+// txt.d.flagUseRelativeXY = false;
+//////////////////////////////////
 //////////////////////////////////
 bil.drawInit();
 ///////////////////////////////
@@ -41,73 +42,20 @@ let interval = setInterval(function(){
     bil.drawInit();
 },150);
 ///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-//--------fontSizeRange-------
-let fontSizeRange = document.getElementById("fontSizeRange");
-fontSizeRange.addEventListener("input",function(e){
-txt.d.fontSize = parseInt(e.target.value);
-    let a = document.getElementById("fontSizeRangeLabel");
-    a.innerHTML = txt.d.fontSize; 
-});
-//--------borderRange-------
-let borderRange = document.getElementById("borderRange");
-borderRange.addEventListener("input",function(e){
-txt.d.border = parseInt(e.target.value);
-    let a = document.getElementById("borderRangeLabel");
-    a.innerHTML = txt.d.border; 
-});
-//--------paddingRange-------
-let paddingRange = document.getElementById("paddingRange");
-paddingRange.addEventListener("input",function(e){
-txt.d.padding = parseInt(e.target.value);
-let a = document.getElementById("paddingRangeLabel");
-a.innerHTML = txt.d.padding; 
-});
+input(txt,"contentInput","content");
+input(txt,"xRange","x",true,0);
+input(txt,"yRange","y",true,0);
 
-//--------dynWidthRange-------
-let dynWidthRange = document.getElementById("dynWidthRange");
-dynWidthRange.addEventListener("input",function(e){
-txt.d.dyWidth = parseInt(e.target.value);
-let a = document.getElementById("dynWidthRangeLabel");
-a.innerHTML = txt.d.dyWidth; 
-});
-//--------dynHeightRange-------
-let dynHeightRange = document.getElementById("dynHeightRange");
-dynHeightRange.addEventListener("input",function(e){
-txt.d.dynHeight = parseInt(e.target.value);
-let a = document.getElementById("dynHeightRangeLabel");
-a.innerHTML = txt.d.dynHeight; 
-});
-//--------dynHeightRange-------
-let maxDisplayCharsRange = document.getElementById("maxDisplayCharsRange");
-maxDisplayCharsRange.addEventListener("input",function(e){
-txt.d.maxDisplayChars = parseInt(e.target.value);
-let a = document.getElementById("maxDisplayCharsRangeLabel");
-a.innerHTML = txt.d.maxDisplayChars; 
-});
-////////////////////////////////////////
-let flagUseDynResizeToggle = document.getElementById("flagUseDynResizeToggle");
-flagUseDynResizeToggle.addEventListener("change",function(e){
-let a = document.getElementById("flagUseDynResizeToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.flagUseDynResize = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.flagUseDynResize = false;
-    }
-//....................... 
-});
-
+range(txt,"fontSizeRange","fontSize");
+range(txt,"borderRange","border");
+range(txt,"paddingRange","padding");
+range(txt,"dynWidthRange","dynWidth");
+range(txt,"dynHeightRange","dynHeight");
+range(txt,"maxDisplayCharsRange","maxDisplayChars");
+toggle(txt,"flagUseDynResizeToggle","flagUseDynResize");
+toggle(txt,"flagShrinkHeightToFitToggle","flagShrinkHeightToFit");
 //--------contentInput-------
-let contentInput = document.getElementById("contentInput");
-contentInput.addEventListener("input",function(e){
-txt.d.content = (e.target.value);
-let a = document.getElementById("contentInputLabel");
-a.innerHTML = txt.d.content; 
-});
+input(txt,"contentInput","content");
 ////////////////////////Drop Down
 let xAlignmentDd = document.getElementById("xAlignmentDd");
 xAlignmentDd.addEventListener("input",function(e){
@@ -149,197 +97,36 @@ let a = document.getElementById("yAlignmentDdLabel");
 a.innerHTML = txt.d.yAlignment; 
 });
 
-/////////---flags--------//////////////
-////////////////////////////////////////
-let flagDrawContentToggle = document.getElementById("flagDrawContentToggle");
-flagDrawContentToggle.addEventListener("change",function(e){
-let a = document.getElementById("flagDrawContentToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.flagDrawContent = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.flagDrawContent = false;
+toggle(txt,"flagDrawContentToggle","flagDrawContent");
+toggle(txt,"flagDrawBorderToggle","flagDrawBorder");
+toggle(txt,"flagDrawBgToggle","flagDrawBg");
+toggle(txt,"flagTextShadowToggle","flagTextShadow");
+toggle(txt,"flagBgShadowToggle","flagBgShadow");
+colorPicker(txt,"colorPicker","color");
+colorPicker(txt,"colorBorderPicker","colorBorder");
+colorPicker(txt,"colorBgPicker","colorBg");
+colorPicker(txt,"shadowColorPicker","shadowColor");
+colorPicker(txt,"colorBoundingRectanglePicker","colorBoundingRectangle");
 
-    }
-//....................... 
-});
-////////////////////////////////////////
-let flagDrawBorderToggle = document.getElementById("flagDrawBorderToggle");
-flagDrawBorderToggle.addEventListener("change",function(e){
-let a = document.getElementById("flagDrawBorderToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.flagDrawBorder = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.flagDrawBorder = false;
+toggle(txt,"flagUseRelativeXYToggle","flagUseRelativeXY");
+range(txt,"shadowOffsetXRange","shadowOffsetX");
+range(txt,"shadowOffsetYRange","shadowOffsetY");
+range(txt,"shadowBlurRange","shadowBlur");
+toggle(txt,"visibleToggle","visible");
+toggle(txt,"selectedToggle","selected");
 
-    }
-//....................... 
-});
-////////////////////////////////////////
-let flagDrawBgToggle = document.getElementById("flagDrawBgToggle");
-flagDrawBgToggle.addEventListener("change",function(e){
-let a = document.getElementById("flagDrawBgToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.flagDrawBg = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.flagDrawBg = false;
-    }
-//....................... 
-});
-////////////////////////////////////////
-let flagTextShadowToggle = document.getElementById("flagTextShadowToggle");
-flagTextShadowToggle.addEventListener("change",function(e){
-let a = document.getElementById("flagTextShadowToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.flagTextShadow = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.flagTextShadow = false;
-    }
-//....................... 
-});
-////////////////////////////////////////
-let flagBgShadowToggle = document.getElementById("flagBgShadowToggle");
-flagBgShadowToggle.addEventListener("change",function(e){
-let a = document.getElementById("flagBgShadowToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.flagBgShadow = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.flagBgShadow = false;
-    }
-//....................... 
-});
+//....................
+let canvasWidthRange = document.getElementById("canvasWidthRange");
+let a = document.getElementById("canvasWidthRangeLabel");
 
-//-------color picker
-/////////////////////////////////////////////////////
-let colorPicker = document.getElementById("colorPicker");
-colorPicker.addEventListener("change",function(e){
-let a = document.getElementById("colorPickerLabel");
-txt.d.color = (e.target.value);
-a.innerHTML = (txt.d.color);
+canvasWidthRange.addEventListener("input",function(e){
+        bil.setCanvas(parseInt(e.target.value));
+        a.innerHTML = "W" + bil.getCanvasWidth() + " , H" + bil.getCanvasHeight(); 
 });
-/////////////////////////////////////////////////////
-let colorBorderPicker = document.getElementById("colorBorderPicker");
-colorBorderPicker.addEventListener("change",function(e){
-let a = document.getElementById("colorBorderPickerLabel");
-txt.d.colorBorder = (e.target.value);
-a.innerHTML = (txt.d.colorBorder);
-});
-/////////////////////////////////////////////////////
-let colorBgPicker = document.getElementById("colorBgPicker");
-colorBgPicker.addEventListener("change",function(e){
-let a = document.getElementById("colorBgPickerLabel");
-txt.d.colorBg = (e.target.value);
-a.innerHTML = (txt.d.colorBg);
-});
-/////////////////////////////////////////////////////
-let shadowColorPicker = document.getElementById("shadowColorPicker");
-shadowColorPicker.addEventListener("change",function(e){
-let a = document.getElementById("shadowColorPickerLabel");
-txt.d.shadowColor = (e.target.value);
-a.innerHTML = (txt.d.shadowColor);
-});
-///////////////////////////////////////////////////////
-///////////-----------Base Class Variables----////////
-//--------xRange-------
-let xRange = document.getElementById("xRange");
-xRange.addEventListener("input",function(e){
-txt.d.x = parseInt(e.target.value);
-    let a = document.getElementById("xRangeLabel");
-    a.innerHTML = txt.d.x; 
-});
-//--------yRange-------
-let yRange = document.getElementById("yRange");
-yRange.addEventListener("input",function(e){
-txt.d.y = parseInt(e.target.value);
-    let a = document.getElementById("yRangeLabel");
-    a.innerHTML = txt.d.y; 
-});
-let flagUseRelativeXYToggle = document.getElementById("flagUseRelativeXYToggle");
-flagUseRelativeXYToggle.addEventListener("change",function(e){
-let a = document.getElementById("flagUseRelativeXYToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.flagUseRelativeXY = true;
-      xRange.max = 100;
-      yRange.max = 100;
-    } else {
-        a.innerHTML = "False";
-        txt.d.flagUseRelativeXY = false;
-        xRange.max = 1500;
-        yRange.max = 1500;
-    }
-//....................... 
-});
-/////////////////////////////////////////////////////
-let colorBoundingRectanglePicker = document.getElementById("colorBoundingRectanglePicker");
-colorBoundingRectanglePicker.addEventListener("change",function(e){
-let a = document.getElementById("colorBoundingRectanglePickerLabel");
-txt.d.colorBoundingRectangle = (e.target.value);
-a.innerHTML = (txt.d.colorBoundingRectangle);
+//....................
+let spitBtn = document.getElementById("spitBtn");
+spitBtn.addEventListener("click",function(e){
+    console.log("txt.d",txt.d);
 });
 
 
-///////////////////////////////////////
-let shadowOffsetXRange = document.getElementById("shadowOffsetXRange");
-shadowOffsetXRange.addEventListener("input",function(e){
-txt.d.shadowOffsetX = parseInt(e.target.value);
-    let a = document.getElementById("shadowOffsetXRangeLabel");
-    a.innerHTML = txt.d.shadowOffsetX; 
-});
-///////////////////////////////////////
-let shadowOffsetYRange = document.getElementById("shadowOffsetYRange");
-shadowOffsetYRange.addEventListener("input",function(e){
-txt.d.shadowOffsetY = parseInt(e.target.value);
-    let a = document.getElementById("shadowOffsetYRangeLabel");
-    a.innerHTML = txt.d.shadowOffsetY; 
-});
-///////////////////////////////////////
-let shadowBlurRange = document.getElementById("shadowBlurRange");
-shadowBlurRange.addEventListener("input",function(e){
-txt.d.shadowBlur = parseInt(e.target.value);
-    let a = document.getElementById("shadowBlurRangeLabel");
-    a.innerHTML = txt.d.shadowBlur; 
-});
-////////////////////////////////////////////////
-let visibleToggle = document.getElementById("visibleToggle");
-visibleToggle.addEventListener("change",function(e){
-let a = document.getElementById("visibleToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.visible = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.visible = false;
-    }
-//....................... 
-});
-////////////////////////////////////////////////
-let selectedToggle = document.getElementById("selectedToggle");
-selectedToggle.addEventListener("change",function(e){
-let a = document.getElementById("selectedToggleLabel");
-//.......................
-    if (e.currentTarget.checked) {
-      a.innerHTML = "True";
-      txt.d.selected = true;
-    } else {
-        a.innerHTML = "False";
-        txt.d.selected = false;
-    }
-//....................... 
-});
