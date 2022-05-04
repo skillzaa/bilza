@@ -24,7 +24,7 @@ export class ObjectData extends CompDataBase {
         this.maxDisplayChars = 200;
         this.flagUseDynResize = false;
         this.flagShrinkHeightToFit = false;
-        this.flagUseRelativeXY = true;
+        this.flagUseRelativeXY = false;
         this.x = 0;
         this.y = 0;
         this.selected = false;

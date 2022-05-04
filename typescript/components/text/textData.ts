@@ -63,7 +63,7 @@ this.maxDisplayChars = 200;
 
 this.flagUseDynResize = false;
 this.flagShrinkHeightToFit = false;
-this.flagUseRelativeXY = true;
+this.flagUseRelativeXY = false;//outof box its normal text
 
 //-------Base Component Values
 this.x = 0;

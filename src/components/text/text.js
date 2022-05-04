@@ -19,10 +19,10 @@ export default class Text extends Component {
         this.drawLayer = DrawLayer.MiddleGround;
     }
     width(p) {
-        return (p.textWidth(this.d.content.substring(0, this.d.maxDisplayChars), this.style) + (this.d.padding * 2) + (this.d.border * 2));
+        return (p.textWidth(this.d.content.substring(0, this.d.maxDisplayChars), this.style) + (this.d.padding * 2) + (this.d.border));
     }
     height(p) {
-        return (p.charsWidth("W", this.d.fontSize, this.style.fontName) + (this.d.padding * 2) + (this.d.border * 2));
+        return (p.charsWidth("W", this.d.fontSize, this.style.fontName) + (this.d.padding * 2) + (this.d.border));
     }
     init(p) {
         return true;
@@ -72,7 +72,7 @@ export default class Text extends Component {
         this.style.fillStyle = this.d.colorBg;
         this.style.strokeStyle = this.d.colorBg;
         this.style.fontSize = this.d.fontSize;
-        p.drawFillRect(this.getX(p) + (this.d.border / 2), this.getY(p) + (this.d.border / 2), this.width(p), this.height(p), this.style);
+        p.drawFillRect(this.getX(p) + (this.d.border), this.getY(p) + (this.d.border), this.width(p), this.height(p), this.style);
         return true;
     }
     drawContent(p) {
@@ -85,7 +85,7 @@ export default class Text extends Component {
         this.style.fillStyle = this.d.color;
         this.style.strokeStyle = this.d.color;
         this.style.fontSize = this.d.fontSize;
-        p.drawText(this.d.content.substring(0, this.d.maxDisplayChars), this.getX(p) + (this.d.border + (this.d.border / 2) + this.d.padding), this.getY(p) + (this.d.border + (this.d.border / 2) + this.d.padding), this.style);
+        p.drawText(this.d.content.substring(0, this.d.maxDisplayChars), this.getX(p) + (this.d.border + this.d.padding), this.getY(p) + (this.d.border + this.d.padding), this.style);
     }
     getX(p) {
         let x = this.d.x;
@@ -96,7 +96,7 @@ export default class Text extends Component {
             case this.xAlignmentOptions.Left:
                 break;
             case this.xAlignmentOptions.Mid:
-                x = x - (this.width(p) / 2);
+                x = x - ((this.width(p) / 2) + (this.d.border / 2));
                 break;
             case this.xAlignmentOptions.Right:
                 x = x - this.width(p);
@@ -113,10 +113,10 @@ export default class Text extends Component {
             case this.yAlignmentOptions.Top:
                 break;
             case this.yAlignmentOptions.Mid:
-                y = y - (this.height(p) / 2);
+                y = y - ((this.height(p) / 2) + (this.d.border / 2));
                 break;
             case this.yAlignmentOptions.Bot:
-                y = y - this.height(p);
+                y = y - (this.height(p) + (this.d.border));
                 break;
         }
         return y;

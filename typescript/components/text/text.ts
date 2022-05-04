@@ -29,10 +29,10 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
 }
 width(p:Pack):number {
 //-- this.d.fontSize is what decides the width and height    
-return (p.textWidth(this.d.content.substring(0,this.d.maxDisplayChars),this.style) + (this.d.padding * 2) + (this.d.border * 2) );
+return (p.textWidth(this.d.content.substring(0,this.d.maxDisplayChars),this.style) + (this.d.padding * 2) + (this.d.border) );
 }
 height(p:Pack):number {
-return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding * 2) + (this.d.border * 2) );
+return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding * 2) + (this.d.border) );
 }
 
 init(p: Pack): boolean {
@@ -103,8 +103,8 @@ private drawBg(p :Pack) :boolean{
     this.style.fontSize = this.d.fontSize;
       
 p.drawFillRect(
-    this.getX(p) + (this.d.border/2),
-    this.getY(p) + (this.d.border/2),
+    this.getX(p) + (this.d.border),
+    this.getY(p) + (this.d.border),
     this.width(p),
     this.height(p),
     this.style);
@@ -124,8 +124,8 @@ if (this.d.flagTextShadow == true){
     this.style.fontSize = this.d.fontSize;
        
 p.drawText(this.d.content.substring(0,this.d.maxDisplayChars),
-    this.getX(p) + (this.d.border + (this.d.border/2) + this.d.padding),
-    this.getY(p) + (this.d.border + (this.d.border/2) + this.d.padding),
+    this.getX(p) + (this.d.border + this.d.padding),
+    this.getY(p) + (this.d.border + this.d.padding),
     this.style);   
 }
 
@@ -138,7 +138,7 @@ switch (this.d.xAlignment) {
     case this.xAlignmentOptions.Left:
         break;
     case this.xAlignmentOptions.Mid:
-         x = x - (this.width(p)/2);
+         x = x - ((this.width(p)/2)+ (this.d.border/2));
         break;
     
     case this.xAlignmentOptions.Right:
@@ -157,11 +157,11 @@ switch (this.d.yAlignment) {
     case this.yAlignmentOptions.Top:
         break;
     case this.yAlignmentOptions.Mid:
-         y = y - (this.height(p)/2);
+         y = y - ((this.height(p)/2) + (this.d.border/2));
         break;
     
     case this.yAlignmentOptions.Bot:
-        y = y - this.height(p);
+        y = y - (this.height(p) + (this.d.border));
         break;
 }
 return y ;
