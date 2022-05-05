@@ -29,7 +29,7 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
 }
 width(p:Pack):number {
 //-- this.d.fontSize is what decides the width and height    
-return (p.textWidth(this.d.content.substring(0,this.d.maxDisplayChars),this.style) + (this.d.padding * 2) + (this.d.border) );
+return (p.textWidth(this.d.content.substring(0,this.d.maxDisplayChars),this.style) + (this.d.padding * 2) + (this.d.border ) );
 }
 height(p:Pack):number {
 return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding * 2) + (this.d.border) );
@@ -138,11 +138,11 @@ switch (this.d.xAlignment) {
     case this.xAlignmentOptions.Left:
         break;
     case this.xAlignmentOptions.Mid:
-         x = x - ((this.width(p)/2)+ (this.d.border/2));
+         x = x - ((this.width(p)/2)+ (this.d.border));
         break;
     
     case this.xAlignmentOptions.Right:
-        x = x - this.width(p);
+        x = x - (this.width(p) + (this.d.border));
         break;
 }
 return x ;
@@ -157,7 +157,7 @@ switch (this.d.yAlignment) {
     case this.yAlignmentOptions.Top:
         break;
     case this.yAlignmentOptions.Mid:
-         y = y - ((this.height(p)/2) + (this.d.border/2));
+         y = y - ((this.height(p)/2) + (this.d.border));
         break;
     
     case this.yAlignmentOptions.Bot:

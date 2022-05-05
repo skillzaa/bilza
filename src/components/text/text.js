@@ -96,10 +96,10 @@ export default class Text extends Component {
             case this.xAlignmentOptions.Left:
                 break;
             case this.xAlignmentOptions.Mid:
-                x = x - ((this.width(p) / 2) + (this.d.border / 2));
+                x = x - ((this.width(p) / 2) + (this.d.border));
                 break;
             case this.xAlignmentOptions.Right:
-                x = x - this.width(p);
+                x = x - (this.width(p) + (this.d.border));
                 break;
         }
         return x;
@@ -113,7 +113,7 @@ export default class Text extends Component {
             case this.yAlignmentOptions.Top:
                 break;
             case this.yAlignmentOptions.Mid:
-                y = y - ((this.height(p) / 2) + (this.d.border / 2));
+                y = y - ((this.height(p) / 2) + (this.d.border));
                 break;
             case this.yAlignmentOptions.Bot:
                 y = y - (this.height(p) + (this.d.border));
