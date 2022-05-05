@@ -14,15 +14,15 @@ txt.d.visible = true;
 txt.d.shadowColor = "#b2abab";
 txt.d.shadowOffsetX = 10;
 txt.d.shadowOffsetY = 10;
-txt.d.shadowBlur = 8;
+txt.d.shadowBlur = 18;
 txt.d.colorBoundingRectangle = "#000000";
 txt.d.xAlignment = "RIGHT";
 txt.d.yAlignment = "BOT";
 txt.d.content = "1234-1234";
 txt.d.padding = 20;
 txt.d.border = 50;
-txt.d.dynWidth = 23;
-txt.d.dynHeight = 33;
+txt.d.dynWidth = 100;
+txt.d.dynHeight = 100;
 txt.d.colorBorder = "#ff0000";
 txt.d.colorBg = "#d6ddf0";
 txt.d.color = "#008000";
@@ -63,6 +63,9 @@ toggle(txt,"flagShrinkHeightToFitToggle","flagShrinkHeightToFit");
 input(txt,"contentInput","content");
 ////////////////////////Drop Down
 let xAlignmentDd = document.getElementById("xAlignmentDd");
+let aaa = document.getElementById("xAlignmentDdLabel");
+aaa.innerHTML = txt.d.xAlignment;
+xAlignmentDd.value =  txt.d.xAlignment.toLowerCase();
 xAlignmentDd.addEventListener("input",function(e){
 switch (e.target.value) {
     case "left":
@@ -78,11 +81,14 @@ switch (e.target.value) {
     default:
         break;
 }
-let a = document.getElementById("xAlignmentDdLabel");
-a.innerHTML = txt.d.xAlignment; 
+let ax = document.getElementById("xAlignmentDdLabel");
+ax.innerHTML = txt.d.xAlignment; 
 });
 ////////////////////////Drop Down
 let yAlignmentDd = document.getElementById("yAlignmentDd");
+let aj = document.getElementById("yAlignmentDdLabel");
+aj.innerHTML = txt.d.yAlignment;
+yAlignmentDd.value =  txt.d.yAlignment.toLowerCase();
 yAlignmentDd.addEventListener("input",function(e){
 switch (e.target.value) {
     case "top":
