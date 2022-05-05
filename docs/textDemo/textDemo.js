@@ -2,13 +2,13 @@
 import Bilza from "../../src/Bilza.js";
 import {range,toggle,colorPicker,input} from "../uiHandlers/uiHandlers.js";
 
-let bil = new Bilza("bilza",600,300);
+let bil = new Bilza("bilza",500,300);
 let g = bil.gridTempl.simple();
 g.d.flagDrawNumbers = true;
 let txt = bil.add.text(0,60,"Text Sample","red");
 
-txt.d.x = 99;
-txt.d.y = 99;
+txt.d.x = 50;
+txt.d.y = 50;
 txt.d.selected = false;
 txt.d.visible = true;
 txt.d.shadowColor = "#b2abab";
@@ -16,12 +16,12 @@ txt.d.shadowOffsetX = 10;
 txt.d.shadowOffsetY = 10;
 txt.d.shadowBlur = 18;
 txt.d.colorBoundingRectangle = "#000000";
-txt.d.xAlignment = "RIGHT";
-txt.d.yAlignment = "BOT";
+txt.d.xAlignment = "MID";
+txt.d.yAlignment = "MID";
 txt.d.content = "1234-1234";
 txt.d.padding = 20;
 txt.d.border = 50;
-txt.d.dynWidth = 100;
+txt.d.dynWidth = 80;
 txt.d.dynHeight = 100;
 txt.d.colorBorder = "#ff0000";
 txt.d.colorBg = "#d6ddf0";
