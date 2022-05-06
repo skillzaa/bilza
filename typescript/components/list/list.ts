@@ -114,7 +114,6 @@ return true;
 }
 addItem(content=""){
 let item = new Text(this.getStartTime(),this.getEndTime(),content);
-item.d.flagDrawBorder = true;
 item.d.flagUseRelativeXY = false;
 item.d.flagUseDynResize = true;
 //--change later

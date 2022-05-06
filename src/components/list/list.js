@@ -95,7 +95,6 @@ export default class List extends Component {
     }
     addItem(content = "") {
         let item = new Text(this.getStartTime(), this.getEndTime(), content);
-        item.d.flagDrawBorder = true;
         item.d.flagUseRelativeXY = false;
         item.d.flagUseDynResize = true;
         item.d.dynWidth = this.d.dynWidth;

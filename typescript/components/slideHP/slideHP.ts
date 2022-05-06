@@ -45,12 +45,12 @@
 // txt.d.yAlignment = txt.yAlignmentOptions.Mid;
 
 // // txt.d.dynamicFontSize = true; //if this is not true setFontSize will not work.also widthPercent etc should be set
-// txt.d.flagDrawBg = true;
+// txt.d.showBg = true;
 // txt.d.flagDrawBorder = true;
-// txt.d.flagBgShadow = true;
+// txt.d.showBgShadow = true;
 
 // txt.d.colorBg = lightenDarkenColor(color,60);
-// txt.d.flagBgShadow = true;
+// txt.d.showBgShadow = true;
 // return txt;
 // }
 

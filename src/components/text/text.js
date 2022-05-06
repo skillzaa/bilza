@@ -37,19 +37,19 @@ export default class Text extends Component {
         return true;
     }
     draw(p) {
-        if (this.d.flagDrawBg == true) {
+        if (this.d.showBg == true) {
             this.drawBg(p);
         }
-        if (this.d.flagDrawBorder == true) {
+        if (this.d.border > 0) {
             this.drawBorder(p);
         }
-        if (this.d.flagDrawContent == true) {
+        if (this.d.showContent == true) {
             this.drawContent(p);
         }
         return true;
     }
     drawBorder(p) {
-        if (this.d.flagBorderShadow == true) {
+        if (this.d.showBorderShadow == true) {
             this.setShadow(this.d.shadowBlur, this.d.shadowOffsetX, this.d.shadowOffsetY, this.d.shadowColor);
         }
         else {
@@ -63,7 +63,7 @@ export default class Text extends Component {
         return true;
     }
     drawBg(p) {
-        if (this.d.flagBgShadow == true) {
+        if (this.d.showBgShadow == true) {
             this.setShadow(this.d.shadowBlur, this.d.shadowOffsetX, this.d.shadowOffsetY, this.d.shadowColor);
         }
         else {
@@ -76,7 +76,7 @@ export default class Text extends Component {
         return true;
     }
     drawContent(p) {
-        if (this.d.flagTextShadow == true) {
+        if (this.d.showTextShadow == true) {
             this.setShadow(this.d.shadowBlur, this.d.shadowOffsetX, this.d.shadowOffsetY, this.d.shadowColor);
         }
         else {
@@ -96,7 +96,7 @@ export default class Text extends Component {
             case this.xAlignmentOptions.Left:
                 break;
             case this.xAlignmentOptions.Mid:
-                x = x - ((this.width(p) / 2) + (this.d.border));
+                x = x - ((this.width(p) / 2) + (this.d.border / 2));
                 break;
             case this.xAlignmentOptions.Right:
                 x = x - (this.width(p) + (this.d.border));
@@ -113,7 +113,7 @@ export default class Text extends Component {
             case this.yAlignmentOptions.Top:
                 break;
             case this.yAlignmentOptions.Mid:
-                y = y - ((this.height(p) / 2) + (this.d.border));
+                y = y - ((this.height(p) / 2) + (this.d.border / 2));
                 break;
             case this.yAlignmentOptions.Bot:
                 y = y - (this.height(p) + (this.d.border));

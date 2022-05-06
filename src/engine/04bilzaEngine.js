@@ -6,7 +6,7 @@ import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import TextTemplates from "../compFactory/textTemplates.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 export default class Bilza extends BilzaCanvasSetup {
-    constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = 300, timeEndSec = 60) {
+    constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = 300) {
         super(canvasId, canvasWidth, canvasHeight, timeEndSec);
         this.background = new Background();
         this.add = new CompFactory(this.insert.bind(this));

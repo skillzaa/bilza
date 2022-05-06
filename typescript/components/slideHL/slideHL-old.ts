@@ -19,8 +19,7 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
     this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
     this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
     this.hdg.d.colorBg = lightenDarkenColor(color,200);
-    this.hdg.d.flagDrawBorder = true;
-    this.hdg.d.flagDrawBg = true;
+    this.hdg.d.showBg = true;
     // this.hdg.d.dynamicFontSize = true;
     //------------------------------
     this.lis = [];

@@ -12,7 +12,7 @@ export declare class ObjectData extends CompDataBase {
     colorBorder: string;
     colorItemBorder: string;
     flagShowBorder: boolean;
-    flagShowBg: boolean;
+    showBg: boolean;
     flagShrinkTofitVertically: boolean;
     paddingX: number;
     paddingY: number;

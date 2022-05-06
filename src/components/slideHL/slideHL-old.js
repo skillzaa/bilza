@@ -12,8 +12,7 @@ export default class SlideHL extends Component {
         this.hdg.d.xAlignment = this.hdg.xAlignmentOptions.Mid;
         this.hdg.d.yAlignment = this.hdg.yAlignmentOptions.Top;
         this.hdg.d.colorBg = lightenDarkenColor(color, 200);
-        this.hdg.d.flagDrawBorder = true;
-        this.hdg.d.flagDrawBg = true;
+        this.hdg.d.showBg = true;
         this.lis = [];
         this.drawLayer = DrawLayer.MiddleGround;
         this.setStartTime(startTimeSeconds * 1000);

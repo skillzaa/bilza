@@ -15,12 +15,11 @@ export default function slide01() {
     txt.d.colorBg = "green";
     txt.d.color = "blue";
     txt.d.fontSize = 80;
-    txt.d.flagDrawContent = true;
-    txt.d.flagDrawBorder = true;
-    txt.d.flagDrawBg = true;
-    txt.d.flagTextShadow = true;
-    txt.d.flagBgShadow = true;
-    txt.d.flagBorderShadow = true;
+    txt.d.showContent = true;
+    txt.d.showBg = true;
+    txt.d.showTextShadow = true;
+    txt.d.showBgShadow = true;
+    txt.d.showBorderShadow = true;
     txt.d.maxDisplayChars = 200;
     txt.d.flagUseDynResize = false;
     txt.d.flagShrinkHeightToFit = false;

@@ -8,11 +8,11 @@ export default class Text extends Component<ObjectData> {
     xAlignmentOptions:typeof XAlignment;   
     yAlignmentOptions:typeof YAlignment;  
  
-//Args==> start-end-content-color-x-y-widthPerc-heightPerc
+//Args==> start-end-content-color-x-y
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000",x:number=0,y:number =0){
     super(DataFn);
-    this.xAlignmentOptions = XAlignment;
-    this.yAlignmentOptions = YAlignment;
+    this.xAlignmentOptions = XAlignment; //final-ok
+    this.yAlignmentOptions = YAlignment; //final-ok
     
     this.setStartTime(startTimeSeconds * 1000); //into mili sec
     this.setEndTime(endTimeSeconds * 1000);
@@ -36,12 +36,6 @@ return (p.charsWidth("W",this.d.fontSize,this.style.fontName)+ (this.d.padding *
 }
 
 init(p: Pack): boolean {
-// if (this.d.flagUseDynResize ==true){
-//     this.dynamicFontSize(p);
-// }
-// if (this.d.flagShrinkHeightToFit ==true){
-//     this.shrinkHeightToFit(p);
-// }
     return true;
 }
 update(msDelta: number, p: Pack): boolean {
@@ -56,13 +50,13 @@ update(msDelta: number, p: Pack): boolean {
 
 draw(p:Pack):boolean{
 
-if (this.d.flagDrawBg == true){
+if (this.d.showBg == true){
     this.drawBg(p);
 }
-if (this.d.flagDrawBorder == true){
+if (this.d.border > 0){
     this.drawBorder(p);
 }
-if (this.d.flagDrawContent == true){
+if (this.d.showContent == true){
     this.drawContent(p);
 }
 
@@ -72,7 +66,7 @@ return true;
 // =- AM USING drawRect (Empty rect) for border and not line
 private drawBorder(p :Pack) :boolean{
 
-if (this.d.flagBorderShadow == true){
+if (this.d.showBorderShadow == true){
     // this.shadowsOn();
     this.setShadow(this.d.shadowBlur,this.d.shadowOffsetX,this.d.shadowOffsetY,this.d.shadowColor);
 } else {
@@ -92,7 +86,7 @@ p.drawRect(
 return true;
 }
 private drawBg(p :Pack) :boolean{
-    if (this.d.flagBgShadow == true){
+    if (this.d.showBgShadow == true){
         // this.shadowsOn();
         this.setShadow(this.d.shadowBlur,this.d.shadowOffsetX,this.d.shadowOffsetY,this.d.shadowColor);
     } else {
@@ -111,7 +105,7 @@ p.drawFillRect(
 return true;
 } 
 private drawContent(p :Pack){
-if (this.d.flagTextShadow == true){
+if (this.d.showTextShadow == true){
     // this.shadowsOn();
     this.setShadow(this.d.shadowBlur,this.d.shadowOffsetX,this.d.shadowOffsetY,this.d.shadowColor);
 } else { 
@@ -138,7 +132,7 @@ switch (this.d.xAlignment) {
     case this.xAlignmentOptions.Left:
         break;
     case this.xAlignmentOptions.Mid:
-         x = x - ((this.width(p)/2)+ (this.d.border));
+         x = x - ((this.width(p)/2)+ (this.d.border/2));
         break;
     
     case this.xAlignmentOptions.Right:
@@ -157,7 +151,7 @@ switch (this.d.yAlignment) {
     case this.yAlignmentOptions.Top:
         break;
     case this.yAlignmentOptions.Mid:
-         y = y - ((this.height(p)/2) + (this.d.border));
+         y = y - ((this.height(p)/2) + (this.d.border/2));
         break;
     
     case this.yAlignmentOptions.Bot:

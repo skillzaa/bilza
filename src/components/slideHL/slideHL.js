@@ -48,8 +48,7 @@ export default class SlideHL extends Component {
         hdg.d.border = 2;
         hdg.d.xAlignment = hdg.xAlignmentOptions.Mid;
         hdg.d.yAlignment = hdg.yAlignmentOptions.Top;
-        hdg.d.flagDrawBorder = true;
-        hdg.d.flagDrawBg = true;
+        hdg.d.showBg = true;
         hdg.d.dynWidth = 80;
         hdg.d.color = "#008000";
         hdg.d.dynHeight = 25;

@@ -16,7 +16,7 @@ colorBorder :string;
 colorItemBorder :string;
 //--flags
 flagShowBorder :boolean;
-flagShowBg :boolean;
+showBg :boolean;
 flagShrinkTofitVertically :boolean;
 
 paddingX :number;
@@ -55,7 +55,7 @@ this.colorItemBorder = "blue";
 this.colorBg = "green";
 this.items = [];
 this.flagShowBorder = true;
-this.flagShowBg = true;
+this.showBg = true;
 this.flagShrinkTofitVertically = false;
 //////////////
 this.dimList = [];

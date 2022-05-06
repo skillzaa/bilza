@@ -18,7 +18,7 @@ export class ObjectData extends CompDataBase {
         this.colorBg = "green";
         this.items = [];
         this.flagShowBorder = true;
-        this.flagShowBg = true;
+        this.showBg = true;
         this.flagShrinkTofitVertically = false;
         this.dimList = [];
         this.dimFontColor = "grey";

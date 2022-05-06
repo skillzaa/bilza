@@ -17,7 +17,7 @@ public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
  
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",canvasWidth=800,canvasHeight :null|number=300,timeEndSec=60){
+constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=300){
 //internal seq of args is different from enternal seq of args    
 super(canvasId,canvasWidth,canvasHeight,timeEndSec);
 this.background = new Background();

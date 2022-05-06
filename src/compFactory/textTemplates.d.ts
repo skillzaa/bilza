@@ -4,10 +4,8 @@ export default class TextTemplates {
     private insert;
     private util;
     constructor(insert: (comp: IComponent) => IComponent);
-    h1(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number, dynWidth?: number, dynHeight?: number): Text;
-    hdg(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number): Text;
-    test(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number): Text;
-    title(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number): Text;
+    h1(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string): Text;
     jt(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string): Text;
+    bulletPointMid(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string, y?: number): Text;
 }
 //# sourceMappingURL=textTemplates.d.ts.map
