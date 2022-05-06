@@ -13,9 +13,9 @@ export class ObjectData extends CompDataBase {
         this.colorHorizontalLines = "grey";
         this.colorVerticalLines = "grey";
         this.colorNumbers = "grey";
-        this.flagDrawNumbers = false;
-        this.flagDrawHorizontal = false;
-        this.flagDrawVertical = false;
+        this.showNumbers = false;
+        this.showHorizontalLines = false;
+        this.showVerticalLines = false;
         this.lineWidthVertical = 1;
         this.lineWidthHorizontal = 1;
         this.lineDash = [];

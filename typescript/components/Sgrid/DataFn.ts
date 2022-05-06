@@ -4,12 +4,13 @@ export default function DataFn ():ObjectData  {
     let td = new ObjectData();
     return td;
 }
-    
+     
 export class ObjectData extends CompDataBase {
-msStart:number;
 
-cellWidthPerc :number;    
-cellHeightPerc :number;
+// msStart:number;
+
+cellWidth :number;    
+cellHeight :number;
 
 colorHorizontalLines :string ;   
 colorVerticalLines :string ;
@@ -27,12 +28,11 @@ lineDash :number[];
   
 constructor(){
     super();
-this.msStart =0;
 
 this.fontSize = 8;
 
-this.cellWidthPerc = 10;    
-this.cellHeightPerc = 10;
+this.cellWidth = 50;    
+this.cellHeight = 50;
 
 this.colorHorizontalLines = "grey";   
 this.colorVerticalLines = "grey";   

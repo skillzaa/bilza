@@ -21,11 +21,11 @@ export default class Grid extends Component {
             this.style.lineDash = this.d.lineDash;
             this.style.lineWidth = this.d.lineWidthHorizontal;
             p.drawLine(x, y, end_x, y, this.style);
-            if (this.d.flagDrawNumbers == true) {
+            if (this.d.showNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
                 this.drawText(p, y, x, y);
             }
-            y += this.d.cellHeight;
+            y += ((p.canvasHeight() / 100) * this.d.cellHeightPerc);
         } while (height > y);
     }
     draw_vertical(p) {
@@ -39,11 +39,11 @@ export default class Grid extends Component {
             this.style.lineWidth = this.d.lineWidthVertical;
             this.style.lineDash = this.d.lineDash;
             p.drawLine(x, y, x, end_y, this.style);
-            if (this.d.flagDrawNumbers == true) {
+            if (this.d.showNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
                 this.drawText(p, x, x, y);
             }
-            x += this.d.cellWidth;
+            x += ((p.canvasWidth() / 100) * this.d.cellWidthPerc);
         } while (width > x);
     }
     drawText(p, content, x, y) {

@@ -1,8 +1,8 @@
 import {Component,Pack,DrawLayer} from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 
-export default class RGrid extends Component<ObjectData> {
-
+export default class Grid extends Component<ObjectData> {
+ 
 constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
 super(DataFn,msStart,msEnd);
 
@@ -14,7 +14,6 @@ draw(p:Pack): boolean {
     this.draw_vertical(p);    
 return true;
 }    
-
 draw_horizontal(p:Pack){
 let x = 0;
 let y = 0;
@@ -32,7 +31,7 @@ let end_x = x + width;
             // p.drawText(y.toString(),x,y,this.style);
             this.drawText(p,y,x,y);
         }
-    y += ((p.canvasHeight()/100) * this.d.cellHeightPerc);
+    y += this.d.cellHeight;
     } while (height > y );
 }
 draw_vertical(p:Pack){
@@ -53,8 +52,7 @@ let end_y = y + height;
                 this.drawText(p,x,x,y);//2nd x = content
                 // p.drawText(x.toString(),x,y,this.style);
             }
-    x += ((p.canvasWidth()/100) * this.d.cellWidthPerc);
-
+    x += this.d.cellWidth;
     } while (width > x );
 }
 

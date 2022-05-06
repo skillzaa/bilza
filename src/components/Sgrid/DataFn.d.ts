@@ -1,15 +1,14 @@
 import CompDataBase from "../../design/CompDataBase.js";
 export default function DataFn(): ObjectData;
 export declare class ObjectData extends CompDataBase {
-    msStart: number;
-    cellWidthPerc: number;
-    cellHeightPerc: number;
+    cellWidth: number;
+    cellHeight: number;
     colorHorizontalLines: string;
     colorVerticalLines: string;
     colorNumbers: string;
-    showNumbers: boolean;
-    showHorizontalLines: boolean;
-    showVerticalLines: boolean;
+    flagDrawNumbers: boolean;
+    flagDrawHorizontal: boolean;
+    flagDrawVertical: boolean;
     lineWidthVertical: number;
     lineWidthHorizontal: number;
     fontSize: number;

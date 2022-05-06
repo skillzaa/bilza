@@ -7,11 +7,11 @@ export default class GridTemplates {
         let g = new Grid();
         g.shadowsOff();
         this.insert(g);
-        g.d.flagDrawNumbers = false;
-        g.d.colorNumbers = "red";
+        g.d.showNumbers = true;
+        g.d.colorNumbers = "#ff0000";
         g.d.lineWidthHorizontal = 1;
         g.d.lineWidthVertical = 1;
-        g.d.fontSize = 15;
+        g.d.fontSize = 25;
         g.d.colorHorizontalLines = linesColor;
         g.d.colorVerticalLines = linesColor;
         g.d.lineDash = [15, 5];
@@ -20,11 +20,11 @@ export default class GridTemplates {
     demo() {
         let grid = new Grid();
         this.insert(grid);
-        grid.d.flagDrawNumbers = true;
+        grid.d.showNumbers = true;
         grid.data.colorNumbers = "red";
         grid.d.fontSize = 12;
-        grid.d.cellWidth = 100;
-        grid.d.cellHeight = 20;
+        grid.d.cellWidthPerc = 100;
+        grid.d.cellHeightPerc = 20;
         grid.d.colorHorizontalLines = "blue";
         grid.d.colorVerticalLines = "brown";
         grid.d.lineWidthVertical = 10;

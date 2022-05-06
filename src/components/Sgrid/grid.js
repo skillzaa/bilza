@@ -1,6 +1,6 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
-export default class RGrid extends Component {
+export default class Grid extends Component {
     constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
         super(DataFn, msStart, msEnd);
         this.drawLayer = DrawLayer.BackGround;
@@ -21,11 +21,11 @@ export default class RGrid extends Component {
             this.style.lineDash = this.d.lineDash;
             this.style.lineWidth = this.d.lineWidthHorizontal;
             p.drawLine(x, y, end_x, y, this.style);
-            if (this.d.showNumbers == true) {
+            if (this.d.flagDrawNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
                 this.drawText(p, y, x, y);
             }
-            y += ((p.canvasHeight() / 100) * this.d.cellHeightPerc);
+            y += this.d.cellHeight;
         } while (height > y);
     }
     draw_vertical(p) {
@@ -39,11 +39,11 @@ export default class RGrid extends Component {
             this.style.lineWidth = this.d.lineWidthVertical;
             this.style.lineDash = this.d.lineDash;
             p.drawLine(x, y, x, end_y, this.style);
-            if (this.d.showNumbers == true) {
+            if (this.d.flagDrawNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
                 this.drawText(p, x, x, y);
             }
-            x += ((p.canvasWidth() / 100) * this.d.cellWidthPerc);
+            x += this.d.cellWidth;
         } while (width > x);
     }
     drawText(p, content, x, y) {

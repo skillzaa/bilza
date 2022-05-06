@@ -7,9 +7,9 @@ export declare class ObjectData extends CompDataBase {
     colorHorizontalLines: string;
     colorVerticalLines: string;
     colorNumbers: string;
-    flagDrawNumbers: boolean;
-    flagDrawHorizontal: boolean;
-    flagDrawVertical: boolean;
+    showNumbers: boolean;
+    showHorizontalLines: boolean;
+    showVerticalLines: boolean;
     lineWidthVertical: number;
     lineWidthHorizontal: number;
     fontSize: number;
