@@ -1,12 +1,12 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
-
+import TextTemplates from "../../compFactory/textTemplates.js";
 export default class Counter extends Component<ObjectData> {
-
+ 
 constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
 super(DataFn,msStart,msEnd);
 this.drawLayer = DrawLayer.MiddleGround;   
-
+// let tt = new TextTemplates();
 }
 width( p: Pack ): number {
 this.style.fontSize = this.d.fontSize;    

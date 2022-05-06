@@ -17,4 +17,4 @@ export default class TextTemplates {
     rt(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string): Text;
     bulletPointMid(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string, y?: number): Text;
 }
-//# sourceMappingURL=textTemplates.d.ts.map
+//# sourceMappingURL=limits.d.ts.map

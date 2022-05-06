@@ -2,6 +2,7 @@ import {IComponent,FontNames} from "../Bilza.js";
 import Text from "../components/text/text.js";
 import lightenDarkenColor from "../functions/lightenDarkenColor.js";
 import Fn from "../functions/fn.js";
+
 export default class TextTemplates {
 private insert :(comp :IComponent)=>IComponent;
 
