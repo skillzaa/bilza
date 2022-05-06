@@ -3,8 +3,8 @@ import Bilza from "./src/Bilza.js";
 
 let bil = new Bilza("bilza",60,500,300);
 let g = bil.gridTempl.simple();
-g.d.flagDrawNumbers = true;
-bil.add.counter();
+// g.d.flagDrawNumbers = true;
+// bil.add.counter();
 
 let txt = bil.textTempl.lb(0,60,"Simple Text","#008000");
 let txt01 = bil.textTempl.lm(0,60,"Simple Text","#008000");
@@ -18,5 +18,5 @@ let txt08 = bil.textTempl.rt(0,60,"Simple Text","#008000");
 
 //////////////////////////////////
 //////////////////////////////////
-bil.start();
+bil.draw();
 ///////////////////////////////

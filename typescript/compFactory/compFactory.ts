@@ -5,7 +5,7 @@ import Grid from "../components/grid/grid.js";
 // import RGrid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 // import GridR from "../components/gridR/gridR.js";
-import Counter from "../components/counter/counter.js";
+// import Counter from "../components/counter/counter.js";
 // import Circle from "../components/circle/circle.js";
 // import BgShapes from "../components/bgShapes/bgShapes.js";
 // import List from "../components/list/list.js";
@@ -35,13 +35,13 @@ grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
     this.insert(g);
     return g;
 }
-counter(x :number=100,y :number=100,msEnd :number = Number.MAX_SAFE_INTEGER){
-    let item = new Counter();
-    item.d.x = x;
-    item.d.y = y;
-    this.insert(item);
-    return item;
-}
+// counter(x :number=100,y :number=100,msEnd :number = Number.MAX_SAFE_INTEGER){
+//     let item = new Counter();
+//     item.d.x = x;
+//     item.d.y = y;
+//     this.insert(item);
+//     return item;
+// }
 // rect(){
 //     let bs = new Rect();
 //     this.insert(bs);

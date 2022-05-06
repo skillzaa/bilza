@@ -1,24 +1,15 @@
-import {IComponent,FontNames} from "../Bilza.js";
-import Text from "../components/text/text.js";
-import lightenDarkenColor from "../functions/lightenDarkenColor.js";
-import Fn from "../functions/fn.js";
+import IComponent from "../../design/IComponent.js";
+import Text from "./text.js";
+///--later use util.lighte..
+import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
+import Fn from "../../functions/fn.js";
 export default class TextTemplates {
-private insert :(comp :IComponent)=>IComponent;
 
-private util :Fn; 
-
-constructor(insert :(comp :IComponent)=>IComponent){
-    this.insert = insert;
-this.util = new Fn();
+constructor(){
 }
-
 
 h1(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,50,5);
-//----very imp
-this.insert(txt);
-// txt.d.x  =  50;  inserted directly into txt
-// txt.d.y  =  4;  inserted directly into txt
 txt.d.selected  =  false;
 txt.d.visible  =  true;
 txt.d.shadowColor  =  "#b2abab";
@@ -53,7 +44,6 @@ return txt;
 jt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="JUMBO TRON",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
 txt.d.x =  50;
 txt.d.y =  50;
 txt.d.selected =  false;
@@ -91,7 +81,7 @@ return txt;
 lb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  100;
 txt.d.y =  100;
 txt.d.selected =  false;
@@ -129,7 +119,7 @@ return txt;
 lm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  100;
 txt.d.y =  50;
 txt.d.selected =  false;
@@ -167,7 +157,7 @@ return txt;
 lt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  100;
 txt.d.y =  0;
 txt.d.selected =  false;
@@ -205,7 +195,7 @@ return txt;
 mt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  50;
 txt.d.y =  0;
 txt.d.selected =  false;
@@ -243,7 +233,7 @@ return txt;
 mm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  50;
 txt.d.y =  50;
 txt.d.selected =  false;
@@ -281,7 +271,7 @@ return txt;
 mb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  50;
 txt.d.y =  100;
 txt.d.selected =  false;
@@ -319,7 +309,7 @@ return txt;
 rb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  0;
 txt.d.y =  100;
 txt.d.selected =  false;
@@ -357,7 +347,7 @@ return txt;
 rm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  0;
 txt.d.y =  50;
 txt.d.selected =  false;
@@ -395,7 +385,7 @@ return txt;
 rt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
-this.insert(txt);
+
 txt.d.x =  0;
 txt.d.y =  0;
 txt.d.selected =  false;
@@ -433,7 +423,7 @@ return txt;
 bulletPointMid(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="bulletPointMid",colorHax :string="#008000",y=50):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,50,y);
 //----very imp
-this.insert(txt);
+
 // txt.d.x =  50;
 // txt.d.y =  50; directly inserted
 txt.d.selected =  false;

@@ -3,14 +3,14 @@ import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
-import TextTemplates from "../compFactory/textTemplates.js";
+import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 export default class Bilza extends BilzaCanvasSetup {
     constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = 300) {
         super(canvasId, canvasWidth, canvasHeight, timeEndSec);
         this.background = new Background();
         this.add = new CompFactory(this.insert.bind(this));
-        this.textTempl = new TextTemplates(this.insert.bind(this));
+        this.textTempl = new TextTemplWrapper(this.insert.bind(this));
         this.gridTempl = new GridTemplates(this.insert.bind(this));
     }
     insert(comp) {

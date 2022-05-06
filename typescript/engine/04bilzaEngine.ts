@@ -5,13 +5,13 @@ import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import Text from "../components/text/text.js";
 //----------Templates
-import TextTemplates from "../compFactory/textTemplates.js";
+import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 
 export default class Bilza extends BilzaCanvasSetup {
 //==================PUBLIC API
 public add :CompFactory; 
-public textTempl :TextTemplates; 
+public textTempl :TextTemplWrapper; 
 public gridTempl :GridTemplates; 
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -22,7 +22,7 @@ constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|n
 super(canvasId,canvasWidth,canvasHeight,timeEndSec);
 this.background = new Background();
 this.add = new CompFactory(this.insert.bind(this));
-this.textTempl = new TextTemplates(this.insert.bind(this));
+this.textTempl = new TextTemplWrapper(this.insert.bind(this));
 this.gridTempl = new GridTemplates(this.insert.bind(this));
 } 
 //--moved her due to  

@@ -3,11 +3,11 @@ import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
 import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
 import Text from "../components/text/text.js";
-import TextTemplates from "../compFactory/textTemplates.js";
+import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 export default class Bilza extends BilzaCanvasSetup {
     add: CompFactory;
-    textTempl: TextTemplates;
+    textTempl: TextTemplWrapper;
     gridTempl: GridTemplates;
     background: Background;
     constructor(canvasId?: string, timeEndSec?: number, canvasWidth?: number, canvasHeight?: null | number);

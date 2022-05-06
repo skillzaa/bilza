@@ -1,6 +1,6 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
-import TextTemplates from "../../compFactory/textTemplates.js";
+import TextTemplates from "../../compFactory/textTemplWrapper.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import Text from "../text/text.js";
 import List from "../list/list.js";
