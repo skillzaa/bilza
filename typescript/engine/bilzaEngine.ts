@@ -1,15 +1,16 @@
-import {DrawLayer,IComponent} from "../Bilza.js";
+import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
-import BilzaEngineBase from "./bilzaEngineBase.js";
+// import BilzaEngineBase from "./bilzaEngineBase.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import Text from "../components/text/text.js";
 //----------Templates
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 
+import Fn from "../functions/fn.js";
 
-export default class Bilza extends BilzaEngineBase {
+export default class Bilza {
 //==================PUBLIC API
 public add :CompFactory; 
 public textTempl :TextTemplWrapper; 
@@ -22,11 +23,23 @@ protected  msPerFrame :number; //????
 protected timeStart :number | null; //when we start video
 protected timeEnd :number; //the size of video-length in milli seconds 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+protected pack:Pack; //---later
+protected canvasId :string;
+protected comps:IComponent[]; 
+public util :Fn;
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=300){
 //internal seq of args is different from enternal seq of args    
-super(canvasId,canvasWidth,canvasHeight);
+this.util = new Fn();  
+this.comps = [];
+
+this.canvasId = canvasId;
+if (canvasHeight ==null){
+    canvasHeight = this.util.aspectRatioHeight(canvasWidth);
+} 
+this.pack = new Pack(this.canvasId,canvasWidth,canvasHeight);
+/////
 this.background = new Background();
 this.add = new CompFactory(this.insert.bind(this));
 this.textTempl = new TextTemplWrapper(this.insert.bind(this));
@@ -187,5 +200,52 @@ stop():boolean{
 return true;    
 }
 
+////////////////////////////////////////////////////
+setCanvas(width :number = 800,height :number|null = null){
+    if (height ==null){
+        height = this.util.aspectRatioHeight(width);
+    }
+
+this.pack = new Pack(this.canvasId,width,height);
+    this.resize(width,height);
+}
+//
+getCanvasHeight():number{
+return this.pack.canvasHeight();    
+}
+
+getCanvasWidth():number{
+return this.pack.canvasWidth();    
+}
+///insert moved to 03Canvas setup since it needs pack for comp.init 
+protected drawByDrawLayer(msDelta :number,drawLayer :DrawLayer,pack :Pack):boolean{ 
+    for (let i = 0; i < this.comps.length; i++) {
+    let comp = this.comps[i];       
+            //--save ctx
+            if (comp.drawLayer == drawLayer ){
+                if (comp.getStartTime() <= msDelta && comp.getEndTime() > msDelta ){
+                    pack.save();
+                    comp.update(msDelta,pack);
+                    comp.draw(pack);//waoooo no msDelta
+                    pack.restore();
+                }   
+            }
+    }
+    return true;
+    }
+    //--Test created
+    chqCollision(x :number, y :number):IComponent | null{
+       return null;
+    }
+    
+    
+    ////---????????
+    resize(width :number = 800,height :number = 400){
+        for (let i = 0; i < this.comps.length; i++) {
+            const element = this.comps[i];
+            element.resize(width,height); 
+        }
+    }
+    
 ////////////////////////////////////////////////////
 }//ends

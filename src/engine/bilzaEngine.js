@@ -1,13 +1,19 @@
-import { DrawLayer } from "../Bilza.js";
+import { DrawLayer, Pack } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
-import BilzaEngineBase from "./bilzaEngineBase.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-export default class Bilza extends BilzaEngineBase {
+import Fn from "../functions/fn.js";
+export default class Bilza {
     constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = 300) {
-        super(canvasId, canvasWidth, canvasHeight);
+        this.util = new Fn();
+        this.comps = [];
+        this.canvasId = canvasId;
+        if (canvasHeight == null) {
+            canvasHeight = this.util.aspectRatioHeight(canvasWidth);
+        }
+        this.pack = new Pack(this.canvasId, canvasWidth, canvasHeight);
         this.background = new Background();
         this.add = new CompFactory(this.insert.bind(this));
         this.textTempl = new TextTemplWrapper(this.insert.bind(this));
@@ -147,5 +153,41 @@ export default class Bilza extends BilzaEngineBase {
             clearInterval(this.interval);
         }
         return true;
+    }
+    setCanvas(width = 800, height = null) {
+        if (height == null) {
+            height = this.util.aspectRatioHeight(width);
+        }
+        this.pack = new Pack(this.canvasId, width, height);
+        this.resize(width, height);
+    }
+    getCanvasHeight() {
+        return this.pack.canvasHeight();
+    }
+    getCanvasWidth() {
+        return this.pack.canvasWidth();
+    }
+    drawByDrawLayer(msDelta, drawLayer, pack) {
+        for (let i = 0; i < this.comps.length; i++) {
+            let comp = this.comps[i];
+            if (comp.drawLayer == drawLayer) {
+                if (comp.getStartTime() <= msDelta && comp.getEndTime() > msDelta) {
+                    pack.save();
+                    comp.update(msDelta, pack);
+                    comp.draw(pack);
+                    pack.restore();
+                }
+            }
+        }
+        return true;
+    }
+    chqCollision(x, y) {
+        return null;
+    }
+    resize(width = 800, height = 400) {
+        for (let i = 0; i < this.comps.length; i++) {
+            const element = this.comps[i];
+            element.resize(width, height);
+        }
     }
 }

@@ -1,11 +1,11 @@
-import { IComponent } from "../Bilza.js";
+import { DrawLayer, IComponent, Pack } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
-import BilzaEngineBase from "./bilzaEngineBase.js";
 import Text from "../components/text/text.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-export default class Bilza extends BilzaEngineBase {
+import Fn from "../functions/fn.js";
+export default class Bilza {
     add: CompFactory;
     textTempl: TextTemplWrapper;
     gridTempl: GridTemplates;
@@ -14,6 +14,10 @@ export default class Bilza extends BilzaEngineBase {
     protected msPerFrame: number;
     protected timeStart: number | null;
     protected timeEnd: number;
+    protected pack: Pack;
+    protected canvasId: string;
+    protected comps: IComponent[];
+    util: Fn;
     constructor(canvasId?: string, timeEndSec?: number, canvasWidth?: number, canvasHeight?: null | number);
     insert(comp: IComponent): IComponent;
     insertAt(comp: IComponent, second: number): IComponent;
@@ -29,5 +33,11 @@ export default class Bilza extends BilzaEngineBase {
     protected getMsDelta(): number;
     setMsDelta(n: number): number;
     stop(): boolean;
+    setCanvas(width?: number, height?: number | null): void;
+    getCanvasHeight(): number;
+    getCanvasWidth(): number;
+    protected drawByDrawLayer(msDelta: number, drawLayer: DrawLayer, pack: Pack): boolean;
+    chqCollision(x: number, y: number): IComponent | null;
+    resize(width?: number, height?: number): void;
 }
 //# sourceMappingURL=bilzaEngine.d.ts.map
