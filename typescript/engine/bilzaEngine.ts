@@ -8,6 +8,7 @@ import Text from "../components/text/text.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 
+
 export default class Bilza extends BilzaCanvasSetup {
 //==================PUBLIC API
 public add :CompFactory; 
@@ -16,6 +17,12 @@ public gridTempl :GridTemplates;
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
  
+protected interval : number | null;
+protected  msPerFrame :number; //????
+protected timeStart :number | null; //when we start video
+protected timeEnd :number; //the size of video-length in milli seconds 
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=300){
 //internal seq of args is different from enternal seq of args    
@@ -24,6 +31,13 @@ this.background = new Background();
 this.add = new CompFactory(this.insert.bind(this));
 this.textTempl = new TextTemplWrapper(this.insert.bind(this));
 this.gridTempl = new GridTemplates(this.insert.bind(this));
+///////////////
+this.timeStart = null; 
+this.timeEnd = timeEndSec * 1000; //to convert into milli sec
+this.interval = null; //to save setInterval handler
+this.msPerFrame = 1000;
+//////////////////
+    
 } 
 //--moved her due to  
 insert(comp:IComponent):IComponent{
@@ -137,5 +151,40 @@ public init(){
     }
 }
 ////////////////////////////////////////////////////
+
+//Timer
+getTimeEnd():number{
+return this.timeEnd;
+}
+//Timer
+setTimeEnd(n :number) :number{
+this.timeEnd = n;
+return this.timeEnd;
+}
+
+protected getMsDelta() :number{
+if (this.timeStart ==null){   
+    return 0;
+} else{
+let curTime = new Date().getTime();
+return curTime - this.timeStart;
+}
+}
+public setMsDelta(n :number) :number{
+if (this.timeStart ==null){ return 0;}//error bilza not running
+if (n > this.getTimeEnd() || n < 0){return 0;}//0 = this.timeStart
+this.timeStart = new Date().getTime() - n;
+return this.timeStart;
+}
+
+
+stop():boolean{
+    this.timeStart = null;
+    if (this.interval !== null){
+        clearInterval(this.interval);
+    }
+return true;    
+}
+
 ////////////////////////////////////////////////////
 }//ends
