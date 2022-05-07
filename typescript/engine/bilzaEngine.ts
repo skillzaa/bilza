@@ -7,7 +7,7 @@ import Text from "../components/text/text.js";
 //----------Templates
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-
+import Comps from "./comps/comps.js";
 import Fn from "../functions/fn.js";
 
 export default class Bilza {
@@ -25,14 +25,16 @@ protected timeEnd :number; //the size of video-length in milli seconds
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 protected pack:Pack; //---later
 protected canvasId :string;
-protected comps:IComponent[]; 
+protected comps:Comps; 
 public util :Fn;
-
+insert : (comp:IComponent)=>IComponent;
+init : ()=>boolean;
+resize : (width :number,height :number)=>boolean;
+drawByDrawLayer :(msDelta :number,drawLayer :DrawLayer,pack :Pack)=>boolean;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=300){
 //internal seq of args is different from enternal seq of args    
 this.util = new Fn();  
-this.comps = [];
 
 this.canvasId = canvasId;
 if (canvasHeight ==null){
@@ -41,36 +43,25 @@ if (canvasHeight ==null){
 this.pack = new Pack(this.canvasId,canvasWidth,canvasHeight);
 /////
 this.background = new Background();
-this.add = new CompFactory(this.insert.bind(this));
-this.textTempl = new TextTemplWrapper(this.insert.bind(this));
-this.gridTempl = new GridTemplates(this.insert.bind(this));
 ///////////////
 this.timeStart = null; 
 this.timeEnd = timeEndSec * 1000; //to convert into milli sec
 this.interval = null; //to save setInterval handler
 this.msPerFrame = 1000;
-//////////////////
-    
+//////////////////----comps
+this.comps = new Comps(this.pack);
+this.insert = this.comps.insert.bind(this.comps);
+this.init = this.comps.init.bind(this.comps);
+this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
+this.resize = this.comps.resize.bind(this.comps);
+////--Templates
+this.add = new CompFactory(this.insert.bind(this));
+this.textTempl = new TextTemplWrapper(this.insert.bind(this));
+this.gridTempl = new GridTemplates(this.insert.bind(this));
+
 } 
 //--moved her due to  
-insert(comp:IComponent):IComponent{
-    // comp.init(this.pack);
-    // console.log(comp.width(this.pack));5f
-    this.comps.push(comp);
-    return comp;
-}
-insertAt(comp:IComponent, second :number):IComponent{
-    let secondMs = second * 1000;
-    let startTime = comp.getStartTime();
-    let endTime = comp.getEndTime();
-    comp.setStartTime(startTime + secondMs);
-    comp.setEndTime(endTime + secondMs);
-        if (this.getTimeEnd() < comp.getEndTime()){
-            this.setTimeEnd(comp.getEndTime());
-        }
-    this.comps.push(comp);
-    return comp;
-}
+
 //-- this is not in bilzaTimer due to this.draw
 start() :boolean{
 if (this.timeStart !== null){return false;}
@@ -159,11 +150,6 @@ let newHeight = 0;
 return null;
 }//dynamic font size
 
-public init(){
-    for (let i = 0; i < this.comps.length; i++) {
-    this.comps[i].init(this.pack);    
-    }
-}
 ////////////////////////////////////////////////////
 
 //Timer
@@ -218,34 +204,14 @@ getCanvasWidth():number{
 return this.pack.canvasWidth();    
 }
 ///insert moved to 03Canvas setup since it needs pack for comp.init 
-protected drawByDrawLayer(msDelta :number,drawLayer :DrawLayer,pack :Pack):boolean{ 
-    for (let i = 0; i < this.comps.length; i++) {
-    let comp = this.comps[i];       
-            //--save ctx
-            if (comp.drawLayer == drawLayer ){
-                if (comp.getStartTime() <= msDelta && comp.getEndTime() > msDelta ){
-                    pack.save();
-                    comp.update(msDelta,pack);
-                    comp.draw(pack);//waoooo no msDelta
-                    pack.restore();
-                }   
-            }
-    }
-    return true;
-    }
-    //--Test created
-    chqCollision(x :number, y :number):IComponent | null{
-       return null;
-    }
+
+//--Test created
+chqCollision(x :number, y :number):IComponent | null{
+    return null;
+}
+
     
-    
-    ////---????????
-    resize(width :number = 800,height :number = 400){
-        for (let i = 0; i < this.comps.length; i++) {
-            const element = this.comps[i];
-            element.resize(width,height); 
-        }
-    }
+////---????????
     
 ////////////////////////////////////////////////////
 }//ends

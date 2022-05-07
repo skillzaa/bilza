@@ -4,6 +4,7 @@ import Background from "./background.js";
 import Text from "../components/text/text.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
+import Comps from "./comps/comps.js";
 import Fn from "../functions/fn.js";
 export default class Bilza {
     add: CompFactory;
@@ -16,18 +17,19 @@ export default class Bilza {
     protected timeEnd: number;
     protected pack: Pack;
     protected canvasId: string;
-    protected comps: IComponent[];
+    protected comps: Comps;
     util: Fn;
+    insert: (comp: IComponent) => IComponent;
+    init: () => boolean;
+    resize: (width: number, height: number) => boolean;
+    drawByDrawLayer: (msDelta: number, drawLayer: DrawLayer, pack: Pack) => boolean;
     constructor(canvasId?: string, timeEndSec?: number, canvasWidth?: number, canvasHeight?: null | number);
-    insert(comp: IComponent): IComponent;
-    insertAt(comp: IComponent, second: number): IComponent;
     start(): boolean;
     drawInit(): void;
     draw(): boolean;
     drawEvent(msDelta: number): boolean;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number): boolean;
     dynamicFontSize(txt: Text, widthPercent?: number, heightPercent?: number | null, setFontSize?: boolean): number | null;
-    init(): void;
     getTimeEnd(): number;
     setTimeEnd(n: number): number;
     protected getMsDelta(): number;
@@ -36,8 +38,6 @@ export default class Bilza {
     setCanvas(width?: number, height?: number | null): void;
     getCanvasHeight(): number;
     getCanvasWidth(): number;
-    protected drawByDrawLayer(msDelta: number, drawLayer: DrawLayer, pack: Pack): boolean;
     chqCollision(x: number, y: number): IComponent | null;
-    resize(width?: number, height?: number): void;
 }
 //# sourceMappingURL=bilzaEngine.d.ts.map

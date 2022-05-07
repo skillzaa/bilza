@@ -4,40 +4,29 @@ import Background from "./background.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
+import Comps from "./comps/comps.js";
 import Fn from "../functions/fn.js";
 export default class Bilza {
     constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = 300) {
         this.util = new Fn();
-        this.comps = [];
         this.canvasId = canvasId;
         if (canvasHeight == null) {
             canvasHeight = this.util.aspectRatioHeight(canvasWidth);
         }
         this.pack = new Pack(this.canvasId, canvasWidth, canvasHeight);
         this.background = new Background();
-        this.add = new CompFactory(this.insert.bind(this));
-        this.textTempl = new TextTemplWrapper(this.insert.bind(this));
-        this.gridTempl = new GridTemplates(this.insert.bind(this));
         this.timeStart = null;
         this.timeEnd = timeEndSec * 1000;
         this.interval = null;
         this.msPerFrame = 1000;
-    }
-    insert(comp) {
-        this.comps.push(comp);
-        return comp;
-    }
-    insertAt(comp, second) {
-        let secondMs = second * 1000;
-        let startTime = comp.getStartTime();
-        let endTime = comp.getEndTime();
-        comp.setStartTime(startTime + secondMs);
-        comp.setEndTime(endTime + secondMs);
-        if (this.getTimeEnd() < comp.getEndTime()) {
-            this.setTimeEnd(comp.getEndTime());
-        }
-        this.comps.push(comp);
-        return comp;
+        this.comps = new Comps(this.pack);
+        this.insert = this.comps.insert.bind(this.comps);
+        this.init = this.comps.init.bind(this.comps);
+        this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
+        this.resize = this.comps.resize.bind(this.comps);
+        this.add = new CompFactory(this.insert.bind(this));
+        this.textTempl = new TextTemplWrapper(this.insert.bind(this));
+        this.gridTempl = new GridTemplates(this.insert.bind(this));
     }
     start() {
         if (this.timeStart !== null) {
@@ -116,11 +105,6 @@ export default class Bilza {
         }
         return null;
     }
-    init() {
-        for (let i = 0; i < this.comps.length; i++) {
-            this.comps[i].init(this.pack);
-        }
-    }
     getTimeEnd() {
         return this.timeEnd;
     }
@@ -167,27 +151,7 @@ export default class Bilza {
     getCanvasWidth() {
         return this.pack.canvasWidth();
     }
-    drawByDrawLayer(msDelta, drawLayer, pack) {
-        for (let i = 0; i < this.comps.length; i++) {
-            let comp = this.comps[i];
-            if (comp.drawLayer == drawLayer) {
-                if (comp.getStartTime() <= msDelta && comp.getEndTime() > msDelta) {
-                    pack.save();
-                    comp.update(msDelta, pack);
-                    comp.draw(pack);
-                    pack.restore();
-                }
-            }
-        }
-        return true;
-    }
     chqCollision(x, y) {
         return null;
-    }
-    resize(width = 800, height = 400) {
-        for (let i = 0; i < this.comps.length; i++) {
-            const element = this.comps[i];
-            element.resize(width, height);
-        }
     }
 }
