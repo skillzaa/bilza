@@ -1,11 +1,11 @@
 import { IComponent } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
-import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
+import BilzaEngineBase from "./bilzaEngineBase.js";
 import Text from "../components/text/text.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-export default class Bilza extends BilzaCanvasSetup {
+export default class Bilza extends BilzaEngineBase {
     add: CompFactory;
     textTempl: TextTemplWrapper;
     gridTempl: GridTemplates;

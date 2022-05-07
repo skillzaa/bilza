@@ -1,14 +1,14 @@
 import {Pack,IComponent,DrawLayer} from "../Bilza.js";
 import Fn from "../functions/fn.js";
 
-export default class BilzaCanvasSetup {
+export default class BilzaEngineBase {
 protected pack:Pack; //---later
 protected canvasId :string;
 protected comps:IComponent[]; 
 public util :Fn;
 //==================PUBLIC API
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId:string,canvasWidth:number,canvasHeight:number|null=null,timeEndSec:number){
+constructor (canvasId:string,canvasWidth:number,canvasHeight:number|null=null){
     this.util = new Fn();  
     this.comps = [];
 

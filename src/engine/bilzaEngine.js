@@ -1,13 +1,13 @@
 import { DrawLayer } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
-import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
+import BilzaEngineBase from "./bilzaEngineBase.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-export default class Bilza extends BilzaCanvasSetup {
+export default class Bilza extends BilzaEngineBase {
     constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = 300) {
-        super(canvasId, canvasWidth, canvasHeight, timeEndSec);
+        super(canvasId, canvasWidth, canvasHeight);
         this.background = new Background();
         this.add = new CompFactory(this.insert.bind(this));
         this.textTempl = new TextTemplWrapper(this.insert.bind(this));

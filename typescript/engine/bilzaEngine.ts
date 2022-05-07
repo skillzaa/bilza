@@ -1,7 +1,7 @@
 import {DrawLayer,IComponent} from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
-import BilzaCanvasSetup from "./03bilzaCanvasSetup.js";
+import BilzaEngineBase from "./bilzaEngineBase.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import Text from "../components/text/text.js";
 //----------Templates
@@ -9,7 +9,7 @@ import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 
 
-export default class Bilza extends BilzaCanvasSetup {
+export default class Bilza extends BilzaEngineBase {
 //==================PUBLIC API
 public add :CompFactory; 
 public textTempl :TextTemplWrapper; 
@@ -26,7 +26,7 @@ protected timeEnd :number; //the size of video-length in milli seconds
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=300){
 //internal seq of args is different from enternal seq of args    
-super(canvasId,canvasWidth,canvasHeight,timeEndSec);
+super(canvasId,canvasWidth,canvasHeight);
 this.background = new Background();
 this.add = new CompFactory(this.insert.bind(this));
 this.textTempl = new TextTemplWrapper(this.insert.bind(this));
