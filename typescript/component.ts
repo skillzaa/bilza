@@ -39,11 +39,11 @@ this.id = Math.random().toString(36).slice(2);
 
 this.style = new Style(); 
 
-this.msStart = msStart; //typescript deamnds it
-this.msEnd = msEnd;
+this.msStart = msStart * 1000; //typescript deamnds it
+this.msEnd = msEnd * 1000;
 //--keep it in a methos since oter actions may happen there
-this.setStartTime(msStart);//in future i may run some otehr code in these fn
-this.setEndTime(msEnd);
+this.setStartTime(msStart * 1000);//in future i may run some otehr code in these fn
+this.setEndTime(msEnd * 1000);
 }
 
 getStartTime() :number{

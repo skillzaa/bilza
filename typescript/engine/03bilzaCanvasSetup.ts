@@ -9,11 +9,11 @@ protected canvasId :string;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId:string,canvasWidth:number,canvasHeight:number|null=null,timeEndSec:number){
 
-    super(timeEndSec);
+super(timeEndSec);
 this.canvasId = canvasId;
-if (canvasHeight ==null){
-    canvasHeight = this.util.aspectRatioHeight(canvasWidth);
-} 
+    if (canvasHeight ==null){
+        canvasHeight = this.util.aspectRatioHeight(canvasWidth);
+    } 
 this.pack = new Pack(this.canvasId,canvasWidth,canvasHeight);
 }
 

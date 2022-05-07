@@ -1,5 +1,6 @@
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
+import Counter from "../components/counter/counter.js";
 export default class CompFactory {
     constructor(insert) {
         this.insert = insert;
@@ -13,5 +14,10 @@ export default class CompFactory {
         let g = new Grid(msStart, msEnd);
         this.insert(g);
         return g;
+    }
+    counter(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, loc = "rb") {
+        let item = new Counter(msStart, msEnd, loc);
+        this.insert(item);
+        return item;
     }
 }

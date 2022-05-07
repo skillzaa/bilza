@@ -7,10 +7,10 @@ export default class Component {
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
-        this.msStart = msStart;
-        this.msEnd = msEnd;
-        this.setStartTime(msStart);
-        this.setEndTime(msEnd);
+        this.msStart = msStart * 1000;
+        this.msEnd = msEnd * 1000;
+        this.setStartTime(msStart * 1000);
+        this.setEndTime(msEnd * 1000);
     }
     getStartTime() {
         return this.msStart;
