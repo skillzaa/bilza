@@ -1,6 +1,5 @@
 import CompDataBase from "../../design/CompDataBase.js";
 export declare class ObjectData extends CompDataBase {
-    frame: number;
     prefix: string;
     constructor();
 }

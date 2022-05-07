@@ -99,7 +99,7 @@ export default class Text extends Component {
                 x = x - ((this.width(p) / 2) + (this.d.border / 2));
                 break;
             case this.xAlignmentOptions.Right:
-                x = x - (this.width(p) + (this.d.border));
+                x = x - (this.width(p) + (this.d.border / 2));
                 break;
         }
         return x;

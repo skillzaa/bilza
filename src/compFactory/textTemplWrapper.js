@@ -19,42 +19,42 @@ export default class TextTemplWrapper {
         this.insert(txt);
         return txt;
     }
-    lm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+    lm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Mid", colorHax = "#008000") {
         let txt = this.tt.lm(startTimeSeconds, endTimeSeconds, content, colorHax);
         this.insert(txt);
         return txt;
     }
-    lt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+    lt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Top", colorHax = "#008000") {
         let txt = this.tt.lt(startTimeSeconds, endTimeSeconds, content, colorHax);
         this.insert(txt);
         return txt;
     }
-    mt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+    mt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Top", colorHax = "#008000") {
         let txt = this.tt.mt(startTimeSeconds, endTimeSeconds, content, colorHax);
         this.insert(txt);
         return txt;
     }
-    mm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+    mm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Mid", colorHax = "#008000") {
         let txt = this.tt.mm(startTimeSeconds, endTimeSeconds, content, colorHax);
         this.insert(txt);
         return txt;
     }
-    mb(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+    mb(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Bottom", colorHax = "#008000") {
         let txt = this.tt.mb(startTimeSeconds, endTimeSeconds, content, colorHax);
         this.insert(txt);
         return txt;
     }
-    rb(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+    rb(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Bottom", colorHax = "#008000") {
         let txt = this.tt.rb(startTimeSeconds, endTimeSeconds, content, colorHax);
         this.insert(txt);
         return txt;
     }
-    rm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+    rm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Mid", colorHax = "#008000") {
         let txt = this.tt.rm(startTimeSeconds, endTimeSeconds, content, colorHax);
         this.insert(txt);
         return txt;
     }
-    rt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+    rt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Top", colorHax = "#008000") {
         let txt = this.tt.rt(startTimeSeconds, endTimeSeconds, content, colorHax);
         this.insert(txt);
         return txt;

@@ -130,13 +130,14 @@ let x = this.d.x;
         }    
 switch (this.d.xAlignment) {
     case this.xAlignmentOptions.Left:
+        
         break;
     case this.xAlignmentOptions.Mid:
          x = x - ((this.width(p)/2)+ (this.d.border/2));
         break;
     
     case this.xAlignmentOptions.Right:
-        x = x - (this.width(p) + (this.d.border));
+        x = x - (this.width(p) + (this.d.border/2));
         break;
 }
 return x ;

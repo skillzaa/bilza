@@ -8,37 +8,37 @@ export default class Counter extends Component {
         this.tt = new TextTemplates();
         switch (loc) {
             case "rt":
-                this.hdg = this.tt.rt(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.rt(msStart, msEnd, "sec:0000", "#008000");
                 break;
             case "rm":
-                this.hdg = this.tt.rm(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.rm(msStart, msEnd, "sec:0000", "#008000");
                 break;
             case "rb":
-                this.hdg = this.tt.rb(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.rb(msStart, msEnd, "sec:0000", "#008000");
                 break;
             case "lt":
-                this.hdg = this.tt.lt(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.lt(msStart, msEnd, "sec:0000", "#008000");
                 break;
             case "lm":
-                this.hdg = this.tt.lm(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.lm(msStart, msEnd, "sec:0000", "#008000");
                 break;
             case "lb":
-                this.hdg = this.tt.lb(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.lb(msStart, msEnd, "sec:0000", "#008000");
                 break;
             case "mt":
-                this.hdg = this.tt.mt(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.mt(msStart, msEnd, "sec:0000", "#008000");
                 break;
             case "mm":
-                this.hdg = this.tt.mm(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.mm(msStart, msEnd, "sec:0000", "#008000");
                 break;
             case "mb":
-                this.hdg = this.tt.mb(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.mb(msStart, msEnd, "sec:0000", "#008000");
                 break;
             default:
-                this.hdg = this.tt.rb(msStart, msEnd, "sec", "#008000");
+                this.hdg = this.tt.rb(msStart, msEnd, "sec:0000", "#008000");
                 break;
         }
-        this.hdg.d.content = "sec 0";
+        this.hdg.d.content = "sec:0000";
     }
     width(p) {
         return this.hdg.width(p);
@@ -48,11 +48,11 @@ export default class Counter extends Component {
         return this.hdg.height(p);
     }
     update(msDelat, p) {
-        this.d.frame = msDelat / 1000;
+        let frame = msDelat / 1000;
+        this.hdg.d.content = this.d.prefix + parseInt(frame.toString());
         return true;
     }
     draw(p) {
-        this.hdg.d.content = this.d.prefix + parseInt(this.d.frame.toString());
         this.hdg.draw(p);
         return true;
     }

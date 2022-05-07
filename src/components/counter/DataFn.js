@@ -4,7 +4,6 @@ export class ObjectData extends CompDataBase {
         super();
         this.msStart = 0;
         this.prefix = "sec: ";
-        this.frame = 0;
     }
 }
 ;

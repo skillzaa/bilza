@@ -8,7 +8,7 @@ export default class TextTemplates {
 constructor(){
 }
 
-h1(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000"):Text{
+h1(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Heading One",colorHax :string="#000000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,50,5);
 txt.d.selected  =  false;
 txt.d.visible  =  true;
@@ -82,234 +82,6 @@ lb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,cont
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 
-txt.d.x =  100;
-txt.d.y =  100;
-txt.d.selected =  false;
-txt.d.visible =  true;
-txt.d.shadowColor =  "#b2abab";
-txt.d.shadowOffsetX =  13;
-txt.d.shadowOffsetY =  9;
-txt.d.shadowBlur =  4;
-txt.d.colorBoundingRectangle =  "#000000";
-txt.d.xAlignment =  txt.xAlignmentOptions.Right;
-txt.d.yAlignment =  txt.yAlignmentOptions.Bot;
-txt.d.content =  content;
-txt.d.padding =  5;
-txt.d.border =  0;
-txt.d.dynWidth =  20;
-txt.d.dynHeight =  200;
-txt.d.colorBorder =  colorHax;
-txt.d.colorBg = lightenDarkenColor(colorHax,245);
-txt.d.color =  colorHax;
-txt.d.fontSize =  45;
-txt.d.showContent =  true;
-txt.d.showBg =  true;
-txt.d.showTextShadow =  false;
-txt.d.showBgShadow =  false;
-txt.d.showBorderShadow =  false;
-txt.d.maxDisplayChars =  200;
-txt.d.flagUseDynResize =  true;
-txt.d.flagShrinkHeightToFit =  true;
-txt.d.flagUseRelativeXY =  true;
-    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
-    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
-
-return txt;
-}
-lm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
-//----very imp
-
-txt.d.x =  100;
-txt.d.y =  50;
-txt.d.selected =  false;
-txt.d.visible =  true;
-txt.d.shadowColor =  "#b2abab";
-txt.d.shadowOffsetX =  13;
-txt.d.shadowOffsetY =  9;
-txt.d.shadowBlur =  4;
-txt.d.colorBoundingRectangle =  "#000000";
-txt.d.xAlignment =  txt.xAlignmentOptions.Right;
-txt.d.yAlignment =  txt.yAlignmentOptions.Mid;
-txt.d.content =  content;
-txt.d.padding =  5;
-txt.d.border =  0;
-txt.d.dynWidth =  20;
-txt.d.dynHeight =  200;
-txt.d.colorBorder =  colorHax;
-txt.d.colorBg = lightenDarkenColor(colorHax,245);
-txt.d.color =  colorHax;
-txt.d.fontSize =  45;
-txt.d.showContent =  true;
-txt.d.showBg =  true;
-txt.d.showTextShadow =  false;
-txt.d.showBgShadow =  false;
-txt.d.showBorderShadow =  false;
-txt.d.maxDisplayChars =  200;
-txt.d.flagUseDynResize =  true;
-txt.d.flagShrinkHeightToFit =  true;
-txt.d.flagUseRelativeXY =  true;
-    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
-    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
-
-return txt;
-}
-lt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
-//----very imp
-
-txt.d.x =  100;
-txt.d.y =  0;
-txt.d.selected =  false;
-txt.d.visible =  true;
-txt.d.shadowColor =  "#b2abab";
-txt.d.shadowOffsetX =  13;
-txt.d.shadowOffsetY =  9;
-txt.d.shadowBlur =  4;
-txt.d.colorBoundingRectangle =  "#000000";
-txt.d.xAlignment =  txt.xAlignmentOptions.Right;
-txt.d.yAlignment =  txt.yAlignmentOptions.Top;
-txt.d.content =  content;
-txt.d.padding =  5;
-txt.d.border =  0;
-txt.d.dynWidth =  20;
-txt.d.dynHeight =  200;
-txt.d.colorBorder =  colorHax;
-txt.d.colorBg = lightenDarkenColor(colorHax,245);
-txt.d.color =  colorHax;
-txt.d.fontSize =  45;
-txt.d.showContent =  true;
-txt.d.showBg =  true;
-txt.d.showTextShadow =  false;
-txt.d.showBgShadow =  false;
-txt.d.showBorderShadow =  false;
-txt.d.maxDisplayChars =  200;
-txt.d.flagUseDynResize =  true;
-txt.d.flagShrinkHeightToFit =  true;
-txt.d.flagUseRelativeXY =  true;
-    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
-    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
-
-return txt;
-}
-mt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
-//----very imp
-
-txt.d.x =  50;
-txt.d.y =  0;
-txt.d.selected =  false;
-txt.d.visible =  true;
-txt.d.shadowColor =  "#b2abab";
-txt.d.shadowOffsetX =  13;
-txt.d.shadowOffsetY =  9;
-txt.d.shadowBlur =  4;
-txt.d.colorBoundingRectangle =  "#000000";
-txt.d.xAlignment =  txt.xAlignmentOptions.Mid;
-txt.d.yAlignment =  txt.yAlignmentOptions.Top;
-txt.d.content =  content;
-txt.d.padding =  5;
-txt.d.border =  0;
-txt.d.dynWidth =  20;
-txt.d.dynHeight =  200;
-txt.d.colorBorder =  colorHax;
-txt.d.colorBg = lightenDarkenColor(colorHax,245);
-txt.d.color =  colorHax;
-txt.d.fontSize =  45;
-txt.d.showContent =  true;
-txt.d.showBg =  true;
-txt.d.showTextShadow =  false;
-txt.d.showBgShadow =  false;
-txt.d.showBorderShadow =  false;
-txt.d.maxDisplayChars =  200;
-txt.d.flagUseDynResize =  true;
-txt.d.flagShrinkHeightToFit =  true;
-txt.d.flagUseRelativeXY =  true;
-    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
-    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
-
-return txt;
-}
-mm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
-//----very imp
-
-txt.d.x =  50;
-txt.d.y =  50;
-txt.d.selected =  false;
-txt.d.visible =  true;
-txt.d.shadowColor =  "#b2abab";
-txt.d.shadowOffsetX =  13;
-txt.d.shadowOffsetY =  9;
-txt.d.shadowBlur =  4;
-txt.d.colorBoundingRectangle =  "#000000";
-txt.d.xAlignment =  txt.xAlignmentOptions.Mid;
-txt.d.yAlignment =  txt.yAlignmentOptions.Mid;
-txt.d.content =  content;
-txt.d.padding =  5;
-txt.d.border =  0;
-txt.d.dynWidth =  20;
-txt.d.dynHeight =  200;
-txt.d.colorBorder =  colorHax;
-txt.d.colorBg = lightenDarkenColor(colorHax,245);
-txt.d.color =  colorHax;
-txt.d.fontSize =  45;
-txt.d.showContent =  true;
-txt.d.showBg =  true;
-txt.d.showTextShadow =  false;
-txt.d.showBgShadow =  false;
-txt.d.showBorderShadow =  false;
-txt.d.maxDisplayChars =  200;
-txt.d.flagUseDynResize =  true;
-txt.d.flagShrinkHeightToFit =  true;
-txt.d.flagUseRelativeXY =  true;
-    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
-    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
-
-return txt;
-}
-mb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
-//----very imp
-
-txt.d.x =  50;
-txt.d.y =  100;
-txt.d.selected =  false;
-txt.d.visible =  true;
-txt.d.shadowColor =  "#b2abab";
-txt.d.shadowOffsetX =  13;
-txt.d.shadowOffsetY =  9;
-txt.d.shadowBlur =  4;
-txt.d.colorBoundingRectangle =  "#000000";
-txt.d.xAlignment =  txt.xAlignmentOptions.Mid;
-txt.d.yAlignment =  txt.yAlignmentOptions.Bot;
-txt.d.content =  content;
-txt.d.padding =  5;
-txt.d.border =  0;
-txt.d.dynWidth =  20;
-txt.d.dynHeight =  200;
-txt.d.colorBorder =  colorHax;
-txt.d.colorBg = lightenDarkenColor(colorHax,245);
-txt.d.color =  colorHax;
-txt.d.fontSize =  45;
-txt.d.showContent =  true;
-txt.d.showBg =  true;
-txt.d.showTextShadow =  false;
-txt.d.showBgShadow =  false;
-txt.d.showBorderShadow =  false;
-txt.d.maxDisplayChars =  200;
-txt.d.flagUseDynResize =  true;
-txt.d.flagShrinkHeightToFit =  true;
-txt.d.flagUseRelativeXY =  true;
-    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
-    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
-
-return txt;
-}
-rb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
-//----very imp
-
 txt.d.x =  0;
 txt.d.y =  100;
 txt.d.selected =  false;
@@ -344,7 +116,7 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-rm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+lm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Mid",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 
@@ -382,7 +154,7 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-rt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+lt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Top",colorHax :string="#008000"):Text{
 let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 
@@ -397,6 +169,235 @@ txt.d.shadowBlur =  4;
 txt.d.colorBoundingRectangle =  "#000000";
 txt.d.xAlignment =  txt.xAlignmentOptions.Left;
 txt.d.yAlignment =  txt.yAlignmentOptions.Top;
+txt.d.content =  content;
+txt.d.padding =  5;
+txt.d.border =  0;
+txt.d.dynWidth =  20;
+txt.d.dynHeight =  200;
+txt.d.colorBorder =  colorHax;
+txt.d.colorBg = lightenDarkenColor(colorHax,245);
+txt.d.color =  colorHax;
+txt.d.fontSize =  45;
+txt.d.showContent =  true;
+txt.d.showBg =  true;
+txt.d.showTextShadow =  false;
+txt.d.showBgShadow =  false;
+txt.d.showBorderShadow =  false;
+txt.d.maxDisplayChars =  200;
+txt.d.flagUseDynResize =  true;
+txt.d.flagShrinkHeightToFit =  true;
+txt.d.flagUseRelativeXY =  true;
+    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
+    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
+
+return txt;
+}
+
+rb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Bottom",colorHax :string="#008000"):Text{
+let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+//----very imp
+
+txt.d.x =  100;
+txt.d.y =  100;
+txt.d.selected =  false;
+txt.d.visible =  true;
+txt.d.shadowColor =  "#b2abab";
+txt.d.shadowOffsetX =  13;
+txt.d.shadowOffsetY =  9;
+txt.d.shadowBlur =  4;
+txt.d.colorBoundingRectangle =  "#000000";
+txt.d.xAlignment =  txt.xAlignmentOptions.Right;
+txt.d.yAlignment =  txt.yAlignmentOptions.Bot;
+txt.d.content =  content;
+txt.d.padding =  5;
+txt.d.border =  0;
+txt.d.dynWidth =  20;
+txt.d.dynHeight =  200;
+txt.d.colorBorder =  colorHax;
+txt.d.colorBg = lightenDarkenColor(colorHax,245);
+txt.d.color =  colorHax;
+txt.d.fontSize =  45;
+txt.d.showContent =  true;
+txt.d.showBg =  true;
+txt.d.showTextShadow =  false;
+txt.d.showBgShadow =  false;
+txt.d.showBorderShadow =  false;
+txt.d.maxDisplayChars =  200;
+txt.d.flagUseDynResize =  true;
+txt.d.flagShrinkHeightToFit =  true;
+txt.d.flagUseRelativeXY =  true;
+    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
+    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
+
+return txt;
+}
+rm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Mid",colorHax :string="#008000"):Text{
+let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+//----very imp
+
+txt.d.x =  100;
+txt.d.y =  50;
+txt.d.selected =  false;
+txt.d.visible =  true;
+txt.d.shadowColor =  "#b2abab";
+txt.d.shadowOffsetX =  13;
+txt.d.shadowOffsetY =  9;
+txt.d.shadowBlur =  4;
+txt.d.colorBoundingRectangle =  "#000000";
+txt.d.xAlignment =  txt.xAlignmentOptions.Right;
+txt.d.yAlignment =  txt.yAlignmentOptions.Mid;
+txt.d.content =  content;
+txt.d.padding =  5;
+txt.d.border =  0;
+txt.d.dynWidth =  20;
+txt.d.dynHeight =  200;
+txt.d.colorBorder =  colorHax;
+txt.d.colorBg = lightenDarkenColor(colorHax,245);
+txt.d.color =  colorHax;
+txt.d.fontSize =  45;
+txt.d.showContent =  true;
+txt.d.showBg =  true;
+txt.d.showTextShadow =  false;
+txt.d.showBgShadow =  false;
+txt.d.showBorderShadow =  false;
+txt.d.maxDisplayChars =  200;
+txt.d.flagUseDynResize =  true;
+txt.d.flagShrinkHeightToFit =  true;
+txt.d.flagUseRelativeXY =  true;
+    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
+    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
+
+return txt;
+}
+rt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Top",colorHax :string="#008000"):Text{
+let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+//----very imp
+
+txt.d.x =  100;
+txt.d.y =  0;
+txt.d.selected =  false;
+txt.d.visible =  true;
+txt.d.shadowColor =  "#b2abab";
+txt.d.shadowOffsetX =  13;
+txt.d.shadowOffsetY =  9;
+txt.d.shadowBlur =  4;
+txt.d.colorBoundingRectangle =  "#000000";
+txt.d.xAlignment =  txt.xAlignmentOptions.Right;
+txt.d.yAlignment =  txt.yAlignmentOptions.Top;
+txt.d.content =  content;
+txt.d.padding =  5;
+txt.d.border =  0;
+txt.d.dynWidth =  20;
+txt.d.dynHeight =  200;
+txt.d.colorBorder =  colorHax;
+txt.d.colorBg = lightenDarkenColor(colorHax,245);
+txt.d.color =  colorHax;
+txt.d.fontSize =  45;
+txt.d.showContent =  true;
+txt.d.showBg =  true;
+txt.d.showTextShadow =  false;
+txt.d.showBgShadow =  false;
+txt.d.showBorderShadow =  false;
+txt.d.maxDisplayChars =  200;
+txt.d.flagUseDynResize =  true;
+txt.d.flagShrinkHeightToFit =  true;
+txt.d.flagUseRelativeXY =  true;
+    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
+    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
+
+return txt;
+}
+mt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Top",colorHax :string="#008000"):Text{
+let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+//----very imp
+
+txt.d.x =  50;
+txt.d.y =  0;
+txt.d.selected =  false;
+txt.d.visible =  true;
+txt.d.shadowColor =  "#b2abab";
+txt.d.shadowOffsetX =  13;
+txt.d.shadowOffsetY =  9;
+txt.d.shadowBlur =  4;
+txt.d.colorBoundingRectangle =  "#000000";
+txt.d.xAlignment =  txt.xAlignmentOptions.Mid;
+txt.d.yAlignment =  txt.yAlignmentOptions.Top;
+txt.d.content =  content;
+txt.d.padding =  5;
+txt.d.border =  0;
+txt.d.dynWidth =  20;
+txt.d.dynHeight =  200;
+txt.d.colorBorder =  colorHax;
+txt.d.colorBg = lightenDarkenColor(colorHax,245);
+txt.d.color =  colorHax;
+txt.d.fontSize =  45;
+txt.d.showContent =  true;
+txt.d.showBg =  true;
+txt.d.showTextShadow =  false;
+txt.d.showBgShadow =  false;
+txt.d.showBorderShadow =  false;
+txt.d.maxDisplayChars =  200;
+txt.d.flagUseDynResize =  true;
+txt.d.flagShrinkHeightToFit =  true;
+txt.d.flagUseRelativeXY =  true;
+    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
+    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
+
+return txt;
+}
+mm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Mid",colorHax :string="#008000"):Text{
+let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+//----very imp
+
+txt.d.x =  50;
+txt.d.y =  50;
+txt.d.selected =  false;
+txt.d.visible =  true;
+txt.d.shadowColor =  "#b2abab";
+txt.d.shadowOffsetX =  13;
+txt.d.shadowOffsetY =  9;
+txt.d.shadowBlur =  4;
+txt.d.colorBoundingRectangle =  "#000000";
+txt.d.xAlignment =  txt.xAlignmentOptions.Mid;
+txt.d.yAlignment =  txt.yAlignmentOptions.Mid;
+txt.d.content =  content;
+txt.d.padding =  5;
+txt.d.border =  0;
+txt.d.dynWidth =  20;
+txt.d.dynHeight =  200;
+txt.d.colorBorder =  colorHax;
+txt.d.colorBg = lightenDarkenColor(colorHax,245);
+txt.d.color =  colorHax;
+txt.d.fontSize =  45;
+txt.d.showContent =  true;
+txt.d.showBg =  true;
+txt.d.showTextShadow =  false;
+txt.d.showBgShadow =  false;
+txt.d.showBorderShadow =  false;
+txt.d.maxDisplayChars =  200;
+txt.d.flagUseDynResize =  true;
+txt.d.flagShrinkHeightToFit =  true;
+txt.d.flagUseRelativeXY =  true;
+    // txt.d.colorBg = lightenDarkenColor("#0ab513",175);
+    // txt.d.colorBorder = lightenDarkenColor("#0ab513",20);
+
+return txt;
+}
+mb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Bottom",colorHax :string="#008000"):Text{
+let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+//----very imp
+
+txt.d.x =  50;
+txt.d.y =  100;
+txt.d.selected =  false;
+txt.d.visible =  true;
+txt.d.shadowColor =  "#b2abab";
+txt.d.shadowOffsetX =  13;
+txt.d.shadowOffsetY =  9;
+txt.d.shadowBlur =  4;
+txt.d.colorBoundingRectangle =  "#000000";
+txt.d.xAlignment =  txt.xAlignmentOptions.Mid;
+txt.d.yAlignment =  txt.yAlignmentOptions.Bot;
 txt.d.content =  content;
 txt.d.padding =  5;
 txt.d.border =  0;

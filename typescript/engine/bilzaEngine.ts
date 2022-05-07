@@ -42,6 +42,7 @@ this.msPerFrame = 1000;
 //--moved her due to  
 insert(comp:IComponent):IComponent{
     // comp.init(this.pack);
+    // console.log(comp.width(this.pack));5f
     this.comps.push(comp);
     return comp;
 }

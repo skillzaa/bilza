@@ -18,21 +18,21 @@ this.canvas.id = canvasId; // Html5 canvas does not have id
 this.canvas.width = width;
 this.canvas.height = height;
 this.canvas.style.position = "static";
-this.canvas.style.border = "1px solid blue";
+// this.canvas.style.border = "1px solid blue";//Moterhfucker
      
 if (this.canvas == null ){
     throw new Error("canvas not found");
 }
-if (width == 0){
-    this.canvas.width = window.innerWidth;
-}else{
-    this.canvas.width = width;
-}
-if (height == 0){
-    this.canvas.height = window.innerHeight;
-}else{
-    this.canvas.height = height;
-}
+// if (width == 0){
+//     this.canvas.width = window.innerWidth;
+// }else{
+//     this.canvas.width = width;
+// }
+// if (height == 0){
+//     this.canvas.height = window.innerHeight;
+// }else{
+//     this.canvas.height = height;
+// }
 //===========================
 this.ctx  = this.canvas.getContext('2d') as CanvasRenderingContext2D;
 if (this.ctx == null ){

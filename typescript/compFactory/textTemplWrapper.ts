@@ -30,47 +30,47 @@ let txt = this.tt.lb(startTimeSeconds,endTimeSeconds,content,colorHax);
 this.insert(txt);
 return txt;
 }
-lm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+lm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Mid",colorHax :string="#008000"):Text{
 let txt = this.tt.lm(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 this.insert(txt);
 return txt;
 }
-lt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+lt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Top",colorHax :string="#008000"):Text{
 let txt = this.tt.lt(startTimeSeconds,endTimeSeconds,content,colorHax);
 this.insert(txt);
 return txt;
 }
-mt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+mt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Top",colorHax :string="#008000"):Text{
 let txt = this.tt.mt(startTimeSeconds,endTimeSeconds,content,colorHax);
 this.insert(txt);
 return txt;
 }
-mm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+mm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Mid",colorHax :string="#008000"):Text{
 let txt = this.tt.mm(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 this.insert(txt);
 return txt;
 }
-mb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+mb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Bottom",colorHax :string="#008000"):Text{
 let txt = this.tt.mb(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 this.insert(txt);
 return txt;
 }
-rb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+rb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Bottom",colorHax :string="#008000"):Text{
 let txt = this.tt.rb(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 this.insert(txt);
 return txt;
 }
-rm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+rm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Mid",colorHax :string="#008000"):Text{
 let txt = this.tt.rm(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 this.insert(txt);
 return txt;
 }
-rt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+rt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Top",colorHax :string="#008000"):Text{
 let txt = this.tt.rt(startTimeSeconds,endTimeSeconds,content,colorHax);
 //----very imp
 this.insert(txt);
