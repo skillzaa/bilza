@@ -12,7 +12,7 @@ this.ctx  = this.canvas.getContext('2d') as CanvasRenderingContext2D;
     if (this.ctx == null ){
         throw new Error("could not obtain drawing context");
     }
-        //--set width height
+        //--set width height--Finally
         this.canvas.width = width;
         if (height ==null){
             this.canvas.height = aspectRatioHeight(width);

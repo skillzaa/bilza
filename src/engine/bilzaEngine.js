@@ -63,16 +63,14 @@ export default class Bilza {
     drawEvent(msDelta) {
         return true;
     }
-    dynamicCanvas(widthInPercent = 100, heightInPercent = 100) {
+    dynamicCanvas(widthInPercent = 95, heightInPercent = null) {
         let wd = window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
-        let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
-        if (wd < 100 || ht < 100) {
-            return false;
+        let ht = null;
+        if (heightInPercent !== null) {
+            let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
         }
-        else {
-            this.setCanvas(wd, ht);
-            return true;
-        }
+        this.setCanvas(wd, ht);
+        return true;
     }
     dynamicFontSize(txt, widthPercent = 10, heightPercent = null, setFontSize = true) {
         if (heightPercent == null) {

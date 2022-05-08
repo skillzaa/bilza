@@ -28,7 +28,7 @@ export default class Bilza {
     drawInit(): void;
     draw(): boolean;
     drawEvent(msDelta: number): boolean;
-    dynamicCanvas(widthInPercent?: number, heightInPercent?: number): boolean;
+    dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     dynamicFontSize(txt: Text, widthPercent?: number, heightPercent?: number | null, setFontSize?: boolean): number | null;
     getTimeEnd(): number;
     setTimeEnd(n: number): number;

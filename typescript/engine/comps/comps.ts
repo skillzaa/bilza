@@ -8,8 +8,7 @@ constructor(pack :Pack){
     this.compsArray = [];
 }
 insert(comp:IComponent):IComponent{
-    // comp.init(this.pack);
-    // console.log(comp.width(this.pack));5f
+//now things are becoming mature- and it is not just one App it is me as a programmer  
     this.compsArray.push(comp);
     return comp;
 }

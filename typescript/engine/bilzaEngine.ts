@@ -103,15 +103,15 @@ drawEvent(msDelta :number):boolean{
     return true;
 }
 
-dynamicCanvas(widthInPercent :number=100,heightInPercent :number=100):boolean{
+dynamicCanvas(widthInPercent :number = 95,heightInPercent :number | null=null):boolean{
 let wd = window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
-let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
-if (wd < 100 || ht < 100){ //--dont make too small canvas
-    return false;
-}else {
+let ht :number | null = null;
+if (heightInPercent !== null){
+    let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
+}
     this.setCanvas(wd,ht);  
 return true;
-}
+// }
 }
 //---this is a Text component consumer method- i need seperate files for such type of methods. The Bilza engine is in a vertical hierarchy i.e classic parent to child to grand child.
 public dynamicFontSize(txt :Text,widthPercent :number=10,heightPercent :number | null=null,setFontSize :boolean=true):number | null{
@@ -187,13 +187,15 @@ return true;
 }
 
 ////////////////////////////////////////////////////
+
 setCanvas(width :number = 800,height :number|null = null){
     if (height ==null){
         height = this.util.aspectRatioHeight(width);
     }
 
 this.pack = new Pack(this.canvas,width,height);
-    this.resizeAll(this.pack.canvasWidth(),this.pack.canvasHeight());
+//---remove this from here?????
+this.resizeAll(this.pack.canvasWidth(),this.pack.canvasHeight());
 }
 //
 getCanvasHeight():number{
