@@ -4,9 +4,6 @@ let bil = new Bilza("bilza",25,800);
 
 let g = bil.add.grid();
 let c = bil.add.counter();
-// g.d.flagDrawNumbers = true;
-
-// bil.add.counter();
 
 let txt = bil.textTempl.h1(5,60,"Simple Text","#008000",50,50);
 let txt02 = bil.textTempl.bulletPointMid(10,60,"Some random point","#ff0000",45);
