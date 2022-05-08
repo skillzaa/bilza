@@ -27,7 +27,7 @@ export default class Comps {
         }
         return true;
     }
-    resize(width = 800, height = 400) {
+    resizeAll(width = 800, height = 400) {
         for (let i = 0; i < this.compsArray.length; i++) {
             const element = this.compsArray[i];
             element.resize(width, height);

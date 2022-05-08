@@ -3,8 +3,8 @@ import Position from "../design/Position.js";
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
 
 export default class Pack {
-canvas :HTMLCanvasElement;
-ctx :CanvasRenderingContext2D;
+private canvas :HTMLCanvasElement;
+private ctx :CanvasRenderingContext2D;
 
 constructor(canvas :HTMLCanvasElement, width :number=0,height :number | null=null){
 this.canvas = canvas;

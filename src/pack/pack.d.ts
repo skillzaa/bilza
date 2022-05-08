@@ -1,8 +1,8 @@
 import Style from "../style.js";
 import Position from "../design/Position.js";
 export default class Pack {
-    canvas: HTMLCanvasElement;
-    ctx: CanvasRenderingContext2D;
+    private canvas;
+    private ctx;
     constructor(canvas: HTMLCanvasElement, width?: number, height?: number | null);
     drawBackground(color?: string): string;
     canvasWidth(): number;

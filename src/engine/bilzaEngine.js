@@ -8,13 +8,9 @@ import Comps from "./comps/comps.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
 export default class Bilza {
-    constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = 300) {
+    constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = null) {
         this.util = new Fn();
-        this.canvasId = canvasId;
         this.canvas = getCanvasElement(canvasId);
-        if (canvasHeight == null) {
-            canvasHeight = this.util.aspectRatioHeight(canvasWidth);
-        }
         this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
         this.background = new Background();
         this.timeStart = null;
@@ -25,7 +21,7 @@ export default class Bilza {
         this.insert = this.comps.insert.bind(this.comps);
         this.init = this.comps.init.bind(this.comps);
         this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
-        this.resize = this.comps.resize.bind(this.comps);
+        this.resizeAll = this.comps.resizeAll.bind(this.comps);
         this.add = new CompFactory(this.insert.bind(this));
         this.textTempl = new TextTemplWrapper(this.insert.bind(this));
         this.gridTempl = new GridTemplates(this.insert.bind(this));
@@ -145,7 +141,7 @@ export default class Bilza {
             height = this.util.aspectRatioHeight(width);
         }
         this.pack = new Pack(this.canvas, width, height);
-        this.resize(width, height);
+        this.resizeAll(this.pack.canvasWidth(), this.pack.canvasHeight());
     }
     getCanvasHeight() {
         return this.pack.canvasHeight();

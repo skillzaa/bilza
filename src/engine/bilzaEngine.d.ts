@@ -16,13 +16,12 @@ export default class Bilza {
     protected timeStart: number | null;
     protected timeEnd: number;
     protected pack: Pack;
-    protected canvasId: string;
     protected canvas: HTMLCanvasElement;
     protected comps: Comps;
     util: Fn;
     insert: (comp: IComponent) => IComponent;
     init: () => boolean;
-    resize: (width: number, height: number) => boolean;
+    resizeAll: (width: number, height: number) => boolean;
     drawByDrawLayer: (msDelta: number, drawLayer: DrawLayer, pack: Pack) => boolean;
     constructor(canvasId?: string, timeEndSec?: number, canvasWidth?: number, canvasHeight?: null | number);
     start(): boolean;

@@ -1,7 +1,6 @@
 import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "./background.js";
-// import BilzaEngineBase from "./bilzaEngineBase.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import Text from "../components/text/text.js";
 //----------Templates
@@ -26,24 +25,22 @@ protected timeStart :number | null; //when we start video
 protected timeEnd :number; //the size of video-length in milli seconds 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 protected pack:Pack; //---later
-protected canvasId :string;
+// protected canvasId :string;
 protected canvas :HTMLCanvasElement;
 protected comps:Comps; 
 public util :Fn;
 insert : (comp:IComponent)=>IComponent;
 init : ()=>boolean;
-resize : (width :number,height :number)=>boolean;
+resizeAll : (width :number,height :number)=>boolean;
 drawByDrawLayer :(msDelta :number,drawLayer :DrawLayer,pack :Pack)=>boolean;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=300){
+constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=null){
 //internal seq of args is different from enternal seq of args    
 this.util = new Fn();  
-this.canvasId = canvasId;
+//i dont need to save canvas id for later???
+// this.canvasId = canvasId;
 this.canvas =  getCanvasElement(canvasId);
 
-if (canvasHeight ==null){
-    canvasHeight = this.util.aspectRatioHeight(canvasWidth);
-} 
 this.pack = new Pack(this.canvas,canvasWidth,canvasHeight);
 /////
 this.background = new Background();
@@ -57,7 +54,7 @@ this.comps = new Comps(this.pack);
 this.insert = this.comps.insert.bind(this.comps);
 this.init = this.comps.init.bind(this.comps);
 this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
-this.resize = this.comps.resize.bind(this.comps);
+this.resizeAll = this.comps.resizeAll.bind(this.comps);
 ////--Templates
 this.add = new CompFactory(this.insert.bind(this));
 this.textTempl = new TextTemplWrapper(this.insert.bind(this));
@@ -198,7 +195,7 @@ setCanvas(width :number = 800,height :number|null = null){
     }
 
 this.pack = new Pack(this.canvas,width,height);
-    this.resize(width,height);
+    this.resizeAll(this.pack.canvasWidth(),this.pack.canvasHeight());
 }
 //
 getCanvasHeight():number{

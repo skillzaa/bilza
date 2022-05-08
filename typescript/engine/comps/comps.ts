@@ -47,7 +47,7 @@ return true;
 //     this.compsArray.push(comp);
 //     return comp;
 // }
-resize(width :number = 800,height :number = 400):boolean{
+resizeAll(width :number = 800,height :number = 400):boolean{
     for (let i = 0; i < this.compsArray.length; i++) {
         const element = this.compsArray[i];
         element.resize(width,height); 

@@ -1,7 +1,7 @@
 // import Bilza from "../lib/Bilza_0_0_13.js";
 import Bilza from "../src/Bilza.js";
 
-let bil = new Bilza("bilza",60,600,300);
+let bil = new Bilza("bilza",60,1200);
 let g = bil.gridTempl.simple();
 // g.d.flagDrawNumbers = true;
 // bil.add.counter();
