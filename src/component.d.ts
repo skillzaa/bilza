@@ -9,11 +9,11 @@ export default class Component<T extends CompDataBase> implements IComponent {
     protected msStart: number;
     protected msEnd: number;
     style: Style;
-    constructor(DataFn: () => T, msStart?: number, msEnd?: number);
+    constructor(DataFn: () => T, startSec?: number, endSec?: number);
     getStartTime(): number;
-    setStartTime(n?: number): number;
+    setStartTime(seconds?: number): number;
     getEndTime(): number;
-    setEndTime(n?: number): number;
+    setEndTime(seconds?: number): number;
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;

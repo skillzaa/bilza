@@ -1,5 +1,4 @@
-// import Bilza from "../lib/Bilza_0_0_13.js";
-import Bilza from "../src/Bilza.js";
+import Bilza from "../00lib/Bilza_0_0_13.js";
 
 let bil = new Bilza("bilza",60,1000,500);
 // let g = bil.gridTempl.simple();

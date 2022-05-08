@@ -5,11 +5,9 @@ import { YAlignment } from "../compsDesign/yAlignment.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 export default class Text extends Component {
     constructor(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 20, dynHeight = 20) {
-        super(DataFn);
+        super(DataFn, startTimeSeconds, endTimeSeconds);
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
-        this.setStartTime(startTimeSeconds * 1000);
-        this.setEndTime(endTimeSeconds * 1000);
         this.d.content = content;
         this.d.x = x;
         this.d.y = y;

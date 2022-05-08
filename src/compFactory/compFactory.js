@@ -10,7 +10,7 @@ export default class CompFactory {
         this.insert(bs);
         return bs;
     }
-    grid(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
+    grid(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, colorHax = "#000000", cellWidthPerc = 10, cellHeightPerc = 10) {
         let g = new Grid(msStart, msEnd, colorHax, cellWidthPerc, cellHeightPerc);
         this.insert(g);
         return g;

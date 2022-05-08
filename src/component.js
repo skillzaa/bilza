@@ -1,30 +1,30 @@
 import { Style, DrawLayer, Transition } from "./Bilza.js";
 export default class Component {
-    constructor(DataFn, msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
+    constructor(DataFn, startSec = 0, endSec = 300) {
         this.compData = new Transition(DataFn);
         this.d = this.compData.data;
         this.data = this.compData.data;
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
-        this.msStart = msStart * 1000;
-        this.msEnd = msEnd * 1000;
-        this.setStartTime(msStart * 1000);
-        this.setEndTime(msEnd * 1000);
+        this.msStart = 0;
+        this.msEnd = 550000;
+        this.setStartTime(startSec);
+        this.setEndTime(endSec);
     }
     getStartTime() {
         return this.msStart;
     }
-    setStartTime(n = 0) {
-        this.msStart = n;
-        return n;
+    setStartTime(seconds = 0) {
+        this.msStart = seconds * 1000;
+        return this.msStart;
     }
     getEndTime() {
         return this.msEnd;
     }
-    setEndTime(n = Number.MAX_SAFE_INTEGER) {
-        this.msEnd = n;
-        return n;
+    setEndTime(seconds = 300) {
+        this.msEnd = seconds * 1000;
+        return this.msEnd;
     }
     width(p) {
         return 0;

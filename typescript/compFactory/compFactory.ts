@@ -31,7 +31,7 @@ let bs = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,x,y,dynWidth,
 this.insert(bs);
     return bs;        
 }
-grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
+grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,colorHax :string="#000000",cellWidthPerc :number=10,cellHeightPerc :number=10){
 let g = new Grid(msStart,msEnd,colorHax,cellWidthPerc,cellHeightPerc);
     this.insert(g);
     return g;

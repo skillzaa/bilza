@@ -27,7 +27,8 @@ protected msEnd :number;
 //--previously I was using many style obj in my component sub-classes but now i have atleast one this.style available, if a component sub-classes (tool class) wants it can have its own styles as well. loose coupling.
 public style:Style;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-constructor (DataFn :()=>T,msStart=0,msEnd= Number.MAX_SAFE_INTEGER){
+// endTimeSec = 300 sec = minnutes or 300,000 ms
+constructor (DataFn :()=>T,startSec=0,endSec = 300){
 this.compData = new Transition(DataFn);    
 this.d = this.compData.data;
 this.data = this.compData.data;
@@ -39,26 +40,27 @@ this.id = Math.random().toString(36).slice(2);
 
 this.style = new Style(); 
 
-this.msStart = msStart * 1000; //typescript deamnds it
-this.msEnd = msEnd * 1000;
+this.msStart = 0; //typescript deamnds it
+this.msEnd = 550000;//typescript deamnds it
 //--keep it in a methos since oter actions may happen there
-this.setStartTime(msStart * 1000);//in future i may run some otehr code in these fn
-this.setEndTime(msEnd * 1000);
+this.setStartTime(startSec);//in future i may run some otehr code in these fn
+this.setEndTime(endSec);
 }
 
 getStartTime() :number{
 return this.msStart;
 }
-setStartTime(n :number=0):number{
-this.msStart = n;
-return n;
+
+setStartTime(seconds :number=0):number{
+this.msStart = seconds * 1000;
+return this.msStart;
 }
 getEndTime() :number{
     return this.msEnd;
 }
-setEndTime(n :number=Number.MAX_SAFE_INTEGER):number{
-this.msEnd = n;
-return n;
+setEndTime(seconds :number=300):number{
+this.msEnd = seconds * 1000;
+return this.msEnd;
 }
 
 width(p: Pack): number {

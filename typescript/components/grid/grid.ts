@@ -3,8 +3,8 @@ import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class Grid extends Component<ObjectData> {
 
-constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
-super(DataFn,msStart,msEnd);
+constructor (startSecond :number =0, endSecond :number = Number.MAX_SAFE_INTEGER,colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
+super(DataFn,startSecond,endSecond);
  this.d.cellWidthPerc = cellWidthPerc;
  this.d.cellHeightPerc = cellHeightPerc;
 
