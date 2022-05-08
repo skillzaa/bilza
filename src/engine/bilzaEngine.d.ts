@@ -17,6 +17,7 @@ export default class Bilza {
     protected timeEnd: number;
     protected pack: Pack;
     protected canvasId: string;
+    protected canvas: HTMLCanvasElement;
     protected comps: Comps;
     util: Fn;
     insert: (comp: IComponent) => IComponent;

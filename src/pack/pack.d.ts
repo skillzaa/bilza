@@ -3,7 +3,7 @@ import Position from "../design/Position.js";
 export default class Pack {
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
-    constructor(canvasId?: string, width?: number, height?: number);
+    constructor(canvas: HTMLCanvasElement, width?: number, height?: number | null);
     drawBackground(color?: string): string;
     canvasWidth(): number;
     canvasHeight(): number;

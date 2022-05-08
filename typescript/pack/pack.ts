@@ -1,44 +1,26 @@
 import Style from "../style.js";
 import Position from "../design/Position.js";
+import aspectRatioHeight from "../functions/aspectRatioHeight.js";
+
 export default class Pack {
 canvas :HTMLCanvasElement;
 ctx :CanvasRenderingContext2D;
 
-constructor(canvasId="bilza",width :number=0,height :number=0){
-let lookForCanvas = document.getElementById(canvasId)as HTMLCanvasElement;
-if (lookForCanvas == null){
-    this.canvas = document.createElement('canvas');
-    let body = document.getElementsByTagName("body")[0];
-    body.appendChild(this.canvas);
-
-}else {
-    this.canvas = lookForCanvas;
-}   
-this.canvas.id = canvasId; // Html5 canvas does not have id
-this.canvas.width = width;
-this.canvas.height = height;
-this.canvas.style.position = "static";
-// this.canvas.style.border = "1px solid blue";//Moterhfucker
-     
-if (this.canvas == null ){
-    throw new Error("canvas not found");
-}
-// if (width == 0){
-//     this.canvas.width = window.innerWidth;
-// }else{
-//     this.canvas.width = width;
-// }
-// if (height == 0){
-//     this.canvas.height = window.innerHeight;
-// }else{
-//     this.canvas.height = height;
-// }
-//===========================
+constructor(canvas :HTMLCanvasElement, width :number=0,height :number | null=null){
+this.canvas = canvas;
 this.ctx  = this.canvas.getContext('2d') as CanvasRenderingContext2D;
-if (this.ctx == null ){
-    throw new Error("could not obtain drawing context");
-}    
-}
+    if (this.ctx == null ){
+        throw new Error("could not obtain drawing context");
+    }
+        //--set width height
+        this.canvas.width = width;
+        if (height ==null){
+            this.canvas.height = aspectRatioHeight(width);
+        } else {
+            this.canvas.height = height;
+        }
+}//constructor
+
 //--- look at this fn again
 public drawBackground(color:string="blue"):string{ 
 this.ctx.fillStyle = color;

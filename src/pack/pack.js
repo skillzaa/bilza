@@ -1,24 +1,17 @@
+import aspectRatioHeight from "../functions/aspectRatioHeight.js";
 export default class Pack {
-    constructor(canvasId = "bilza", width = 0, height = 0) {
-        let lookForCanvas = document.getElementById(canvasId);
-        if (lookForCanvas == null) {
-            this.canvas = document.createElement('canvas');
-            let body = document.getElementsByTagName("body")[0];
-            body.appendChild(this.canvas);
-        }
-        else {
-            this.canvas = lookForCanvas;
-        }
-        this.canvas.id = canvasId;
-        this.canvas.width = width;
-        this.canvas.height = height;
-        this.canvas.style.position = "static";
-        if (this.canvas == null) {
-            throw new Error("canvas not found");
-        }
+    constructor(canvas, width = 0, height = null) {
+        this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         if (this.ctx == null) {
             throw new Error("could not obtain drawing context");
+        }
+        this.canvas.width = width;
+        if (height == null) {
+            this.canvas.height = aspectRatioHeight(width);
+        }
+        else {
+            this.canvas.height = height;
         }
     }
     drawBackground(color = "blue") {

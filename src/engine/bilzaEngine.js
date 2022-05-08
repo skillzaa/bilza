@@ -6,14 +6,16 @@ import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 import Comps from "./comps/comps.js";
 import Fn from "../functions/fn.js";
+import getCanvasElement from "./getCanvasElement.js";
 export default class Bilza {
     constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = 300) {
         this.util = new Fn();
         this.canvasId = canvasId;
+        this.canvas = getCanvasElement(canvasId);
         if (canvasHeight == null) {
             canvasHeight = this.util.aspectRatioHeight(canvasWidth);
         }
-        this.pack = new Pack(this.canvasId, canvasWidth, canvasHeight);
+        this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
         this.background = new Background();
         this.timeStart = null;
         this.timeEnd = timeEndSec * 1000;
@@ -142,7 +144,7 @@ export default class Bilza {
         if (height == null) {
             height = this.util.aspectRatioHeight(width);
         }
-        this.pack = new Pack(this.canvasId, width, height);
+        this.pack = new Pack(this.canvas, width, height);
         this.resize(width, height);
     }
     getCanvasHeight() {
