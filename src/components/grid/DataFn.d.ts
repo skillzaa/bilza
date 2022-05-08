@@ -2,18 +2,18 @@ import CompDataBase from "../../design/CompDataBase.js";
 export default function DataFn(): ObjectData;
 export declare class ObjectData extends CompDataBase {
     msStart: number;
+    lineDash: number[];
     cellWidthPerc: number;
     cellHeightPerc: number;
-    colorHorizontalLines: string;
-    colorVerticalLines: string;
-    colorNumbers: string;
-    showNumbers: boolean;
     showHorizontalLines: boolean;
     showVerticalLines: boolean;
     lineWidthVertical: number;
     lineWidthHorizontal: number;
+    colorHorizontalLines: string;
+    colorVerticalLines: string;
     fontSize: number;
-    lineDash: number[];
+    colorNumbers: string;
+    showNumbers: boolean;
     constructor();
 }
 //# sourceMappingURL=DataFn.d.ts.map

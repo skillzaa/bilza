@@ -25,13 +25,14 @@ constructor(insert :(comp :IComponent)=>IComponent){
 this.insert = insert;
 }
 
-text(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",color :string="black",x:number=0,y:number =0):Text {
-let bs = new Text(startTimeSeconds,endTimeSeconds,content,color,x,y);
+text(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20):Text {
+let bs = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,x,y,dynWidth,dynHeight);
+
 this.insert(bs);
     return bs;        
 }
-grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
-    let g = new Grid(msStart, msEnd);
+grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
+let g = new Grid(msStart,msEnd,colorHax,cellWidthPerc,cellHeightPerc);
     this.insert(g);
     return g;
 }

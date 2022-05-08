@@ -64,7 +64,6 @@ this.gridTempl = new GridTemplates(this.insert.bind(this));
 } 
 //--moved her due to  
 
-//-- this is not in bilzaTimer due to this.draw
 start() :boolean{
 if (this.timeStart !== null){return false;}
 else {
@@ -86,7 +85,6 @@ public drawInit(){
 draw():boolean{
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   
-    // this.frame += 1; /// use later if req internally
 let msDelta = this.getMsDelta();
     //stop if completed
 if(msDelta >= this.timeEnd){ this.stop();}     

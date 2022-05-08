@@ -3,10 +3,16 @@ import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class Grid extends Component<ObjectData> {
 
-constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
+constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
 super(DataFn,msStart,msEnd);
- 
-this.drawLayer = DrawLayer.BackGround;   
+ this.d.cellWidthPerc = cellWidthPerc;
+ this.d.cellHeightPerc = cellHeightPerc;
+
+ this.d.colorVerticalLines = colorHax;
+ this.d.colorHorizontalLines = colorHax;
+ this.d.colorNumbers = colorHax;
+
+ this.drawLayer = DrawLayer.BackGround;   
 }    
 
 draw(p:Pack): boolean {
@@ -30,7 +36,7 @@ let end_x = x + width;
         if (this.d.showNumbers == true){
             this.style.strokeStyle = this.d.colorNumbers;
             // p.drawText(y.toString(),x,y,this.style);
-            this.drawText(p,y,x,y);
+            this.drawText(p,Math.ceil(y) ,x+4,y+4);
         }
     y += ((p.canvasHeight()/100) * this.d.cellHeightPerc);
     } while (height > y );
@@ -50,7 +56,9 @@ let end_y = y + height;
 
             if (this.d.showNumbers == true){
                 this.style.strokeStyle = this.d.colorNumbers;
-                this.drawText(p,x,x,y);//2nd x = content
+                // this.drawText(p,x,x,y);//2nd x = content
+                this.drawText(p,Math.ceil(x) ,x+4,y+2);
+
                 // p.drawText(x.toString(),x,y,this.style);
             }
     x += ((p.canvasWidth()/100) * this.d.cellWidthPerc);

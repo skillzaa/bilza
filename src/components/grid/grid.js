@@ -1,8 +1,13 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class Grid extends Component {
-    constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
+    constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
         super(DataFn, msStart, msEnd);
+        this.d.cellWidthPerc = cellWidthPerc;
+        this.d.cellHeightPerc = cellHeightPerc;
+        this.d.colorVerticalLines = colorHax;
+        this.d.colorHorizontalLines = colorHax;
+        this.d.colorNumbers = colorHax;
         this.drawLayer = DrawLayer.BackGround;
     }
     draw(p) {
@@ -23,7 +28,7 @@ export default class Grid extends Component {
             p.drawLine(x, y, end_x, y, this.style);
             if (this.d.showNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
-                this.drawText(p, y, x, y);
+                this.drawText(p, Math.ceil(y), x + 4, y + 4);
             }
             y += ((p.canvasHeight() / 100) * this.d.cellHeightPerc);
         } while (height > y);
@@ -41,7 +46,7 @@ export default class Grid extends Component {
             p.drawLine(x, y, x, end_y, this.style);
             if (this.d.showNumbers == true) {
                 this.style.strokeStyle = this.d.colorNumbers;
-                this.drawText(p, x, x, y);
+                this.drawText(p, Math.ceil(x), x + 4, y + 2);
             }
             x += ((p.canvasWidth() / 100) * this.d.cellWidthPerc);
         } while (width > x);

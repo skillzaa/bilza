@@ -5,8 +5,8 @@ import Counter from "../components/counter/counter.js";
 export default class CompFactory {
     private insert;
     constructor(insert: (comp: IComponent) => IComponent);
-    text(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, color?: string, x?: number, y?: number): Text;
-    grid(msStart?: number, msEnd?: number): Grid;
+    text(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string, x?: number, y?: number, dynWidth?: number, dynHeight?: number): Text;
+    grid(msStart?: number, msEnd?: number, colorHax?: string, cellWidthPerc?: number, cellHeightPerc?: number): Grid;
     counter(msStart?: number, msEnd?: number, loc?: string): Counter;
 }
 //# sourceMappingURL=compFactory.d.ts.map

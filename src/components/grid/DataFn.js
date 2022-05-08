@@ -7,15 +7,15 @@ export class ObjectData extends CompDataBase {
     constructor() {
         super();
         this.msStart = 0;
-        this.fontSize = 8;
+        this.fontSize = 12;
         this.cellWidthPerc = 10;
         this.cellHeightPerc = 10;
         this.colorHorizontalLines = "grey";
         this.colorVerticalLines = "grey";
-        this.colorNumbers = "grey";
-        this.showNumbers = false;
-        this.showHorizontalLines = false;
-        this.showVerticalLines = false;
+        this.colorNumbers = "black";
+        this.showNumbers = true;
+        this.showHorizontalLines = true;
+        this.showVerticalLines = true;
         this.lineWidthVertical = 1;
         this.lineWidthHorizontal = 1;
         this.lineDash = [];

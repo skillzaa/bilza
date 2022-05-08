@@ -5,13 +5,13 @@ export default class CompFactory {
     constructor(insert) {
         this.insert = insert;
     }
-    text(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", color = "black", x = 0, y = 0) {
-        let bs = new Text(startTimeSeconds, endTimeSeconds, content, color, x, y);
+    text(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 20, dynHeight = 20) {
+        let bs = new Text(startTimeSeconds, endTimeSeconds, content, colorHax, x, y, dynWidth, dynHeight);
         this.insert(bs);
         return bs;
     }
-    grid(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
-        let g = new Grid(msStart, msEnd);
+    grid(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER, colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
+        let g = new Grid(msStart, msEnd, colorHax, cellWidthPerc, cellHeightPerc);
         this.insert(g);
         return g;
     }

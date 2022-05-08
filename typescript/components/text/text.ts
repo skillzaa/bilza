@@ -9,7 +9,7 @@ export default class Text extends Component<ObjectData> {
     yAlignmentOptions:typeof YAlignment;  
  
 //Args==> start-end-content-color-x-y
-constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000",x:number=0,y:number =0){
+constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20){
     super(DataFn);
     this.xAlignmentOptions = XAlignment; //final-ok
     this.yAlignmentOptions = YAlignment; //final-ok
@@ -20,6 +20,8 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_IN
     this.d.content = content;
     this.d.x = x;
     this.d.y = y;
+    this.d.dynWidth = dynWidth;
+    this.d.dynHeight = dynHeight;
     //---colors
     this.d.color = colorHax;
     this.d.colorBorder = colorHax;
