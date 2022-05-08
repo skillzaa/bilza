@@ -24,12 +24,17 @@
 
 ###### At the moment some very basic components have been added like "Text" and "Grid".
 
-## Samples
+## Samples 
+ Following is a list of samples / examples / small appresentations created with Bilza library. You can have a look at them to better understand the library.
 
+<h3><a href="https://skillzaa.github.io/bilza/samples/index.html" target="_blank">Samples List</a></h3>
+---
+## Useful Examples
 <ol>
 <li><h3><a href="https://skillzaa.github.io/bilza/samples/helloWorld/index.html" target="_blank">Hello World Example</a> (2022-May-08 using ver-0.0.13)</h3></li>
 
 </ol>
+
 
 
 **This library is still in early stages and is error prone. You should play with it but wait till version 1.0.0 for serious use.**
