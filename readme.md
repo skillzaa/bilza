@@ -27,7 +27,7 @@
 ## Samples
 
 <ol>
-<li><h3><a href="/samples/helloWorld/index.html" target="_blank">Hello World Example</a> (2022-May-08 using ver-0.0.13)</h3></li>
+<li><h3><a href="https://skillzaa.github.io/bilza/samples/helloWorld/index.html" target="_blank">Hello World Example</a> (2022-May-08 using ver-0.0.13)</h3></li>
 
 </ol>
 
