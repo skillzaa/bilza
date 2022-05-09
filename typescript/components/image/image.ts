@@ -9,8 +9,8 @@ export default class BilzaImage extends Component<ImageData> {
     xAlignmentOptions:typeof XAlignment;   
     yAlignmentOptions:typeof YAlignment;  
     img :HTMLImageElement;
-    initialWidth :number;
-    initialHeight :number;
+    orignalWidth :number;
+    orignalHeight :number;
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,
     imgId :string,
     x :number=0, y :number=0){
@@ -21,14 +21,14 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,
    
     this.img = document.getElementById(imgId) as HTMLImageElement;
     if (this.img == null){
-        throw new Error(" :image could not be found");
+        throw new Error("image could not be found");
         
     }else {
         //--before clientHeight we need appendChild
         //--we need to save these since once display == none then they are 0
         document.body.appendChild(this.img);
-        this.initialWidth = this.img.clientWidth;
-        this.initialHeight = this.img.clientHeight;
+        this.orignalWidth = this.img.clientWidth;
+        this.orignalHeight = this.img.clientHeight;
         // console.log("clientWidth", this.img.clientWidth);
         // console.log("clientHeight", this.img.clientHeight);
         //--if display == none then width and height = 0
@@ -50,20 +50,31 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,
 }
 
 width(p:Pack):number {
-return this.initialWidth;
+    if (this.d.useDynResize == true) {
+        let wd =  p.canvasWidth()/100 * this.d.dynWidthPercent;;
+        return wd;
+    }else {
+        let wd =  this.orignalWidth;
+        return wd;
+    }
 }
-
 height(p:Pack):number {
-return this.initialHeight;
+    if (this.d.useDynResize == true) {
+        return  p.canvasHeight()/100 * this.d.dynHeightPercent;
+    }else {
+        return  this.orignalHeight;
+    }
 }
 
 draw(p:Pack):boolean{
-p.drawImage(this.img,
-    this.getX(p),
-    this.getY(p),
-    this.width(p),
-    this.height(p)
-    );
+
+    p.drawImage(this.img,
+                this.getX(p),
+                this.getY(p),
+                this.width(p),
+                this.height(p)
+            );
+    
 return true;
 }
 private getX(p :Pack):number{
@@ -101,3 +112,6 @@ return y ;
 }
 
 }//comp ends
+
+//--important line keep safe
+// myImg.style.width = (currWidth + 100) + "px";

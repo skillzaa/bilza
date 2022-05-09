@@ -15,6 +15,9 @@ let img = bil.add.Image(0,300,"screamImage",50,50);
 
 img.d.xAlignment = img.xAlignmentOptions.Mid;
 img.d.yAlignment = img.yAlignmentOptions.Mid;
+img.d.useDynResize = true;
+img.d.dynWidthPercent = 30;
+img.d.dynHeightPercent = 60;
 //////////////////////////////////
 bil.draw();
 ///////////////////////////////

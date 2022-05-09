@@ -9,12 +9,12 @@ export default class BilzaImage extends Component {
         this.yAlignmentOptions = YAlignment;
         this.img = document.getElementById(imgId);
         if (this.img == null) {
-            throw new Error(" :image could not be found");
+            throw new Error("image could not be found");
         }
         else {
             document.body.appendChild(this.img);
-            this.initialWidth = this.img.clientWidth;
-            this.initialHeight = this.img.clientHeight;
+            this.orignalWidth = this.img.clientWidth;
+            this.orignalHeight = this.img.clientHeight;
             this.img.style.display = "none";
         }
         this.d.x = x;
@@ -22,10 +22,23 @@ export default class BilzaImage extends Component {
         this.drawLayer = DrawLayer.MiddleGround;
     }
     width(p) {
-        return this.initialWidth;
+        if (this.d.useDynResize == true) {
+            let wd = p.canvasWidth() / 100 * this.d.dynWidthPercent;
+            ;
+            return wd;
+        }
+        else {
+            let wd = this.orignalWidth;
+            return wd;
+        }
     }
     height(p) {
-        return this.initialHeight;
+        if (this.d.useDynResize == true) {
+            return p.canvasHeight() / 100 * this.d.dynHeightPercent;
+        }
+        else {
+            return this.orignalHeight;
+        }
     }
     draw(p) {
         p.drawImage(this.img, this.getX(p), this.getY(p), this.width(p), this.height(p));

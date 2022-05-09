@@ -6,8 +6,8 @@ export default class BilzaImage extends Component<ImageData> {
     xAlignmentOptions: typeof XAlignment;
     yAlignmentOptions: typeof YAlignment;
     img: HTMLImageElement;
-    initialWidth: number;
-    initialHeight: number;
+    orignalWidth: number;
+    orignalHeight: number;
     constructor(startTimeSeconds: number | undefined, endTimeSeconds: number | undefined, imgId: string, x?: number, y?: number);
     width(p: Pack): number;
     height(p: Pack): number;

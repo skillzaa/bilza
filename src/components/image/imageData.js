@@ -7,8 +7,9 @@ export class ImageData extends CompDataBase {
         this.msStart = 0;
         this.x = 0;
         this.y = 0;
-        this.widthPercent = 10;
-        this.heightPercent = 10;
+        this.dynWidthPercent = 30;
+        this.dynHeightPercent = 50;
+        this.useDynResize = false;
         this.xAlignment = XAlignment.Left;
         this.yAlignment = YAlignment.Top;
     }
