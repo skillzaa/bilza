@@ -16,7 +16,7 @@ export default class Bilza {
         this.timeStart = null;
         this.timeEnd = timeEndSec * 1000;
         this.interval = null;
-        this.msPerFrame = 1000;
+        this.msPerFrame = 100;
         this.comps = new Comps(this.pack);
         this.insert = this.comps.insert.bind(this.comps);
         this.init = this.comps.init.bind(this.comps);

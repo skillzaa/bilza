@@ -48,7 +48,8 @@ this.background = new Background();
 this.timeStart = null; 
 this.timeEnd = timeEndSec * 1000; //to convert into milli sec
 this.interval = null; //to save setInterval handler
-this.msPerFrame = 1000;
+// this.msPerFrame = 1000; // 1 sec
+this.msPerFrame = 100; //make it 100 ms
 //////////////////----comps
 this.comps = new Comps(this.pack);
 this.insert = this.comps.insert.bind(this.comps);

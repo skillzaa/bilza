@@ -1,23 +1,35 @@
-// import Bilza from "../00lib/Bilza_0_0_13.js";
-import Bilza from "../../src/Bilza.js";
+import Bilza from "../00lib/Bilza_0_0_14.js";
+// import Bilza from "../../src/Bilza.js";
 
 let bil = new Bilza("bilza",60,1000,500);
-// let g = bil.gridTempl.simple();
-let g = bil.add.grid(0,60000,"grey");
-
-// let screamImage = document.getElementById("screamImage");
-// screamImage.style.display = "none";
-
 
 let img = bil.add.Image(0,300,"screamImage",50,50);
-
-// console.log("img",screamImage.clientWidth);
 
 img.d.xAlignment = img.xAlignmentOptions.Mid;
 img.d.yAlignment = img.yAlignmentOptions.Mid;
 img.d.useDynResize = true;
 img.d.dynWidthPercent = 30;
-img.d.dynHeightPercent = 60;
+img.d.dynHeightPercent = 30;
 //////////////////////////////////
 bil.draw();
 ///////////////////////////////
+let increase = true;
+
+let inter = setInterval(function(){
+    if ( (increase == true) && (img.d.dynWidthPercent > 80) ){ 
+        increase = false;
+    }
+    if ( (increase == false) && (img.d.dynWidthPercent < 20) ){ 
+        increase = true;
+    }
+    ///////////////////
+    if (increase == true){
+        img.d.dynWidthPercent += 1;
+        img.d.dynHeightPercent += 1;
+    }else {
+        img.d.dynWidthPercent -= 1;
+        img.d.dynHeightPercent -= 1;
+    }
+    
+    bil.draw();
+},50);
