@@ -24,17 +24,12 @@
 
 ###### At the moment some very basic components have been added like "Text" and "Grid".
 
- <h1>Bilza Documentation</h1>
-<h2><a href="./docs/core/index.html">Bilza Core</a></h2>  
-<h2><a href="./docs/components/">Components</a></h2>   
-<h2><a href="./docs/textTemplates/textTemplates.html">Text Templates</a></h2> 
+## Docs and Samples 
+ Following is link to Docs / sample / examples / small appresentations created with Bilza library. You can have a look at them to better understand the library.
 
-## Samples 
- Following is a list of samples / examples / small appresentations created with Bilza library. You can have a look at them to better understand the library.
-
-<h3><a href="https://skillzaa.github.io/bilza/samples/index.html" target="_blank">Samples List</a></h3>
+<h3><a href="https://skillzaa.github.io/bilza/index.html" target="_blank">Docs and Samples</a></h3>
 ---
-## Useful Examples
+## Beginner Examples
 <ol>
 <li><h3><a href="https://skillzaa.github.io/bilza/samples/helloWorld/index.html" target="_blank">Hello World Example</a> (2022-May-08 using ver-0.0.13)</h3></li>
 <li><h3><a href="https://skillzaa.github.io/bilza/samples/simpleSlide/index.html" target="_blank">A simple slide Example</a> (2022-May-08 using ver-0.0.13)</h3></li>
