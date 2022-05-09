@@ -24,6 +24,11 @@
 
 ###### At the moment some very basic components have been added like "Text" and "Grid".
 
+ <h1>Bilza Documentation</h1>
+<h2><a href="./docs/core/index.html">Bilza Core</a></h2>  
+<h2><a href="./docs/components/">Components</a></h2>   
+<h2><a href="./docs/textTemplates/textTemplates.html">Text Templates</a></h2> 
+
 ## Samples 
  Following is a list of samples / examples / small appresentations created with Bilza library. You can have a look at them to better understand the library.
 
