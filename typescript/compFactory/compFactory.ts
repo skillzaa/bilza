@@ -1,11 +1,11 @@
-import {IComponent} from "../Bilza.js";
+import {IComponent,Pack} from "../Bilza.js";
 //--components
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
 // import RGrid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Rect from "../components/rect/rect.js";
-// import GridR from "../components/gridR/gridR.js";
+import Image from "../components/image/image.js";
 import Counter from "../components/counter/counter.js";
 // import Circle from "../components/circle/circle.js";
 // import BgShapes from "../components/bgShapes/bgShapes.js";
@@ -20,9 +20,10 @@ import Counter from "../components/counter/counter.js";
 
 export default class CompFactory {
 private insert :(comp :IComponent)=>IComponent;
-
-constructor(insert :(comp :IComponent)=>IComponent){
+private pack :Pack;
+constructor(insert :(comp :IComponent)=>IComponent,pack :Pack){
 this.insert = insert;
+this.pack = pack;
 }
 
 text(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20):Text {
@@ -49,6 +50,17 @@ rect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number
 }
 fillRect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
     let bs = new FillRect(startTimeSeconds,endTimeSeconds,x, y,widthPercent, heightPercent,colorHex);
+    this.insert(bs);
+    return bs;        
+}
+Image(startTimeSeconds :number=0,
+    endTimeSeconds:number=300,
+    source :HTMLImageElement,
+    x :number=0, y :number=0
+    ){
+
+    let bs = new Image(startTimeSeconds,endTimeSeconds,
+        source,x,y);
     this.insert(bs);
     return bs;        
 }

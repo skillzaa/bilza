@@ -5,8 +5,6 @@ export class ObjectData extends CompDataBase {
         this.msStart = 0;
         this.x = 0;
         this.y = 0;
-        this.lineWidth = 10;
-        this.color = "#000000";
         this.widthPercent = 10;
         this.heightPercent = 10;
     }

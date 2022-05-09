@@ -1,9 +1,9 @@
-// import {Component,Pack,Style } from "../../bilzaa2d/index.js";
+// import {Component,Pack,Style } from "../../Bilza.js";
 
 // export default class Icon extends Component {
 //     x:number;
 //     y:number;
-//     code:number;
+//     code:number; 
 //     style :Style;
 // constructor (code:number = 9876,x:number= 0,y:number=0){
 //     super();

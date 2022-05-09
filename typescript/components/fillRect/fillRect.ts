@@ -1,5 +1,5 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
-import DataFn,{ObjectData} from "../rect/DataFn.js";
+import DataFn,{ObjectData} from "./DataFn.js";
  
 export default class FillRect extends Component<ObjectData> {
 
@@ -35,9 +35,5 @@ let newY = p.yPerc(this.d.y);
 return true;
 }
 
-// resize(width: number, height: number):number {
-// // this.d.width = (width /100) * this.d.widthPercent;    
-// //     return this.d.width;
-// return 0;
-// }
+
 }

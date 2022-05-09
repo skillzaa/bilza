@@ -2,10 +2,12 @@ import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Rect from "../components/rect/rect.js";
+import Image from "../components/image/image.js";
 import Counter from "../components/counter/counter.js";
 export default class CompFactory {
-    constructor(insert) {
+    constructor(insert, pack) {
         this.insert = insert;
+        this.pack = pack;
     }
     text(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 20, dynHeight = 20) {
         let bs = new Text(startTimeSeconds, endTimeSeconds, content, colorHax, x, y, dynWidth, dynHeight);
@@ -29,6 +31,11 @@ export default class CompFactory {
     }
     fillRect(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10, colorHex = "#008000") {
         let bs = new FillRect(startTimeSeconds, endTimeSeconds, x, y, widthPercent, heightPercent, colorHex);
+        this.insert(bs);
+        return bs;
+    }
+    Image(startTimeSeconds = 0, endTimeSeconds = 300, source, x = 0, y = 0) {
+        let bs = new Image(startTimeSeconds, endTimeSeconds, source, x, y);
         this.insert(bs);
         return bs;
     }

@@ -1,6 +1,4 @@
 
-
-
 export enum  UTFIcons {
     CrossSword = 9876,
     Danger = 9760,

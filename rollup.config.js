@@ -11,7 +11,7 @@ export default [
     // input: './standalone/standalone.js',
 
     output: {
-      file: './build/Bilza_0_0_13.js',
+      file: './build/Bilza_0_0_14.js',
       // file: './standalone/standalone.min.js',
       format: 'es',
       sourcemap: devMode ? 'inline' : false,

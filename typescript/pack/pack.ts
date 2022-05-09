@@ -47,6 +47,26 @@ public save(){
     this.ctx.save();
 }
 
+// public drawImage(image :HTMLImageElement,
+//             x :number=0, 
+//             y:number=0, 
+//             width:number=100,
+//             height :number=100,
+//             destX :number=0, 
+//             destY :number=0, 
+//             destWidth :number=100, 
+//             destHeight :number=100,
+//             incomTempl:Style){
+// this.ctx.drawImage(image,x,y,width,height,destX,destY,destWidth,destHeight);
+// }//drawImage ends
+public drawImage(image :HTMLImageElement,
+            x :number=0, 
+            y:number=0, 
+            width:number=300,
+            height :number=300,
+        ){
+this.ctx.drawImage(image,x,y,width,height);
+}//drawImage ends
 public clearCanvas(){
 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);    
 }

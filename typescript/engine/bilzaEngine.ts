@@ -56,7 +56,8 @@ this.init = this.comps.init.bind(this.comps);
 this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
 this.resizeAll = this.comps.resizeAll.bind(this.comps);
 ////--Templates
-this.add = new CompFactory(this.insert.bind(this));
+//--I think sending pack to compFacoty is wrong!!!!!??????
+this.add = new CompFactory(this.insert.bind(this),this.pack);
 this.textTempl = new TextTemplWrapper(this.insert.bind(this));
 this.gridTempl = new GridTemplates(this.insert.bind(this));
 

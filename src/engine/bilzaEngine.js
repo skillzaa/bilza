@@ -22,7 +22,7 @@ export default class Bilza {
         this.init = this.comps.init.bind(this.comps);
         this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
         this.resizeAll = this.comps.resizeAll.bind(this.comps);
-        this.add = new CompFactory(this.insert.bind(this));
+        this.add = new CompFactory(this.insert.bind(this), this.pack);
         this.textTempl = new TextTemplWrapper(this.insert.bind(this));
         this.gridTempl = new GridTemplates(this.insert.bind(this));
     }

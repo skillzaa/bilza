@@ -1,4 +1,4 @@
-// import {BaseComp,Pack,Style } from "../../bilzaa2d/index.js";
+// import {Pack,Style } from "../../Bilza.js";
 
 // export default class IconAdv extends BaseComp {
 //     x:number;
@@ -28,11 +28,11 @@
 // draw(p:Pack):boolean{
 // this.style.fillStyle = this.backgroundColor;    
 
-// p.draw_fillRect(this.xPerc(this.x,p),this.yPerc(this.y,p) - (this.width(p)/100* 5),this.width(p),this.height(p),this.style);
+// p.drawFillRect(p.xPerc(this.x,p),p.yPerc(this.y,p) - (this.width(p)/100* 5),this.width(p),this.height(p),this.style);
 // //---------------------------------
 // this.style.fillStyle = this.iconColor;
 
-// p.drawIcon(this.code,this.xPerc(this.x,p),this.yPerc(this.y,p),this.style);
+// p.drawIcon(this.code,p.xPerc(this.x,p),p.yPerc(this.y,p),this.style);
 // return true;
 // }
 
