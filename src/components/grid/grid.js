@@ -1,7 +1,7 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class Grid extends Component {
-    constructor(startSecond = 0, endSecond = Number.MAX_SAFE_INTEGER, colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
+    constructor(startSecond = 0, endSecond = 300, colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
         super(DataFn, startSecond, endSecond);
         this.d.cellWidthPerc = cellWidthPerc;
         this.d.cellHeightPerc = cellHeightPerc;

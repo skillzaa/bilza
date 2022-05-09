@@ -34,8 +34,8 @@ export default class CompFactory {
         this.insert(bs);
         return bs;
     }
-    Image(startTimeSeconds = 0, endTimeSeconds = 300, source, x = 0, y = 0) {
-        let bs = new Image(startTimeSeconds, endTimeSeconds, source, x, y);
+    Image(startTimeSeconds = 0, endTimeSeconds = 300, imgId, x = 0, y = 0) {
+        let bs = new Image(startTimeSeconds, endTimeSeconds, imgId, x, y);
         this.insert(bs);
         return bs;
     }

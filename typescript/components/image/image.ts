@@ -1,18 +1,43 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ImageData} from "./imageData.js";
 import aspectRatioHeight from "../../functions/aspectRatioHeight.js"; 
+import {XAlignment} from "../compsDesign/xAlignment.js";
+import {YAlignment} from "../compsDesign/yAlignment.js";
 
 
-export default class Image extends Component<ImageData> {
-    source :HTMLImageElement
+export default class BilzaImage extends Component<ImageData> {
+    xAlignmentOptions:typeof XAlignment;   
+    yAlignmentOptions:typeof YAlignment;  
+    img :HTMLImageElement;
+    initialWidth :number;
+    initialHeight :number;
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,
-    source :HTMLImageElement,
+    imgId :string,
     x :number=0, y :number=0){
 
     super(DataFn,startTimeSeconds,endTimeSeconds);
+    this.xAlignmentOptions = XAlignment; //final-ok
+    this.yAlignmentOptions = YAlignment; //final-ok
+   
+    this.img = document.getElementById(imgId) as HTMLImageElement;
+    if (this.img == null){
+        throw new Error(" :image could not be found");
+        
+    }else {
+        //--before clientHeight we need appendChild
+        //--we need to save these since once display == none then they are 0
+        document.body.appendChild(this.img);
+        this.initialWidth = this.img.clientWidth;
+        this.initialHeight = this.img.clientHeight;
+        // console.log("clientWidth", this.img.clientWidth);
+        // console.log("clientHeight", this.img.clientHeight);
+        //--if display == none then width and height = 0
+        //---uffffffffffffffff
+        this.img.style.display = "none";
+    }
+
     this.d.x = x;
     this.d.y = y;
-    this.source = source;
     //--Draw Layer
     this.drawLayer = DrawLayer.MiddleGround;
     //--Aspect ratio
@@ -25,19 +50,54 @@ constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,
 }
 
 width(p:Pack):number {
-// return  ((p.canvasWidth() /100) * this.d.widthPercent);    
-return this.source.clientWidth;
+return this.initialWidth;
 }
 
 height(p:Pack):number {
-// return  ((p.canvasHeight() /100) * this.d.heightPercent);    
-return this.source.clientHeight;
+return this.initialHeight;
 }
 
 draw(p:Pack):boolean{
-p.drawImage(this.source,p.xPerc(this.d.x),p.yPerc(this.d.y));
+p.drawImage(this.img,
+    this.getX(p),
+    this.getY(p),
+    this.width(p),
+    this.height(p)
+    );
 return true;
 }
-
+private getX(p :Pack):number{
+let x = p.xPerc(this.d.x);    
+            
+switch (this.d.xAlignment) {
+    case this.xAlignmentOptions.Left:
+        
+        break;
+    case this.xAlignmentOptions.Mid:
+         x = x - ((this.width(p)/2));
+        break;
+    
+    case this.xAlignmentOptions.Right:
+        x = x - (this.width(p));
+        break;
+}
+return x ;
+}
+private getY(p :Pack):number{
+    let y =   p.yPerc(this.d.y);  
+    
+switch (this.d.yAlignment) {
+    case this.yAlignmentOptions.Top:
+        break;
+    case this.yAlignmentOptions.Mid:
+         y = y - ((this.height(p)/2));
+        break;
+    
+    case this.yAlignmentOptions.Bot:
+        y = y - (this.height(p));
+        break;
+}
+return y ;
+}
 
 }//comp ends

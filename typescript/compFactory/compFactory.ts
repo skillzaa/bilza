@@ -55,12 +55,12 @@ fillRect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :nu
 }
 Image(startTimeSeconds :number=0,
     endTimeSeconds:number=300,
-    source :HTMLImageElement,
+    imgId :string,
     x :number=0, y :number=0
     ){
 
     let bs = new Image(startTimeSeconds,endTimeSeconds,
-        source,x,y);
+        imgId,x,y);
     this.insert(bs);
     return bs;        
 }

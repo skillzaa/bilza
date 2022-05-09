@@ -38,7 +38,7 @@ export default class Pack {
     save() {
         this.ctx.save();
     }
-    drawImage(image, x = 0, y = 0, width = 300, height = 300) {
+    drawImage(image, x, y, width, height) {
         this.ctx.drawImage(image, x, y, width, height);
     }
     clearCanvas() {

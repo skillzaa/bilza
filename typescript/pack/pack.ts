@@ -60,10 +60,10 @@ public save(){
 // this.ctx.drawImage(image,x,y,width,height,destX,destY,destWidth,destHeight);
 // }//drawImage ends
 public drawImage(image :HTMLImageElement,
-            x :number=0, 
-            y:number=0, 
-            width:number=300,
-            height :number=300,
+            x :number, 
+            y:number, 
+            width:number,
+            height :number,
         ){
 this.ctx.drawImage(image,x,y,width,height);
 }//drawImage ends

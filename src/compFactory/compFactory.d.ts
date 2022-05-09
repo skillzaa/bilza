@@ -14,6 +14,6 @@ export default class CompFactory {
     counter(msStart?: number, msEnd?: number, loc?: string): Counter;
     rect(startTimeSeconds?: number, endTimeSeconds?: number, x?: number, y?: number, widthPercent?: number, heightPercent?: number, colorHex?: string): Rect;
     fillRect(startTimeSeconds?: number, endTimeSeconds?: number, x?: number, y?: number, widthPercent?: number, heightPercent?: number, colorHex?: string): FillRect;
-    Image(startTimeSeconds: number | undefined, endTimeSeconds: number | undefined, source: HTMLImageElement, x?: number, y?: number): Image;
+    Image(startTimeSeconds: number | undefined, endTimeSeconds: number | undefined, imgId: string, x?: number, y?: number): Image;
 }
 //# sourceMappingURL=compFactory.d.ts.map

@@ -10,7 +10,7 @@ export default class Pack {
     quadraticCurveTo(start: Position, end: Position, controlPoint: Position, style: Style): void;
     restore(): void;
     save(): void;
-    drawImage(image: HTMLImageElement, x?: number, y?: number, width?: number, height?: number): void;
+    drawImage(image: HTMLImageElement, x: number, y: number, width: number, height: number): void;
     clearCanvas(): void;
     charsWidth(chars: string | undefined, fontSize: number, fontName: string): number;
     textWidth(chars: string, incomTempl: Style): number;
