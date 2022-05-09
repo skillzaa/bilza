@@ -1,5 +1,5 @@
 import { Component, DrawLayer } from "../../Bilza.js";
-import DataFn from "./DataFn.js";
+import DataFn from "./imageData.js";
 export default class Image extends Component {
     constructor(startTimeSeconds = 0, endTimeSeconds = 300, source, x = 0, y = 0) {
         super(DataFn, startTimeSeconds, endTimeSeconds);

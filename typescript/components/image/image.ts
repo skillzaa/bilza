@@ -1,9 +1,9 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
-import DataFn,{ObjectData} from "./DataFn.js";
+import DataFn,{ImageData} from "./imageData.js";
 import aspectRatioHeight from "../../functions/aspectRatioHeight.js"; 
 
 
-export default class Image extends Component<ObjectData> {
+export default class Image extends Component<ImageData> {
     source :HTMLImageElement
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,
     source :HTMLImageElement,
