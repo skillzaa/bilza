@@ -1,6 +1,7 @@
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
 import Counter from "../components/counter/counter.js";
+import Rect from "../components/rect/rect.js";
 export default class CompFactory {
     constructor(insert) {
         this.insert = insert;
@@ -19,5 +20,10 @@ export default class CompFactory {
         let item = new Counter(msStart, msEnd, loc);
         this.insert(item);
         return item;
+    }
+    rect(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10) {
+        let bs = new Rect(startTimeSeconds, endTimeSeconds, x, y, widthPercent, heightPercent);
+        this.insert(bs);
+        return bs;
     }
 }

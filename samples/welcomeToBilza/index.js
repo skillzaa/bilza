@@ -3,12 +3,26 @@
 import Bilza from "../../src/Bilza.js";
 
 let bil = new Bilza("bilza",60);
-bil.dynamicCanvas(90);
+bil.dynamicCanvas(70);
 
 // let g = bil.add.grid();
 let c = bil.add.counter();
-let txt = bil.textTempl.h1(5,60,"Simple Text","#008000",50,50);
-let txt02 = bil.add.text(0,15,"Bla Bla Bla","#0000ff",10,20,20,20);
+// let jt = bil.textTempl.jt(0,10,"Introducing Bilza.js","#008000");
+
+let h1 = bil.textTempl.h1(1,60,"What is Bilza","#008000");
+
+let pt01 = bil.textTempl.bulletPointMid(1,60,"Bilza.js is a javascript framework for creating","#ff0000",45);
+
+
+let pt02 = bil.textTempl.bulletPointMid(1,60,"business and educational visualizations ","#ff0000",65);
+
+let pt03 = bil.textTempl.bulletPointMid(1,60,"in the browser using HTML5 canvas.","#ff0000",85);
+
+let rect = bil.add.rect(0,300,10,10,25,25);
+rect.d.lineWidth = 10;
+rect.d.color = "#0000ff";
+// let txt = bil.textTempl.h1(5,60,"Simple Text","#008000",50,50);
+// let txt02 = bil.add.text(0,15,"Bla Bla Bla","#0000ff",10,20,20,20);
 //////////////////////////////////
 bil.start();
 ///////////////////////////////

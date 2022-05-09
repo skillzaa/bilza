@@ -11,7 +11,7 @@ import Counter from "../components/counter/counter.js";
 // import List from "../components/list/list.js";
 // import Line from "../components/line/line.js";
 // import Lines from "../components/lines/lines.js";
-// import Rect from "../components/rect/rect.js";
+import Rect from "../components/rect/rect.js";
 // import SlideHL from "../components/slideHL/slideHL.js";
 // import SlideHP from "../components/slideHP/slideHP.js";
 //-----------composit componenets
@@ -42,11 +42,11 @@ counter(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,loc :string 
     this.insert(item);
     return item;
 }
-// rect(){
-//     let bs = new Rect();
-//     this.insert(bs);
-//     return bs;        
-// }
+rect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10){
+    let bs = new Rect(startTimeSeconds,endTimeSeconds,x, y,widthPercent, heightPercent);
+    this.insert(bs);
+    return bs;        
+}
 // fillRect(){
 //     let bs = new FillRect();
 //     this.insert(bs);

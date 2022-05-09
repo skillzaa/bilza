@@ -4,15 +4,17 @@ export class ObjectData extends CompDataBase{
    
 widthPercent :number;
 heightPercent :number;
+lineWidth :number;
 color :string;
 
 constructor(){
     super();
 this.msStart =0; 
-this.x = 10 ;
-this.y = 10 ;
+this.x = 0 ;
+this.y = 0 ;
+this.lineWidth = 1 ;
 
-this.color = "grey" ; 
+this.color = "#000000" ; 
 this.widthPercent = 10;
 this.heightPercent = 10;
 }
