@@ -1,7 +1,8 @@
 import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
-import Counter from "../components/counter/counter.js";
+import FillRect from "../components/fillRect/fillRect.js";
 import Rect from "../components/rect/rect.js";
+import Counter from "../components/counter/counter.js";
 export default class CompFactory {
     constructor(insert) {
         this.insert = insert;
@@ -21,8 +22,13 @@ export default class CompFactory {
         this.insert(item);
         return item;
     }
-    rect(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10) {
-        let bs = new Rect(startTimeSeconds, endTimeSeconds, x, y, widthPercent, heightPercent);
+    rect(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10, colorHex = "#008000") {
+        let bs = new Rect(startTimeSeconds, endTimeSeconds, x, y, widthPercent, heightPercent, colorHex);
+        this.insert(bs);
+        return bs;
+    }
+    fillRect(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10, colorHex = "#008000") {
+        let bs = new FillRect(startTimeSeconds, endTimeSeconds, x, y, widthPercent, heightPercent, colorHex);
         this.insert(bs);
         return bs;
     }

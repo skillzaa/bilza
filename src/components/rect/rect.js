@@ -1,10 +1,11 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class Rect extends Component {
-    constructor(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10) {
+    constructor(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10, colorHex = "#008000") {
         super(DataFn, startTimeSeconds, endTimeSeconds);
         this.d.x = x;
         this.d.y = y;
+        this.d.color = colorHex;
         this.d.widthPercent = widthPercent;
         this.d.heightPercent = heightPercent;
         this.drawLayer = DrawLayer.MiddleGround;

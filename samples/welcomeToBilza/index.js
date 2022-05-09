@@ -18,9 +18,9 @@ let pt02 = bil.textTempl.bulletPointMid(1,60,"business and educational visualiza
 
 let pt03 = bil.textTempl.bulletPointMid(1,60,"in the browser using HTML5 canvas.","#ff0000",85);
 
-let rect = bil.add.rect(0,300,10,10,25,25);
+let rect = bil.add.rect(0,300,10,10,25,25,"red");
 rect.d.lineWidth = 10;
-rect.d.color = "#0000ff";
+let fillRect = bil.add.fillRect(0,300,50,50,25,25,"#ff0000");
 // let txt = bil.textTempl.h1(5,60,"Simple Text","#008000",50,50);
 // let txt02 = bil.add.text(0,15,"Bla Bla Bla","#0000ff",10,20,20,20);
 //////////////////////////////////

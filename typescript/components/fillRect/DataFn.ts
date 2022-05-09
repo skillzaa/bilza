@@ -1,27 +1,18 @@
-import CompDataBase from "../../design/CompDataBase.js";
+import CompDataBase from "../../design/CompDataBase.js";  
 
-export class ObjectData extends CompDataBase {
-  
+export class ObjectData extends CompDataBase{
+   
 widthPercent :number;
 heightPercent :number;
-
-
 color :string;
 
 constructor(){
     super();
-this.msStart =0;
- 
-this.x = 10 ;
-this.y = 10 ;
+this.msStart =0; 
+this.x = 0 ;
+this.y = 0 ;
 
-this.widthPercent = 200 ;
-this.heightPercent = 50 ;
-
-//--flags
-
-this.color = "red" ;
- 
+this.color = "#000000" ; 
 this.widthPercent = 10;
 this.heightPercent = 10;
 }

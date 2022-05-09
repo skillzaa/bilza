@@ -3,11 +3,9 @@ export class ObjectData extends CompDataBase {
     constructor() {
         super();
         this.msStart = 0;
-        this.x = 10;
-        this.y = 10;
-        this.widthPercent = 200;
-        this.heightPercent = 50;
-        this.color = "red";
+        this.x = 0;
+        this.y = 0;
+        this.color = "#000000";
         this.widthPercent = 10;
         this.heightPercent = 10;
     }

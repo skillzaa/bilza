@@ -4,6 +4,7 @@ import Text from "../components/text/text.js";
 import Grid from "../components/grid/grid.js";
 // import RGrid from "../components/grid/grid.js";
 import FillRect from "../components/fillRect/fillRect.js";
+import Rect from "../components/rect/rect.js";
 // import GridR from "../components/gridR/gridR.js";
 import Counter from "../components/counter/counter.js";
 // import Circle from "../components/circle/circle.js";
@@ -11,7 +12,6 @@ import Counter from "../components/counter/counter.js";
 // import List from "../components/list/list.js";
 // import Line from "../components/line/line.js";
 // import Lines from "../components/lines/lines.js";
-import Rect from "../components/rect/rect.js";
 // import SlideHL from "../components/slideHL/slideHL.js";
 // import SlideHP from "../components/slideHP/slideHP.js";
 //-----------composit componenets
@@ -42,16 +42,16 @@ counter(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,loc :string 
     this.insert(item);
     return item;
 }
-rect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10){
-    let bs = new Rect(startTimeSeconds,endTimeSeconds,x, y,widthPercent, heightPercent);
+rect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
+    let bs = new Rect(startTimeSeconds,endTimeSeconds,x, y,widthPercent, heightPercent,colorHex);
     this.insert(bs);
     return bs;        
 }
-// fillRect(){
-//     let bs = new FillRect();
-//     this.insert(bs);
-//     return bs;        
-// }
+fillRect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
+    let bs = new FillRect(startTimeSeconds,endTimeSeconds,x, y,widthPercent, heightPercent,colorHex);
+    this.insert(bs);
+    return bs;        
+}
 // slideHL(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,contentHdg :string="The Title",themeColor :string="#00ff37") {
 //     let bs = new SlideHL(startTimeSeconds,endTimeSeconds,contentHdg,themeColor);
 //     this.insert(bs);

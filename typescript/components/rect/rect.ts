@@ -3,10 +3,11 @@ import DataFn,{ObjectData} from "./DataFn.js";
  
 export default class Rect extends Component<ObjectData> {
 
-constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10){
+constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
     super(DataFn,startTimeSeconds,endTimeSeconds);
     this.d.x = x;
     this.d.y = y;
+    this.d.color = colorHex;
     this.d.widthPercent = widthPercent;
     this.d.heightPercent = heightPercent;
     this.drawLayer = DrawLayer.MiddleGround;

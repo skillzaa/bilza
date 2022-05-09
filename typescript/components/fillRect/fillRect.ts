@@ -1,10 +1,13 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
-import DataFn,{ObjectData} from "./DataFn.js";
-
+import DataFn,{ObjectData} from "../rect/DataFn.js";
+ 
 export default class FillRect extends Component<ObjectData> {
 
-constructor (widthPercent :number=10, heightPercent :number=10){
-    super(DataFn);
+constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
+    super(DataFn,startTimeSeconds,endTimeSeconds);
+    this.d.x = x;
+    this.d.y = y;
+    this.d.color = colorHex;
     this.d.widthPercent = widthPercent;
     this.d.heightPercent = heightPercent;
     this.drawLayer = DrawLayer.MiddleGround;
@@ -32,9 +35,9 @@ let newY = p.yPerc(this.d.y);
 return true;
 }
 
-resize(width: number, height: number):number {
-// this.d.width = (width /100) * this.d.widthPercent;    
-//     return this.d.width;
-return 0;
-}
+// resize(width: number, height: number):number {
+// // this.d.width = (width /100) * this.d.widthPercent;    
+// //     return this.d.width;
+// return 0;
+// }
 }
