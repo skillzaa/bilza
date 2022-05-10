@@ -1,6 +1,6 @@
 import { DrawLayer, IComponent, Pack } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
-import Background from "./background.js";
+import Background from "../components/background/background.js";
 import Text from "../components/text/text.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";

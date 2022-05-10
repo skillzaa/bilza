@@ -3,10 +3,9 @@ import CompDataBase from "../../BaseComponent/CompDataBase.js";
 export class ObjectData extends CompDataBase {
 //////////////////////////
 flagFilled:boolean;
-// responsive:boolean;
 lineWidth :number;
 color :string;
- 
+  
  
 constructor(){
 super();    

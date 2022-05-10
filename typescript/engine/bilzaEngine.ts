@@ -1,6 +1,6 @@
 import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
-import Background from "./background.js";
+import Background from "../components/background/background.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import Text from "../components/text/text.js";
 //----------Templates
@@ -92,7 +92,7 @@ let msDelta = this.getMsDelta();
 if(msDelta >= this.timeEnd){ this.stop();}     
 this.pack.clearCanvas();          
 //--keep the draw sequence : bg-bg-middle-foreground
-this.pack.drawBackground(this.background.color); //fornow         
+this.background.draw(this.pack); //fornow         
 this.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
 this.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);

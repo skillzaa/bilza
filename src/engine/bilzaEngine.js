@@ -1,6 +1,6 @@
 import { DrawLayer, Pack } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
-import Background from "./background.js";
+import Background from "../components/background/background.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
@@ -53,7 +53,7 @@ export default class Bilza {
             this.stop();
         }
         this.pack.clearCanvas();
-        this.pack.drawBackground(this.background.color);
+        this.background.draw(this.pack);
         this.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
         this.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
         this.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);

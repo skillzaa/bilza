@@ -1,54 +1,54 @@
-// import {Component,Pack,DrawLayer } from "../../Bilza.js";
-// import DataFn,{ObjectData} from "./DataFn.js";
+import {Component,Pack,DrawLayer } from "../../Bilza.js";
+import DataFn,{ObjectData} from "./DataFn.js";
 
-// import Vertex from "./Vertex.js";
+import Vertex from "./Vertex.js";
 
-// export default class LinesShape extends Component<ObjectData>{
+export default class LinesShape extends Component<ObjectData>{
  
-// private    vertices:Vertex[];
-// private    moveTo:Vertex;
+private    vertices:Vertex[];
+private    moveTo:Vertex;
 
-// constructor(x :number=0,y:number=0){
-//     super(DataFn);
-// this.moveTo = new Vertex(x,y);  
-// this.vertices = [];   
-// }
+constructor(x :number=0,y:number=0){
+    super(DataFn);
+this.moveTo = new Vertex(x,y);  
+this.vertices = [];   
+}
 
-// draw(p: Pack): boolean {
-// if (this.vertices.length < 2) {console.warn("Lines component needs atleast 3 pair of vertices");
-// return false;}    
-// p.commitCtxData(this.style);
-// p.ctx.beginPath(); 
-// //--seperate moveTo x and y from vertices
-// if (this.d.responsive == true){
-//     p.ctx.moveTo(p.xPerc(this.moveTo.x),p.yPerc(this.moveTo.y));
-// }else {
-//     p.ctx.moveTo((this.moveTo.x),(this.moveTo.y));
-// }
+draw(p: Pack): boolean {
+if (this.vertices.length < 2) {console.warn("Lines component needs atleast 3 pair of vertices");
+return false;}    
+p.commitCtxData(this.style);
+p.ctx.beginPath(); 
+//--seperate moveTo x and y from vertices
+if (this.d.responsive == true){
+    p.ctx.moveTo(p.xPerc(this.moveTo.x),p.yPerc(this.moveTo.y));
+}else {
+    p.ctx.moveTo((this.moveTo.x),(this.moveTo.y));
+}
 
-//     for (let i = 0; i < this.vertices.length; i++) {
-//         const pos = this.vertices[i];
-//         if (this.d.responsive == true){
-//         p.ctx.lineTo(p.xPerc(pos.x),p.yPerc(pos.y));
-//         }else {
-//         p.ctx.lineTo((pos.x),(pos.y));    
-//         }
-//     }
-//     //--do not draw the last line
-//     p.ctx.closePath(); //importantay
-//         if (this.d.flagFilled == true){
-//             p.ctx.fill();
-//             // p.ctx.stroke();
-//         }else {
-//             p.ctx.stroke();
-//         }
-//  return true;   
-// }
+    for (let i = 0; i < this.vertices.length; i++) {
+        const pos = this.vertices[i];
+        if (this.d.responsive == true){
+        p.ctx.lineTo(p.xPerc(pos.x),p.yPerc(pos.y));
+        }else {
+        p.ctx.lineTo((pos.x),(pos.y));    
+        }
+    }
+    //--do not draw the last line
+    p.ctx.closePath(); //importantay
+        if (this.d.flagFilled == true){
+            p.ctx.fill();
+            // p.ctx.stroke();
+        }else {
+            p.ctx.stroke();
+        }
+ return true;   
+}
 
-// add(x :number=0,y:number=0){
-// let v = new Vertex(x,y); 
-// this.vertices.push(v);
-// }
-// //very simple function just do not put abstractions here-- keep it simple and pure 
-
-// }
+add(x :number=0,y:number=0){
+let v = new Vertex(x,y); 
+this.vertices.push(v);
+}
+//very simple function just do not put abstractions here-- keep it simple and pure 
+ 
+}
