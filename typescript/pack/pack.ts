@@ -137,10 +137,11 @@ this.commitCtxData(style);
 
 this.ctx.arcTo(start.x,start.y,end.x,end.y,radius);    
 }
-public drawCircle(x :number, y:number, radius:number,fill :boolean,incomCtx:Style,startAngle=0 , endAngle= 2 * Math.PI){
+
+public drawCircle(x :number=0, y:number=0, radius:number=25,fill :boolean=false,startAngle=0 , endAngle:number = (2 * Math.PI),incomCtx:Style){
 this.commitCtxData(incomCtx);
 this.ctx.beginPath();
-this.ctx.arc(x + radius, y+radius, radius, startAngle, endAngle, false);
+this.ctx.arc(x, y, radius, startAngle, endAngle, false);
                 if (fill == true){
                     this.ctx.fill();
                 }

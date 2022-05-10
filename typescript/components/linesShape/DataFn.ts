@@ -6,7 +6,7 @@ flagFilled:boolean;
 // responsive:boolean;
 lineWidth :number;
 color :string;
-
+ 
  
 constructor(){
 super();    

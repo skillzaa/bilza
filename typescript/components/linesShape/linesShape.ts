@@ -3,8 +3,8 @@
 
 // import Vertex from "./Vertex.js";
 
-// export default class Lines extends Component<ObjectData>{
-
+// export default class LinesShape extends Component<ObjectData>{
+ 
 // private    vertices:Vertex[];
 // private    moveTo:Vertex;
 

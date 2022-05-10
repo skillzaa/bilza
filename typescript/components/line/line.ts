@@ -3,8 +3,8 @@ import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class Line extends Component<ObjectData> {
 
-constructor (x1 :number=0, y1 :number=0,x2:number=100,y2:number=100,color:string="black",lineWidth:number=2){
-    super(DataFn);
+constructor (startTimeSeconds :number=0,endTimeSeconds:number=300, x1 :number=0, y1 :number=0,x2:number=100,y2:number=100,color:string="black",lineWidth:number=2){
+    super(DataFn,startTimeSeconds,endTimeSeconds);
     this.d.x1 = x1;
     this.d.y1 = y1;
     this.d.x2 = x2;

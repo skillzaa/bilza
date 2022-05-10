@@ -8,7 +8,7 @@ import Rect from "../components/rect/rect.js";
 import Image from "../components/image/image.js";
 import Counter from "../components/counter/counter.js";
 import Line from "../components/line/line.js";
-// import Circle from "../components/circle/circle.js";
+import Circle from "../components/circle/circle.js";
 // import BgShapes from "../components/bgShapes/bgShapes.js";
 // import List from "../components/list/list.js";
 // import Lines from "../components/lines/lines.js";
@@ -65,10 +65,20 @@ Image(startTimeSeconds :number=0,
     return bs;        
 }
 
-line(x1 :number=0, y1 :number=0,x2:number=100,y2:number=100,color:string="black",lineWidth:number=2){
-    let bs = new Line(x1,y1,x2,y2,color,lineWidth);
+line(startTimeSeconds :number=0,endTimeSeconds:number=300, x1 :number=0, y1 :number=0,x2:number=100,y2:number=100,color:string="black",lineWidth:number=2){
+    let bs = new Line(startTimeSeconds,endTimeSeconds, x1,y1,x2,y2,color,lineWidth);
     this.insert(bs);
     return bs;        
+}
+
+circle(startTimeSeconds :number=0,endTimeSeconds:number=300,
+    x :number=0,y :number=0,radiusPercent :number = 10,color:string="grey",
+    fill :boolean=true, startAngle :number=0,endAngle :number=2 * Math.PI){
+        
+    let item = new Circle(startTimeSeconds,endTimeSeconds,
+        x,y,radiusPercent,color,fill,startAngle,endAngle);
+    this.insert(item);
+    return item;
 }
 
 
@@ -106,14 +116,6 @@ line(x1 :number=0, y1 :number=0,x2:number=100,y2:number=100,color:string="black"
 //     return g;
 // }
 
-
-// circle(x :number=100, y :number=100){
-//     let item = new Circle();
-//     item.d.x = x;
-//     item.d.y = y;
-//     this.insert(item);
-//     return item;
-// }
 
 
 }///compFactory

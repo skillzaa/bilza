@@ -5,6 +5,7 @@ import Rect from "../components/rect/rect.js";
 import Image from "../components/image/image.js";
 import Counter from "../components/counter/counter.js";
 import Line from "../components/line/line.js";
+import Circle from "../components/circle/circle.js";
 export default class CompFactory {
     constructor(insert, pack) {
         this.insert = insert;
@@ -40,9 +41,14 @@ export default class CompFactory {
         this.insert(bs);
         return bs;
     }
-    line(x1 = 0, y1 = 0, x2 = 100, y2 = 100, color = "black", lineWidth = 2) {
-        let bs = new Line(x1, y1, x2, y2, color, lineWidth);
+    line(startTimeSeconds = 0, endTimeSeconds = 300, x1 = 0, y1 = 0, x2 = 100, y2 = 100, color = "black", lineWidth = 2) {
+        let bs = new Line(startTimeSeconds, endTimeSeconds, x1, y1, x2, y2, color, lineWidth);
         this.insert(bs);
         return bs;
+    }
+    circle(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, radiusPercent = 10, color = "grey", fill = true, startAngle = 0, endAngle = 2 * Math.PI) {
+        let item = new Circle(startTimeSeconds, endTimeSeconds, x, y, radiusPercent, color, fill, startAngle, endAngle);
+        this.insert(item);
+        return item;
     }
 }

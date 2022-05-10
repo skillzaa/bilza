@@ -105,10 +105,10 @@ export default class Pack {
         this.commitCtxData(style);
         this.ctx.arcTo(start.x, start.y, end.x, end.y, radius);
     }
-    drawCircle(x, y, radius, fill, incomCtx, startAngle = 0, endAngle = 2 * Math.PI) {
+    drawCircle(x = 0, y = 0, radius = 25, fill = false, startAngle = 0, endAngle = (2 * Math.PI), incomCtx) {
         this.commitCtxData(incomCtx);
         this.ctx.beginPath();
-        this.ctx.arc(x + radius, y + radius, radius, startAngle, endAngle, false);
+        this.ctx.arc(x, y, radius, startAngle, endAngle, false);
         if (fill == true) {
             this.ctx.fill();
         }

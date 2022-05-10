@@ -1,10 +1,8 @@
 import CompDataBase from "../../design/CompDataBase.js";
 export declare class ObjectData extends CompDataBase {
-    startAngle: number;
-    endAngle: number;
-    radiusPercent: number;
+    flagFilled: boolean;
+    lineWidth: number;
     color: string;
-    fill: boolean;
     constructor();
 }
 export default function DataFn(): ObjectData;
