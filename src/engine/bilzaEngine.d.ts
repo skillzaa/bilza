@@ -3,7 +3,7 @@ import CompFactory from "../compFactory/compFactory.js";
 import Background from "../components/background/background.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-import Comps from "./comps/comps.js";
+import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 export default class Bilza {
     add: CompFactory;
@@ -22,7 +22,7 @@ export default class Bilza {
     init: () => boolean;
     resizeAll: (width: number, height: number) => boolean;
     drawByDrawLayer: (msDelta: number, drawLayer: DrawLayer, pack: Pack) => boolean;
-    constructor(canvasId?: string, timeEndSec?: number, canvasWidth?: number, canvasHeight?: null | number);
+    constructor(canvasId?: string, duration?: number, canvasWidth?: number, canvasHeight?: null | number);
     start(): boolean;
     drawInit(): void;
     draw(): boolean;

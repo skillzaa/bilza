@@ -2,8 +2,10 @@ import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./textData.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 export default class Text extends Component {
-    constructor(startTimeSeconds = 0, endTimeSeconds = 300, content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 20, dynHeight = 20) {
-        super(DataFn, startTimeSeconds, endTimeSeconds);
+    constructor(startTime = 0, duration = 300, content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 20, dynHeight = 20) {
+        super(DataFn);
+        this.startTime = startTime;
+        this.duration = duration;
         this.d.content = content;
         this.d.x = x;
         this.d.y = y;

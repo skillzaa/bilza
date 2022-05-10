@@ -1,10 +1,15 @@
 import { Style, DrawLayer, Transition } from "../Bilza.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
+import { DisplayTypeOptions } from "./displayTypeOptions.js";
 export default class Component {
-    constructor(DataFn, startSec = 0, endSec = 300) {
+    constructor(DataFn) {
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
+        this.displayTypeOptions = DisplayTypeOptions;
+        this.displayType = this.displayTypeOptions.Timed;
+        this.duration = 10;
+        this.startTime = 0;
         this.compData = new Transition(DataFn);
         this.d = this.compData.data;
         this.data = this.compData.data;
@@ -12,23 +17,6 @@ export default class Component {
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
         this.msStart = 0;
-        this.msEnd = 550000;
-        this.setStartTime(startSec);
-        this.setEndTime(endSec);
-    }
-    getStartTime() {
-        return this.msStart;
-    }
-    setStartTime(seconds = 0) {
-        this.msStart = seconds * 1000;
-        return this.msStart;
-    }
-    getEndTime() {
-        return this.msEnd;
-    }
-    setEndTime(seconds = 300) {
-        this.msEnd = seconds * 1000;
-        return this.msEnd;
     }
     width(p) {
         return 0;
@@ -115,5 +103,12 @@ export default class Component {
                 break;
         }
         return y;
+    }
+    getEndTime(inMilliSec = true) {
+        let r = this.startTime + this.duration;
+        return inMilliSec ? (r * 1000) : r;
+    }
+    getStartTime(inMilliSec = true) {
+        return inMilliSec ? (this.startTime * 1000) : this.startTime;
     }
 }

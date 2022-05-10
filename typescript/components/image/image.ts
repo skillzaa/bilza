@@ -11,11 +11,13 @@ export default class BilzaImage extends Component<ImageData> {
     img :HTMLImageElement;
     orignalWidth :number;
     orignalHeight :number;
-constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,
+constructor (startTime :number=0,duration:number=300,
     imgId :string,
     x :number=0, y :number=0){
 
-    super(DataFn,startTimeSeconds,endTimeSeconds);
+    super(DataFn);
+    this.startTime = startTime;
+    this.duration = duration;
     this.xAlignmentOptions = XAlignment; //final-ok
     this.yAlignmentOptions = YAlignment; //final-ok
    

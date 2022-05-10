@@ -4,17 +4,17 @@ import Background from "../components/background/background.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-import Comps from "./comps/comps.js";
+import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
 export default class Bilza {
-    constructor(canvasId = "bilza", timeEndSec = 60, canvasWidth = 800, canvasHeight = null) {
+    constructor(canvasId = "bilza", duration = 60, canvasWidth = 800, canvasHeight = null) {
         this.util = new Fn();
         this.canvas = getCanvasElement(canvasId);
         this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
         this.background = new Background();
         this.timeStart = null;
-        this.timeEnd = timeEndSec * 1000;
+        this.timeEnd = duration * 1000;
         this.interval = null;
         this.msPerFrame = 100;
         this.comps = new Comps(this.pack);

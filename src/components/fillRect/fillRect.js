@@ -1,8 +1,10 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class FillRect extends Component {
-    constructor(startTimeSeconds = 0, endTimeSeconds = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10, colorHex = "#008000") {
-        super(DataFn, startTimeSeconds, endTimeSeconds);
+    constructor(startTime = 0, duration = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10, colorHex = "#008000") {
+        super(DataFn);
+        this.startTime = startTime;
+        this.duration = duration;
         this.d.x = x;
         this.d.y = y;
         this.d.color = colorHex;

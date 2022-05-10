@@ -1,7 +1,7 @@
 import { Component, Pack } from "../../Bilza.js";
 import { ObjectData } from "./textData.js";
 export default class Text extends Component<ObjectData> {
-    constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string, x?: number, y?: number, dynWidth?: number, dynHeight?: number);
+    constructor(startTime?: number, duration?: number, content?: string, colorHax?: string, x?: number, y?: number, dynWidth?: number, dynHeight?: number);
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;

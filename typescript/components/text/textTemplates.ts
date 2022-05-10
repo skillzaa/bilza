@@ -1,4 +1,4 @@
-import IComponent from "../../design/IComponent.js";
+import IComponent from "../../BaseComponent/IComponent.js";
 import Text from "./text.js";
 ///--later use util.lighte..
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";

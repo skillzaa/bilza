@@ -1,8 +1,9 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class Grid extends Component {
-    constructor(msStart = 0, msEnd = Number.MAX_SAFE_INTEGER) {
-        super(DataFn, msStart, msEnd);
+    constructor() {
+        super(DataFn);
+        this.displayType = this.displayTypeOptions.AlwaysOn;
         this.drawLayer = DrawLayer.BackGround;
     }
     draw(p) {

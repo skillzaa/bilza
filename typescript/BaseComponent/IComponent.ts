@@ -1,5 +1,6 @@
 import Pack from "../pack/pack.js";
-import {DrawLayer} from "./drawLayer.js";
+import {DrawLayer} from "../design/drawLayer.js";
+import {DisplayTypeOptions} from "./displayTypeOptions.js";
 
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business legic etc inside. That will come when we build systems.
@@ -13,11 +14,11 @@ export default interface IComponent{
 
     
     //--we can set the start frame and end frame externally
-    getStartTime():number;
-    setStartTime(n :number):number;
+    // getStartTime():number;
+    // setStartTime(n :number):number;
     //--we can set the start frame and end frame externally
-    getEndTime():number;
-    setEndTime(n :number):number;
+    // getEndTime():number;
+    // setEndTime(n :number):number;
     
     //--we can get the width and height thus we can use components into array and trees like table,list etc
     //-- since we have to use it externally thus Pack is always avaialbe
@@ -35,5 +36,9 @@ export default interface IComponent{
     ///----check collision
     checkCollision(x :number,y :number, p :Pack):boolean;
     resize(width :number,height :number):number;
-
+//---------------
+getEndTime(inMilliSec ?:boolean) :number;
+getStartTime(inMilliSec ?:boolean) :number;
+displayType :DisplayTypeOptions;
+displayTypeOptions:typeof DisplayTypeOptions
 }

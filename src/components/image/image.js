@@ -3,8 +3,10 @@ import DataFn from "./imageData.js";
 import { XAlignment } from "../../BaseComponent/xAlignment.js";
 import { YAlignment } from "../../BaseComponent/yAlignment.js";
 export default class BilzaImage extends Component {
-    constructor(startTimeSeconds = 0, endTimeSeconds = 300, imgId, x = 0, y = 0) {
-        super(DataFn, startTimeSeconds, endTimeSeconds);
+    constructor(startTime = 0, duration = 300, imgId, x = 0, y = 0) {
+        super(DataFn);
+        this.startTime = startTime;
+        this.duration = duration;
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
         this.img = document.getElementById(imgId);

@@ -4,7 +4,7 @@ import Style from "./style.js";
 //--the name shd be Bilza and not BilzaEngine
 import Bilza from "./engine/bilzaEngine.js";
 import {DrawLayer} from "./design/drawLayer.js";
-import IComponent from "./design/IComponent.js";
+import IComponent from "./BaseComponent/IComponent.js";
 import Transition from "./transition/transition.js";
 import {FontNames} from "./design/fontNames.js";
 import IMsStart from "./design/IMsStart.js";

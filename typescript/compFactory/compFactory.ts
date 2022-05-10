@@ -26,56 +26,56 @@ this.insert = insert;
 this.pack = pack;
 }
 
-text(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20):Text {
-let bs = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,x,y,dynWidth,dynHeight);
+text(startTime :number=0,duration:number=10,content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20):Text {
+let bs = new Text(startTime,duration,content,colorHax,x,y,dynWidth,dynHeight);
 
 this.insert(bs);
     return bs;        
 }
-grid(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,colorHax :string="#000000",cellWidthPerc :number=10,cellHeightPerc :number=10){
-let g = new Grid(msStart,msEnd,colorHax,cellWidthPerc,cellHeightPerc);
+grid(colorHax :string="#000000",cellWidthPerc :number=10,cellHeightPerc :number=10){
+let g = new Grid(colorHax,cellWidthPerc,cellHeightPerc);
     this.insert(g);
     return g;
 }
-counter(msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER,loc :string = "rb"){
-    let item = new Counter(msStart,msEnd,loc);
+counter(startTime :number =0, duration :number = 10,loc :string = "rb"){
+    let item = new Counter(startTime,duration,loc);
     
     this.insert(item);
     return item;
 }
-rect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
-    let bs = new Rect(startTimeSeconds,endTimeSeconds,x, y,widthPercent, heightPercent,colorHex);
+rect(startTime :number=0,duration:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
+    let bs = new Rect(startTime,duration,x, y,widthPercent, heightPercent,colorHex);
     this.insert(bs);
     return bs;        
 }
-fillRect(startTimeSeconds :number=0,endTimeSeconds:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
-    let bs = new FillRect(startTimeSeconds,endTimeSeconds,x, y,widthPercent, heightPercent,colorHex);
+fillRect(startTime :number=0,duration:number=10,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
+    let bs = new FillRect(startTime,duration,x, y,widthPercent, heightPercent,colorHex);
     this.insert(bs);
     return bs;        
 }
-Image(startTimeSeconds :number=0,
-    endTimeSeconds:number=300,
+Image(startTime :number=0,
+    duration:number=300,
     imgId :string,
     x :number=0, y :number=0
     ){
 
-    let bs = new Image(startTimeSeconds,endTimeSeconds,
+    let bs = new Image(startTime,duration,
         imgId,x,y);
     this.insert(bs);
     return bs;        
 }
 
-line(startTimeSeconds :number=0,endTimeSeconds:number=300, x1 :number=0, y1 :number=0,x2:number=100,y2:number=100,color:string="black",lineWidth:number=2){
-    let bs = new Line(startTimeSeconds,endTimeSeconds, x1,y1,x2,y2,color,lineWidth);
+line(startTime :number=0,duration:number=300, x1 :number=0, y1 :number=0,x2:number=100,y2:number=100,color:string="black",lineWidth:number=2){
+    let bs = new Line(startTime,duration, x1,y1,x2,y2,color,lineWidth);
     this.insert(bs);
     return bs;        
 }
 
-circle(startTimeSeconds :number=0,endTimeSeconds:number=300,
+circle(startTime :number=0,duration:number=300,
     x :number=0,y :number=0,radiusPercent :number = 10,color:string="grey",
     fill :boolean=true, startAngle :number=0,endAngle :number=2 * Math.PI){
         
-    let item = new Circle(startTimeSeconds,endTimeSeconds,
+    let item = new Circle(startTime,duration,
         x,y,radiusPercent,color,fill,startAngle,endAngle);
     this.insert(item);
     return item;

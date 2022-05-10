@@ -2,6 +2,7 @@ import { Style, Pack, IComponent, DrawLayer, Transition } from "../Bilza.js";
 import CompDataBase from "./CompDataBase.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
+import { DisplayTypeOptions } from "./displayTypeOptions.js";
 export default class Component<T extends CompDataBase> implements IComponent {
     protected compData: Transition<T>;
     d: T;
@@ -9,15 +10,14 @@ export default class Component<T extends CompDataBase> implements IComponent {
     readonly id: string;
     drawLayer: DrawLayer;
     protected msStart: number;
-    protected msEnd: number;
     style: Style;
     xAlignmentOptions: typeof XAlignment;
     yAlignmentOptions: typeof YAlignment;
-    constructor(DataFn: () => T, startSec?: number, endSec?: number);
-    getStartTime(): number;
-    setStartTime(seconds?: number): number;
-    getEndTime(): number;
-    setEndTime(seconds?: number): number;
+    displayTypeOptions: typeof DisplayTypeOptions;
+    displayType: DisplayTypeOptions;
+    duration: number;
+    protected startTime: number;
+    constructor(DataFn: () => T);
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;
@@ -34,5 +34,7 @@ export default class Component<T extends CompDataBase> implements IComponent {
     applyTransition(msDelta: number): void;
     protected xAfterAlignment(p: Pack): number;
     protected yAfterAlignment(p: Pack): number;
+    getEndTime(inMilliSec?: boolean): number;
+    getStartTime(inMilliSec?: boolean): number;
 }
 //# sourceMappingURL=component.d.ts.map

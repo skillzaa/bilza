@@ -6,7 +6,7 @@ import Text from "../components/text/text.js";
 //----------Templates
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-import Comps from "./comps/comps.js";
+import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
 
@@ -35,7 +35,7 @@ resizeAll : (width :number,height :number)=>boolean;
 drawByDrawLayer :(msDelta :number,drawLayer :DrawLayer,pack :Pack)=>boolean;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=null){
+constructor (canvasId="bilza",duration=60,canvasWidth=800,canvasHeight :null|number=null){
 //internal seq of args is different from enternal seq of args    
 this.util = new Fn();  
 //i dont need to save canvas id for later???
@@ -46,8 +46,8 @@ this.pack = new Pack(this.canvas,canvasWidth,canvasHeight);
 /////
 this.background = new Background();
 ///////////////
-this.timeStart = null; 
-this.timeEnd = timeEndSec * 1000; //to convert into milli sec
+this.timeStart = null; //--this is for stopWatch ??!!!!
+this.timeEnd = duration * 1000; //to convert into milli sec
 this.interval = null; //to save setInterval handler
 // this.msPerFrame = 1000; // 1 sec
 this.msPerFrame = 100; //make it 100 ms

@@ -3,11 +3,14 @@ import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class Circle extends Component<ObjectData> {
  
-constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,
+constructor (startTime :number=0,duration:number=300,
     x :number=0,y :number=0,radiusPercent :number = 10,color:string="grey",
     fill :boolean=true, startAngle :number=0,endAngle :number=2 * Math.PI){
 
-    super(DataFn,startTimeSeconds,endTimeSeconds);
+    super(DataFn);
+    this.startTime = startTime;
+    this.duration = duration;
+    
     this.d.x = x;
     this.d.y = y;
     this.d.color = color;

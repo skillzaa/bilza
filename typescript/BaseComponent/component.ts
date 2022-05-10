@@ -2,6 +2,7 @@ import {Style,Pack,IComponent,DrawLayer,Transition,IMsStart} from "../Bilza.js";
 import CompDataBase from "./CompDataBase.js";
 import {XAlignment} from "./xAlignment.js";
 import {YAlignment} from "./yAlignment.js";
+import {DisplayTypeOptions} from "./displayTypeOptions.js";
 //--This is an Abstract class
 export default class Component  <T extends CompDataBase> implements IComponent {
 //compData is the transition object and T is the obj it takes in
@@ -24,14 +25,19 @@ public readonly id :string;
 //--we do not keep x and y in component since all tools dont need it
 public drawLayer : DrawLayer; 
 //----------------------
+//---??? what exactly is this msStart???????????????
 protected msStart :number;   
-protected msEnd :number;
 //--previously I was using many style obj in my component sub-classes but now i have atleast one this.style available, if a component sub-classes (tool class) wants it can have its own styles as well. loose coupling.
 public style:Style;
 //-----Alignment
 public xAlignmentOptions:typeof XAlignment;   
 public yAlignmentOptions:typeof YAlignment;  
+public displayTypeOptions:typeof DisplayTypeOptions; //these r options list 
 
+//----Display Type and Timing Options
+public displayType :DisplayTypeOptions;
+public duration :number; //why public??????????
+protected startTime :number;
 
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -39,11 +45,15 @@ public yAlignmentOptions:typeof YAlignment;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // endTimeSec = 300 sec = minnutes or 300,000 ms
-constructor (DataFn :()=>T,startSec=0,endSec = 300){
+constructor (DataFn :()=>T){
 
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
-
+this.displayTypeOptions = DisplayTypeOptions; //final-ok
+this.displayType = this.displayTypeOptions.Timed; //Timed = default
+this.duration = 10; //final-ok
+this.startTime = 0; //final-ok
+//--there is no this.endTime --since has this.endTime()
 this.compData = new Transition(DataFn);    
 this.d = this.compData.data;
 this.data = this.compData.data;
@@ -56,26 +66,7 @@ this.id = Math.random().toString(36).slice(2);
 this.style = new Style(); 
 
 this.msStart = 0; //typescript deamnds it
-this.msEnd = 550000;//typescript deamnds it
-//--keep it in a methos since oter actions may happen there
-this.setStartTime(startSec);//in future i may run some otehr code in these fn
-this.setEndTime(endSec);
-}
-
-getStartTime() :number{
-return this.msStart;
-}
-
-setStartTime(seconds :number=0):number{
-this.msStart = seconds * 1000;
-return this.msStart;
-}
-getEndTime() :number{
-    return this.msEnd;
-}
-setEndTime(seconds :number=300):number{
-this.msEnd = seconds * 1000;
-return this.msEnd;
+// this.msEnd = 550000;//--removed!!!!!!!!!!!!!!!!
 }
 
 width(p: Pack): number {
@@ -137,7 +128,7 @@ applyTransition(msDelta :number){
 }
 
 protected xAfterAlignment(p :Pack):number{
-let x = this.d.x;    
+let x = this.d.x; //does  not change the orignal X   
         if (this.d.useRelativeXY == true){
             x =   p.xPerc(this.d.x);  
         }    
@@ -173,6 +164,13 @@ switch (this.d.yAlignment) {
         break;
 }
 return y ;
+}
+getEndTime(inMilliSec :boolean = true) :number{
+let r = this.startTime + this.duration;
+return inMilliSec ? (r * 1000) : r;
+}
+getStartTime(inMilliSec :boolean = true) :number{
+return inMilliSec ? (this.startTime * 1000) : this.startTime;    
 }
 ////////////////////////////////////////////////////////
 }//component ends

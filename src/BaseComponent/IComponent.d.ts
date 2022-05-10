@@ -1,5 +1,6 @@
 import Pack from "../pack/pack.js";
-import { DrawLayer } from "./drawLayer.js";
+import { DrawLayer } from "../design/drawLayer.js";
+import { DisplayTypeOptions } from "./displayTypeOptions.js";
 export default interface IComponent {
     drawLayer: DrawLayer;
     width(p: Pack): number;
@@ -9,7 +10,9 @@ export default interface IComponent {
     draw(p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;
     resize(width: number, height: number): number;
-    getEndTime(): number;
-    getStartTime(): number;
+    getEndTime(inMilliSec?: boolean): number;
+    getStartTime(inMilliSec?: boolean): number;
+    displayType: DisplayTypeOptions;
+    displayTypeOptions: typeof DisplayTypeOptions;
 }
 //# sourceMappingURL=IComponent.d.ts.map

@@ -3,9 +3,10 @@ import DataFn,{ObjectData} from "./DataFn.js";
 
 export default class Grid extends Component<ObjectData> {
  
-constructor (msStart :number =0, msEnd :number = Number.MAX_SAFE_INTEGER){
-super(DataFn,msStart,msEnd);
-
+constructor (){
+super(DataFn);
+//---no need to set anything else this is alwasy be visisble
+this.displayType = this.displayTypeOptions.AlwaysOn;
 this.drawLayer = DrawLayer.BackGround;   
 }    
 
