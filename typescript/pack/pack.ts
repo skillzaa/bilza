@@ -36,7 +36,7 @@ return this.canvas.height;
 public quadraticCurveTo(start :Position,end :Position,controlPoint :Position, style :Style){
     this.commitCtxData(style);
     this.beginPath();
-this.moveTo(start);
+this.moveTo(start.x,start.y);
 this.ctx.quadraticCurveTo(controlPoint.x, controlPoint.y, end.x, end.y);
 this.stroke();
 }
@@ -108,8 +108,8 @@ public beginPath(){
 public closePath(){
     this.ctx.closePath();
 }
-public moveTo(pos :Position){
-    this.ctx.moveTo(pos.x,pos.y);
+public moveTo(x :number , y :number){
+    this.ctx.moveTo(x,y);
 }
 public lineTo(x :number,y :number,style:Style){
     this.commitCtxData(style);

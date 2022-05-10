@@ -28,7 +28,7 @@ export default class Pack {
     quadraticCurveTo(start, end, controlPoint, style) {
         this.commitCtxData(style);
         this.beginPath();
-        this.moveTo(start);
+        this.moveTo(start.x, start.y);
         this.ctx.quadraticCurveTo(controlPoint.x, controlPoint.y, end.x, end.y);
         this.stroke();
     }
@@ -77,8 +77,8 @@ export default class Pack {
     closePath() {
         this.ctx.closePath();
     }
-    moveTo(pos) {
-        this.ctx.moveTo(pos.x, pos.y);
+    moveTo(x, y) {
+        this.ctx.moveTo(x, y);
     }
     lineTo(x, y, style) {
         this.commitCtxData(style);

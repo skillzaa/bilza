@@ -34,6 +34,7 @@ init : ()=>boolean;
 resizeAll : (width :number,height :number)=>boolean;
 drawByDrawLayer :(msDelta :number,drawLayer :DrawLayer,pack :Pack)=>boolean;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",timeEndSec=60,canvasWidth=800,canvasHeight :null|number=null){
 //internal seq of args is different from enternal seq of args    
 this.util = new Fn();  
@@ -64,8 +65,6 @@ this.gridTempl = new GridTemplates(this.insert.bind(this));
 
 
 } 
-//--moved her due to  
-
 start() :boolean{
 if (this.timeStart !== null){return false;}
 else {
@@ -78,8 +77,6 @@ else {
         return true;
 }    
 }
-
-////////////////////////////////////// 
 public drawInit(){
     this.init();
     this.draw();
@@ -104,7 +101,6 @@ drawEvent(msDelta :number):boolean{
 // console.log("drawEventn");
     return true;
 }
-
 dynamicCanvas(widthInPercent :number = 95,heightInPercent :number | null=null):boolean{
 let wd = window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
 let ht :number | null = null;
@@ -115,45 +111,7 @@ if (heightInPercent !== null){
 return true;
 // }
 }
-//---this is a Text component consumer method- i need seperate files for such type of methods. The Bilza engine is in a vertical hierarchy i.e classic parent to child to grand child.
-public dynamicFontSize(txt :Text,widthPercent :number=10,heightPercent :number | null=null,setFontSize :boolean=true):number | null{
-    if (heightPercent == null){heightPercent = widthPercent;}
-let reqWd = (this.pack.canvasWidth() /100 * widthPercent);
-let reqHt = (this.pack.canvasWidth() /100 * heightPercent);
-// if txt.d.fontSize is recently set then txt.style.fontSize may be different since they sync in draw or update fn. So sync then and then just use style and finally sync both
-txt.style.fontSize = txt.d.fontSize;
-let oldFontSize = txt.d.fontSize;
-let newWidth = 0; 
-let newHeight = 0;
-
-    for (let i = 1; i < 900; i++) {
-    //----Big secret found in the code txt.d.fontSize vs text.style.fontSize
-    // txt.d.fontSize = i; 
-    txt.style.fontSize = i; 
-    newWidth = txt.width(this.pack)
-    newHeight = txt.height(this.pack);
-//---which Ever is reached first
-//console.log("i",i, "newWidth",newWidth,"reqWd",reqWd);
-//console.log("----");
-    if (newWidth >= reqWd || newHeight >= reqHt){
-        // console.log("dynamicFontSize",returnFontSize);
-        if (setFontSize == false){
-            txt.d.fontSize = oldFontSize; 
-            txt.style.fontSize = oldFontSize; 
-            return i;
-        }else {
-            txt.d.fontSize = i; 
-            txt.style.fontSize = i;
-            return txt.d.fontSize;
-        }
-    } 
-}//for end  
-//console.log("txt.d.fontSize",txt.d.fontSize);
-return null;
-}//dynamic font size
-
 ////////////////////////////////////////////////////
-
 //Timer
 getTimeEnd():number{
 return this.timeEnd;
@@ -163,7 +121,6 @@ setTimeEnd(n :number) :number{
 this.timeEnd = n;
 return this.timeEnd;
 }
-
 protected getMsDelta() :number{
 if (this.timeStart ==null){   
     return 0;
@@ -178,8 +135,6 @@ if (n > this.getTimeEnd() || n < 0){return 0;}//0 = this.timeStart
 this.timeStart = new Date().getTime() - n;
 return this.timeStart;
 }
-
-
 stop():boolean{
     this.timeStart = null;
     if (this.interval !== null){
@@ -187,9 +142,7 @@ stop():boolean{
     }
 return true;    
 }
-
 ////////////////////////////////////////////////////
-
 setCanvas(width :number = 800,height :number|null = null){
     if (height ==null){
         height = this.util.aspectRatioHeight(width);
@@ -207,15 +160,9 @@ return this.pack.canvasHeight();
 getCanvasWidth():number{
 return this.pack.canvasWidth();    
 }
-///insert moved to 03Canvas setup since it needs pack for comp.init 
-
-//--Test created
 chqCollision(x :number, y :number):IComponent | null{
     return null;
 }
-
-    
-////---????????
-    
+   
 ////////////////////////////////////////////////////
 }//ends

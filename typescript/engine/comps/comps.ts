@@ -12,6 +12,18 @@ insert(comp:IComponent):IComponent{
     this.compsArray.push(comp);
     return comp;
 }
+// append(comp:IComponent, second :number):IComponent{
+//     let secondMs = second * 1000;
+//     let startTime = comp.getStartTime();
+//     let endTime = comp.getEndTime();
+//     comp.setStartTime(startTime + secondMs);
+//     comp.setEndTime(endTime + secondMs);
+//         if (this.getTimeEnd() < comp.getEndTime()){
+//             this.setTimeEnd(comp.getEndTime());
+//         }
+//     this.compsArray.push(comp);
+//     return comp;
+// }
 public init():boolean{
     for (let i = 0; i < this.compsArray.length; i++) {
     this.compsArray[i].init(this.pack);    
@@ -34,18 +46,7 @@ let comp = this.compsArray[i];
 return true;
 }
 
-// insertAt(comp:IComponent, second :number):IComponent{
-//     let secondMs = second * 1000;
-//     let startTime = comp.getStartTime();
-//     let endTime = comp.getEndTime();
-//     comp.setStartTime(startTime + secondMs);
-//     comp.setEndTime(endTime + secondMs);
-//         if (this.getTimeEnd() < comp.getEndTime()){
-//             this.setTimeEnd(comp.getEndTime());
-//         }
-//     this.compsArray.push(comp);
-//     return comp;
-// }
+
 resizeAll(width :number = 800,height :number = 400):boolean{
     for (let i = 0; i < this.compsArray.length; i++) {
         const element = this.compsArray[i];

@@ -18,7 +18,7 @@ export default class Pack {
     line(startX: number, startY: number, endX: number, endY: number): void;
     beginPath(): void;
     closePath(): void;
-    moveTo(pos: Position): void;
+    moveTo(x: number, y: number): void;
     lineTo(x: number, y: number, style: Style): void;
     fill(style: Style): void;
     stroke(): void;

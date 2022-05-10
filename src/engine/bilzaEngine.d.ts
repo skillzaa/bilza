@@ -1,7 +1,6 @@
 import { DrawLayer, IComponent, Pack } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "../components/background/background.js";
-import Text from "../components/text/text.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 import Comps from "./comps/comps.js";
@@ -29,7 +28,6 @@ export default class Bilza {
     draw(): boolean;
     drawEvent(msDelta: number): boolean;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
-    dynamicFontSize(txt: Text, widthPercent?: number, heightPercent?: number | null, setFontSize?: boolean): number | null;
     getTimeEnd(): number;
     setTimeEnd(n: number): number;
     protected getMsDelta(): number;

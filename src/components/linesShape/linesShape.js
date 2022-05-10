@@ -12,29 +12,18 @@ export default class LinesShape extends Component {
             console.warn("Lines component needs atleast 3 pair of vertices");
             return false;
         }
-        p.commitCtxData(this.style);
-        p.ctx.beginPath();
-        if (this.d.responsive == true) {
-            p.ctx.moveTo(p.xPerc(this.moveTo.x), p.yPerc(this.moveTo.y));
-        }
-        else {
-            p.ctx.moveTo((this.moveTo.x), (this.moveTo.y));
-        }
+        p.beginPath();
+        p.moveTo(p.xPerc(this.moveTo.x), p.yPerc(this.moveTo.y));
         for (let i = 0; i < this.vertices.length; i++) {
             const pos = this.vertices[i];
-            if (this.d.responsive == true) {
-                p.ctx.lineTo(p.xPerc(pos.x), p.yPerc(pos.y));
-            }
-            else {
-                p.ctx.lineTo((pos.x), (pos.y));
-            }
+            p.lineTo(p.xPerc(pos.x), p.yPerc(pos.y), this.style);
         }
-        p.ctx.closePath();
+        p.closePath();
         if (this.d.flagFilled == true) {
-            p.ctx.fill();
+            p.fill(this.style);
         }
         else {
-            p.ctx.stroke();
+            p.stroke();
         }
         return true;
     }
