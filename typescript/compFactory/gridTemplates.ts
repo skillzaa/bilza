@@ -13,7 +13,7 @@ dashed(linesColor :string = "#dee1e2"):Grid{
     let g = new Grid();
     g.shadowsOff();
     this.insert(g);
-    g.d.showNumbers =true; //no numbers
+    g.d.showNumbers =false; //no numbers
     g.d.colorNumbers = "#ff0000";
     g.d.lineWidthHorizontal = 1;
     g.d.lineWidthVertical = 1;

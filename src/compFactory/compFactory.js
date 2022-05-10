@@ -4,6 +4,7 @@ import FillRect from "../components/fillRect/fillRect.js";
 import Rect from "../components/rect/rect.js";
 import Image from "../components/image/image.js";
 import Counter from "../components/counter/counter.js";
+import Line from "../components/line/line.js";
 export default class CompFactory {
     constructor(insert, pack) {
         this.insert = insert;
@@ -36,6 +37,11 @@ export default class CompFactory {
     }
     Image(startTimeSeconds = 0, endTimeSeconds = 300, imgId, x = 0, y = 0) {
         let bs = new Image(startTimeSeconds, endTimeSeconds, imgId, x, y);
+        this.insert(bs);
+        return bs;
+    }
+    line(x1 = 0, y1 = 0, x2 = 100, y2 = 100, color = "black", lineWidth = 2) {
+        let bs = new Line(x1, y1, x2, y2, color, lineWidth);
         this.insert(bs);
         return bs;
     }

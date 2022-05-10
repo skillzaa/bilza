@@ -23,11 +23,7 @@ this.y1 = 0;
 this.x2 = 800;
 this.y2 = 100;
 this.lineWidth = 2;
-//--flags
-// this.flagShadow = false ;
-
 this.color = "red" ;
-// this.shadowColor = "grey" ;
  
 
 }

@@ -7,7 +7,7 @@ export default class GridTemplates {
         let g = new Grid();
         g.shadowsOff();
         this.insert(g);
-        g.d.showNumbers = true;
+        g.d.showNumbers = false;
         g.d.colorNumbers = "#ff0000";
         g.d.lineWidthHorizontal = 1;
         g.d.lineWidthVertical = 1;

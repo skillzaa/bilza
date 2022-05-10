@@ -7,10 +7,10 @@ import FillRect from "../components/fillRect/fillRect.js";
 import Rect from "../components/rect/rect.js";
 import Image from "../components/image/image.js";
 import Counter from "../components/counter/counter.js";
+import Line from "../components/line/line.js";
 // import Circle from "../components/circle/circle.js";
 // import BgShapes from "../components/bgShapes/bgShapes.js";
 // import List from "../components/list/list.js";
-// import Line from "../components/line/line.js";
 // import Lines from "../components/lines/lines.js";
 // import SlideHL from "../components/slideHL/slideHL.js";
 // import SlideHP from "../components/slideHP/slideHP.js";
@@ -64,6 +64,14 @@ Image(startTimeSeconds :number=0,
     this.insert(bs);
     return bs;        
 }
+
+line(x1 :number=0, y1 :number=0,x2:number=100,y2:number=100,color:string="black",lineWidth:number=2){
+    let bs = new Line(x1,y1,x2,y2,color,lineWidth);
+    this.insert(bs);
+    return bs;        
+}
+
+
 // slideHL(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,contentHdg :string="The Title",themeColor :string="#00ff37") {
 //     let bs = new SlideHL(startTimeSeconds,endTimeSeconds,contentHdg,themeColor);
 //     this.insert(bs);
@@ -82,12 +90,6 @@ Image(startTimeSeconds :number=0,
 
 // lines(x :number=0,y:number=0){
 //     let bs = new Lines(x,y);
-//     this.insert(bs);
-//     return bs;        
-// }
-
-// line(x1:number=0,y1:number=0,x2:number=100,y2:number=100, color:string="black",lineWidth:number=2){
-//     let bs = new Line(x1,y1,x2,y2,color,lineWidth);
 //     this.insert(bs);
 //     return bs;        
 // }
