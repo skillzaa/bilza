@@ -1,6 +1,6 @@
-import CompDataBase from "../../design/CompDataBase.js";  
-import {XAlignment} from "../compsDesign/xAlignment.js";
-import {YAlignment} from "../compsDesign/yAlignment.js";
+import CompDataBase from "../../BaseComponent/CompDataBase.js";  
+import {XAlignment} from "../../BaseComponent/xAlignment.js";
+import {YAlignment} from "../../BaseComponent/yAlignment.js";
 
 export class ObjectData extends CompDataBase{
 //--Basics
@@ -17,8 +17,7 @@ dynHeight :number;
 flagUseDynResize:boolean;
 flagShrinkHeightToFit:boolean;
 flagUseRelativeXY:boolean;
-xAlignment :XAlignment;
-yAlignment :YAlignment;
+
 //=======================poistioning ends===============
 
 //--colors

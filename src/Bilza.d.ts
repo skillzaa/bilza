@@ -1,4 +1,4 @@
-import Component from "./component.js";
+import Component from "./BaseComponent/component.js";
 import Pack from "./pack/pack.js";
 import Style from "./style.js";
 import Bilza from "./engine/bilzaEngine.js";

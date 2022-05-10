@@ -1,6 +1,4 @@
-import CompDataBase from "../../design/CompDataBase.js";
-import { XAlignment } from "../compsDesign/xAlignment.js";
-import { YAlignment } from "../compsDesign/yAlignment.js";
+import CompDataBase from "../../BaseComponent/CompDataBase.js";
 export declare class ObjectData extends CompDataBase {
     content: string;
     padding: number;
@@ -12,8 +10,6 @@ export declare class ObjectData extends CompDataBase {
     flagUseDynResize: boolean;
     flagShrinkHeightToFit: boolean;
     flagUseRelativeXY: boolean;
-    xAlignment: XAlignment;
-    yAlignment: YAlignment;
     color: string;
     colorBorder: string;
     colorBg: string;

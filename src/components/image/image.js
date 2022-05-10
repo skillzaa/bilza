@@ -1,7 +1,7 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./imageData.js";
-import { XAlignment } from "../compsDesign/xAlignment.js";
-import { YAlignment } from "../compsDesign/yAlignment.js";
+import { XAlignment } from "../../BaseComponent/xAlignment.js";
+import { YAlignment } from "../../BaseComponent/yAlignment.js";
 export default class BilzaImage extends Component {
     constructor(startTimeSeconds = 0, endTimeSeconds = 300, imgId, x = 0, y = 0) {
         super(DataFn, startTimeSeconds, endTimeSeconds);

@@ -1,6 +1,6 @@
-import CompDataBase from "../../design/CompDataBase.js";
-import { XAlignment } from "../compsDesign/xAlignment.js";
-import { YAlignment } from "../compsDesign/yAlignment.js";
+import CompDataBase from "../../BaseComponent/CompDataBase.js";
+import { XAlignment } from "../../BaseComponent/xAlignment.js";
+import { YAlignment } from "../../BaseComponent/yAlignment.js";
 export declare class ImageData extends CompDataBase {
     xAlignment: XAlignment;
     yAlignment: YAlignment;

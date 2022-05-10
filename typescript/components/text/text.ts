@@ -1,19 +1,19 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ObjectData} from "./textData.js";
-import {XAlignment} from "../compsDesign/xAlignment.js";
-import {YAlignment} from "../compsDesign/yAlignment.js";
+// import {XAlignment} from "../../BaseComponent/xAlignment.js";
+// import {YAlignment} from "../../BaseComponent/yAlignment.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 
 export default class Text extends Component<ObjectData> {
-    xAlignmentOptions:typeof XAlignment;   
-    yAlignmentOptions:typeof YAlignment;  
+    // xAlignmentOptions:typeof XAlignment;   
+    // yAlignmentOptions:typeof YAlignment;  
  
 //Args==> start-end-content-color-x-y
 constructor (startTimeSeconds :number=0,endTimeSeconds:number=300,content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20){
     
     super(DataFn,startTimeSeconds,endTimeSeconds);
-    this.xAlignmentOptions = XAlignment; //final-ok
-    this.yAlignmentOptions = YAlignment; //final-ok
+    // this.xAlignmentOptions = XAlignment; //final-ok
+    // this.yAlignmentOptions = YAlignment; //final-ok
 
     this.d.content = content;
     this.d.x = x;

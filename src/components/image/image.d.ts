@@ -1,7 +1,7 @@
 import { Component, Pack } from "../../Bilza.js";
 import { ImageData } from "./imageData.js";
-import { XAlignment } from "../compsDesign/xAlignment.js";
-import { YAlignment } from "../compsDesign/yAlignment.js";
+import { XAlignment } from "../../BaseComponent/xAlignment.js";
+import { YAlignment } from "../../BaseComponent/yAlignment.js";
 export default class BilzaImage extends Component<ImageData> {
     xAlignmentOptions: typeof XAlignment;
     yAlignmentOptions: typeof YAlignment;

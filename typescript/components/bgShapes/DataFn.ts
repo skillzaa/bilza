@@ -1,4 +1,4 @@
-import CompDataBase from "../../design/CompDataBase.js";
+import CompDataBase from "../../BaseComponent/CompDataBase.js";
 
 export class ObjectData extends CompDataBase {
 //////////////////////////

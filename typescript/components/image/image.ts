@@ -1,8 +1,8 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ImageData} from "./imageData.js";
 import aspectRatioHeight from "../../functions/aspectRatioHeight.js"; 
-import {XAlignment} from "../compsDesign/xAlignment.js";
-import {YAlignment} from "../compsDesign/yAlignment.js";
+import {XAlignment} from "../../BaseComponent/xAlignment.js";
+import {YAlignment} from "../../BaseComponent/yAlignment.js";
 
 
 export default class BilzaImage extends Component<ImageData> {

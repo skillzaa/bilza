@@ -1,4 +1,4 @@
-import CompDataBase from "../../design/CompDataBase.js";
+import CompDataBase from "../../BaseComponent/CompDataBase.js";
 export declare class ObjectData extends CompDataBase {
     startAngle: number;
     endAngle: number;

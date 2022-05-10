@@ -1,10 +1,6 @@
 import { Component, Pack } from "../../Bilza.js";
 import { ObjectData } from "./textData.js";
-import { XAlignment } from "../compsDesign/xAlignment.js";
-import { YAlignment } from "../compsDesign/yAlignment.js";
 export default class Text extends Component<ObjectData> {
-    xAlignmentOptions: typeof XAlignment;
-    yAlignmentOptions: typeof YAlignment;
     constructor(startTimeSeconds?: number, endTimeSeconds?: number, content?: string, colorHax?: string, x?: number, y?: number, dynWidth?: number, dynHeight?: number);
     width(p: Pack): number;
     height(p: Pack): number;

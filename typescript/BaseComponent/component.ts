@@ -1,5 +1,7 @@
-import {Style,Pack,IComponent,DrawLayer,Transition,IMsStart} from "./Bilza.js";
-import CompDataBase from "./design/CompDataBase.js";
+import {Style,Pack,IComponent,DrawLayer,Transition,IMsStart} from "../Bilza.js";
+import CompDataBase from "./CompDataBase.js";
+import {XAlignment} from "./xAlignment.js";
+import {YAlignment} from "./yAlignment.js";
 //--This is an Abstract class
 export default class Component  <T extends CompDataBase> implements IComponent {
 //compData is the transition object and T is the obj it takes in
@@ -26,9 +28,22 @@ protected msStart :number;
 protected msEnd :number;
 //--previously I was using many style obj in my component sub-classes but now i have atleast one this.style available, if a component sub-classes (tool class) wants it can have its own styles as well. loose coupling.
 public style:Style;
+//-----Alignment
+public xAlignmentOptions:typeof XAlignment;   
+public yAlignmentOptions:typeof YAlignment;  
+
+
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // endTimeSec = 300 sec = minnutes or 300,000 ms
 constructor (DataFn :()=>T,startSec=0,endSec = 300){
+
+this.xAlignmentOptions = XAlignment; //final-ok
+this.yAlignmentOptions = YAlignment; //final-ok
+
 this.compData = new Transition(DataFn);    
 this.d = this.compData.data;
 this.data = this.compData.data;
@@ -119,6 +134,45 @@ return true;
 
 applyTransition(msDelta :number){
     this.compData.apply(msDelta);
+}
+
+protected xAfterAlignment(p :Pack):number{
+let x = this.d.x;    
+        if (this.d.useRelativeXY == true){
+            x =   p.xPerc(this.d.x);  
+        }    
+switch (this.d.xAlignment) {
+    case this.xAlignmentOptions.Left:
+        
+        break;
+    case this.xAlignmentOptions.Mid:
+         x = Math.floor(x - ((this.width(p)/2)));
+        break;
+    
+    case this.xAlignmentOptions.Right:
+        Math.floor(x - (this.width(p)));
+        break;
+}
+return x ;
+}
+protected yAfterAlignment(p :Pack):number{
+    let y = this.d.y;    
+        if (this.d.useRelativeXY == true){
+            y =   p.yPerc(this.d.y);  
+        }    
+
+switch (this.d.yAlignment) {
+    case this.yAlignmentOptions.Top:
+        break;
+    case this.yAlignmentOptions.Mid:
+         y = Math.floor(y - ((this.height(p)/2)));
+        break;
+    
+    case this.yAlignmentOptions.Bot:
+        y = Math.floor(y - (this.height(p)));
+        break;
+}
+return y ;
 }
 ////////////////////////////////////////////////////////
 }//component ends
