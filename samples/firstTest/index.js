@@ -1,17 +1,18 @@
 // import Bilza from "../00lib/Bilza_0_0_13.js";
 import Bilza from "../../src/Bilza.js";
 
-let bil = new Bilza("bilza",60,1000,500);
+let bil = new Bilza("bilza",1000,500);
 // let g = bil.gridTempl.simple();
-let g = bil.add.grid(0,60000,"#0000ff");
+let g = bil.add.grid("#0000ff");
 
-let txt08 = bil.textTempl.rm();
-txt08.d.dynWidth = 40;
-txt08.d.dynHeight = 30;
+let txt = bil.add.text(10,"Again","#008000",0,0);
+// let txt08 = bil.textTempl.rm();
+// txt08.d.dynWidth = 40;
+// txt08.d.dynHeight = 30;
 
-let txt01 = bil.add.text(0,50000,"Real Test","#008000",0,0,40,20);
-txt01.d.colorBg = "#ff0000";
-txt01.d.showBg = true;
+// let txt01 = bil.add.text(0,50000,"Real Test","#008000",0,0,40,20);
+// txt01.d.colorBg = "#ff0000";
+// txt01.d.showBg = true;
 // let txt07 = bil.textTempl.rm();
 // let txt06 = bil.textTempl.rb();
 
@@ -24,12 +25,12 @@ txt01.d.showBg = true;
 // let txt05 = bil.textTempl.mb(0,60000,"Simple Text","#008000");
 //////////////////////////////////
 //////////////////////////////////
-bil.draw();
+bil.start();
 ///////////////////////////////
-let wd = 1000;
-let inter  = setInterval(() => {
-    wd -= 100;
-    bil.setCanvas(wd,wd/2);
-    bil.draw();
-    if (wd <= 300){ clearInterval(inter);}
-}, 3000);
+// let wd = 1000;
+// let inter  = setInterval(() => {
+//     wd -= 100;
+//     bil.setCanvas(wd,wd/2);
+//     bil.draw();
+//     if (wd <= 300){ clearInterval(inter);}
+// }, 3000);

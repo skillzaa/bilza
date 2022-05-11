@@ -9,15 +9,14 @@ export default class Component<T extends CompDataBase> implements IComponent {
     data: T;
     readonly id: string;
     drawLayer: DrawLayer;
-    protected msStart: number;
     style: Style;
-    xAlignmentOptions: typeof XAlignment;
-    yAlignmentOptions: typeof YAlignment;
-    displayTypeOptions: typeof DisplayTypeOptions;
+    readonly xAlignmentOptions: typeof XAlignment;
+    readonly yAlignmentOptions: typeof YAlignment;
+    readonly displayTypeOptions: typeof DisplayTypeOptions;
     displayType: DisplayTypeOptions;
-    duration: number;
-    protected startTime: number;
-    constructor(DataFn: () => T);
+    private readonly DURATION;
+    private _startTime;
+    constructor(DataFn: () => T, duration?: number);
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;
@@ -35,6 +34,8 @@ export default class Component<T extends CompDataBase> implements IComponent {
     protected xAfterAlignment(p: Pack): number;
     protected yAfterAlignment(p: Pack): number;
     getEndTime(inMilliSec?: boolean): number;
+    duration(): number;
     getStartTime(inMilliSec?: boolean): number;
+    setStartTime(n: number): number;
 }
 //# sourceMappingURL=component.d.ts.map

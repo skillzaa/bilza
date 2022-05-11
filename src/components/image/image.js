@@ -1,14 +1,8 @@
 import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./imageData.js";
-import { XAlignment } from "../../BaseComponent/xAlignment.js";
-import { YAlignment } from "../../BaseComponent/yAlignment.js";
 export default class BilzaImage extends Component {
-    constructor(startTime = 0, duration = 300, imgId, x = 0, y = 0) {
-        super(DataFn);
-        this.startTime = startTime;
-        this.duration = duration;
-        this.xAlignmentOptions = XAlignment;
-        this.yAlignmentOptions = YAlignment;
+    constructor(duration = 300, imgId, x = 0, y = 0) {
+        super(DataFn, duration);
         this.img = document.getElementById(imgId);
         if (this.img == null) {
             throw new Error("image could not be found");

@@ -18,24 +18,27 @@ public textTempl :TextTemplWrapper;
 public gridTempl :GridTemplates; 
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
- 
-protected interval : number | null;
-protected  msPerFrame :number; //????
-protected timeStart :number | null; //when we start video
-protected timeEnd :number; //the size of video-length in milli seconds 
+//11-5-2022 the setInterval handle 
+private interval : number | null; 
+//??
+private  msPerFrame :number; //????
+//--change to runningStartTime
+private timeStart :number | null; //when we start video
+//---just touch this throught public :duration and private: setDuration.
+private _pvt_duration_val :number; //the size of video-length in milli seconds 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 protected pack:Pack; //---later
 // protected canvasId :string;
 protected canvas :HTMLCanvasElement;
 protected comps:Comps; 
 public util :Fn;
-insert : (comp:IComponent)=>IComponent;
+// insert : (comp:IComponent)=>IComponent;
 init : ()=>boolean;
 resizeAll : (width :number,height :number)=>boolean;
 drawByDrawLayer :(msDelta :number,drawLayer :DrawLayer,pack :Pack)=>boolean;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",duration=60,canvasWidth=800,canvasHeight :null|number=null){
+constructor (canvasId="bilza",canvasWidth=800,canvasHeight :null|number=null){
 //internal seq of args is different from enternal seq of args    
 this.util = new Fn();  
 //i dont need to save canvas id for later???
@@ -46,14 +49,17 @@ this.pack = new Pack(this.canvas,canvasWidth,canvasHeight);
 /////
 this.background = new Background();
 ///////////////
+//--11-may-2022 i think timeStart is the timestamp when we start the engine. it should be called runningStartTime. Because the startTime of bilza engine is always 0 so no need to have a variable called timeStart.
+
 this.timeStart = null; //--this is for stopWatch ??!!!!
-this.timeEnd = duration * 1000; //to convert into milli sec
+//--11-5-2022 -the default vlaue of _pvt_duration_val may change later
+this._pvt_duration_val = 0; //duration in seconds-dafault=0;
 this.interval = null; //to save setInterval handler
 // this.msPerFrame = 1000; // 1 sec
 this.msPerFrame = 100; //make it 100 ms
 //////////////////----comps
 this.comps = new Comps(this.pack);
-this.insert = this.comps.insert.bind(this.comps);
+// this.insert = this.comps.insert.bind(this.comps);
 this.init = this.comps.init.bind(this.comps);
 this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
 this.resizeAll = this.comps.resizeAll.bind(this.comps);
@@ -86,7 +92,7 @@ draw():boolean{
 throw new Error("bilzaa is not initialized");}   
 let msDelta = this.getMsDelta();
     //stop if completed
-if(msDelta >= this.timeEnd){ this.stop();}     
+if(msDelta >= this.duration(true)){ this.stop();}     
 this.pack.clearCanvas();          
 //--keep the draw sequence : bg-bg-middle-foreground
 this.background.draw(this.pack); //fornow         
@@ -111,16 +117,63 @@ if (heightInPercent !== null){
 return true;
 // }
 }
+
 ////////////////////////////////////////////////////
-//Timer
-getTimeEnd():number{
-return this.timeEnd;
+//Return the dyn calc length of the video (its duration but dura)
+public duration(inMilliSeconds :boolean = true):number{
+    if (inMilliSeconds){
+        return (this._pvt_duration_val * 1000);
+    }else {
+        return (this._pvt_duration_val);
+    }
 }
-//Timer
-setTimeEnd(n :number) :number{
-this.timeEnd = n;
-return this.timeEnd;
+//--private
+private extendDuration(n :number):number {
+this._pvt_duration_val += n;
+    return this._pvt_duration_val;
 }
+
+//--private means no complexity in components
+private adjectDuration(comp :IComponent):boolean{
+let r = false;    
+
+switch (comp.displayType) {
+    case comp.displayTypeOptions.AlwaysOn:
+    r = true;    
+    break;
+
+    case comp.displayTypeOptions.Append:
+    //--1 : set comp startTime = bilza.len() now.
+    comp.setStartTime(this.duration(false));
+    //--2 : Add comp duration to this.duration .
+    this.extendDuration(comp.duration());
+    r = true;   
+    break;
+
+    case comp.displayTypeOptions.Insert:
+    //--1 : stop if startTime > bil.duration(false);
+        if (comp.getStartTime() >= this.duration(false)){
+            throw new Error("to insert a clip inside the video, the start time of the clip can not be larger than the duration of the video since that will create blank frames");
+        }
+    //--2 : now check if endTime of comp is larger than the bil or not
+    if (comp.getEndTime() <= this.duration(false)){
+        //no need to change anything
+        r = true;
+    }else {
+        let overlap = comp.getEndTime() - this.duration(false);
+        this.extendDuration(overlap);
+        r = true;
+    }  
+    
+        break;
+
+    default:
+        break;
+}
+
+return r;
+}
+
 protected getMsDelta() :number{
 if (this.timeStart ==null){   
     return 0;
@@ -131,7 +184,7 @@ return curTime - this.timeStart;
 }
 public setMsDelta(n :number) :number{
 if (this.timeStart ==null){ return 0;}//error bilza not running
-if (n > this.getTimeEnd() || n < 0){return 0;}//0 = this.timeStart
+if (n > this.duration() || n < 0){return 0;}//0 = this.timeStart
 this.timeStart = new Date().getTime() - n;
 return this.timeStart;
 }
@@ -162,6 +215,12 @@ return this.pack.canvasWidth();
 }
 chqCollision(x :number, y :number):IComponent | null{
     return null;
+}
+insert(comp:IComponent):IComponent{
+this.adjectDuration(comp)
+//..............................................   
+this.comps.compsArray.push(comp);
+    return comp;
 }
    
 ////////////////////////////////////////////////////

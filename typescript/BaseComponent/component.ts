@@ -26,33 +26,38 @@ public readonly id :string;
 public drawLayer : DrawLayer; 
 //----------------------
 //---??? what exactly is this msStart???????????????
-protected msStart :number;   
+// protected msStart :number;   
 //--previously I was using many style obj in my component sub-classes but now i have atleast one this.style available, if a component sub-classes (tool class) wants it can have its own styles as well. loose coupling.
 public style:Style;
 //-----Alignment
-public xAlignmentOptions:typeof XAlignment;   
-public yAlignmentOptions:typeof YAlignment;  
-public displayTypeOptions:typeof DisplayTypeOptions; //these r options list 
+public readonly xAlignmentOptions:typeof XAlignment;   
+public readonly yAlignmentOptions:typeof YAlignment;  
+public readonly displayTypeOptions:typeof DisplayTypeOptions; //these r options list 
 
 //----Display Type and Timing Options
 public displayType :DisplayTypeOptions;
-public duration :number; //why public??????????
-protected startTime :number;
 
+/////////////////----PRIVATE----///////////////////
+//---11-5-2022 --ooo its private not protected.it means the child comp
+// can not chane this behaviour.
+private readonly DURATION :number; 
+////use setStartTime() since engine will set _startTime, where as the comp endTime using dyn cal getEndTime();
+private _startTime :number; 
+//no end time
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// endTimeSec = 300 sec = minnutes or 300,000 ms
-constructor (DataFn :()=>T){
+//--KEEP COMP drfault duration at 10 sec
+constructor (DataFn :()=>T,duration :number=10){
 
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
 this.displayTypeOptions = DisplayTypeOptions; //final-ok
-this.displayType = this.displayTypeOptions.Timed; //Timed = default
-this.duration = 10; //final-ok
-this.startTime = 0; //final-ok
+this.displayType = this.displayTypeOptions.Insert; //Insert = default
+this.DURATION = duration; //can not be changed again even not by children comps
+this._startTime = 0; //final-ok
 //--there is no this.endTime --since has this.endTime()
 this.compData = new Transition(DataFn);    
 this.d = this.compData.data;
@@ -65,8 +70,7 @@ this.id = Math.random().toString(36).slice(2);
 
 this.style = new Style(); 
 
-this.msStart = 0; //typescript deamnds it
-// this.msEnd = 550000;//--removed!!!!!!!!!!!!!!!!
+// this.msStart = 0; //typescript deamnds it
 }
 
 width(p: Pack): number {
@@ -166,11 +170,18 @@ switch (this.d.yAlignment) {
 return y ;
 }
 getEndTime(inMilliSec :boolean = true) :number{
-let r = this.startTime + this.duration;
+let r = this._startTime + this.DURATION; //both r in sec
 return inMilliSec ? (r * 1000) : r;
 }
+duration():number{
+    return this.DURATION;
+}
 getStartTime(inMilliSec :boolean = true) :number{
-return inMilliSec ? (this.startTime * 1000) : this.startTime;    
+return inMilliSec ? (this._startTime * 1000) : this._startTime;    
+}
+setStartTime(n :number):number{
+this._startTime = n;
+return this._startTime;
 }
 ////////////////////////////////////////////////////////
 }//component ends

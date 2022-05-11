@@ -10,15 +10,6 @@ import {DisplayTypeOptions} from "./displayTypeOptions.js";
 export default interface IComponent{
     //This is read only means cant be changed from outside and its value is set once in contructor internally.
     drawLayer:DrawLayer; //gone into an object--just like ObjectData
-
-
-    
-    //--we can set the start frame and end frame externally
-    // getStartTime():number;
-    // setStartTime(n :number):number;
-    //--we can set the start frame and end frame externally
-    // getEndTime():number;
-    // setEndTime(n :number):number;
     
     //--we can get the width and height thus we can use components into array and trees like table,list etc
     //-- since we have to use it externally thus Pack is always avaialbe
@@ -36,9 +27,17 @@ export default interface IComponent{
     ///----check collision
     checkCollision(x :number,y :number, p :Pack):boolean;
     resize(width :number,height :number):number;
-//---------------
-getEndTime(inMilliSec ?:boolean) :number;
+
+//----insert/displayType ==> 1append-2Timed-3AlwaysShow
 getStartTime(inMilliSec ?:boolean) :number;
+//--no need for a public startTime variable just use fns
+setStartTime(n :number) :number;
+//---11-5-2022--internally inside a component when start time is set the end time is a fn so dynamic 
+// setEndTime(n :number) :number;---wrong
+duration():number;
+//--correct
+getEndTime(inMilliSec ?:boolean) :number;
+
 displayType :DisplayTypeOptions;
 displayTypeOptions:typeof DisplayTypeOptions
 }

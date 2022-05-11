@@ -1,9 +1,8 @@
 import { DrawLayer, IComponent, Pack } from "../Bilza.js";
 export default class Comps {
-    protected compsArray: IComponent[];
+    compsArray: IComponent[];
     private pack;
     constructor(pack: Pack);
-    insert(comp: IComponent): IComponent;
     init(): boolean;
     drawByDrawLayer(msDelta: number, drawLayer: DrawLayer, pack: Pack): boolean;
     qualifyForDraw(comp: IComponent, msDelta: number): boolean;

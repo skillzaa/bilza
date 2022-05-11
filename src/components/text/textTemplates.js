@@ -3,8 +3,8 @@ import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 export default class TextTemplates {
     constructor() {
     }
-    h1(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Heading One", colorHax = "#000000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax, 50, 5);
+    h1(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Heading One", colorHax = "#000000") {
+        let txt = new Text(duration, content, colorHax, 50, 5);
         txt.d.selected = false;
         txt.d.visible = true;
         txt.d.shadowColor = "#b2abab";
@@ -34,8 +34,8 @@ export default class TextTemplates {
         txt.d.maxDisplayChars = 200;
         return txt;
     }
-    jt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "JUMBO TRON", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    jt(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "JUMBO TRON", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 50;
         txt.d.y = 50;
         txt.d.selected = false;
@@ -67,8 +67,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    lb(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    lb(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Bottom", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 0;
         txt.d.y = 100;
         txt.d.selected = false;
@@ -100,8 +100,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    lm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Mid", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    lm(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Mid", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 0;
         txt.d.y = 50;
         txt.d.selected = false;
@@ -133,8 +133,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    lt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Top", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    lt(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Left Top", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 0;
         txt.d.y = 0;
         txt.d.selected = false;
@@ -166,8 +166,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    rb(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Bottom", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    rb(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Bottom", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 100;
         txt.d.y = 100;
         txt.d.selected = false;
@@ -199,8 +199,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    rm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Mid", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    rm(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Mid", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 100;
         txt.d.y = 50;
         txt.d.selected = false;
@@ -232,8 +232,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    rt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Top", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    rt(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Right Top", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 100;
         txt.d.y = 0;
         txt.d.selected = false;
@@ -265,8 +265,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    mt(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Top", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    mt(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Top", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 50;
         txt.d.y = 0;
         txt.d.selected = false;
@@ -298,8 +298,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    mm(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Mid", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    mm(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Mid", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 50;
         txt.d.y = 50;
         txt.d.selected = false;
@@ -331,8 +331,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    mb(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Bottom", colorHax = "#008000") {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax);
+    mb(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "Mid Bottom", colorHax = "#008000") {
+        let txt = new Text(duration, content, colorHax);
         txt.d.x = 50;
         txt.d.y = 100;
         txt.d.selected = false;
@@ -364,8 +364,8 @@ export default class TextTemplates {
         txt.d.flagUseRelativeXY = true;
         return txt;
     }
-    bulletPointMid(startTimeSeconds = 0, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "bulletPointMid", colorHax = "#008000", y = 50) {
-        let txt = new Text(startTimeSeconds, endTimeSeconds, content, colorHax, 50, y);
+    bulletPointMid(duration, endTimeSeconds = Number.MAX_SAFE_INTEGER, content = "bulletPointMid", colorHax = "#008000", y = 50) {
+        let txt = new Text(duration, content, colorHax, 50, y);
         txt.d.selected = false;
         txt.d.visible = true;
         txt.d.shadowColor = "#b2abab";

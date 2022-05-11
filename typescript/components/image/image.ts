@@ -1,26 +1,18 @@
 import {Component,Pack,DrawLayer } from "../../Bilza.js";
 import DataFn,{ImageData} from "./imageData.js";
 import aspectRatioHeight from "../../functions/aspectRatioHeight.js"; 
-import {XAlignment} from "../../BaseComponent/xAlignment.js";
-import {YAlignment} from "../../BaseComponent/yAlignment.js";
 
 
 export default class BilzaImage extends Component<ImageData> {
-    xAlignmentOptions:typeof XAlignment;   
-    yAlignmentOptions:typeof YAlignment;  
+
     img :HTMLImageElement;
     orignalWidth :number;
     orignalHeight :number;
-constructor (startTime :number=0,duration:number=300,
-    imgId :string,
-    x :number=0, y :number=0){
+constructor (duration:number=300,imgId :string,x :number=0, y :number=0){
 
-    super(DataFn);
-    this.startTime = startTime;
-    this.duration = duration;
-    this.xAlignmentOptions = XAlignment; //final-ok
-    this.yAlignmentOptions = YAlignment; //final-ok
-   
+    super(DataFn,duration);
+    
+    
     this.img = document.getElementById(imgId) as HTMLImageElement;
     if (this.img == null){
         throw new Error("image could not be found");

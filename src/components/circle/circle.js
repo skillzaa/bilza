@@ -1,10 +1,8 @@
 import { Component } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 export default class Circle extends Component {
-    constructor(startTime = 0, duration = 300, x = 0, y = 0, radiusPercent = 10, color = "grey", fill = true, startAngle = 0, endAngle = 2 * Math.PI) {
-        super(DataFn);
-        this.startTime = startTime;
-        this.duration = duration;
+    constructor(duration = 300, x = 0, y = 0, radiusPercent = 10, color = "grey", fill = true, startAngle = 0, endAngle = 2 * Math.PI) {
+        super(DataFn, duration);
         this.d.x = x;
         this.d.y = y;
         this.d.color = color;

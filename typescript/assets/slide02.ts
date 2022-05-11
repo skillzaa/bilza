@@ -3,7 +3,7 @@ import Text from "../components/text/text.js";
 // let bil = new Bilza("bilza", 600, 300);
 // let g = bil.gridTempl.dashed();
 export default function slide02(): Text{
-let txt = new Text(0, 10, "Another Text", "red");
+let txt = new Text(10, "Another Text", "red");
 txt.d.x = 50;
 txt.d.y = 50;
 txt.d.shadowColor = "blue";

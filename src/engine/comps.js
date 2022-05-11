@@ -3,10 +3,6 @@ export default class Comps {
         this.pack = pack;
         this.compsArray = [];
     }
-    insert(comp) {
-        this.compsArray.push(comp);
-        return comp;
-    }
     init() {
         for (let i = 0; i < this.compsArray.length; i++) {
             this.compsArray[i].init(this.pack);

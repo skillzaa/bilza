@@ -1,6 +1,6 @@
 import Text from "../components/text/text.js";
 export default function slide02() {
-    let txt = new Text(0, 10, "Another Text", "red");
+    let txt = new Text(10, "Another Text", "red");
     txt.d.x = 50;
     txt.d.y = 50;
     txt.d.shadowColor = "blue";

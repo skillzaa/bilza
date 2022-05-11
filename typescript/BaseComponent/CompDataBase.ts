@@ -14,7 +14,8 @@ shadowOffsetX :number;
 shadowOffsetY :number;
 shadowBlur :number;
 //--flags
-visible :boolean;
+//--wht this?? i can make the comp invisible from inside why i need engine help?
+visible :boolean;////just to tell people from outside??????
 //--this will come in handy during using the lib with gui and while making interactive tools.
 selected :boolean;
 //---So every component can be draw using concrete x and Y or relative default is relative

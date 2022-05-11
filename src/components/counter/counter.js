@@ -2,10 +2,8 @@ import { Component, DrawLayer } from "../../Bilza.js";
 import DataFn from "./DataFn.js";
 import TextTemplates from "../text/textTemplates.js";
 export default class Counter extends Component {
-    constructor(startTime = 0, duration = 300, loc = "rb") {
-        super(DataFn);
-        this.startTime = startTime;
-        this.duration = duration;
+    constructor(duration = 300, loc = "rb") {
+        super(DataFn, duration);
         this.drawLayer = DrawLayer.MiddleGround;
         this.tt = new TextTemplates();
         switch (loc) {

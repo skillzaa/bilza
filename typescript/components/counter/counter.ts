@@ -7,10 +7,8 @@ import Text from "../text/text.js";
 export default class Counter extends Component<ObjectData> {
 private tt :TextTemplates;
 hdg:Text;
-constructor (startTime :number =0, duration :number = 300,loc :string = "rb"){
-super(DataFn);
-this.startTime = startTime;
-    this.duration = duration;
+constructor (duration :number = 300,loc :string = "rb"){
+super(DataFn,duration);
 
 this.drawLayer = DrawLayer.MiddleGround;   
 this.tt = new TextTemplates();

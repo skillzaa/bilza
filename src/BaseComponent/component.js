@@ -3,20 +3,19 @@ import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
 import { DisplayTypeOptions } from "./displayTypeOptions.js";
 export default class Component {
-    constructor(DataFn) {
+    constructor(DataFn, duration = 10) {
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
         this.displayTypeOptions = DisplayTypeOptions;
-        this.displayType = this.displayTypeOptions.Timed;
-        this.duration = 10;
-        this.startTime = 0;
+        this.displayType = this.displayTypeOptions.Insert;
+        this.DURATION = duration;
+        this._startTime = 0;
         this.compData = new Transition(DataFn);
         this.d = this.compData.data;
         this.data = this.compData.data;
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
-        this.msStart = 0;
     }
     width(p) {
         return 0;
@@ -105,10 +104,17 @@ export default class Component {
         return y;
     }
     getEndTime(inMilliSec = true) {
-        let r = this.startTime + this.duration;
+        let r = this._startTime + this.DURATION;
         return inMilliSec ? (r * 1000) : r;
     }
+    duration() {
+        return this.DURATION;
+    }
     getStartTime(inMilliSec = true) {
-        return inMilliSec ? (this.startTime * 1000) : this.startTime;
+        return inMilliSec ? (this._startTime * 1000) : this._startTime;
+    }
+    setStartTime(n) {
+        this._startTime = n;
+        return this._startTime;
     }
 }

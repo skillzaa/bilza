@@ -10,8 +10,10 @@ export default interface IComponent {
     draw(p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;
     resize(width: number, height: number): number;
-    getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;
+    setStartTime(n: number): number;
+    duration(): number;
+    getEndTime(inMilliSec?: boolean): number;
     displayType: DisplayTypeOptions;
     displayTypeOptions: typeof DisplayTypeOptions;
 }

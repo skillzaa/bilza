@@ -1,16 +1,11 @@
 import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 
 export default class Comps {
-    protected compsArray:IComponent[];
+    public compsArray:IComponent[];
     private pack :Pack;
 constructor(pack :Pack){
     this.pack = pack;
     this.compsArray = [];
-}
-insert(comp:IComponent):IComponent{
-//now things are becoming mature- and it is not just one App it is me as a programmer  
-    this.compsArray.push(comp);
-    return comp;
 }
 
 public init():boolean{
@@ -19,6 +14,7 @@ public init():boolean{
     }
     return true;
 }
+
 public drawByDrawLayer(msDelta :number,drawLayer :DrawLayer,pack :Pack):boolean{ 
 for (let i = 0; i < this.compsArray.length; i++) {
 let comp = this.compsArray[i];       

@@ -8,8 +8,8 @@ export default class TextTemplates {
 constructor(){
 }
 
-h1(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Heading One",colorHax :string="#000000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,50,5);
+h1(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Heading One",colorHax :string="#000000"):Text{
+let txt = new Text(duration,content,colorHax,50,5);
 txt.d.selected  =  false;
 txt.d.visible  =  true;
 txt.d.shadowColor  =  "#b2abab";
@@ -40,9 +40,9 @@ txt.d.maxDisplayChars  =  200;
 
 return txt;
 }
-// detailed(startTimeSeconds :number=0,endTimeSeconds:number=300,content :string="bgText",colorFontHax :string="#008000",colorBgHax :string="#008000",x :number=0,y:number=0,dynWidth:number=20,dynHeight:number=20):Text{
+// detailed(duration :number,endTimeSeconds:number=300,content :string="bgText",colorFontHax :string="#008000",colorBgHax :string="#008000",x :number=0,y:number=0,dynWidth:number=20,dynHeight:number=20):Text{
 
-// let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorFontHax,x,y,dynWidth,dynHeight);
+// let txt = new Text(duration,content,colorFontHax,x,y,dynWidth,dynHeight);
 
 // //----very imp
 
@@ -78,8 +78,8 @@ return txt;
  
 // return txt;
 // }
-jt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="JUMBO TRON",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+jt(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="JUMBO TRON",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 txt.d.x =  50;
 txt.d.y =  50;
@@ -115,8 +115,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-lb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+lb(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Bottom",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  0;
@@ -153,8 +153,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-lm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Mid",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+lm(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Mid",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  0;
@@ -191,8 +191,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-lt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Top",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+lt(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Left Top",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  0;
@@ -230,8 +230,8 @@ txt.d.flagUseRelativeXY =  true;
 return txt;
 }
 
-rb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+rb(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Bottom",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  100;
@@ -268,8 +268,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-rm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Mid",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+rm(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Mid",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  100;
@@ -306,8 +306,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-rt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Top",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+rt(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Right Top",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  100;
@@ -344,8 +344,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-mt(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Top",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+mt(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Top",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  50;
@@ -382,8 +382,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-mm(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Mid",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+mm(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Mid",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  50;
@@ -420,8 +420,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-mb(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Bottom",colorHax :string="#008000"):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax);
+mb(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="Mid Bottom",colorHax :string="#008000"):Text{
+let txt = new Text(duration,content,colorHax);
 //----very imp
 
 txt.d.x =  50;
@@ -458,8 +458,8 @@ txt.d.flagUseRelativeXY =  true;
 
 return txt;
 }
-bulletPointMid(startTimeSeconds :number=0,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="bulletPointMid",colorHax :string="#008000",y=50):Text{
-let txt = new Text(startTimeSeconds,endTimeSeconds,content,colorHax,50,y);
+bulletPointMid(duration :number,endTimeSeconds:number=Number.MAX_SAFE_INTEGER,content :string="bulletPointMid",colorHax :string="#008000",y=50):Text{
+let txt = new Text(duration,content,colorHax,50,y);
 //----very imp
 
 // txt.d.x =  50;

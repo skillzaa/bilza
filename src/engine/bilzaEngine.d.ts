@@ -10,26 +10,26 @@ export default class Bilza {
     textTempl: TextTemplWrapper;
     gridTempl: GridTemplates;
     background: Background;
-    protected interval: number | null;
-    protected msPerFrame: number;
-    protected timeStart: number | null;
-    protected timeEnd: number;
+    private interval;
+    private msPerFrame;
+    private timeStart;
+    private _pvt_duration_val;
     protected pack: Pack;
     protected canvas: HTMLCanvasElement;
     protected comps: Comps;
     util: Fn;
-    insert: (comp: IComponent) => IComponent;
     init: () => boolean;
     resizeAll: (width: number, height: number) => boolean;
     drawByDrawLayer: (msDelta: number, drawLayer: DrawLayer, pack: Pack) => boolean;
-    constructor(canvasId?: string, duration?: number, canvasWidth?: number, canvasHeight?: null | number);
+    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: null | number);
     start(): boolean;
     drawInit(): void;
     draw(): boolean;
     drawEvent(msDelta: number): boolean;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
-    getTimeEnd(): number;
-    setTimeEnd(n: number): number;
+    duration(inMilliSeconds?: boolean): number;
+    private extendDuration;
+    private adjectDuration;
     protected getMsDelta(): number;
     setMsDelta(n: number): number;
     stop(): boolean;
@@ -37,5 +37,6 @@ export default class Bilza {
     getCanvasHeight(): number;
     getCanvasWidth(): number;
     chqCollision(x: number, y: number): IComponent | null;
+    insert(comp: IComponent): IComponent;
 }
 //# sourceMappingURL=bilzaEngine.d.ts.map

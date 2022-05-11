@@ -1,6 +1,6 @@
 export declare enum DisplayTypeOptions {
     AlwaysOn = "ALWAYSON",
     Append = "APPEND",
-    Timed = "Timed"
+    Insert = "INSERT"
 }
 //# sourceMappingURL=displayTypeOptions.d.ts.map
