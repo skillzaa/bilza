@@ -34,15 +34,15 @@ public readonly xAlignmentOptions:typeof XAlignment;
 public readonly yAlignmentOptions:typeof YAlignment;  
 public readonly insertTypeOptions:typeof InsertTypeOptions; //these r options list 
 
-//----Display Type and Timing Options
+//----insert Type-- how should this component be inserted into the video.
 public insertType :InsertTypeOptions;
 
 /////////////////----PRIVATE----///////////////////
 //---11-5-2022 --ooo its private not protected.it means the child comp
 // can not chane this behaviour.
 private readonly DURATION :number; 
-////use setStartTime() since engine will set _startTime, where as the comp endTime using dyn cal getEndTime();
-private _startTime :number; 
+////insertTimeInVid is the starting time of this component in the video. it has nothing to do with msDelta etc BUT this is in ms ;
+private  insertTimeInVid:number; 
 //no end time
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -57,7 +57,7 @@ this.yAlignmentOptions = YAlignment; //final-ok
 this.insertTypeOptions = InsertTypeOptions; //final-ok
 this.insertType = this.insertTypeOptions.Insert; //Insert = default
 this.DURATION = duration; //can not be changed again even not by children comps
-this._startTime = 0; //final-ok
+this.insertTimeInVid = 0; //final-ok
 //--there is no this.endTime --since has this.endTime()
 this.compData = new Transition(DataFn);    
 this.d = this.compData.data;
@@ -170,18 +170,18 @@ switch (this.d.yAlignment) {
 return y ;
 }
 getEndTime(inMilliSec :boolean = true) :number{
-let r = this._startTime + this.DURATION; //both r in sec
+let r = this.insertTimeInVid + this.DURATION; //both r in sec
 return inMilliSec ? (r * 1000) : r;
 }
 duration():number{
     return this.DURATION;
 }
 getStartTime(inMilliSec :boolean = true) :number{
-return inMilliSec ? (this._startTime * 1000) : this._startTime;    
+return inMilliSec ? (this.insertTimeInVid * 1000) : this.insertTimeInVid;    
 }
 setStartTime(n :number):number{
-this._startTime = n;
-return this._startTime;
+this.insertTimeInVid = n;
+return this.insertTimeInVid;
 }
 ////////////////////////////////////////////////////////
 }//component ends

@@ -15,7 +15,7 @@ export default class Component<T extends CompDataBase> implements IComponent {
     readonly insertTypeOptions: typeof InsertTypeOptions;
     insertType: InsertTypeOptions;
     private readonly DURATION;
-    private _startTime;
+    private insertTimeInVid;
     constructor(DataFn: () => T, duration?: number);
     width(p: Pack): number;
     height(p: Pack): number;

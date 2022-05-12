@@ -9,7 +9,7 @@ export default class Component {
         this.insertTypeOptions = InsertTypeOptions;
         this.insertType = this.insertTypeOptions.Insert;
         this.DURATION = duration;
-        this._startTime = 0;
+        this.insertTimeInVid = 0;
         this.compData = new Transition(DataFn);
         this.d = this.compData.data;
         this.data = this.compData.data;
@@ -104,17 +104,17 @@ export default class Component {
         return y;
     }
     getEndTime(inMilliSec = true) {
-        let r = this._startTime + this.DURATION;
+        let r = this.insertTimeInVid + this.DURATION;
         return inMilliSec ? (r * 1000) : r;
     }
     duration() {
         return this.DURATION;
     }
     getStartTime(inMilliSec = true) {
-        return inMilliSec ? (this._startTime * 1000) : this._startTime;
+        return inMilliSec ? (this.insertTimeInVid * 1000) : this.insertTimeInVid;
     }
     setStartTime(n) {
-        this._startTime = n;
-        return this._startTime;
+        this.insertTimeInVid = n;
+        return this.insertTimeInVid;
     }
 }
