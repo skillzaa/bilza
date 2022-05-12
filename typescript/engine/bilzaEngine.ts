@@ -10,9 +10,12 @@ import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
 
+//-------------------------------------------
+import Settings from "./settings.js";
 
 export default class Bilza {
 //==================PUBLIC API
+public set :Settings; 
 public add :CompFactory; 
 public textTempl :TextTemplWrapper; 
 public gridTempl :GridTemplates; 
@@ -39,6 +42,7 @@ drawByDrawLayer :(msDelta :number,drawLayer :DrawLayer,pack :Pack)=>boolean;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",canvasWidth=800,canvasHeight :null|number=null){
+this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 //internal seq of args is different from enternal seq of args    
 this.util = new Fn();  
 //i dont need to save canvas id for later???
@@ -88,6 +92,8 @@ public drawInit(){
     this.draw();
 }
 draw():boolean{
+    // this.set.fixBugWarn("fix this damn bug");
+    
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   
 let msDelta = this.getMsDelta();
@@ -121,6 +127,9 @@ return true;
 ////////////////////////////////////////////////////
 //Return the dyn calc length of the video (its duration but dura)
 public duration(inMilliSeconds :boolean = true):number{
+    // if (this.set.debugMode == true){
+    //     console.warn("duration by default should not be in ms");
+    // }    
     if (inMilliSeconds){
         return (this._pvt_duration_val * 1000);
     }else {
@@ -143,9 +152,13 @@ switch (comp.insertType) {
     break;
 
     case comp.insertTypeOptions.Append:
-    //--1 : set comp startTime = bilza.len() now.
+    //--1 : comp.duration cant be > 0 
+    if (comp.duration() < 1) {
+        throw new Error("for Insert operation to succeed you need component duration greater than 0");
+    }
+    //--2 : set comp startTime = bilza.len() now.
     comp.setStartTime(this.duration(false));
-    //--2 : Add comp duration to this.duration .
+    //--3 : Add comp duration to this.duration .
     this.extendDuration(comp.duration());
     r = true;   
     break;
@@ -217,7 +230,7 @@ chqCollision(x :number, y :number):IComponent | null{
     return null;
 }
 insert(comp:IComponent):IComponent{
-this.adjectDuration(comp)
+this.adjectDuration(comp);
 //..............................................   
 this.comps.compsArray.push(comp);
     return comp;

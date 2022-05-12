@@ -7,8 +7,10 @@ import GridTemplates from "../compFactory/gridTemplates.js";
 import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
+import Settings from "./settings.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null) {
+        this.set = new Settings();
         this.util = new Fn();
         this.canvas = getCanvasElement(canvasId);
         this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
@@ -90,6 +92,9 @@ export default class Bilza {
                 r = true;
                 break;
             case comp.insertTypeOptions.Append:
+                if (comp.duration() < 1) {
+                    throw new Error("for Insert operation to succeed you need component duration greater than 0");
+                }
                 comp.setStartTime(this.duration(false));
                 this.extendDuration(comp.duration());
                 r = true;

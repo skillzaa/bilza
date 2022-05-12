@@ -5,7 +5,9 @@ import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
 import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
+import Settings from "./settings.js";
 export default class Bilza {
+    set: Settings;
     add: CompFactory;
     textTempl: TextTemplWrapper;
     gridTempl: GridTemplates;

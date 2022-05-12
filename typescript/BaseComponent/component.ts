@@ -41,9 +41,9 @@ public insertType :InsertTypeOptions;
 //---11-5-2022 --ooo its private not protected.it means the child comp
 // can not chane this behaviour.
 private readonly DURATION :number; 
-////insertTimeInVid is the starting time of this component in the video. it has nothing to do with msDelta etc BUT this is in ms ;
+//--this was previously _startTime but actually insertTimeInVid now, this show the point at which this comp will be inserted into the overall video. Inside a container Component this insert time is implemented by comtainer component. 
 private  insertTimeInVid:number; 
-//no end time
+//---
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
