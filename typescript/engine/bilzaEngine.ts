@@ -187,7 +187,13 @@ chqCollision(x :number, y :number):IComponent | null{
     return null;
 }
 insert(comp:IComponent):IComponent{
-    adjectDurationWhileInsert(comp,this.duration(false),
+/**
+ * ---JUST 2 TWO VARIABLES
+ * The purpose of adjectDurationWhileInsert is to adjest 2 TWO variables before inserting a component :
+ *  --- Bil Duration : unlike component duration (which is a constant) bilDuration can be changed and is the result of other component durations etc.
+ * --- Comp setStartTime() : The time when the comp will start inside the video.
+ */
+adjectDurationWhileInsert(comp,this.duration(false),
     this.extendDuration.bind(this));
 //..............................................   
 this.comps.compsArray.push(comp);
