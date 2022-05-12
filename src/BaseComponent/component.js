@@ -1,13 +1,13 @@
 import { Style, DrawLayer, Transition } from "../Bilza.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
-import { DisplayTypeOptions } from "./displayTypeOptions.js";
+import { InsertTypeOptions } from "./insertTypeOptions.js";
 export default class Component {
     constructor(DataFn, duration = 10) {
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
-        this.displayTypeOptions = DisplayTypeOptions;
-        this.displayType = this.displayTypeOptions.Insert;
+        this.insertTypeOptions = InsertTypeOptions;
+        this.insertType = this.insertTypeOptions.Insert;
         this.DURATION = duration;
         this._startTime = 0;
         this.compData = new Transition(DataFn);

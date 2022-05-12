@@ -13,7 +13,7 @@ export default class Bilza {
         this.canvas = getCanvasElement(canvasId);
         this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
         this.background = new Background();
-        this.timeStart = null;
+        this.runningStartTimeTS = null;
         this._pvt_duration_val = 0;
         this.interval = null;
         this.msPerFrame = 100;
@@ -21,18 +21,18 @@ export default class Bilza {
         this.init = this.comps.init.bind(this.comps);
         this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
         this.resizeAll = this.comps.resizeAll.bind(this.comps);
-        this.add = new CompFactory(this.insert.bind(this), this.pack);
+        this.add = new CompFactory();
         this.textTempl = new TextTemplWrapper(this.insert.bind(this));
         this.gridTempl = new GridTemplates(this.insert.bind(this));
     }
     start() {
-        if (this.timeStart !== null) {
+        if (this.runningStartTimeTS !== null) {
             return false;
         }
         else {
             this.stop();
             this.init();
-            this.timeStart = new Date().getTime();
+            this.runningStartTimeTS = new Date().getTime();
             this.interval = window.setInterval(() => {
                 this.draw();
             }, this.msPerFrame);
@@ -85,16 +85,16 @@ export default class Bilza {
     }
     adjectDuration(comp) {
         let r = false;
-        switch (comp.displayType) {
-            case comp.displayTypeOptions.AlwaysOn:
+        switch (comp.insertType) {
+            case comp.insertTypeOptions.AlwaysOn:
                 r = true;
                 break;
-            case comp.displayTypeOptions.Append:
+            case comp.insertTypeOptions.Append:
                 comp.setStartTime(this.duration(false));
                 this.extendDuration(comp.duration());
                 r = true;
                 break;
-            case comp.displayTypeOptions.Insert:
+            case comp.insertTypeOptions.Insert:
                 if (comp.getStartTime() >= this.duration(false)) {
                     throw new Error("to insert a clip inside the video, the start time of the clip can not be larger than the duration of the video since that will create blank frames");
                 }
@@ -113,26 +113,26 @@ export default class Bilza {
         return r;
     }
     getMsDelta() {
-        if (this.timeStart == null) {
+        if (this.runningStartTimeTS == null) {
             return 0;
         }
         else {
             let curTime = new Date().getTime();
-            return curTime - this.timeStart;
+            return curTime - this.runningStartTimeTS;
         }
     }
     setMsDelta(n) {
-        if (this.timeStart == null) {
+        if (this.runningStartTimeTS == null) {
             return 0;
         }
         if (n > this.duration() || n < 0) {
             return 0;
         }
-        this.timeStart = new Date().getTime() - n;
-        return this.timeStart;
+        this.runningStartTimeTS = new Date().getTime() - n;
+        return this.runningStartTimeTS;
     }
     stop() {
-        this.timeStart = null;
+        this.runningStartTimeTS = null;
         if (this.interval !== null) {
             clearInterval(this.interval);
         }

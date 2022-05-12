@@ -2,7 +2,7 @@ import { Style, Pack, IComponent, DrawLayer, Transition } from "../Bilza.js";
 import CompDataBase from "./CompDataBase.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
-import { DisplayTypeOptions } from "./displayTypeOptions.js";
+import { InsertTypeOptions } from "./insertTypeOptions.js";
 export default class Component<T extends CompDataBase> implements IComponent {
     protected compData: Transition<T>;
     d: T;
@@ -12,8 +12,8 @@ export default class Component<T extends CompDataBase> implements IComponent {
     style: Style;
     readonly xAlignmentOptions: typeof XAlignment;
     readonly yAlignmentOptions: typeof YAlignment;
-    readonly displayTypeOptions: typeof DisplayTypeOptions;
-    displayType: DisplayTypeOptions;
+    readonly insertTypeOptions: typeof InsertTypeOptions;
+    insertType: InsertTypeOptions;
     private readonly DURATION;
     private _startTime;
     constructor(DataFn: () => T, duration?: number);

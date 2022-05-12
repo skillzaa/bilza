@@ -7,7 +7,7 @@ export default class Text extends Component<ObjectData> {
 constructor (duration:number= 10,content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20){
     
     super(DataFn,duration);
-this.displayType = this.displayTypeOptions.Append;
+this.insertType = this.insertTypeOptions.Append;
     this.d.content = content;
     this.d.x = x;
     this.d.y = y;

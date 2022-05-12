@@ -3,7 +3,7 @@ import DataFn from "./DataFn.js";
 export default class Grid extends Component {
     constructor() {
         super(DataFn);
-        this.displayType = this.displayTypeOptions.AlwaysOn;
+        this.insertType = this.insertTypeOptions.AlwaysOn;
         this.drawLayer = DrawLayer.BackGround;
     }
     draw(p) {

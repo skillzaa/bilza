@@ -24,7 +24,7 @@ export default class Comps {
         return true;
     }
     qualifyForDraw(comp, msDelta) {
-        if (comp.displayType == comp.displayTypeOptions.AlwaysOn) {
+        if (comp.insertType == comp.insertTypeOptions.AlwaysOn) {
             return true;
         }
         if (comp.getStartTime(true) <= msDelta && comp.getEndTime(true) > msDelta) {

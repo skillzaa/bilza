@@ -12,7 +12,7 @@ export default class Bilza {
     background: Background;
     private interval;
     private msPerFrame;
-    private timeStart;
+    private runningStartTimeTS;
     private _pvt_duration_val;
     protected pack: Pack;
     protected canvas: HTMLCanvasElement;

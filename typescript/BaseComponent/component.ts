@@ -2,7 +2,7 @@ import {Style,Pack,IComponent,DrawLayer,Transition,IMsStart} from "../Bilza.js";
 import CompDataBase from "./CompDataBase.js";
 import {XAlignment} from "./xAlignment.js";
 import {YAlignment} from "./yAlignment.js";
-import {DisplayTypeOptions} from "./displayTypeOptions.js";
+import {InsertTypeOptions} from "./insertTypeOptions.js";
 //--This is an Abstract class
 export default class Component  <T extends CompDataBase> implements IComponent {
 //compData is the transition object and T is the obj it takes in
@@ -32,10 +32,10 @@ public style:Style;
 //-----Alignment
 public readonly xAlignmentOptions:typeof XAlignment;   
 public readonly yAlignmentOptions:typeof YAlignment;  
-public readonly displayTypeOptions:typeof DisplayTypeOptions; //these r options list 
+public readonly insertTypeOptions:typeof InsertTypeOptions; //these r options list 
 
 //----Display Type and Timing Options
-public displayType :DisplayTypeOptions;
+public insertType :InsertTypeOptions;
 
 /////////////////----PRIVATE----///////////////////
 //---11-5-2022 --ooo its private not protected.it means the child comp
@@ -54,8 +54,8 @@ constructor (DataFn :()=>T,duration :number=10){
 
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
-this.displayTypeOptions = DisplayTypeOptions; //final-ok
-this.displayType = this.displayTypeOptions.Insert; //Insert = default
+this.insertTypeOptions = InsertTypeOptions; //final-ok
+this.insertType = this.insertTypeOptions.Insert; //Insert = default
 this.DURATION = duration; //can not be changed again even not by children comps
 this._startTime = 0; //final-ok
 //--there is no this.endTime --since has this.endTime()

@@ -23,7 +23,7 @@ private interval : number | null;
 //??
 private  msPerFrame :number; //????
 //--change to runningStartTime
-private timeStart :number | null; //when we start video
+private runningStartTimeTS :number | null; //when we start video
 //---just touch this throught public :duration and private: setDuration.
 private _pvt_duration_val :number; //the size of video-length in milli seconds 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -49,9 +49,9 @@ this.pack = new Pack(this.canvas,canvasWidth,canvasHeight);
 /////
 this.background = new Background();
 ///////////////
-//--11-may-2022 i think timeStart is the timestamp when we start the engine. it should be called runningStartTime. Because the startTime of bilza engine is always 0 so no need to have a variable called timeStart.
+//--11-may-2022 i think runningStartTimeTS is the timestamp when we start the engine. it should be called runningStartTime. Because the startTime of bilza engine is always 0 so no need to have a variable called runningStartTimeTS.
 
-this.timeStart = null; //--this is for stopWatch ??!!!!
+this.runningStartTimeTS = null; //--this is for stopWatch ??!!!!
 //--11-5-2022 -the default vlaue of _pvt_duration_val may change later
 this._pvt_duration_val = 0; //duration in seconds-dafault=0;
 this.interval = null; //to save setInterval handler
@@ -65,18 +65,18 @@ this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
 this.resizeAll = this.comps.resizeAll.bind(this.comps);
 ////--Templates
 //--I think sending pack to compFacoty is wrong!!!!!??????
-this.add = new CompFactory(this.insert.bind(this),this.pack);
+this.add = new CompFactory();
 this.textTempl = new TextTemplWrapper(this.insert.bind(this));
 this.gridTempl = new GridTemplates(this.insert.bind(this));
 
 
 } 
 start() :boolean{
-if (this.timeStart !== null){return false;}
+if (this.runningStartTimeTS !== null){return false;}
 else {
     this.stop();
     this.init(); //importantay
-    this.timeStart = new Date().getTime();
+    this.runningStartTimeTS = new Date().getTime();
         this.interval = window.setInterval(()=>{
         this.draw();
         },this.msPerFrame);
@@ -137,12 +137,12 @@ this._pvt_duration_val += n;
 private adjectDuration(comp :IComponent):boolean{
 let r = false;    
 
-switch (comp.displayType) {
-    case comp.displayTypeOptions.AlwaysOn:
+switch (comp.insertType) {
+    case comp.insertTypeOptions.AlwaysOn:
     r = true;    
     break;
 
-    case comp.displayTypeOptions.Append:
+    case comp.insertTypeOptions.Append:
     //--1 : set comp startTime = bilza.len() now.
     comp.setStartTime(this.duration(false));
     //--2 : Add comp duration to this.duration .
@@ -150,7 +150,7 @@ switch (comp.displayType) {
     r = true;   
     break;
 
-    case comp.displayTypeOptions.Insert:
+    case comp.insertTypeOptions.Insert:
     //--1 : stop if startTime > bil.duration(false);
         if (comp.getStartTime() >= this.duration(false)){
             throw new Error("to insert a clip inside the video, the start time of the clip can not be larger than the duration of the video since that will create blank frames");
@@ -175,21 +175,21 @@ return r;
 }
 
 protected getMsDelta() :number{
-if (this.timeStart ==null){   
+if (this.runningStartTimeTS ==null){   
     return 0;
 } else{
 let curTime = new Date().getTime();
-return curTime - this.timeStart;
+return curTime - this.runningStartTimeTS;
 }
 }
 public setMsDelta(n :number) :number{
-if (this.timeStart ==null){ return 0;}//error bilza not running
-if (n > this.duration() || n < 0){return 0;}//0 = this.timeStart
-this.timeStart = new Date().getTime() - n;
-return this.timeStart;
+if (this.runningStartTimeTS ==null){ return 0;}//error bilza not running
+if (n > this.duration() || n < 0){return 0;}//0 = this.runningStartTimeTS
+this.runningStartTimeTS = new Date().getTime() - n;
+return this.runningStartTimeTS;
 }
 stop():boolean{
-    this.timeStart = null;
+    this.runningStartTimeTS = null;
     if (this.interval !== null){
         clearInterval(this.interval);
     }

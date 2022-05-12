@@ -4,6 +4,7 @@ import TextTemplates from "../text/textTemplates.js";
 export default class Counter extends Component {
     constructor(duration = 300, loc = "rb") {
         super(DataFn, duration);
+        this.insertType = this.insertTypeOptions.AlwaysOn;
         this.drawLayer = DrawLayer.MiddleGround;
         this.tt = new TextTemplates();
         switch (loc) {

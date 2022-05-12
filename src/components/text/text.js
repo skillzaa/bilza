@@ -4,7 +4,7 @@ import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 export default class Text extends Component {
     constructor(duration = 10, content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 20, dynHeight = 20) {
         super(DataFn, duration);
-        this.displayType = this.displayTypeOptions.Append;
+        this.insertType = this.insertTypeOptions.Append;
         this.d.content = content;
         this.d.x = x;
         this.d.y = y;

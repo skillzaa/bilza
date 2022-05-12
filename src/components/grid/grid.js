@@ -3,7 +3,7 @@ import DataFn from "./DataFn.js";
 export default class Grid extends Component {
     constructor(colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
         super(DataFn);
-        this.displayType = this.displayTypeOptions.AlwaysOn;
+        this.insertType = this.insertTypeOptions.AlwaysOn;
         this.d.cellWidthPerc = cellWidthPerc;
         this.d.cellHeightPerc = cellHeightPerc;
         this.d.colorVerticalLines = colorHax;

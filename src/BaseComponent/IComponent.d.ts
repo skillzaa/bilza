@@ -1,6 +1,6 @@
 import Pack from "../pack/pack.js";
 import { DrawLayer } from "../design/drawLayer.js";
-import { DisplayTypeOptions } from "./displayTypeOptions.js";
+import { InsertTypeOptions } from "./insertTypeOptions.js";
 export default interface IComponent {
     drawLayer: DrawLayer;
     width(p: Pack): number;
@@ -14,7 +14,7 @@ export default interface IComponent {
     setStartTime(n: number): number;
     duration(): number;
     getEndTime(inMilliSec?: boolean): number;
-    displayType: DisplayTypeOptions;
-    displayTypeOptions: typeof DisplayTypeOptions;
+    insertType: InsertTypeOptions;
+    insertTypeOptions: typeof InsertTypeOptions;
 }
 //# sourceMappingURL=IComponent.d.ts.map

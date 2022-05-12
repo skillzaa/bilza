@@ -9,7 +9,7 @@ private tt :TextTemplates;
 hdg:Text;
 constructor (duration :number = 300,loc :string = "rb"){
 super(DataFn,duration);
-
+this.insertType = this.insertTypeOptions.AlwaysOn;
 this.drawLayer = DrawLayer.MiddleGround;   
 this.tt = new TextTemplates();
 switch (loc) {

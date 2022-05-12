@@ -1,6 +1,6 @@
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
-import {DisplayTypeOptions} from "./displayTypeOptions.js";
+import {InsertTypeOptions} from "./insertTypeOptions.js";
 
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business legic etc inside. That will come when we build systems.
@@ -38,6 +38,6 @@ duration():number;
 //--correct
 getEndTime(inMilliSec ?:boolean) :number;
 
-displayType :DisplayTypeOptions;
-displayTypeOptions:typeof DisplayTypeOptions
+insertType :InsertTypeOptions;
+insertTypeOptions:typeof InsertTypeOptions
 }

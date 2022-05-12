@@ -5,32 +5,25 @@ let bil = new Bilza("bilza",1000,500);
 // let g = bil.gridTempl.simple();
 let g = bil.add.grid("#0000ff");
 
-let txt = bil.add.text(10,"Again","#008000",0,0);
-// let txt08 = bil.textTempl.rm();
-// txt08.d.dynWidth = 40;
-// txt08.d.dynHeight = 30;
 
-// let txt01 = bil.add.text(0,50000,"Real Test","#008000",0,0,40,20);
-// txt01.d.colorBg = "#ff0000";
-// txt01.d.showBg = true;
-// let txt07 = bil.textTempl.rm();
-// let txt06 = bil.textTempl.rb();
+// let c = bil.add.counter();
+let txt = bil.add.text(10,"Bla Bla","#008000",10,10,30,30);
+// bil.insert(c); 
+// bil.insert(g); 
+ bil.insert(txt); 
+// bil.insert(txt02); 
+// bil.insert(txt03); 
 
-// let txt02 = bil.textTempl.lt(0,60000,"Left Top","#008000");
-// let txt01 = bil.textTempl.lm(0,60000,"Left Mid","#008000");
-// let txt = bil.textTempl.lb(0,60000,"Left Bot","#008000");
+// function txt(duration,content,x=0,y=0,startTime=0){
+//     let txt = bil.add.text(duration,content,"#008000",x,y);
+//     txt.displayType = txt.displayTypeOptions.Append;
+//     txt.setStartTime(startTime);
+//     txt.displayType = txt.displayTypeOptions.Insert;
 
-// let txt03 = bil.textTempl.mt(0,60000,"Simple Text","#008000");
-// let txt04 = bil.textTempl.mm(0,60000,"Simple Text","#008000");
-// let txt05 = bil.textTempl.mb(0,60000,"Simple Text","#008000");
-//////////////////////////////////
+// return txt;
+// }
+
+
 //////////////////////////////////
 bil.start();
 ///////////////////////////////
-// let wd = 1000;
-// let inter  = setInterval(() => {
-//     wd -= 100;
-//     bil.setCanvas(wd,wd/2);
-//     bil.draw();
-//     if (wd <= 300){ clearInterval(inter);}
-// }, 3000);
