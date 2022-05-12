@@ -9,7 +9,8 @@ import GridTemplates from "../compFactory/gridTemplates.js";
 import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
-
+//----------functions
+import adjectDurationWhileInsert from "./adjectDurationWhileInsert.js";
 //-------------------------------------------
 import Settings from "./settings.js";
 
@@ -142,50 +143,6 @@ this._pvt_duration_val += n;
     return this._pvt_duration_val;
 }
 
-//--private means no complexity in components
-private adjectDuration(comp :IComponent):boolean{
-let r = false;    
-
-switch (comp.insertType) {
-    case comp.insertTypeOptions.AlwaysOn:
-    r = true;    
-    break;
-
-    case comp.insertTypeOptions.Append:
-    //--1 : comp.duration cant be > 0 
-    if (comp.duration() < 1) {
-        throw new Error("for Insert operation to succeed you need component duration greater than 0");
-    }
-    //--2 : set comp startTime = bilza.len() now.
-    comp.setStartTime(this.duration(false));
-    //--3 : Add comp duration to this.duration .
-    this.extendDuration(comp.duration());
-    r = true;   
-    break;
-
-    case comp.insertTypeOptions.Insert:
-    //--1 : stop if startTime > bil.duration(false);
-        if (comp.getStartTime() >= this.duration(false)){
-            throw new Error("to insert a clip inside the video, the start time of the clip can not be larger than the duration of the video since that will create blank frames");
-        }
-    //--2 : now check if endTime of comp is larger than the bil or not
-    if (comp.getEndTime() <= this.duration(false)){
-        //no need to change anything
-        r = true;
-    }else {
-        let overlap = comp.getEndTime() - this.duration(false);
-        this.extendDuration(overlap);
-        r = true;
-    }  
-    
-        break;
-
-    default:
-        break;
-}
-
-return r;
-}
 
 protected getMsDelta() :number{
 if (this.runningStartTimeTS ==null){   
@@ -230,7 +187,8 @@ chqCollision(x :number, y :number):IComponent | null{
     return null;
 }
 insert(comp:IComponent):IComponent{
-this.adjectDuration(comp);
+    adjectDurationWhileInsert(comp,this.duration(false),
+    this.extendDuration.bind(this));
 //..............................................   
 this.comps.compsArray.push(comp);
     return comp;

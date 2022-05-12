@@ -31,7 +31,6 @@ export default class Bilza {
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     duration(inMilliSeconds?: boolean): number;
     private extendDuration;
-    private adjectDuration;
     protected getMsDelta(): number;
     setMsDelta(n: number): number;
     stop(): boolean;

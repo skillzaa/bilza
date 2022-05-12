@@ -7,6 +7,7 @@ import GridTemplates from "../compFactory/gridTemplates.js";
 import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
+import adjectDurationWhileInsert from "./adjectDurationWhileInsert.js";
 import Settings from "./settings.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null) {
@@ -85,38 +86,6 @@ export default class Bilza {
         this._pvt_duration_val += n;
         return this._pvt_duration_val;
     }
-    adjectDuration(comp) {
-        let r = false;
-        switch (comp.insertType) {
-            case comp.insertTypeOptions.AlwaysOn:
-                r = true;
-                break;
-            case comp.insertTypeOptions.Append:
-                if (comp.duration() < 1) {
-                    throw new Error("for Insert operation to succeed you need component duration greater than 0");
-                }
-                comp.setStartTime(this.duration(false));
-                this.extendDuration(comp.duration());
-                r = true;
-                break;
-            case comp.insertTypeOptions.Insert:
-                if (comp.getStartTime() >= this.duration(false)) {
-                    throw new Error("to insert a clip inside the video, the start time of the clip can not be larger than the duration of the video since that will create blank frames");
-                }
-                if (comp.getEndTime() <= this.duration(false)) {
-                    r = true;
-                }
-                else {
-                    let overlap = comp.getEndTime() - this.duration(false);
-                    this.extendDuration(overlap);
-                    r = true;
-                }
-                break;
-            default:
-                break;
-        }
-        return r;
-    }
     getMsDelta() {
         if (this.runningStartTimeTS == null) {
             return 0;
@@ -160,7 +129,7 @@ export default class Bilza {
         return null;
     }
     insert(comp) {
-        this.adjectDuration(comp);
+        adjectDurationWhileInsert(comp, this.duration(false), this.extendDuration.bind(this));
         this.comps.compsArray.push(comp);
         return comp;
     }
