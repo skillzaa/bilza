@@ -1,16 +1,21 @@
 import { DrawLayer, Pack } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "../components/background/background.js";
-import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
 import adjectDurationWhileInsert from "./adjectDurationWhileInsert.js";
+import drawByDrawLayer from "./drawByDrawLayer.js";
+import initAll from "./initAll.js";
+import resizeAll from "./resizeAll.js";
+import StopWatch from "./stopWatch.js";
+import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 import Settings from "./settings.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null) {
+        this.comps = [];
+        this.stopWatch = new StopWatch();
         this.set = new Settings();
         this.util = new Fn();
         this.canvas = getCanvasElement(canvasId);
@@ -20,30 +25,12 @@ export default class Bilza {
         this._pvt_duration_val = 0;
         this.interval = null;
         this.msPerFrame = 100;
-        this.comps = new Comps(this.pack);
-        this.init = this.comps.init.bind(this.comps);
-        this.drawByDrawLayer = this.comps.drawByDrawLayer.bind(this.comps);
-        this.resizeAll = this.comps.resizeAll.bind(this.comps);
         this.add = new CompFactory();
         this.textTempl = new TextTemplWrapper(this.insert.bind(this));
         this.gridTempl = new GridTemplates(this.insert.bind(this));
     }
-    start() {
-        if (this.runningStartTimeTS !== null) {
-            return false;
-        }
-        else {
-            this.stop();
-            this.init();
-            this.runningStartTimeTS = new Date().getTime();
-            this.interval = window.setInterval(() => {
-                this.draw();
-            }, this.msPerFrame);
-            return true;
-        }
-    }
     drawInit() {
-        this.init();
+        initAll(this.comps, this.pack);
         this.draw();
     }
     draw() {
@@ -52,13 +39,13 @@ export default class Bilza {
         }
         let msDelta = this.getMsDelta();
         if (msDelta >= this.duration(true)) {
-            this.stop();
+            this.stopWatch.stop();
         }
         this.pack.clearCanvas();
         this.background.draw(this.pack);
-        this.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
-        this.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
-        this.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);
+        drawByDrawLayer(this.comps, msDelta, DrawLayer.BackGround, this.pack);
+        drawByDrawLayer(this.comps, msDelta, DrawLayer.MiddleGround, this.pack);
+        drawByDrawLayer(this.comps, msDelta, DrawLayer.ForeGround, this.pack);
         this.drawEvent(msDelta);
         return true;
     }
@@ -66,12 +53,8 @@ export default class Bilza {
         return true;
     }
     dynamicCanvas(widthInPercent = 95, heightInPercent = null) {
-        let wd = window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
-        let ht = null;
-        if (heightInPercent !== null) {
-            let ht = window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
-        }
-        this.setCanvas(wd, ht);
+        let htwd = dynamicCanvasHtWd(widthInPercent, heightInPercent);
+        this.setCanvas(htwd.width, htwd.height);
         return true;
     }
     duration(inMilliSeconds = true) {
@@ -105,19 +88,12 @@ export default class Bilza {
         this.runningStartTimeTS = new Date().getTime() - n;
         return this.runningStartTimeTS;
     }
-    stop() {
-        this.runningStartTimeTS = null;
-        if (this.interval !== null) {
-            clearInterval(this.interval);
-        }
-        return true;
-    }
     setCanvas(width = 800, height = null) {
         if (height == null) {
             height = this.util.aspectRatioHeight(width);
         }
         this.pack = new Pack(this.canvas, width, height);
-        this.resizeAll(this.pack.canvasWidth(), this.pack.canvasHeight());
+        resizeAll(this.comps, this.pack.canvasWidth(), this.pack.canvasHeight());
     }
     getCanvasHeight() {
         return this.pack.canvasHeight();
@@ -130,7 +106,7 @@ export default class Bilza {
     }
     insert(comp) {
         adjectDurationWhileInsert(comp, this.duration(false), this.extendDuration.bind(this));
-        this.comps.compsArray.push(comp);
+        this.comps.push(comp);
         return comp;
     }
 }

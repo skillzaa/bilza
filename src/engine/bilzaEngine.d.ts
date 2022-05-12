@@ -1,9 +1,8 @@
-import { DrawLayer, IComponent, Pack } from "../Bilza.js";
+import { IComponent, Pack } from "../Bilza.js";
 import CompFactory from "../compFactory/compFactory.js";
 import Background from "../components/background/background.js";
 import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
 import GridTemplates from "../compFactory/gridTemplates.js";
-import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 import Settings from "./settings.js";
 export default class Bilza {
@@ -12,19 +11,16 @@ export default class Bilza {
     textTempl: TextTemplWrapper;
     gridTempl: GridTemplates;
     background: Background;
+    comps: IComponent[];
+    private stopWatch;
     private interval;
     private msPerFrame;
     private runningStartTimeTS;
     private _pvt_duration_val;
     protected pack: Pack;
     protected canvas: HTMLCanvasElement;
-    protected comps: Comps;
     util: Fn;
-    init: () => boolean;
-    resizeAll: (width: number, height: number) => boolean;
-    drawByDrawLayer: (msDelta: number, drawLayer: DrawLayer, pack: Pack) => boolean;
     constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: null | number);
-    start(): boolean;
     drawInit(): void;
     draw(): boolean;
     drawEvent(msDelta: number): boolean;
@@ -33,7 +29,6 @@ export default class Bilza {
     private extendDuration;
     protected getMsDelta(): number;
     setMsDelta(n: number): number;
-    stop(): boolean;
     setCanvas(width?: number, height?: number | null): void;
     getCanvasHeight(): number;
     getCanvasWidth(): number;
