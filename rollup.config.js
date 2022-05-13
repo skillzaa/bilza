@@ -12,7 +12,7 @@ export default [
     // input: './standalone/standalone.js',
 
     output: {
-      file: './build/bilzaEngine_0_0_0.js',
+      file: './build/bilzaEngine_0_0_15.js',
       // file: './samples/00lib/Bilza_0_0_15.js',
       // file: './standalone/standalone.min.js',
       format: 'es',
