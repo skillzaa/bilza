@@ -26,20 +26,14 @@ import Settings from "./settings.js";
 export default class Bilza {
 //==================PUBLIC API
 public set :Settings; 
-public add :CompFactory; 
-public textTempl :TextTemplWrapper; 
-public gridTempl :GridTemplates; 
+public add :CompFactory; ///--notpartofengine 
+public textTempl :TextTemplWrapper; ///--notpartofengine
+public gridTempl :GridTemplates; ///--notpartofengine
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //12-5-2022  keep comps private
 public comps:IComponent[];
 private stopWatch:StopWatch;
-//11-5-2022 the setInterval handle 
-private interval : number | null; 
-//??
-private  msPerFrame :number; //????
-//--change to runningStartTime
-private runningStartTimeTS :number | null; //when we start video
 //---just touch this throught public :duration and private: setDuration.
 private _pvt_duration_val :number; //the size of video-length in milli seconds 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -55,23 +49,15 @@ this.comps = [];
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 //internal seq of args is different from enternal seq of args    
-this.util = new Fn();  
-//i dont need to save canvas id for later???
-// this.canvasId = canvasId;
+this.util = new Fn();///--notpartofengine  
 this.canvas =  getCanvasElement(canvasId);
 
 this.pack = new Pack(this.canvas,canvasWidth,canvasHeight);
 /////
 this.background = new Background();
 ///////////////
-//--11-may-2022 i think runningStartTimeTS is the timestamp when we start the engine. it should be called runningStartTime. Because the startTime of bilza engine is always 0 so no need to have a variable called runningStartTimeTS.
-
-this.runningStartTimeTS = null; //--this is for stopWatch ??!!!!
 //--11-5-2022 -the default vlaue of _pvt_duration_val may change later
 this._pvt_duration_val = 0; //duration in seconds-dafault=0;
-this.interval = null; //to save setInterval handler
-// this.msPerFrame = 1000; // 1 sec
-this.msPerFrame = 100; //make it 100 ms
 //////////////////----comps
 ////--Templates
 //--I think sending pack to compFacoty is wrong!!!!!??????
@@ -87,10 +73,10 @@ public drawInit(){
 }
 draw():boolean{
     // this.set.fixBugWarn("fix this damn bug");
-    
+// console.log("draw");    
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   
-let msDelta = this.getMsDelta();
+let msDelta = this.stopWatch.getMsDelta();
     //stop if completed
 if(msDelta >= this.duration(true)){ this.stopWatch.stop();}     
 this.pack.clearCanvas();          
@@ -131,20 +117,7 @@ private extendDuration(n :number):number {
 this._pvt_duration_val += n;
     return this._pvt_duration_val;
 }
-protected getMsDelta() :number{
-if (this.runningStartTimeTS ==null){   
-    return 0;
-} else{
-let curTime = new Date().getTime();
-return curTime - this.runningStartTimeTS;
-}
-}
-public setMsDelta(n :number) :number{
-if (this.runningStartTimeTS ==null){ return 0;}//error bilza not running
-if (n > this.duration() || n < 0){return 0;}//0 = this.runningStartTimeTS
-this.runningStartTimeTS = new Date().getTime() - n;
-return this.runningStartTimeTS;
-}
+
 ////////////////////////////////////////////////////
 setCanvas(width :number = 800,height :number|null = null){
     if (height ==null){
@@ -171,5 +144,9 @@ adjectDurationWhileInsert(comp,this.duration(false),
 this.comps.push(comp);
     return comp;
 }  
+
+start(){
+    this.stopWatch.start(this.draw.bind(this));
+}
 ////////////////////////////////////////////////////
 }//ends

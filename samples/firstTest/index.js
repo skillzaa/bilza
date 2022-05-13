@@ -5,7 +5,7 @@ let bil = new Bilza("bilza",1000,500);
 // let g = bil.gridTempl.simple();
 let g = bil.add.grid("#0000ff");
 
-
+bil.insert(bil.add.text(10,"bla bla bla"));
 
 let c = bil.insert(bil.add.counter());
 

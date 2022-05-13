@@ -13,9 +13,6 @@ export default class Bilza {
     background: Background;
     comps: IComponent[];
     private stopWatch;
-    private interval;
-    private msPerFrame;
-    private runningStartTimeTS;
     private _pvt_duration_val;
     protected pack: Pack;
     protected canvas: HTMLCanvasElement;
@@ -27,12 +24,11 @@ export default class Bilza {
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     duration(inMilliSeconds?: boolean): number;
     private extendDuration;
-    protected getMsDelta(): number;
-    setMsDelta(n: number): number;
     setCanvas(width?: number, height?: number | null): void;
     getCanvasHeight(): number;
     getCanvasWidth(): number;
     chqCollision(x: number, y: number): IComponent | null;
     insert(comp: IComponent): IComponent;
+    start(): void;
 }
 //# sourceMappingURL=bilzaEngine.d.ts.map

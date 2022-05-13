@@ -21,10 +21,7 @@ export default class Bilza {
         this.canvas = getCanvasElement(canvasId);
         this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
         this.background = new Background();
-        this.runningStartTimeTS = null;
         this._pvt_duration_val = 0;
-        this.interval = null;
-        this.msPerFrame = 100;
         this.add = new CompFactory();
         this.textTempl = new TextTemplWrapper(this.insert.bind(this));
         this.gridTempl = new GridTemplates(this.insert.bind(this));
@@ -37,7 +34,7 @@ export default class Bilza {
         if (this.pack == null) {
             throw new Error("bilzaa is not initialized");
         }
-        let msDelta = this.getMsDelta();
+        let msDelta = this.stopWatch.getMsDelta();
         if (msDelta >= this.duration(true)) {
             this.stopWatch.stop();
         }
@@ -69,25 +66,6 @@ export default class Bilza {
         this._pvt_duration_val += n;
         return this._pvt_duration_val;
     }
-    getMsDelta() {
-        if (this.runningStartTimeTS == null) {
-            return 0;
-        }
-        else {
-            let curTime = new Date().getTime();
-            return curTime - this.runningStartTimeTS;
-        }
-    }
-    setMsDelta(n) {
-        if (this.runningStartTimeTS == null) {
-            return 0;
-        }
-        if (n > this.duration() || n < 0) {
-            return 0;
-        }
-        this.runningStartTimeTS = new Date().getTime() - n;
-        return this.runningStartTimeTS;
-    }
     setCanvas(width = 800, height = null) {
         if (height == null) {
             height = this.util.aspectRatioHeight(width);
@@ -108,5 +86,8 @@ export default class Bilza {
         adjectDurationWhileInsert(comp, this.duration(false), this.extendDuration.bind(this));
         this.comps.push(comp);
         return comp;
+    }
+    start() {
+        this.stopWatch.start(this.draw.bind(this));
     }
 }

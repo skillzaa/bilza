@@ -27,4 +27,13 @@ export default class StopWatch {
         }
         return true;
     }
+    getMsDelta() {
+        if (this.runningStartTimeTS == null) {
+            return 0;
+        }
+        else {
+            let curTime = new Date().getTime();
+            return curTime - this.runningStartTimeTS;
+        }
+    }
 }

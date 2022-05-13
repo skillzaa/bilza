@@ -6,5 +6,6 @@ export default class StopWatch {
     start(drawFn: () => boolean): boolean;
     isAlreadyRunning(): boolean;
     stop(): boolean;
+    getMsDelta(): number;
 }
 //# sourceMappingURL=stopWatch.d.ts.map
