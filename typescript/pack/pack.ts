@@ -1,4 +1,4 @@
-import Style from "../style.js";
+import Style from "../design/style.js";
 import getCanvasElement from "./getCanvasElement.js";
 import Position from "../design/Position.js";
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";

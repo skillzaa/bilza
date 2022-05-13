@@ -1,4 +1,5 @@
-import { Component, Pack } from "../Bilza.js";
+import { Pack } from "../Bilza.js";
+import Transition from "../../"
 import { ObjectData } from "./DataFn.js";
 export default class TestComp extends Component<ObjectData> {
     constructor(duration?: number);

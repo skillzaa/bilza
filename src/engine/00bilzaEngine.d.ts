@@ -1,5 +1,5 @@
 import { IComponent, Pack } from "../Bilza.js";
-import Background from "../components/background/background.js";
+import Background from "./background.js";
 export default class Bilza {
     background: Background;
     private set;

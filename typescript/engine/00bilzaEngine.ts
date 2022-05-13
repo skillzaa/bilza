@@ -1,7 +1,6 @@
 import {DrawLayer,IComponent,Pack} from "../Bilza.js";
-import Background from "../components/background/background.js";
+import Background from "./background.js";
 //----------functions
-import getCanvasElement from "../pack/getCanvasElement.js";
 import StopWatch from "./stopWatch.js";
 //-------------------------------------------
 import Settings from "./settings.js";
@@ -40,7 +39,9 @@ let msDelta = this.stopWatch.getMsDelta();
 if(msDelta >= this.duration.len(true)){ this.stopWatch.stop();}     
 this.pack.clearCanvas();          
 //--keep the draw sequence : bg-bg-middle-foreground
-this.background.draw(this.pack); //fornow         
+// this.background.draw(this.pack); //fornow         
+//--bandAid solution
+this.pack.drawBackground(this.background.color);
 
 this.comps.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);

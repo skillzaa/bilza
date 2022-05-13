@@ -1,5 +1,5 @@
 import { DrawLayer, Pack } from "../Bilza.js";
-import Background from "../components/background/background.js";
+import Background from "./background.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
 import Comps from "./comps.js";
@@ -26,7 +26,7 @@ export default class Bilza {
             this.stopWatch.stop();
         }
         this.pack.clearCanvas();
-        this.background.draw(this.pack);
+        this.pack.drawBackground(this.background.color);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);

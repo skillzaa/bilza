@@ -1,26 +1,16 @@
-import Component from "./BaseComponent/component.js";
-import Pack from "./pack/pack.js";
-import Style from "./style.js";
-//--the name shd be Bilza and not BilzaEngine
 import Bilza from "./engine/00bilzaEngine.js";
+//--A seperate package on top of which Engine build abstractions
+import Pack from "./pack/pack.js";
+//--Required by Engine and Comp both
 import {DrawLayer} from "./design/drawLayer.js";
-import IComponent from "./BaseComponent/IComponent.js";
-import Transition from "./transition/transition.js";
-import {FontNames} from "./design/fontNames.js";
-import IMsStart from "./design/IMsStart.js";
-////////////////////////////
-import CompFactory from "./compFactory/compFactory.js";
+//--Export IComponent since developers will use it;
+import IComponent from "./design/IComponent";
 
 export default Bilza;
 
 export {
 Pack,
 DrawLayer,
-Style,
-Transition,
-Component,
-IMsStart,
 IComponent,
-FontNames,
-CompFactory
+Bilza
 }
