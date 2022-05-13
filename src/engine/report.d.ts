@@ -1,5 +1,6 @@
-export default class Resport {
+export default class Report {
+    totalComponents: number;
+    videoDuration: number;
     constructor();
-    print(): void;
 }
 //# sourceMappingURL=report.d.ts.map

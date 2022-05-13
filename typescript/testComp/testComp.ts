@@ -20,6 +20,7 @@ draw(p:Pack):boolean{
     this.style.fontSize =80;
     p.drawText("Test Comp",5,5,this.style);
 p.drawText(this.d.msDelta.toString(),500,5,this.style);
+p.drawText(p.report().toString(),5,100,this.style);
 return true;
 }
 

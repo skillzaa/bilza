@@ -1,6 +1,7 @@
 import Style from "../style.js";
 import Position from "../design/Position.js";
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
+import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 
 export default class Pack {
 private canvas :HTMLCanvasElement;
@@ -234,6 +235,19 @@ private setBwZeroNhundred(n:number):number{
   if (n > 100 ){return 100;}
   return n;  
 }
+public dynCanvasWidth(widthInPercent :number = 80):number{
+    return window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
+}
+public dynCanvasHeight(widthInPix :number,heightInPercent :number | null=null):number{
 
-
+    if (heightInPercent !== null){
+        return window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
+}else {
+    return aspectRatioHeight(widthInPix);
+}
+}
+report():number{
+return 0; //place filled for report in engine
+}
+/////////////////////////////////////////////////////////////
 }

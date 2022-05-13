@@ -3,7 +3,6 @@ import Background from "../components/background/background.js";
 //----------functions
 import getCanvasElement from "./getCanvasElement.js";
 import StopWatch from "./stopWatch.js";
-import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 //-------------------------------------------
 import Settings from "./settings.js";
 import Comps from "./comps.js";
@@ -12,10 +11,10 @@ import Duration from "./duration.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
 //==================PUBLIC API
-public set :Settings; 
-public duration:Duration;
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+private set :Settings; 
+private duration:Duration;
 private comps:Comps;//--009
 private stopWatch:StopWatch;
 protected pack:Pack; //---later
@@ -33,8 +32,8 @@ this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.canvas =  getCanvasElement(canvasId);
 this.pack = new Pack(this.canvas,canvasWidth,canvasHeight);
 this.background = new Background();
-
-
+//---Experimental report mapped to PAck
+this.pack.report = (this.report.bind(this));
 } 
 public drawInit(){
     this.comps.initAll(this.pack);
@@ -61,11 +60,10 @@ drawEvent(msDelta :number):boolean{
 // console.log("drawEventn");
     return true;
 }
-dynamicCanvas(widthInPercent :number = 95,heightInPercent :number | null=null):boolean{
-let htwd = dynamicCanvasHtWd(widthInPercent,heightInPercent);   
-this.setCanvas(htwd.width,htwd.height);  
+dynamicCanvas(widthInPercent:number = 95,heightInPercent :number | null=null):boolean{
+let wd = this.pack.dynCanvasWidth(widthInPercent);
+this.setCanvas(wd,this.pack.dynCanvasHeight(wd,heightInPercent));  
 return true;
-// }
 }
 insert(comp:IComponent):IComponent{
 this.duration.adjectWhileInsert(comp);
@@ -74,7 +72,6 @@ return this.comps.push(comp);
 start(){
     this.stopWatch.start(this.draw.bind(this));
 }
-
 ///---MAPPED fUNCTION jusT eXPORTED--DO GO BELOW
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
@@ -92,5 +89,12 @@ return this.pack.canvasHeight();
 }
 getCanvasWidth():number{
 return this.pack.canvasWidth();    
+}
+
+
+///////////////////////////Report
+report() :number{
+let totalComponents = this.comps.len();
+return totalComponents;    
 }
 }//ends

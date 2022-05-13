@@ -34,5 +34,8 @@ export default class Pack {
     xPerc(perc: number): number;
     yPerc(perc: number): number;
     private setBwZeroNhundred;
+    dynCanvasWidth(widthInPercent?: number): number;
+    dynCanvasHeight(widthInPix: number, heightInPercent?: number | null): number;
+    report(): number;
 }
 //# sourceMappingURL=pack.d.ts.map

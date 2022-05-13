@@ -7,5 +7,6 @@ export default class Comps {
     resizeAll(width?: number, height?: number): boolean;
     drawByDrawLayer(msDelta: number, drawLayer: DrawLayer, pack: Pack): boolean;
     qualifyForDraw(comp: IComponent, msDelta: number): boolean;
+    len(): number;
 }
 //# sourceMappingURL=comps.d.ts.map

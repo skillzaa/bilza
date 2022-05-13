@@ -51,4 +51,7 @@ if(comp.getStartTime(true) <= msDelta && comp.getEndTime(true) > msDelta){
 }
 return false;
 }
+len(){
+    return this.compArray.length;
+}
 }//comps

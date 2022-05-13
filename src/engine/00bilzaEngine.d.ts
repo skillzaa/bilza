@@ -1,11 +1,9 @@
 import { IComponent, Pack } from "../Bilza.js";
 import Background from "../components/background/background.js";
-import Settings from "./settings.js";
-import Duration from "./duration.js";
 export default class Bilza {
-    set: Settings;
-    duration: Duration;
     background: Background;
+    private set;
+    private duration;
     private comps;
     private stopWatch;
     protected pack: Pack;
@@ -20,5 +18,6 @@ export default class Bilza {
     setCanvas(width?: number, height?: number | null): void;
     getCanvasHeight(): number;
     getCanvasWidth(): number;
+    report(): number;
 }
 //# sourceMappingURL=00bilzaEngine.d.ts.map

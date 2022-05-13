@@ -42,4 +42,7 @@ export default class Comps {
         }
         return false;
     }
+    len() {
+        return this.compArray.length;
+    }
 }

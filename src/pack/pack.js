@@ -1,4 +1,5 @@
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
+import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 export default class Pack {
     constructor(canvas, width = 0, height = null) {
         if (height == null) {
@@ -185,5 +186,19 @@ export default class Pack {
             return 100;
         }
         return n;
+    }
+    dynCanvasWidth(widthInPercent = 80) {
+        return window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
+    }
+    dynCanvasHeight(widthInPix, heightInPercent = null) {
+        if (heightInPercent !== null) {
+            return window.innerHeight / 100 * setBWzeroNhundred(heightInPercent);
+        }
+        else {
+            return aspectRatioHeight(widthInPix);
+        }
+    }
+    report() {
+        return 0;
     }
 }

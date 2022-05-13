@@ -1,7 +1,6 @@
-export default class Resport {
+export default class Report {
     constructor() {
-    }
-    print() {
-        console.log("report");
+        this.totalComponents = 0;
+        this.videoDuration = 0;
     }
 }

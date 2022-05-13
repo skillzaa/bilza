@@ -2,7 +2,6 @@ import { DrawLayer, Pack } from "../Bilza.js";
 import Background from "../components/background/background.js";
 import getCanvasElement from "./getCanvasElement.js";
 import StopWatch from "./stopWatch.js";
-import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 import Settings from "./settings.js";
 import Comps from "./comps.js";
 import Duration from "./duration.js";
@@ -15,6 +14,7 @@ export default class Bilza {
         this.canvas = getCanvasElement(canvasId);
         this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
         this.background = new Background();
+        this.pack.report = (this.report.bind(this));
     }
     drawInit() {
         this.comps.initAll(this.pack);
@@ -40,8 +40,8 @@ export default class Bilza {
         return true;
     }
     dynamicCanvas(widthInPercent = 95, heightInPercent = null) {
-        let htwd = dynamicCanvasHtWd(widthInPercent, heightInPercent);
-        this.setCanvas(htwd.width, htwd.height);
+        let wd = this.pack.dynCanvasWidth(widthInPercent);
+        this.setCanvas(wd, this.pack.dynCanvasHeight(wd, heightInPercent));
         return true;
     }
     insert(comp) {
@@ -60,5 +60,9 @@ export default class Bilza {
     }
     getCanvasWidth() {
         return this.pack.canvasWidth();
+    }
+    report() {
+        let totalComponents = this.comps.len();
+        return totalComponents;
     }
 }
