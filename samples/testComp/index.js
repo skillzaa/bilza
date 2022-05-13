@@ -1,11 +1,11 @@
 import Bilza from "../../src/Bilza.js";
-import Text from "../../src/components/text/text.js"
+import TestComp from "../../src/testComp/testComp.js"
 
 let bil = new Bilza("bilza",1000,500);
 
-let t = new Text(20,"Test Comp");
+let testComp = new TestComp();
 
-bil.insert(t);
+bil.insert(testComp);
 
 //////////////////////////////////
 bil.start();

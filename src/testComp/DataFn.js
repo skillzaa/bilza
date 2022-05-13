@@ -3,6 +3,7 @@ export class ObjectData extends CompDataBase {
     constructor() {
         super();
         this.msStart = 0;
+        this.msDelta = 0;
     }
 }
 ;

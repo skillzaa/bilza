@@ -1,7 +1,7 @@
 import {Component,Pack,DrawLayer } from "../Bilza.js";
 import DataFn,{ObjectData} from "./DataFn.js";
  
-export default class Rect extends Component<ObjectData> {
+export default class TestComp extends Component<ObjectData> {
 
 constructor (duration:number=300){
     super(DataFn,duration);
@@ -12,9 +12,14 @@ return  10;
 height(p:Pack):number {
     return  10;
 }
-
+update(msDelta: number, p: Pack): boolean {
+    this.d.msDelta = msDelta;
+    return true;
+}
 draw(p:Pack):boolean{
-console.log("Test Comp");
+    this.style.fontSize =80;
+    p.drawText("Test Comp",5,5,this.style);
+p.drawText(this.d.msDelta.toString(),500,5,this.style);
 return true;
 }
 
