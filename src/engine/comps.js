@@ -1,18 +1,14 @@
 export default class Comps {
-    constructor(pack) {
-        this.pack = pack;
-        this.compsArray = [];
+    constructor() {
+        this.compArray = [];
     }
-    init() {
-        for (let i = 0; i < this.compsArray.length; i++) {
-            this.compsArray[i].init(this.pack);
-        }
-        return true;
+    push(comp) {
+        this.compArray.push(comp);
+        return comp;
     }
-    resizeAll(width = 800, height = 400) {
-        for (let i = 0; i < this.compsArray.length; i++) {
-            const element = this.compsArray[i];
-            element.resize(width, height);
+    initAll(pack) {
+        for (let i = 0; i < this.compArray.length; i++) {
+            this.compArray[i].init(pack);
         }
         return true;
     }

@@ -4,14 +4,14 @@ import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
 import adjectDurationWhileInsert from "./adjectDurationWhileInsert.js";
 import drawByDrawLayer from "./drawByDrawLayer.js";
-import initAll from "./initAll.js";
 import resizeAll from "./resizeAll.js";
 import StopWatch from "./stopWatch.js";
 import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 import Settings from "./settings.js";
+import Comps from "./comps.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null) {
-        this.comps = [];
+        this.comps = new Comps();
         this.stopWatch = new StopWatch();
         this.set = new Settings();
         this.util = new Fn();
@@ -21,7 +21,7 @@ export default class Bilza {
         this._pvt_duration_val = 0;
     }
     drawInit() {
-        initAll(this.comps, this.pack);
+        this.comps.initAll(this.pack);
         this.draw();
     }
     draw() {
@@ -34,9 +34,9 @@ export default class Bilza {
         }
         this.pack.clearCanvas();
         this.background.draw(this.pack);
-        drawByDrawLayer(this.comps, msDelta, DrawLayer.BackGround, this.pack);
-        drawByDrawLayer(this.comps, msDelta, DrawLayer.MiddleGround, this.pack);
-        drawByDrawLayer(this.comps, msDelta, DrawLayer.ForeGround, this.pack);
+        drawByDrawLayer(this.comps.compArray, msDelta, DrawLayer.BackGround, this.pack);
+        drawByDrawLayer(this.comps.compArray, msDelta, DrawLayer.MiddleGround, this.pack);
+        drawByDrawLayer(this.comps.compArray, msDelta, DrawLayer.ForeGround, this.pack);
         this.drawEvent(msDelta);
         return true;
     }
@@ -65,7 +65,7 @@ export default class Bilza {
             height = this.util.aspectRatioHeight(width);
         }
         this.pack = new Pack(this.canvas, width, height);
-        resizeAll(this.comps, this.pack.canvasWidth(), this.pack.canvasHeight());
+        resizeAll(this.comps.compArray, this.pack.canvasWidth(), this.pack.canvasHeight());
     }
     getCanvasHeight() {
         return this.pack.canvasHeight();
@@ -78,8 +78,7 @@ export default class Bilza {
     }
     insert(comp) {
         adjectDurationWhileInsert(comp, this.duration(false), this.extendDuration.bind(this));
-        this.comps.push(comp);
-        return comp;
+        return this.comps.push(comp);
     }
     start() {
         this.stopWatch.start(this.draw.bind(this));

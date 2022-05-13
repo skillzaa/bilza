@@ -11,6 +11,7 @@ import StopWatch from "./stopWatch.js";
 import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 //-------------------------------------------
 import Settings from "./settings.js";
+import Comps from "./comps.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
@@ -19,7 +20,9 @@ public set :Settings;
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //12-5-2022  keep comps private
-public comps:IComponent[];
+// public comps:IComponent[];//--009
+public comps:Comps;//--009
+
 private stopWatch:StopWatch;
 //---just touch this throught public :duration and private: setDuration.
 private _pvt_duration_val :number; //the size of video-length in milli seconds 
@@ -32,7 +35,8 @@ public util :Fn;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",canvasWidth=800,canvasHeight :null|number=null){
-this.comps = [];    
+// this.comps = [];    //--009
+this.comps = new Comps();
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 //internal seq of args is different from enternal seq of args    
@@ -48,7 +52,7 @@ this._pvt_duration_val = 0; //duration in seconds-dafault=0;
 //////////////////----comps
 } 
 public drawInit(){
-    initAll(this.comps,this.pack);
+    this.comps.initAll(this.pack);
     this.draw();
 }
 draw():boolean{
@@ -63,9 +67,9 @@ this.pack.clearCanvas();
 //--keep the draw sequence : bg-bg-middle-foreground
 this.background.draw(this.pack); //fornow         
 
-drawByDrawLayer(this.comps, msDelta,DrawLayer.BackGround,this.pack);
-drawByDrawLayer(this.comps,msDelta,DrawLayer.MiddleGround,this.pack);
-drawByDrawLayer(this.comps,msDelta,DrawLayer.ForeGround,this.pack);
+drawByDrawLayer(this.comps.compArray, msDelta,DrawLayer.BackGround,this.pack);
+drawByDrawLayer(this.comps.compArray,msDelta,DrawLayer.MiddleGround,this.pack);
+drawByDrawLayer(this.comps.compArray,msDelta,DrawLayer.ForeGround,this.pack);
 ///-----connection with outer world
 this.drawEvent(msDelta);
 return true;
@@ -106,7 +110,7 @@ setCanvas(width :number = 800,height :number|null = null){
 
 this.pack = new Pack(this.canvas,width,height);
 //---remove this from here?????
-resizeAll(this.comps,this.pack.canvasWidth(),this.pack.canvasHeight());
+resizeAll(this.comps.compArray,this.pack.canvasWidth(),this.pack.canvasHeight());
 }
 getCanvasHeight():number{
 return this.pack.canvasHeight();    
@@ -120,9 +124,7 @@ chqCollision(x :number, y :number):IComponent | null{
 insert(comp:IComponent):IComponent{
 adjectDurationWhileInsert(comp,this.duration(false),
     this.extendDuration.bind(this));
-//..............................................   
-this.comps.push(comp);
-    return comp;
+return this.comps.push(comp);
 }  
 
 start(){

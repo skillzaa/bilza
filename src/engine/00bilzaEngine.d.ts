@@ -2,10 +2,11 @@ import { IComponent, Pack } from "../Bilza.js";
 import Background from "../components/background/background.js";
 import Fn from "../functions/fn.js";
 import Settings from "./settings.js";
+import Comps from "./comps.js";
 export default class Bilza {
     set: Settings;
     background: Background;
-    comps: IComponent[];
+    comps: Comps;
     private stopWatch;
     private _pvt_duration_val;
     protected pack: Pack;

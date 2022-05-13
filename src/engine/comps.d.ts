@@ -1,9 +1,8 @@
-import { IComponent, Pack } from "../Bilza.js";
+import { IComponent, Pack } from "../Bilza";
 export default class Comps {
-    compsArray: IComponent[];
-    private pack;
-    constructor(pack: Pack);
-    init(): boolean;
-    resizeAll(width?: number, height?: number): boolean;
+    compArray: IComponent[];
+    constructor();
+    push(comp: IComponent): IComponent;
+    initAll(pack: Pack): boolean;
 }
 //# sourceMappingURL=comps.d.ts.map
