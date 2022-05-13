@@ -13,6 +13,7 @@ constructor(){
     this.msPerFrame = 100;
 }
 start(drawFn:()=>boolean) :boolean{
+    if (this.isAlreadyRunning() == true){return false;}
     this.stop();
         this.runningStartTimeTS = new Date().getTime();
         this.interval = window.setInterval(()=>{
@@ -21,7 +22,7 @@ start(drawFn:()=>boolean) :boolean{
         return true;
 }
 isAlreadyRunning():boolean{
-if (this.runningStartTimeTS !== null){
+if (this.runningStartTimeTS == null){
     return false;
 }else {
     return true;

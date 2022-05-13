@@ -7,6 +7,10 @@ private canvas :HTMLCanvasElement;
 private ctx :CanvasRenderingContext2D;
 
 constructor(canvas :HTMLCanvasElement, width :number=0,height :number | null=null){
+    if (height ==null){
+        height = aspectRatioHeight(width);
+    }
+
 this.canvas = canvas;
 this.ctx  = this.canvas.getContext('2d') as CanvasRenderingContext2D;
     if (this.ctx == null ){

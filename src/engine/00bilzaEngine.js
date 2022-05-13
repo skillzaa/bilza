@@ -1,22 +1,20 @@
 import { DrawLayer, Pack } from "../Bilza.js";
 import Background from "../components/background/background.js";
-import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
-import adjectDurationWhileInsert from "./adjectDurationWhileInsert.js";
 import StopWatch from "./stopWatch.js";
 import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 import Settings from "./settings.js";
 import Comps from "./comps.js";
+import Duration from "./duration.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null) {
         this.comps = new Comps();
+        this.duration = new Duration();
         this.stopWatch = new StopWatch();
         this.set = new Settings();
-        this.util = new Fn();
         this.canvas = getCanvasElement(canvasId);
         this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
         this.background = new Background();
-        this._pvt_duration_val = 0;
     }
     drawInit() {
         this.comps.initAll(this.pack);
@@ -27,7 +25,7 @@ export default class Bilza {
             throw new Error("bilzaa is not initialized");
         }
         let msDelta = this.stopWatch.getMsDelta();
-        if (msDelta >= this.duration(true)) {
+        if (msDelta >= this.duration.len(true)) {
             this.stopWatch.stop();
         }
         this.pack.clearCanvas();
@@ -46,22 +44,14 @@ export default class Bilza {
         this.setCanvas(htwd.width, htwd.height);
         return true;
     }
-    duration(inMilliSeconds = true) {
-        if (inMilliSeconds) {
-            return (this._pvt_duration_val * 1000);
-        }
-        else {
-            return (this._pvt_duration_val);
-        }
+    insert(comp) {
+        this.duration.adjectWhileInsert(comp);
+        return this.comps.push(comp);
     }
-    extendDuration(n) {
-        this._pvt_duration_val += n;
-        return this._pvt_duration_val;
+    start() {
+        this.stopWatch.start(this.draw.bind(this));
     }
     setCanvas(width = 800, height = null) {
-        if (height == null) {
-            height = this.util.aspectRatioHeight(width);
-        }
         this.pack = new Pack(this.canvas, width, height);
         this.comps.resizeAll(this.pack.canvasWidth(), this.pack.canvasHeight());
     }
@@ -70,12 +60,5 @@ export default class Bilza {
     }
     getCanvasWidth() {
         return this.pack.canvasWidth();
-    }
-    insert(comp) {
-        adjectDurationWhileInsert(comp, this.duration(false), this.extendDuration.bind(this));
-        return this.comps.push(comp);
-    }
-    start() {
-        this.stopWatch.start(this.draw.bind(this));
     }
 }

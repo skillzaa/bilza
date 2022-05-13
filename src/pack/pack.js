@@ -1,6 +1,9 @@
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
 export default class Pack {
     constructor(canvas, width = 0, height = null) {
+        if (height == null) {
+            height = aspectRatioHeight(width);
+        }
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         if (this.ctx == null) {
