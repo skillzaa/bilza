@@ -1,6 +1,5 @@
 import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 import Background from "../components/background/background.js";
-// import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
 //----------functions
 import getCanvasElement from "./getCanvasElement.js";
@@ -12,8 +11,6 @@ import StopWatch from "./stopWatch.js";
 import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 //-------------------------------------------
 import Settings from "./settings.js";
-//zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-//zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
