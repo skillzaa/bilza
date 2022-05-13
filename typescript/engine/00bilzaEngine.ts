@@ -1,22 +1,15 @@
 import {DrawLayer,IComponent,Pack} from "../Bilza.js";
-import CompFactory from "../compFactory/compFactory.js";
 import Background from "../components/background/background.js";
-import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
-import Text from "../components/text/text.js";
-//----------Templates
-import TextTemplWrapper from "../compFactory/textTemplWrapper.js";
-import GridTemplates from "../compFactory/gridTemplates.js";
 // import Comps from "./comps.js";
 import Fn from "../functions/fn.js";
-import getCanvasElement from "./getCanvasElement.js";
 //----------functions
+import getCanvasElement from "./getCanvasElement.js";
 import adjectDurationWhileInsert from "./adjectDurationWhileInsert.js";
 import drawByDrawLayer from "./drawByDrawLayer.js";
 import initAll from "./initAll.js";
 import resizeAll from "./resizeAll.js";
 import StopWatch from "./stopWatch.js";
 import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
-import DWidthHeight from "./DWidthHeight.js";
 //-------------------------------------------
 import Settings from "./settings.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
@@ -26,9 +19,6 @@ import Settings from "./settings.js";
 export default class Bilza {
 //==================PUBLIC API
 public set :Settings; 
-public add :CompFactory; ///--notpartofengine 
-public textTempl :TextTemplWrapper; ///--notpartofengine
-public gridTempl :GridTemplates; ///--notpartofengine
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //12-5-2022  keep comps private
@@ -59,13 +49,6 @@ this.background = new Background();
 //--11-5-2022 -the default vlaue of _pvt_duration_val may change later
 this._pvt_duration_val = 0; //duration in seconds-dafault=0;
 //////////////////----comps
-////--Templates
-//--I think sending pack to compFacoty is wrong!!!!!??????
-this.add = new CompFactory();
-this.textTempl = new TextTemplWrapper(this.insert.bind(this));
-this.gridTempl = new GridTemplates(this.insert.bind(this));
-
-
 } 
 public drawInit(){
     initAll(this.comps,this.pack);

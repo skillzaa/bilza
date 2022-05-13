@@ -1,7 +1,7 @@
 import Component from "./BaseComponent/component.js";
 import Pack from "./pack/pack.js";
 import Style from "./style.js";
-import Bilza from "./engine/bilzaEngine.js";
+import Bilza from "./engine/00bilzaEngine.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import IComponent from "./BaseComponent/IComponent.js";
 import Transition from "./transition/transition.js";
