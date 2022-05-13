@@ -14,7 +14,6 @@ export default class Bilza {
         this.canvas = getCanvasElement(canvasId);
         this.pack = new Pack(this.canvas, canvasWidth, canvasHeight);
         this.background = new Background();
-        this.pack.report = (this.report.bind(this));
     }
     drawInit() {
         this.comps.initAll(this.pack);
@@ -60,9 +59,5 @@ export default class Bilza {
     }
     getCanvasWidth() {
         return this.pack.canvasWidth();
-    }
-    report() {
-        let totalComponents = this.comps.len();
-        return totalComponents;
     }
 }

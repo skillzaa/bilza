@@ -18,6 +18,5 @@ export default class Bilza {
     setCanvas(width?: number, height?: number | null): void;
     getCanvasHeight(): number;
     getCanvasWidth(): number;
-    report(): number;
 }
 //# sourceMappingURL=00bilzaEngine.d.ts.map

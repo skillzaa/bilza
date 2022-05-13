@@ -32,8 +32,6 @@ this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.canvas =  getCanvasElement(canvasId);
 this.pack = new Pack(this.canvas,canvasWidth,canvasHeight);
 this.background = new Background();
-//---Experimental report mapped to PAck
-this.pack.report = (this.report.bind(this));
 } 
 public drawInit(){
     this.comps.initAll(this.pack);
@@ -91,10 +89,4 @@ getCanvasWidth():number{
 return this.pack.canvasWidth();    
 }
 
-
-///////////////////////////Report
-report() :number{
-let totalComponents = this.comps.len();
-return totalComponents;    
-}
 }//ends
