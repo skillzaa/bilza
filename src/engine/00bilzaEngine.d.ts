@@ -22,7 +22,6 @@ export default class Bilza {
     setCanvas(width?: number, height?: number | null): void;
     getCanvasHeight(): number;
     getCanvasWidth(): number;
-    chqCollision(x: number, y: number): IComponent | null;
     insert(comp: IComponent): IComponent;
     start(): void;
 }

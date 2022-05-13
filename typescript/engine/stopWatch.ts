@@ -1,4 +1,3 @@
-import initAll from "./initAll";
 
 
 export default class StopWatch {
@@ -43,11 +42,6 @@ let curTime = new Date().getTime();
 return curTime - this.runningStartTimeTS;
 }
 }
-//--later
-// public setMsDelta(n :number) :number{
-// if (this.runningStartTimeTS ==null){ return 0;}//error bilza not running
-// if (n > this.duration() || n < 0){return 0;}//0 = this.runningStartTimeTS
-// this.runningStartTimeTS = new Date().getTime() - n;
-// return this.runningStartTimeTS;
-// }
+
+
 }//stop watch

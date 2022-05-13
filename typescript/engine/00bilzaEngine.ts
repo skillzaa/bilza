@@ -5,8 +5,6 @@ import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
 import adjectDurationWhileInsert from "./adjectDurationWhileInsert.js";
 import drawByDrawLayer from "./drawByDrawLayer.js";
-import initAll from "./initAll.js";
-import resizeAll from "./resizeAll.js";
 import StopWatch from "./stopWatch.js";
 import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 //-------------------------------------------
@@ -56,8 +54,6 @@ public drawInit(){
     this.draw();
 }
 draw():boolean{
-    // this.set.fixBugWarn("fix this damn bug");
-// console.log("draw");    
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   
 let msDelta = this.stopWatch.getMsDelta();
@@ -67,9 +63,9 @@ this.pack.clearCanvas();
 //--keep the draw sequence : bg-bg-middle-foreground
 this.background.draw(this.pack); //fornow         
 
-drawByDrawLayer(this.comps.compArray, msDelta,DrawLayer.BackGround,this.pack);
-drawByDrawLayer(this.comps.compArray,msDelta,DrawLayer.MiddleGround,this.pack);
-drawByDrawLayer(this.comps.compArray,msDelta,DrawLayer.ForeGround,this.pack);
+this.comps.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
+this.comps.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
+this.comps.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
 ///-----connection with outer world
 this.drawEvent(msDelta);
 return true;
@@ -110,7 +106,7 @@ setCanvas(width :number = 800,height :number|null = null){
 
 this.pack = new Pack(this.canvas,width,height);
 //---remove this from here?????
-resizeAll(this.comps.compArray,this.pack.canvasWidth(),this.pack.canvasHeight());
+this.comps.resizeAll(this.pack.canvasWidth(),this.pack.canvasHeight());
 }
 getCanvasHeight():number{
 return this.pack.canvasHeight();    
@@ -118,15 +114,12 @@ return this.pack.canvasHeight();
 getCanvasWidth():number{
 return this.pack.canvasWidth();    
 }
-chqCollision(x :number, y :number):IComponent | null{
-    return null;
-}
+
 insert(comp:IComponent):IComponent{
 adjectDurationWhileInsert(comp,this.duration(false),
     this.extendDuration.bind(this));
 return this.comps.push(comp);
 }  
-
 start(){
     this.stopWatch.start(this.draw.bind(this));
 }

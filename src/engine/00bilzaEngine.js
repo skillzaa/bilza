@@ -3,8 +3,6 @@ import Background from "../components/background/background.js";
 import Fn from "../functions/fn.js";
 import getCanvasElement from "./getCanvasElement.js";
 import adjectDurationWhileInsert from "./adjectDurationWhileInsert.js";
-import drawByDrawLayer from "./drawByDrawLayer.js";
-import resizeAll from "./resizeAll.js";
 import StopWatch from "./stopWatch.js";
 import dynamicCanvasHtWd from "./dynamicCanvasHtWd.js";
 import Settings from "./settings.js";
@@ -34,9 +32,9 @@ export default class Bilza {
         }
         this.pack.clearCanvas();
         this.background.draw(this.pack);
-        drawByDrawLayer(this.comps.compArray, msDelta, DrawLayer.BackGround, this.pack);
-        drawByDrawLayer(this.comps.compArray, msDelta, DrawLayer.MiddleGround, this.pack);
-        drawByDrawLayer(this.comps.compArray, msDelta, DrawLayer.ForeGround, this.pack);
+        this.comps.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
+        this.comps.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
+        this.comps.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);
         this.drawEvent(msDelta);
         return true;
     }
@@ -65,16 +63,13 @@ export default class Bilza {
             height = this.util.aspectRatioHeight(width);
         }
         this.pack = new Pack(this.canvas, width, height);
-        resizeAll(this.comps.compArray, this.pack.canvasWidth(), this.pack.canvasHeight());
+        this.comps.resizeAll(this.pack.canvasWidth(), this.pack.canvasHeight());
     }
     getCanvasHeight() {
         return this.pack.canvasHeight();
     }
     getCanvasWidth() {
         return this.pack.canvasWidth();
-    }
-    chqCollision(x, y) {
-        return null;
     }
     insert(comp) {
         adjectDurationWhileInsert(comp, this.duration(false), this.extendDuration.bind(this));
