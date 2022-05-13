@@ -1,21 +1,20 @@
+import getCanvasElement from "./getCanvasElement.js";
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 export default class Pack {
-    constructor(canvas, width = 0, height = null) {
-        if (height == null) {
-            height = aspectRatioHeight(width);
-        }
-        this.canvas = canvas;
-        this.ctx = this.canvas.getContext('2d');
-        if (this.ctx == null) {
+    constructor(canvasId, width = 0, height = null) {
+        this.canvasId = canvasId;
+        this.canvas = getCanvasElement(this.canvasId);
+        this.resizeCanvas(width, height);
+        this.ctx = this.getNewCtx();
+    }
+    getNewCtx() {
+        let ctx = this.canvas.getContext('2d');
+        if (ctx == null) {
             throw new Error("could not obtain drawing context");
         }
-        this.canvas.width = width;
-        if (height == null) {
-            this.canvas.height = aspectRatioHeight(width);
-        }
         else {
-            this.canvas.height = height;
+            return ctx;
         }
     }
     drawBackground(color = "blue") {
@@ -198,7 +197,18 @@ export default class Pack {
             return aspectRatioHeight(widthInPix);
         }
     }
-    report() {
-        return 0;
+    resizeCanvas(width, height) {
+        this.canvas.width = width;
+        if (height == null) {
+            this.canvas.height = aspectRatioHeight(width);
+        }
+        else {
+            this.canvas.height = height;
+        }
+    }
+    dynamicCanvas(widthInPercent = 95, heightInPercent = null) {
+        let wd = this.dynCanvasWidth(widthInPercent);
+        this.resizeCanvas(wd, this.dynCanvasHeight(wd, heightInPercent));
+        return true;
     }
 }

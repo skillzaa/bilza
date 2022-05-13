@@ -3,7 +3,9 @@ import Position from "../design/Position.js";
 export default class Pack {
     private canvas;
     private ctx;
-    constructor(canvas: HTMLCanvasElement, width?: number, height?: number | null);
+    private canvasId;
+    constructor(canvasId: string, width?: number, height?: number | null);
+    private getNewCtx;
     drawBackground(color?: string): string;
     canvasWidth(): number;
     canvasHeight(): number;
@@ -36,6 +38,7 @@ export default class Pack {
     private setBwZeroNhundred;
     dynCanvasWidth(widthInPercent?: number): number;
     dynCanvasHeight(widthInPix: number, heightInPercent?: number | null): number;
-    report(): number;
+    resizeCanvas(width: number, height: number | null): void;
+    dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
 }
 //# sourceMappingURL=pack.d.ts.map

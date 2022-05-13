@@ -1,7 +1,7 @@
 import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 import Background from "../components/background/background.js";
 //----------functions
-import getCanvasElement from "./getCanvasElement.js";
+import getCanvasElement from "../pack/getCanvasElement.js";
 import StopWatch from "./stopWatch.js";
 //-------------------------------------------
 import Settings from "./settings.js";
@@ -18,19 +18,14 @@ private duration:Duration;
 private comps:Comps;//--009
 private stopWatch:StopWatch;
 protected pack:Pack; //---later
-protected canvas :HTMLCanvasElement;
-
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",canvasWidth=800,canvasHeight :null|number=null){
-// this.comps = [];    //--009
+this.pack = new Pack(canvasId,canvasWidth,canvasHeight);
 this.comps = new Comps();
 this.duration = new Duration();
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
-//internal seq of args is different from enternal seq of args    
-this.canvas =  getCanvasElement(canvasId);
-this.pack = new Pack(this.canvas,canvasWidth,canvasHeight);
 this.background = new Background();
 } 
 public drawInit(){
@@ -59,8 +54,7 @@ drawEvent(msDelta :number):boolean{
     return true;
 }
 dynamicCanvas(widthInPercent:number = 95,heightInPercent :number | null=null):boolean{
-let wd = this.pack.dynCanvasWidth(widthInPercent);
-this.setCanvas(wd,this.pack.dynCanvasHeight(wd,heightInPercent));  
+this.pack.dynamicCanvas(widthInPercent,heightInPercent);
 return true;
 }
 insert(comp:IComponent):IComponent{
@@ -78,15 +72,12 @@ start(){
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
-setCanvas(width :number = 800,height :number|null = null){
-this.pack = new Pack(this.canvas,width,height);
-this.comps.resizeAll(this.pack.canvasWidth(),this.pack.canvasHeight());
-}
-getCanvasHeight():number{
-return this.pack.canvasHeight();    
-}
-getCanvasWidth():number{
-return this.pack.canvasWidth();    
-}
+
+// getCanvasHeight():number{
+// return this.pack.canvasHeight();    
+// }
+// getCanvasWidth():number{
+// return this.pack.canvasWidth();    
+// }
 
 }//ends

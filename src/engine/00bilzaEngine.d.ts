@@ -7,7 +7,6 @@ export default class Bilza {
     private comps;
     private stopWatch;
     protected pack: Pack;
-    protected canvas: HTMLCanvasElement;
     constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: null | number);
     drawInit(): void;
     draw(): boolean;
@@ -15,8 +14,5 @@ export default class Bilza {
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     insert(comp: IComponent): IComponent;
     start(): void;
-    setCanvas(width?: number, height?: number | null): void;
-    getCanvasHeight(): number;
-    getCanvasWidth(): number;
 }
 //# sourceMappingURL=00bilzaEngine.d.ts.map

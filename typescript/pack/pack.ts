@@ -1,31 +1,32 @@
 import Style from "../style.js";
+import getCanvasElement from "./getCanvasElement.js";
 import Position from "../design/Position.js";
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 
+//--PACK == CANVAS -- ok
 export default class Pack {
 private canvas :HTMLCanvasElement;
 private ctx :CanvasRenderingContext2D;
+private canvasId :string;
 
-constructor(canvas :HTMLCanvasElement, width :number=0,height :number | null=null){
-    if (height ==null){
-        height = aspectRatioHeight(width);
-    }
-
-this.canvas = canvas;
-this.ctx  = this.canvas.getContext('2d') as CanvasRenderingContext2D;
-    if (this.ctx == null ){
-        throw new Error("could not obtain drawing context");
-    }
-        //--set width height--Finally
-        this.canvas.width = width;
-        if (height ==null){
-            this.canvas.height = aspectRatioHeight(width);
-        } else {
-            this.canvas.height = height;
-        }
+constructor(canvasId :string, width :number=0,height :number | null=null){
+    
+this.canvasId = canvasId;  
+//--improve later   
+this.canvas = getCanvasElement(this.canvasId);
+this.resizeCanvas(width,height);// new
+this.ctx  = this.getNewCtx();
+    
 }//constructor
-
+private getNewCtx():CanvasRenderingContext2D{
+    let ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
+    if (ctx == null ){
+        throw new Error("could not obtain drawing context");
+    }else {
+        return ctx;
+    }
+}
 //--- look at this fn again
 public drawBackground(color:string="blue"):string{ 
 this.ctx.fillStyle = color;
@@ -52,18 +53,7 @@ public save(){
     this.ctx.save();
 }
 
-// public drawImage(image :HTMLImageElement,
-//             x :number=0, 
-//             y:number=0, 
-//             width:number=100,
-//             height :number=100,
-//             destX :number=0, 
-//             destY :number=0, 
-//             destWidth :number=100, 
-//             destHeight :number=100,
-//             incomTempl:Style){
-// this.ctx.drawImage(image,x,y,width,height,destX,destY,destWidth,destHeight);
-// }//drawImage ends
+
 public drawImage(image :HTMLImageElement,
             x :number, 
             y:number, 
@@ -246,8 +236,19 @@ public dynCanvasHeight(widthInPix :number,heightInPercent :number | null=null):n
     return aspectRatioHeight(widthInPix);
 }
 }
-report():number{
-return 0; //place filled for report in engine
+
+resizeCanvas(width :number, height :number | null){
+        this.canvas.width = width;
+        if (height ==null){
+            this.canvas.height = aspectRatioHeight(width);
+        } else {
+            this.canvas.height = height;
+        }
 }
+dynamicCanvas(widthInPercent:number = 95,heightInPercent :number | null=null):boolean{
+    let wd = this.dynCanvasWidth(widthInPercent);
+    this.resizeCanvas(wd,this.dynCanvasHeight(wd,heightInPercent));  
+    return true;
+}    
 /////////////////////////////////////////////////////////////
 }
