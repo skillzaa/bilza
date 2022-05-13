@@ -10,12 +10,12 @@ private canvas :HTMLCanvasElement;
 private ctx :CanvasRenderingContext2D;
 private canvasId :string;
 
-constructor(canvasId :string, width :number=0,height :number | null=null){
+constructor(canvasId :string,screenWidthInPercent=80){
     
 this.canvasId = canvasId;  
 //--improve later   
 this.canvas = getCanvasElement(this.canvasId);
-this.resizeCanvas(width,height);// new
+this.dynamicCanvas(screenWidthInPercent,null);// new
 this.ctx  = this.getNewCtx();
     
 }//constructor
@@ -236,7 +236,8 @@ public dynCanvasHeight(widthInPix :number,heightInPercent :number | null=null):n
     return aspectRatioHeight(widthInPix);
 }
 }
-
+//--this is old setCanvas
+//--TO RESIZE CANVAS TO SOME SPECIFIC PIX WIDTH HEIGHT
 resizeCanvas(width :number, height :number | null){
         this.canvas.width = width;
         if (height ==null){

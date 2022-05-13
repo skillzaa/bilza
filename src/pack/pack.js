@@ -2,10 +2,10 @@ import getCanvasElement from "./getCanvasElement.js";
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 export default class Pack {
-    constructor(canvasId, width = 0, height = null) {
+    constructor(canvasId, screenWidthInPercent = 80) {
         this.canvasId = canvasId;
         this.canvas = getCanvasElement(this.canvasId);
-        this.resizeCanvas(width, height);
+        this.dynamicCanvas(screenWidthInPercent, null);
         this.ctx = this.getNewCtx();
     }
     getNewCtx() {

@@ -1,14 +1,15 @@
 import Bilza from "../../src/Bilza.js";
-import Grid from "../../src/components/grid/grid.js"
-import Text from "../../src/components/text/text.js"
-import Counter from "../../src/components/counter/counter.js"
+import TestComp from "../../src/componentsModule/testComp/testComp.js"
+import Text from "../../src/componentsModule/components/text/text.js"
+import Grid from "../../src/componentsModule/components/grid/grid.js"
 
-let bil = new Bilza("bilza",1000,500);
-let c = new Counter(20);
+let bil = new Bilza("bilza");
+
+let tst = new TestComp(50);
 let g = new Grid("#0000ff");
 let t = new Text(20,"Seperate engine");
 
-bil.insert(c);
+bil.insert(tst);
 bil.insert(g);
 bil.insert(t);
 

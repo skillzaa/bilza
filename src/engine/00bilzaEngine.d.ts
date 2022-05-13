@@ -7,7 +7,7 @@ export default class Bilza {
     private comps;
     private stopWatch;
     protected pack: Pack;
-    constructor(canvasId?: string, canvasWidth?: number, canvasHeight?: null | number);
+    constructor(canvasId?: string, screenWidthInPercent?: number);
     drawInit(): void;
     draw(): boolean;
     drawEvent(msDelta: number): boolean;

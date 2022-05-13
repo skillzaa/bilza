@@ -5,8 +5,8 @@ import Settings from "./settings.js";
 import Comps from "./comps.js";
 import Duration from "./duration.js";
 export default class Bilza {
-    constructor(canvasId = "bilza", canvasWidth = 800, canvasHeight = null) {
-        this.pack = new Pack(canvasId, canvasWidth, canvasHeight);
+    constructor(canvasId = "bilza", screenWidthInPercent = 80) {
+        this.pack = new Pack(canvasId, screenWidthInPercent);
         this.comps = new Comps();
         this.duration = new Duration();
         this.stopWatch = new StopWatch();

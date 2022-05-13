@@ -19,8 +19,8 @@ private stopWatch:StopWatch;
 protected pack:Pack; //---later
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",canvasWidth=800,canvasHeight :null|number=null){
-this.pack = new Pack(canvasId,canvasWidth,canvasHeight);
+constructor (canvasId="bilza",screenWidthInPercent=80){
+this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
 this.duration = new Duration();
 this.stopWatch  = new StopWatch();
