@@ -17,7 +17,8 @@ start(drawFn:()=>boolean) :boolean{
     this.stop();
         this.runningStartTimeTS = new Date().getTime();
         this.interval = window.setInterval(()=>{
-            drawFn();
+            //<<=this is the engine main draw fn reference
+            drawFn(); 
         },this.msPerFrame);
         return true;
 }
@@ -36,12 +37,12 @@ stop():boolean{
 return true;    
 }
 public getMsDelta() :number{
-if (this.runningStartTimeTS ==null){   
-    return 0;
-} else{
-let curTime = new Date().getTime();
-return curTime - this.runningStartTimeTS;
-}
+    if (this.runningStartTimeTS ==null){   
+            return 0;
+    } else{
+            let curTime = new Date().getTime();
+            return curTime - this.runningStartTimeTS;
+    }
 }
 
 

@@ -1,0 +1,1 @@
+{"version":3,"file":"DataFn.d.ts","sourceRoot":"","sources":["../../../../typescript/compsMod/components/slideHL/DataFn.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,qCAAqC,CAAC;AAI/D,qBAAa,UAAW,SAAQ,YAAY;IAE5C,UAAU,EAAE,MAAM,CAAC;IACnB,aAAa,EAAE,MAAM,CAAC;IACtB,aAAa,EAAE,OAAO,CAAC;IACvB,UAAU,EAAE,MAAM,CAAC;;CAUlB;AAGD,MAAM,CAAC,OAAO,UAAU,MAAM,IAAI,UAAU,CAG3C"}

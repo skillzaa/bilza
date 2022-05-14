@@ -16,7 +16,7 @@ private set :Settings;
 private duration:Duration;
 private comps:Comps;//--009
 private stopWatch:StopWatch;
-protected pack:Pack; //---later
+private pack:Pack; //---later
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",screenWidthInPercent=80){
@@ -27,9 +27,10 @@ this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();
 } 
-public drawInit(){
+public drawInit():boolean{
     this.comps.initAll(this.pack);
     this.draw();
+    return true;
 }
 draw():boolean{
  if(this.pack == null){
@@ -62,23 +63,8 @@ insert(comp:IComponent):IComponent{
 this.duration.adjectWhileInsert(comp);
 return this.comps.push(comp);
 }  
-start(){
+start():boolean{
     this.stopWatch.start(this.draw.bind(this));
+    return true;
 }
-///---MAPPED fUNCTION jusT eXPORTED--DO GO BELOW
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-////////////////////////////////////////////////////
-
-// getCanvasHeight():number{
-// return this.pack.canvasHeight();    
-// }
-// getCanvasWidth():number{
-// return this.pack.canvasWidth();    
-// }
-
 }//ends

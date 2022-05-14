@@ -16,6 +16,7 @@ export default class Bilza {
     drawInit() {
         this.comps.initAll(this.pack);
         this.draw();
+        return true;
     }
     draw() {
         if (this.pack == null) {
@@ -46,5 +47,6 @@ export default class Bilza {
     }
     start() {
         this.stopWatch.start(this.draw.bind(this));
+        return true;
     }
 }

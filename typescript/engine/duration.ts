@@ -3,10 +3,11 @@ import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 export default class Duration {
 private _pvt_duration_val :number; //the size of video-length in milli seconds     
 constructor(){
-this._pvt_duration_val = 0; //duration in seconds-dafault=0;
+//14-may-2022-duration in seconds-dafault=0;    
+this._pvt_duration_val = 0; 
 }
 ////////////////////////////////////////////////////
-//Return the dyn calc length of the video (its duration but dura)
+//14-may-2022-Return the length of the video
 public len(inMilliSeconds :boolean = true):number{
     if (inMilliSeconds){
         return (this._pvt_duration_val * 1000);
@@ -14,7 +15,7 @@ public len(inMilliSeconds :boolean = true):number{
         return (this._pvt_duration_val);
     }
 }
-//--private
+//14-may-2022-The only place to extend duration
 public extend(n :number):number {
 this._pvt_duration_val += n;
     return this._pvt_duration_val;

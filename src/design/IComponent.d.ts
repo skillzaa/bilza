@@ -1,6 +1,6 @@
 import Pack from "../pack/pack.js";
 import { DrawLayer } from "../design/drawLayer.js";
-import { InsertTypeOptions } from "../componentsModule/BaseComponent/insertTypeOptions.js";
+import { InsertTypeOptions } from "../compsMod/BaseComponent/insertTypeOptions.js";
 export default interface IComponent {
     drawLayer: DrawLayer;
     width(p: Pack): number;
