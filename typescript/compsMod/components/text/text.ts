@@ -1,5 +1,5 @@
 import {Pack,DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 
 import DataFn,{ObjectData} from "./textData.js";
 import lightenDarkenColor from "../../../functions/lightenDarkenColor.js";
@@ -8,7 +8,7 @@ export default class Text extends Component<ObjectData> {
  
 constructor (duration:number= 10,content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20){
     
-    super(DataFn,duration);
+    super(DataFn);
 this.insertType = this.insertTypeOptions.Append;
     this.d.content = content;
     this.d.x = x;

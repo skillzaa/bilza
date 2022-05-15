@@ -1,5 +1,5 @@
 import {Pack,DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 
 import DataFn,{ImageData} from "./imageData.js";
 import aspectRatioHeight from "../../../functions/aspectRatioHeight.js"; 
@@ -12,7 +12,7 @@ export default class BilzaImage extends Component<ImageData> {
     orignalHeight :number;
 constructor (duration:number=300,imgId :string,x :number=0, y :number=0){
 
-    super(DataFn,duration);
+    super(DataFn);
     
     
     this.img = document.getElementById(imgId) as HTMLImageElement;

@@ -12,7 +12,7 @@ export default interface IComponent {
     resize(width: number, height: number): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
-    duration(): number;
+    duration: number;
     getEndTime(inMilliSec?: boolean): number;
     insertType: InsertTypeOptions;
     insertTypeOptions: typeof InsertTypeOptions;

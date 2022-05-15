@@ -32,9 +32,8 @@ export default interface IComponent{
 getStartTime(inMilliSec ?:boolean) :number;
 //--no need for a public startTime variable just use fns
 setStartTime(n :number) :number;
-//---11-5-2022--internally inside a component when start time is set the end time is a fn so dynamic 
-// setEndTime(n :number) :number;---wrong
-duration():number;
+
+duration :number;
 //--correct
 getEndTime(inMilliSec ?:boolean) :number;
 

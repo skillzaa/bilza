@@ -1,4 +1,4 @@
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 import DataFn from "./DataFn.js";
 import Vertex from "./Vertex.js";
 export default class LinesShape extends Component {

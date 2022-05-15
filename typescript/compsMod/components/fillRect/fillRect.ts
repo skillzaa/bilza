@@ -1,12 +1,12 @@
 import {Pack,DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 
 import DataFn,{ObjectData} from "./DataFn.js";
  
 export default class FillRect extends Component<ObjectData> {
 
 constructor (duration:number=300,x :number=0, y :number=0,widthPercent :number=10, heightPercent :number=10,colorHex :string = "#008000"){
-    super(DataFn,duration);
+    super(DataFn);
     
     this.d.x = x;
     this.d.y = y;

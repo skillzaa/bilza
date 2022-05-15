@@ -1,6 +1,5 @@
 import {Pack,IComponent,DrawLayer} from "../../Bilza.js";
 import Style from "../../design/style.js";
-import IMsStart from "../../design/IMsStart.js";
 import CompDataBase from "./CompDataBase.js";
 import Transition from "../transition/transition.js";
 import {XAlignment} from "./xAlignment.js";
@@ -43,7 +42,7 @@ public insertType :InsertTypeOptions;
 /////////////////----PRIVATE----///////////////////
 //---11-5-2022 --ooo its private not protected.it means the child comp
 // can not chane this behaviour.
-private readonly DURATION :number; 
+public  duration :number; 
 //--this was previously _startTime but actually insertTimeInVid now, this show the point at which this comp will be inserted into the overall video. Inside a container Component this insert time is implemented by comtainer component. 
 private  insertTimeInVid:number; 
 //---
@@ -53,13 +52,13 @@ private  insertTimeInVid:number;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
-constructor (DataFn :()=>T,duration :number=10){
+constructor (DataFn :()=>T){
 
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
 this.insertTypeOptions = InsertTypeOptions; //final-ok
 this.insertType = this.insertTypeOptions.Insert; //Insert = default
-this.DURATION = duration; //can not be changed again even not by children comps
+this.duration = 0; //can not be changed again even not by children comps
 this.insertTimeInVid = 0; //final-ok
 //--there is no this.endTime --since has this.endTime()
 this.compData = new Transition(DataFn);    
@@ -173,12 +172,11 @@ switch (this.d.yAlignment) {
 return y ;
 }
 getEndTime(inMilliSec :boolean = true) :number{
-let r = this.insertTimeInVid + this.DURATION; //both r in sec
+let r = this.insertTimeInVid + this.duration; //both r in sec
 return inMilliSec ? (r * 1000) : r;
 }
-duration():number{
-    return this.DURATION;
-}
+
+
 getStartTime(inMilliSec :boolean = true) :number{
 return inMilliSec ? (this.insertTimeInVid * 1000) : this.insertTimeInVid;    
 }

@@ -16,7 +16,7 @@ let t = new Text(20,"Seperate engine");
 bil.insert(tst);
 bil.insert(g);
 bil.insert(t);
-console.log(bil);
+// console.log(bil);
 
 test('Bilza its self is define', () => {
 expect(bil).toBeDefined();
@@ -63,3 +63,4 @@ test('bil.insert() is define and return true', () => {
     let t = new TestComp(12);
     expect(bil.insert(t)).toBeInstanceOf(Component);
 });
+

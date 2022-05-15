@@ -39,4 +39,4 @@ export default class Component<T extends CompDataBase> implements IComponent {
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
 }
-//# sourceMappingURL=component.d.ts.map
+//# sourceMappingURL=Basecomponent.d.ts.map

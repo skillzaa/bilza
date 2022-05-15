@@ -5,7 +5,7 @@ import StopWatch from "./stopWatch.js";
 //-------------------------------------------
 import Settings from "./settings.js";
 import Comps from "./comps.js";
-import Duration from "./duration.js";
+import Insert from "./insert.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
@@ -13,7 +13,7 @@ export default class Bilza {
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 private set :Settings; 
-private duration:Duration;
+private insert:Insert; 
 private comps:Comps;//--009
 private stopWatch:StopWatch;
 private pack:Pack; //---later
@@ -22,7 +22,7 @@ private pack:Pack; //---later
 constructor (canvasId="bilza",screenWidthInPercent=80){
 this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
-this.duration = new Duration();
+this.insert = new Insert(this.comps);
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();
@@ -37,7 +37,8 @@ draw():boolean{
 throw new Error("bilzaa is not initialized");}   
 let msDelta = this.stopWatch.getMsDelta();
     //stop if completed
-if(msDelta >= this.duration.len(true)){ this.stopWatch.stop();}     
+    //--15-May-2022--this.insert.duration is WRONGGG!!!
+if(msDelta >= this.len(true)){ this.stopWatch.stop();}     
 this.pack.clearCanvas();          
 //--keep the draw sequence : bg-bg-middle-foreground
 // this.background.draw(this.pack); //fornow         
@@ -51,6 +52,10 @@ this.comps.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
 this.drawEvent(msDelta);
 return true;
 }
+len(inMilliSeconds :boolean = true):number{
+    //@ts-expect-error
+return this.insert.len(inMilliSeconds);
+}
 drawEvent(msDelta :number):boolean{
 // console.log("drawEventn");
     return true;
@@ -59,10 +64,8 @@ dynamicCanvas(widthInPercent:number = 95,heightInPercent :number | null=null):bo
 this.pack.dynamicCanvas(widthInPercent,heightInPercent);
 return true;
 }
-insert(comp:IComponent):IComponent{
-this.duration.adjectWhileInsert(comp);
-return this.comps.push(comp);
-}  
+
+
 start():boolean{
     this.stopWatch.start(this.draw.bind(this));
     return true;

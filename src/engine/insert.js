@@ -1,5 +1,6 @@
-export default class Duration {
-    constructor() {
+export default class Insert {
+    constructor(comps) {
+        this.comps = comps;
         this._pvt_duration_val = 0;
     }
     len(inMilliSeconds = true) {
@@ -14,36 +15,25 @@ export default class Duration {
         this._pvt_duration_val += n;
         return this._pvt_duration_val;
     }
-    adjectWhileInsert(comp) {
-        let r = false;
-        switch (comp.insertType) {
-            case comp.insertTypeOptions.AlwaysOn:
-                r = true;
-                break;
-            case comp.insertTypeOptions.Append:
-                this.append(comp);
-                r = true;
-                break;
-            case comp.insertTypeOptions.Insert:
-                this.insert(comp);
-                r = true;
-                break;
-            default:
-                break;
-        }
-        return r;
-    }
-    append(comp) {
-        if (comp.duration() < 1) {
+    append(comp, duration) {
+        if (duration < 1) {
             throw new Error("for Insert operation to succeed you need component duration greater than 0");
+        }
+        else {
+            comp.duration = duration;
         }
         comp.setStartTime(this.len(false));
-        this.extend(comp.duration());
+        this.extend(comp.duration);
+        return this.comps.push(comp);
     }
-    insert(comp) {
-        if (comp.duration() < 1) {
+    insert(comp, startTime, duration) {
+        if (duration < 1) {
             throw new Error("for Insert operation to succeed you need component duration greater than 0");
         }
+        else {
+            comp.duration = duration;
+        }
+        comp.setStartTime(startTime);
         if (comp.getStartTime(false) > this.len(false)) {
             throw new Error(`to insert a clip inside the video, the start time of the clip can not be larger than the duration of the video since that will create blank frames, the start time of the component is set as ${comp.getStartTime()} where as the end time of current video at this time is ${this.len()} , this creates a blank space of ${Math.ceil(comp.getStartTime() - this.len())} seconds.`);
         }
@@ -53,5 +43,10 @@ export default class Duration {
             let overlap = comp.getEndTime(false) - this.len(false);
             this.extend(overlap);
         }
+        return this.comps.push(comp);
+    }
+    alwaysOn(comp) {
+        comp.insertType = comp.insertTypeOptions.AlwaysOn;
+        return this.comps.push(comp);
     }
 }

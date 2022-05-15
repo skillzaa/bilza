@@ -1,9 +1,9 @@
 import { DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 import DataFn from "./DataFn.js";
 export default class Line extends Component {
     constructor(duration = 300, x1 = 0, y1 = 0, x2 = 100, y2 = 100, color = "black", lineWidth = 2) {
-        super(DataFn, duration);
+        super(DataFn);
         this.d.x1 = x1;
         this.d.y1 = y1;
         this.d.x2 = x2;

@@ -1,9 +1,9 @@
 import { DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 import DataFn from "./imageData.js";
 export default class BilzaImage extends Component {
     constructor(duration = 300, imgId, x = 0, y = 0) {
-        super(DataFn, duration);
+        super(DataFn);
         this.img = document.getElementById(imgId);
         if (this.img == null) {
             throw new Error("image could not be found");

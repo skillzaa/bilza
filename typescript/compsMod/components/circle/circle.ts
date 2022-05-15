@@ -1,5 +1,5 @@
 import {Pack } from "../../../Bilza.js";
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 // import Style from "../../../design/style.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 
@@ -9,7 +9,7 @@ constructor (duration:number=300,
     x :number=0,y :number=0,radiusPercent :number = 10,color:string="grey",
     fill :boolean=true, startAngle :number=0,endAngle :number=2 * Math.PI){
 
-    super(DataFn,duration);
+    super(DataFn);
     
     this.d.x = x;
     this.d.y = y;

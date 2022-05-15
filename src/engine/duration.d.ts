@@ -5,5 +5,7 @@ export default class Duration {
     len(inMilliSeconds?: boolean): number;
     extend(n: number): number;
     adjectWhileInsert(comp: IComponent): boolean;
+    private append;
+    private insert;
 }
 //# sourceMappingURL=duration.d.ts.map

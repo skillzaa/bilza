@@ -1,6 +1,6 @@
 import {Pack } from "../../../Bilza.js";
 //--get Component directly
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 
 import DataFn,{ObjectData} from "./DataFn.js";
 

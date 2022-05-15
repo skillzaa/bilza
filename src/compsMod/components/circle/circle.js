@@ -1,8 +1,8 @@
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 import DataFn from "./DataFn.js";
 export default class Circle extends Component {
     constructor(duration = 300, x = 0, y = 0, radiusPercent = 10, color = "grey", fill = true, startAngle = 0, endAngle = 2 * Math.PI) {
-        super(DataFn, duration);
+        super(DataFn);
         this.d.x = x;
         this.d.y = y;
         this.d.color = color;

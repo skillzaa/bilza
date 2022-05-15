@@ -1,8 +1,8 @@
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 import DataFn from "./DataFn.js";
 export default class TestComp extends Component {
     constructor(duration = 300) {
-        super(DataFn, duration);
+        super(DataFn);
     }
     width(p) {
         return 10;

@@ -1,5 +1,5 @@
 import { DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/component.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 import DataFn from "./DataFn.js";
 export default class Background extends Component {
     constructor(color = "#efeee3") {
