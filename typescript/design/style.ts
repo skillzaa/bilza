@@ -1,11 +1,11 @@
 import {LineCapStyle} from "./lineCapStyle.js";
-import {FontNames} from "./fontNames.js";
+import {FontFamily} from "./fontFamily.js";
 // these are ctx valuesto be set in caseof any change in ctx
 export default class Style {
 //---13 prop    
-msStart:number; //cant be null--
+applyAtMs:number; //cant be null--
 fontSize:number ;
-fontName: FontNames ;
+fontFamily: FontFamily ;
 fillStyle:string ;
 strokeStyle:string ;
 lineWidth:number ;
@@ -20,11 +20,11 @@ lineDash :number[];
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
-constructor(msStart :number = 0){
+constructor(applyAtMs :number = 0){
 
-this.msStart = msStart;
+this.applyAtMs = applyAtMs;
 this.fontSize = 25;
-this.fontName = FontNames.Luminari;
+this.fontFamily = FontFamily.Luminari;
 this.fillStyle = "green";
 this.strokeStyle = "red";
 this.lineWidth = 2;
@@ -80,8 +80,8 @@ merge(incom :Style){//---12 prop excl msStart
         this.fontSize = incom.fontSize;
     }
 //--11    
-    if (incom.fontName !== null){
-        this.fontName = incom.fontName;
+    if (incom.fontFamily !== null){
+        this.fontFamily = incom.fontFamily;
     }
 //--12    
     if (incom.lineDash !== null){

@@ -1,5 +1,5 @@
 
-export enum  FontNames {
+export enum  FontFamily {
     Arial                = "Arial",
     ArialBlack           = "Arial Black",
     Verdana              = "Verdana",

@@ -20,7 +20,7 @@ export default class Text extends Component {
         return (p.textWidth(this.d.content.substring(0, this.d.maxDisplayChars), this.style) + (this.d.padding * 2) + (this.d.border));
     }
     height(p) {
-        return (p.charsWidth("W", this.d.fontSize, this.style.fontName) + (this.d.padding * 2) + (this.d.border));
+        return (p.charsWidth("W", this.d.fontSize, this.style.fontFamily) + (this.d.padding * 2) + (this.d.border));
     }
     init(p) {
         return true;

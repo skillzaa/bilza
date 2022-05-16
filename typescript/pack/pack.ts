@@ -201,7 +201,7 @@ public commitCtxData(incomCtx:Style){
     }
     
     //---important change
-    this.setFont(incomCtx.fontSize,incomCtx.fontName);
+    this.setFont(incomCtx.fontSize,incomCtx.fontFamily);
 
 }
 private setFont(fontSize:number,fontName:string){

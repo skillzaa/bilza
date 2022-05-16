@@ -1,4 +1,4 @@
-import Transition from "../src/transition/transition.js";
+import Transition from "../src/compsMod/transition/transition.js";
 // We need a function that return an object with the data (factory function)
 function mydataFn(){
 let mydata = {

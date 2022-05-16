@@ -1,10 +1,10 @@
 import { LineCapStyle } from "./lineCapStyle.js";
-import { FontNames } from "./fontNames.js";
+import { FontFamily } from "./fontFamily.js";
 export default class Style {
-    constructor(msStart = 0) {
-        this.msStart = msStart;
+    constructor(applyAtMs = 0) {
+        this.applyAtMs = applyAtMs;
         this.fontSize = 25;
-        this.fontName = FontNames.Luminari;
+        this.fontFamily = FontFamily.Luminari;
         this.fillStyle = "green";
         this.strokeStyle = "red";
         this.lineWidth = 2;
@@ -47,8 +47,8 @@ export default class Style {
         if (incom.fontSize !== null) {
             this.fontSize = incom.fontSize;
         }
-        if (incom.fontName !== null) {
-            this.fontName = incom.fontName;
+        if (incom.fontFamily !== null) {
+            this.fontFamily = incom.fontFamily;
         }
         if (incom.lineDash !== null) {
             this.lineDash = incom.lineDash;

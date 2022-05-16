@@ -1,10 +1,11 @@
 
-import {Style} from "../src/Bilza.js";
-const style = new Style();
+import Style from "../src/design/style.js";
+
+let style = new Style();
 //--style has total 18 prop
 // console.log(style);
 test('5 string props of style', () => {
-  expect(style.fontName).toBeDefined();
+  expect(style.fontFamily).toBeDefined();
   expect(style.fillStyle).toBeDefined();
   expect(style.strokeStyle).toBeDefined();
   expect(style.shadowColor).toBeDefined();
@@ -12,7 +13,7 @@ test('5 string props of style', () => {
 
 });
 test('8 numeric props of style', () => {
-    expect(style.msStart).toEqual(0); //default value
+    expect(style.applyAtMs).toEqual(0); //default value
     expect(style.fontSize).toBeGreaterThanOrEqual(0);
     expect(style.lineWidth).toBeGreaterThanOrEqual(0);
     expect(style.shadowOffsetX).toBeGreaterThanOrEqual(0);

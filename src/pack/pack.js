@@ -163,7 +163,7 @@ export default class Pack {
         if (incomCtx.lineDash !== null) {
             this.ctx.setLineDash(incomCtx.lineDash);
         }
-        this.setFont(incomCtx.fontSize, incomCtx.fontName);
+        this.setFont(incomCtx.fontSize, incomCtx.fontFamily);
     }
     setFont(fontSize, fontName) {
         let f = `${fontSize}px ${fontName}`;
