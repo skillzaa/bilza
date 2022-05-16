@@ -1,5 +1,4 @@
 
-
 export default class StopWatch {
 private interval : number | null; 
 //??
