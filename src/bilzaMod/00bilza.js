@@ -37,7 +37,7 @@ export default class Bilza {
         return true;
     }
     len(inMilliSeconds = true) {
-        return this.insert.len(inMilliSeconds);
+        return this.duration.len(inMilliSeconds);
     }
     drawEvent(msDelta) {
         return true;

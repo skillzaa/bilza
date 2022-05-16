@@ -1,10 +1,11 @@
 import Background from "./background.js";
+import Settings from "./settings.js";
 import Insert from "./insert.js";
 export default class Bilza {
     background: Background;
-    private duration;
-    private set;
     insert: Insert;
+    set: Settings;
+    private duration;
     private comps;
     private stopWatch;
     private pack;

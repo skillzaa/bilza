@@ -21,9 +21,9 @@ expect(bil.pack).toBeDefined();
 test('bil.comps is define', () => {
 expect(bil.comps).toBeDefined();
 });
-// test('bil.duration is define', () => {
-// expect(bil.duration).toBeDefined();
-// });
+test('bil.duration is define', () => {
+expect(bil.duration).toBeDefined();
+});
 test('bil.stopWatch is define', () => {
 expect(bil.stopWatch).toBeDefined();
 });
@@ -50,6 +50,9 @@ expect(bil.dynamicCanvas()).toBeTruthy();
 });
 test('bil.start() is define and return true', () => {
 expect(bil.start()).toBeTruthy();
+});
+test('bil.len() is define and return true', () => {
+expect(bil.len()).toBe(0);
 });
 
 
