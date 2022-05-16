@@ -6,12 +6,14 @@ import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
 import Comps from "./comps.js";
 import Insert from "./insert.js";
+import Duration from "./duration.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
 //==================PUBLIC API
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+private duration : Duration; 
 private set :Settings; 
 public insert:Insert; 
 private comps:Comps;//--009
@@ -22,7 +24,8 @@ private pack:Pack; //---later
 constructor (canvasId="bilza",screenWidthInPercent=80){
 this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
-this.insert = new Insert(this.comps);
+this.duration = new Duration();
+this.insert = new Insert(this.comps,this.duration);
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();

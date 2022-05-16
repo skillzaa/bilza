@@ -2,6 +2,7 @@ import Background from "./background.js";
 import Insert from "./insert.js";
 export default class Bilza {
     background: Background;
+    private duration;
     private set;
     insert: Insert;
     private comps;
