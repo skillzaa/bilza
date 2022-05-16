@@ -2,7 +2,7 @@ import { DrawLayer, Pack } from "../Bilza.js";
 import Background from "./background.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
-import Comps from "./comps/comps.js";
+import Comps from "./comps.js";
 import Insert from "./insert.js";
 export default class Bilza {
     constructor(canvasId = "bilza", screenWidthInPercent = 80) {

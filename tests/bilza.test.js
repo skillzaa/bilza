@@ -9,13 +9,6 @@ import Grid from "../src/compsMod/components/grid/grid.js"
  */
 let bil = new Bilza("bilza");
 
-let tst = new TestComp(12);
-let g = new Grid("#0000ff");
-let t = new Text(20,"Seperate engine");
-
-bil.insert(tst);
-bil.insert(g);
-bil.insert(t);
 // console.log(bil);
 
 test('Bilza its self is define', () => {
@@ -28,9 +21,9 @@ expect(bil.pack).toBeDefined();
 test('bil.comps is define', () => {
 expect(bil.comps).toBeDefined();
 });
-test('bil.duration is define', () => {
-expect(bil.duration).toBeDefined();
-});
+// test('bil.duration is define', () => {
+// expect(bil.duration).toBeDefined();
+// });
 test('bil.stopWatch is define', () => {
 expect(bil.stopWatch).toBeDefined();
 });
@@ -58,9 +51,5 @@ expect(bil.dynamicCanvas()).toBeTruthy();
 test('bil.start() is define and return true', () => {
 expect(bil.start()).toBeTruthy();
 });
-//---insert
-test('bil.insert() is define and return true', () => {
-    let t = new TestComp(12);
-    expect(bil.insert(t)).toBeInstanceOf(Component);
-});
+
 

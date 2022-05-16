@@ -1,9 +1,8 @@
 import Background from "./background.js";
-import Insert from "./insert.js";
 export default class Bilza {
     background: Background;
     private set;
-    insert: Insert;
+    private insert;
     private comps;
     private stopWatch;
     private pack;
@@ -15,4 +14,4 @@ export default class Bilza {
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     start(): boolean;
 }
-//# sourceMappingURL=00bilzaEngine.d.ts.map
+//# sourceMappingURL=00Bilza.d.ts.map

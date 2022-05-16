@@ -15,4 +15,4 @@ export default class Bilza {
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     start(): boolean;
 }
-//# sourceMappingURL=00bilzaEngine.d.ts.map
+//# sourceMappingURL=00bilza.d.ts.map

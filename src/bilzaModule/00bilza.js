@@ -1,8 +1,8 @@
-import { DrawLayer, Pack } from "../Bilza.js";
+import { Pack } from "../Bilza.js";
 import Background from "./background.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
-import Comps from "./comps/comps.js";
+import Comps from "./comps.js";
 import Insert from "./insert.js";
 export default class Bilza {
     constructor(canvasId = "bilza", screenWidthInPercent = 80) {
@@ -19,19 +19,6 @@ export default class Bilza {
         return true;
     }
     draw() {
-        if (this.pack == null) {
-            throw new Error("bilzaa is not initialized");
-        }
-        let msDelta = this.stopWatch.getMsDelta();
-        if (msDelta >= this.len(true)) {
-            this.stopWatch.stop();
-        }
-        this.pack.clearCanvas();
-        this.pack.drawBackground(this.background.color);
-        this.comps.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
-        this.comps.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
-        this.comps.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);
-        this.drawEvent(msDelta);
         return true;
     }
     len(inMilliSeconds = true) {

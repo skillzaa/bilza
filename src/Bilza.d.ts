@@ -1,4 +1,4 @@
-import Bilza from "./engine/00bilzaEngine.js";
+import Bilza from "./bilzaMod/00bilza.js";
 import Pack from "./pack/pack.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import IComponent from "./design/IComponent";

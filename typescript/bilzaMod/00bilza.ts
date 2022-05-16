@@ -13,7 +13,7 @@ export default class Bilza {
 public background :Background;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 private set :Settings; 
-private insert:Insert; 
+public insert:Insert; 
 private comps:Comps;//--009
 private stopWatch:StopWatch;
 private pack:Pack; //---later
@@ -70,4 +70,5 @@ start():boolean{
     this.stopWatch.start(this.draw.bind(this));
     return true;
 }
+
 }//ends

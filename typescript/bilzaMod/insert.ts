@@ -23,30 +23,7 @@ public extend(n :number):number {
 this._pvt_duration_val += n;
     return this._pvt_duration_val;
 }
-///////////////////
-// public adjectWhileInsert (comp :IComponent):boolean{
-// let r = false;    
-//     switch (comp.insertType) {
-//         case comp.insertTypeOptions.AlwaysOn:
-//         r = true;    
-//         break;
-    
-//         case comp.insertTypeOptions.Append:
-//         this.append(comp);
-//         r = true;   
-//         break;
-    
-//         case comp.insertTypeOptions.Insert:
-//         this.insert(comp);
-//         r = true;          
-//             break;
-    
-//         default:
-//             break;
-//     }
-    
-// return r;
-// }
+
 public append(comp :IComponent,duration :number){
      //--1 : comp.duration cant be > 0 
     if (duration < 1) {

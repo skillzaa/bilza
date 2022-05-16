@@ -1,5 +1,5 @@
 import { IComponent } from "../Bilza.js";
-import Comps from "./comps/comps.js";
+import Comps from "./comps.js";
 export default class Insert {
     private _pvt_duration_val;
     private comps;
