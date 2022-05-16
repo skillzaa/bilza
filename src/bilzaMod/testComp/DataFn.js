@@ -1,5 +1,5 @@
-import CompDataBase from "../../BaseComponent/CompDataBase.js";
-import PlusX from "../../../propFilters/numberFilters/plusX.js";
+import CompDataBase from "../../compsMod/BaseComponent/CompDataBase.js";
+import PlusX from "../../propFilters/numberFilters/plusX.js";
 export class ObjectData extends CompDataBase {
     constructor() {
         super();

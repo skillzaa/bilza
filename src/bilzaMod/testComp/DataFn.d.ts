@@ -1,5 +1,5 @@
-import CompDataBase from "../../BaseComponent/CompDataBase.js";
-import INumberFilter from "../../../design/INumberFilter.js";
+import CompDataBase from "../../compsMod/BaseComponent/CompDataBase.js";
+import INumberFilter from "../../design/INumberFilter.js";
 export declare class ObjectData extends CompDataBase {
     xx: INumberFilter;
     msDelta: number;
