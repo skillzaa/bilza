@@ -50,4 +50,8 @@ export default class Bilza {
         this.stopWatch.start(this.draw.bind(this));
         return true;
     }
+    stop() {
+        this.stopWatch.stop();
+        return true;
+    }
 }

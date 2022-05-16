@@ -5,10 +5,10 @@ export default class TestComp extends Component {
         super(DataFn);
     }
     width(p) {
-        return 10;
+        return 0;
     }
     height(p) {
-        return 10;
+        return 0;
     }
     update(msDelta, p) {
         this.d.msDelta = msDelta;
@@ -17,7 +17,7 @@ export default class TestComp extends Component {
     draw(p) {
         this.style.fontSize = 80;
         p.drawText("Test Comp", 5, 5, this.style);
-        p.drawText(this.d.msDelta.toString(), 500, 5, this.style);
+        p.drawText(this.d.msDelta.toString(), this.d.xx.value(), 5, this.style);
         return true;
     }
 }

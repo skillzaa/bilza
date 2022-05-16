@@ -42,7 +42,7 @@ public insertType :InsertTypeOptions;
 /////////////////----PRIVATE----///////////////////
 //---11-5-2022 --ooo its private not protected.it means the child comp
 // can not chane this behaviour.
-public  duration :number; 
+public  duration :number;  
 //--this was previously _startTime but actually insertTimeInVid now, this show the point at which this comp will be inserted into the overall video. Inside a container Component this insert time is implemented by comtainer component. 
 private  insertTimeInVid:number; 
 //---

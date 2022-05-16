@@ -10,11 +10,7 @@ let tst = new TestComp();
 let g = new Grid("#0000ff");
 let t = new Text(20,"Seperate engine");
 
-bil.insert.append(tst,12);
-// bil.insert(tst);
-// bil.insert(g);
-// bil.insert(t);
-
+bil.insert.append(tst,50);
 //////////////////////////////////
 bil.start();
 ///////////////////////////////

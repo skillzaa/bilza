@@ -1,12 +1,16 @@
 import CompDataBase from "../../BaseComponent/CompDataBase.js";  
+import PlusX from "../../propObjs/plusX.js";
+
 
 export class ObjectData extends CompDataBase{
+xx :PlusX;    
 msDelta :number;    
 
 constructor(){
     super();
-this.msStart =0; 
-this.msDelta = 0;
+this.xx = new PlusX(1); 
+this.msDelta =0; 
+
 }
 };
  

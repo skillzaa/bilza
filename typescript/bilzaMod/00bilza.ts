@@ -1,4 +1,4 @@
-import {DrawLayer,IComponent,Pack} from "../Bilza.js";
+import {DrawLayer,Pack} from "../Bilza.js";
 import Background from "./background.js";
 //----------functions
 import StopWatch from "./stopWatch.js";
@@ -34,7 +34,7 @@ public drawInit():boolean{
     this.draw();
     return true;
 }
-draw():boolean{
+public draw():boolean{
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   
 let msDelta = this.stopWatch.getMsDelta();
@@ -63,6 +63,10 @@ return true;
 }
 start():boolean{
     this.stopWatch.start(this.draw.bind(this));
+    return true;
+}
+stop():boolean{
+    this.stopWatch.stop();
     return true;
 }
 }//ends

@@ -16,5 +16,6 @@ export default class Bilza {
     drawEvent(msDelta: number): boolean;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     start(): boolean;
+    stop(): boolean;
 }
 //# sourceMappingURL=00bilza.d.ts.map
