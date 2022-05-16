@@ -16,6 +16,11 @@ let c = new TestComp();
 // c.insertType = c.insertTypeOptions.Append;
 expect(()=>{ bil.insert.append(c,0)}).toThrow("for Insert operation to succeed you need component duration greater than 0");
 });
+test('missing second argument', () => {
+    let bil  =  new Bilza();    
+let c = new TestComp();
+expect(()=>{ bil.insert.append(c)}).toThrow("for Insert operation to succeed you need component duration greater than 0");
+});
 
 test('3 X comp-Append duration 30', () => {
 let bil = new Bilza();

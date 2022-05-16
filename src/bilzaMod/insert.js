@@ -4,7 +4,7 @@ export default class Insert {
         this.duration = duration;
     }
     append(comp, duration) {
-        if (duration < 1) {
+        if (duration < 1 || (typeof duration == "undefined")) {
             throw new Error("for Insert operation to succeed you need component duration greater than 0");
         }
         else {
@@ -14,8 +14,8 @@ export default class Insert {
         this.duration.extend(comp.duration);
         return this.comps.push(comp);
     }
-    insert(comp, startTime, duration) {
-        if (duration < 1) {
+    add(comp, startTime, duration) {
+        if ((duration < 1) || (typeof duration == "undefined")) {
             throw new Error("for Insert operation to succeed you need component duration greater than 0");
         }
         else {

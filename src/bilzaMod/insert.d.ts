@@ -6,7 +6,7 @@ export default class Insert {
     private comps;
     constructor(comps: Comps, duration: Duration);
     append(comp: IComponent, duration: number): IComponent;
-    insert(comp: IComponent, startTime: number, duration: number): IComponent;
+    add(comp: IComponent, startTime: number, duration: number): IComponent;
     alwaysOn(comp: IComponent): IComponent;
 }
 //# sourceMappingURL=insert.d.ts.map

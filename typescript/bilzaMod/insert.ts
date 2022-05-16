@@ -12,7 +12,7 @@ this.duration = duration;
 
 public append(comp :IComponent,duration :number){
      //--1 : comp.duration cant be > 0 
-    if (duration < 1) {
+    if (duration < 1 || (typeof duration == "undefined")) {
         throw new Error("for Insert operation to succeed you need component duration greater than 0");
     }else {
         comp.duration = duration;    
@@ -24,9 +24,9 @@ public append(comp :IComponent,duration :number){
 //---finally    
 return this.comps.push(comp);
 }
-public insert(comp :IComponent,startTime :number,duration :number){
+public add(comp :IComponent,startTime :number,duration :number){
     //--1 : comp.duration cant be > 0 
-    if (duration < 1) {
+    if ((duration < 1) || (typeof duration == "undefined")) {
         throw new Error("for Insert operation to succeed you need component duration greater than 0");
     }else {
         comp.duration = duration;    
