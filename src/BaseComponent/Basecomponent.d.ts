@@ -1,13 +1,11 @@
 import { Pack, IComponent, DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import CompDataBase from "./CompDataBase.js";
-import Transition from "./transition/transition.js";
+import Props from "./BaseProps.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
-export default class Component<T extends CompDataBase> implements IComponent {
-    protected compData: Transition<T>;
-    d: T;
-    data: T;
+export default class Component implements IComponent {
+    props: Props;
+    p: Props;
     readonly id: string;
     drawLayer: DrawLayer;
     style: Style;
@@ -16,21 +14,18 @@ export default class Component<T extends CompDataBase> implements IComponent {
     duration: number;
     private insertTimeInVid;
     alwaysOn: boolean;
-    constructor(DataFn: () => T);
+    constructor();
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;
     draw(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
-    log(msg: string): void;
-    addTransition(msStart: number): T;
     checkCollision(x: number, y: number, p: Pack): boolean;
     shadowsOff(): void;
     setShadow(shadowBlur?: number, shadowOffsetX?: number, shadowOffsetY?: number, shadowColor?: string): void;
     shadowsOn(): void;
     resize(width: number, height: number): number;
     drawBoundingRectangle(p: Pack): boolean;
-    applyTransition(msDelta: number): void;
     protected xAfterAlignment(p: Pack): number;
     protected yAfterAlignment(p: Pack): number;
     getEndTime(inMilliSec?: boolean): number;

@@ -1,18 +1,17 @@
 import { DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import Transition from "./transition/transition.js";
+import Props from "./BaseProps.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
 export default class Component {
-    constructor(DataFn) {
+    constructor() {
+        this.props = new Props();
+        this.p = this.props;
         this.alwaysOn = false;
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
         this.duration = 0;
         this.insertTimeInVid = 0;
-        this.compData = new Transition(DataFn);
-        this.d = this.compData.data;
-        this.data = this.compData.data;
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
@@ -31,12 +30,6 @@ export default class Component {
     }
     update(msDelta, p) {
         return true;
-    }
-    log(msg) {
-        console.log(msg);
-    }
-    addTransition(msStart) {
-        return this.compData.add(msStart);
     }
     checkCollision(x, y, p) {
         return false;
@@ -63,18 +56,15 @@ export default class Component {
     }
     drawBoundingRectangle(p) {
         this.style.strokeStyle = "black";
-        p.drawRect(p.xPerc(this.d.x), p.yPerc(this.d.y), this.width(p), this.height(p), this.style);
+        p.drawRect(p.xPerc(this.p.x), p.yPerc(this.p.y), this.width(p), this.height(p), this.style);
         return true;
     }
-    applyTransition(msDelta) {
-        this.compData.apply(msDelta);
-    }
     xAfterAlignment(p) {
-        let x = this.d.x;
-        if (this.d.useRelativeXY == true) {
-            x = p.xPerc(this.d.x);
+        let x = this.p.x;
+        if (this.p.useRelativeXY == true) {
+            x = p.xPerc(this.p.x);
         }
-        switch (this.d.xAlignment) {
+        switch (this.p.xAlignment) {
             case this.xAlignmentOptions.Left:
                 break;
             case this.xAlignmentOptions.Mid:
@@ -87,11 +77,11 @@ export default class Component {
         return x;
     }
     yAfterAlignment(p) {
-        let y = this.d.y;
-        if (this.d.useRelativeXY == true) {
-            y = p.yPerc(this.d.y);
+        let y = this.p.y;
+        if (this.p.useRelativeXY == true) {
+            y = p.yPerc(this.p.y);
         }
-        switch (this.d.yAlignment) {
+        switch (this.p.yAlignment) {
             case this.yAlignmentOptions.Top:
                 break;
             case this.yAlignmentOptions.Mid:

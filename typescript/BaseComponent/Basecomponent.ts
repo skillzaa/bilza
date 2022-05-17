@@ -1,24 +1,14 @@
 import {Pack,IComponent,DrawLayer} from "../Bilza.js";
 import Style from "../design/style.js";
-import CompDataBase from "./CompDataBase.js";
-import Transition from "./transition/transition.js";
+import Props from "./BaseProps.js";
 import {XAlignment} from "./xAlignment.js";
 import {YAlignment} from "./yAlignment.js";
 // import {InsertTypeOptions} from "./insertTypeOptions.js";
 //--This is an Abstract class
-export default class Component  <T extends CompDataBase> implements IComponent {
-//compData is the transition object and T is the obj it takes in
-// a transition group all the public properties in this.d and expose them. the user can then add different set of these properties which are then implemented (merged) as per the given millisecond.
-protected compData:Transition<T>; 
-// this d and the data will point to the T object inside compData,to 
-// expose them and remove this.compData.data.x into this.d.x or 
-// this.data.x
-public d :T;
-/**
- * why it is so important to place  data into this.d.xyz and not directly into the component class ?
- * Answer: The data inside this.d == reactive data. These are the buttons and numbers to which the tool reacts AND THAT MAKES THE ENTIRE LIBRARY REACTIVE. So we need to pass the data of the component as a seperate object.
- */
-public data :T;
+export default class Component  implements IComponent {
+
+public props :Props;
+public  p:Props;
 //--id is read only--if we serialize it the id persists. it is globally unique
 public readonly id :string;
 //--we have three layers so far but we can add as many as we want.
@@ -26,54 +16,35 @@ public readonly id :string;
 //e.g the background tools does not have x and y etc.?????
 //--we do not keep x and y in component since all tools dont need it
 public drawLayer : DrawLayer; 
-//----------------------
-//---??? what exactly is this msStart???????????????
-// protected msStart :number;   
 //--previously I was using many style obj in my component sub-classes but now i have atleast one this.style available, if a component sub-classes (tool class) wants it can have its own styles as well. loose coupling.
 public style:Style;
 //-----Alignment
 public readonly xAlignmentOptions:typeof XAlignment;   
 public readonly yAlignmentOptions:typeof YAlignment;  
-// public readonly insertTypeOptions:typeof InsertTypeOptions; //these r options list 
-
-//----insert Type-- how should this component be inserted into the video.
-// public insertType :InsertTypeOptions;
-
 /////////////////----PRIVATE----///////////////////
 //---11-5-2022 --ooo its private not protected.it means the child comp
 // can not chane this behaviour.
 public  duration :number;  
 //--this was previously _startTime but actually insertTimeInVid now, this show the point at which this comp will be inserted into the overall video. Inside a container Component this insert time is implemented by comtainer component. 
 private  insertTimeInVid:number; 
-//---
 public alwaysOn: boolean;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
-constructor (DataFn :()=>T){
-this.alwaysOn = false;
+constructor (){
+    this.props = new Props();    
+    this.p = this.props;
+    this.alwaysOn = false;
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
-// this.insertTypeOptions = InsertTypeOptions; //final-ok
-// this.insertType = this.insertTypeOptions.Insert; //Insert = default
 this.duration = 0; //can not be changed again even not by children comps
 this.insertTimeInVid = 0; //final-ok
 //--there is no this.endTime --since has this.endTime()
-this.compData = new Transition(DataFn);    
-this.d = this.compData.data;
-this.data = this.compData.data;
-//--------------------------------
 //--must
 this.drawLayer = DrawLayer.MiddleGround;
 //--must
 this.id = Math.random().toString(36).slice(2);
-
 this.style = new Style(); 
 
-// this.msStart = 0; //typescript deamnds it
 }
 
 width(p: Pack): number {
@@ -94,13 +65,7 @@ draw(p: Pack): boolean {
 update(msDelta :number, p: Pack): boolean {
 return true;    
 }
-log(msg :string){
-    console.log(msg);
-}
 ////////////////////////////////////////////////////////
-addTransition(msStart:number){
-    return this.compData.add(msStart);
-}    
 checkCollision(x: number, y: number, p: Pack): boolean {
     return false;
 }
@@ -126,20 +91,16 @@ resize(width :number,height :number):number{
 }
 drawBoundingRectangle(p :Pack) :boolean{
 this.style.strokeStyle = "black";    
-p.drawRect(p.xPerc(this.d.x),p.yPerc(this.d.y),this.width(p),this.height(p),this.style);
+p.drawRect(p.xPerc(this.p.x),p.yPerc(this.p.y),this.width(p),this.height(p),this.style);
 return true;
 }
 
-applyTransition(msDelta :number){
-    this.compData.apply(msDelta);
-}
-
 protected xAfterAlignment(p :Pack):number{
-let x = this.d.x; //does  not change the orignal X   
-        if (this.d.useRelativeXY == true){
-            x =   p.xPerc(this.d.x);  
+let x = this.p.x; //does  not change the orignal X   
+        if (this.p.useRelativeXY == true){
+            x =   p.xPerc(this.p.x);  
         }    
-switch (this.d.xAlignment) {
+switch (this.p.xAlignment) {
     case this.xAlignmentOptions.Left:
         
         break;
@@ -154,12 +115,12 @@ switch (this.d.xAlignment) {
 return x ;
 }
 protected yAfterAlignment(p :Pack):number{
-    let y = this.d.y;    
-        if (this.d.useRelativeXY == true){
-            y =   p.yPerc(this.d.y);  
+    let y = this.p.y;    
+        if (this.p.useRelativeXY == true){
+            y =   p.yPerc(this.p.y);  
         }    
 
-switch (this.d.yAlignment) {
+switch (this.p.yAlignment) {
     case this.yAlignmentOptions.Top:
         break;
     case this.yAlignmentOptions.Mid:
@@ -176,8 +137,6 @@ getEndTime(inMilliSec :boolean = true) :number{
 let r = this.insertTimeInVid + this.duration; //both r in sec
 return inMilliSec ? (r * 1000) : r;
 }
-
-
 getStartTime(inMilliSec :boolean = true) :number{
 return inMilliSec ? (this.insertTimeInVid * 1000) : this.insertTimeInVid;    
 }
