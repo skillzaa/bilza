@@ -34,7 +34,6 @@ export default class Insert {
         return this.comps.push(comp);
     }
     alwaysOn(comp) {
-        comp.insertType = comp.insertTypeOptions.AlwaysOn;
         return this.comps.push(comp);
     }
 }

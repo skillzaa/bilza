@@ -1,5 +1,5 @@
 import { Pack } from "../../../Bilza.js";
-import Component from "../../BaseComponent/Basecomponent.js";
+import Component from "../../../BaseComponent/Basecomponent.js";
 import { ObjectData } from "./textData.js";
 export default class Text extends Component<ObjectData> {
     constructor(duration?: number, content?: string, colorHax?: string, x?: number, y?: number, dynWidth?: number, dynHeight?: number);

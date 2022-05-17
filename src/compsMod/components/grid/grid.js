@@ -1,10 +1,9 @@
 import { DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/Basecomponent.js";
+import Component from "../../../BaseComponent/Basecomponent.js";
 import DataFn from "./DataFn.js";
 export default class Grid extends Component {
     constructor(colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
         super(DataFn);
-        this.insertType = this.insertTypeOptions.AlwaysOn;
         this.d.cellWidthPerc = cellWidthPerc;
         this.d.cellHeightPerc = cellHeightPerc;
         this.d.colorVerticalLines = colorHax;

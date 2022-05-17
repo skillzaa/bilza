@@ -1,5 +1,5 @@
 import { Pack } from "../../../Bilza.js";
-import Component from "../../BaseComponent/Basecomponent.js";
+import Component from "../../../BaseComponent/Basecomponent.js";
 import { ImageData } from "./imageData.js";
 export default class BilzaImage extends Component<ImageData> {
     img: HTMLImageElement;

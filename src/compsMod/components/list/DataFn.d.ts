@@ -1,4 +1,4 @@
-import CompDataBase from "../../BaseComponent/CompDataBase.js";
+import CompDataBase from "../../../BaseComponent/CompDataBase.js";
 import Text from "../text/text.js";
 export declare class ObjectData extends CompDataBase {
     msStart: number;

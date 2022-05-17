@@ -1,10 +1,10 @@
-import {Pack,IComponent,DrawLayer} from "../../Bilza.js";
-import Style from "../../design/style.js";
+import {Pack,IComponent,DrawLayer} from "../Bilza.js";
+import Style from "../design/style.js";
 import CompDataBase from "./CompDataBase.js";
-import Transition from "../transition/transition.js";
+import Transition from "../compsMod/transition/transition.js";
 import {XAlignment} from "./xAlignment.js";
 import {YAlignment} from "./yAlignment.js";
-import {InsertTypeOptions} from "./insertTypeOptions.js";
+// import {InsertTypeOptions} from "./insertTypeOptions.js";
 //--This is an Abstract class
 export default class Component  <T extends CompDataBase> implements IComponent {
 //compData is the transition object and T is the obj it takes in
@@ -34,10 +34,10 @@ public style:Style;
 //-----Alignment
 public readonly xAlignmentOptions:typeof XAlignment;   
 public readonly yAlignmentOptions:typeof YAlignment;  
-public readonly insertTypeOptions:typeof InsertTypeOptions; //these r options list 
+// public readonly insertTypeOptions:typeof InsertTypeOptions; //these r options list 
 
 //----insert Type-- how should this component be inserted into the video.
-public insertType :InsertTypeOptions;
+// public insertType :InsertTypeOptions;
 
 /////////////////----PRIVATE----///////////////////
 //---11-5-2022 --ooo its private not protected.it means the child comp
@@ -46,6 +46,7 @@ public  duration :number;
 //--this was previously _startTime but actually insertTimeInVid now, this show the point at which this comp will be inserted into the overall video. Inside a container Component this insert time is implemented by comtainer component. 
 private  insertTimeInVid:number; 
 //---
+public alwaysOn: boolean;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -53,11 +54,11 @@ private  insertTimeInVid:number;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
 constructor (DataFn :()=>T){
-
+this.alwaysOn = false;
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
-this.insertTypeOptions = InsertTypeOptions; //final-ok
-this.insertType = this.insertTypeOptions.Insert; //Insert = default
+// this.insertTypeOptions = InsertTypeOptions; //final-ok
+// this.insertType = this.insertTypeOptions.Insert; //Insert = default
 this.duration = 0; //can not be changed again even not by children comps
 this.insertTimeInVid = 0; //final-ok
 //--there is no this.endTime --since has this.endTime()

@@ -1,5 +1,5 @@
 import {Pack,DrawLayer} from "../../../Bilza.js";
-import Component from "../../BaseComponent/Basecomponent.js";
+import Component from "../../../BaseComponent/Basecomponent.js";
 
 import DataFn,{ObjectData} from "./DataFn.js";
 
@@ -8,7 +8,7 @@ export default class Grid extends Component<ObjectData> {
 constructor (colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
 super(DataFn);
 //--AlwaysOn
-this.insertType = this.insertTypeOptions.AlwaysOn;
+// this.insertType = this.insertTypeOptions.AlwaysOn;
  this.d.cellWidthPerc = cellWidthPerc;
  this.d.cellHeightPerc = cellHeightPerc;
 

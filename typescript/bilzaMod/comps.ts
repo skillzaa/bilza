@@ -43,7 +43,7 @@ return true;
 }
 
 public qualifyForDraw(comp :IComponent,msDelta :number):boolean{
-if (comp.insertType == comp.insertTypeOptions.AlwaysOn){
+if (comp.alwaysOn == true){
     return true;
 }
 if(comp.getStartTime(true) <= msDelta && comp.getEndTime(true) > msDelta){

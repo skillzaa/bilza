@@ -1,6 +1,5 @@
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
-import {InsertTypeOptions} from "../compsMod/BaseComponent/insertTypeOptions.js";
 
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business legic etc inside. That will come when we build systems.
@@ -10,7 +9,7 @@ import {InsertTypeOptions} from "../compsMod/BaseComponent/insertTypeOptions.js"
 export default interface IComponent{
     //This is read only means cant be changed from outside and its value is set once in contructor internally.
     drawLayer:DrawLayer; //gone into an object--just like ObjectData
-    
+    alwaysOn :boolean;
     //--we can get the width and height thus we can use components into array and trees like table,list etc
     //-- since we have to use it externally thus Pack is always avaialbe
     // While using internally it shd be used when draw/update is called is called
@@ -37,6 +36,5 @@ duration :number;
 //--correct
 getEndTime(inMilliSec ?:boolean) :number;
 
-insertType :InsertTypeOptions;
-insertTypeOptions:typeof InsertTypeOptions
+
 }

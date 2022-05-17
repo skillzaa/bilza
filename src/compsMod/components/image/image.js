@@ -1,5 +1,5 @@
 import { DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/Basecomponent.js";
+import Component from "../../../BaseComponent/Basecomponent.js";
 import DataFn from "./imageData.js";
 export default class BilzaImage extends Component {
     constructor(duration = 300, imgId, x = 0, y = 0) {

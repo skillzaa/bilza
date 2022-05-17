@@ -1,4 +1,4 @@
-import Component from "../../compsMod/BaseComponent/Basecomponent.js";
+import Component from "../../BaseComponent/Basecomponent.js";
 import DataFn from "./DataFn.js";
 export default class TestComp extends Component {
     constructor(duration = 300) {

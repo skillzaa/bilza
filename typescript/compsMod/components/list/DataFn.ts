@@ -1,4 +1,4 @@
-import CompDataBase from "../../BaseComponent/CompDataBase.js";  
+import CompDataBase from "../../../BaseComponent/CompDataBase.js";  
 //Getting text dir since its no more exported by index.js
 import Text from "../text/text.js";
  

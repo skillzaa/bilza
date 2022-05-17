@@ -1,5 +1,5 @@
 import {Pack } from "../../../Bilza.js";
-import Component from "../../BaseComponent/Basecomponent.js";
+import Component from "../../../BaseComponent/Basecomponent.js";
 // import Style from "../../../design/style.js";
 import DataFn,{ObjectData} from "./DataFn.js";
 

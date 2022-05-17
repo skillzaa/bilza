@@ -1,6 +1,6 @@
 
 
-export default class PlusX{
+export default class Adder{
 increment:number;
 counter :number;
 constructor(increment :number){

@@ -1,5 +1,5 @@
 // import {Pack,DrawLayer } from "../../../Bilza.js";
-// import Component from "../../BaseComponent/component.js";
+// import Component from "../../../BaseComponent/component.js";
 
 // import DataFn,{ObjectData} from "./DataFn.js";
 // // import TextTemplates from "../text/textTemplates.js";

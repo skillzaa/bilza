@@ -1,9 +1,9 @@
-import CompDataBase from "../../compsMod/BaseComponent/CompDataBase.js";
-import PlusX from "../../propFilters/numberFilters/plusX.js";
+import CompDataBase from "../../BaseComponent/CompDataBase.js";
+import Adder from "../../propFilters/numberFilters/adder.js";
 export class ObjectData extends CompDataBase {
     constructor() {
         super();
-        this.xx = new PlusX(2);
+        this.xx = new Adder(2);
         this.msDelta = 0;
     }
 }

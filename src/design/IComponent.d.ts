@@ -1,8 +1,8 @@
 import Pack from "../pack/pack.js";
 import { DrawLayer } from "../design/drawLayer.js";
-import { InsertTypeOptions } from "../compsMod/BaseComponent/insertTypeOptions.js";
 export default interface IComponent {
     drawLayer: DrawLayer;
+    alwaysOn: boolean;
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;
@@ -14,7 +14,5 @@ export default interface IComponent {
     setStartTime(n: number): number;
     duration: number;
     getEndTime(inMilliSec?: boolean): number;
-    insertType: InsertTypeOptions;
-    insertTypeOptions: typeof InsertTypeOptions;
 }
 //# sourceMappingURL=IComponent.d.ts.map

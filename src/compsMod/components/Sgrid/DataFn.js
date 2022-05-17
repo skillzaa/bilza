@@ -1,4 +1,4 @@
-import CompDataBase from "../../BaseComponent/CompDataBase.js";
+import CompDataBase from "../../../BaseComponent/CompDataBase.js";
 export default function DataFn() {
     let td = new ObjectData();
     return td;

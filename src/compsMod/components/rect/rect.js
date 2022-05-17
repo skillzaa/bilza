@@ -1,5 +1,5 @@
 import { DrawLayer } from "../../../Bilza.js";
-import Component from "../../BaseComponent/Basecomponent.js";
+import Component from "../../../BaseComponent/Basecomponent.js";
 import DataFn from "./DataFn.js";
 export default class Rect extends Component {
     constructor(duration = 300, x = 0, y = 0, widthPercent = 10, heightPercent = 10, colorHex = "#008000") {

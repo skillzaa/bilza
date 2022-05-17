@@ -1,4 +1,4 @@
-import CompDataBase from "../../BaseComponent/CompDataBase.js";  
+import CompDataBase from "../../../BaseComponent/CompDataBase.js";  
 
 
 
