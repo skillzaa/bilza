@@ -1,7 +1,7 @@
 import { Pack, IComponent, DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
 import CompDataBase from "./CompDataBase.js";
-import Transition from "../compsMod/transition/transition.js";
+import Transition from "./transition/transition.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
 export default class Component<T extends CompDataBase> implements IComponent {

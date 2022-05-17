@@ -1,6 +1,6 @@
 import { DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import Transition from "../compsMod/transition/transition.js";
+import Transition from "./transition/transition.js";
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
 export default class Component {
