@@ -1,6 +1,5 @@
 import {Pack} from "../Bilza.js";
 import Component from "../BaseComponent/Basecomponent.js";
-import DataFn,{ObjectData} from "./DataFn.js";
  
 export default class TestComp extends Component {
     msDelta :number;  
@@ -24,6 +23,5 @@ draw(p:Pack):boolean{
 p.drawText(this.msDelta.toString(),this.p.x,5 ,this.style);
 return true;
 }
-
 
 }
