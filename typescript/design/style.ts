@@ -3,7 +3,6 @@ import {FontFamily} from "./fontFamily.js";
 // these are ctx valuesto be set in caseof any change in ctx
 export default class Style {
 //---13 prop    
-applyAtMs:number; //cant be null--
 fontSize:number ;
 fontFamily: FontFamily ;
 fillStyle:string ;
@@ -22,7 +21,6 @@ lineDash :number[];
 /////////////////////////////////////////////////////
 constructor(applyAtMs :number = 0){
 
-this.applyAtMs = applyAtMs;
 this.fontSize = 25;
 this.fontFamily = FontFamily.Luminari;
 this.fillStyle = "green";

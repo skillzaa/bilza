@@ -25,8 +25,6 @@ export default class Component implements IComponent {
     setShadow(shadowBlur?: number, shadowOffsetX?: number, shadowOffsetY?: number, shadowColor?: string): void;
     shadowsOn(): void;
     resize(width: number, height: number): number;
-    drawBoundingRectangle(p: Pack): boolean;
-    protected xAfterAlignment(p: Pack): number;
     protected yAfterAlignment(p: Pack): number;
     getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;

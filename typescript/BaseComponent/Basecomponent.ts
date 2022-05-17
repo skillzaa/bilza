@@ -22,9 +22,9 @@ public alwaysOn: boolean;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
-    this.props = new Props();    
-    this.p = this.props;
-    this.alwaysOn = false;
+this.props = new Props();    
+this.p = this.props;
+this.alwaysOn = false;
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
 this.duration = 0; //can not be changed again even not by children comps
@@ -50,6 +50,7 @@ init(p: Pack): boolean {
     // console.log(this.id,"init");
     return true;
 }
+
 draw(p: Pack): boolean {
     return true;
 }
@@ -80,31 +81,31 @@ shadowsOn(){
 resize(width :number,height :number):number{
  return 0;
 }
-drawBoundingRectangle(p :Pack) :boolean{
-this.style.strokeStyle = "black";    
-p.drawRect(p.xPerc(this.p.x),p.yPerc(this.p.y),this.width(p),this.height(p),this.style);
-return true;
-}
+// drawBoundingRectangle(p :Pack) :boolean{
+// this.style.strokeStyle = "black";    
+// p.drawRect(p.xPerc(this.p.x.value()),p.yPerc(this.p.y),this.width(p),this.height(p),this.style);
+// return true;
+// }
 
-protected xAfterAlignment(p :Pack):number{
-let x = this.p.x; //does  not change the orignal X   
-        if (this.p.useRelativeXY == true){
-            x =   p.xPerc(this.p.x);  
-        }    
-switch (this.p.xAlignment) {
-    case this.xAlignmentOptions.Left:
+// protected xAfterAlignment(p :Pack):number{
+// let x = this.p.x.value(); //does  not change the orignal X   
+//         if (this.p.useRelativeXY == true){
+//             x =   p.xPerc(this.p.x.value());  
+//         }    
+// switch (this.p.xAlignment) {
+//     case this.xAlignmentOptions.Left:
         
-        break;
-    case this.xAlignmentOptions.Mid:
-         x = Math.floor(x - ((this.width(p)/2)));
-        break;
+//         break;
+//     case this.xAlignmentOptions.Mid:
+//          x = Math.floor(x - ((this.width(p)/2)));
+//         break;
     
-    case this.xAlignmentOptions.Right:
-        Math.floor(x - (this.width(p)));
-        break;
-}
-return x ;
-}
+//     case this.xAlignmentOptions.Right:
+//         Math.floor(x - (this.width(p)));
+//         break;
+// }
+// return x ;
+// }
 protected yAfterAlignment(p :Pack):number{
     let y = this.p.y;    
         if (this.p.useRelativeXY == true){

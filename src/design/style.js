@@ -2,7 +2,6 @@ import { LineCapStyle } from "./lineCapStyle.js";
 import { FontFamily } from "./fontFamily.js";
 export default class Style {
     constructor(applyAtMs = 0) {
-        this.applyAtMs = applyAtMs;
         this.fontSize = 25;
         this.fontFamily = FontFamily.Luminari;
         this.fillStyle = "green";

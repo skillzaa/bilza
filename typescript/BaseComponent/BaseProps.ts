@@ -1,6 +1,6 @@
 import {XAlignment} from "./xAlignment.js";
 import {YAlignment} from "./yAlignment.js";
-
+// import AniNumber from "../animation/aniNumber/aniNumber.js";
 export default class Props {
 x :number;
 y :number;
@@ -25,12 +25,12 @@ xAlignment :XAlignment;
 yAlignment :YAlignment;
 
 constructor(){
-this.x=0;
+this.x= 0;
 this.y=0;
 //---flags 
 this.selected = false;
 this.visible = true;
-this.useRelativeXY = true;//no implementation just a flag
+this.useRelativeXY = true;//--implemented
 //--shadow
 this.shadowColor = "grey";
 this.shadowOffsetX = 0;

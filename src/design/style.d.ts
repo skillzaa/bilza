@@ -1,7 +1,6 @@
 import { LineCapStyle } from "./lineCapStyle.js";
 import { FontFamily } from "./fontFamily.js";
 export default class Style {
-    applyAtMs: number;
     fontSize: number;
     fontFamily: FontFamily;
     fillStyle: string;

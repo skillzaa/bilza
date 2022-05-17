@@ -54,28 +54,6 @@ export default class Component {
     resize(width, height) {
         return 0;
     }
-    drawBoundingRectangle(p) {
-        this.style.strokeStyle = "black";
-        p.drawRect(p.xPerc(this.p.x), p.yPerc(this.p.y), this.width(p), this.height(p), this.style);
-        return true;
-    }
-    xAfterAlignment(p) {
-        let x = this.p.x;
-        if (this.p.useRelativeXY == true) {
-            x = p.xPerc(this.p.x);
-        }
-        switch (this.p.xAlignment) {
-            case this.xAlignmentOptions.Left:
-                break;
-            case this.xAlignmentOptions.Mid:
-                x = Math.floor(x - ((this.width(p) / 2)));
-                break;
-            case this.xAlignmentOptions.Right:
-                Math.floor(x - (this.width(p)));
-                break;
-        }
-        return x;
-    }
     yAfterAlignment(p) {
         let y = this.p.y;
         if (this.p.useRelativeXY == true) {

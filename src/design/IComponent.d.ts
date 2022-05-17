@@ -6,7 +6,7 @@ export default interface IComponent {
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;
-    update(ms: number, p: Pack): boolean;
+    update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;
     resize(width: number, height: number): number;

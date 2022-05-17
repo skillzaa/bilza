@@ -1,0 +1,1 @@
+{"version":3,"file":"adder.d.ts","sourceRoot":"","sources":["../../typescript/propFilters/adder.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,OAAO,KAAK;IAC1B,SAAS,EAAC,MAAM,CAAC;IACjB,OAAO,CAAC,OAAO,CAAS;gBACZ,SAAS,EAAE,MAAM;IAK7B,KAAK;CAMJ"}
