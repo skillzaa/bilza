@@ -1,4 +1,3 @@
-import CompDataBase from "../BaseComponent/CompDataBase.js";
 import Adder from "../propFilters/numberFilters/adder.js";
 export class ObjectData extends CompDataBase {
     constructor() {

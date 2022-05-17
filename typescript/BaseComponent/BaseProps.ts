@@ -27,10 +27,10 @@ yAlignment :YAlignment;
 constructor(){
 this.x=0;
 this.y=0;
-//---flags
+//---flags 
 this.selected = false;
 this.visible = true;
-this.useRelativeXY = true;
+this.useRelativeXY = true;//no implementation just a flag
 //--shadow
 this.shadowColor = "grey";
 this.shadowOffsetX = 0;
@@ -39,7 +39,6 @@ this.shadowBlur = 0;
 //-----------
 this.colorBoundingRectangle = "black";
 //---Alignment
-
 this.xAlignment = XAlignment.Left;
 this.yAlignment = YAlignment.Top;
 }

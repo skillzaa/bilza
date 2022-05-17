@@ -5,12 +5,13 @@ import Pack from "./pack/pack.js";
 import {DrawLayer} from "./design/drawLayer.js";
 //--Export IComponent since developers will use it;
 import IComponent from "./design/IComponent";
-
+import BaseComponent from "./BaseComponent/Basecomponent.js"
 export default Bilza;
 
 export {
 Pack,
 DrawLayer,
 IComponent,
-Bilza
+Bilza,
+BaseComponent
 }

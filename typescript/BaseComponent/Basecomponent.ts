@@ -6,24 +6,15 @@ import {YAlignment} from "./yAlignment.js";
 // import {InsertTypeOptions} from "./insertTypeOptions.js";
 //--This is an Abstract class
 export default class Component  implements IComponent {
-
-public props :Props;
-public  p:Props;
-//--id is read only--if we serialize it the id persists. it is globally unique
+public props :Props;public  p:Props;
 public readonly id :string;
-//--we have three layers so far but we can add as many as we want.
-//--infect we can have different type of components????? 
-//e.g the background tools does not have x and y etc.?????
-//--we do not keep x and y in component since all tools dont need it
 public drawLayer : DrawLayer; 
-//--previously I was using many style obj in my component sub-classes but now i have atleast one this.style available, if a component sub-classes (tool class) wants it can have its own styles as well. loose coupling.
 public style:Style;
 //-----Alignment
 public readonly xAlignmentOptions:typeof XAlignment;   
 public readonly yAlignmentOptions:typeof YAlignment;  
 /////////////////----PRIVATE----///////////////////
-//---11-5-2022 --ooo its private not protected.it means the child comp
-// can not chane this behaviour.
+//---??????????????????
 public  duration :number;  
 //--this was previously _startTime but actually insertTimeInVid now, this show the point at which this comp will be inserted into the overall video. Inside a container Component this insert time is implemented by comtainer component. 
 private  insertTimeInVid:number; 
@@ -145,4 +136,4 @@ this.insertTimeInVid = n;
 return this.insertTimeInVid;
 }
 ////////////////////////////////////////////////////////
-}//component ends
+}//component ends 
