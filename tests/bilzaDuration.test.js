@@ -1,10 +1,4 @@
-
-// import Bilza from "../src/Bilza.js";
-// import Component from "../src/compsMod/BaseComponent/component.js";
-// import TestComp from "../src/compsMod/components/testComp/testComp.js"
-// import Text from "../src/compsMod/components/text/text.js";
-// import Grid from "../src/compsMod/components/grid/grid.js";
-import Duration from "../src/engine/duration.js"
+import Duration from "../src/bilzaMod/duration.js"
 
 let dur = new Duration();
 

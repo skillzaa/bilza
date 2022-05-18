@@ -13,7 +13,6 @@ export default class TestComp extends Component {
         return 0;
     }
     update(msDelta, p) {
-        console.log("msDelta", msDelta);
         this.msDelta = msDelta;
         this.xx.update(msDelta);
         return true;

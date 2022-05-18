@@ -12,14 +12,17 @@ export default class AniNumber {
         for (let i = 0; i < this.animations.length; i++) {
             const ani = this.animations[i];
             ani.update(msDelta);
-            this.val = ani.value();
+            let v = ani.value();
+            if (v != null) {
+                this.val = v;
+            }
         }
     }
     value() {
         return this.val;
     }
     increment() {
-        let a = new Increment(10, 20, 0, 300);
+        let a = new Increment(5000, 15000, 0, 300);
         this.animations.push(a);
     }
 }

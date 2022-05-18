@@ -1,13 +1,17 @@
 export default class Increment {
-    from: number;
-    to: number;
-    private startValue;
-    private endValue;
-    private readonly DELAYCOUNTER;
-    private lastMsDelta;
+    private readonly FROM;
+    private readonly TO;
+    private readonly STARTVALUE;
+    private readonly ENDVALUE;
+    private readonly timeDiff;
+    private readonly xDiff;
     private val;
     constructor(from: number, to: number, startValue: number, endValue: number);
     update(msDelta: number): boolean;
-    value(): number;
+    value(): number | null;
+    private getTimePerc;
+    private getTo;
+    private getFrom;
+    private getTimeLapsed;
 }
 //# sourceMappingURL=increment.d.ts.map

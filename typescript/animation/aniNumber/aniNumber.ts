@@ -24,7 +24,10 @@ if (this.animations.length < 1) {
 for (let i = 0; i < this.animations.length; i++) {
         const ani = this.animations[i];
         ani.update(msDelta);
-        this.val = ani.value();
+        let v  = ani.value(); 
+        if ( v != null){
+            this.val = v;
+        }
 }    
     
 }
@@ -33,7 +36,7 @@ return this.val;
 }
 
 public increment(){
-    let a = new Increment(10,20,0,300);
+    let a = new Increment(5000,15000,0,300);
 // let ae = new AnimationEntry(a,1,10);
 this.animations.push(a);
 }

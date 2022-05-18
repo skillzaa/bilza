@@ -1,5 +1,5 @@
 import Bilza from "../src/Bilza.js";
-import TestComp from "../src/compsMod/components/testComp/testComp.js"
+import TestComp from "../src/testComp/testComp.js"
 
 test('Append Basic', () => {
     let bil  =  new Bilza();

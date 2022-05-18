@@ -1,12 +1,6 @@
 
 import Bilza from "../src/Bilza.js";
-import Component from "../src/compsMod/BaseComponent/component.js";
-import TestComp from "../src/compsMod/components/testComp/testComp.js"
-import Text from "../src/compsMod/components/text/text.js"
-import Grid from "../src/compsMod/components/grid/grid.js"
-/**
- * Test the basics all important pieces should be there
- */
+
 let bil = new Bilza("bilza");
 
 // console.log(bil);

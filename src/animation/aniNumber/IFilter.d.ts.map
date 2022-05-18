@@ -1,1 +1,1 @@
-{"version":3,"file":"IFilter.d.ts","sourceRoot":"","sources":["../../../typescript/animation/aniNumber/IFilter.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,WAAW,OAAO;IAC5B,MAAM,CAAC,OAAO,EAAE,MAAM,GAAE,OAAO,CAAC;IAChC,KAAK,IAAG,MAAM,CAAC;IACf,IAAI,EAAC,MAAM,CAAC;IACZ,EAAE,EAAC,MAAM,CAAC;CAEb"}
+{"version":3,"file":"IFilter.d.ts","sourceRoot":"","sources":["../../../typescript/animation/aniNumber/IFilter.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,WAAW,OAAO;IAC5B,MAAM,CAAC,OAAO,EAAE,MAAM,GAAE,OAAO,CAAC;IAChC,KAAK,IAAG,MAAM,GAAC,IAAI,CAAC;CAIvB"}

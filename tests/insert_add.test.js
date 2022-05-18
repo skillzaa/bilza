@@ -1,6 +1,6 @@
 
 import Bilza from "../src/Bilza.js"
-import TestComp from "../src/compsMod/components/testComp/testComp.js"
+import TestComp from "../src/testComp/testComp.js"
 
 test('insert_add_setup = 0', () => {
 let bil = new Bilza()
@@ -30,7 +30,7 @@ test('Blank Frames Error in insert After insert', () => {
 let bil = new Bilza()
 //-- its startTime will be equal to 0 and end time 10
 let a = new TestComp();//length = 10;
-a.insertType = a.insertTypeOptions.Insert;
+// a.insertType = a.insertTypeOptions.Insert;
 bil.insert.add(a,0,10); //we are not checking this
 let b = new TestComp(); //
 //--insert-add from frame 15 for 10 sec duration

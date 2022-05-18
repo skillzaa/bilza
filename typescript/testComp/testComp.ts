@@ -17,10 +17,10 @@ height(p:Pack):number {
     return  0;
 } 
 update(msDelta: number, p: Pack): boolean {
-console.log("msDelta",msDelta);
+// console.log("msDelta",msDelta);
 
     this.msDelta = msDelta;
-    this.xx.update(msDelta)
+    this.xx.update(msDelta);
     return true;
 }
 
