@@ -33,7 +33,7 @@ return this.val;
 }
 
 public increment(){
-    let a = new Increment(0,40,0,600);
+    let a = new Increment(10,20,0,300);
 // let ae = new AnimationEntry(a,1,10);
 this.animations.push(a);
 }

@@ -1,16 +1,25 @@
 export default class Increment {
-    constructor(startTime, endTime, startValue, endValue) {
-        this.startTime = startTime;
-        this.endTime = endTime;
+    constructor(from, to, startValue, endValue) {
+        this.from = from;
+        this.to = to;
         this.startValue = startValue;
         this.endValue = endValue;
         let xDiff = endValue - startValue;
-        let timeDiff = endTime - startTime;
-        this.increment = Math.ceil(timeDiff / xDiff);
-        this.val = this.startTime;
+        let timeDiff = (to - from) * 1000;
+        this.DELAYCOUNTER = Math.ceil(timeDiff / xDiff);
+        this.lastMsDelta = 0;
+        this.val = this.from;
     }
     update(msDelta) {
-        this.val = this.val + this.increment;
+        if (this.lastMsDelta == 0) {
+            this.lastMsDelta = msDelta;
+        }
+        if (msDelta > (10000) && msDelta < (20000)) {
+            if ((msDelta - this.lastMsDelta) > this.DELAYCOUNTER) {
+                this.val = this.val + 1;
+                this.lastMsDelta = msDelta;
+            }
+        }
         return true;
     }
     value() {

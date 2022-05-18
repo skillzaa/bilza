@@ -4,6 +4,7 @@ export default class TestComp extends Component {
     constructor() {
         super();
         this.xx = new AniNumber(1);
+        this.msDelta = 0;
     }
     width(p) {
         return 0;
@@ -12,13 +13,15 @@ export default class TestComp extends Component {
         return 0;
     }
     update(msDelta, p) {
+        console.log("msDelta", msDelta);
+        this.msDelta = msDelta;
         this.xx.update(msDelta);
         return true;
     }
     draw(p) {
         this.style.fontSize = 80;
-        p.drawText("Test Comp", 5, 200, this.style);
-        p.drawText(this.xx.value().toString(), this.xx.value(), 5, this.style);
+        p.drawText((this.msDelta / 1000).toString(), this.xx.value(), 5, this.style);
+        p.drawText(this.xx.value().toString(), 0, 150, this.style);
         return true;
     }
 }

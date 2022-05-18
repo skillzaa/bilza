@@ -19,7 +19,7 @@ export default class AniNumber {
         return this.val;
     }
     increment() {
-        let a = new Increment(0, 40, 0, 600);
+        let a = new Increment(10, 20, 0, 300);
         this.animations.push(a);
     }
 }

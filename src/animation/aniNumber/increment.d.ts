@@ -1,11 +1,12 @@
 export default class Increment {
-    private startTime;
-    private endTime;
+    from: number;
+    to: number;
     private startValue;
     private endValue;
-    private increment;
+    private readonly DELAYCOUNTER;
+    private lastMsDelta;
     private val;
-    constructor(startTime: number, endTime: number, startValue: number, endValue: number);
+    constructor(from: number, to: number, startValue: number, endValue: number);
     update(msDelta: number): boolean;
     value(): number;
 }
