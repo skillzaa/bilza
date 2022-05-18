@@ -1,9 +1,10 @@
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
+import AniNumber from "../animation/aniNumber/aniNumber.js";
 export default class Props {
     constructor() {
-        this.x = 0;
-        this.y = 0;
+        this.x = new AniNumber(0);
+        this.y = new AniNumber(0);
         this.selected = false;
         this.visible = true;
         this.useRelativeXY = true;

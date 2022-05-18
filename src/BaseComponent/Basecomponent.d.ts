@@ -25,7 +25,6 @@ export default class Component implements IComponent {
     setShadow(shadowBlur?: number, shadowOffsetX?: number, shadowOffsetY?: number, shadowColor?: string): void;
     shadowsOn(): void;
     resize(width: number, height: number): number;
-    protected yAfterAlignment(p: Pack): number;
     getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;

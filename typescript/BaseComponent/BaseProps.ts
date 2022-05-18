@@ -1,9 +1,11 @@
 import {XAlignment} from "./xAlignment.js";
 import {YAlignment} from "./yAlignment.js";
 // import AniNumber from "../animation/aniNumber/aniNumber.js";
+import AniNumber from "../animation/aniNumber/aniNumber.js"; 
+
 export default class Props {
-x :number;
-y :number;
+x :AniNumber;
+y :AniNumber;
 colorBoundingRectangle:string;
 //-------------shadow-------------------------//    
 // shadowDisplay :boolean; //show or not -- this is abstraction
@@ -25,8 +27,8 @@ xAlignment :XAlignment;
 yAlignment :YAlignment;
 
 constructor(){
-this.x= 0;
-this.y=0;
+this.x= new AniNumber(0);
+this.y= new AniNumber(0);
 //---flags 
 this.selected = false;
 this.visible = true;

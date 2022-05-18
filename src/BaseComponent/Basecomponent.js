@@ -54,23 +54,6 @@ export default class Component {
     resize(width, height) {
         return 0;
     }
-    yAfterAlignment(p) {
-        let y = this.p.y;
-        if (this.p.useRelativeXY == true) {
-            y = p.yPerc(this.p.y);
-        }
-        switch (this.p.yAlignment) {
-            case this.yAlignmentOptions.Top:
-                break;
-            case this.yAlignmentOptions.Mid:
-                y = Math.floor(y - ((this.height(p) / 2)));
-                break;
-            case this.yAlignmentOptions.Bot:
-                y = Math.floor(y - (this.height(p)));
-                break;
-        }
-        return y;
-    }
     getEndTime(inMilliSec = true) {
         let r = this.insertTimeInVid + this.duration;
         return inMilliSec ? (r * 1000) : r;

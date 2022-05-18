@@ -1,8 +1,9 @@
 import { XAlignment } from "./xAlignment.js";
 import { YAlignment } from "./yAlignment.js";
+import AniNumber from "../animation/aniNumber/aniNumber.js";
 export default class Props {
-    x: number;
-    y: number;
+    x: AniNumber;
+    y: AniNumber;
     colorBoundingRectangle: string;
     shadowColor: string;
     shadowOffsetX: number;
