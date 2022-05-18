@@ -19,7 +19,7 @@ export default class TestComp extends Component {
     }
     draw(p) {
         this.style.fontSize = 80;
-        p.drawText((this.msDelta / 1000).toString(), this.xx.value(), 5, this.style);
+        p.drawText("Sec : " + Math.ceil(this.msDelta / 1000).toString(), this.xx.value(), 5, this.style);
         p.drawText(this.xx.value().toString(), 0, 150, this.style);
         return true;
     }

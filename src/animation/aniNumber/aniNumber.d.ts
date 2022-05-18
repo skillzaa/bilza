@@ -5,6 +5,6 @@ export default class AniNumber {
     constructor(initalValue: number);
     update(msDelta: number): void;
     value(): number;
-    increment(): void;
+    increment(from?: number, to?: number, startValue?: number, endValue?: number): void;
 }
 //# sourceMappingURL=aniNumber.d.ts.map

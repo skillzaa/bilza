@@ -21,8 +21,8 @@ export default class AniNumber {
     value() {
         return this.val;
     }
-    increment() {
-        let a = new Increment(5000, 15000, 0, 300);
+    increment(from = 0, to = 10, startValue = 0, endValue = 100) {
+        let a = new Increment(from, to, startValue, endValue);
         this.animations.push(a);
     }
 }

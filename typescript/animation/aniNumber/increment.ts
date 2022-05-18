@@ -54,7 +54,7 @@ if (this.TO <= this.FROM){
     throw new Error("From value must be smaller than the To value");
 }    
 return to * 1000;
-}
+} 
 private getFrom(from :number):number{
 // if (from < 1 ){
 //     return 1000;
