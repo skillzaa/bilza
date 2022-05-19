@@ -6,6 +6,7 @@ import BaseProps from "./BaseProps.js";
 export default class Component implements IComponent {
     props: BaseProps;
     p: BaseProps;
+    useRelativeXY: boolean;
     readonly id: string;
     drawLayer: DrawLayer;
     style: Style;

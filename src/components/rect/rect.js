@@ -2,13 +2,19 @@ import BaseComponent from "../../BaseComponent/Basecomponent.js";
 export default class Rect extends BaseComponent {
     constructor() {
         super();
+        this.useRelativeXY = true;
         this.lineWidth = 40;
         this.color = "#000000";
         this.widthPercent = 40;
         this.heightPercent = 40;
     }
     init(p) {
-        console.log("iam run");
+        if (this.useRelativeXY == true) {
+            this.p.x.setValue(p.xPerc(this.p.x.value()));
+            this.p.y.setValue(p.yPerc(this.p.y.value()));
+        }
+        else {
+        }
         return true;
     }
     width(p) {

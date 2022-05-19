@@ -8,6 +8,7 @@ import BaseProps from "./BaseProps.js";
 export default class Component  implements IComponent {
 public props :BaseProps;
 public  p:BaseProps;
+public useRelativeXY :boolean;
 public readonly id :string;
 public drawLayer : DrawLayer; 
 public style:Style;
@@ -26,6 +27,7 @@ constructor (){
 this.props = new BaseProps();    
 this.p = this.props;
 this.alwaysOn = false;
+this.useRelativeXY = true;
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
 this.duration = 0; //can not be changed again even not by children comps

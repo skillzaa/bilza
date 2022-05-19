@@ -10,6 +10,7 @@ export default class Bilza {
     private stopWatch;
     private pack;
     constructor(canvasId?: string, screenWidthInPercent?: number);
+    init(): boolean;
     drawInit(): boolean;
     draw(): boolean;
     len(inMilliSeconds?: boolean): number;

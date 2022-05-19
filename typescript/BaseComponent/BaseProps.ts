@@ -19,7 +19,6 @@ visible :boolean;////just to tell people from outside??????
 //--this will come in handy during using the lib with gui and while making interactive tools.
 selected :boolean;
 //---So every component can be draw using concrete x and Y or relative default is relative
-useRelativeXY :boolean;
 
 //--Alignment
 xAlignment :XAlignment;
@@ -31,7 +30,6 @@ this.y= new AniNumber(0);
 //---flags 
 this.selected = false;
 this.visible = true;
-this.useRelativeXY = true;//--implemented
 //--shadow
 this.shadowColor = "grey";
 this.shadowOffsetX = 0;

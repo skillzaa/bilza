@@ -11,7 +11,6 @@ export default class BaseProps {
     shadowBlur: number;
     visible: boolean;
     selected: boolean;
-    useRelativeXY: boolean;
     xAlignment: XAlignment;
     yAlignment: YAlignment;
     constructor();

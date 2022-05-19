@@ -8,6 +8,7 @@ export default class Component {
         this.props = new BaseProps();
         this.p = this.props;
         this.alwaysOn = false;
+        this.useRelativeXY = true;
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
         this.duration = 0;

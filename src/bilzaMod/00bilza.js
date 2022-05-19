@@ -15,6 +15,10 @@ export default class Bilza {
         this.set = new Settings();
         this.background = new Background();
     }
+    init() {
+        this.comps.init(this.pack);
+        return true;
+    }
     drawInit() {
         this.comps.init(this.pack);
         this.draw();

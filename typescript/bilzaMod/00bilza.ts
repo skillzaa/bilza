@@ -29,6 +29,10 @@ this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();
 } 
+public init():boolean{
+    this.comps.init(this.pack);
+    return true;
+}
 public drawInit():boolean{
     this.comps.init(this.pack);
     this.draw();

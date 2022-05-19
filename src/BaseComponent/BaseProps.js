@@ -7,7 +7,6 @@ export default class BaseProps {
         this.y = new AniNumber(0);
         this.selected = false;
         this.visible = true;
-        this.useRelativeXY = true;
         this.shadowColor = "grey";
         this.shadowOffsetX = 0;
         this.shadowOffsetY = 0;

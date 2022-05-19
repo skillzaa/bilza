@@ -9,13 +9,21 @@ export default class Rect extends BaseComponent {
     color :string;
 constructor (){ 
     super();
+    //by default its true but if that changes then here it is true
+    this.useRelativeXY = true;
     this.lineWidth = 40 ;
     this.color = "#000000" ; 
     this.widthPercent = 40;
     this.heightPercent = 40;
 }
 init(p: Pack): boolean {
-console.log("iam run");
+// console.log("iam run");
+if (this.useRelativeXY == true){
+    this.p.x.setValue(p.xPerc(this.p.x.value()));
+    this.p.y.setValue(p.yPerc(this.p.y.value()));
+}else {
+
+}
 return true;    
 }
 width(p:Pack):number {
