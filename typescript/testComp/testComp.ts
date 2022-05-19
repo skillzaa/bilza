@@ -47,14 +47,4 @@ this.p.y.value() + 40 ,this.style);
 return true;
 }
 
-moveX (from :number=0,to :number=10,startValue :number=0,endValue :number=100){
-    const newFrom = this.getStartTime(false) + from;
-    const newTo = this.getStartTime(false) + to;
-    this.p.x.increment(
-        newFrom,
-        newTo,
-        startValue,
-        endValue);    
-}
-
 }

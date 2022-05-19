@@ -10,15 +10,22 @@ export default class Component implements IComponent {
     readonly id: string;
     drawLayer: DrawLayer;
     style: Style;
+    duration: number;
     readonly xAlignmentOptions: typeof XAlignment;
     readonly yAlignmentOptions: typeof YAlignment;
-    duration: number;
+    private moveXArray;
+    private moveYArray;
     private insertTimeInVid;
     alwaysOn: boolean;
     constructor();
     width(p: Pack): number;
     height(p: Pack): number;
     init(p: Pack): boolean;
+    initProps(p: Pack): void;
+    private initMoveXArrayNONuseRelativeXY;
+    private initMoveYArrayNONuseRelativeXY;
+    private initMoveXArray;
+    private initMoveYArray;
     draw(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;
@@ -30,5 +37,6 @@ export default class Component implements IComponent {
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
     moveX(from?: number, to?: number, startValue?: number, endValue?: number): void;
+    moveY(from?: number, to?: number, startValue?: number, endValue?: number): void;
 }
 //# sourceMappingURL=Basecomponent.d.ts.map

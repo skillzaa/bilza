@@ -8,6 +8,5 @@ export default class TestComp extends Component {
     height(p: Pack): number;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    moveX(from?: number, to?: number, startValue?: number, endValue?: number): void;
 }
 //# sourceMappingURL=testComp.d.ts.map

@@ -25,9 +25,4 @@ export default class TestComp extends Component {
         p.drawText("y:" + this.p.y.value().toString(), this.p.x.value() + 80, this.p.y.value() + 40, this.style);
         return true;
     }
-    moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const newFrom = this.getStartTime(false) + from;
-        const newTo = this.getStartTime(false) + to;
-        this.p.x.increment(newFrom, newTo, startValue, endValue);
-    }
 }

@@ -3,12 +3,15 @@ import Style from "../design/style.js";
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
+import MoveXItem from "./moveXItem.js";
 export default class Component {
     constructor() {
         this.props = new BaseProps();
         this.p = this.props;
         this.alwaysOn = false;
         this.useRelativeXY = true;
+        this.moveXArray = [];
+        this.moveYArray = [];
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
         this.duration = 0;
@@ -24,12 +27,51 @@ export default class Component {
         return 0;
     }
     init(p) {
+        this.initProps(p);
+        if (this.useRelativeXY == true) {
+            this.initMoveXArray(p);
+            this.initMoveYArray(p);
+        }
+        else {
+            this.initMoveXArrayNONuseRelativeXY(p);
+            this.initMoveYArrayNONuseRelativeXY(p);
+        }
         return true;
+    }
+    initProps(p) {
+        this.p.x.setValue(Math.ceil(p.xPerc(this.p.x.value())));
+        this.p.y.setValue(Math.ceil(p.yPerc(this.p.y.value())));
+    }
+    initMoveXArrayNONuseRelativeXY(p) {
+        for (let i = 0; i < this.moveXArray.length; i++) {
+            const elm = this.moveXArray[i];
+            this.p.x.increment(elm.from, elm.to, elm.startValue, elm.endValue);
+        }
+    }
+    initMoveYArrayNONuseRelativeXY(p) {
+        for (let i = 0; i < this.moveYArray.length; i++) {
+            const elm = this.moveYArray[i];
+            this.p.x.increment(elm.from, elm.to, elm.startValue, elm.endValue);
+        }
+    }
+    initMoveXArray(p) {
+        for (let i = 0; i < this.moveXArray.length; i++) {
+            const elm = this.moveXArray[i];
+            this.p.x.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue)), Math.ceil(p.xPerc(elm.endValue)));
+        }
+    }
+    initMoveYArray(p) {
+        for (let i = 0; i < this.moveYArray.length; i++) {
+            const elm = this.moveYArray[i];
+            this.p.y.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.yPerc(elm.startValue)), Math.ceil(p.yPerc(elm.endValue)));
+        }
     }
     draw(p) {
         return true;
     }
     update(msDelta, p) {
+        this.p.x.update(msDelta, p);
+        this.p.y.update(msDelta, p);
         return true;
     }
     checkCollision(x, y, p) {
@@ -67,8 +109,15 @@ export default class Component {
         return this.insertTimeInVid;
     }
     moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const newFrom = this.getStartTime(false) + from;
-        const newTo = this.getStartTime(false) + to;
-        this.p.x.increment(newFrom, newTo, startValue, endValue);
+        const newFrom = from;
+        const newTo = to;
+        const item = new MoveXItem(newFrom, newTo, startValue, endValue);
+        this.moveXArray.push(item);
+    }
+    moveY(from = 0, to = 10, startValue = 0, endValue = 100) {
+        const newFrom = from;
+        const newTo = to;
+        const item = new MoveXItem(newFrom, newTo, startValue, endValue);
+        this.moveYArray.push(item);
     }
 }

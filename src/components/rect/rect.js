@@ -8,25 +8,11 @@ export default class Rect extends BaseComponent {
         this.widthPercent = 40;
         this.heightPercent = 40;
     }
-    init(p) {
-        if (this.useRelativeXY == true) {
-            this.p.x.setValue(p.xPerc(this.p.x.value()));
-            this.p.y.setValue(p.yPerc(this.p.y.value()));
-        }
-        else {
-        }
-        return true;
-    }
     width(p) {
         return ((p.canvasWidth() / 100) * this.widthPercent);
     }
     height(p) {
         return ((p.canvasHeight() / 100) * this.heightPercent);
-    }
-    update(msDelta, p) {
-        this.p.x.update(msDelta, p);
-        this.p.y.update(msDelta, p);
-        return true;
     }
     draw(p) {
         this.style.fillStyle = this.color;

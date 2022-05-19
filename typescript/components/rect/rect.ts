@@ -16,16 +16,7 @@ constructor (){
     this.widthPercent = 40;
     this.heightPercent = 40;
 }
-init(p: Pack): boolean {
-// console.log("iam run");
-if (this.useRelativeXY == true){
-    this.p.x.setValue(p.xPerc(this.p.x.value()));
-    this.p.y.setValue(p.yPerc(this.p.y.value()));
-}else {
 
-}
-return true;    
-}
 width(p:Pack):number {
 return  ((p.canvasWidth() /100) * this.widthPercent );    
     // return this.d.width;
@@ -33,11 +24,8 @@ return  ((p.canvasWidth() /100) * this.widthPercent );
 height(p:Pack):number {
 return  ((p.canvasHeight() /100) * this.heightPercent);    
 }
-update(msDelta: number, p: Pack): boolean {
-    this.p.x.update(msDelta,p);
-    this.p.y.update(msDelta,p);
-    return true;
-}
+
+
 draw(p:Pack):boolean{
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color; 
