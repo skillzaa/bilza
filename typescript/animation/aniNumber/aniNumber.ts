@@ -17,9 +17,9 @@ this.animations = [];
 }
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 update(msDelta :number){
-if (this.animations.length < 1) {
-    this.val = this.INITALVALUE; 
-} 
+// if (this.animations.length < 1) {
+//     this.val = this.INITALVALUE; 
+// } 
 
 for (let i = 0; i < this.animations.length; i++) {
         const ani = this.animations[i];
@@ -39,5 +39,8 @@ public increment(from :number=0,to :number=10,startValue :number=0,endValue :num
 let a = new Increment(from,to,startValue,endValue);
 this.animations.push(a);
 }
-
+public setValue(n :number):number{
+this.val = n;
+return this.val;
+}
 } 

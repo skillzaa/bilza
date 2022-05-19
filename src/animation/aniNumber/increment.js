@@ -1,5 +1,8 @@
 export default class Increment {
     constructor(from, to, startValue, endValue) {
+        if (from >= to) {
+            throw new Error("from can not be larger than to");
+        }
         this.FROM = this.getFrom(from);
         this.TO = this.getTo(to);
         this.STARTVALUE = startValue;

@@ -12,6 +12,8 @@ private  readonly xDiff :number;
 private    val :number|null;
 
 constructor(from :number,to :number,startValue :number,endValue :number){
+    if (from >= to){ throw new Error("from can not be larger than to");
+    }
 this.FROM =  this.getFrom(from);
 this.TO = this.getTo(to);
 this.STARTVALUE = startValue;

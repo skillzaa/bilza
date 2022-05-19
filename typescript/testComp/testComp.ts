@@ -6,8 +6,10 @@ export default class TestComp extends Component {
     // xx :AniNumber;  
     // yy :AniNumber;  
     msDelta :number;  
-constructor (){ 
+    name :string;  
+constructor (name :string){ 
     super();
+    this.name = name;
     // this.xx = new AniNumber(1);
     // this.yy = new AniNumber(1);
     this.msDelta = 0;
@@ -28,15 +30,31 @@ update(msDelta: number, p: Pack): boolean {
 }
 
 draw(p:Pack):boolean{    
-this.style.fontSize =80;
-p.drawText( "Sec : " + Math.ceil(this.msDelta/1000).toString(),
+this.style.fontSize = 50;
+    p.drawText( this.name + " => " + Math.ceil(this.msDelta/1000).toString(),
 this.p.x.value(),
 this.p.y.value(),
-
 this.style);
 
-p.drawText(this.p.x.value().toString(),0,150 ,this.style);
+this.style.fontSize = 30;
+
+p.drawText("x:" + this.p.x.value().toString(),this.p.x.value(),
+this.p.y.value() + 40 ,this.style);
+
+p.drawText("y:" + this.p.y.value().toString(),this.p.x.value()+80,
+this.p.y.value() + 40 ,this.style);
+
 return true;
+}
+
+moveX (from :number=0,to :number=10,startValue :number=0,endValue :number=100){
+    const newFrom = this.getStartTime(false) + from;
+    const newTo = this.getStartTime(false) + to;
+    this.p.x.increment(
+        newFrom,
+        newTo,
+        startValue,
+        endValue);    
 }
 
 }

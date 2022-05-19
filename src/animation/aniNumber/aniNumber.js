@@ -6,9 +6,6 @@ export default class AniNumber {
         this.animations = [];
     }
     update(msDelta) {
-        if (this.animations.length < 1) {
-            this.val = this.INITALVALUE;
-        }
         for (let i = 0; i < this.animations.length; i++) {
             const ani = this.animations[i];
             ani.update(msDelta);
@@ -24,5 +21,9 @@ export default class AniNumber {
     increment(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new Increment(from, to, startValue, endValue);
         this.animations.push(a);
+    }
+    setValue(n) {
+        this.val = n;
+        return this.val;
     }
 }
