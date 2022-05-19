@@ -37,6 +37,6 @@ export default class Component implements IComponent {
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
     moveX(from?: number, to?: number, startValue?: number, endValue?: number): void;
-    moveY(from?: number, to?: number, startValue?: number, endValue?: number): void;
+    move(from?: number, to?: number, startX?: number, endX?: number, startY?: number, endY?: number): void;
 }
 //# sourceMappingURL=Basecomponent.d.ts.map

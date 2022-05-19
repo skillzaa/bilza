@@ -114,10 +114,10 @@ export default class Component {
         const item = new MoveXItem(newFrom, newTo, startValue, endValue);
         this.moveXArray.push(item);
     }
-    moveY(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const newFrom = from;
-        const newTo = to;
-        const item = new MoveXItem(newFrom, newTo, startValue, endValue);
-        this.moveYArray.push(item);
+    move(from = 0, to = 10, startX = 0, endX = 100, startY = 0, endY = 100) {
+        const itemX = new MoveXItem(from, to, startX, endX);
+        const itemY = new MoveXItem(from, to, startY, endY);
+        this.moveXArray.push(itemX);
+        this.moveYArray.push(itemY);
     }
 }
