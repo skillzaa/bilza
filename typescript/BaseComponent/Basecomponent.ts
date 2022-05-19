@@ -1,12 +1,13 @@
 import {Pack,IComponent,DrawLayer} from "../Bilza.js";
 import Style from "../design/style.js";
-import Props from "./BaseProps.js";
-import {XAlignment} from "./xAlignment.js";
-import {YAlignment} from "./yAlignment.js";
+import {XAlignment} from "../design/xAlignment.js";
+import {YAlignment} from "../design/yAlignment.js";
+import BaseProps from "./BaseProps.js";
 // import {InsertTypeOptions} from "./insertTypeOptions.js";
 //--This is an Abstract class
 export default class Component  implements IComponent {
-public props :Props;public  p:Props;
+public props :BaseProps;
+public  p:BaseProps;
 public readonly id :string;
 public drawLayer : DrawLayer; 
 public style:Style;
@@ -22,7 +23,7 @@ public alwaysOn: boolean;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
-this.props = new Props();    
+this.props = new BaseProps();    
 this.p = this.props;
 this.alwaysOn = false;
 this.xAlignmentOptions = XAlignment; //final-ok
@@ -136,5 +137,16 @@ setStartTime(n :number):number{
 this.insertTimeInVid = n;
 return this.insertTimeInVid;
 }
+
+moveX (from :number=0,to :number=10,startValue :number=0,endValue :number=100){
+    const newFrom = this.getStartTime(false) + from;
+    const newTo = this.getStartTime(false) + to;
+    this.p.x.increment(
+        newFrom,
+        newTo,
+        startValue,
+        endValue);    
+}
+
 ////////////////////////////////////////////////////////
 }//component ends 

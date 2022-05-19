@@ -1,9 +1,8 @@
-import {XAlignment} from "./xAlignment.js";
-import {YAlignment} from "./yAlignment.js";
-// import AniNumber from "../animation/aniNumber/aniNumber.js";
+import {XAlignment} from "../design/xAlignment.js";
+import {YAlignment} from "../design/yAlignment.js";
 import AniNumber from "../animation/aniNumber/aniNumber.js"; 
 
-export default class Props {
+export default class BaseProps{
 x :AniNumber;
 y :AniNumber;
 colorBoundingRectangle:string;

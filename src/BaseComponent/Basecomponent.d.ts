@@ -1,11 +1,11 @@
 import { Pack, IComponent, DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import Props from "./BaseProps.js";
-import { XAlignment } from "./xAlignment.js";
-import { YAlignment } from "./yAlignment.js";
+import { XAlignment } from "../design/xAlignment.js";
+import { YAlignment } from "../design/yAlignment.js";
+import BaseProps from "./BaseProps.js";
 export default class Component implements IComponent {
-    props: Props;
-    p: Props;
+    props: BaseProps;
+    p: BaseProps;
     readonly id: string;
     drawLayer: DrawLayer;
     style: Style;
@@ -28,5 +28,6 @@ export default class Component implements IComponent {
     getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
+    moveX(from?: number, to?: number, startValue?: number, endValue?: number): void;
 }
 //# sourceMappingURL=Basecomponent.d.ts.map

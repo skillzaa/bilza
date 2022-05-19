@@ -1,11 +1,11 @@
 import { DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import Props from "./BaseProps.js";
-import { XAlignment } from "./xAlignment.js";
-import { YAlignment } from "./yAlignment.js";
+import { XAlignment } from "../design/xAlignment.js";
+import { YAlignment } from "../design/yAlignment.js";
+import BaseProps from "./BaseProps.js";
 export default class Component {
     constructor() {
-        this.props = new Props();
+        this.props = new BaseProps();
         this.p = this.props;
         this.alwaysOn = false;
         this.xAlignmentOptions = XAlignment;
@@ -64,5 +64,10 @@ export default class Component {
     setStartTime(n) {
         this.insertTimeInVid = n;
         return this.insertTimeInVid;
+    }
+    moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
+        const newFrom = this.getStartTime(false) + from;
+        const newTo = this.getStartTime(false) + to;
+        this.p.x.increment(newFrom, newTo, startValue, endValue);
     }
 }

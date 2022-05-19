@@ -1,7 +1,7 @@
-import { XAlignment } from "../design/xAlignment.js";
-import { YAlignment } from "../design/yAlignment.js";
+import { XAlignment } from "./xAlignment.js";
+import { YAlignment } from "./yAlignment.js";
 import AniNumber from "../animation/aniNumber/aniNumber.js";
-export default class BaseProps {
+export default interface IProps {
     x: AniNumber;
     y: AniNumber;
     colorBoundingRectangle: string;
@@ -14,6 +14,5 @@ export default class BaseProps {
     useRelativeXY: boolean;
     xAlignment: XAlignment;
     yAlignment: YAlignment;
-    constructor();
 }
-//# sourceMappingURL=BaseProps.d.ts.map
+//# sourceMappingURL=IProps.d.ts.map
