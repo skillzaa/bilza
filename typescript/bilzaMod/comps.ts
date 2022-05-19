@@ -13,7 +13,7 @@ public push(comp :IComponent):IComponent{
 this.compArray.push(comp);
 return comp;
 }
-public initAll(pack :Pack):boolean{
+public init(pack :Pack):boolean{
     for (let i = 0; i < this.compArray.length; i++) {
         this.compArray[i].init(pack);    
     }

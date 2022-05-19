@@ -6,7 +6,7 @@ export default class Comps {
         this.compArray.push(comp);
         return comp;
     }
-    initAll(pack) {
+    init(pack) {
         for (let i = 0; i < this.compArray.length; i++) {
             this.compArray[i].init(pack);
         }

@@ -33,5 +33,7 @@ let tst03 = testClip("tst03",150);
 bil.insert.append(tst03,tst03.duration);
 tst03.moveX(5,10,0,200);
 //--////////////////////////////
+bil.init();
 bil.start();
+// bil.drawInit();
 ///////////////////////////////

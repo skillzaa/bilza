@@ -30,7 +30,7 @@ this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();
 } 
 public drawInit():boolean{
-    this.comps.initAll(this.pack);
+    this.comps.init(this.pack);
     this.draw();
     return true;
 }
