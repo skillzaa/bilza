@@ -24,8 +24,8 @@ update(msDelta: number, p: Pack): boolean {
 // console.log("msDelta",msDelta);
 
     this.msDelta = msDelta;
-    this.p.x.update(msDelta);
-    this.p.y.update(msDelta);
+    this.p.x.update(msDelta,p);
+    this.p.y.update(msDelta,p);
     return true;
 }
 

@@ -2,7 +2,7 @@
 import IFilter from "./IFilter.js";
 import Adder from "./adder.js";
 import Increment from "./increment.js";
-
+import { Pack } from "../../Bilza.js";
 export default class AniNumber{
 
 private animations :IFilter[];
@@ -16,7 +16,7 @@ this.val = initalValue;
 this.animations = []; 
 }
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-update(msDelta :number){
+update(msDelta :number,p :Pack){
 // if (this.animations.length < 1) {
 //     this.val = this.INITALVALUE; 
 // } 

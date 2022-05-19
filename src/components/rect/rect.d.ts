@@ -6,6 +6,7 @@ export default class Rect extends BaseComponent {
     lineWidth: number;
     color: string;
     constructor();
+    init(p: Pack): boolean;
     width(p: Pack): number;
     height(p: Pack): number;
     update(msDelta: number, p: Pack): boolean;

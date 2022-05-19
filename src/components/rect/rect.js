@@ -7,6 +7,10 @@ export default class Rect extends BaseComponent {
         this.widthPercent = 40;
         this.heightPercent = 40;
     }
+    init(p) {
+        console.log("iam run");
+        return true;
+    }
     width(p) {
         return ((p.canvasWidth() / 100) * this.widthPercent);
     }
@@ -14,8 +18,8 @@ export default class Rect extends BaseComponent {
         return ((p.canvasHeight() / 100) * this.heightPercent);
     }
     update(msDelta, p) {
-        this.p.x.update(msDelta);
-        this.p.y.update(msDelta);
+        this.p.x.update(msDelta, p);
+        this.p.y.update(msDelta, p);
         return true;
     }
     draw(p) {

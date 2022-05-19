@@ -5,7 +5,7 @@ export default class AniNumber {
         this.val = initalValue;
         this.animations = [];
     }
-    update(msDelta) {
+    update(msDelta, p) {
         for (let i = 0; i < this.animations.length; i++) {
             const ani = this.animations[i];
             ani.update(msDelta);

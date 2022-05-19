@@ -13,8 +13,8 @@ export default class TestComp extends Component {
     }
     update(msDelta, p) {
         this.msDelta = msDelta;
-        this.p.x.update(msDelta);
-        this.p.y.update(msDelta);
+        this.p.x.update(msDelta, p);
+        this.p.y.update(msDelta, p);
         return true;
     }
     draw(p) {
