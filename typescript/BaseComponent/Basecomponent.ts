@@ -9,7 +9,6 @@ import { OffScreenOptions } from "./OffScreenOptions.js";
 export default class BaseComponent  implements IComponent {
 public props :BaseProps;
 public  p:BaseProps;
-public useRelativeXY :boolean;
 public readonly id :string;
 public drawLayer : DrawLayer; 
 public style:Style;
@@ -30,7 +29,6 @@ constructor (){
 this.props = new BaseProps();    
 this.p = this.props;
 this.alwaysOn = false;
-this.useRelativeXY = true;
 this.moveXArray = [];
 this.moveYArray = [];
 this.offScreenOptions = OffScreenOptions; //final-ok
@@ -48,21 +46,16 @@ this.style = new Style();
 }
 
 width(p: Pack): number {
-    return 0;
+    return 100;
 }
 height(p: Pack): number {
-    return 0;
+    return 100;
 }
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {
     this.initProps(p);//--Always
-if (this.useRelativeXY == true){
     this.initMoveXArray(p);
-    this.initMoveYArray(p);    
-} else {
-    this.initMoveXArrayNONuseRelativeXY(p);
-    this.initMoveYArrayNONuseRelativeXY(p);
-}   
+    this.initMoveYArray(p);      
     return true;
 }
 initProps(p :Pack){
@@ -71,54 +64,78 @@ initProps(p :Pack){
     this.p.x.setValue(-150);
     this.p.y.setValue(Math.ceil(p.yPerc(this.p.y.value())));
 }
-private initMoveXArrayNONuseRelativeXY(p :Pack){
-    for (let i = 0; i < this.moveXArray.length; i++) {
-        const elm = this.moveXArray[i];
-            this.p.x.increment(
-            elm.from,
-            elm.to,
-            elm.startValue,
-            elm.endValue);    
-    }
-}
-private initMoveYArrayNONuseRelativeXY(p :Pack){
-    
-    for (let i = 0; i < this.moveYArray.length; i++) {
-        const elm = this.moveYArray[i];
-            this.p.x.increment(
-            elm.from,
-            elm.to,
-            elm.startValue,
-            elm.endValue);    
-    }
-}
+
 private initMoveXArray(p :Pack){
     for (let i = 0; i < this.moveXArray.length; i++) {
         const elm = this.moveXArray[i];
+        if (typeof elm.startValue != "number" ){
+            elm.startValue = this.translateOffScreenValue(elm.startValue,p);
+            console.log("elm.startValue",elm.startValue);
+        }else {
+            elm.startValue = p.xPerc(elm.startValue);
+        }
+        if (typeof elm.endValue != "number" ){
+            elm.endValue = this.translateOffScreenValue(elm.endValue,p);
+            console.log("elm.endValue",elm.endValue);
+        }else {
+            elm.endValue = p.xPerc(elm.endValue);
+
+        }
+        //.....................
         if (elm.startValue < elm.endValue){
-            //---------------------------------------------mmm-
-            if (typeof elm.startValue != "number" ){
-                console.log("offscreen found")
-            }
-            //---------------------------------------------mmm-
-                // this.p.x.increment(
-                // this.getStartTime(false) + elm.from,
-                // this.getStartTime(false) + elm.to,
-                // Math.ceil(p.xPerc(elm.startValue)-150),//xxx
-                // Math.ceil(p.xPerc(elm.endValue))   );
+                this.p.x.increment(
+                this.getStartTime(false) + elm.from,
+                this.getStartTime(false) + elm.to,
+                Math.ceil(p.xPerc(elm.startValue)),
+                Math.ceil(p.xPerc(elm.endValue))   );
         }else {
             this.p.x.decrement(
                 this.getStartTime(false) + elm.from,
                 this.getStartTime(false) + elm.to,
-                Math.ceil(p.xPerc(elm.startValue)-150),//xxx
+                Math.ceil(p.xPerc(elm.startValue)),
                 Math.ceil(p.xPerc(elm.endValue))   );
         }
                 
     }
 }
+private translateOffScreenValue(value : OffScreenOptions,p :Pack):number{
+let r = 0;
+switch (value) {
+    case OffScreenOptions.XLeft:
+        r = -1 * (this.width(p) + 10);
+        break;
+    case OffScreenOptions.XRight:
+        r = p.xPerc(100) + this.width(p) + 100;
+        break;
+    case OffScreenOptions.YTop:
+        r = -1 * (this.height(p) + 10);
+
+        break;
+    case OffScreenOptions.YBot:
+        r = p.yPerc(100) + this.height(p) + 100;
+        break;
+
+    default:
+        break;
+}
+return r;
+}
 private initMoveYArray(p :Pack){
         for (let i = 0; i < this.moveYArray.length; i++) {
             const elm = this.moveYArray[i];
+            if (typeof elm.startValue != "number" ){
+                elm.startValue = this.translateOffScreenValue(elm.startValue,p);
+                // console.log("elm.startValue",elm.startValue);
+            }else {
+                elm.startValue = p.yPerc(elm.startValue);
+            }
+            if (typeof elm.endValue != "number" ){
+                elm.endValue = this.translateOffScreenValue(elm.endValue,p);
+                // console.log("elm.endValue",elm.endValue);
+            }else {
+                elm.endValue = p.yPerc(elm.endValue);
+            }
+            //.........................................
             if (elm.startValue < elm.endValue){
                 this.p.y.increment(
                 this.getStartTime(false) + elm.from,
@@ -223,16 +240,16 @@ return this.insertTimeInVid;
 }
 
 moveX (from :number=0,to :number=10,startValue :number | OffScreenOptions =0,endValue :number | OffScreenOptions =100){
-    const item = new MoveXItem(from,to,startValue,endValue,offScreen);
+    const item = new MoveXItem(from,to,startValue,endValue);
 this.moveXArray.push(item);        
 }
 moveY (from :number=0,to :number=10,startValue :number | OffScreenOptions =0,endValue :number | OffScreenOptions =100){
-    const item = new MoveXItem(from,to,startValue,endValue,offScreen);
+    const item = new MoveXItem(from,to,startValue,endValue);
 this.moveYArray.push(item);        
 }
-move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100,offScreenX :boolean=false,offScreenY :boolean=false){
-    const itemX = new MoveXItem(from,to,startX,endX,offScreenX);
-    const itemY = new MoveXItem(from,to,startY,endY,offScreenY);
+move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100){
+    const itemX = new MoveXItem(from,to,startX,endX);
+    const itemY = new MoveXItem(from,to,startY,endY);
 this.moveXArray.push(itemX);        
 this.moveYArray.push(itemY);        
 }

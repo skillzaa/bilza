@@ -2,7 +2,6 @@ import BaseComponent from "../../BaseComponent/Basecomponent.js";
 export default class Rect extends BaseComponent {
     constructor() {
         super();
-        this.useRelativeXY = true;
         this.lineWidth = 40;
         this.color = "#000000";
         this.widthPercent = 40;

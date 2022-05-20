@@ -10,7 +10,6 @@ export default class BaseComponent {
         this.props = new BaseProps();
         this.p = this.props;
         this.alwaysOn = false;
-        this.useRelativeXY = true;
         this.moveXArray = [];
         this.moveYArray = [];
         this.offScreenOptions = OffScreenOptions;
@@ -23,55 +22,81 @@ export default class BaseComponent {
         this.style = new Style();
     }
     width(p) {
-        return 0;
+        return 100;
     }
     height(p) {
-        return 0;
+        return 100;
     }
     init(p) {
         this.initProps(p);
-        if (this.useRelativeXY == true) {
-            this.initMoveXArray(p);
-            this.initMoveYArray(p);
-        }
-        else {
-            this.initMoveXArrayNONuseRelativeXY(p);
-            this.initMoveYArrayNONuseRelativeXY(p);
-        }
+        this.initMoveXArray(p);
+        this.initMoveYArray(p);
         return true;
     }
     initProps(p) {
         this.p.x.setValue(-150);
         this.p.y.setValue(Math.ceil(p.yPerc(this.p.y.value())));
     }
-    initMoveXArrayNONuseRelativeXY(p) {
-        for (let i = 0; i < this.moveXArray.length; i++) {
-            const elm = this.moveXArray[i];
-            this.p.x.increment(elm.from, elm.to, elm.startValue, elm.endValue);
-        }
-    }
-    initMoveYArrayNONuseRelativeXY(p) {
-        for (let i = 0; i < this.moveYArray.length; i++) {
-            const elm = this.moveYArray[i];
-            this.p.x.increment(elm.from, elm.to, elm.startValue, elm.endValue);
-        }
-    }
     initMoveXArray(p) {
         for (let i = 0; i < this.moveXArray.length; i++) {
             const elm = this.moveXArray[i];
-            if (elm.startValue < elm.endValue) {
-                if (typeof elm.startValue != "number") {
-                    console.log("offscreen found");
-                }
+            if (typeof elm.startValue != "number") {
+                elm.startValue = this.translateOffScreenValue(elm.startValue, p);
+                console.log("elm.startValue", elm.startValue);
             }
             else {
-                this.p.x.decrement(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue) - 150), Math.ceil(p.xPerc(elm.endValue)));
+                elm.startValue = p.xPerc(elm.startValue);
+            }
+            if (typeof elm.endValue != "number") {
+                elm.endValue = this.translateOffScreenValue(elm.endValue, p);
+                console.log("elm.endValue", elm.endValue);
+            }
+            else {
+                elm.endValue = p.xPerc(elm.endValue);
+            }
+            if (elm.startValue < elm.endValue) {
+                this.p.x.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue)), Math.ceil(p.xPerc(elm.endValue)));
+            }
+            else {
+                this.p.x.decrement(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue)), Math.ceil(p.xPerc(elm.endValue)));
             }
         }
+    }
+    translateOffScreenValue(value, p) {
+        let r = 0;
+        switch (value) {
+            case OffScreenOptions.XLeft:
+                r = -1 * (this.width(p) + 10);
+                break;
+            case OffScreenOptions.XRight:
+                r = p.xPerc(100) + this.width(p) + 100;
+                break;
+            case OffScreenOptions.YTop:
+                r = -1 * (this.height(p) + 10);
+                break;
+            case OffScreenOptions.YBot:
+                r = p.yPerc(100) + this.height(p) + 100;
+                break;
+            default:
+                break;
+        }
+        return r;
     }
     initMoveYArray(p) {
         for (let i = 0; i < this.moveYArray.length; i++) {
             const elm = this.moveYArray[i];
+            if (typeof elm.startValue != "number") {
+                elm.startValue = this.translateOffScreenValue(elm.startValue, p);
+            }
+            else {
+                elm.startValue = p.yPerc(elm.startValue);
+            }
+            if (typeof elm.endValue != "number") {
+                elm.endValue = this.translateOffScreenValue(elm.endValue, p);
+            }
+            else {
+                elm.endValue = p.yPerc(elm.endValue);
+            }
             if (elm.startValue < elm.endValue) {
                 this.p.y.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.yPerc(elm.startValue)), Math.ceil(p.yPerc(elm.endValue)));
             }
@@ -123,16 +148,16 @@ export default class BaseComponent {
         return this.insertTimeInVid;
     }
     moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const item = new MoveXItem(from, to, startValue, endValue, offScreen);
+        const item = new MoveXItem(from, to, startValue, endValue);
         this.moveXArray.push(item);
     }
     moveY(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const item = new MoveXItem(from, to, startValue, endValue, offScreen);
+        const item = new MoveXItem(from, to, startValue, endValue);
         this.moveYArray.push(item);
     }
-    move(from = 0, to = 10, startX = 0, endX = 100, startY = 0, endY = 100, offScreenX = false, offScreenY = false) {
-        const itemX = new MoveXItem(from, to, startX, endX, offScreenX);
-        const itemY = new MoveXItem(from, to, startY, endY, offScreenY);
+    move(from = 0, to = 10, startX = 0, endX = 100, startY = 0, endY = 100) {
+        const itemX = new MoveXItem(from, to, startX, endX);
+        const itemY = new MoveXItem(from, to, startY, endY);
         this.moveXArray.push(itemX);
         this.moveYArray.push(itemY);
     }

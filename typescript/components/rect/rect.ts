@@ -10,7 +10,6 @@ export default class Rect extends BaseComponent {
 constructor (){ 
     super();
     //by default its true but if that changes then here it is true
-    this.useRelativeXY = true;
     this.lineWidth = 40 ;
     this.color = "#000000" ; 
     this.widthPercent = 40;

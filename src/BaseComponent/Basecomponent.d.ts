@@ -7,7 +7,6 @@ import { OffScreenOptions } from "./OffScreenOptions.js";
 export default class BaseComponent implements IComponent {
     props: BaseProps;
     p: BaseProps;
-    useRelativeXY: boolean;
     readonly id: string;
     drawLayer: DrawLayer;
     style: Style;
@@ -24,9 +23,8 @@ export default class BaseComponent implements IComponent {
     height(p: Pack): number;
     init(p: Pack): boolean;
     initProps(p: Pack): void;
-    private initMoveXArrayNONuseRelativeXY;
-    private initMoveYArrayNONuseRelativeXY;
     private initMoveXArray;
+    private translateOffScreenValue;
     private initMoveYArray;
     draw(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
@@ -40,6 +38,6 @@ export default class BaseComponent implements IComponent {
     setStartTime(n: number): number;
     moveX(from?: number, to?: number, startValue?: number | OffScreenOptions, endValue?: number | OffScreenOptions): void;
     moveY(from?: number, to?: number, startValue?: number | OffScreenOptions, endValue?: number | OffScreenOptions): void;
-    move(from?: number, to?: number, startX?: number, endX?: number, startY?: number, endY?: number, offScreenX?: boolean, offScreenY?: boolean): void;
+    move(from?: number, to?: number, startX?: number, endX?: number, startY?: number, endY?: number): void;
 }
 //# sourceMappingURL=Basecomponent.d.ts.map
