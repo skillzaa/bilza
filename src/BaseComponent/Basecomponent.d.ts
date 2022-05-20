@@ -24,7 +24,6 @@ export default class BaseComponent implements IComponent {
     height(p: Pack): number;
     init(p: Pack): boolean;
     initProps(p: Pack): void;
-    private translateOffScreenYValue;
     draw(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;
@@ -36,6 +35,5 @@ export default class BaseComponent implements IComponent {
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
     moveX(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
-    moveY(from?: number, to?: number, startValue?: number | OffScreenYOpt, endValue?: number | OffScreenYOpt): void;
 }
 //# sourceMappingURL=Basecomponent.d.ts.map

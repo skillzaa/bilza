@@ -3,7 +3,6 @@ import Style from "../design/style.js";
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
-import MoveYItem from "./moveYItem.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
 import { OffScreenYOpt } from "./OffScreenYOpt.js";
 export default class BaseComponent {
@@ -35,20 +34,6 @@ export default class BaseComponent {
     initProps(p) {
         this.p.x.init(p, this.getStartTime(), this.getEndTime(), this.duration, this.width(p), this.height(p));
         this.p.y = 0;
-    }
-    translateOffScreenYValue(value, p) {
-        let r = 0;
-        switch (value) {
-            case OffScreenYOpt.YTop:
-                r = -1 * (this.height(p) + 10);
-                break;
-            case OffScreenYOpt.YBot:
-                r = p.yPerc(100) + this.height(p) + 100;
-                break;
-            default:
-                break;
-        }
-        return r;
     }
     draw(p) {
         return true;
@@ -92,15 +77,6 @@ export default class BaseComponent {
         return this.insertTimeInVid;
     }
     moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        if (from < to) {
-            this.props.x.moveXinc(from, to, startValue, endValue);
-        }
-        else {
-            this.props.x.moveXdec(from, to, startValue, endValue);
-        }
-    }
-    moveY(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const item = new MoveYItem(from, to, startValue, endValue);
-        this.moveYArray.push(item);
+        this.props.x.moveX(from, to, startValue, endValue);
     }
 }

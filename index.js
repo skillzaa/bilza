@@ -12,12 +12,13 @@ let tst  = new TestComp("offX");
 tst.duration = 15;
 tst.color = "red";
 tst.p.x.setValue(0);
-debugger;
+// debugger;
 // tst.p.y.setValue(0);
 // tst.moveX(2,10,100,tst.offScreenXOpt.XLeft);
 // tst.moveY(2,10,tst.offScreenYOpt.YBot,tst.offScreenYOpt.YTop);
 
-tst.moveX(2,10,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
+tst.moveX(2,7,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
+tst.moveX(8,12,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
 bil.insert.append(tst,tst.duration);
 
 //--////////////////////////////

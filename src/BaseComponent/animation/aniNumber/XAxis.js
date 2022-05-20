@@ -1,6 +1,7 @@
 import { OffScreenXOpt } from "../../OffScreenXOpt.js";
 import MoveXItem from "./moveXItem.js";
 import Increment from "../filters/increment.js";
+import Decrement from "../filters/decrement.js";
 export default class XAxis {
     constructor(initalValue) {
         this.INITIALVALUE = initalValue;
@@ -10,8 +11,7 @@ export default class XAxis {
         this.startTime = null;
         this.endTime = null;
         this.duration = null;
-        this.aniMoveXinc = [];
-        this.aniMoveXdec = [];
+        this.preInitMoves = [];
         this.animations = [];
     }
     init(p, startTime, endTime, duration, compWidth, compHeight) {
@@ -21,7 +21,7 @@ export default class XAxis {
         this.duration = duration;
         this.compWidth = compWidth;
         this.compHeight = compHeight;
-        this.initMoveXIncArray(p);
+        this.initMoveX(p);
         return true;
     }
     update(msDelta, p) {
@@ -79,19 +79,9 @@ export default class XAxis {
         this._ret_value = n;
         return this._ret_value;
     }
-    moveXinc(from = 0, to = 10, startValue = 0, endValue = 100) {
-        if (from > to) {
-            throw new Error("from can not be bigger than to for increment operation");
-        }
+    moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new MoveXItem(from, to, startValue, endValue);
-        this.aniMoveXinc.push(a);
-    }
-    moveXdec(from = 0, to = 10, startValue = 0, endValue = 100) {
-        if (from < to) {
-            throw new Error("from can not be smaller than to for decrement operation");
-        }
-        let a = new MoveXItem(from, to, startValue, endValue);
-        this.aniMoveXdec.push(a);
+        this.preInitMoves.push(a);
     }
     value() {
         if (this._ret_value == null) {
@@ -101,21 +91,19 @@ export default class XAxis {
             return this._ret_value;
         }
     }
-    initMoveXIncArray(p) {
-        for (let i = 0; i < this.aniMoveXinc.length; i++) {
-            const elm = this.aniMoveXinc[i];
+    initMoveX(p) {
+        for (let i = 0; i < this.preInitMoves.length; i++) {
+            const elm = this.preInitMoves[i];
             const startValue = this.translate(elm.startValue, p);
             const endValue = this.translate(elm.endValue, p);
-            let c = new Increment(elm.from, elm.to, startValue, endValue);
-            this.animations.push(c);
-        }
-    }
-    initMoveXDecArray(p) {
-        for (let i = 0; i < this.aniMoveXdec.length; i++) {
-            const elm = this.aniMoveXdec[i];
-            const startValue = this.translate(elm.startValue, p);
-            const endValue = this.translate(elm.endValue, p);
-            this.moveXdec(this.checkNonNull(this.startTime) + elm.from, this.checkNonNull(this.startTime) + elm.to, startValue, endValue);
+            if (startValue < endValue) {
+                let c = new Increment(elm.from, elm.to, startValue, endValue);
+                this.animations.push(c);
+            }
+            else {
+                let c = new Decrement(elm.from, elm.to, startValue, endValue);
+                this.animations.push(c);
+            }
         }
     }
     checkNonNull(n) {

@@ -68,23 +68,6 @@ initProps(p :Pack){
     this.p.y = 0;
 }
 
-private translateOffScreenYValue(value : OffScreenYOpt,p :Pack):number{
-let r = 0;
-switch (value) {
-    case OffScreenYOpt.YTop:
-        r = -1 * (this.height(p) + 10);
-
-        break;
-    case OffScreenYOpt.YBot:
-        r = p.yPerc(100) + this.height(p) + 100;
-        break;
-
-    default:
-        break;
-}
-return r;
-}
-
 draw(p: Pack): boolean {
     return true;
 }
@@ -174,18 +157,15 @@ return this.insertTimeInVid;
 }
 
 moveX (from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
-if (from < to ){
-this.props.x.moveXinc(from,to,startValue,endValue);
-} else {
-    this.props.x.moveXdec(from,to,startValue,endValue);
-}   
-    // const item = new MoveXItem(from,to,startValue,endValue);
-// this.moveXArray.push(item);        
+this.props.x.moveX(from,to,startValue,endValue);
 }
-moveY (from :number=0,to :number=10,startValue :number | OffScreenYOpt =0,endValue :number | OffScreenYOpt =100){
-    const item = new MoveYItem(from,to,startValue,endValue);
-this.moveYArray.push(item);        
-}
+// moveY (from :number=0,to :number=10,startValue :number | OffScreenYOpt =0,endValue :number | OffScreenYOpt =100){
+//     const item = new MoveYItem(from,to,startValue,endValue);
+// this.moveYArray.push(item);        
+// }
+// move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100){
+
+// }
 
 ////////////////////////////////////////////////////////
 }//component ends 

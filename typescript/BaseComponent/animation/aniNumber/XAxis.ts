@@ -19,8 +19,7 @@ export default class XAxis implements IAnimatedNo{
     private startTime :number | null;
     private endTime :number | null;
     private duration :number | null;
-    private aniMoveXinc :MoveXItem[];
-    private aniMoveXdec :MoveXItem[];
+    private preInitMoves :MoveXItem[];
     private animations :IFilter[];
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 constructor(initalValue :number| OffScreenXOpt){
@@ -32,8 +31,7 @@ constructor(initalValue :number| OffScreenXOpt){
     this.endTime  = null;
     this.duration  = null;
 
-    this.aniMoveXinc = [];
-    this.aniMoveXdec = [];
+    this.preInitMoves = [];
     this.animations = [];
       
 }
@@ -45,7 +43,7 @@ init(p: Pack,startTime :number,endTime :number, duration :number, compWidth: num
     this.duration = duration;
     this.compWidth = compWidth;
     this.compHeight = compHeight;
-    this.initMoveXIncArray(p);
+    this.initMoveX(p);
     return true;
 }
 update(msDelta :number,p :Pack):boolean{
@@ -106,24 +104,10 @@ this._ret_value = n;
 return this._ret_value;
 }
 
-public moveXinc(from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
-if (from > to){throw new Error("from can not be bigger than to for increment operation");
-}
-    let a = new MoveXItem(from,to,startValue,endValue);
-this.aniMoveXinc.push(a);
-}
-public moveXdec(from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
-if (from < to){throw new Error("from can not be smaller than to for decrement operation");
-}    
+public moveX(from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
 let a = new MoveXItem(from,to,startValue,endValue);
-this.aniMoveXdec.push(a);
+this.preInitMoves.push(a);
 }
-// move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100){
-//-- const itemX = new MoveXItem(from,to,startX,endX);
-//-- const itemY = new MoveYItem(from,to,startY,endY);
-// this.moveXArray.push(itemX);        
-// this.moveYArray.push(itemY);        
-// }
 
 value():number{
     if (this._ret_value == null){
@@ -134,28 +118,21 @@ value():number{
     }
 }
 
-private initMoveXIncArray(p :Pack){
-    for (let i = 0; i < this.aniMoveXinc.length; i++) {
-        const elm = this.aniMoveXinc[i];
+private initMoveX(p :Pack){
+    for (let i = 0; i < this.preInitMoves.length; i++) {
+        const elm = this.preInitMoves[i];
             const startValue = this.translate(elm.startValue,p);
             const endValue = this.translate(elm.endValue,p);
-            let c = new Increment(elm.from,elm.to,startValue,endValue);
-            this.animations.push(c);    
+            if (startValue < endValue ){
+                let c = new Increment(elm.from,elm.to,startValue,endValue);
+                this.animations.push(c);    
+            }else {
+                let c = new Decrement(elm.from,elm.to,startValue,endValue);
+                this.animations.push(c);    
+            }
     }
 }
-private initMoveXDecArray(p :Pack){
-    for (let i = 0; i < this.aniMoveXdec.length; i++) {
-        const elm = this.aniMoveXdec[i];
-            const startValue = this.translate(elm.startValue,p);
-            const endValue = this.translate(elm.endValue,p);
-        
-                this.moveXdec(
-                this.checkNonNull(this.startTime) + elm.from,
-                this.checkNonNull(this.startTime) + elm.to,
-                startValue,
-                endValue   );        
-    }
-}
+
 checkNonNull(n :null | number):number{
 let r = 0;    
 if (n==null){

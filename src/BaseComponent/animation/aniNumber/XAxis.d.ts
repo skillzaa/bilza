@@ -9,8 +9,7 @@ export default class XAxis implements IAnimatedNo {
     private startTime;
     private endTime;
     private duration;
-    private aniMoveXinc;
-    private aniMoveXdec;
+    private preInitMoves;
     private animations;
     constructor(initalValue: number | OffScreenXOpt);
     init(p: Pack, startTime: number, endTime: number, duration: number, compWidth: number | null, compHeight: number | null): boolean;
@@ -20,11 +19,9 @@ export default class XAxis implements IAnimatedNo {
     getCompHeight(): number;
     notInitError(): void;
     setValue(n: number): number;
-    moveXinc(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
-    moveXdec(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
+    moveX(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
     value(): number;
-    private initMoveXIncArray;
-    private initMoveXDecArray;
+    private initMoveX;
     checkNonNull(n: null | number): number;
 }
 //# sourceMappingURL=XAxis.d.ts.map
