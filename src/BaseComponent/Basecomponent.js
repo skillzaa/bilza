@@ -68,7 +68,12 @@ export default class Component {
     initMoveYArray(p) {
         for (let i = 0; i < this.moveYArray.length; i++) {
             const elm = this.moveYArray[i];
-            this.p.y.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.yPerc(elm.startValue)), Math.ceil(p.yPerc(elm.endValue)));
+            if (elm.startValue < elm.endValue) {
+                this.p.y.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.yPerc(elm.startValue)), Math.ceil(p.yPerc(elm.endValue)));
+            }
+            else {
+                this.p.y.decrement(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.yPerc(elm.startValue)), Math.ceil(p.yPerc(elm.endValue)));
+            }
         }
     }
     draw(p) {
@@ -116,6 +121,10 @@ export default class Component {
     moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
         const item = new MoveXItem(from, to, startValue, endValue);
         this.moveXArray.push(item);
+    }
+    moveY(from = 0, to = 10, startValue = 0, endValue = 100) {
+        const item = new MoveXItem(from, to, startValue, endValue);
+        this.moveYArray.push(item);
     }
     move(from = 0, to = 10, startX = 0, endX = 100, startY = 0, endY = 100) {
         const itemX = new MoveXItem(from, to, startX, endX);

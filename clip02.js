@@ -7,8 +7,9 @@ tst.duration = 15;
 tst.color = "red";
 tst.useRelativeXY = true;
 tst.p.x.setValue(90);
-tst.p.y.setValue(0);
+tst.p.y.setValue(90);
 tst.moveX(2,10,90,0);
+tst.moveY(2,10,90,0);
 // tst.move(2,10,0,90,0,50);
     return tst; 
 }

@@ -110,14 +110,22 @@ private initMoveXArray(p :Pack){
     }
 }
 private initMoveYArray(p :Pack){
-    for (let i = 0; i < this.moveYArray.length; i++) {
-        const elm = this.moveYArray[i];
-            this.p.y.increment(
-            this.getStartTime(false) + elm.from,
-            this.getStartTime(false) + elm.to,
-            Math.ceil(p.yPerc(elm.startValue)),
-            Math.ceil(p.yPerc(elm.endValue))   );
-    }
+        for (let i = 0; i < this.moveYArray.length; i++) {
+            const elm = this.moveYArray[i];
+            if (elm.startValue < elm.endValue){
+                this.p.y.increment(
+                this.getStartTime(false) + elm.from,
+                this.getStartTime(false) + elm.to,
+                Math.ceil(p.yPerc(elm.startValue)),
+                Math.ceil(p.yPerc(elm.endValue))   );
+            }else {
+                this.p.y.decrement(
+                    this.getStartTime(false) + elm.from,
+                    this.getStartTime(false) + elm.to,
+                    Math.ceil(p.yPerc(elm.startValue)),
+                    Math.ceil(p.yPerc(elm.endValue))   );
+            }
+        }
 }
 draw(p: Pack): boolean {
     return true;
@@ -210,6 +218,10 @@ return this.insertTimeInVid;
 moveX (from :number=0,to :number=10,startValue :number=0,endValue :number=100){
     const item = new MoveXItem(from,to,startValue,endValue);
 this.moveXArray.push(item);        
+}
+moveY (from :number=0,to :number=10,startValue :number=0,endValue :number=100){
+    const item = new MoveXItem(from,to,startValue,endValue);
+this.moveYArray.push(item);        
 }
 move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100){
     const itemX = new MoveXItem(from,to,startX,endX);
