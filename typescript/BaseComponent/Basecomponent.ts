@@ -4,8 +4,9 @@ import {XAlignment} from "../design/xAlignment.js";
 import {YAlignment} from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
 import MoveXItem from "./moveXItem.js";
+import { OffScreenOptions } from "./OffScreenOptions.js";
 //--This is an Abstract class
-export default class Component  implements IComponent {
+export default class BaseComponent  implements IComponent {
 public props :BaseProps;
 public  p:BaseProps;
 public useRelativeXY :boolean;
@@ -14,6 +15,7 @@ public drawLayer : DrawLayer;
 public style:Style;
 public  duration :number;
 //-----Alignment
+public readonly offScreenOptions :typeof OffScreenOptions;
 public readonly xAlignmentOptions:typeof XAlignment;   
 public readonly yAlignmentOptions:typeof YAlignment;  
 /////////////////----PRIVATE----///////////////////
@@ -31,6 +33,7 @@ this.alwaysOn = false;
 this.useRelativeXY = true;
 this.moveXArray = [];
 this.moveYArray = [];
+this.offScreenOptions = OffScreenOptions; //final-ok
 this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
 this.duration = 0; //can not be changed again even not by children comps
@@ -50,7 +53,6 @@ width(p: Pack): number {
 height(p: Pack): number {
     return 0;
 }
-
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {
     this.initProps(p);//--Always
@@ -94,11 +96,16 @@ private initMoveXArray(p :Pack){
     for (let i = 0; i < this.moveXArray.length; i++) {
         const elm = this.moveXArray[i];
         if (elm.startValue < elm.endValue){
-                this.p.x.increment(
-                this.getStartTime(false) + elm.from,
-                this.getStartTime(false) + elm.to,
-                Math.ceil(p.xPerc(elm.startValue)-150),//xxx
-                Math.ceil(p.xPerc(elm.endValue))   );
+            //---------------------------------------------mmm-
+            if (typeof elm.startValue != "number" ){
+                console.log("offscreen found")
+            }
+            //---------------------------------------------mmm-
+                // this.p.x.increment(
+                // this.getStartTime(false) + elm.from,
+                // this.getStartTime(false) + elm.to,
+                // Math.ceil(p.xPerc(elm.startValue)-150),//xxx
+                // Math.ceil(p.xPerc(elm.endValue))   );
         }else {
             this.p.x.decrement(
                 this.getStartTime(false) + elm.from,
@@ -215,17 +222,17 @@ this.insertTimeInVid = n;
 return this.insertTimeInVid;
 }
 
-moveX (from :number=0,to :number=10,startValue :number=0,endValue :number=100){
-    const item = new MoveXItem(from,to,startValue,endValue);
+moveX (from :number=0,to :number=10,startValue :number | OffScreenOptions =0,endValue :number | OffScreenOptions =100){
+    const item = new MoveXItem(from,to,startValue,endValue,offScreen);
 this.moveXArray.push(item);        
 }
-moveY (from :number=0,to :number=10,startValue :number=0,endValue :number=100){
-    const item = new MoveXItem(from,to,startValue,endValue);
+moveY (from :number=0,to :number=10,startValue :number | OffScreenOptions =0,endValue :number | OffScreenOptions =100){
+    const item = new MoveXItem(from,to,startValue,endValue,offScreen);
 this.moveYArray.push(item);        
 }
-move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100){
-    const itemX = new MoveXItem(from,to,startX,endX);
-    const itemY = new MoveXItem(from,to,startY,endY);
+move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100,offScreenX :boolean=false,offScreenY :boolean=false){
+    const itemX = new MoveXItem(from,to,startX,endX,offScreenX);
+    const itemY = new MoveXItem(from,to,startY,endY,offScreenY);
 this.moveXArray.push(itemX);        
 this.moveYArray.push(itemY);        
 }

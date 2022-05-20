@@ -4,7 +4,8 @@ import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
 import MoveXItem from "./moveXItem.js";
-export default class Component {
+import { OffScreenOptions } from "./OffScreenOptions.js";
+export default class BaseComponent {
     constructor() {
         this.props = new BaseProps();
         this.p = this.props;
@@ -12,6 +13,7 @@ export default class Component {
         this.useRelativeXY = true;
         this.moveXArray = [];
         this.moveYArray = [];
+        this.offScreenOptions = OffScreenOptions;
         this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
         this.duration = 0;
@@ -58,7 +60,9 @@ export default class Component {
         for (let i = 0; i < this.moveXArray.length; i++) {
             const elm = this.moveXArray[i];
             if (elm.startValue < elm.endValue) {
-                this.p.x.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue) - 150), Math.ceil(p.xPerc(elm.endValue)));
+                if (typeof elm.startValue != "number") {
+                    console.log("offscreen found");
+                }
             }
             else {
                 this.p.x.decrement(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue) - 150), Math.ceil(p.xPerc(elm.endValue)));
@@ -119,16 +123,16 @@ export default class Component {
         return this.insertTimeInVid;
     }
     moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const item = new MoveXItem(from, to, startValue, endValue);
+        const item = new MoveXItem(from, to, startValue, endValue, offScreen);
         this.moveXArray.push(item);
     }
     moveY(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const item = new MoveXItem(from, to, startValue, endValue);
+        const item = new MoveXItem(from, to, startValue, endValue, offScreen);
         this.moveYArray.push(item);
     }
-    move(from = 0, to = 10, startX = 0, endX = 100, startY = 0, endY = 100) {
-        const itemX = new MoveXItem(from, to, startX, endX);
-        const itemY = new MoveXItem(from, to, startY, endY);
+    move(from = 0, to = 10, startX = 0, endX = 100, startY = 0, endY = 100, offScreenX = false, offScreenY = false) {
+        const itemX = new MoveXItem(from, to, startX, endX, offScreenX);
+        const itemY = new MoveXItem(from, to, startY, endY, offScreenY);
         this.moveXArray.push(itemX);
         this.moveYArray.push(itemY);
     }

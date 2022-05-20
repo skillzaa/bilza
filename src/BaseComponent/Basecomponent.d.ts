@@ -3,7 +3,8 @@ import Style from "../design/style.js";
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
-export default class Component implements IComponent {
+import { OffScreenOptions } from "./OffScreenOptions.js";
+export default class BaseComponent implements IComponent {
     props: BaseProps;
     p: BaseProps;
     useRelativeXY: boolean;
@@ -11,6 +12,7 @@ export default class Component implements IComponent {
     drawLayer: DrawLayer;
     style: Style;
     duration: number;
+    readonly offScreenOptions: typeof OffScreenOptions;
     readonly xAlignmentOptions: typeof XAlignment;
     readonly yAlignmentOptions: typeof YAlignment;
     private moveXArray;
@@ -36,8 +38,8 @@ export default class Component implements IComponent {
     getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
-    moveX(from?: number, to?: number, startValue?: number, endValue?: number): void;
-    moveY(from?: number, to?: number, startValue?: number, endValue?: number): void;
-    move(from?: number, to?: number, startX?: number, endX?: number, startY?: number, endY?: number): void;
+    moveX(from?: number, to?: number, startValue?: number | OffScreenOptions, endValue?: number | OffScreenOptions): void;
+    moveY(from?: number, to?: number, startValue?: number | OffScreenOptions, endValue?: number | OffScreenOptions): void;
+    move(from?: number, to?: number, startX?: number, endX?: number, startY?: number, endY?: number, offScreenX?: boolean, offScreenY?: boolean): void;
 }
 //# sourceMappingURL=Basecomponent.d.ts.map
