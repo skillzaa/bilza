@@ -3,7 +3,8 @@ import Style from "../design/style.js";
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
-import { OffScreenOptions } from "./OffScreenOptions.js";
+import { OffScreenXOpt } from "./OffScreenXOpt.js";
+import { OffScreenYOpt } from "./OffScreenYOpt.js";
 export default class BaseComponent implements IComponent {
     props: BaseProps;
     p: BaseProps;
@@ -11,10 +12,10 @@ export default class BaseComponent implements IComponent {
     drawLayer: DrawLayer;
     style: Style;
     duration: number;
-    readonly offScreenOptions: typeof OffScreenOptions;
+    readonly offScreenXOpt: typeof OffScreenXOpt;
+    readonly offScreenYOpt: typeof OffScreenYOpt;
     readonly xAlignmentOptions: typeof XAlignment;
     readonly yAlignmentOptions: typeof YAlignment;
-    private moveXArray;
     private moveYArray;
     private insertTimeInVid;
     alwaysOn: boolean;
@@ -23,9 +24,7 @@ export default class BaseComponent implements IComponent {
     height(p: Pack): number;
     init(p: Pack): boolean;
     initProps(p: Pack): void;
-    private initMoveXArray;
-    private translateOffScreenValue;
-    private initMoveYArray;
+    private translateOffScreenYValue;
     draw(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;
@@ -36,8 +35,7 @@ export default class BaseComponent implements IComponent {
     getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
-    moveX(from?: number, to?: number, startValue?: number | OffScreenOptions, endValue?: number | OffScreenOptions): void;
-    moveY(from?: number, to?: number, startValue?: number | OffScreenOptions, endValue?: number | OffScreenOptions): void;
-    move(from?: number, to?: number, startX?: number, endX?: number, startY?: number, endY?: number): void;
+    moveX(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
+    moveY(from?: number, to?: number, startValue?: number | OffScreenYOpt, endValue?: number | OffScreenYOpt): void;
 }
 //# sourceMappingURL=Basecomponent.d.ts.map

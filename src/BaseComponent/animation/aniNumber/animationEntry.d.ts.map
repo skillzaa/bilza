@@ -1,0 +1,1 @@
+{"version":3,"file":"animationEntry.d.ts","sourceRoot":"","sources":["../../../../typescript/BaseComponent/animation/aniNumber/animationEntry.ts"],"names":[],"mappings":"AACA,OAAO,OAAO,MAAM,cAAc,CAAC;AAEnC,MAAM,CAAC,OAAO,OAAO,cAAc;IAEnC,SAAS,EAAE,OAAO,CAAC;IACnB,IAAI,EAAE,MAAM,CAAC;IACb,EAAE,EAAE,MAAM,CAAC;gBACC,SAAS,EAAE,OAAO,EAAC,IAAI,EAAE,MAAM,EAAC,EAAE,EAAE,MAAM;CAUrD"}

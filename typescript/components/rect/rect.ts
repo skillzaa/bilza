@@ -31,7 +31,7 @@ this.style.strokeStyle = this.color;
 this.style.lineWidth = this.lineWidth; 
 const borderWidthHalf = Math.ceil(this.lineWidth/2);
 let newX = (this.p.x.value()) + borderWidthHalf + 1 ;
-let newY = (this.p.y.value()) + borderWidthHalf + 1;
+let newY = (50) + borderWidthHalf + 1;
 // let newX = p.xPerc(this.p.x.value()) + borderWidthHalf + 1 ;
 // let newY = p.yPerc(this.p.y.value()) + borderWidthHalf + 1;
    p.drawRect(

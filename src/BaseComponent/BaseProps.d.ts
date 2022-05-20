@@ -1,9 +1,9 @@
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
-import AniNumber from "../animation/aniNumber/aniNumber.js";
+import XAxis from "./animation/aniNumber/XAxis.js";
 export default class BaseProps {
-    x: AniNumber;
-    y: AniNumber;
+    x: XAxis;
+    y: number;
     colorBoundingRectangle: string;
     shadowColor: string;
     shadowOffsetX: number;

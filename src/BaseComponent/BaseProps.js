@@ -1,10 +1,10 @@
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
-import AniNumber from "../animation/aniNumber/aniNumber.js";
+import XAxis from "./animation/aniNumber/XAxis.js";
 export default class BaseProps {
     constructor() {
-        this.x = new AniNumber(0);
-        this.y = new AniNumber(0);
+        this.x = new XAxis(0);
+        this.y = 0;
         this.selected = false;
         this.visible = true;
         this.shadowColor = "grey";
