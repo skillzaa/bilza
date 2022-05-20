@@ -64,7 +64,9 @@ if (this.useRelativeXY == true){
     return true;
 }
 initProps(p :Pack){
-    this.p.x.setValue(Math.ceil(p.xPerc(this.p.x.value())));
+    // console.log("p.xPerc(this.p.x.value()",p.xPerc(this.p.x.value()));
+    // this.p.x.setValue(Math.ceil(p.xPerc(this.p.x.value())));
+    this.p.x.setValue(-150);
     this.p.y.setValue(Math.ceil(p.yPerc(this.p.y.value())));
 }
 private initMoveXArrayNONuseRelativeXY(p :Pack){
@@ -94,7 +96,7 @@ private initMoveXArray(p :Pack){
             this.p.x.increment(
             this.getStartTime(false) + elm.from,
             this.getStartTime(false) + elm.to,
-            Math.ceil(p.xPerc(elm.startValue)),
+            Math.ceil(p.xPerc(elm.startValue)-150),//xxx
             Math.ceil(p.xPerc(elm.endValue))   );
     }
 }
@@ -197,9 +199,7 @@ return this.insertTimeInVid;
 }
 
 moveX (from :number=0,to :number=10,startValue :number=0,endValue :number=100){
-    const newFrom =  from;
-    const newTo =  to;
-    const item = new MoveXItem(newFrom,newTo,startValue,endValue);
+    const item = new MoveXItem(from,to,startValue,endValue);
 this.moveXArray.push(item);        
 }
 move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100){

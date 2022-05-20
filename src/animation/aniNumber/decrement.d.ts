@@ -1,4 +1,4 @@
-export default class Increment {
+export default class Decrement {
     private readonly FROM;
     private readonly TO;
     private readonly STARTVALUE;
@@ -9,7 +9,6 @@ export default class Increment {
     constructor(from: number, to: number, startValue: number, endValue: number);
     update(msDelta: number): boolean;
     value(): number | null;
-    private getTimePerc;
     private getTimeLapsed;
 }
-//# sourceMappingURL=increment.d.ts.map
+//# sourceMappingURL=decrement.d.ts.map

@@ -39,7 +39,7 @@ export default class Component {
         return true;
     }
     initProps(p) {
-        this.p.x.setValue(Math.ceil(p.xPerc(this.p.x.value())));
+        this.p.x.setValue(-150);
         this.p.y.setValue(Math.ceil(p.yPerc(this.p.y.value())));
     }
     initMoveXArrayNONuseRelativeXY(p) {
@@ -57,7 +57,7 @@ export default class Component {
     initMoveXArray(p) {
         for (let i = 0; i < this.moveXArray.length; i++) {
             const elm = this.moveXArray[i];
-            this.p.x.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue)), Math.ceil(p.xPerc(elm.endValue)));
+            this.p.x.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue) - 150), Math.ceil(p.xPerc(elm.endValue)));
         }
     }
     initMoveYArray(p) {
@@ -109,9 +109,7 @@ export default class Component {
         return this.insertTimeInVid;
     }
     moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        const newFrom = from;
-        const newTo = to;
-        const item = new MoveXItem(newFrom, newTo, startValue, endValue);
+        const item = new MoveXItem(from, to, startValue, endValue);
         this.moveXArray.push(item);
     }
     move(from = 0, to = 10, startX = 0, endX = 100, startY = 0, endY = 100) {
