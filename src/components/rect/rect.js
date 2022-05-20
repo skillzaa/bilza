@@ -4,23 +4,20 @@ export default class Rect extends BaseComponent {
         super();
         this.lineWidth = 40;
         this.color = "#000000";
-        this.widthPercent = 40;
-        this.heightPercent = 40;
+        this.dynWidth = 40;
+        this.dynHeight = 40;
     }
     width(p) {
-        return ((p.canvasWidth() / 100) * this.widthPercent);
+        return ((p.canvasWidth() / 100) * this.dynWidth);
     }
     height(p) {
-        return ((p.canvasHeight() / 100) * this.heightPercent);
+        return ((p.canvasHeight() / 100) * this.dynHeight);
     }
     draw(p) {
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
         this.style.lineWidth = this.lineWidth;
-        const borderWidthHalf = Math.ceil(this.lineWidth / 2);
-        let newX = (this.p.x.value()) + borderWidthHalf + 1;
-        let newY = (50) + borderWidthHalf + 1;
-        p.drawRect(newX, newY, this.width(p), this.height(p), this.style);
+        p.drawRect(this.props.x.value(), 20, this.width(p), this.height(p), this.style);
         return true;
     }
 }

@@ -1,4 +1,4 @@
-import Increment from "../src/animation/aniNumber/increment.js"
+import Increment from "../src/BaseComponent/animation/filters/increment.js"
 
 test('setup', () => {
     let inc = new Increment(0,10,0,100);

@@ -7,7 +7,7 @@ import BaseProps from "./BaseProps.js";
 import MoveYItem from "./moveYItem.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
 import { OffScreenYOpt } from "./OffScreenYOpt.js";
-//--This is an Abstract class
+
 export default class BaseComponent  implements IComponent {
 public props :BaseProps;
 public  p:BaseProps;
@@ -23,7 +23,6 @@ public readonly yAlignmentOptions:typeof YAlignment;
 /////////////////----PRIVATE----///////////////////
  
 private moveYArray :MoveYItem[];  
-//--this was previously _startTime but actually insertTimeInVid now, this show the point at which this comp will be inserted into the overall video. Inside a container Component this insert time is implemented by comtainer component. 
 private  insertTimeInVid:number; 
 public alwaysOn: boolean;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

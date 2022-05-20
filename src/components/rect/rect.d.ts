@@ -1,8 +1,8 @@
 import { Pack } from "../../Bilza.js";
 import BaseComponent from "../../BaseComponent/Basecomponent.js";
 export default class Rect extends BaseComponent {
-    widthPercent: number;
-    heightPercent: number;
+    dynWidth: number;
+    dynHeight: number;
     lineWidth: number;
     color: string;
     constructor();

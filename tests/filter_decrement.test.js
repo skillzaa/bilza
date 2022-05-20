@@ -1,4 +1,4 @@
-import Decrement from "../src/animation/aniNumber/decrement.js"
+import Decrement from "../src/BaseComponent/animation/filters/decrement.js"
 
 test('setup', () => {
     let inc = new Decrement (0,10,100,0);
