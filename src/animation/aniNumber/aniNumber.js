@@ -1,4 +1,5 @@
 import Increment from "./increment.js";
+import Decrement from "./decrement.js";
 export default class AniNumber {
     constructor(initalValue) {
         this.INITALVALUE = initalValue;
@@ -20,6 +21,10 @@ export default class AniNumber {
     }
     increment(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new Increment(from, to, startValue, endValue);
+        this.animations.push(a);
+    }
+    decrement(from = 0, to = 10, startValue = 0, endValue = 100) {
+        let a = new Decrement(from, to, startValue, endValue);
         this.animations.push(a);
     }
     setValue(n) {

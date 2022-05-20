@@ -1,8 +1,17 @@
+// import Bilza from "../src/Bilza.js";
+import Bilza from "../../build/bilzaEngine_0_0_15.js";
+import clip01 from "./clip01.js";
+import clip02 from "./clip02.js";
+// import Rect from "./src/components/rect/rect.js";
+// import TestComp from "./src/testComp/testComp.js";
 
-import Decrement from "./src/animation/aniNumber/decrement.js";
+let bil = new Bilza("bilza");
+//---------------------------------
+const tst = clip02("clip02");
+bil.insert.append(tst,tst.duration);
 
-
-let inc = new Decrement (0,10,100,0);
-inc.update(1000); //msDelta is in ms
-// expect(inc.value()).toBe(1);
-console.log("10 sec", inc.value());
+//--////////////////////////////
+bil.init();
+bil.start();
+// bil.drawInit();
+///////////////////////////////

@@ -57,7 +57,12 @@ export default class Component {
     initMoveXArray(p) {
         for (let i = 0; i < this.moveXArray.length; i++) {
             const elm = this.moveXArray[i];
-            this.p.x.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue) - 150), Math.ceil(p.xPerc(elm.endValue)));
+            if (elm.startValue < elm.endValue) {
+                this.p.x.increment(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue) - 150), Math.ceil(p.xPerc(elm.endValue)));
+            }
+            else {
+                this.p.x.decrement(this.getStartTime(false) + elm.from, this.getStartTime(false) + elm.to, Math.ceil(p.xPerc(elm.startValue) - 150), Math.ceil(p.xPerc(elm.endValue)));
+            }
         }
     }
     initMoveYArray(p) {

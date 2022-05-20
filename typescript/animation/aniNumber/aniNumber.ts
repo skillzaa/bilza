@@ -2,6 +2,7 @@
 import IFilter from "./IFilter.js";
 import Adder from "./adder.js";
 import Increment from "./increment.js";
+import Decrement from "./decrement.js";
 import { Pack } from "../../Bilza.js";
 export default class AniNumber{
 
@@ -37,6 +38,10 @@ return this.val;
 
 public increment(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
 let a = new Increment(from,to,startValue,endValue);
+this.animations.push(a);
+}
+public decrement(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
+let a = new Decrement(from,to,startValue,endValue);
 this.animations.push(a);
 }
 public setValue(n :number):number{
