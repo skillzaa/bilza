@@ -58,10 +58,11 @@ init(p: Pack,startTime :number,endTime :number, duration :number): boolean {
 }
 update(msDelta :number,p :Pack):boolean{
  if (this._set_value !== null){
-     this._ret_value = p.xPerc(this._set_value);
+     this._ret_value = p.xPerc(this._set_value);//perc to pix
+     this._ret_value = this.adjestXAlign(p,this._ret_value);
      this._set_value = null;
  }   
-
+//......................................
 for (let i = 0; i < this.animations.length; i++) {
         const ani = this.animations[i];
         // ani.init(p);
@@ -69,8 +70,13 @@ for (let i = 0; i < this.animations.length; i++) {
         let v  = ani.value(); 
         if ( v != null){
             this._ret_value = v;
+            this._ret_value = this.adjestXAlign(p,this._ret_value);
         }
-}    
+} 
+//---------------------------
+// if (this._ret_value !== null){
+ 
+// }
 return true;    
 }
 

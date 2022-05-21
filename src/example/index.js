@@ -1,0 +1,12 @@
+import Bilza from "../Bilza.js";
+import Rect from "../components/rect/rect.js";
+let bil = new Bilza("bilza");
+let tst = new Rect();
+tst.duration = 25;
+tst.props.y = 40;
+tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
+tst.p.x.setValue(50);
+tst.moveX(2, 8, tst.offScreenXOpt.XRight, tst.offScreenXOpt.XLeft);
+bil.insert.append(tst, tst.duration);
+bil.init();
+bil.start();

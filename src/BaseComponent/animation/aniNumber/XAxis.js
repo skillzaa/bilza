@@ -28,6 +28,7 @@ export default class XAxis {
     update(msDelta, p) {
         if (this._set_value !== null) {
             this._ret_value = p.xPerc(this._set_value);
+            this._ret_value = this.adjestXAlign(p, this._ret_value);
             this._set_value = null;
         }
         for (let i = 0; i < this.animations.length; i++) {
@@ -36,6 +37,7 @@ export default class XAxis {
             let v = ani.value();
             if (v != null) {
                 this._ret_value = v;
+                this._ret_value = this.adjestXAlign(p, this._ret_value);
             }
         }
         return true;
