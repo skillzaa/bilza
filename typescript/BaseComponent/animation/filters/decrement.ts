@@ -12,8 +12,9 @@ private  readonly xDiff :number;
 private    val :number|null;
 
 constructor(from :number,to :number,startValue :number,endValue :number){
+//--from and to are time and not the start and end value
 if (from >= to){ throw new Error("from can not be larger than to");}
-if (endValue >= startValue ){ throw new Error("endValue can not be larger than startValue for decrement operation");}
+if (endValue >= startValue ){ throw new Error("endValue can not be larger than the start Value for decrement operation");}
 //-------------------------------------------------//
 this.FROM =  from * 1000;
 this.TO = to * 1000 ;

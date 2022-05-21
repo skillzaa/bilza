@@ -4,7 +4,7 @@ export default class Decrement {
             throw new Error("from can not be larger than to");
         }
         if (endValue >= startValue) {
-            throw new Error("endValue can not be larger than startValue for decrement operation");
+            throw new Error("endValue can not be larger than the start Value for decrement operation");
         }
         this.FROM = from * 1000;
         this.TO = to * 1000;
