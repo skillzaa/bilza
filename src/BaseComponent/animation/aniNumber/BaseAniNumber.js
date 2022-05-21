@@ -7,9 +7,6 @@ export default class BaseAniNumber {
         this._set_value = null;
         this.compWidth = compWidth;
         this.compHeight = compHeight;
-        this.startTime = null;
-        this.endTime = null;
-        this.duration = null;
         this.preInitAni = [];
         this.animations = [];
     }

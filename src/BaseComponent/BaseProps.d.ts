@@ -1,11 +1,11 @@
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import XAxis from "./animation/aniNumber/XAxis.js";
-import BaseAniNumber from "./animation/aniNumber/BaseAniNumber.js";
+import YAxis from "./animation/aniNumber/YAxis.js";
 import { Pack } from "../Bilza.js";
 export default class BaseProps {
     x: XAxis;
-    y: BaseAniNumber;
+    y: YAxis;
     colorBoundingRectangle: string;
     shadowColor: string;
     shadowOffsetX: number;

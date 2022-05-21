@@ -9,9 +9,8 @@ import IFilter from "./IFilter.js";
 export default class BaseAniNumber implements IAnimatedNo{
     private _ret_value :number | null;
     private _set_value :number | null;
-    private startTime :number | null;
-    private endTime :number | null;
-    private duration :number | null;
+   
+    
     private preInitAni :AniNumberMoves[];
     private animations :IFilter[];
 
@@ -25,9 +24,8 @@ constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
     
     this.compWidth = compWidth;
     this.compHeight = compHeight;
-    this.startTime  = null;
-    this.endTime  = null;
-    this.duration  = null;
+    
+    
     this.preInitAni = [];
     this.animations = [];
 }

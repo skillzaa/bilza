@@ -7,9 +7,6 @@ export default class XAxis implements IAnimatedNo {
     xAlign: XAlignment;
     private _ret_value;
     private _set_value;
-    private startTime;
-    private endTime;
-    private duration;
     private preInitMoves;
     private animations;
     private compWidth;
@@ -24,6 +21,6 @@ export default class XAxis implements IAnimatedNo {
     moveX(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
     value(): number;
     private adjestXAlign;
-    checkNonNull(n: null | number): number;
+    private checkNonNull;
 }
 //# sourceMappingURL=XAxis.d.ts.map

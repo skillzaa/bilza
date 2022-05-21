@@ -1,16 +1,16 @@
 import { OffScreenXOpt } from "../../OffScreenXOpt.js";
 import MoveXItem from "./moveXItem.js";
-import { XAlignment } from "../../../design/xAlignment.js";
+import { YAlignment } from "../../../design/yAlignment.js";
 import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
-export default class XAxis {
+export default class YAxis {
     constructor(compWidth, compHeight) {
-        this.xAlignmentOptions = XAlignment;
+        this.yAlignmentOptions = YAlignment;
         this._ret_value = null;
         this._set_value = null;
         this.compWidth = compWidth;
         this.compHeight = compHeight;
-        this.xAlign = this.xAlignmentOptions.Left;
+        this.yAlign = this.yAlignmentOptions.Top;
         this.preInitMoves = [];
         this.animations = [];
     }
@@ -54,7 +54,7 @@ export default class XAxis {
     update(msDelta, p) {
         if (this._set_value !== null) {
             this._ret_value = p.xPerc(this._set_value);
-            this._ret_value = this.adjestXAlign(p, this._ret_value);
+            this._ret_value = this.adjestYAlign(p, this._ret_value);
             this._set_value = null;
         }
         for (let i = 0; i < this.animations.length; i++) {
@@ -63,7 +63,7 @@ export default class XAxis {
             let v = ani.value();
             if (v != null) {
                 this._ret_value = v;
-                this._ret_value = this.adjestXAlign(p, this._ret_value);
+                this._ret_value = this.adjestYAlign(p, this._ret_value);
             }
         }
         return true;
@@ -75,7 +75,7 @@ export default class XAxis {
         this._set_value = n;
         return this._set_value;
     }
-    moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
+    animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new MoveXItem(from, to, startValue, endValue);
         this.preInitMoves.push(a);
     }
@@ -87,16 +87,16 @@ export default class XAxis {
             return this._ret_value;
         }
     }
-    adjestXAlign(p, incomming) {
+    adjestYAlign(p, incomming) {
         let x = incomming;
-        switch (this.xAlign) {
-            case this.xAlignmentOptions.Left:
+        switch (this.yAlign) {
+            case this.yAlignmentOptions.Top:
                 break;
-            case this.xAlignmentOptions.Mid:
-                x = Math.floor(x - ((this.compWidth(p) / 2)));
+            case this.yAlignmentOptions.Mid:
+                x = Math.floor(x - ((this.compHeight(p) / 2)));
                 break;
-            case this.xAlignmentOptions.Right:
-                Math.floor(x - (this.compWidth(p)));
+            case this.yAlignmentOptions.Bot:
+                Math.floor(x - (this.compHeight(p)));
                 break;
         }
         return x;
