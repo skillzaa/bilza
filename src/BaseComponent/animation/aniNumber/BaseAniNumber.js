@@ -14,6 +14,10 @@ export default class BaseAniNumber {
         this.animations = [];
     }
     init(p, startTime, endTime, duration) {
+        if (this._set_value !== null) {
+            this._ret_value = p.xPerc(this._set_value);
+            this._set_value = null;
+        }
         this.initMoveX(p);
         return true;
     }

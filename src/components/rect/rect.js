@@ -19,7 +19,7 @@ export default class Rect extends BaseComponent {
         this.style.lineWidth = this.lineWidth;
         const borderWidthHalf = Math.ceil(this.lineWidth / 2);
         let newX = (this.p.x.value()) + borderWidthHalf;
-        p.drawRect(this.props.x.value(), this.props.y, this.width(p), this.height(p), this.style);
+        p.drawRect(this.props.x.value(), this.props.y.value(), this.width(p), this.height(p), this.style);
         return true;
     }
 }

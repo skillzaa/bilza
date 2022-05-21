@@ -34,7 +34,7 @@ let newX = (this.p.x.value()) + borderWidthHalf ;
 
    p.drawRect(
     this.props.x.value(),
-    this.props.y,
+    this.props.y.value(),
     this.width(p),
     this.height(p),
     this.style

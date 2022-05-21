@@ -33,6 +33,10 @@ constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
 }
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 init(p: Pack,startTime :number,endTime :number, duration :number): boolean {
+    if (this._set_value !== null){
+        this._ret_value = p.xPerc(this._set_value); //remove xPerc for normal no
+        this._set_value = null;
+    }          
  this.initMoveX(p);
     return true;
 }

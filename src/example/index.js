@@ -5,6 +5,8 @@ let tst = new Rect();
 tst.duration = 60;
 tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
 tst.p.x.setValue(30);
+tst.p.y.setValue(20);
+tst.p.y.animate(2, 20, 0, 300);
 bil.insert.append(tst, tst.duration);
 bil.init();
 bil.start();
