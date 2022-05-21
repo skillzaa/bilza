@@ -6,7 +6,7 @@ export default class BaseAniNumber implements IAnimatedNo {
     private startTime;
     private endTime;
     private duration;
-    private preInitMoves;
+    private preInitAni;
     private animations;
     private compWidth;
     private compHeight;
@@ -16,6 +16,7 @@ export default class BaseAniNumber implements IAnimatedNo {
     update(msDelta: number, p: Pack): boolean;
     notInitError(): void;
     setValue(n: number): number;
+    animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
     value(): number;
     checkNonNull(n: null | number): number;
 }

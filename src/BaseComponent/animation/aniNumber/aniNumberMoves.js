@@ -1,4 +1,4 @@
-export default class MoveXItem {
+export default class AniNumberMoves {
     constructor(from = 0, to = 10, startValue, endValue) {
         this.from = from;
         this.to = to;

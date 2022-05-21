@@ -59,10 +59,8 @@ init(p: Pack): boolean {
     return true;
 }
 initProps(p :Pack){
-    // this.p.x.setValue(Math.ceil(p.xPerc(this.p.x.value())));
-    this.p.x.init(p,this.getStartTime(),this.getEndTime(),this.duration);
-    // this.p.y.setValue(Math.ceil(p.yPerc(this.p.y.value())));
-    this.p.y = 0;
+this.p.x.init(p,this.getStartTime(),this.getEndTime(),this.duration);
+this.p.y.init(p,this.getStartTime(),this.getEndTime(),this.duration);
 }
 
 draw(p: Pack): boolean {
@@ -70,7 +68,7 @@ draw(p: Pack): boolean {
 }
 update(msDelta :number,p :Pack): boolean {
     this.p.x.update(msDelta,p);
-    // this.p.y.update(msDelta,p);
+    this.p.y.update(msDelta,p);
 return true;    
 }
 ////////////////////////////////////////////////////////

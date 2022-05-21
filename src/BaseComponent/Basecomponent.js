@@ -32,13 +32,14 @@ export default class BaseComponent {
     }
     initProps(p) {
         this.p.x.init(p, this.getStartTime(), this.getEndTime(), this.duration);
-        this.p.y = 0;
+        this.p.y.init(p, this.getStartTime(), this.getEndTime(), this.duration);
     }
     draw(p) {
         return true;
     }
     update(msDelta, p) {
         this.p.x.update(msDelta, p);
+        this.p.y.update(msDelta, p);
         return true;
     }
     checkCollision(x, y, p) {
