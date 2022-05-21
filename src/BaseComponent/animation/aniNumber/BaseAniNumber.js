@@ -1,9 +1,7 @@
-import { OffScreenXOpt } from "../../OffScreenXOpt.js";
-import MoveXItem from "./moveXItem.js";
 import { XAlignment } from "../../../design/xAlignment.js";
 import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
-export default class XAxis {
+export default class BaseAniNumber {
     constructor(compWidth, compHeight) {
         this.xAlignmentOptions = XAlignment;
         this._ret_value = null;
@@ -18,11 +16,6 @@ export default class XAxis {
         this.animations = [];
     }
     init(p, startTime, endTime, duration) {
-        this._ret_value = this.translate(0, p);
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.duration = duration;
-        this.initMoveX(p);
         return true;
     }
     initMoveX(p) {
@@ -40,29 +33,7 @@ export default class XAxis {
             }
         }
     }
-    translate(value, p) {
-        if (typeof value == "number") {
-            return p.xPerc(value);
-        }
-        let r = 0;
-        switch (value) {
-            case OffScreenXOpt.XLeft:
-                r = -1 * (this.compWidth(p) + 10);
-                break;
-            case OffScreenXOpt.XRight:
-                r = p.xPerc(100) + this.compWidth(p) + 100;
-                break;
-            default:
-                break;
-        }
-        return Math.ceil(r);
-    }
     update(msDelta, p) {
-        if (this._set_value !== null) {
-            this._ret_value = p.xPerc(this._set_value);
-            this._ret_value = this.adjestXAlign(p, this._ret_value);
-            this._set_value = null;
-        }
         for (let i = 0; i < this.animations.length; i++) {
             const ani = this.animations[i];
             ani.update(msDelta);
@@ -81,31 +52,13 @@ export default class XAxis {
         this._set_value = n;
         return this._set_value;
     }
-    moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        let a = new MoveXItem(from, to, startValue, endValue);
-        this.preInitMoves.push(a);
-    }
     value() {
         if (this._ret_value == null) {
-            throw new Error("XAxis is not initialized");
+            throw new Error("AniNumber is not initialized");
         }
         else {
             return this._ret_value;
         }
-    }
-    adjestXAlign(p, incomming) {
-        let x = incomming;
-        switch (this.xAlign) {
-            case this.xAlignmentOptions.Left:
-                break;
-            case this.xAlignmentOptions.Mid:
-                x = Math.floor(x - ((this.compWidth(p) / 2)));
-                break;
-            case this.xAlignmentOptions.Right:
-                Math.floor(x - (this.compWidth(p)));
-                break;
-        }
-        return x;
     }
     checkNonNull(n) {
         let r = 0;
