@@ -25,7 +25,7 @@ export default class Comps {
             if (comp.drawLayer == drawLayer) {
                 if (this.qualifyForDraw(comp, msDelta)) {
                     pack.save();
-                    comp.update(msDelta);
+                    comp.update(msDelta, pack);
                     comp.draw(pack);
                     pack.restore();
                 }

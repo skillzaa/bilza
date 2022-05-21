@@ -6,7 +6,6 @@ export default class TestComp extends Component {
     constructor(name: string);
     width(p: Pack): number;
     height(p: Pack): number;
-    update(msDelta: number): boolean;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=testComp.d.ts.map

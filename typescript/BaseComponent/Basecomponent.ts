@@ -70,8 +70,8 @@ initProps(p :Pack){
 draw(p: Pack): boolean {
     return true;
 }
-update(msDelta :number): boolean {
-    this.p.x.update(msDelta);
+update(msDelta :number,p :Pack): boolean {
+    this.p.x.update(msDelta,p);
     // this.p.y.update(msDelta,p);
 return true;    
 }
@@ -99,6 +99,7 @@ shadowsOn(){
 resize(width :number,height :number):number{
  return 0;
 }
+
 // drawBoundingRectangle(p :Pack) :boolean{
 // this.style.strokeStyle = "black";    
 // p.drawRect(p.xPerc(this.p.x.value()),p.yPerc(this.p.y),this.width(p),this.height(p),this.style);

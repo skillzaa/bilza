@@ -17,14 +17,11 @@ return  200;
 height(p:Pack):number {
     return  100;
 } 
-update(msDelta: number): boolean {
-// console.log("msDelta",msDelta);
-
-    this.msDelta = msDelta;
-    this.p.x.update(msDelta);
-    // this.p.y.update(msDelta,p);
-    return true;
-}
+// update(msDelta: number,p :Pack): boolean {
+//     this.msDelta = msDelta;
+//     // this.p.x.update(msDelta,p);
+//     return true;
+// }
 
 draw(p:Pack):boolean{    
 this.style.fontSize = 50;

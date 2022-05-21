@@ -33,8 +33,8 @@ let comp = this.compArray[i];
         if (comp.drawLayer == drawLayer ){
             if (       this.qualifyForDraw(comp,msDelta)     ){
                 pack.save();
-                comp.update(msDelta);
-                comp.draw(pack);//waoooo no msDelta
+                comp.update(msDelta,pack);
+                comp.draw(pack);
                 pack.restore();
             }   
         }

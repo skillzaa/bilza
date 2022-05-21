@@ -19,7 +19,7 @@ export default interface IComponent{
     init(p :Pack):boolean; 
     //--UPDATE SHD NOT HAVE DRAW FUNCTIONS
     //--if we decide not to send Pack to update since pack has drawing functions i must break pack into 2 groups, the draw fn and the non draw fns. one goes to update and the other to draw.
-    update(msDelta :number):boolean; //second not frame 
+    update(msDelta :number,p :Pack):boolean; //second not frame 
     //finally
     draw(p :Pack):boolean; 
 

@@ -12,16 +12,15 @@ bil.insert.alwaysOn(test2);
 let tst  = new TestComp("ok");
 tst.duration = 25;
 // tst.color = "red";
-tst.p.x.setValue(0);
+tst.p.x.setValue(50);
 
-tst.moveX(1,5,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
-tst.moveX(5,10,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
-tst.moveX(10,15,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
-tst.moveX(15,20,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
+// tst.moveX(1,5,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
+// tst.moveX(5,10,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
+// tst.moveX(10,15,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
+// tst.moveX(15,20,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
 
 
 bil.insert.append(tst,tst.duration);
-
 
 
 //--////////////////////////////

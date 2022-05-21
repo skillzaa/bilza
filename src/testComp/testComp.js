@@ -11,11 +11,6 @@ export default class TestComp extends Component {
     height(p) {
         return 100;
     }
-    update(msDelta) {
-        this.msDelta = msDelta;
-        this.p.x.update(msDelta);
-        return true;
-    }
     draw(p) {
         this.style.fontSize = 50;
         p.drawText(this.name + " => " + Math.ceil(this.msDelta / 1000).toString(), this.p.x.value(), 40, this.style);
