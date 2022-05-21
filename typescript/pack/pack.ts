@@ -213,7 +213,7 @@ this.ctx.font = f;
 }
 public xPerc(perc :number):number{
 let checked = this.setBwZeroNhundred(perc);
-return (( this.canvas.width /100) * checked); 
+return Math.ceil(( this.canvas.width /100) * checked); 
 }
 public yPerc(perc :number):number{
 let checked = this.setBwZeroNhundred(perc);    

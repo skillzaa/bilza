@@ -12,7 +12,7 @@ bil.insert.alwaysOn(test2);
 let tst  = new TestComp("ok");
 tst.duration = 25;
 // tst.color = "red";
-tst.p.x.setValue(50);
+tst.p.x.setValue(80);
 
 // tst.moveX(1,5,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
 // tst.moveX(5,10,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);

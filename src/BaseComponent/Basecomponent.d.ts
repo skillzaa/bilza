@@ -1,6 +1,5 @@
 import { Pack, IComponent, DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
@@ -14,7 +13,6 @@ export default class BaseComponent implements IComponent {
     duration: number;
     readonly offScreenXOpt: typeof OffScreenXOpt;
     readonly offScreenYOpt: typeof OffScreenYOpt;
-    readonly xAlignmentOptions: typeof XAlignment;
     readonly yAlignmentOptions: typeof YAlignment;
     private moveYArray;
     private insertTimeInVid;

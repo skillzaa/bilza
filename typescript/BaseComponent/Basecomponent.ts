@@ -1,6 +1,5 @@
 import {Pack,IComponent,DrawLayer} from "../Bilza.js";
 import Style from "../design/style.js";
-import {XAlignment} from "../design/xAlignment.js";
 import {YAlignment} from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
 
@@ -18,7 +17,6 @@ public  duration :number;
 //-----Alignment
 public readonly offScreenXOpt :typeof OffScreenXOpt;
 public readonly offScreenYOpt :typeof OffScreenYOpt;
-public readonly xAlignmentOptions:typeof XAlignment;   
 public readonly yAlignmentOptions:typeof YAlignment;  
 /////////////////----PRIVATE----///////////////////
  
@@ -35,7 +33,6 @@ this.alwaysOn = false;
 this.moveYArray = [];
 this.offScreenXOpt = OffScreenXOpt; //final-ok
 this.offScreenYOpt = OffScreenYOpt; //final-ok
-this.xAlignmentOptions = XAlignment; //final-ok
 this.yAlignmentOptions = YAlignment; //final-ok
 this.duration = 0; //can not be changed again even not by children comps
 this.insertTimeInVid = 0; //final-ok
@@ -62,7 +59,7 @@ init(p: Pack): boolean {
 }
 initProps(p :Pack){
     // this.p.x.setValue(Math.ceil(p.xPerc(this.p.x.value())));
-    this.p.x.init(p,this.getStartTime(),this.getEndTime(),this.duration, this.width(p),this.height(p));
+    this.p.x.init(p,this.getStartTime(),this.getEndTime(),this.duration);
     // this.p.y.setValue(Math.ceil(p.yPerc(this.p.y.value())));
     this.p.y = 0;
 }
@@ -106,25 +103,7 @@ resize(width :number,height :number):number{
 // return true;
 // }
 
-// protected xAfterAlignment(p :Pack):number{
-// let x = this.p.x.value(); //does  not change the orignal X   
-//         if (this.p.useRelativeXY == true){
-//             x =   p.xPerc(this.p.x.value());  
-//         }    
-// switch (this.p.xAlignment) {
-//     case this.xAlignmentOptions.Left:
-        
-//         break;
-//     case this.xAlignmentOptions.Mid:
-//          x = Math.floor(x - ((this.width(p)/2)));
-//         break;
-    
-//     case this.xAlignmentOptions.Right:
-//         Math.floor(x - (this.width(p)));
-//         break;
-// }
-// return x ;
-// }
+
 // protected yAfterAlignment(p :Pack):number{
 //     let y = this.p.y;    
 //         if (this.p.useRelativeXY == true){

@@ -1,6 +1,5 @@
 import { DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
@@ -13,7 +12,6 @@ export default class BaseComponent {
         this.moveYArray = [];
         this.offScreenXOpt = OffScreenXOpt;
         this.offScreenYOpt = OffScreenYOpt;
-        this.xAlignmentOptions = XAlignment;
         this.yAlignmentOptions = YAlignment;
         this.duration = 0;
         this.insertTimeInVid = 0;
@@ -32,7 +30,7 @@ export default class BaseComponent {
         return true;
     }
     initProps(p) {
-        this.p.x.init(p, this.getStartTime(), this.getEndTime(), this.duration, this.width(p), this.height(p));
+        this.p.x.init(p, this.getStartTime(), this.getEndTime(), this.duration);
         this.p.y = 0;
     }
     draw(p) {

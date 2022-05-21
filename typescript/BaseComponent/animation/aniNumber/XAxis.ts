@@ -1,5 +1,7 @@
 import { OffScreenXOpt } from "../../OffScreenXOpt.js";
 import MoveXItem from "./moveXItem.js";
+import {XAlignment} from "../../../design/xAlignment.js";
+
 // import IFilter from "./IFilter.js";
 import IAnimatedNo from "./IAnimatedNo.js";
 // import Adder from "./adder.js";
@@ -12,9 +14,9 @@ import IFilter from "./IFilter.js";
 export default class XAxis implements IAnimatedNo{
     // public increment :typeof Increment;
     // public decrement :typeof Decrement;
+public readonly xAlignmentOptions:typeof XAlignment;   
+public xAlign: XAlignment;   
     
-    public compWidth :number | null;
-    public compHeight :number | null;
     private _ret_value :number | null;
     private _set_value :number | null;
     private startTime :number | null;
@@ -22,31 +24,36 @@ export default class XAxis implements IAnimatedNo{
     private duration :number | null;
     private preInitMoves :MoveXItem[];
     private animations :IFilter[];
+
+    private compWidth : (p :Pack)=>number;
+    private compHeight : (p :Pack)=>number;
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-constructor(){
+constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
+    this.xAlignmentOptions = XAlignment; //final-ok
+     
     this._ret_value  = null;
     this._set_value  = null;
-    this.compWidth  = null;
-    this.compHeight  = null;
+    
+    this.compWidth = compWidth;
+    this.compHeight = compHeight;
     this.startTime  = null;
     this.endTime  = null;
     this.duration  = null;
-
+    this.xAlign = this.xAlignmentOptions.Left;
     this.preInitMoves = [];
     this.animations = [];
       
 }
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-init(p: Pack,startTime :number,endTime :number, duration :number, compWidth: number, compHeight: number): boolean {
+init(p: Pack,startTime :number,endTime :number, duration :number): boolean {
  //--initial value even if i set it the init is run before the set fn
-        this._ret_value = this.translate(0,p,compWidth);
+        this._ret_value = this.translate(0,p);
 
     this.startTime = startTime;
     this.endTime = endTime;
     this.duration = duration;
-    this.compWidth = compWidth;
-    this.compHeight = compHeight;
-    this.initMoveX(p,compWidth);
+    
+    this.initMoveX(p);
     return true;
 }
 update(msDelta :number,p :Pack):boolean{
@@ -68,17 +75,17 @@ return true;
 }
 
 
-private translate(value :number|OffScreenXOpt,p :Pack,compWidth:number):number{
+private translate(value :number|OffScreenXOpt,p :Pack):number{
 if (typeof value == "number"){
     return p.xPerc(value);
 }
     let r = 0;
 switch (value) {
     case OffScreenXOpt.XLeft:
-        r = -1 * (compWidth + 10);
+        r = -1 * (this.compWidth(p) + 10);
         break;
     case OffScreenXOpt.XRight:
-        r = p.xPerc(100) + compWidth + 100;
+        r = p.xPerc(100) + this.compWidth(p) + 100;
         break;
     default:
         break;
@@ -107,12 +114,28 @@ value():number{
         return this._ret_value;
     }
 }
-
-private initMoveX(p :Pack,compWidth :number){
+private adjestXAlign(p :Pack,incomming :number):number{
+let x = incomming   
+    
+switch (this.xAlign) {
+    case this.xAlignmentOptions.Left:
+        
+        break;
+    case this.xAlignmentOptions.Mid:
+         x = Math.floor(x - ((this.compWidth(p)/2)));
+        break;
+    
+    case this.xAlignmentOptions.Right:
+        Math.floor(x - (this.compWidth(p)));
+        break;
+}
+return x ;
+}
+private initMoveX(p :Pack){
     for (let i = 0; i < this.preInitMoves.length; i++) {
         const elm = this.preInitMoves[i];
-            const startValue = this.translate(elm.startValue,p,compWidth);
-            const endValue = this.translate(elm.endValue,p,compWidth);
+            const startValue = this.translate(elm.startValue,p);
+            const endValue = this.translate(elm.endValue,p);
             if (startValue < endValue ){
                 let c = new Increment(elm.from,elm.to,startValue,endValue);
                 this.animations.push(c);    

@@ -171,7 +171,7 @@ export default class Pack {
     }
     xPerc(perc) {
         let checked = this.setBwZeroNhundred(perc);
-        return ((this.canvas.width / 100) * checked);
+        return Math.ceil((this.canvas.width / 100) * checked);
     }
     yPerc(perc) {
         let checked = this.setBwZeroNhundred(perc);
