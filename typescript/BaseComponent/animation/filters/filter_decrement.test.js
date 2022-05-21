@@ -5,49 +5,74 @@ test('setup', () => {
     expect(inc).toBeDefined();
 });
 
-test('starting edge cases-inc.update(0) = null not included', () => {
-    let inc = new Decrement (0,10,100,0);
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
     inc.update(0); //msDelta is in ms
     expect(inc.value()).toBeNull();
 });
-test('inc.update(1000) = 90 or 90%', () => {
-    let inc = new Decrement (0,10,100,0);
+
+//micro time
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
+    inc.update(100); //msDelta is in ms
+    expect(inc.value()).toBe(490);
+});
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
+    inc.update(500); //msDelta is in ms
+    expect(inc.value()).toBe(450);
+});
+//normal time
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
     inc.update(1000); //msDelta is in ms
-    expect(inc.value()).toBe(90);
+    expect(inc.value()).toBe(400);
 });
-test('inc.update(2000) = 80 or 80%', () => {
-    let inc = new Decrement (0,10,100,0);
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
     inc.update(2000); //msDelta is in ms
-    expect(inc.value()).toBe(80);
+    expect(inc.value()).toBe(300);
 });
-test('inc.update(3000) = 70 or 70%', () => {
-    let inc = new Decrement (0,10,100,0);
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
     inc.update(3000); //msDelta is in ms
-    expect(inc.value()).toBe(70);
+    expect(inc.value()).toBe(200);
 });
-test('inc.update(4000)', () => {
-    let inc = new Decrement (0,10,100,0);
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
     inc.update(4000); //msDelta is in ms
-    expect(inc.value()).toBe(60);
+    expect(inc.value()).toBe(100);
 });
-test('inc.update(5000)', () => {
-    let inc = new Decrement (0,10,100,0);
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
     inc.update(5000); //msDelta is in ms
-    expect(inc.value()).toBe(50);
-});
-test('inc.update(6000)', () => {
-    let inc = new Decrement (0,10,100,0);
-    inc.update(6000); //msDelta is in ms
-    expect(inc.value()).toBe(40);
-});
-test('inc.update(9000)', () => {
-    let inc = new Decrement (0,10,100,0);
-    inc.update(9000); //msDelta is in ms
-    expect(inc.value()).toBe(10);
-});
-test('inc.update(10000)', () => {
-    let inc = new Decrement (0,10,100,0);
-    inc.update(10000); //msDelta is in ms
     expect(inc.value()).toBe(0);
 });
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
+    inc.update(6000); //msDelta is in ms
+    expect(inc.value()).toBe(-100);
+});
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
+    inc.update(7000); //msDelta is in ms
+    expect(inc.value()).toBe(-200);
+});
 
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
+    inc.update(8000); //msDelta is in ms
+    expect(inc.value()).toBe(-300);
+});
+
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
+    inc.update(9000); //msDelta is in ms
+    expect(inc.value()).toBe(-400);
+});
+
+test('Decrement(0,10,500,-500)', () => {
+    let inc = new Decrement (0,10,500,-500);
+    inc.update(10000); //msDelta is in ms
+    expect(inc.value()).toBe(-500);
+});
