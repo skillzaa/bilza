@@ -4,8 +4,8 @@ export default class Rect extends BaseComponent {
         super();
         this.lineWidth = 2;
         this.color = "#000000";
-        this.dynWidth = 40;
-        this.dynHeight = 40;
+        this.dynWidth = 20;
+        this.dynHeight = 20;
     }
     width(p) {
         return ((p.canvasWidth() / 100) * this.dynWidth);

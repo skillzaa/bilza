@@ -6,8 +6,6 @@ import { OffScreenXOpt } from "./OffScreenXOpt.js";
 import { OffScreenYOpt } from "./OffScreenYOpt.js";
 export default class BaseComponent {
     constructor() {
-        this.props = new BaseProps();
-        this.p = this.props;
         this.alwaysOn = false;
         this.moveYArray = [];
         this.offScreenXOpt = OffScreenXOpt;
@@ -18,6 +16,9 @@ export default class BaseComponent {
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
+        this.props = new BaseProps(this.width.bind(this), this.height.bind(this));
+        ;
+        this.p = this.props;
     }
     width(p) {
         return 100;

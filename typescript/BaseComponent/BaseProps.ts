@@ -1,6 +1,8 @@
 import {XAlignment} from "../design/xAlignment.js";
 import {YAlignment} from "../design/yAlignment.js";
 import XAxis from "./animation/aniNumber/XAxis.js";
+import {Pack} from "../Bilza.js";
+
 export default class BaseProps{
 x :XAxis;
 y :number;
@@ -23,8 +25,8 @@ selected :boolean;
 xAlignment :XAlignment;
 yAlignment :YAlignment;
 
-constructor(){
-this.x= new XAxis(0);
+constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
+this.x= new XAxis(compWidth,compHeight);
 this.y= 0;
 //---flags 
 this.selected = false;

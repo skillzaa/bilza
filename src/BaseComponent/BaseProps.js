@@ -2,8 +2,8 @@ import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import XAxis from "./animation/aniNumber/XAxis.js";
 export default class BaseProps {
-    constructor() {
-        this.x = new XAxis(0);
+    constructor(compWidth, compHeight) {
+        this.x = new XAxis(compWidth, compHeight);
         this.y = 0;
         this.selected = false;
         this.visible = true;

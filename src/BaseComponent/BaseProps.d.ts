@@ -1,6 +1,7 @@
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import XAxis from "./animation/aniNumber/XAxis.js";
+import { Pack } from "../Bilza.js";
 export default class BaseProps {
     x: XAxis;
     y: number;
@@ -13,6 +14,6 @@ export default class BaseProps {
     selected: boolean;
     xAlignment: XAlignment;
     yAlignment: YAlignment;
-    constructor();
+    constructor(compWidth: (p: Pack) => number, compHeight: (p: Pack) => number);
 }
 //# sourceMappingURL=BaseProps.d.ts.map

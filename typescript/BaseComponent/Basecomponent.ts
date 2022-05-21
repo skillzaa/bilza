@@ -26,23 +26,24 @@ public alwaysOn: boolean;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
-this.props = new BaseProps();    
+    
+    this.alwaysOn = false;
+    
+    this.moveYArray = [];
+    this.offScreenXOpt = OffScreenXOpt; //final-ok
+    this.offScreenYOpt = OffScreenYOpt; //final-ok
+    this.yAlignmentOptions = YAlignment; //final-ok
+    this.duration = 0; //can not be changed again even not by children comps
+    this.insertTimeInVid = 0; //final-ok
+    //--there is no this.endTime --since has this.endTime()
+    //--must
+    this.drawLayer = DrawLayer.MiddleGround;
+    //--must
+    this.id = Math.random().toString(36).slice(2);
+    this.style = new Style(); 
+    
+this.props = new BaseProps(this.width.bind(this),this.height.bind(this));;    
 this.p = this.props;
-this.alwaysOn = false;
-
-this.moveYArray = [];
-this.offScreenXOpt = OffScreenXOpt; //final-ok
-this.offScreenYOpt = OffScreenYOpt; //final-ok
-this.yAlignmentOptions = YAlignment; //final-ok
-this.duration = 0; //can not be changed again even not by children comps
-this.insertTimeInVid = 0; //final-ok
-//--there is no this.endTime --since has this.endTime()
-//--must
-this.drawLayer = DrawLayer.MiddleGround;
-//--must
-this.id = Math.random().toString(36).slice(2);
-this.style = new Style(); 
-
 }
 
 width(p: Pack): number {
