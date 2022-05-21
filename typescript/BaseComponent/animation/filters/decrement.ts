@@ -57,7 +57,7 @@ update(msDelta :number):boolean{
                 //since this.ENDVALUE is -ve so + will have -ve effect
                 this._ret_val = this.ENDVALUE + factorMinus;
             }    
-         
+        //  console.log("msDelta",msDelta,"ret",this._ret_val);
         return true;
     }else {
         this._ret_val = null;

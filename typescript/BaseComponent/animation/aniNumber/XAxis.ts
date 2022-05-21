@@ -46,7 +46,7 @@ init(p: Pack,startTime :number,endTime :number, duration :number, compWidth: num
     this.initMoveX(p);
     return true;
 }
-update(msDelta :number,p :Pack):boolean{
+update(msDelta :number):boolean{
 
 for (let i = 0; i < this.animations.length; i++) {
         const ani = this.animations[i];

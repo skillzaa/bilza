@@ -10,7 +10,7 @@ export default class Rect extends BaseComponent {
 constructor (){ 
     super();
     //by default its true but if that changes then here it is true
-    this.lineWidth = 40 ;
+    this.lineWidth = 2 ;
     this.color = "#000000" ; 
     this.dynWidth = 40;
     this.dynHeight = 40;

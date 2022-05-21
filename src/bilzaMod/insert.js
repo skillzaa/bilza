@@ -34,6 +34,7 @@ export default class Insert {
         return this.comps.push(comp);
     }
     alwaysOn(comp) {
+        comp.alwaysOn = true;
         return this.comps.push(comp);
     }
 }

@@ -38,8 +38,8 @@ export default class BaseComponent {
     draw(p) {
         return true;
     }
-    update(msDelta, p) {
-        this.p.x.update(msDelta, p);
+    update(msDelta) {
+        this.p.x.update(msDelta);
         return true;
     }
     checkCollision(x, y, p) {

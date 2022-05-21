@@ -1,25 +1,28 @@
-// import Bilza from "../src/Bilza.js";
-import Bilza from "../../build/bilzaEngine_0_0_15.js";
-import clip01 from "./clip01.js";
-import clip02 from "./clip02.js";
-// import Rect from "./src/components/rect/rect.js";
-import TestComp from "./src/testComp/testComp.js";
+import Bilza from "./src/Bilza.js";
+// import Bilza from "../../build/bilzaEngine_0_0_15.js";
+import Rect from "../../src/components/rect/rect.js";
+import TestComp from "../../src/testComp/testComp.js";
 
 let bil = new Bilza("bilza");
 //---------------------------------
 
-let tst  = new TestComp("offX");
-tst.duration = 15;
-tst.color = "red";
+let test2 = new TestComp("static");
+test2.props.y = 40;
+bil.insert.alwaysOn(test2);
+let tst  = new TestComp("ok");
+tst.duration = 25;
+// tst.color = "red";
 tst.p.x.setValue(0);
-// debugger;
-// tst.p.y.setValue(0);
-// tst.moveX(2,10,100,tst.offScreenXOpt.XLeft);
-// tst.moveY(2,10,tst.offScreenYOpt.YBot,tst.offScreenYOpt.YTop);
 
-tst.moveX(2,7,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
-tst.moveX(8,12,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
+tst.moveX(1,5,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
+tst.moveX(5,10,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
+tst.moveX(10,15,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
+tst.moveX(15,20,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
+
+
 bil.insert.append(tst,tst.duration);
+
+
 
 //--////////////////////////////
 bil.init();

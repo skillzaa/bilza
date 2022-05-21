@@ -70,8 +70,8 @@ initProps(p :Pack){
 draw(p: Pack): boolean {
     return true;
 }
-update(msDelta :number, p: Pack): boolean {
-    this.p.x.update(msDelta,p);
+update(msDelta :number): boolean {
+    this.p.x.update(msDelta);
     // this.p.y.update(msDelta,p);
 return true;    
 }

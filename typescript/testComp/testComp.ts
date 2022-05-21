@@ -12,16 +12,16 @@ constructor (name :string){
     this.msDelta = 0;
 }
 width(p:Pack):number {
-return  100;    
+return  200;    
 }
 height(p:Pack):number {
     return  100;
 } 
-update(msDelta: number, p: Pack): boolean {
+update(msDelta: number): boolean {
 // console.log("msDelta",msDelta);
 
     this.msDelta = msDelta;
-    this.p.x.update(msDelta,p);
+    this.p.x.update(msDelta);
     // this.p.y.update(msDelta,p);
     return true;
 }
@@ -36,9 +36,9 @@ this.style);
 this.style.fontSize = 30;
 
 p.drawText("x:" + this.p.x.value().toString(),this.p.x.value(),
-40 ,this.style);
+80 ,this.style);
 
-p.drawText("y:" ,this.p.x.value()+80, 40 ,this.style);
+p.drawText("y:" ,this.p.x.value()+80, 80 ,this.style);
 
 return true;
 }

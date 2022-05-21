@@ -13,13 +13,13 @@ export default interface IComponent{
     //--we can get the width and height thus we can use components into array and trees like table,list etc
     //-- since we have to use it externally thus Pack is always avaialbe
     // While using internally it shd be used when draw/update is called is called
-    width(p :Pack):number;
+    width(p:Pack):number;
     height(p :Pack):number;
 //---init is one time settings unlike update it is run on required basis
     init(p :Pack):boolean; 
     //--UPDATE SHD NOT HAVE DRAW FUNCTIONS
     //--if we decide not to send Pack to update since pack has drawing functions i must break pack into 2 groups, the draw fn and the non draw fns. one goes to update and the other to draw.
-    update(msDelta :number, p :Pack):boolean; //second not frame 
+    update(msDelta :number):boolean; //second not frame 
     //finally
     draw(p :Pack):boolean; 
 

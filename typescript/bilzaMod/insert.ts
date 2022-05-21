@@ -51,7 +51,7 @@ return this.comps.push(comp);
 } 
 
 public alwaysOn(comp:IComponent):IComponent{
-//  comp.insertType = comp.insertTypeOptions.AlwaysOn;   
+ comp.alwaysOn = true;   
 return this.comps.push(comp);
 }  
 }//duration

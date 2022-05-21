@@ -71,6 +71,6 @@ start():boolean{
 }
 stop():boolean{
     this.stopWatch.stop();
-    return true;
+    return true; 
 }
 }//ends

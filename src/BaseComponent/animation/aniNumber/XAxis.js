@@ -24,7 +24,7 @@ export default class XAxis {
         this.initMoveX(p);
         return true;
     }
-    update(msDelta, p) {
+    update(msDelta) {
         for (let i = 0; i < this.animations.length; i++) {
             const ani = this.animations[i];
             ani.update(msDelta);

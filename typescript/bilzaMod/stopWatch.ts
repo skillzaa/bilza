@@ -9,7 +9,7 @@ private runningStartTimeTS :number | null; //when we start video
 constructor(){
     this.runningStartTimeTS = null;
     this.interval = null; 
-    this.msPerFrame = 100;
+    this.msPerFrame = 20;
 }
 start(drawFn:()=>boolean) :boolean{
     if (this.isAlreadyRunning() == true){return false;}

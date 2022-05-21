@@ -13,7 +13,7 @@ export default class XAxis implements IAnimatedNo {
     private animations;
     constructor(initalValue: number | OffScreenXOpt);
     init(p: Pack, startTime: number, endTime: number, duration: number, compWidth: number | null, compHeight: number | null): boolean;
-    update(msDelta: number, p: Pack): boolean;
+    update(msDelta: number): boolean;
     private translate;
     getCompWidth(): number;
     getCompHeight(): number;
