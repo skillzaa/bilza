@@ -1,11 +1,10 @@
-import IAnimatedNo from "./IAnimatedNo.js";
-export default class AnimatedNoBase implements IAnimatedNo {
+export default class AnimatedNoBase {
     private _ret_value;
     private _set_value;
     private preInitIncDec;
     private animations;
     constructor(defaultValue?: number);
-    init(): boolean;
+    init(compWidth: number, compHeight: number, canvasWidth: number, canvasHeight: number): boolean;
     update(msDelta: number): boolean;
     value(): number;
     setValue(n: number): number;

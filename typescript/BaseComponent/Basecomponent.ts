@@ -59,8 +59,8 @@ init(p: Pack): boolean {
     return true;
 }
 initProps(p :Pack){
-this.p.x.init();
-this.p.y.init();
+this.p.x.init(this.width(p),this.height(p),p.canvasWidth(),p.canvasHeight());
+this.p.y.init(this.width(p),this.height(p),p.canvasWidth(),p.canvasHeight());
 }
 
 draw(p: Pack): boolean {
@@ -96,32 +96,6 @@ resize(width :number,height :number):number{
  return 0;
 }
 
-// drawBoundingRectangle(p :Pack) :boolean{
-// this.style.strokeStyle = "black";    
-// p.drawRect(p.xPerc(this.p.x.value()),p.yPerc(this.p.y),this.width(p),this.height(p),this.style);
-// return true;
-// }
-
-
-// protected yAfterAlignment(p :Pack):number{
-//     let y = this.p.y;    
-//         if (this.p.useRelativeXY == true){
-//             y =   p.yPerc(this.p.y);  
-//         }    
-
-// switch (this.p.yAlignment) {
-//     case this.yAlignmentOptions.Top:
-//         break;
-//     case this.yAlignmentOptions.Mid:
-//          y = Math.floor(y - ((this.height(p)/2)));
-//         break;
-    
-//     case this.yAlignmentOptions.Bot:
-//         y = Math.floor(y - (this.height(p)));
-//         break;
-// }
-// return y ;
-// }
 getEndTime(inMilliSec :boolean = true) :number{
 let r = this.insertTimeInVid + this.duration; //both r in sec
 return inMilliSec ? (r * 1000) : r;

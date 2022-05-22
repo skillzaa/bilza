@@ -1,13 +1,14 @@
 //--Rules 
 //--1-- the animations can return null BUT this class should not send null ahead .
 import PreInitIncDec from "./preInitIncDec.js";
-import IAnimatedNo from "./IAnimatedNo.js";
+// import IAnimatedNo from "./IAnimatedNo.js";
 import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
 import Constant from "../filters/constant.js";
 import IFilter from "./IFilter.js";
 
-export default class AnimatedNoBase implements IAnimatedNo{
+// export default class AnimatedNoBase implements IAnimatedNo{
+export default class AnimatedNoBase {
     //--this is the only output from this obj and we do not want to send out null rather default vlaue in the start and later as its set
     private _ret_value :number;
     //_set_value can be null since it is applied during update only if its not null and then set to null back again-thus is used once.
@@ -23,7 +24,7 @@ constructor(defaultValue :number=0){
     this.animations = [];
 }
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-init(): boolean {
+init(compWidth :number,compHeight :number,canvasWidth :number, canvasHeight :number): boolean {
     this.runSetValue();
     this.initIncDec();
     return true;

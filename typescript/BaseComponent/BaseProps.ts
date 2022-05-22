@@ -1,13 +1,12 @@
-import {XAlignment} from "../design/xAlignment.js";
-import {YAlignment} from "../design/yAlignment.js";
-// import XAxis from "./animation/aniNumber/XAxis.js";
+
+import XAxis from "./animation/aniNumber/XAxis.js";
 // import YAxis from "./animation/aniNumber/YAxis.js";
 
 import AnimatedNoBase from "./animation/aniNumber/AnimatedNoBase.js";
 import {Pack} from "../Bilza.js";
 
 export default class BaseProps{
-x :AnimatedNoBase;
+x :XAxis;
 y :AnimatedNoBase;
 colorBoundingRectangle:string;
 //-------------shadow-------------------------//    
@@ -24,15 +23,11 @@ visible :boolean;////just to tell people from outside??????
 selected :boolean;
 //---So every component can be draw using concrete x and Y or relative default is relative
 
-//--Alignment
-xAlignment :XAlignment;
-yAlignment :YAlignment;
-
 constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
-this.x= new AnimatedNoBase(0);
+this.x= new XAxis(0);
 this.y = new AnimatedNoBase(0);
 this.y.setValue(0);
-//---flags 
+//---flags--//--\\ 
 this.selected = false;
 this.visible = true;
 //--shadow
@@ -42,9 +37,7 @@ this.shadowOffsetY = 0;
 this.shadowBlur = 0;
 //-----------
 this.colorBoundingRectangle = "black";
-//---Alignment
-this.xAlignment = XAlignment.Left;
-this.yAlignment = YAlignment.Top;
+
 }
 
 }//Props

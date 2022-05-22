@@ -1,9 +1,8 @@
-import { XAlignment } from "../design/xAlignment.js";
-import { YAlignment } from "../design/yAlignment.js";
+import XAxis from "./animation/aniNumber/XAxis.js";
 import AnimatedNoBase from "./animation/aniNumber/AnimatedNoBase.js";
 export default class BaseProps {
     constructor(compWidth, compHeight) {
-        this.x = new AnimatedNoBase(0);
+        this.x = new XAxis(0);
         this.y = new AnimatedNoBase(0);
         this.y.setValue(0);
         this.selected = false;
@@ -13,7 +12,5 @@ export default class BaseProps {
         this.shadowOffsetY = 0;
         this.shadowBlur = 0;
         this.colorBoundingRectangle = "black";
-        this.xAlignment = XAlignment.Left;
-        this.yAlignment = YAlignment.Top;
     }
 }

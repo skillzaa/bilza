@@ -8,7 +8,7 @@ export default class AnimatedNoBase {
         this.preInitIncDec = [];
         this.animations = [];
     }
-    init() {
+    init(compWidth, compHeight, canvasWidth, canvasHeight) {
         this.runSetValue();
         this.initIncDec();
         return true;
