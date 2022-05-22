@@ -59,16 +59,16 @@ init(p: Pack): boolean {
     return true;
 }
 initProps(p :Pack){
-this.p.x.init(p,this.getStartTime(),this.getEndTime(),this.duration);
-this.p.y.init(p,this.getStartTime(),this.getEndTime(),this.duration);
+this.p.x.init();
+this.p.y.init();
 }
 
 draw(p: Pack): boolean {
     return true;
 }
 update(msDelta :number,p :Pack): boolean {
-    this.p.x.update(msDelta,p);
-    this.p.y.update(msDelta,p);
+    this.p.x.update(msDelta);
+    this.p.y.update(msDelta);
 return true;    
 }
 ////////////////////////////////////////////////////////
@@ -134,9 +134,9 @@ this.insertTimeInVid = n;
 return this.insertTimeInVid;
 }
 
-moveX (from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
-this.props.x.animate(from,to,startValue,endValue);
-}
+// moveX (from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
+// this.props.x.animate(from,to,startValue,endValue);
+// }
 // moveY (from :number=0,to :number=10,startValue :number | OffScreenYOpt =0,endValue :number | OffScreenYOpt =100){
 //     const item = new MoveYItem(from,to,startValue,endValue);
 // this.moveYArray.push(item);        

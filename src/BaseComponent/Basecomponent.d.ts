@@ -32,6 +32,5 @@ export default class BaseComponent implements IComponent {
     getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
-    moveX(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
 }
 //# sourceMappingURL=Basecomponent.d.ts.map

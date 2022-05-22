@@ -4,19 +4,18 @@ import AnimatedNoBase from "../BaseComponent/animation/aniNumber/AnimatedNoBase.
 
 export default class TestComp extends Component {
     msDelta :number;  
-    xx :AnimatedNoBase;  
-    yy :AnimatedNoBase;  
+    // xx :AnimatedNoBase;  
+    // yy :AnimatedNoBase;  
     name :string;  
 constructor (name :string){ 
     super();
-    this.xx = new AnimatedNoBase(0);
-    this.yy = new AnimatedNoBase(0);
+    // this.xx = new AnimatedNoBase(0);
+    // this.yy = new AnimatedNoBase(0);
     this.name = name;
     this.msDelta = 0;
 }
 init(p: Pack): boolean {
-    this.xx.init();
-    this.yy.init();
+    super.init(p);
     return true;
 }
 width(p:Pack):number {
@@ -27,9 +26,10 @@ height(p:Pack):number {
 }
 //--move this code to base comp 
 update(msDelta: number,p :Pack): boolean {
+    super.update(msDelta,p);
     this.msDelta = msDelta;
-    this.xx.update(msDelta);
-    this.yy.update(msDelta);
+    // this.p.x.update(msDelta);
+    // this.p.y.update(msDelta);
     return true;
 }
 
@@ -37,7 +37,7 @@ draw(p:Pack):boolean{
 this.style.fontSize = 50;
 
 p.drawText( this.name + "=>" + Math.ceil(this.msDelta/1000).toString(),
-this.xx.value(),this.yy.value(),
+this.p.x.value(),this.p.y.value(),
 this.style);
 
 return true;

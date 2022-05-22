@@ -11,14 +11,9 @@ tst.duration = 60;
 // tst.xx.setValue(300);
 // tst.yy.setValue(200);
 
-tst.xx.animate(2,10,0,300);
-tst.yy.animate(2,10,0,300);
+tst.p.x.animate(2,10,0,300);
+tst.p.y.animate(2,10,0,300);
 
-// tst.moveX(2,6,0,50);
-// tst.moveX(2,8,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
-// tst.moveX(5,10,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
-// tst.moveX(10,15,tst.offScreenXOpt.XLeft,tst.offScreenXOpt.XRight);
-// tst.moveX(15,20,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
 bil.insert.append(tst,tst.duration);
 //--////////////////////////////
 bil.init();

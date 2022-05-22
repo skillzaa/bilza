@@ -31,15 +31,15 @@ export default class BaseComponent {
         return true;
     }
     initProps(p) {
-        this.p.x.init(p, this.getStartTime(), this.getEndTime(), this.duration);
-        this.p.y.init(p, this.getStartTime(), this.getEndTime(), this.duration);
+        this.p.x.init();
+        this.p.y.init();
     }
     draw(p) {
         return true;
     }
     update(msDelta, p) {
-        this.p.x.update(msDelta, p);
-        this.p.y.update(msDelta, p);
+        this.p.x.update(msDelta);
+        this.p.y.update(msDelta);
         return true;
     }
     checkCollision(x, y, p) {
@@ -75,8 +75,5 @@ export default class BaseComponent {
     setStartTime(n) {
         this.insertTimeInVid = n;
         return this.insertTimeInVid;
-    }
-    moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        this.props.x.animate(from, to, startValue, endValue);
     }
 }
