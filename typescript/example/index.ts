@@ -1,6 +1,6 @@
 import Bilza from "../Bilza.js";
 // import Bilza from "../../build/bilzaEngine_0_0_15.js";
-// import Rect from "../components/rect/rect.js";
+import Rect from "../components/rect/rect.js";
 import TestComp from "../testComp/testComp.js";
 import Grid from "../components/grid/grid.js";
 import StaticGrid from "../components/staticGrid/staticGrid.js";
@@ -8,6 +8,7 @@ import StaticGrid from "../components/staticGrid/staticGrid.js";
 let bil = new Bilza("bilza");
 
 let tst = new TestComp("New");
+// let tst = new Rect( );
 let grid = new StaticGrid();
 grid.cellWidth = 100;
 grid.flagDrawNumbers = true;
@@ -17,7 +18,7 @@ tst.duration = 15;
 // tst.p.x.setValue(100);
 // tst.p.y.setValue(50);
 
-tst.p.x.animate(0,1,0,900);
+tst.p.x.animate(2,4,0,800);
 // tst.p.y.animate(2,10,0,300);
 
 bil.insert.append(tst,tst.duration);

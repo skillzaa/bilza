@@ -41,7 +41,7 @@ this.XDIFF = this.getXDiff(this.ENDVALUE,this.STARTVALUE);
 //--D
 this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
 this.framesCounter = 0; 
-this.active = true; //chaneg 
+this.active = false; 
 //--dont Math.ceit it
 this.ADDFACTOR = this.XDIFF/this.TOTALFRAMES; 
 this._ret_val = this.STARTVALUE; //I dont care about init
@@ -49,15 +49,15 @@ this._ret_val = this.STARTVALUE; //I dont care about init
 this.SYSTEMMAXENDVALUE = 3000;
 this.SYSTEMMINSTARTVALUE = -1000;
 }
-
+ 
 update(msDelta :number):boolean{
-// if (this.active == false){
-//     if (msDelta > (this.FROM) && msDelta <= (this.TO)  ){
-//     this.active = true;
-//     }else {
-//         return false;
-//     }    
-// }
+if (this.active == false){
+    if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)  ){
+    this.active = true;
+    }else {
+        return false;
+    }    
+}
 //-----------------------------------
 if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
     const rezult = Math.ceil(this.ADDFACTOR *  this.framesCounter);
@@ -85,10 +85,9 @@ value():number | null{
 
 
 private getTimeLapsed(msDelta :number):number{
-    if (msDelta > this.TO){throw new Error("getTimeLapsed error: msDelta can not be bigger than To value");}
+    // if (msDelta > this.TO){throw new Error("getTimeLapsed error: msDelta can not be bigger than To value");}
     return Math.ceil(msDelta - this.FROM);
 }
-
 private getFrom(from :number, to :number):number{
 if (from < 0 ){throw new Error("from can not be smaller than zero");}
 if (from >= to ){throw new Error("from can not be smaller than zero");}
@@ -119,4 +118,5 @@ r = endValue - startValue;
         throw new Error("failed to getXDiff");
     }
 }
+
 } 

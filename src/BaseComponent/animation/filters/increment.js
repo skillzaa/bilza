@@ -8,13 +8,21 @@ export default class Increment {
         this.XDIFF = this.getXDiff(this.ENDVALUE, this.STARTVALUE);
         this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
         this.framesCounter = 0;
-        this.active = true;
+        this.active = false;
         this.ADDFACTOR = this.XDIFF / this.TOTALFRAMES;
         this._ret_val = this.STARTVALUE;
         this.SYSTEMMAXENDVALUE = 3000;
         this.SYSTEMMINSTARTVALUE = -1000;
     }
     update(msDelta) {
+        if (this.active == false) {
+            if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)) {
+                this.active = true;
+            }
+            else {
+                return false;
+            }
+        }
         if (this.active == true && (this.framesCounter <= this.TOTALFRAMES)) {
             const rezult = Math.ceil(this.ADDFACTOR * this.framesCounter);
             this.framesCounter += 1;
@@ -36,9 +44,6 @@ export default class Increment {
         return this._ret_val;
     }
     getTimeLapsed(msDelta) {
-        if (msDelta > this.TO) {
-            throw new Error("getTimeLapsed error: msDelta can not be bigger than To value");
-        }
         return Math.ceil(msDelta - this.FROM);
     }
     getFrom(from, to) {
