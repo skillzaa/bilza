@@ -3,13 +3,11 @@ export default class Increment {
     private readonly TO;
     private readonly STARTVALUE;
     private readonly ENDVALUE;
-    private readonly TOTALFRAMES;
-    private framesCounter;
-    private ADDFACTOR;
-    private active;
+    private readonly DELAYFACTOR;
+    private delayCounter;
     private readonly SYSTEMMAXENDVALUE;
     private readonly SYSTEMMINSTARTVALUE;
-    private readonly TIMEDIFFSEC;
+    private readonly TIMEDIFF;
     private readonly XDIFF;
     private _ret_val;
     constructor(from: number, to: number, startValue: number, endValue: number);
@@ -19,6 +17,7 @@ export default class Increment {
     private getFrom;
     private getTo;
     private getEndValue;
+    private getDelayFactor;
     private getXDiff;
 }
-//# sourceMappingURL=increment.d.ts.map
+//# sourceMappingURL=incrementTimeBased.d.ts.map

@@ -2,33 +2,30 @@ export default class Increment {
     constructor(from, to, startValue, endValue) {
         this.FROM = this.getFrom(from, to);
         this.TO = this.getTo(from, to);
-        this.TIMEDIFFSEC = Math.ceil(this.TO - this.FROM);
         this.STARTVALUE = Math.ceil(startValue);
         this.ENDVALUE = this.getEndValue(endValue, startValue);
+        this.TIMEDIFF = Math.ceil(this.TO - this.FROM);
         this.XDIFF = this.getXDiff(this.ENDVALUE, this.STARTVALUE);
-        this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
-        this.framesCounter = 0;
-        this.active = true;
-        this.ADDFACTOR = this.XDIFF / this.TOTALFRAMES;
+        this.DELAYFACTOR = this.getDelayFactor(this.TIMEDIFF, this.XDIFF);
+        this.delayCounter = 0;
         this._ret_val = this.STARTVALUE;
         this.SYSTEMMAXENDVALUE = 3000;
         this.SYSTEMMINSTARTVALUE = -1000;
     }
     update(msDelta) {
-        if (this.active == true && (this.framesCounter <= this.TOTALFRAMES)) {
-            const rezult = Math.ceil(this.ADDFACTOR * this.framesCounter);
-            this.framesCounter += 1;
+        if (msDelta > (this.FROM) && msDelta <= (this.TO)) {
+            const timeLapsed = this.getTimeLapsed(msDelta);
+            const factor = Math.ceil(timeLapsed / this.DELAYFACTOR);
             if (this.STARTVALUE > 0) {
-                this._ret_val = Math.abs(this.STARTVALUE + rezult);
+                this._ret_val = Math.abs(this.STARTVALUE + factor);
             }
             else {
-                this._ret_val = this.STARTVALUE + rezult;
+                this._ret_val = this.STARTVALUE + factor;
             }
             return true;
         }
         else {
             this._ret_val = null;
-            this.active = false;
             return false;
         }
     }
@@ -48,7 +45,8 @@ export default class Increment {
         if (from >= to) {
             throw new Error("from can not be smaller than zero");
         }
-        return from;
+        let r = Math.ceil(from * 1000);
+        return r;
     }
     getTo(from, to) {
         if (from >= to) {
@@ -57,7 +55,8 @@ export default class Increment {
         if (to < 1) {
             throw new Error("To can not be smaller than One");
         }
-        return to;
+        let r = Math.ceil(to * 1000);
+        return r;
     }
     getEndValue(endValue, startValue) {
         if (endValue > this.SYSTEMMAXENDVALUE) {
@@ -67,6 +66,9 @@ export default class Increment {
             throw new Error("endValue can not be negative");
         }
         return (Math.ceil(endValue));
+    }
+    getDelayFactor(timeDiff, xDiff) {
+        return Math.ceil(timeDiff / xDiff);
     }
     getXDiff(endValue, startValue) {
         let r = null;

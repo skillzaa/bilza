@@ -17,7 +17,7 @@ tst.duration = 15;
 // tst.p.x.setValue(100);
 // tst.p.y.setValue(50);
 
-tst.p.x.animate(2,10,0,900);
+tst.p.x.animate(0,10,0,900);
 // tst.p.y.animate(2,10,0,300);
 
 bil.insert.append(tst,tst.duration);
