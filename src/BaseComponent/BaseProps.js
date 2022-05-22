@@ -4,11 +4,10 @@ export default class BaseProps {
     constructor(compWidth, compHeight) {
         this.x = new XAxis(0);
         this.y = new AnimatedNoBase(0);
-        this.y.setValue(0);
-        this.widthDyn = 10;
+        this.widthDyn = new AnimatedNoBase(10);
         this.heightDyn = 10;
-        this.widthPix = null;
-        this.heightPix = null;
+        this.canvasWidth = null;
+        this.canvasHeight = null;
         this.selected = false;
         this.visible = true;
         this.shadowColor = "grey";

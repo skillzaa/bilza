@@ -1,6 +1,5 @@
-import { OffScreenXOpt } from "../../OffScreenXOpt.js";
 
-export default class preInitIncDec {
+export default class PreInitIncDec {
 from :number;
 to :number;
 startValue :number;

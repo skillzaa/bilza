@@ -10,11 +10,11 @@ x :XAxis;
 y :AnimatedNoBase;
 colorBoundingRectangle:string;
 
-widthDyn :number;    
+widthDyn :AnimatedNoBase;    
 heightDyn :number;    
 
-widthPix :number | null;    
-heightPix :number | null;    
+canvasWidth :number | null;    
+canvasHeight :number | null;    
 
 //-------------shadow-------------------------//    
 // shadowDisplay :boolean; //show or not -- this is abstraction
@@ -33,12 +33,12 @@ selected :boolean;
 constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
 this.x= new XAxis(0);
 this.y = new AnimatedNoBase(0);
-this.y.setValue(0);
+// this.y.setValue(0);
 
-this.widthDyn = 10;    
+this.widthDyn = new AnimatedNoBase(10);    
 this.heightDyn =10;    
-this.widthPix = null;    
-this.heightPix = null;    
+this.canvasWidth = null;    
+this.canvasHeight = null;    
 
 //---flags--//--\\ 
 this.selected = false;

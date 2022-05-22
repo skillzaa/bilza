@@ -6,7 +6,7 @@ export default class AnimatedNoBase {
     constructor(defaultValue = 0) {
         this._ret_value = defaultValue;
         this._set_value = null;
-        this.preInitIncDec = [];
+        this.preInitIncDecArray = [];
         this.animations = [];
         this.compWidth = null;
         this.compHeight = null;
@@ -36,11 +36,11 @@ export default class AnimatedNoBase {
     }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDec(from, to, startValue, endValue);
-        this.preInitIncDec.push(a);
+        this.preInitIncDecArray.push(a);
     }
     initIncDec() {
-        for (let i = 0; i < this.preInitIncDec.length; i++) {
-            const elm = this.preInitIncDec[i];
+        for (let i = 0; i < this.preInitIncDecArray.length; i++) {
+            const elm = this.preInitIncDecArray[i];
             if (elm.startValue < elm.endValue) {
                 let c = new Increment(elm.from, elm.to, elm.startValue, elm.endValue);
                 this.animations.push(c);
@@ -64,6 +64,7 @@ export default class AnimatedNoBase {
             let v = ani.value();
             if (v != null) {
                 this._ret_value = v;
+                console.log("msDelta", msDelta, "value", this._ret_value);
             }
         }
     }

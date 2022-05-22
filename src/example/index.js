@@ -1,15 +1,9 @@
 import Bilza from "../Bilza.js";
 import Rect from "../components/rect/rect.js";
-import StaticGrid from "../components/staticGrid/staticGrid.js";
 let bil = new Bilza("bilza");
 let tst = new Rect();
-let grid = new StaticGrid();
-grid.cellWidth = 100;
-grid.flagDrawNumbers = true;
-grid.fontSize = 25;
 tst.duration = 600;
-tst.p.x.animate(2, 4, 0, 500);
+tst.p.widthDyn.animate(2, 4, 0, 200);
 bil.insert.append(tst, tst.duration);
-bil.insert.alwaysOn(grid);
 bil.init();
 bil.start();

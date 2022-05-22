@@ -1,7 +1,7 @@
 export default class AnimatedNoBase {
     private _ret_value;
     private _set_value;
-    private preInitIncDec;
+    private preInitIncDecArray;
     private animations;
     protected compWidth: null | (() => number);
     protected compHeight: null | (() => number);

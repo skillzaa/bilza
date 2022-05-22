@@ -1,4 +1,4 @@
-export default class preInitIncDec {
+export default class PreInitIncDec {
     constructor(from = 0, to = 10, startValue, endValue) {
         this.from = from;
         this.to = to;

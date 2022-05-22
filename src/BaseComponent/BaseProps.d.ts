@@ -5,10 +5,10 @@ export default class BaseProps {
     x: XAxis;
     y: AnimatedNoBase;
     colorBoundingRectangle: string;
-    widthDyn: number;
+    widthDyn: AnimatedNoBase;
     heightDyn: number;
-    widthPix: number | null;
-    heightPix: number | null;
+    canvasWidth: number | null;
+    canvasHeight: number | null;
     shadowColor: string;
     shadowOffsetX: number;
     shadowOffsetY: number;

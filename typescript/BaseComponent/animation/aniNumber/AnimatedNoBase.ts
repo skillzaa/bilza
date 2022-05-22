@@ -13,7 +13,7 @@ export default class AnimatedNoBase {
     private _ret_value :number;
     //_set_value can be null since it is applied during update only if its not null and then set to null back again-thus is used once.
     private _set_value :number | null;
-    private preInitIncDec :PreInitIncDec[];
+    private preInitIncDecArray :PreInitIncDec[];
     private animations :IFilter[];
     //------------------
     //--the component width and height can change without init dynamically so we need fn to get updated value but for canvasWidth or canvasHeight 
@@ -26,7 +26,7 @@ constructor(defaultValue :number=0){
     // place 1/3 to set this._ret_value
     this._ret_value  = defaultValue; 
     this._set_value  = null;    
-    this.preInitIncDec = [];
+    this.preInitIncDecArray = [];
     this.animations = [];
     //--
     this.compWidth = null;
@@ -67,13 +67,13 @@ return this._set_value;
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
 public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
     let a = new PreInitIncDec(from,to,startValue,endValue);
-    this.preInitIncDec.push(a);
+    this.preInitIncDecArray.push(a);
 }
 ////////////////----------PRIVATE----  
-//-THis fn converts all the  preInitIncDec commands into inc dec objects during init
+//-THis fn converts all the  preInitIncDecArray commands into inc dec objects during init
 private initIncDec(){
-    for (let i = 0; i < this.preInitIncDec.length; i++) {
-        const elm = this.preInitIncDec[i];
+    for (let i = 0; i < this.preInitIncDecArray.length; i++) {
+        const elm = this.preInitIncDecArray[i];
 
         if (elm.startValue < elm.endValue ){
             let c = new Increment(elm.from,elm.to,elm.startValue,elm.endValue);
@@ -102,7 +102,7 @@ private runAnimations(msDelta :number){
         if ( v != null){
             //--place 3 of 3 where _ret_value is changed
             this._ret_value = v;
-            // console.log("msDelta",msDelta,"value",this._ret_value);
+            console.log("msDelta",msDelta,"value",this._ret_value);
         }
 } 
 }

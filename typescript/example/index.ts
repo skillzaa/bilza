@@ -9,20 +9,22 @@ let bil = new Bilza("bilza");
 
 // let tst = new TestComp("New");
 let tst = new Rect( );
-let grid = new StaticGrid();
-grid.cellWidth = 100;
-grid.flagDrawNumbers = true;
-grid.fontSize = 25;
 tst.duration = 600;
+
+// let grid = new StaticGrid();
+// grid.cellWidth = 100;
+// grid.flagDrawNumbers = true;
+// grid.fontSize = 25;
 
 // tst.p.x.setValue(100);
 // tst.p.y.setValue(50);
 
-tst.p.x.animate(2,4,0,500);
+// tst.p.x.animate(2,4,0,500);
+tst.p.widthDyn.animate(2,4,0,200);
 // tst.p.y.animate(2,10,0,300);
 
 bil.insert.append(tst,tst.duration);
-bil.insert.alwaysOn(grid);
+// bil.insert.alwaysOn(grid);
 //--////////////////////////////
 bil.init();
 bil.start();
