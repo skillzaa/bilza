@@ -1,21 +1,19 @@
 import Bilza from "../Bilza.js";
 // import Bilza from "../../build/bilzaEngine_0_0_15.js";
-import Rect from "../components/rect/rect.js";
+// import Rect from "../components/rect/rect.js";
 import TestComp from "../testComp/testComp.js";
 
 let bil = new Bilza("bilza");
-//---------------------------------
 
-// let tst  = new TestComp("ok");
-let tst = new Rect();
-
+let tst = new TestComp("New");
 tst.duration = 60;
-tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
 
-tst.p.x.setValue(30);
-tst.p.y.setValue(20);
-tst.p.x.animate(2,10,0,300);
-tst.p.y.animate(2,10,0,300);
+// tst.xx.setValue(300);
+// tst.yy.setValue(200);
+
+tst.xx.animate(2,10,0,300);
+tst.yy.animate(2,10,0,300);
+
 // tst.moveX(2,6,0,50);
 // tst.moveX(2,8,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
 // tst.moveX(5,10,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);

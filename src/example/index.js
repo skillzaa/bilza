@@ -1,13 +1,10 @@
 import Bilza from "../Bilza.js";
-import Rect from "../components/rect/rect.js";
+import TestComp from "../testComp/testComp.js";
 let bil = new Bilza("bilza");
-let tst = new Rect();
+let tst = new TestComp("New");
 tst.duration = 60;
-tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
-tst.p.x.setValue(30);
-tst.p.y.setValue(20);
-tst.p.x.animate(2, 10, 0, 300);
-tst.p.y.animate(2, 10, 0, 300);
+tst.xx.animate(2, 10, 0, 300);
+tst.yy.animate(2, 10, 0, 300);
 bil.insert.append(tst, tst.duration);
 bil.init();
 bil.start();
