@@ -1,5 +1,5 @@
 import { Pack } from "../../Bilza.js";
-import Basecomponent from "../../BaseComponent/Basecomponent.js";
+import Basecomponent from "../../BaseComponent/BaseComponent.js";
 export default class Grid extends Basecomponent {
     lineDash: number[];
     cellWidthPerc: number;

@@ -5,6 +5,10 @@ export default class BaseProps {
         this.x = new XAxis(0);
         this.y = new AnimatedNoBase(0);
         this.y.setValue(0);
+        this.widthDyn = 10;
+        this.heightDyn = 10;
+        this.widthPix = null;
+        this.heightPix = null;
         this.selected = false;
         this.visible = true;
         this.shadowColor = "grey";

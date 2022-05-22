@@ -1,12 +1,10 @@
 import { Pack } from "../Bilza.js";
-import Component from "../BaseComponent/Basecomponent.js";
+import Component from "../BaseComponent/BaseComponent.js";
 export default class TestComp extends Component {
     msDelta: number;
     name: string;
     constructor(name: string);
     init(p: Pack): boolean;
-    width(p: Pack): number;
-    height(p: Pack): number;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
 }

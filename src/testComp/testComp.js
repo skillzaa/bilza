@@ -1,4 +1,4 @@
-import Component from "../BaseComponent/Basecomponent.js";
+import Component from "../BaseComponent/BaseComponent.js";
 export default class TestComp extends Component {
     constructor(name) {
         super();
@@ -8,12 +8,6 @@ export default class TestComp extends Component {
     init(p) {
         super.init(p);
         return true;
-    }
-    width(p) {
-        return 200;
-    }
-    height(p) {
-        return 100;
     }
     update(msDelta, p) {
         super.update(msDelta, p);

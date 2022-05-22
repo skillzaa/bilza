@@ -1,5 +1,5 @@
 import {Pack} from "../../Bilza.js";
-import BaseComponent from "../../BaseComponent/Basecomponent.js";
+import BaseComponent from "../../BaseComponent/BaseComponent.js";
 
 
 export default class Rect extends BaseComponent {
@@ -15,14 +15,6 @@ constructor (){
     this.dynHeight = 20;
 }
 
-width(p:Pack):number {
-return  ((p.canvasWidth() /100) * this.dynWidth );    
-    // return this.d.width;
-}
-height(p:Pack):number {
-return  ((p.canvasHeight() /100) * this.dynHeight);    
-}
-
 
 draw(p:Pack):boolean{
 this.style.fillStyle = this.color;    
@@ -35,8 +27,8 @@ let newX = (this.p.x.value()) + borderWidthHalf ;
    p.drawRect(
     this.props.x.value(),
     this.props.y.value(),
-    this.width(p),
-    this.height(p),
+    this.width(),
+    this.height(),
     this.style
     );
 return true;

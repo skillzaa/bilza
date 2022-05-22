@@ -20,19 +20,31 @@ export default class BaseComponent {
         ;
         this.p = this.props;
     }
-    width(p) {
-        return 100;
+    width() {
+        if (this.p.widthPix !== null) {
+            return this.p.widthPix;
+        }
+        else {
+            throw new Error("the component is not initialized yet");
+        }
     }
-    height(p) {
-        return 100;
+    height() {
+        if (this.p.heightPix !== null) {
+            return this.p.heightPix;
+        }
+        else {
+            throw new Error("the component is not initialized yet");
+        }
     }
     init(p) {
+        this.p.widthPix = Math.ceil((p.canvasWidth() / 100) * this.p.widthDyn);
+        this.p.heightPix = Math.ceil((p.canvasHeight() / 100) * this.p.heightDyn);
         this.initProps(p);
         return true;
     }
     initProps(p) {
-        this.p.x.init(this.width(p), this.height(p), p.canvasWidth(), p.canvasHeight());
-        this.p.y.init(this.width(p), this.height(p), p.canvasWidth(), p.canvasHeight());
+        this.p.x.init(this.width(), this.height(), p.canvasWidth(), p.canvasHeight());
+        this.p.y.init(this.width(), this.height(), p.canvasWidth(), p.canvasHeight());
     }
     draw(p) {
         return true;

@@ -46,21 +46,33 @@ this.props = new BaseProps(this.width.bind(this),this.height.bind(this));;
 this.p = this.props;
 }
 
-width(p: Pack): number {
-    return 100;
+width(): number {
+    if (this.p.widthPix !== null ){
+        return this.p.widthPix ;
+    }else {
+        throw new Error("the component is not initialized yet");        
+    }
 }
-height(p: Pack): number {
-    return 100;
+height(): number {
+    if (this.p.heightPix !== null){
+        return this.p.heightPix ;
+    }else {
+        throw new Error("the component is not initialized yet");        
+    }
 }
+
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {
+//--- now i have width in pix when app is init and width in percentage when not init    
+this.p.widthPix =   Math.ceil((p.canvasWidth()/100)*this.p.widthDyn);  
+this.p.heightPix =   Math.ceil((p.canvasHeight()/100)*this.p.heightDyn);      
     this.initProps(p);//--Always
     // this.initMoveYArray(p);      
     return true;
 }
 initProps(p :Pack){
-this.p.x.init(this.width(p),this.height(p),p.canvasWidth(),p.canvasHeight());
-this.p.y.init(this.width(p),this.height(p),p.canvasWidth(),p.canvasHeight());
+this.p.x.init(this.width( ),this.height( ),p.canvasWidth(),p.canvasHeight());
+this.p.y.init(this.width( ),this.height( ),p.canvasWidth(),p.canvasHeight());
 }
 
 draw(p: Pack): boolean {

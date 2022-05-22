@@ -1,5 +1,5 @@
 import { Pack } from "../../Bilza.js";
-import BaseComponent from "../../BaseComponent/Basecomponent.js";
+import BaseComponent from "../../BaseComponent/BaseComponent.js";
 export default class StaticGrid extends BaseComponent {
     cellWidth: number;
     cellHeight: number;

@@ -18,8 +18,8 @@ export default class BaseComponent implements IComponent {
     private insertTimeInVid;
     alwaysOn: boolean;
     constructor();
-    width(p: Pack): number;
-    height(p: Pack): number;
+    width(): number;
+    height(): number;
     init(p: Pack): boolean;
     initProps(p: Pack): void;
     draw(p: Pack): boolean;
@@ -33,4 +33,4 @@ export default class BaseComponent implements IComponent {
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
 }
-//# sourceMappingURL=Basecomponent.d.ts.map
+//# sourceMappingURL=BaseComponent.d.ts.map

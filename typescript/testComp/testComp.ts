@@ -1,5 +1,5 @@
 import {Pack} from "../Bilza.js";
-import Component from "../BaseComponent/Basecomponent.js";
+import Component from "../BaseComponent/BaseComponent.js";
 import AnimatedNoBase from "../BaseComponent/animation/aniNumber/AnimatedNoBase.js";
 
 export default class TestComp extends Component {
@@ -18,12 +18,7 @@ init(p: Pack): boolean {
     super.init(p);
     return true;
 }
-width(p:Pack):number {
-return  200;    
-}
-height(p:Pack):number {
-    return  100;
-}
+
 //--move this code to base comp 
 update(msDelta: number,p :Pack): boolean {
     super.update(msDelta,p);

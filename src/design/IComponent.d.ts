@@ -3,8 +3,6 @@ import { DrawLayer } from "../design/drawLayer.js";
 export default interface IComponent {
     drawLayer: DrawLayer;
     alwaysOn: boolean;
-    width(p: Pack): number;
-    height(p: Pack): number;
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
