@@ -7,7 +7,7 @@ let grid = new StaticGrid();
 grid.cellWidth = 100;
 grid.flagDrawNumbers = true;
 grid.fontSize = 25;
-tst.duration = 15;
+tst.duration = 600;
 tst.p.x.animate(2, 4, 0, 500);
 bil.insert.append(tst, tst.duration);
 bil.insert.alwaysOn(grid);

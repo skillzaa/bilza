@@ -13,7 +13,7 @@ let grid = new StaticGrid();
 grid.cellWidth = 100;
 grid.flagDrawNumbers = true;
 grid.fontSize = 25;
-tst.duration = 15;
+tst.duration = 600;
 
 // tst.p.x.setValue(100);
 // tst.p.y.setValue(50);

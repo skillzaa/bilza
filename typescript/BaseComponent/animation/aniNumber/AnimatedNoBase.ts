@@ -16,8 +16,9 @@ export default class AnimatedNoBase {
     private preInitIncDec :PreInitIncDec[];
     private animations :IFilter[];
     //------------------
-    protected compWidth    :number | null;
-    protected compHeight   :number | null;
+    //--the component width and height can change without init dynamically so we need fn to get updated value but for canvasWidth or canvasHeight 
+    protected compWidth    : null | (()=>number) ;
+    protected compHeight   : null | (()=>number) ;
     protected canvasWidth  :number | null; 
     protected canvasHeight :number | null;
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
@@ -34,7 +35,7 @@ constructor(defaultValue :number=0){
     this.canvasHeight = null;
 }
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
-init(compWidth :number,compHeight :number,canvasWidth :number, canvasHeight :number): boolean {
+init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHeight :number): boolean {
     this.compWidth = compWidth;
     this.compHeight = compHeight;
     this.canvasWidth = canvasWidth;
@@ -101,7 +102,7 @@ private runAnimations(msDelta :number){
         if ( v != null){
             //--place 3 of 3 where _ret_value is changed
             this._ret_value = v;
-            console.log("msDelta",msDelta,"value",this._ret_value);
+            // console.log("msDelta",msDelta,"value",this._ret_value);
         }
 } 
 }

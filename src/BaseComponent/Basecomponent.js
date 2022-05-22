@@ -43,8 +43,8 @@ export default class BaseComponent {
         return true;
     }
     initProps(p) {
-        this.p.x.init(this.width(), this.height(), p.canvasWidth(), p.canvasHeight());
-        this.p.y.init(this.width(), this.height(), p.canvasWidth(), p.canvasHeight());
+        this.p.x.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
+        this.p.y.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
     }
     draw(p) {
         return true;

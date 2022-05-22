@@ -3,12 +3,12 @@ export default class AnimatedNoBase {
     private _set_value;
     private preInitIncDec;
     private animations;
-    protected compWidth: number | null;
-    protected compHeight: number | null;
+    protected compWidth: null | (() => number);
+    protected compHeight: null | (() => number);
     protected canvasWidth: number | null;
     protected canvasHeight: number | null;
     constructor(defaultValue?: number);
-    init(compWidth: number, compHeight: number, canvasWidth: number, canvasHeight: number): boolean;
+    init(compWidth: () => number, compHeight: () => number, canvasWidth: number, canvasHeight: number): boolean;
     update(msDelta: number): boolean;
     value(): number;
     setValue(n: number): number;

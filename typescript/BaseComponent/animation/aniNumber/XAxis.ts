@@ -29,10 +29,10 @@ if (typeof value == "number"){
     let r = 0;
 switch (value) {
     case OffScreenXOpt.XLeft:
-        r = -1 * (this.compWidth);
+        r = -1 * (this.compWidth());
         break;
     case OffScreenXOpt.XRight:
-        r = this.xPercToPix(100) + this.compWidth;
+        r = this.xPercToPix(100) + this.compWidth();
         break;
     default:
         break;
@@ -61,10 +61,10 @@ switch (this.xAlign) {
     case this.xAlignmentOptions.Left:
         break;
     case this.xAlignmentOptions.Mid:
-         x = Math.floor(x - ((this.compWidth/2)));
+         x = Math.floor(x - ((this.compWidth()/2)));
         break;
     case this.xAlignmentOptions.Right:
-        Math.floor(x - (this.compWidth));
+        Math.floor(x - (this.compWidth()));
         break;
 }
 return x ;

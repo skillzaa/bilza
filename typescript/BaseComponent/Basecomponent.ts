@@ -71,8 +71,8 @@ this.p.heightPix =   Math.ceil((p.canvasHeight()/100)*this.p.heightDyn);
     return true;
 }
 initProps(p :Pack){
-this.p.x.init(this.width( ),this.height( ),p.canvasWidth(),p.canvasHeight());
-this.p.y.init(this.width( ),this.height( ),p.canvasWidth(),p.canvasHeight());
+this.p.x.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+this.p.y.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 }
 
 draw(p: Pack): boolean {
