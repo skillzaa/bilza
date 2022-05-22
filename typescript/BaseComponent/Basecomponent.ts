@@ -135,7 +135,7 @@ return this.insertTimeInVid;
 }
 
 moveX (from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
-this.props.x.moveX(from,to,startValue,endValue);
+this.props.x.animate(from,to,startValue,endValue);
 }
 // moveY (from :number=0,to :number=10,startValue :number | OffScreenYOpt =0,endValue :number | OffScreenYOpt =100){
 //     const item = new MoveYItem(from,to,startValue,endValue);

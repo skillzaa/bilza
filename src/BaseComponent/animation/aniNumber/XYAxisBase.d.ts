@@ -23,4 +23,4 @@ export default class XAxis implements IAnimatedNo {
     private adjestXAlign;
     private checkNonNull;
 }
-//# sourceMappingURL=XAxis.d.ts.map
+//# sourceMappingURL=XYAxisBase.d.ts.map

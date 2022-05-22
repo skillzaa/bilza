@@ -2,9 +2,8 @@ import { OffScreenXOpt } from "../../OffScreenXOpt.js";
 import MoveXItem from "./moveXItem.js";
 import {XAlignment} from "../../../design/xAlignment.js";
 
-// import IFilter from "./IFilter.js";
+
 import IAnimatedNo from "./IAnimatedNo.js";
-// import Adder from "./adder.js";
 import { Pack } from "../../../Bilza.js";
 import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
@@ -103,7 +102,7 @@ public setValue(n :number):number{
 this._set_value = n;
 return this._set_value;
 }
-public moveX(from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
+public animate(from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
 let a = new MoveXItem(from,to,startValue,endValue);
 this.preInitMoves.push(a);
 }

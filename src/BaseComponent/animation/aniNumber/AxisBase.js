@@ -3,7 +3,7 @@ import MoveXItem from "./moveXItem.js";
 import { XAlignment } from "../../../design/xAlignment.js";
 import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
-export default class XAxis {
+export default class AxisBase {
     constructor(compWidth, compHeight) {
         this.xAlignmentOptions = XAlignment;
         this._ret_value = null;
@@ -75,7 +75,7 @@ export default class XAxis {
         this._set_value = n;
         return this._set_value;
     }
-    animate(from = 0, to = 10, startValue = 0, endValue = 100) {
+    moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new MoveXItem(from, to, startValue, endValue);
         this.preInitMoves.push(a);
     }

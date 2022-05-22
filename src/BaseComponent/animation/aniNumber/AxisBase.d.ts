@@ -2,7 +2,7 @@ import { OffScreenXOpt } from "../../OffScreenXOpt.js";
 import { XAlignment } from "../../../design/xAlignment.js";
 import IAnimatedNo from "./IAnimatedNo.js";
 import { Pack } from "../../../Bilza.js";
-export default class XAxis implements IAnimatedNo {
+export default class AxisBase implements IAnimatedNo {
     readonly xAlignmentOptions: typeof XAlignment;
     xAlign: XAlignment;
     private _ret_value;
@@ -18,9 +18,9 @@ export default class XAxis implements IAnimatedNo {
     update(msDelta: number, p: Pack): boolean;
     notInitError(): void;
     setValue(n: number): number;
-    animate(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
+    moveX(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
     value(): number;
     private adjestXAlign;
     private checkNonNull;
 }
-//# sourceMappingURL=XAxis.d.ts.map
+//# sourceMappingURL=AxisBase.d.ts.map

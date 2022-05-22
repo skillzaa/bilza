@@ -77,6 +77,6 @@ export default class BaseComponent {
         return this.insertTimeInVid;
     }
     moveX(from = 0, to = 10, startValue = 0, endValue = 100) {
-        this.props.x.moveX(from, to, startValue, endValue);
+        this.props.x.animate(from, to, startValue, endValue);
     }
 }

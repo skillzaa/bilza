@@ -6,6 +6,7 @@ tst.duration = 60;
 tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
 tst.p.x.setValue(30);
 tst.p.y.setValue(20);
+tst.p.x.animate(2, 10, 0, 300);
 tst.p.y.animate(2, 10, 0, 300);
 bil.insert.append(tst, tst.duration);
 bil.init();

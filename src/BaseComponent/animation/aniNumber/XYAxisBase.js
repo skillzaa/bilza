@@ -1,11 +1,7 @@
-import { OffScreenXOpt } from "../../OffScreenXOpt.js";
-import MoveXItem from "./moveXItem.js";
-import { XAlignment } from "../../../design/xAlignment.js";
 import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
 export default class XAxis {
     constructor(compWidth, compHeight) {
-        this.xAlignmentOptions = XAlignment;
         this._ret_value = null;
         this._set_value = null;
         this.compWidth = compWidth;

@@ -14,6 +14,7 @@ tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
 
 tst.p.x.setValue(30);
 tst.p.y.setValue(20);
+tst.p.x.animate(2,10,0,300);
 tst.p.y.animate(2,10,0,300);
 // tst.moveX(2,6,0,50);
 // tst.moveX(2,8,tst.offScreenXOpt.XRight,tst.offScreenXOpt.XLeft);
