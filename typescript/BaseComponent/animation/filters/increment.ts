@@ -55,6 +55,9 @@ update(msDelta :number):boolean{
             }else {
                 //since this.STARTVALUE is -ve so + will have -ve effect
                 this._ret_val = this.STARTVALUE + factor;
+                // if (this._ret_val >= 740){
+                //     debugger;
+                // }
             }    
          
         return true;

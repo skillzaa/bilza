@@ -87,6 +87,7 @@ private runAnimations(msDelta :number){
         if ( v != null){
             //--place 3 of 3 where _ret_value is changed
             this._ret_value = v;
+            console.log("msDelta",msDelta,"value",this._ret_value);
         }
 } 
 }

@@ -55,6 +55,7 @@ export default class AnimatedNoBase {
             let v = ani.value();
             if (v != null) {
                 this._ret_value = v;
+                console.log("msDelta", msDelta, "value", this._ret_value);
             }
         }
     }

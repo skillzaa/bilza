@@ -12,12 +12,12 @@ let grid = new StaticGrid();
 grid.cellWidth = 100;
 grid.flagDrawNumbers = true;
 grid.fontSize = 25;
-tst.duration = 60;
+tst.duration = 15;
 
-// tst.xx.setValue(300);
-// tst.yy.setValue(200);
+// tst.p.x.setValue(100);
+// tst.p.y.setValue(50);
 
-tst.p.x.animate(2,10,0,600);
+tst.p.x.animate(2,10,0,900);
 // tst.p.y.animate(2,10,0,300);
 
 bil.insert.append(tst,tst.duration);
