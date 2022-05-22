@@ -3,10 +3,10 @@ import { XAlignment } from "../../../design/xAlignment.js";
 export default class XAxis extends AnimatedNoBase {
     readonly xAlignmentOptions: typeof XAlignment;
     xAlign: XAlignment;
-    private compWidth;
-    private compHeight;
     constructor(defaultValue: number);
-    init(compWidth: number, compHeight: number, canvasWidth: number, canvasHeight: number): boolean;
+    private translateOffScreen;
     update(msDelta: number): boolean;
+    value(): number;
+    private adjestAlign;
 }
 //# sourceMappingURL=XAxis.d.ts.map

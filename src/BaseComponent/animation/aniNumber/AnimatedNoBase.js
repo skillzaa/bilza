@@ -1,14 +1,23 @@
 import PreInitIncDec from "./preInitIncDec.js";
 import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
+import setBWzeroNhundred from "../../../functions/setBWzeroNhundred.js";
 export default class AnimatedNoBase {
     constructor(defaultValue = 0) {
         this._ret_value = defaultValue;
         this._set_value = null;
         this.preInitIncDec = [];
         this.animations = [];
+        this.compWidth = null;
+        this.compHeight = null;
+        this.canvasWidth = null;
+        this.canvasHeight = null;
     }
     init(compWidth, compHeight, canvasWidth, canvasHeight) {
+        this.compWidth = compWidth;
+        this.compHeight = compHeight;
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
         this.runSetValue();
         this.initIncDec();
         return true;
@@ -69,6 +78,28 @@ export default class AnimatedNoBase {
         }
         else {
             r = n;
+        }
+        return r;
+    }
+    xPercToPix(perc) {
+        let r = 0;
+        if (this.canvasWidth == null) {
+            this.notInitError();
+        }
+        else {
+            let checked = setBWzeroNhundred(perc);
+            r = Math.ceil((this.canvasWidth / 100) * checked);
+        }
+        return r;
+    }
+    yPercToPix(perc) {
+        let r = 0;
+        if (this.canvasHeight == null) {
+            this.notInitError();
+        }
+        else {
+            let checked = setBWzeroNhundred(perc);
+            r = Math.ceil((this.canvasHeight / 100) * checked);
         }
         return r;
     }

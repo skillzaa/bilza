@@ -6,7 +6,7 @@ import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
 import Constant from "../filters/constant.js";
 import IFilter from "./IFilter.js";
-
+import setBWzeroNhundred from "../../../functions/setBWzeroNhundred.js";
 // export default class AnimatedNoBase implements IAnimatedNo{
 export default class AnimatedNoBase {
     //--this is the only output from this obj and we do not want to send out null rather default vlaue in the start and later as its set
@@ -15,6 +15,11 @@ export default class AnimatedNoBase {
     private _set_value :number | null;
     private preInitIncDec :PreInitIncDec[];
     private animations :IFilter[];
+    //------------------
+    protected compWidth    :number | null;
+    protected compHeight   :number | null;
+    protected canvasWidth  :number | null; 
+    protected canvasHeight :number | null;
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 constructor(defaultValue :number=0){
     // place 1/3 to set this._ret_value
@@ -22,9 +27,18 @@ constructor(defaultValue :number=0){
     this._set_value  = null;    
     this.preInitIncDec = [];
     this.animations = [];
+    //--
+    this.compWidth = null;
+    this.compHeight = null;
+    this.canvasWidth = null;
+    this.canvasHeight = null;
 }
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 init(compWidth :number,compHeight :number,canvasWidth :number, canvasHeight :number): boolean {
+    this.compWidth = compWidth;
+    this.compHeight = compHeight;
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
     this.runSetValue();
     this.initIncDec();
     return true;
@@ -91,10 +105,10 @@ private runAnimations(msDelta :number){
         }
 } 
 }
-private notInitError(){
+protected notInitError(){
     throw new Error("XAxis is not initialized yet");
 }
-private checkNonNull(n :null | number):number{
+protected checkNonNull(n :null | number):number{
 let r = 0;    
 if (n==null){
     this.notInitError()
@@ -103,5 +117,25 @@ if (n==null){
 }
 return r;
 }
-
+protected xPercToPix(perc :number):number{
+let r = 0;
+    if (this.canvasWidth == null){
+        this.notInitError();
+    }else {
+        let checked = setBWzeroNhundred(perc);
+        r = Math.ceil((this.canvasWidth  /100) * checked); 
+    }
+return r;    
+}
+protected yPercToPix(perc :number):number{
+let r = 0;
+    if (this.canvasHeight == null){
+        this.notInitError();
+    }else {
+        let checked = setBWzeroNhundred(perc);
+        r = Math.ceil((this.canvasHeight/100) * checked); 
+    }
+return r;    
+}
+    
 } 

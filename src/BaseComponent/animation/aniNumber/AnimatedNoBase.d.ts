@@ -3,6 +3,10 @@ export default class AnimatedNoBase {
     private _set_value;
     private preInitIncDec;
     private animations;
+    protected compWidth: number | null;
+    protected compHeight: number | null;
+    protected canvasWidth: number | null;
+    protected canvasHeight: number | null;
     constructor(defaultValue?: number);
     init(compWidth: number, compHeight: number, canvasWidth: number, canvasHeight: number): boolean;
     update(msDelta: number): boolean;
@@ -12,7 +16,9 @@ export default class AnimatedNoBase {
     private initIncDec;
     private runSetValue;
     private runAnimations;
-    private notInitError;
-    private checkNonNull;
+    protected notInitError(): void;
+    protected checkNonNull(n: null | number): number;
+    protected xPercToPix(perc: number): number;
+    protected yPercToPix(perc: number): number;
 }
 //# sourceMappingURL=AnimatedNoBase.d.ts.map
