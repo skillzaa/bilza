@@ -21,9 +21,8 @@ export default class BaseComponent implements IComponent {
     width(): number;
     height(): number;
     init(p: Pack): boolean;
-    initProps(p: Pack): void;
-    draw(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
+    draw(p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;
     shadowsOff(): void;
     setShadow(shadowBlur?: number, shadowOffsetX?: number, shadowOffsetY?: number, shadowColor?: string): void;

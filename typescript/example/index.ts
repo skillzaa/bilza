@@ -16,11 +16,11 @@ tst.duration = 600;
 // grid.flagDrawNumbers = true;
 // grid.fontSize = 25;
 
-// tst.p.x.setValue(100);
+tst.p.x.setValue(500);
 // tst.p.y.setValue(50);
 
 // tst.p.x.animate(2,4,0,500);
-tst.p.widthDyn.animate(2,4,0,200);
+tst.p.widthDyn.animate(2,3,0,90);
 // tst.p.y.animate(2,10,0,300);
 
 bil.insert.append(tst,tst.duration);

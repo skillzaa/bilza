@@ -19,9 +19,9 @@ this.style.fillStyle = this.color;
 this.style.strokeStyle = this.color; 
 this.style.lineWidth = this.lineWidth;
 
-const borderWidthHalf = Math.ceil(this.lineWidth/2);
-let newX = (this.p.x.value()) + borderWidthHalf ;
-if (this.width() > 200) {debugger;}
+// const borderWidthHalf = Math.ceil(this.lineWidth/2);
+// let newX = (this.p.x.value()) + borderWidthHalf ;
+// if (this.width() > 200) {debugger;}
    p.drawRect(
     this.props.x.value(),
     this.props.y.value(),

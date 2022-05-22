@@ -39,21 +39,18 @@ export default class BaseComponent {
     init(p) {
         this.p.canvasWidth = p.canvasWidth();
         this.p.canvasHeight = p.canvasHeight();
-        this.initProps(p);
-        return true;
-    }
-    initProps(p) {
         this.p.x.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.p.y.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.p.widthDyn.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
-    }
-    draw(p) {
         return true;
     }
     update(msDelta, p) {
         this.p.x.update(msDelta);
         this.p.y.update(msDelta);
         this.p.widthDyn.update(msDelta);
+        return true;
+    }
+    draw(p) {
         return true;
     }
     checkCollision(x, y, p) {

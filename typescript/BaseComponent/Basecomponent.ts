@@ -66,25 +66,23 @@ init(p: Pack): boolean {
 //--- now i have width in pix when app is init and width in percentage when not init    
 this.p.canvasWidth =  p.canvasWidth();  
 this.p.canvasHeight =  p.canvasHeight();  
-    this.initProps(p);//--Always
-    // this.initMoveYArray(p);      
-    return true;
-}
-
-initProps(p :Pack){
 this.p.x.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 this.p.y.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 this.p.widthDyn.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
-}
 
-draw(p: Pack): boolean {
     return true;
 }
+
+
 update(msDelta :number,p :Pack): boolean {
     this.p.x.update(msDelta);
     this.p.y.update(msDelta);
     this.p.widthDyn.update(msDelta);
 return true;    
+}
+
+draw(p: Pack): boolean {
+    return true;
 }
 ////////////////////////////////////////////////////////
 checkCollision(x: number, y: number, p: Pack): boolean {
