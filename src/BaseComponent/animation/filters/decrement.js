@@ -1,32 +1,42 @@
-export default class Decrement {
-    constructor(from = 0, to = 10, startValue = 100, endValue = 0) {
+export default class Increment {
+    constructor(from, to, startValue, endValue) {
         this.FROM = this.getFrom(from, to);
         this.TO = this.getTo(from, to);
+        this.TIMEDIFFSEC = Math.ceil(this.TO - this.FROM);
         this.STARTVALUE = Math.ceil(startValue);
         this.ENDVALUE = this.getEndValue(endValue, startValue);
-        this.TIMEDIFF = Math.ceil(this.TO - this.FROM);
         this.XDIFF = this.getXDiff(this.ENDVALUE, this.STARTVALUE);
-        this.DELAYFACTOR = this.getDelayFactor(this.TIMEDIFF, this.XDIFF);
-        this.delayCounter = 0;
+        this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
+        this.framesCounter = 0;
+        this.active = false;
+        this.ADDFACTOR = this.XDIFF / this.TOTALFRAMES;
         this._ret_val = this.STARTVALUE;
-        this.SYSTEMMAXENDVALUE = 3000;
-        this.SYSTEMMINSTARTVALUE = -1000;
+        this.SYSTEMMAXVALUE = 3000;
+        this.SYSTEMMINVALUE = -1000;
     }
     update(msDelta) {
-        if (msDelta > (this.FROM) && msDelta <= (this.TO)) {
-            const timeLapsed = this.getTimeLapsed(msDelta);
-            const factor = Math.ceil(timeLapsed / this.DELAYFACTOR);
-            const factorMinus = Math.ceil(this.XDIFF - factor);
-            if (this.ENDVALUE > 0) {
-                this._ret_val = Math.abs(this.ENDVALUE + factorMinus);
+        if (this.active == false) {
+            if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)) {
+                this.active = true;
             }
             else {
-                this._ret_val = this.ENDVALUE + factorMinus;
+                return false;
+            }
+        }
+        if (this.active == true && (this.framesCounter <= this.TOTALFRAMES)) {
+            const rezult = Math.ceil(this.ADDFACTOR * this.framesCounter);
+            this.framesCounter += 1;
+            if (this.STARTVALUE >= 0) {
+                this._ret_val = Math.abs(this.STARTVALUE + rezult);
+            }
+            else {
+                this._ret_val = this.STARTVALUE + rezult;
             }
             return true;
         }
         else {
             this._ret_val = null;
+            this.active = false;
             return false;
         }
     }
@@ -34,9 +44,6 @@ export default class Decrement {
         return this._ret_val;
     }
     getTimeLapsed(msDelta) {
-        if (msDelta > this.TO) {
-            throw new Error("getTimeLapsed error: msDelta can not be bigger than To value");
-        }
         return Math.ceil(msDelta - this.FROM);
     }
     getFrom(from, to) {
@@ -46,8 +53,7 @@ export default class Decrement {
         if (from >= to) {
             throw new Error("from can not be smaller than zero");
         }
-        let r = Math.ceil(from * 1000);
-        return r;
+        return from;
     }
     getTo(from, to) {
         if (from >= to) {
@@ -56,34 +62,24 @@ export default class Decrement {
         if (to < 1) {
             throw new Error("To can not be smaller than One");
         }
-        let r = Math.ceil(to * 1000);
-        return r;
-    }
-    getStartValue(startValue, endValue) {
-        if (startValue < endValue) {
-            throw new Error("start value needs to be bigger than the end value for a decrement operation");
-        }
-        if (startValue < 0) {
-            throw new Error("startValue can not be negative");
-        }
-        return Math.ceil(startValue);
+        return to;
     }
     getEndValue(endValue, startValue) {
-        if (endValue > this.SYSTEMMAXENDVALUE) {
+        if (endValue > this.SYSTEMMAXVALUE) {
             throw new Error("endValue is too large");
+        }
+        if (endValue < 0) {
+            throw new Error("endValue can not be negative");
         }
         return (Math.ceil(endValue));
     }
-    getDelayFactor(timeDiff, xDiff) {
-        return Math.ceil(timeDiff / xDiff);
-    }
     getXDiff(endValue, startValue) {
         let r = null;
-        if (endValue > 0) {
-            r = Math.abs(startValue - endValue);
+        if (startValue > 0) {
+            r = endValue - startValue;
         }
         else {
-            r = startValue + Math.abs(endValue);
+            r = endValue + Math.abs(startValue);
         }
         if (r !== null) {
             return r;

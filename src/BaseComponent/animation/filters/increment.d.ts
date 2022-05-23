@@ -7,8 +7,8 @@ export default class Increment {
     private framesCounter;
     private ADDFACTOR;
     private active;
-    private readonly SYSTEMMAXENDVALUE;
-    private readonly SYSTEMMINSTARTVALUE;
+    private readonly SYSTEMMAXVALUE;
+    private readonly SYSTEMMINVALUE;
     private readonly TIMEDIFFSEC;
     private readonly XDIFF;
     private _ret_val;

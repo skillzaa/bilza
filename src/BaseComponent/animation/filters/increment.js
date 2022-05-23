@@ -11,8 +11,8 @@ export default class Increment {
         this.active = false;
         this.ADDFACTOR = this.XDIFF / this.TOTALFRAMES;
         this._ret_val = this.STARTVALUE;
-        this.SYSTEMMAXENDVALUE = 3000;
-        this.SYSTEMMINSTARTVALUE = -1000;
+        this.SYSTEMMAXVALUE = 3000;
+        this.SYSTEMMINVALUE = -1000;
     }
     update(msDelta) {
         if (this.active == false) {
@@ -65,7 +65,7 @@ export default class Increment {
         return to;
     }
     getEndValue(endValue, startValue) {
-        if (endValue > this.SYSTEMMAXENDVALUE) {
+        if (endValue > this.SYSTEMMAXVALUE) {
             throw new Error("endValue is too large");
         }
         if (endValue < 0) {
