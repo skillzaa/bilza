@@ -2,7 +2,7 @@ import PreInitIncDec from "./preInitIncDec.js";
 import IFilter from "../IFilter.js";
 export default class AnimatedNoBase {
     private _ret_value;
-    private _set_value;
+    protected _set_value: number | null;
     protected preInitIncDecArray: PreInitIncDec[];
     protected animations: IFilter[];
     protected compWidth: null | (() => number);

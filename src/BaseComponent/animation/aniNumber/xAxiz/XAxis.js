@@ -8,6 +8,7 @@ export default class XAxis extends AnimatedNoBase {
         this.xAlignmentOptions = XAlignment;
         this.xAlign = this.xAlignmentOptions.Mid;
         this.PreInitIncDecXAxisArray = [];
+        this._set_valueXAxis = null;
     }
     translateOffScreen(value) {
         if (this.compWidth == null) {
@@ -36,6 +37,9 @@ export default class XAxis extends AnimatedNoBase {
     value() {
         const r = super.value();
         return this.adjestAlign(r);
+    }
+    set(n) {
+        this._set_valueXAxis = n;
     }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDecXAxis(from, to, startValue, endValue);

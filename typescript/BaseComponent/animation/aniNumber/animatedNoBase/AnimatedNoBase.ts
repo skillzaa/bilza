@@ -12,7 +12,7 @@ export default class AnimatedNoBase {
     //--this is the only output from this obj and we do not want to send out null rather default vlaue in the start and later as its set
     private _ret_value :number;
     //_set_value can be null since it is applied during update only if its not null and then set to null back again-thus is used once.
-    private _set_value :number | null;
+    protected _set_value :number | null;
     protected preInitIncDecArray :PreInitIncDec[];
     protected animations :IFilter[];
     //------------------
@@ -59,7 +59,7 @@ public value():number{
 return this._ret_value;
 }
 //-using a seperate variable this._set_value it brilliant
-public setValue(n :number):number{
+public setValue(n :number){
 this._set_value = n;
 return this._set_value;
 }

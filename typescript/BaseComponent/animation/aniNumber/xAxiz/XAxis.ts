@@ -12,12 +12,14 @@ export default class XAxis extends AnimatedNoBase{
     public readonly xAlignmentOptions:typeof XAlignment;   
     public xAlign: XAlignment;   
     public PreInitIncDecXAxisArray :PreInitIncDecXAxis[];
+    protected _set_valueXAxis :number | null | OffScreenXOpt;
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 constructor(defaultValue :number){
     super(defaultValue );
     this.xAlignmentOptions = XAlignment; //final-ok
     this.xAlign = this.xAlignmentOptions.Mid;     
     this.PreInitIncDecXAxisArray = [];
+    this._set_valueXAxis = null;
 }
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 //
@@ -51,13 +53,15 @@ const r = super.value();
 //23-may-2022::main reason for extending AniNoBase
 return this.adjestAlign(r);
 }
+//--override the base methos
+public set(n :number| OffScreenXOpt ){
+this._set_valueXAxis = n;
+}
     
-
 public animate(from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
 let a = new PreInitIncDecXAxis(from,to,startValue,endValue);
 this.PreInitIncDecXAxisArray.push(a);
 }
-
 protected initIncDec(){
 for (let i = 0; i < this.PreInitIncDecXAxisArray.length; i++) {
     const elm = this.PreInitIncDecXAxisArray[i];
@@ -70,7 +74,6 @@ for (let i = 0; i < this.PreInitIncDecXAxisArray.length; i++) {
         }
 }
 }
-
 private adjestAlign(incomming :number):number{
 if(this.compWidth==null){throw new Error("init error");
 }    
