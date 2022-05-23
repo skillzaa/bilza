@@ -2,7 +2,7 @@ import { OffScreenXOpt } from "../../OffScreenXOpt.js";
 import MoveXItem from "./moveXItem.js";
 import { YAlignment } from "../../../design/yAlignment.js";
 import Increment from "../filters/increment.js";
-import Decrement from "../filters/decrement.js";
+import Decrement from "../filters/decrementTimeBased.js";
 export default class YAxis {
     constructor(compWidth, compHeight) {
         this.yAlignmentOptions = YAlignment;

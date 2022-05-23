@@ -1,10 +1,6 @@
-import Bilza from "../Bilza.js";
-import Rect from "../components/rect/rect.js";
-let bil = new Bilza("bilza");
-let tst = new Rect();
-tst.duration = 600;
-tst.p.x.setValue(500);
-tst.lineWidth.animate(2, 3, 1, 900);
-bil.insert.append(tst, tst.duration);
-bil.init();
-bil.start();
+import Increment from "../BaseComponent/animation/filters/increment.js";
+let inc = new Increment(0, 2, 0, 100);
+for (let i = 0; i <= 120; i++) {
+    inc.update(i);
+    console.log("msdelta", i, "value", inc.value());
+}

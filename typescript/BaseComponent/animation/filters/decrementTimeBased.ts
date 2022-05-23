@@ -9,7 +9,7 @@
 //--8-- _ret_val ?? can BE null EVEN this module is not cencerned about init.
 //--93-- THE START AND END values must be simple numbers not percentages not some enum--translate it and give it to us
 
-export default class Decrement{
+export default class DecrementTimeBased{
 private readonly FROM :number;
 private readonly TO :number;
 private readonly STARTVALUE :number;

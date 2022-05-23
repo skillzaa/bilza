@@ -1,6 +1,6 @@
 import PreInitIncDec from "./preInitIncDec.js";
 import Increment from "../filters/increment.js";
-import Decrement from "../filters/decrement.js";
+import Decrement from "../filters/decrementTimeBased.js";
 import setBWzeroNhundred from "../../../functions/setBWzeroNhundred.js";
 export default class AnimatedNoBase {
     constructor(defaultValue = 0) {

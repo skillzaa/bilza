@@ -1,5 +1,5 @@
 
-import Decrement from "./decrement.js";
+import Decrement from "./decrementTimeBased.js";
 
 
 let rng = new Decrement(0,10,500,-500);

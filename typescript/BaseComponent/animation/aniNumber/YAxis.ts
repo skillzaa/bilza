@@ -5,7 +5,7 @@ import {YAlignment} from "../../../design/yAlignment.js";
 import IAnimatedNo from "./IAnimatedNo.js";
 import { Pack } from "../../../Bilza.js";
 import Increment from "../filters/increment.js";
-import Decrement from "../filters/decrement.js";
+import Decrement from "../filters/decrementTimeBased.js";
 import Constant from "../filters/constant.js";
 import IFilter from "./IFilter.js";
 

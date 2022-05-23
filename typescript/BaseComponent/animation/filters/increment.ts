@@ -7,7 +7,10 @@
 //--6--delayFactor = total ms / total pix Math.ceil. it means after each delay factor add One.
 //--7--we can not find startValue and endValue till init since if these values are offScreen we need canvas dims BUT THIS CLASS DOES NOT HAVE TO KNOW ABOUT INIT-- RUN IT IN INIT--this class just get numbers no abstractions.
 //--8-- _ret_val ?? cant be null since this module is not cencerned about init.
-//--93-- THE START AND END values must be simple numbers not percentages not some enum--translate it and give it to us
+//--9-- THE START AND END values must be simple numbers not percentages not some enum--translate it and give it to us
+//--10--Remember This class does not need init.
+//--once you sr this thing ON it will work till end no way to stop it. AND there is no need to. After one correct starting Frame (which can be the starting frame its-self or any msDelta larger than it and lower than endTime) once it starts then it will run till end @ 60 fps.
+
 
 export default class Increment{
 private readonly FROM :number;
@@ -52,6 +55,7 @@ this.SYSTEMMINSTARTVALUE = -1000;
  
 update(msDelta :number):boolean{
 if (this.active == false){
+    // if FROM = 0 then 0 X 1000 = 0; 
     if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)  ){
     this.active = true;
     }else {
@@ -60,6 +64,7 @@ if (this.active == false){
 }
 //-----------------------------------
 if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
+//--here we are missing one frame since the first frame has frameCounter == 0 so result is zero.--may be make ADDFACTOR = 1    
     const rezult = Math.ceil(this.ADDFACTOR *  this.framesCounter);
     this.framesCounter +=1;
 
