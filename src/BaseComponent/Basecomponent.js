@@ -1,16 +1,13 @@
 import { DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
-import { OffScreenXOpt } from "./OffScreenXOpt.js";
-import { OffScreenYOpt } from "./OffScreenYOpt.js";
+import { OffScreenXOpt } from "./animation/aniNumber/xAxiz/OffScreenXOpt.js";
+import { OffScreenYOpt } from "./animation/aniNumber/yAxis/OffScreenYOpt.js";
 export default class BaseComponent {
     constructor() {
         this.alwaysOn = false;
-        this.moveYArray = [];
         this.offScreenXOpt = OffScreenXOpt;
         this.offScreenYOpt = OffScreenYOpt;
-        this.yAlignmentOptions = YAlignment;
         this.duration = 0;
         this.insertTimeInVid = 0;
         this.drawLayer = DrawLayer.MiddleGround;

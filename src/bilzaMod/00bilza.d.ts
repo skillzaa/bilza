@@ -18,5 +18,6 @@ export default class Bilza {
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     start(): boolean;
     stop(): boolean;
+    resizeCanvas(width: number, height: number | null): void;
 }
 //# sourceMappingURL=00bilza.d.ts.map

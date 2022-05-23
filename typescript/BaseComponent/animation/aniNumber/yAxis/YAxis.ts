@@ -1,13 +1,13 @@
-import { OffScreenXOpt } from "../../OffScreenXOpt.js";
-import MoveXItem from "./moveXItem.js";
-import {YAlignment} from "../../../design/yAlignment.js";
+import { OffScreenXOpt } from "../xAxiz/OffScreenXOpt.js";
+import MoveXItem from "../moveXItem.js";
+import {YAlignment} from "./yAlignment.js";
 
-import IAnimatedNo from "./IAnimatedNo.js";
-import { Pack } from "../../../Bilza.js";
-import Increment from "../filters/increment.js";
-import Decrement from "../filters/decrementTimeBased.js";
-import Constant from "../filters/constant.js";
-import IFilter from "./IFilter.js";
+import IAnimatedNo from "../IAnimatedNo.js";
+import { Pack } from "../../../../Bilza.js";
+import Increment from "../../filters/increment.js";
+import Decrement from "../../filters/decrementTimeBased.js";
+import Constant from "../../filters/constant.js";
+import IFilter from "../IFilter.js";
 
 export default class YAxis implements IAnimatedNo{
     public readonly yAlignmentOptions:typeof YAlignment;   

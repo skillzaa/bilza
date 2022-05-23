@@ -1,5 +1,5 @@
 
-import AnimatedNoBase from "../../../../src/BaseComponent/animation/aniNumber/AnimatedNoBase.js";
+import AnimatedNoBase from "../../../../../src/BaseComponent/animation/aniNumber/AnimatedNoBase.js";
 
 
 test('Bilza its self is define', () => {

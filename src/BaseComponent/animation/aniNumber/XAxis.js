@@ -35,6 +35,17 @@ export default class XAxis extends AnimatedNoBase {
         const r = super.value();
         return this.adjestAlign(r);
     }
+    initIncDec() {
+        for (let i = 0; i < this.preInitIncDecArray.length; i++) {
+            const elm = this.preInitIncDecArray[i];
+            if (elm.startValue < elm.endValue) {
+                this.newIncrement(elm.from, elm.to, elm.startValue, elm.endValue);
+            }
+            else {
+                this.newDecrement(elm.from, elm.to, elm.startValue, elm.endValue);
+            }
+        }
+    }
     adjestAlign(incomming) {
         if (this.compWidth == null) {
             throw new Error("init error");

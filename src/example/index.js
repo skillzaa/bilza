@@ -1,6 +1,15 @@
-import Increment from "../BaseComponent/animation/filters/increment.js";
-let inc = new Increment(0, 2, 0, 100);
-for (let i = 0; i <= 120; i++) {
-    inc.update(i);
-    console.log("msdelta", i, "value", inc.value());
-}
+import Bilza from "../Bilza.js";
+import Rect from "../components/rect/rect.js";
+import Grid from "../components/grid/grid.js";
+let bil = new Bilza("bilza");
+bil.resizeCanvas(1000, 400);
+let tst = new Rect();
+tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Left;
+tst.duration = 600;
+tst.p.x.setValue(500);
+tst.p.x.animate(2, 3, 0, 50);
+let grid = new Grid();
+bil.insert.append(tst, tst.duration);
+bil.insert.alwaysOn(grid);
+bil.init();
+bil.start();

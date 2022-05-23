@@ -2,17 +2,9 @@
 // --1-- From and To can not be negative, since they are time.also math.ceil
 //--2--From can not be larger than To.
 //--3--From can be 0 but To can min be 1.
-//--4--startValue can be negative but endValue can not be negative
-//--5--systemMaxEndValue for endValue is 3000
-//--6--delayFactor = total ms / total pix Math.ceil. it means after each delay factor add One.
-//--7--we can not find startValue and endValue till init since if these values are offScreen we need canvas dims BUT THIS CLASS DOES NOT HAVE TO KNOW ABOUT INIT-- RUN IT IN INIT--this class just get numbers no abstractions.
-//--8-- _ret_val ?? cant be null since this module is not cencerned about init.
-//--9-- THE START AND END values must be simple numbers not percentages not some enum--translate it and give it to us
-//--10--Remember This class does not need init.
-//--once you sr this thing ON it will work till end no way to stop it. AND there is no need to. After one correct starting Frame (which can be the starting frame its-self or any msDelta larger than it and lower than endTime) once it starts then it will run till end @ 60 fps.
+//--4--Keep in mind startValue is not negative and larger one on the right side where as the endValue is on left and is smaller since this is decrement operation.
 
-
-export default class Increment{
+export default class Decrement{
 private readonly FROM :number;
 private readonly TO :number;
 private readonly STARTVALUE :number;
@@ -36,11 +28,12 @@ this.TO =  this.getTo(from,to);
 //--this is what we add out answer to finally
 //---This time is in seconds no ms
 this.TIMEDIFFSEC = Math.ceil(this.TO - this.FROM);
-this.STARTVALUE = Math.ceil(startValue);//can be negative
+//---Start and End value
+this.STARTVALUE = this.getStartValue(startValue,endValue);//can be negative
 //-We have to reach this number in any case
-this.ENDVALUE = this.getEndValue(endValue,startValue);
+this.ENDVALUE = this.getEndValue(startValue,endValue);
 //since start number is bigger or else we get -ve number
-this.XDIFF = this.getXDiff(this.ENDVALUE,this.STARTVALUE);
+this.XDIFF = this.getXDiff(this.STARTVALUE,this.ENDVALUE);
 //--D
 this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
 this.framesCounter = 0; 
@@ -69,7 +62,7 @@ if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
     this.framesCounter +=1;
 
     if (this.STARTVALUE >= 0 ){//startValue == positive
-        this._ret_val = Math.abs(this.STARTVALUE + rezult);
+        this._ret_val = Math.abs(this.STARTVALUE - rezult);
         // console.log("msDelta",msDelta,"this._ret_Val",this._ret_val);
         }else {
             //since this.STARTVALUE is -ve so + will have -ve effect
@@ -106,18 +99,26 @@ if (from >= to ){throw new Error("from can not be smaller than zero");}
 if (to < 1){throw new Error("To can not be smaller than One");}
 return to;
 }
-private getEndValue(endValue :number,startValue :number){
-if (endValue > this.SYSTEMMAXVALUE){throw new Error("endValue is too large");}
-if (endValue < 0){throw new Error("endValue can not be negative");}
-return (Math.ceil(endValue));//cant be fraction
+private getStartValue(startValue :number,endValue :number){
+if (startValue > this.SYSTEMMAXVALUE){throw new Error("start Value (for decrement operation) is too large");}
+if (startValue < 1){throw new Error("start Value (for decrement operation) can not be negative");}
+//cant be Negative or fraction
+return Math.abs(Math.ceil(startValue));
+}
+//---endValue is on left
+private getEndValue(startValue :number,endValue :number){
+if (endValue > this.SYSTEMMINVALUE){throw new Error("start Value (for decrement operation) is too large");}
+if (endValue > startValue){throw new Error("end Value (for decrement operation) can not be larger than start value");}
+//CAN be Negative
+return Math.ceil(endValue);
 }
 
-private getXDiff(endValue :number,startValue :number):number{
+private getXDiff(startValue :number,endValue :number):number{
 let r = null;    
-if (startValue > 0 ){//startValue == positive
-r = endValue - startValue;
+if (endValue > 0 ){//startValue == positive
+r = startValue - endValue; //st val is beigger
 }else {
-   r = endValue + Math.abs(startValue);
+   r =  startValue + Math.abs(endValue);
 }    
     if (r !== null){return r;}
     else {

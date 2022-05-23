@@ -1,11 +1,11 @@
 import {Pack,IComponent,DrawLayer} from "../Bilza.js";
 import Style from "../design/style.js";
-import {YAlignment} from "../design/yAlignment.js";
+// import {YAlignment} from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
 
-import MoveYItem from "./moveYItem.js";
-import { OffScreenXOpt } from "./OffScreenXOpt.js";
-import { OffScreenYOpt } from "./OffScreenYOpt.js";
+// import MoveYItem from "./moveYItem.js";
+import { OffScreenXOpt } from "./animation/aniNumber/xAxiz/OffScreenXOpt.js";
+import { OffScreenYOpt } from "./animation/aniNumber/yAxis/OffScreenYOpt.js";
 
 export default class BaseComponent  implements IComponent {
 public props :BaseProps;
@@ -17,22 +17,20 @@ public  duration :number;
 //-----Alignment
 public readonly offScreenXOpt :typeof OffScreenXOpt;
 public readonly offScreenYOpt :typeof OffScreenYOpt;
-public readonly yAlignmentOptions:typeof YAlignment;  
+// public readonly yAlignmentOptions:typeof YAlignment;  
 /////////////////----PRIVATE----///////////////////
  
-private moveYArray :MoveYItem[];  
+// private moveYArray :MoveYItem[];  
 private  insertTimeInVid:number; 
 public alwaysOn: boolean;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
-    
     this.alwaysOn = false;
-    
-    this.moveYArray = [];
+    // this.moveYArray = [];
     this.offScreenXOpt = OffScreenXOpt; //final-ok
     this.offScreenYOpt = OffScreenYOpt; //final-ok
-    this.yAlignmentOptions = YAlignment; //final-ok
+    // this.yAlignmentOptions = YAlignment; //final-ok
     this.duration = 0; //can not be changed again even not by children comps
     this.insertTimeInVid = 0; //final-ok
     //--there is no this.endTime --since has this.endTime()
@@ -60,7 +58,6 @@ height(): number {
         throw new Error("the component is not initialized yet");        
     }
 }
-
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {
 //--- now i have width in pix when app is init and width in percentage when not init    

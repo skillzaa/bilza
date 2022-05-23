@@ -1,5 +1,5 @@
-import XAxis from "./animation/aniNumber/XAxis.js";
-import AnimatedNoBase from "./animation/aniNumber/AnimatedNoBase.js";
+import XAxis from "./animation/aniNumber/xAxiz/XAxis.js";
+import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 import { Pack } from "../Bilza.js";
 export default class BaseProps {
     x: XAxis;

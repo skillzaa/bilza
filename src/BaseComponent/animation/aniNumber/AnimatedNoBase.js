@@ -42,12 +42,10 @@ export default class AnimatedNoBase {
         for (let i = 0; i < this.preInitIncDecArray.length; i++) {
             const elm = this.preInitIncDecArray[i];
             if (elm.startValue < elm.endValue) {
-                let c = new Increment(elm.from, elm.to, elm.startValue, elm.endValue);
-                this.animations.push(c);
+                this.newIncrement(elm.from, elm.to, elm.startValue, elm.endValue);
             }
             else {
-                let c = new Decrement(elm.from, elm.to, elm.startValue, elm.endValue);
-                this.animations.push(c);
+                this.newDecrement(elm.from, elm.to, elm.startValue, elm.endValue);
             }
         }
     }
@@ -101,5 +99,13 @@ export default class AnimatedNoBase {
             r = Math.ceil((this.canvasHeight / 100) * checked);
         }
         return r;
+    }
+    newIncrement(from, to, startValue, endValue) {
+        let c = new Increment(from, to, startValue, endValue);
+        this.animations.push(c);
+    }
+    newDecrement(from, to, startValue, endValue) {
+        let c = new Decrement(from, to, startValue, endValue);
+        this.animations.push(c);
     }
 }

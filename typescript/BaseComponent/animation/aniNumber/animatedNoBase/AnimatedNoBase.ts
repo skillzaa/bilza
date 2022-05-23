@@ -2,19 +2,19 @@
 //--1-- the animations can return null BUT this class should not send null ahead .
 import PreInitIncDec from "./preInitIncDec.js";
 // import IAnimatedNo from "./IAnimatedNo.js";
-import Increment from "../filters/increment.js";
-import Decrement from "../filters/decrementTimeBased.js";
-import Constant from "../filters/constant.js";
-import IFilter from "./IFilter.js";
-import setBWzeroNhundred from "../../../functions/setBWzeroNhundred.js";
+import Increment from "../../filters/increment.js";
+import Decrement from "../../filters/decrementTimeBased.js";
+import Constant from "../../filters/constant.js";
+import IFilter from "../IFilter.js";
+import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 // export default class AnimatedNoBase implements IAnimatedNo{
 export default class AnimatedNoBase {
     //--this is the only output from this obj and we do not want to send out null rather default vlaue in the start and later as its set
     private _ret_value :number;
     //_set_value can be null since it is applied during update only if its not null and then set to null back again-thus is used once.
     private _set_value :number | null;
-    private preInitIncDecArray :PreInitIncDec[];
-    private animations :IFilter[];
+    protected preInitIncDecArray :PreInitIncDec[];
+    protected animations :IFilter[];
     //------------------
     //--the component width and height can change without init dynamically so we need fn to get updated value but for canvasWidth or canvasHeight 
     protected compWidth    : null | (()=>number) ;
@@ -71,16 +71,13 @@ public animate(from :number=0,to :number=10,startValue :number=0,endValue :numbe
 }
 ////////////////----------PRIVATE----  
 //-THis fn converts all the  preInitIncDecArray commands into inc dec objects during init
-private initIncDec(){
+protected initIncDec(){
     for (let i = 0; i < this.preInitIncDecArray.length; i++) {
         const elm = this.preInitIncDecArray[i];
-
         if (elm.startValue < elm.endValue ){
-            let c = new Increment(elm.from,elm.to,elm.startValue,elm.endValue);
-            this.animations.push(c);    
+            this.newIncrement(elm.from,elm.to,elm.startValue,elm.endValue);
         }else {
-            let c = new Decrement(elm.from,elm.to,elm.startValue,elm.endValue);
-            this.animations.push(c);    
+            this.newDecrement(elm.from,elm.to,elm.startValue,elm.endValue);
         }
     }
 }
@@ -138,5 +135,12 @@ let r = 0;
     }
 return r;    
 }
-    
+protected newIncrement(from :number,to :number,startValue :number,endValue :number){
+    let c = new Increment(from,to,startValue,endValue);
+    this.animations.push(c);    
+}    
+protected newDecrement(from :number,to :number,startValue :number,endValue :number){
+    let c = new Decrement(from,to,startValue,endValue);
+    this.animations.push(c);    
+}    
 } 

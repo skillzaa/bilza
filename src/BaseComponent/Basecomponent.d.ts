@@ -1,9 +1,8 @@
 import { Pack, IComponent, DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import { YAlignment } from "../design/yAlignment.js";
 import BaseProps from "./BaseProps.js";
-import { OffScreenXOpt } from "./OffScreenXOpt.js";
-import { OffScreenYOpt } from "./OffScreenYOpt.js";
+import { OffScreenXOpt } from "./animation/aniNumber/xAxiz/OffScreenXOpt.js";
+import { OffScreenYOpt } from "./animation/aniNumber/yAxis/OffScreenYOpt.js";
 export default class BaseComponent implements IComponent {
     props: BaseProps;
     p: BaseProps;
@@ -13,8 +12,6 @@ export default class BaseComponent implements IComponent {
     duration: number;
     readonly offScreenXOpt: typeof OffScreenXOpt;
     readonly offScreenYOpt: typeof OffScreenYOpt;
-    readonly yAlignmentOptions: typeof YAlignment;
-    private moveYArray;
     private insertTimeInVid;
     alwaysOn: boolean;
     constructor();

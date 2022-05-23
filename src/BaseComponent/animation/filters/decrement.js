@@ -1,11 +1,11 @@
-export default class Increment {
+export default class Decrement {
     constructor(from, to, startValue, endValue) {
         this.FROM = this.getFrom(from, to);
         this.TO = this.getTo(from, to);
         this.TIMEDIFFSEC = Math.ceil(this.TO - this.FROM);
-        this.STARTVALUE = Math.ceil(startValue);
-        this.ENDVALUE = this.getEndValue(endValue, startValue);
-        this.XDIFF = this.getXDiff(this.ENDVALUE, this.STARTVALUE);
+        this.STARTVALUE = this.getStartValue(startValue, endValue);
+        this.ENDVALUE = this.getEndValue(startValue, endValue);
+        this.XDIFF = this.getXDiff(this.STARTVALUE, this.ENDVALUE);
         this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
         this.framesCounter = 0;
         this.active = false;
@@ -27,7 +27,7 @@ export default class Increment {
             const rezult = Math.ceil(this.ADDFACTOR * this.framesCounter);
             this.framesCounter += 1;
             if (this.STARTVALUE >= 0) {
-                this._ret_val = Math.abs(this.STARTVALUE + rezult);
+                this._ret_val = Math.abs(this.STARTVALUE - rezult);
             }
             else {
                 this._ret_val = this.STARTVALUE + rezult;
@@ -64,22 +64,31 @@ export default class Increment {
         }
         return to;
     }
-    getEndValue(endValue, startValue) {
-        if (endValue > this.SYSTEMMAXVALUE) {
-            throw new Error("endValue is too large");
+    getStartValue(startValue, endValue) {
+        if (startValue > this.SYSTEMMAXVALUE) {
+            throw new Error("start Value (for decrement operation) is too large");
         }
-        if (endValue < 0) {
-            throw new Error("endValue can not be negative");
+        if (startValue < 1) {
+            throw new Error("start Value (for decrement operation) can not be negative");
         }
-        return (Math.ceil(endValue));
+        return Math.abs(Math.ceil(startValue));
     }
-    getXDiff(endValue, startValue) {
+    getEndValue(startValue, endValue) {
+        if (endValue > this.SYSTEMMINVALUE) {
+            throw new Error("start Value (for decrement operation) is too large");
+        }
+        if (endValue > startValue) {
+            throw new Error("end Value (for decrement operation) can not be larger than start value");
+        }
+        return Math.ceil(endValue);
+    }
+    getXDiff(startValue, endValue) {
         let r = null;
-        if (startValue > 0) {
-            r = endValue - startValue;
+        if (endValue > 0) {
+            r = startValue - endValue;
         }
         else {
-            r = endValue + Math.abs(startValue);
+            r = startValue + Math.abs(endValue);
         }
         if (r !== null) {
             return r;

@@ -58,4 +58,7 @@ export default class Bilza {
         this.stopWatch.stop();
         return true;
     }
+    resizeCanvas(width, height) {
+        this.pack.resizeCanvas(width, height);
+    }
 }

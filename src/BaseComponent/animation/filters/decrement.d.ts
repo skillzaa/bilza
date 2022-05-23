@@ -1,4 +1,4 @@
-export default class Increment {
+export default class Decrement {
     private readonly FROM;
     private readonly TO;
     private readonly STARTVALUE;
@@ -18,6 +18,7 @@ export default class Increment {
     private getTimeLapsed;
     private getFrom;
     private getTo;
+    private getStartValue;
     private getEndValue;
     private getXDiff;
 }

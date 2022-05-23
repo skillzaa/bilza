@@ -73,4 +73,7 @@ stop():boolean{
     this.stopWatch.stop();
     return true; 
 }
+public resizeCanvas(width :number, height :number | null){
+this.pack.resizeCanvas(width, height);    
+}
 }//ends

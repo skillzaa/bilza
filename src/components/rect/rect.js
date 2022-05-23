@@ -1,5 +1,5 @@
 import BaseComponent from "../../BaseComponent/BaseComponent.js";
-import AnimatedNoBase from "../../BaseComponent/animation/aniNumber/AnimatedNoBase.js";
+import AnimatedNoBase from "../../BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 export default class Rect extends BaseComponent {
     constructor() {
         super();

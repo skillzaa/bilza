@@ -1,8 +1,10 @@
+import PreInitIncDec from "./preInitIncDec.js";
+import IFilter from "./IFilter.js";
 export default class AnimatedNoBase {
     private _ret_value;
     private _set_value;
-    private preInitIncDecArray;
-    private animations;
+    protected preInitIncDecArray: PreInitIncDec[];
+    protected animations: IFilter[];
     protected compWidth: null | (() => number);
     protected compHeight: null | (() => number);
     protected canvasWidth: number | null;
@@ -20,5 +22,7 @@ export default class AnimatedNoBase {
     protected checkNonNull(n: null | number): number;
     protected xPercToPix(perc: number): number;
     protected yPercToPix(perc: number): number;
+    protected newIncrement(from: number, to: number, startValue: number, endValue: number): void;
+    protected newDecrement(from: number, to: number, startValue: number, endValue: number): void;
 }
 //# sourceMappingURL=AnimatedNoBase.d.ts.map
