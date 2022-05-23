@@ -30,7 +30,7 @@ export default class BaseComponent {
     }
     height() {
         if (this.p.canvasHeight !== null) {
-            return Math.ceil((this.p.canvasHeight / 100) * this.p.heightDyn);
+            return Math.ceil((this.p.canvasHeight / 100) * this.p.heightDyn.value());
         }
         else {
             throw new Error("the component is not initialized yet");
@@ -42,6 +42,7 @@ export default class BaseComponent {
         this.p.x.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.p.y.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.p.widthDyn.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
+        this.p.heightDyn.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         return true;
     }
     update(msDelta, p) {

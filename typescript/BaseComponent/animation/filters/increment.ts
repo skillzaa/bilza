@@ -65,7 +65,7 @@ if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
 
     if (this.STARTVALUE >= 0 ){//startValue == positive
         this._ret_val = Math.abs(this.STARTVALUE + rezult);
-        console.log("msDelta",msDelta,"this._ret_Val",this._ret_val);
+        // console.log("msDelta",msDelta,"this._ret_Val",this._ret_val);
         }else {
             //since this.STARTVALUE is -ve so + will have -ve effect
             this._ret_val = this.STARTVALUE + rezult;

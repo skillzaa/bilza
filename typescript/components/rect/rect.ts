@@ -1,27 +1,33 @@
 import {Pack} from "../../Bilza.js";
 import BaseComponent from "../../BaseComponent/BaseComponent.js";
-
+import AnimatedNoBase from "../../BaseComponent/animation/aniNumber/AnimatedNoBase.js";
 
 export default class Rect extends BaseComponent {
   
-    lineWidth :number;
+    lineWidth :AnimatedNoBase;
     color :string;
 constructor (){ 
     super();
-    this.lineWidth = 2 ;
+    this.lineWidth = new AnimatedNoBase(2) ;
     this.color = "#000000" ; 
   
 }
+init(p: Pack): boolean {
+    super.init(p);
+this.lineWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+return true;
 
-
+}
+update(msDelta: number, p: Pack): boolean {
+    super.update(msDelta,p);
+    this.lineWidth.update(msDelta);
+    return true;
+}
 draw(p:Pack):boolean{
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color; 
-this.style.lineWidth = this.lineWidth;
+this.style.lineWidth = this.lineWidth.value();
 
-// const borderWidthHalf = Math.ceil(this.lineWidth/2);
-// let newX = (this.p.x.value()) + borderWidthHalf ;
-// if (this.width() > 200) {debugger;}
    p.drawRect(
     this.props.x.value(),
     this.props.y.value(),

@@ -11,8 +11,8 @@ y :AnimatedNoBase;
 colorBoundingRectangle:string;
 
 widthDyn :AnimatedNoBase;    
-heightDyn :number;    
-
+heightDyn :AnimatedNoBase;    
+//---these 2 variables will be set in init
 canvasWidth :number | null;    
 canvasHeight :number | null;    
 
@@ -36,7 +36,7 @@ this.y = new AnimatedNoBase(0);
 // this.y.setValue(0);
 
 this.widthDyn = new AnimatedNoBase(10);    
-this.heightDyn =10;    
+this.heightDyn = new AnimatedNoBase(10);    
 this.canvasWidth = null;    
 this.canvasHeight = null;    
 

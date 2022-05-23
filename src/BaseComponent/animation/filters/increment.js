@@ -28,7 +28,6 @@ export default class Increment {
             this.framesCounter += 1;
             if (this.STARTVALUE >= 0) {
                 this._ret_val = Math.abs(this.STARTVALUE + rezult);
-                console.log("msDelta", msDelta, "this._ret_Val", this._ret_val);
             }
             else {
                 this._ret_val = this.STARTVALUE + rezult;

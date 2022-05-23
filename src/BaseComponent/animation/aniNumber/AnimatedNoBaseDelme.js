@@ -2,7 +2,7 @@ import PreInitIncDec from "./preInitIncDec.js";
 import Increment from "../filters/increment.js";
 import Decrement from "../filters/decrement.js";
 import setBWzeroNhundred from "../../../functions/setBWzeroNhundred.js";
-export default class AnimatedNoBase {
+export default class AnimatedNoBaseDelme {
     constructor(defaultValue = 0) {
         this._ret_value = defaultValue;
         this._set_value = null;

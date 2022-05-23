@@ -6,7 +6,7 @@ export default class BaseProps {
     y: AnimatedNoBase;
     colorBoundingRectangle: string;
     widthDyn: AnimatedNoBase;
-    heightDyn: number;
+    heightDyn: AnimatedNoBase;
     canvasWidth: number | null;
     canvasHeight: number | null;
     shadowColor: string;

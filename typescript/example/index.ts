@@ -18,9 +18,9 @@ tst.duration = 600;
 
 tst.p.x.setValue(500);
 // tst.p.y.setValue(50);
-
+tst.lineWidth.animate(2,3,1,900);
 // tst.p.x.animate(2,4,0,500);
-tst.p.widthDyn.animate(2,3,0,90);
+// tst.p.widthDyn.animate(2,3,0,90);
 // tst.p.y.animate(2,10,0,300);
 
 bil.insert.append(tst,tst.duration);
