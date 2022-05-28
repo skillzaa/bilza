@@ -7,11 +7,12 @@ export default class XAxis extends AnimatedNoBase {
     xAlign: XAlignment;
     PreInitIncDecXAxisArray: PreInitIncDecXAxis[];
     protected _set_valueXAxis: number | null | OffScreenXOpt;
+    protected _ret_valueXAxis: number;
     constructor(defaultValue: number);
     private translateOffScreen;
-    update(msDelta: number): boolean;
     value(): number;
-    set(n: number | OffScreenXOpt): void;
+    setValue(n: number | OffScreenXOpt): void;
+    protected runSetValue(): void;
     animate(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
     protected initIncDec(): void;
     private adjestAlign;

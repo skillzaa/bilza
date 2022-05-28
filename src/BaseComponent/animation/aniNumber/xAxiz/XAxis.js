@@ -9,6 +9,7 @@ export default class XAxis extends AnimatedNoBase {
         this.xAlign = this.xAlignmentOptions.Mid;
         this.PreInitIncDecXAxisArray = [];
         this._set_valueXAxis = null;
+        this._ret_valueXAxis = null;
     }
     translateOffScreen(value) {
         if (this.compWidth == null) {
@@ -30,16 +31,19 @@ export default class XAxis extends AnimatedNoBase {
         }
         return Math.ceil(r);
     }
-    update(msDelta) {
-        super.update(msDelta);
-        return true;
-    }
     value() {
-        const r = super.value();
+        if ()
+            let r = this.translateOffScreen(this._ret_valueXAxis);
         return this.adjestAlign(r);
     }
-    set(n) {
+    setValue(n) {
         this._set_valueXAxis = n;
+    }
+    runSetValue() {
+        if (this._set_valueXAxis !== null) {
+            this._ret_valueXAxis = this.translateOffScreen(this._set_valueXAxis);
+            this._set_valueXAxis = null;
+        }
     }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDecXAxis(from, to, startValue, endValue);

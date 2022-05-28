@@ -30,9 +30,11 @@ export default class AnimatedNoBase {
     value() {
         return this._ret_value;
     }
-    setValue(n) {
-        this._set_value = n;
-        return this._set_value;
+    runSetValue() {
+        if (this._set_value !== null) {
+            this._ret_value = this._set_value;
+            this._set_value = null;
+        }
     }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDec(from, to, startValue, endValue);
@@ -47,12 +49,6 @@ export default class AnimatedNoBase {
             else {
                 this.newDecrement(elm.from, elm.to, elm.startValue, elm.endValue);
             }
-        }
-    }
-    runSetValue() {
-        if (this._set_value !== null) {
-            this._ret_value = this._set_value;
-            this._set_value = null;
         }
     }
     runAnimations(msDelta) {

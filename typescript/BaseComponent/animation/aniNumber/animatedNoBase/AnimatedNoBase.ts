@@ -59,11 +59,15 @@ public value():number{
 return this._ret_value;
 }
 //-using a seperate variable this._set_value it brilliant
-public setValue(n :number){
-this._set_value = n;
-return this._set_value;
-}
 
+
+protected runSetValue(){
+    if (this._set_value !== null){
+        //--place 2 of 3 where _ret_value is changed
+        this._ret_value = this._set_value;//perc to pix
+        this._set_value = null;
+    }   
+}
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
 public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
     let a = new PreInitIncDec(from,to,startValue,endValue);
@@ -82,13 +86,6 @@ protected initIncDec(){
     }
 }
 
-private runSetValue(){
-    if (this._set_value !== null){
-        //--place 2 of 3 where _ret_value is changed
-        this._ret_value = this._set_value;//perc to pix
-        this._set_value = null;
-    }   
-}
 // This runs ALL THE ANIMATIONS (EACH filter is called and its value integrated )
 private runAnimations(msDelta :number){
     for (let i = 0; i < this.animations.length; i++) {

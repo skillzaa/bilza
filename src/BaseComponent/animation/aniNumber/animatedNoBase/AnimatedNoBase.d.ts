@@ -13,10 +13,9 @@ export default class AnimatedNoBase {
     init(compWidth: () => number, compHeight: () => number, canvasWidth: number, canvasHeight: number): boolean;
     update(msDelta: number): boolean;
     value(): number;
-    setValue(n: number): number;
+    protected runSetValue(): void;
     animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
     protected initIncDec(): void;
-    private runSetValue;
     private runAnimations;
     protected notInitError(): void;
     protected checkNonNull(n: null | number): number;
