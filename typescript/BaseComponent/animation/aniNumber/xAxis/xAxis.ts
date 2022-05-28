@@ -85,14 +85,13 @@ public animate(from :number=0,to :number=10,startValue :number | OffScreenXOpt=0
 protected initIncDec(){
     for (let i = 0; i < this.preInitIncDecArray.length; i++) {
         const elm = this.preInitIncDecArray[i];
-        if (elm.startValue < elm.endValue ){
-            const start = this.translateOffScreen(elm.startValue);
+        const start = this.translateOffScreen(elm.startValue);
             const end = this.translateOffScreen(elm.endValue);
+
+        if (start < end ){
             let c = this.newIncrement(elm.from,elm.to,start,end);
             this.animations.push(c);
         }else {
-            const start = this.translateOffScreen(elm.startValue);
-            const end = this.translateOffScreen(elm.endValue);
             let c = this.newDecrement(elm.from,elm.to,start,end);
             this.animations.push(c); 
         }
