@@ -1,4 +1,4 @@
-import XAxis from "./animation/aniNumber/xAxiz/XAxis.js";
+import XAxis from "./animation/aniNumber/xAxis/xAxis.js";
 import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 export default class BaseProps {
     constructor(compWidth, compHeight) {

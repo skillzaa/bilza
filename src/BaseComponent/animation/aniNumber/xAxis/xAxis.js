@@ -36,9 +36,12 @@ export default class XAxis {
     }
     runSetValue() {
         if (this._set_value !== null) {
-            this._ret_value = this._set_value;
+            this._ret_value = this.xPercToPix(this._set_value);
             this._set_value = null;
         }
+    }
+    setValue(n) {
+        this._set_value = n;
     }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDecXAxis(from, to, startValue, endValue);

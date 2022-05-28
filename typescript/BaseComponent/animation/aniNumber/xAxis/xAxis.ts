@@ -1,4 +1,5 @@
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
+import {XAlignment} from "./xAlignment.js";
 //--Rules 
 //--1-- the animations can return null BUT this class should not send null ahead .
 import PreInitIncDecXAxis from "./preInitIncDecXAxis.js";
@@ -9,7 +10,9 @@ import Constant from "../../filters/constant.js";
 import IFilter from "../IFilter.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 // export default class AnimatedNoBase implements IAnimatedNo{
-export default class AnimatedNoBase {
+export default class XAxis {
+    public readonly xAlignmentOptions:typeof XAlignment;   
+    public xAlign: XAlignment;
     //--this is the only output from this obj and we do not want to send out null rather default vlaue in the start and later as its set
     private _ret_value :number;
     //_set_value can be null since it is applied during update only if its not null and then set to null back again-thus is used once.
@@ -24,6 +27,8 @@ export default class AnimatedNoBase {
     protected canvasHeight :number | null;
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 constructor(defaultValue :number=0){
+    this.xAlignmentOptions = XAlignment; //final-ok
+    this.xAlign = this.xAlignmentOptions.Mid; 
     // place 1/3 to set this._ret_value
     this._ret_value  = defaultValue; 
     this._set_value  = null;    
@@ -60,22 +65,26 @@ public value():number{
 return this._ret_value;
 }
 //-using a seperate variable this._set_value it brilliant
-
-
 protected runSetValue(){
     if (this._set_value !== null){
         //--place 2 of 3 where _ret_value is changed
-        this._ret_value = this._set_value;//perc to pix
+        this._ret_value = this.xPercToPix(this._set_value);//perc to pix
         this._set_value = null;
     }   
+}
+public setValue(n :number){
+//--just assign it to _set_value and in the update => runSetValue.       
+//--can not convert  from perc to pix since not init yet
+this._set_value = n;
 }
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
 public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
     let a = new PreInitIncDecXAxis(from,to,startValue,endValue);
     this.preInitIncDecArray.push(a);
 }
+
 ////////////////----------PRIVATE----  
-//-THis fn converts all the  preInitIncDecArray commands into inc dec objects during init
+//-This fn converts all the  preInitIncDecArray commands into inc dec objects during init
 protected initIncDec(){
     for (let i = 0; i < this.preInitIncDecArray.length; i++) {
         const elm = this.preInitIncDecArray[i];

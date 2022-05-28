@@ -1,7 +1,7 @@
 import { DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
 import BaseProps from "./BaseProps.js";
-import { OffScreenXOpt } from "./animation/aniNumber/xAxiz/OffScreenXOpt.js";
+import { OffScreenXOpt } from "./animation/aniNumber/xAxis/OffScreenXOpt.js";
 import { OffScreenYOpt } from "./animation/aniNumber/yAxis/OffScreenYOpt.js";
 export default class BaseComponent {
     constructor() {

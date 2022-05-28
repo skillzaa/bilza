@@ -1,4 +1,4 @@
-import { OffScreenXOpt } from "../xAxiz/OffScreenXOpt.js";
+import { OffScreenXOpt } from "../xAxis/OffScreenXOpt.js";
 import MoveXItem from "../moveXItem.js";
 import { YAlignment } from "./yAlignment.js";
 import Increment from "../../filters/increment.js";

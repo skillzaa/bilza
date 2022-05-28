@@ -1,7 +1,7 @@
 import Bilza from "../Bilza.js";
 // import Bilza from "../../build/bilzaEngine_0_0_15.js";
 import Rect from "../components/rect/rect.js";
-import TestComp from "../testComp/testComp.js";
+// import TestComp from "../testComp/testComp.js";
 import Grid from "../components/grid/grid.js";
 // import StaticGrid from "../components/staticGrid/staticGrid.js";
 
@@ -11,8 +11,8 @@ bil.resizeCanvas(1000,400);
 let tst = new Rect( );
 tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Left;
 tst.duration = 600;
-tst.p.x.setValue(50);
-// tst.p.x.animate(2,3,0,20);
+// tst.p.x.setValue(50);
+tst.p.x.animate(2,3,0,50);
 
 let grid = new Grid();
 // grid.cellWidth = 100;

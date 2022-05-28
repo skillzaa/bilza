@@ -14,12 +14,12 @@ export default class AnimatedNoBase {
     update(msDelta: number): boolean;
     value(): number;
     protected runSetValue(): void;
+    protected setValue(n: number): void;
     animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
     protected initIncDec(): void;
     private runAnimations;
     protected notInitError(): void;
     protected checkNonNull(n: null | number): number;
-    protected xPercToPix(perc: number): number;
     protected yPercToPix(perc: number): number;
     protected newIncrement(from: number, to: number, startValue: number, endValue: number): void;
     protected newDecrement(from: number, to: number, startValue: number, endValue: number): void;

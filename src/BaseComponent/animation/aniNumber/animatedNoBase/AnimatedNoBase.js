@@ -36,6 +36,9 @@ export default class AnimatedNoBase {
             this._set_value = null;
         }
     }
+    setValue(n) {
+        this._set_value = n;
+    }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDec(from, to, startValue, endValue);
         this.preInitIncDecArray.push(a);
@@ -71,17 +74,6 @@ export default class AnimatedNoBase {
         }
         else {
             r = n;
-        }
-        return r;
-    }
-    xPercToPix(perc) {
-        let r = 0;
-        if (this.canvasWidth == null) {
-            this.notInitError();
-        }
-        else {
-            let checked = setBWzeroNhundred(perc);
-            r = Math.ceil((this.canvasWidth / 100) * checked);
         }
         return r;
     }

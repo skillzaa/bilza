@@ -4,7 +4,7 @@ import Style from "../design/style.js";
 import BaseProps from "./BaseProps.js";
 
 // import MoveYItem from "./moveYItem.js";
-import { OffScreenXOpt } from "./animation/aniNumber/xAxiz/OffScreenXOpt.js";
+import { OffScreenXOpt } from "./animation/aniNumber/xAxis/OffScreenXOpt.js";
 import { OffScreenYOpt } from "./animation/aniNumber/yAxis/OffScreenYOpt.js";
 
 export default class BaseComponent  implements IComponent {
@@ -63,9 +63,13 @@ init(p: Pack): boolean {
 //--- now i have width in pix when app is init and width in percentage when not init    
 this.p.canvasWidth =  p.canvasWidth();  
 this.p.canvasHeight =  p.canvasHeight();  
+
 this.p.x.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+
 this.p.y.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+
 this.p.widthDyn.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+
 this.p.heightDyn.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
     return true;

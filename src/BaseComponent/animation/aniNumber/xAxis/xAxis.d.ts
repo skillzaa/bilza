@@ -17,6 +17,7 @@ export default class XAxis {
     update(msDelta: number): boolean;
     value(): number;
     protected runSetValue(): void;
+    setValue(n: number): void;
     animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
     protected initIncDec(): void;
     private runAnimations;
@@ -28,4 +29,4 @@ export default class XAxis {
     protected newDecrement(from: number, to: number, startValue: number, endValue: number): void;
     private translateOffScreen;
 }
-//# sourceMappingURL=XAxis.d.ts.map
+//# sourceMappingURL=xAxis.d.ts.map

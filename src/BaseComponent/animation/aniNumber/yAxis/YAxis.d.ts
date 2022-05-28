@@ -1,4 +1,4 @@
-import { OffScreenXOpt } from "../xAxiz/OffScreenXOpt.js";
+import { OffScreenXOpt } from "../xAxis/OffScreenXOpt.js";
 import { YAlignment } from "./yAlignment.js";
 import IAnimatedNo from "../IAnimatedNo.js";
 import { Pack } from "../../../../Bilza.js";

@@ -68,6 +68,10 @@ protected runSetValue(){
         this._set_value = null;
     }   
 }
+protected setValue(n :number){
+//--just assign it to _set_value and in the update => runSetValue.       
+this._set_value = n;
+}
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
 public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
     let a = new PreInitIncDec(from,to,startValue,endValue);
@@ -112,16 +116,7 @@ if (n==null){
 }
 return r;
 }
-protected xPercToPix(perc :number):number{
-let r = 0;
-    if (this.canvasWidth == null){
-        this.notInitError();
-    }else {
-        let checked = setBWzeroNhundred(perc);
-        r = Math.ceil((this.canvasWidth  /100) * checked); 
-    }
-return r;    
-}
+
 protected yPercToPix(perc :number):number{
 let r = 0;
     if (this.canvasHeight == null){
