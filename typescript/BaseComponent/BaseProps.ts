@@ -1,5 +1,6 @@
 
 import XAxis from "./animation/aniNumber/xAxis/xAxis.js";
+import YAxis from "./animation/aniNumber/yAxis/yAxis.js";
 import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 // import YAxis from "./animation/aniNumber/YAxis.js";
 
@@ -7,7 +8,7 @@ import {Pack} from "../Bilza.js";
 
 export default class BaseProps{
 x :XAxis;
-y :AnimatedNoBase;
+y :YAxis;
 colorBoundingRectangle:string;
 
 widthDyn :AnimatedNoBase;    
@@ -32,7 +33,7 @@ selected :boolean;
 
 constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
 this.x= new XAxis(0);
-this.y = new AnimatedNoBase(0);
+this.y = new YAxis(0);
 // this.y.setValue(0);
 
 this.widthDyn = new AnimatedNoBase(10);    

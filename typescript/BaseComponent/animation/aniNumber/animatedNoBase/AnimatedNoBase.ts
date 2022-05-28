@@ -117,16 +117,16 @@ if (n==null){
 return r;
 }
 
-protected yPercToPix(perc :number):number{
-let r = 0;
-    if (this.canvasHeight == null){
-        this.notInitError();
-    }else {
-        let checked = setBWzeroNhundred(perc);
-        r = Math.ceil((this.canvasHeight/100) * checked); 
-    }
-return r;    
-}
+// protected yPercToPix(perc :number):number{
+// let r = 0;
+//     if (this.canvasHeight == null){
+//         this.notInitError();
+//     }else {
+//         let checked = setBWzeroNhundred(perc);
+//         r = Math.ceil((this.canvasHeight/100) * checked); 
+//     }
+// return r;    
+// }
 protected newIncrement(from :number,to :number,startValue :number,endValue :number){
     let c = new Increment(from,to,startValue,endValue);
     this.animations.push(c);    

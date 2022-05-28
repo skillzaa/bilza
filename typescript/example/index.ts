@@ -9,10 +9,11 @@ let bil = new Bilza("bilza");
 bil.resizeCanvas(1000,400);
 // let tst = new TestComp("New");
 let tst = new Rect( );
-tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Left;
+tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
 tst.duration = 600;
 // tst.p.x.setValue(50);
 tst.p.x.animate(2,3,0,50);
+tst.p.y.animate(2,3,0,50);
 
 let grid = new Grid();
 // grid.cellWidth = 100;

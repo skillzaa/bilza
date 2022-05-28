@@ -72,6 +72,9 @@ export default class XAxis {
             }
         }
     }
+    notInitError() {
+        throw new Error("XAxis is not initialized yet");
+    }
     checkNonNull(n) {
         let r = 0;
         if (n == null) {
@@ -90,6 +93,17 @@ export default class XAxis {
         else {
             let checked = setBWzeroNhundred(perc);
             r = Math.ceil((this.canvasWidth / 100) * checked);
+        }
+        return r;
+    }
+    yPercToPix(perc) {
+        let r = 0;
+        if (this.canvasHeight == null) {
+            this.notInitError();
+        }
+        else {
+            let checked = setBWzeroNhundred(perc);
+            r = Math.ceil((this.canvasHeight / 100) * checked);
         }
         return r;
     }

@@ -1,9 +1,10 @@
 import XAxis from "./animation/aniNumber/xAxis/xAxis.js";
+import YAxis from "./animation/aniNumber/yAxis/yAxis.js";
 import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 import { Pack } from "../Bilza.js";
 export default class BaseProps {
     x: XAxis;
-    y: AnimatedNoBase;
+    y: YAxis;
     colorBoundingRectangle: string;
     widthDyn: AnimatedNoBase;
     heightDyn: AnimatedNoBase;

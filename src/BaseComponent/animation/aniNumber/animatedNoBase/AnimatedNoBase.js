@@ -1,7 +1,6 @@
 import PreInitIncDec from "./preInitIncDec.js";
 import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrementTimeBased.js";
-import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 export default class AnimatedNoBase {
     constructor(defaultValue = 0) {
         this._ret_value = defaultValue;
@@ -74,17 +73,6 @@ export default class AnimatedNoBase {
         }
         else {
             r = n;
-        }
-        return r;
-    }
-    yPercToPix(perc) {
-        let r = 0;
-        if (this.canvasHeight == null) {
-            this.notInitError();
-        }
-        else {
-            let checked = setBWzeroNhundred(perc);
-            r = Math.ceil((this.canvasHeight / 100) * checked);
         }
         return r;
     }

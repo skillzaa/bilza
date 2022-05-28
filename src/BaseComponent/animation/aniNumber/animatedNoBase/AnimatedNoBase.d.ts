@@ -20,7 +20,6 @@ export default class AnimatedNoBase {
     private runAnimations;
     protected notInitError(): void;
     protected checkNonNull(n: null | number): number;
-    protected yPercToPix(perc: number): number;
     protected newIncrement(from: number, to: number, startValue: number, endValue: number): void;
     protected newDecrement(from: number, to: number, startValue: number, endValue: number): void;
 }

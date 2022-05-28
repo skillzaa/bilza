@@ -1,26 +1,32 @@
-import { OffScreenXOpt } from "../xAxis/OffScreenXOpt.js";
 import { YAlignment } from "./yAlignment.js";
-import IAnimatedNo from "../IAnimatedNo.js";
-import { Pack } from "../../../../Bilza.js";
-export default class YAxis implements IAnimatedNo {
+import Axis from "../axis/axis.js";
+import PreInitIncDecYAxis from "./preInitIncDecYAxis.js";
+import IFilter from "../IFilter.js";
+export default class YAxis extends Axis {
     readonly yAlignmentOptions: typeof YAlignment;
     yAlign: YAlignment;
     private _ret_value;
-    private _set_value;
-    private preInitMoves;
-    private animations;
-    private compWidth;
-    private compHeight;
-    constructor(compWidth: (p: Pack) => number, compHeight: (p: Pack) => number);
-    init(p: Pack, startTime: number, endTime: number, duration: number): boolean;
-    private initMoveX;
-    private translate;
-    update(msDelta: number, p: Pack): boolean;
-    notInitError(): void;
-    setValue(n: number): number;
-    animate(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
+    protected _set_value: number | null;
+    protected preInitIncDecArray: PreInitIncDecYAxis[];
+    protected animations: IFilter[];
+    protected compWidth: null | (() => number);
+    protected compHeight: null | (() => number);
+    protected canvasWidth: number | null;
+    protected canvasHeight: number | null;
+    constructor(defaultValue?: number);
+    init(compWidth: () => number, compHeight: () => number, canvasWidth: number, canvasHeight: number): boolean;
+    update(msDelta: number): boolean;
     value(): number;
-    private adjestYAlign;
-    private checkNonNull;
+    protected runSetValue(): void;
+    setValue(n: number): void;
+    animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
+    protected initIncDec(): void;
+    private runAnimations;
+    protected checkNonNull(n: null | number): number;
+    protected yPercToPix(perc: number): number;
+    protected newIncrement(from: number, to: number, startValue: number, endValue: number): void;
+    protected newDecrement(from: number, to: number, startValue: number, endValue: number): void;
+    private translateOffScreen;
+    private adjestAlign;
 }
-//# sourceMappingURL=YAxis.d.ts.map
+//# sourceMappingURL=yAxis.d.ts.map

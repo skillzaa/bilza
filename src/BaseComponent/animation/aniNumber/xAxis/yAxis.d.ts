@@ -21,11 +21,13 @@ export default class XAxis {
     animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
     protected initIncDec(): void;
     private runAnimations;
+    protected notInitError(): void;
     protected checkNonNull(n: null | number): number;
     protected xPercToPix(perc: number): number;
+    protected yPercToPix(perc: number): number;
     protected newIncrement(from: number, to: number, startValue: number, endValue: number): void;
     protected newDecrement(from: number, to: number, startValue: number, endValue: number): void;
     private translateOffScreen;
     private adjestAlign;
 }
-//# sourceMappingURL=xAxis.d.ts.map
+//# sourceMappingURL=yAxis.d.ts.map

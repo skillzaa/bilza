@@ -1,3 +1,4 @@
+import Axis from "../axis/axis.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
 import {XAlignment} from "./xAlignment.js";
 //--Rules 
@@ -10,7 +11,7 @@ import Constant from "../../filters/constant.js";
 import IFilter from "../IFilter.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 // export default class AnimatedNoBase implements IAnimatedNo{
-export default class XAxis {
+export default class XAxis extends Axis{
     public readonly xAlignmentOptions:typeof XAlignment;   
     public xAlign: XAlignment;
     //--this is the only output from this obj and we do not want to send out null rather default vlaue in the start and later as its set
@@ -27,6 +28,7 @@ export default class XAxis {
     protected canvasHeight :number | null;
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 constructor(defaultValue :number=0){
+    super();
     this.xAlignmentOptions = XAlignment; //final-ok
     this.xAlign = this.xAlignmentOptions.Mid; 
     // place 1/3 to set this._ret_value
@@ -62,20 +64,20 @@ this.runAnimations(msDelta);
 return true;    
 }
 public value():number{
-return this._ret_value;
+return this.adjestAlign(this._ret_value);    
 }
 //-using a seperate variable this._set_value it brilliant
 protected runSetValue(){
     if (this._set_value !== null){
         //--place 2 of 3 where _ret_value is changed
-        this._ret_value = this.xPercToPix(this._set_value);//perc to pix
         this._set_value = null;
     }   
 }
 public setValue(n :number){
 //--just assign it to _set_value and in the update => runSetValue.       
 //--can not convert  from perc to pix since not init yet
-this._set_value = n;
+const pix = this.xPercToPix(n);//perc to pix
+this._set_value = pix;
 }
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
 public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
@@ -114,9 +116,7 @@ private runAnimations(msDelta :number){
         }
 } 
 }
-protected notInitError(){
-    throw new Error("XAxis is not initialized yet");
-}
+
 protected checkNonNull(n :null | number):number{
 let r = 0;    
 if (n==null){
@@ -136,16 +136,7 @@ let r = 0;
     }
 return r;    
 }
-protected yPercToPix(perc :number):number{
-let r = 0;
-    if (this.canvasHeight == null){
-        this.notInitError();
-    }else {
-        let checked = setBWzeroNhundred(perc);
-        r = Math.ceil((this.canvasHeight/100) * checked); 
-    }
-return r;    
-}
+
 protected newIncrement(from :number,to :number,startValue :number,endValue :number){
     let c = new Increment(from,to,startValue,endValue);
     this.animations.push(c);    
@@ -172,5 +163,21 @@ switch (value) {
         break;
 }
 return Math.ceil(r);
-}   
+} 
+private adjestAlign(incomming :number):number{
+if(this.compWidth==null){throw new Error("init error");
+}    
+let x = incomming    
+switch (this.xAlign) {
+    case this.xAlignmentOptions.Left:
+        break;
+    case this.xAlignmentOptions.Mid:
+         x = Math.floor(x - ((this.compWidth()/2)));
+        break;
+    case this.xAlignmentOptions.Right:
+        Math.floor(x - (this.compWidth()));
+        break;
+}
+return x ;
+}  
 } 
