@@ -2,8 +2,6 @@ import { OffScreenYOpt } from "./OffScreenYOpt.js";
 import { YAlignment } from "./yAlignment.js";
 import Axis from "../axis/axis.js";
 import PreInitIncDecYAxis from "./preInitIncDecYAxis.js";
-import Increment from "../../filters/increment.js";
-import Decrement from "../../filters/decrementTimeBased.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 export default class YAxis extends Axis {
     constructor(defaultValue = 0) {
@@ -55,12 +53,14 @@ export default class YAxis extends Axis {
             if (elm.startValue < elm.endValue) {
                 const start = this.translateOffScreen(elm.startValue);
                 const end = this.translateOffScreen(elm.endValue);
-                this.newIncrement(elm.from, elm.to, start, end);
+                let c = this.newIncrement(elm.from, elm.to, start, end);
+                this.animations.push(c);
             }
             else {
                 const start = this.translateOffScreen(elm.startValue);
                 const end = this.translateOffScreen(elm.endValue);
-                this.newDecrement(elm.from, elm.to, start, end);
+                let c = this.newDecrement(elm.from, elm.to, start, end);
+                this.animations.push(c);
             }
         }
     }
@@ -74,16 +74,6 @@ export default class YAxis extends Axis {
             }
         }
     }
-    checkNonNull(n) {
-        let r = 0;
-        if (n == null) {
-            this.notInitError();
-        }
-        else {
-            r = n;
-        }
-        return r;
-    }
     yPercToPix(perc) {
         let r = 0;
         if (this.canvasHeight == null) {
@@ -94,14 +84,6 @@ export default class YAxis extends Axis {
             r = Math.ceil((this.canvasHeight / 100) * checked);
         }
         return r;
-    }
-    newIncrement(from, to, startValue, endValue) {
-        let c = new Increment(from, to, startValue, endValue);
-        this.animations.push(c);
-    }
-    newDecrement(from, to, startValue, endValue) {
-        let c = new Decrement(from, to, startValue, endValue);
-        this.animations.push(c);
     }
     translateOffScreen(value) {
         if (this.compWidth == null) {

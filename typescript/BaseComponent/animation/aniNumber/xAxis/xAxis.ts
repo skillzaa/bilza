@@ -5,8 +5,7 @@ import {XAlignment} from "./xAlignment.js";
 //--1-- the animations can return null BUT this class should not send null ahead .
 import PreInitIncDecXAxis from "./preInitIncDecXAxis.js";
 // import IAnimatedNo from "./IAnimatedNo.js";
-import Increment from "../../filters/increment.js";
-import Decrement from "../../filters/decrementTimeBased.js";
+
 import Constant from "../../filters/constant.js";
 import IFilter from "../IFilter.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
@@ -93,11 +92,13 @@ protected initIncDec(){
         if (elm.startValue < elm.endValue ){
             const start = this.translateOffScreen(elm.startValue);
             const end = this.translateOffScreen(elm.endValue);
-            this.newIncrement(elm.from,elm.to,start,end);
+            let c = this.newIncrement(elm.from,elm.to,start,end);
+            this.animations.push(c);
         }else {
             const start = this.translateOffScreen(elm.startValue);
             const end = this.translateOffScreen(elm.endValue);
-            this.newDecrement(elm.from,elm.to,start,end);
+            let c = this.newDecrement(elm.from,elm.to,start,end);
+            this.animations.push(c); 
         }
     }
 }
@@ -117,15 +118,7 @@ private runAnimations(msDelta :number){
 } 
 }
 
-protected checkNonNull(n :null | number):number{
-let r = 0;    
-if (n==null){
-    this.notInitError()
-}else {
-    r = n; 
-}
-return r;
-}
+
 protected xPercToPix(perc :number):number{
 let r = 0;
     if (this.canvasWidth == null){
@@ -137,14 +130,7 @@ let r = 0;
 return r;    
 }
 
-protected newIncrement(from :number,to :number,startValue :number,endValue :number){
-    let c = new Increment(from,to,startValue,endValue);
-    this.animations.push(c);    
-}    
-protected newDecrement(from :number,to :number,startValue :number,endValue :number){
-    let c = new Decrement(from,to,startValue,endValue);
-    this.animations.push(c);    
-} 
+
 private translateOffScreen(value :number|OffScreenXOpt):number{
 if (this.compWidth == null){throw new Error("init error");
  }    

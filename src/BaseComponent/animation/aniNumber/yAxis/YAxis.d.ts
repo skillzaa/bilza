@@ -22,10 +22,7 @@ export default class YAxis extends Axis {
     animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
     protected initIncDec(): void;
     private runAnimations;
-    protected checkNonNull(n: null | number): number;
     protected yPercToPix(perc: number): number;
-    protected newIncrement(from: number, to: number, startValue: number, endValue: number): void;
-    protected newDecrement(from: number, to: number, startValue: number, endValue: number): void;
     private translateOffScreen;
     private adjestAlign;
 }
