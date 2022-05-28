@@ -2,14 +2,10 @@ import Axis from "../axis/axis.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
 import { XAlignment } from "./xAlignment.js";
 import PreInitIncDecXAxis from "./preInitIncDecXAxis.js";
-import IFilter from "../IFilter.js";
 export default class XAxis extends Axis {
     readonly xAlignmentOptions: typeof XAlignment;
     xAlign: XAlignment;
-    private _ret_value;
-    protected _set_value: number | null;
     protected preInitIncDecArray: PreInitIncDecXAxis[];
-    protected animations: IFilter[];
     protected compWidth: null | (() => number);
     protected compHeight: null | (() => number);
     protected canvasWidth: number | null;
@@ -19,10 +15,8 @@ export default class XAxis extends Axis {
     update(msDelta: number): boolean;
     value(): number;
     protected runSetValue(): void;
-    setValue(n: number): void;
     animate(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
     protected initIncDec(): void;
-    private runAnimations;
     protected xPercToPix(perc: number): number;
     private translateOffScreen;
     private adjestAlign;

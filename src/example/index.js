@@ -7,6 +7,7 @@ bil.resizeCanvas(1000, 400);
 let tst = new Rect();
 tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
 tst.duration = 600;
+tst.p.y.setValue(50);
 tst.p.x.animate(2, 8, OffScreenXOpt.XLeft, OffScreenXOpt.XRight);
 let grid = new Grid();
 bil.insert.append(tst, tst.duration);

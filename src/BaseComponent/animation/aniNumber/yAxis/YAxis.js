@@ -5,10 +5,9 @@ import PreInitIncDecYAxis from "./preInitIncDecYAxis.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 export default class YAxis extends Axis {
     constructor(defaultValue = 0) {
-        super();
+        super(defaultValue);
         this.yAlignmentOptions = YAlignment;
         this.yAlign = this.yAlignmentOptions.Mid;
-        this._ret_value = defaultValue;
         this._set_value = null;
         this.preInitIncDecArray = [];
         this.animations = [];
@@ -36,12 +35,12 @@ export default class YAxis extends Axis {
     }
     runSetValue() {
         if (this._set_value !== null) {
+            this._ret_value = this.yPercToPix(this._set_value);
             this._set_value = null;
         }
     }
     setValue(n) {
-        const pix = this.yPercToPix(n);
-        this._set_value = pix;
+        this._set_value = n;
     }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDecYAxis(from, to, startValue, endValue);
@@ -61,16 +60,6 @@ export default class YAxis extends Axis {
                 const end = this.translateOffScreen(elm.endValue);
                 let c = this.newDecrement(elm.from, elm.to, start, end);
                 this.animations.push(c);
-            }
-        }
-    }
-    runAnimations(msDelta) {
-        for (let i = 0; i < this.animations.length; i++) {
-            const ani = this.animations[i];
-            ani.update(msDelta);
-            let v = ani.value();
-            if (v != null) {
-                this._ret_value = v;
             }
         }
     }

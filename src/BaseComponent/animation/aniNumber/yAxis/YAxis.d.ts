@@ -5,7 +5,6 @@ import IFilter from "../IFilter.js";
 export default class YAxis extends Axis {
     readonly yAlignmentOptions: typeof YAlignment;
     yAlign: YAlignment;
-    private _ret_value;
     protected _set_value: number | null;
     protected preInitIncDecArray: PreInitIncDecYAxis[];
     protected animations: IFilter[];
@@ -21,7 +20,6 @@ export default class YAxis extends Axis {
     setValue(n: number): void;
     animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
     protected initIncDec(): void;
-    private runAnimations;
     protected yPercToPix(perc: number): number;
     private translateOffScreen;
     private adjestAlign;

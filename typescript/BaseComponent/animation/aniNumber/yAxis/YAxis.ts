@@ -14,8 +14,7 @@ import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 export default class YAxis extends Axis {
     public readonly yAlignmentOptions:typeof YAlignment;   
     public yAlign: YAlignment;
-    //--this is the only output from this obj and we do not want to send out null rather default vlaue in the start and later as its set
-    private _ret_value :number;
+    
     //_set_value can be null since it is applied during update only if its not null and then set to null back again-thus is used once.
     protected _set_value :number | null;
     protected preInitIncDecArray :PreInitIncDecYAxis[];
@@ -28,11 +27,10 @@ export default class YAxis extends Axis {
     protected canvasHeight :number | null;
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 constructor(defaultValue :number=0){
-    super();
+    super(defaultValue);
     this.yAlignmentOptions = YAlignment; //final-ok
     this.yAlign = this.yAlignmentOptions.Mid; 
     // place 1/3 to set this._ret_value
-    this._ret_value  = defaultValue; 
     this._set_value  = null;    
     this.preInitIncDecArray = [];
     this.animations = [];
@@ -70,14 +68,15 @@ return this.adjestAlign(this._ret_value);
 protected runSetValue(){
     if (this._set_value !== null){
         //--place 2 of 3 where _ret_value is changed
+        this._ret_value = this.yPercToPix(this._set_value);
         this._set_value = null;
     }   
 }
 public setValue(n :number){
 //--just assign it to _set_value and in the update => runSetValue.       
 //--can not convert  from perc to pix since not init yet
-const pix = this.yPercToPix(n);//perc to pix
-this._set_value = pix;
+// const pix = this.yPercToPix(n);//perc to pix
+this._set_value = n;
 }
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
 public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
@@ -102,21 +101,6 @@ protected initIncDec(){
             this.animations.push(c);
         }
     }
-}
-
-// This runs ALL THE ANIMATIONS (EACH filter is called and its value integrated )
-private runAnimations(msDelta :number){
-    for (let i = 0; i < this.animations.length; i++) {
-        const ani = this.animations[i];
-        // ani.init(p);
-        ani.update(msDelta);
-        let v  = ani.value(); 
-        if ( v != null){
-            //--place 3 of 3 where _ret_value is changed
-            this._ret_value = v;
-            // console.log("msDelta",msDelta,"value",this._ret_value);
-        }
-} 
 }
 
 protected yPercToPix(perc :number):number{

@@ -5,13 +5,11 @@ import PreInitIncDecXAxis from "./preInitIncDecXAxis.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 export default class XAxis extends Axis {
     constructor(defaultValue = 0) {
-        super();
+        super(defaultValue);
         this.xAlignmentOptions = XAlignment;
         this.xAlign = this.xAlignmentOptions.Mid;
-        this._ret_value = defaultValue;
         this._set_value = null;
         this.preInitIncDecArray = [];
-        this.animations = [];
         this.compWidth = null;
         this.compHeight = null;
         this.canvasWidth = null;
@@ -36,12 +34,9 @@ export default class XAxis extends Axis {
     }
     runSetValue() {
         if (this._set_value !== null) {
+            this._ret_value = this.xPercToPix(this._set_value);
             this._set_value = null;
         }
-    }
-    setValue(n) {
-        const pix = this.xPercToPix(n);
-        this._set_value = pix;
     }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDecXAxis(from, to, startValue, endValue);
@@ -61,16 +56,6 @@ export default class XAxis extends Axis {
                 const end = this.translateOffScreen(elm.endValue);
                 let c = this.newDecrement(elm.from, elm.to, start, end);
                 this.animations.push(c);
-            }
-        }
-    }
-    runAnimations(msDelta) {
-        for (let i = 0; i < this.animations.length; i++) {
-            const ani = this.animations[i];
-            ani.update(msDelta);
-            let v = ani.value();
-            if (v != null) {
-                this._ret_value = v;
             }
         }
     }
