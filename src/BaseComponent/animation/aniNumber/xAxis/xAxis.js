@@ -1,11 +1,13 @@
+import Axis from "../axis/axis.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
 import { XAlignment } from "./xAlignment.js";
 import PreInitIncDecXAxis from "./preInitIncDecXAxis.js";
 import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrementTimeBased.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
-export default class XAxis {
+export default class XAxis extends Axis {
     constructor(defaultValue = 0) {
+        super();
         this.xAlignmentOptions = XAlignment;
         this.xAlign = this.xAlignmentOptions.Mid;
         this._ret_value = defaultValue;

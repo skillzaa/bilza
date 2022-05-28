@@ -1,7 +1,9 @@
+import Axis from "../axis/axis.js";
+import { OffScreenXOpt } from "./OffScreenXOpt.js";
 import { XAlignment } from "./xAlignment.js";
 import PreInitIncDecXAxis from "./preInitIncDecXAxis.js";
 import IFilter from "../IFilter.js";
-export default class XAxis {
+export default class XAxis extends Axis {
     readonly xAlignmentOptions: typeof XAlignment;
     xAlign: XAlignment;
     private _ret_value;
@@ -18,7 +20,7 @@ export default class XAxis {
     value(): number;
     protected runSetValue(): void;
     setValue(n: number): void;
-    animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
+    animate(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
     protected initIncDec(): void;
     private runAnimations;
     protected checkNonNull(n: null | number): number;

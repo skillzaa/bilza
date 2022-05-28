@@ -1,4 +1,5 @@
 import Bilza from "../Bilza.js";
+import { OffScreenXOpt } from "../BaseComponent/animation/aniNumber/xAxis/OffScreenXOpt.js";
 import Rect from "../components/rect/rect.js";
 import Grid from "../components/grid/grid.js";
 let bil = new Bilza("bilza");
@@ -6,8 +7,7 @@ bil.resizeCanvas(1000, 400);
 let tst = new Rect();
 tst.p.x.xAlign = tst.p.x.xAlignmentOptions.Mid;
 tst.duration = 600;
-tst.p.x.animate(2, 3, 0, 50);
-tst.p.y.animate(2, 3, 0, 50);
+tst.p.x.animate(2, 8, OffScreenXOpt.XLeft, OffScreenXOpt.XRight);
 let grid = new Grid();
 bil.insert.append(tst, tst.duration);
 bil.insert.alwaysOn(grid);

@@ -80,7 +80,7 @@ const pix = this.xPercToPix(n);//perc to pix
 this._set_value = pix;
 }
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
-public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
+public animate(from :number=0,to :number=10,startValue :number | OffScreenXOpt=0,endValue :number | OffScreenXOpt=100){
     let a = new PreInitIncDecXAxis(from,to,startValue,endValue);
     this.preInitIncDecArray.push(a);
 }
