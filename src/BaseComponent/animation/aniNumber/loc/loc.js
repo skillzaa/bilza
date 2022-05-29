@@ -13,7 +13,8 @@ export default class Loc {
         this._set_data = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
         ;
         this.preInitArray = [];
-        this.animations = [];
+        this.animationsX = [];
+        this.animationsY = [];
         this.compWidth = null;
         this.compHeight = null;
         this.canvasWidth = null;
@@ -27,37 +28,68 @@ export default class Loc {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
         this.runSetValue();
+        this.initIncDec(this.compWidth(), this.compHeight());
         return true;
     }
     update(msDelta) {
         if (this.compWidth == null) {
             throw new Error("init error");
         }
+        this.runSetValue();
+        this.runAnimationsX(msDelta);
+        this.runAnimationsY(msDelta);
         return true;
     }
-    initIncDec(compWidth) {
+    initIncDec(compWidth, compHeight) {
         for (let i = 0; i < this.preInitArray.length; i++) {
             const elm = this.preInitArray[i];
-            const start = solveX(elm.from, compWidth, this.canvasWidth);
-            const end = solveX(elm.to, compWidth, this.canvasWidth);
-            if (start < end) {
-                let c = this.newIncrement(elm.timeFrom, elm.timeTo, start, end);
-                this.animations.push(c);
-            }
-            else {
-                let c = this.newDecrement(elm.timeFrom, elm.timeTo, start, end);
-                this.animations.push(c);
-            }
+            this.initIncDecX(elm, compWidth);
+            this.initIncDecY(elm, compHeight);
+        }
+        console.log("this.animationsX", this.animationsX);
+        console.log("this.animationsY", this.animationsY);
+    }
+    initIncDecX(elm, compWidth) {
+        const start = solveX(elm.from, compWidth, this.canvasWidth);
+        const end = solveX(elm.to, compWidth, this.canvasWidth);
+        if (start < end) {
+            let c = this.newIncrement(elm.timeFrom, elm.timeTo, start, end);
+            this.animationsX.push(c);
+        }
+        else {
+            let c = this.newDecrement(elm.timeFrom, elm.timeTo, start, end);
+            this.animationsX.push(c);
         }
     }
-    runAnimations(msDelta) {
-        for (let i = 0; i < this.animations.length; i++) {
-            const ani = this.animations[i];
+    initIncDecY(elm, compHeight) {
+        const start = solveY(elm.from, compHeight, this.canvasHeight);
+        const end = solveY(elm.to, compHeight, this.canvasHeight);
+        if (start < end) {
+            let c = this.newIncrement(elm.timeFrom, elm.timeTo, start, end);
+            this.animationsY.push(c);
+        }
+        else {
+            let c = this.newDecrement(elm.timeFrom, elm.timeTo, start, end);
+            this.animationsY.push(c);
+        }
+    }
+    runAnimationsX(msDelta) {
+        for (let i = 0; i < this.animationsX.length; i++) {
+            const ani = this.animationsX[i];
             ani.update(msDelta);
             let v = ani.value();
             if (v != null) {
                 this._ret_data.x = v;
-                console.log("v", v);
+            }
+        }
+    }
+    runAnimationsY(msDelta) {
+        for (let i = 0; i < this.animationsY.length; i++) {
+            const ani = this.animationsY[i];
+            ani.update(msDelta);
+            let v = ani.value();
+            if (v != null) {
+                this._ret_data.y = v;
             }
         }
     }
@@ -71,6 +103,7 @@ export default class Loc {
         if (this._set_data !== null && this._set_data.x !== null) {
             this._ret_data.x = solveX(this._set_data, this.compWidth(), this.canvasWidth);
             this._ret_data.y = solveY(this._set_data, this.compHeight(), this.canvasHeight);
+            this._set_data = null;
         }
     }
     set(x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
@@ -81,7 +114,6 @@ export default class Loc {
         const to = new LocItem(xTo, yTo, xAlignTo, yAlignTo, xExtraTo, yExtraTo);
         const c = new PreInitArray(timeFrom, timeTo, from, to);
         this.preInitArray.push(c);
-        console.log("this.preInitArray", this.preInitArray);
     }
     x() {
         if (this._ret_data !== null) {

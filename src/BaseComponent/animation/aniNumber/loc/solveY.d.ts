@@ -1,3 +1,3 @@
 import LocItem from "./locItem.js";
-export default function solveY(ls: LocItem, compWidth?: number | null, canvasWidth?: number | null): number;
+export default function solveY(ls: LocItem, compHeight?: number | null, canvasHeight?: number | null): number;
 //# sourceMappingURL=solveY.d.ts.map

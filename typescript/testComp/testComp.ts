@@ -32,7 +32,7 @@ draw(p:Pack):boolean{
 this.style.fontSize = 50;
 
 p.drawText( this.name + "=>" + Math.ceil(this.msDelta/1000).toString(),
-this.p.x.value(),this.p.y.value(),
+this.p.loc.x(),this.p.loc.y(),
 this.style);
 
 return true;

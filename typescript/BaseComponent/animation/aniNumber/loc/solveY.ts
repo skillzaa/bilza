@@ -4,18 +4,18 @@ import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 import {OffScreenYOpt} from "../yAxis/OffScreenYOpt.js";
 import LocItem from "./locItem.js";
 
-export default function solveY(ls :LocItem,compWidth :number|null=null,canvasWidth :number|null=null):number{
+export default function solveY(ls :LocItem,compHeight :number|null=null,canvasHeight :number|null=null):number{
 
-if (canvasWidth == null ){ throw new Error("canvasWidth = null");}
+if (canvasHeight == null ){ throw new Error("canvasWidth = null");}
 let localX = 0;
 
 if (typeof ls.y != "number"){
-const converted = OffScreenToNumber(ls.y,compWidth,canvasWidth);
-const adjest = adjestAlign(converted,ls.yAlign,compWidth);
+const converted = OffScreenToNumber(ls.y,compHeight,canvasHeight);
+const adjest = adjestAlign(converted,ls.yAlign,compHeight);
 localX = converted + ls.xExtra;
 }else {
-    const pix = yPercToPix(ls.y,canvasWidth);
-    const adjest = adjestAlign(pix,ls.yAlign,compWidth);
+    const pix = yPercToPix(ls.y,canvasHeight);
+    const adjest = adjestAlign(pix,ls.yAlign,compHeight);
     return adjest + ls.xExtra;
 }
 return localX;    

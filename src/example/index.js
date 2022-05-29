@@ -1,13 +1,16 @@
 import Bilza from "../Bilza.js";
 import Rect from "../components/rect/rect.js";
+import Grid from "../components/grid/grid.js";
 import { XAlignment } from "../BaseComponent/animation/aniNumber/xAxis/xAlignment.js";
 import { YAlignment } from "../BaseComponent/animation/aniNumber/yAxis/yAlignment.js";
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
 let tst = new Rect();
 tst.duration = 600;
-tst.p.loc.set(50, 50, XAlignment.Left, YAlignment.Top);
-tst.p.loc.animate(0, 1, 0, 50, 0, 50);
+let grid = new Grid();
+tst.p.loc.set(0, 0, XAlignment.Mid, YAlignment.Mid);
+tst.p.loc.animate(2, 4, 0, 50, 0, 50, XAlignment.Left, XAlignment.Mid, YAlignment.Top, YAlignment.Mid);
 bil.insert.append(tst, tst.duration);
+bil.insert.alwaysOn(grid);
 bil.init();
 bil.start();

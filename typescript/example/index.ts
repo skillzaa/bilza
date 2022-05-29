@@ -27,7 +27,7 @@ tst.duration = 600;
 // tst.p.x.animate(3,8,0,50);
 // tst.p.y.animate(3,8,0,50);
 
-// let grid = new Grid();
+let grid = new Grid();
 // grid.p.cellWidth = 100;
 // grid.flagDrawNumbers = true;
 // grid.fontSize = 25;
@@ -41,11 +41,14 @@ tst.duration = 600;
 // tst.p.loc.set(50,50,XAlignment.Mid);
 // tst.p.loc.set(OffScreenXOpt.XLeft,50,XAlignment.Left,YAlignment.Top,90);
 
-tst.p.loc.set(50,50,XAlignment.Left,YAlignment.Top);
+tst.p.loc.set(0,0,XAlignment.Mid,YAlignment.Mid);
 
-tst.p.loc.animate(0,1,0,50,0,50);
+tst.p.loc.animate(2,4,0,50,0,50,
+    XAlignment.Left,XAlignment.Mid,
+    YAlignment.Top,YAlignment.Mid
+    );
 bil.insert.append(tst,tst.duration);
-// bil.insert.alwaysOn(grid);
+bil.insert.alwaysOn(grid);
 //--////////////////////////////
 bil.init();
 bil.start();
