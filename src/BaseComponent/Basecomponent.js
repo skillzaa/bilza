@@ -36,6 +36,7 @@ export default class BaseComponent {
     init(p) {
         this.p.canvasWidth = p.canvasWidth();
         this.p.canvasHeight = p.canvasHeight();
+        this.p.loc.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.p.x.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.p.y.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.p.widthDyn.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
@@ -44,6 +45,7 @@ export default class BaseComponent {
     }
     update(msDelta, p) {
         this.p.x.update(msDelta);
+        this.p.loc.update(msDelta);
         this.p.y.update(msDelta);
         this.p.widthDyn.update(msDelta);
         return true;

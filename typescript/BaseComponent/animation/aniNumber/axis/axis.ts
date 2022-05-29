@@ -8,6 +8,7 @@ export default class Axis {
     //--this is the only output from this obj and we do not want to send out null rather default vlaue in the start and later as its set
     protected _ret_value :number;
     protected _set_value :number | null;
+    
 constructor(defaultValue :number){
     this.animations = [];
     this._ret_value  = defaultValue; 

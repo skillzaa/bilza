@@ -2,11 +2,13 @@
 import XAxis from "./animation/aniNumber/xAxis/xAxis.js";
 import YAxis from "./animation/aniNumber/yAxis/yAxis.js";
 import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
+import Loc from "./animation/aniNumber/loc/loc.js";
 // import YAxis from "./animation/aniNumber/YAxis.js";
 
 import {Pack} from "../Bilza.js";
 
 export default class BaseProps{
+loc :Loc;
 x :XAxis;
 y :YAxis;
 colorBoundingRectangle:string;
@@ -35,7 +37,7 @@ constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
 this.x= new XAxis(0);
 this.y = new YAxis(0);
 // this.y.setValue(0);
-
+this.loc = new Loc(0,0);
 this.widthDyn = new AnimatedNoBase(10);    
 this.heightDyn = new AnimatedNoBase(10);    
 this.canvasWidth = null;    

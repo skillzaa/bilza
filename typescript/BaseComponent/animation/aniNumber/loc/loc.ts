@@ -1,0 +1,140 @@
+import { XAlignment } from "../xAxis/xAlignment.js";
+import { YAlignment } from "../yAxis/yAlignment.js";
+import LocItem from "./locItem.js";
+import solveX from "./solveX.js";
+import solveY from "./solveY.js";
+import PreInitArray from "./preInitArray.js";
+import XY from "./xy.js";
+import { OffScreenXOpt } from "./OffScreenXOpt.js";
+import { OffScreenYOpt } from "./OffScreenYOpt.js";
+// import IFilter from "../IFilter.js";
+import Increment from "../../filters/increment.js";
+import Decrement from "../../filters/decrementTimeBased.js";
+import IFilter from "../IFilter.js";
+/**The concept :
+ * _x and _y are simple numbers. we save and store an equation for each location or its animation and at run time solve that equa into a number
+ */
+export default class Loc {
+private animations :IFilter[];   
+private _ret_data :XY;
+private _set_data :LocItem | null;
+private preInitArray :PreInitArray[];
+//--------------------------------init data----------------
+    protected compWidth    : null | (()=>number) ;
+    protected compHeight   : null | (()=>number) ;
+    protected canvasWidth  :number | null; 
+    protected canvasHeight :number | null;
+//--------------------------------
+public readonly yAlignOpt:typeof YAlignment;   
+public readonly xAlignOpt:typeof XAlignment;   
+
+//-------------------------------------------
+constructor(x :number | OffScreenXOpt,y :number |OffScreenYOpt, xAlign :XAlignment = XAlignment.Left, yAlign :YAlignment = YAlignment.Top,xExtra :number=0,yExtra :number = 0){
+    this._ret_data = new XY(0,0);
+    this._set_data = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);;
+    this.preInitArray = [];
+    this.animations = [];
+//------------------
+this.compWidth = null;
+this.compHeight = null;
+this.canvasWidth = null;
+this.canvasHeight = null;
+//------------------
+this.yAlignOpt = YAlignment; //final-ok    
+this.xAlignOpt = XAlignment; //final-ok    
+}    
+init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHeight :number): boolean {
+    this.compWidth = compWidth;
+    this.compHeight = compHeight;
+    this.canvasWidth = canvasWidth;
+    this.canvasHeight = canvasHeight;
+
+    this.runSetValue();
+    this.initIncDec(this.compWidth());
+    return true;
+}
+update(msDelta :number):boolean{
+if (this.compWidth == null){throw new Error("init error");}    
+this.runAnimations(msDelta);
+return true;    
+}
+//-This fn converts all the  preInitIncDecArray commands into inc dec objects during init
+public initIncDec(compWidth :number){
+// const from = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
+    for (let i = 0; i < this.preInitArray.length; i++) {
+        const elm = this.preInitArray[i];
+        const start = solveX(elm.from,compWidth,this.canvasWidth);
+        const end = solveX(elm.to,compWidth,this.canvasWidth);
+
+        if (start < end ){
+            let c = this.newIncrement(elm.timeFrom,elm.timeTo,start,end);
+            this.animations.push(c);
+        }else {
+            let c = this.newDecrement(elm.timeFrom,elm.timeTo,start,end);
+            this.animations.push(c); 
+        }
+    }
+}
+
+// This runs ALL THE ANIMATIONS (EACH filter is called and its value integrated )
+private runAnimations(msDelta :number){
+    for (let i = 0; i < this.animations.length; i++) {
+        const ani = this.animations[i];
+        // ani.init(p);
+        
+        ani.update(msDelta);
+        let v  = ani.value(); 
+        if ( v != null){
+            //--place 3 of 3 where _ret_value is changed
+            this._ret_data.x = v;
+            console.log("v",v);
+            // console.log("msDelta",msDelta,"value",this._ret_value);
+        }
+} 
+}
+//-using a seperate variable this._set_value it brilliant
+private runSetValue(){
+
+if (this.compWidth == null){throw new Error("init error");}
+    if (this._set_data !== null && this._set_data.x !== null){
+    //--place 2 of 3 where _ret_value is changed
+    this._ret_data.x = solveX(this._set_data.x,this._set_data.xAlign,this._set_data.xExtra,this.compWidth(),this.canvasWidth);
+    }   
+}
+set(x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
+
+    this._set_data = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
+}
+
+animate(timeFrom :number,timeTo :number,xFrom :number,xTo :number , yFrom :number,yTo :number,xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0){
+const from = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
+const to = new LocItem(xTo,yTo,xAlignTo,yAlignTo,xExtraTo,yExtraTo);
+const c = new PreInitArray(timeFrom,timeTo,from,to);
+this.preInitArray.push(c);
+console.log("this.preInitArray", this.preInitArray);
+}
+x():number{   
+    if (this._ret_data !== null){
+        return this._ret_data.x;
+    }else {
+        throw new Error("init error");
+    } 
+}
+y():number{   
+    if (this._ret_data !== null){
+        return this._ret_data.y;
+    }else {
+        throw new Error("init error");
+    } 
+}
+
+private newIncrement(from :number,to :number,startValue :number,endValue :number):Increment{
+    let c = new Increment(from,to,startValue,endValue);
+    return c;   
+}    
+private newDecrement(from :number,to :number,startValue :number,endValue :number):Decrement{
+    let c = new Decrement(from,to,startValue,endValue);
+    return c;    
+} 
+
+}

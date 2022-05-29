@@ -1,3 +1,4 @@
+import { OffScreenYOpt } from "./OffScreenYOpt.js";
 import { YAlignment } from "./yAlignment.js";
 import Axis from "../axis/axis.js";
 import PreInitIncDecYAxis from "./preInitIncDecYAxis.js";
@@ -16,10 +17,10 @@ export default class YAxis extends Axis {
     init(compWidth: () => number, compHeight: () => number, canvasWidth: number, canvasHeight: number): boolean;
     update(msDelta: number): boolean;
     value(): number;
-    protected runSetValue(): void;
+    runSetValue(): void;
     setValue(n: number): void;
-    animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
-    protected initIncDec(): void;
+    animate(from?: number, to?: number, startValue?: number | OffScreenYOpt, endValue?: number | OffScreenYOpt): void;
+    initIncDec(): void;
     protected yPercToPix(perc: number): number;
     private translateOffScreen;
     private adjestAlign;

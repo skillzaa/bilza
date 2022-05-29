@@ -66,7 +66,7 @@ public value():number{
 return this.adjestAlign(this._ret_value);    
 }
 //-using a seperate variable this._set_value it brilliant
-protected runSetValue(){
+public runSetValue(){
     if (this._set_value !== null){
         //--place 2 of 3 where _ret_value is changed
         this._ret_value = this.xPercToPix(this._set_value);
@@ -82,7 +82,7 @@ public animate(from :number=0,to :number=10,startValue :number | OffScreenXOpt=0
 
 ////////////////----------PRIVATE----  
 //-This fn converts all the  preInitIncDecArray commands into inc dec objects during init
-protected initIncDec(){
+public initIncDec(){
     for (let i = 0; i < this.preInitIncDecArray.length; i++) {
         const elm = this.preInitIncDecArray[i];
         const start = this.translateOffScreen(elm.startValue);

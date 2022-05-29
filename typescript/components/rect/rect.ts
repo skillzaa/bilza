@@ -29,7 +29,7 @@ this.style.strokeStyle = this.color;
 this.style.lineWidth = this.lineWidth.value();
 
    p.drawRect(
-    this.props.x.value(),
+    this.props.loc.x(),
     this.props.y.value(),
     this.width(),
     this.height(),

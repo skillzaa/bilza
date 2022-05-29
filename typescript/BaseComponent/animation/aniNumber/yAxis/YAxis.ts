@@ -50,12 +50,7 @@ init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHei
     this.initIncDec();
     return true;
 }
-//--There are different kind of Filters that can be applied to a number One such filter is increment another decrement. There can be other filters like Wiggle, SpanBetweenXPoints, CosCurve etc etc.
-//--For each type of filter we will have a preInitArray which will collect all the filters applied 
-//-- AND when init all these Arrays are converted into real objects which then effect the out put values when their time comes.
-//---initIncDec is one such fn which while init will convert.
-//---Every such fn which initialize an array into Filter Objects there is also a collecting function -they work in pair. The pair function for this fn is this.animate.
-//--For wiggle filter there may be a fn this.wiggle which will collect all the preInit wiggle commands and store then into some preInitWiggle array and then run them during init with initWiggle. 
+
 update(msDelta :number):boolean{
 this.runSetValue();
 this.runAnimations(msDelta);
@@ -65,7 +60,7 @@ public value():number{
 return this.adjestAlign(this._ret_value);    
 }
 //-using a seperate variable this._set_value it brilliant
-protected runSetValue(){
+public runSetValue(){
     if (this._set_value !== null){
         //--place 2 of 3 where _ret_value is changed
         this._ret_value = this.yPercToPix(this._set_value);
@@ -79,24 +74,22 @@ public setValue(n :number){
 this._set_value = n;
 }
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
-public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
+public animate(from :number=0,to :number=10,startValue :number |OffScreenYOpt=0,endValue :number |OffScreenYOpt=100){
     let a = new PreInitIncDecYAxis(from,to,startValue,endValue);
     this.preInitIncDecArray.push(a);
 }
 
 ////////////////----------PRIVATE----  
 //-This fn converts all the  preInitIncDecArray commands into inc dec objects during init
-protected initIncDec(){
+public initIncDec(){
     for (let i = 0; i < this.preInitIncDecArray.length; i++) {
         const elm = this.preInitIncDecArray[i];
-        if (elm.startValue < elm.endValue ){
-            const start = this.translateOffScreen(elm.startValue);
-            const end = this.translateOffScreen(elm.endValue);
+        const start = this.translateOffScreen(elm.startValue);
+        const end = this.translateOffScreen(elm.endValue);
+        if ( start < end ){
             let c = this.newIncrement(elm.from,elm.to,start,end);
             this.animations.push(c);
         }else {
-            const start = this.translateOffScreen(elm.startValue);
-            const end = this.translateOffScreen(elm.endValue);
             let c = this.newDecrement(elm.from,elm.to,start,end);
             this.animations.push(c);
         }

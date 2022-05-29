@@ -14,9 +14,9 @@ export default class XAxis extends Axis {
     init(compWidth: () => number, compHeight: () => number, canvasWidth: number, canvasHeight: number): boolean;
     update(msDelta: number): boolean;
     value(): number;
-    protected runSetValue(): void;
+    runSetValue(): void;
     animate(from?: number, to?: number, startValue?: number | OffScreenXOpt, endValue?: number | OffScreenXOpt): void;
-    protected initIncDec(): void;
+    initIncDec(): void;
     protected xPercToPix(perc: number): number;
     private translateOffScreen;
     private adjestAlign;
