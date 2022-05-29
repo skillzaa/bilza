@@ -2,6 +2,7 @@ import { XAlignment } from "../xAxis/xAlignment.js";
 import { YAlignment } from "../yAxis/yAlignment.js";
 import LocItem from "./locItem.js";
 import solveX from "./solveX.js";
+import solveY from "./solveY.js";
 import PreInitArray from "./preInitArray.js";
 import XY from "./xy.js";
 import Increment from "../../filters/increment.js";
@@ -26,14 +27,12 @@ export default class Loc {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
         this.runSetValue();
-        this.initIncDec(this.compWidth());
         return true;
     }
     update(msDelta) {
         if (this.compWidth == null) {
             throw new Error("init error");
         }
-        this.runAnimations(msDelta);
         return true;
     }
     initIncDec(compWidth) {
@@ -66,8 +65,12 @@ export default class Loc {
         if (this.compWidth == null) {
             throw new Error("init error");
         }
+        if (this.compHeight == null) {
+            throw new Error("init error");
+        }
         if (this._set_data !== null && this._set_data.x !== null) {
-            this._ret_data.x = solveX(this._set_data.x, this._set_data.xAlign, this._set_data.xExtra, this.compWidth(), this.canvasWidth);
+            this._ret_data.x = solveX(this._set_data, this.compWidth(), this.canvasWidth);
+            this._ret_data.y = solveY(this._set_data, this.compHeight(), this.canvasHeight);
         }
     }
     set(x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {

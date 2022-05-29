@@ -1,5 +1,4 @@
 import Bilza from "../Bilza.js";
-import { OffScreenXOpt } from "../BaseComponent/animation/aniNumber/xAxis/OffScreenXOpt.js";
 import Rect from "../components/rect/rect.js";
 import { XAlignment } from "../BaseComponent/animation/aniNumber/xAxis/xAlignment.js";
 import { YAlignment } from "../BaseComponent/animation/aniNumber/yAxis/yAlignment.js";
@@ -7,8 +6,8 @@ let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
 let tst = new Rect();
 tst.duration = 600;
-tst.p.loc.set(OffScreenXOpt.XRight, 50, XAlignment.Left, YAlignment.Top, -150);
-tst.p.loc.animate(0, 10, 0, 50, 0, 50);
+tst.p.loc.set(50, 50, XAlignment.Left, YAlignment.Top);
+tst.p.loc.animate(0, 1, 0, 50, 0, 50);
 bil.insert.append(tst, tst.duration);
 bil.init();
 bil.start();

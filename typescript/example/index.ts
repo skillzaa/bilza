@@ -41,9 +41,9 @@ tst.duration = 600;
 // tst.p.loc.set(50,50,XAlignment.Mid);
 // tst.p.loc.set(OffScreenXOpt.XLeft,50,XAlignment.Left,YAlignment.Top,90);
 
-tst.p.loc.set(OffScreenXOpt.XRight,50,XAlignment.Left,YAlignment.Top,-150);
+tst.p.loc.set(50,50,XAlignment.Left,YAlignment.Top);
 
-tst.p.loc.animate(0,10,0,50,0,50);
+tst.p.loc.animate(0,1,0,50,0,50);
 bil.insert.append(tst,tst.duration);
 // bil.insert.alwaysOn(grid);
 //--////////////////////////////

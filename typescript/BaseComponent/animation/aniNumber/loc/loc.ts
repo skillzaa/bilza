@@ -7,13 +7,10 @@ import PreInitArray from "./preInitArray.js";
 import XY from "./xy.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
 import { OffScreenYOpt } from "./OffScreenYOpt.js";
-// import IFilter from "../IFilter.js";
+import IFilter from "../IFilter.js";
 import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrementTimeBased.js";
-import IFilter from "../IFilter.js";
-/**The concept :
- * _x and _y are simple numbers. we save and store an equation for each location or its animation and at run time solve that equa into a number
- */
+
 export default class Loc {
 private animations :IFilter[];   
 private _ret_data :XY;
@@ -50,12 +47,13 @@ init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHei
     this.canvasHeight = canvasHeight;
 
     this.runSetValue();
-    this.initIncDec(this.compWidth());
+    // this.initIncDec(this.compWidth());
     return true;
 }
 update(msDelta :number):boolean{
 if (this.compWidth == null){throw new Error("init error");}    
-this.runAnimations(msDelta);
+//no need for this.runSetValue(); here
+// this.runAnimations(msDelta);
 return true;    
 }
 //-This fn converts all the  preInitIncDecArray commands into inc dec objects during init
@@ -96,9 +94,11 @@ private runAnimations(msDelta :number){
 private runSetValue(){
 
 if (this.compWidth == null){throw new Error("init error");}
+if (this.compHeight == null){throw new Error("init error");}
     if (this._set_data !== null && this._set_data.x !== null){
     //--place 2 of 3 where _ret_value is changed
-    this._ret_data.x = solveX(this._set_data.x,this._set_data.xAlign,this._set_data.xExtra,this.compWidth(),this.canvasWidth);
+    this._ret_data.x = solveX(this._set_data,this.compWidth(),this.canvasWidth);
+    this._ret_data.y = solveY(this._set_data,this.compHeight(),this.canvasHeight);
     }   
 }
 set(x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){

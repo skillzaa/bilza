@@ -30,7 +30,7 @@ this.style.lineWidth = this.lineWidth.value();
 
    p.drawRect(
     this.props.loc.x(),
-    this.props.y.value(),
+    this.props.loc.y(),
     this.width(),
     this.height(),
     this.style

@@ -65,9 +65,9 @@ this.p.canvasWidth =  p.canvasWidth();
 this.p.canvasHeight =  p.canvasHeight();  
 
 this.p.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
-this.p.x.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+// this.p.x.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-this.p.y.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+// this.p.y.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
 this.p.widthDyn.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
@@ -78,9 +78,9 @@ this.p.heightDyn.init(this.width.bind(this),this.height.bind(this),p.canvasWidth
 
 
 update(msDelta :number,p :Pack): boolean {
-    this.p.x.update(msDelta);
+    // this.p.x.update(msDelta);
+    // this.p.y.update(msDelta);
     this.p.loc.update(msDelta);
-    this.p.y.update(msDelta);
     this.p.widthDyn.update(msDelta);
 return true;    
 }
