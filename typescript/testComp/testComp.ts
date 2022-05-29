@@ -1,16 +1,14 @@
+
 import {Pack} from "../Bilza.js";
 import Component from "../BaseComponent/BaseComponent.js";
 import AnimatedNoBase from "../BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 
 export default class TestComp extends Component {
     msDelta :number;  
-    // xx :AnimatedNoBase;  
-    // yy :AnimatedNoBase;  
     name :string;  
+
 constructor (name :string){ 
     super();
-    // this.xx = new AnimatedNoBase(0);
-    // this.yy = new AnimatedNoBase(0);
     this.name = name;
     this.msDelta = 0;
 }

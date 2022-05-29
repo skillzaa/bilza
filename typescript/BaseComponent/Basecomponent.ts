@@ -46,14 +46,14 @@ this.p = this.props;
 
 width(): number {
     if (this.p.canvasWidth !== null ){
-        return Math.ceil((this.p.canvasWidth/100) * this.p.widthDyn.value());
+        return Math.ceil((this.p.canvasWidth/100) * this.p.dynWidth.value());
     }else {
         throw new Error("the component is not initialized yet");        
     }
 }
 height(): number {
     if (this.p.canvasHeight !== null){
-        return Math.ceil((this.p.canvasHeight/100)*this.p.heightDyn.value());
+    return Math.ceil((this.p.canvasHeight/100)*this.p.dynHeight.value());
     }else {
         throw new Error("the component is not initialized yet");        
     }
@@ -69,9 +69,9 @@ this.p.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.c
 
 // this.p.y.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-this.p.widthDyn.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+this.p.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-this.p.heightDyn.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+this.p.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
     return true;
 }
@@ -81,7 +81,8 @@ update(msDelta :number,p :Pack): boolean {
     // this.p.x.update(msDelta);
     // this.p.y.update(msDelta);
     this.p.loc.update(msDelta);
-    this.p.widthDyn.update(msDelta);
+    this.p.dynWidth.update(msDelta);
+    this.p.dynHeight.update(msDelta);
 return true;    
 }
 

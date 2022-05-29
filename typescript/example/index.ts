@@ -27,29 +27,22 @@ tst.duration = 600;
 // tst.p.x.animate(3,8,0,50);
 // tst.p.y.animate(3,8,0,50);
 
-let grid = new Grid();
-// grid.p.cellWidth = 100;
-// grid.flagDrawNumbers = true;
-// grid.fontSize = 25;
 
-// tst.p.y.setValue(50);
-// tst.lineWidth.animate(5,7,1,900);
-
-// tst.p.widthDyn.animate(5,8,0,90);
-// tst.p.y.animate(2,10,0,300);
 // tst.p.loc.set(50,50,XAlignment.Left);
 // tst.p.loc.set(50,50,XAlignment.Mid);
 // tst.p.loc.set(OffScreenXOpt.XLeft,50,XAlignment.Left,YAlignment.Top,90);
 
-tst.p.loc.set(0,0,XAlignment.Mid,YAlignment.Mid);
+tst.p.loc.set(0,0,XAlignment.Left,YAlignment.Top);
 
-tst.p.loc.animate(2,4,0,50,0,50,
-    XAlignment.Left,XAlignment.Mid,
-    YAlignment.Top,YAlignment.Mid
-    );
+// tst.p.loc.animate(2,4,0,50,0,50,
+// XAlignment.Left,XAlignment.Mid,
+// YAlignment.Top,YAlig nment.Mid);
+tst.p.dynWidth.animate(0,5,10,90);
+tst.p.dynHeight.animate(0,5,10,90);
 bil.insert.append(tst,tst.duration);
+let grid = new Grid();
 bil.insert.alwaysOn(grid);
-//--////////////////////////////
+//--////////////////////////////-|-\\\\\\\
 bil.init();
 bil.start();
 // bil.drawInit();

@@ -3,8 +3,8 @@ import Loc from "./animation/aniNumber/loc/loc.js";
 export default class BaseProps {
     constructor(compWidth, compHeight) {
         this.loc = new Loc(0, 0);
-        this.widthDyn = new AnimatedNoBase(10);
-        this.heightDyn = new AnimatedNoBase(10);
+        this.dynWidth = new AnimatedNoBase(10);
+        this.dynHeight = new AnimatedNoBase(10);
         this.canvasWidth = null;
         this.canvasHeight = null;
         this.selected = false;

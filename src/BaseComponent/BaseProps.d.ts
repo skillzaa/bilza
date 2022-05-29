@@ -4,8 +4,8 @@ import { Pack } from "../Bilza.js";
 export default class BaseProps {
     loc: Loc;
     colorBoundingRectangle: string;
-    widthDyn: AnimatedNoBase;
-    heightDyn: AnimatedNoBase;
+    dynWidth: AnimatedNoBase;
+    dynHeight: AnimatedNoBase;
     canvasWidth: number | null;
     canvasHeight: number | null;
     shadowColor: string;
