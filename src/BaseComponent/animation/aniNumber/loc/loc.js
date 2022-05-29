@@ -1,5 +1,5 @@
-import { XAlignment } from "../xAxis/xAlignment.js";
-import { YAlignment } from "../yAxis/yAlignment.js";
+import { XAlignment } from "../../../../design/xAlignment.js";
+import { YAlignment } from "../../../../design/yAlignment.js";
 import LocItem from "./locItem.js";
 import solveX from "./solveX.js";
 import solveY from "./solveY.js";

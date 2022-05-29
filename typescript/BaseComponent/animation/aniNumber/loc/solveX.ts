@@ -1,7 +1,7 @@
-import { XAlignment } from "../xAxis/xAlignment.js";
+import { XAlignment } from "../../../../design/xAlignment.js";
 import notInitError from "../../../../functions/noInitError.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
-import {OffScreenXOpt} from "../xAxis/OffScreenXOpt.js";
+import {OffScreenXOpt} from "../../../../design/OffScreenXOpt.js";
 import LocItem from "./locItem.js";
 
 export default function solveX(ls :LocItem,compWidth :number|null=null,canvasWidth :number|null=null):number{

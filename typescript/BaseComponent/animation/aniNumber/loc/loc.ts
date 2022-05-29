@@ -1,12 +1,12 @@
-import { XAlignment } from "../xAxis/xAlignment.js";
-import { YAlignment } from "../yAxis/yAlignment.js";
+import { XAlignment } from "../../../../design/xAlignment.js";
+import { YAlignment } from "../../../../design/yAlignment.js";
 import LocItem from "./locItem.js";
 import solveX from "./solveX.js";
 import solveY from "./solveY.js";
 import PreInitArray from "./preInitArray.js";
 import XY from "./xy.js";
-import { OffScreenXOpt } from "./OffScreenXOpt.js";
-import { OffScreenYOpt } from "./OffScreenYOpt.js";
+import { OffScreenXOpt } from "../../../../design/OffScreenXOpt.js";
+import { OffScreenYOpt } from "../../../../design/OffScreenYOpt.js";
 import IFilter from "../IFilter.js";
 import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrementTimeBased.js";

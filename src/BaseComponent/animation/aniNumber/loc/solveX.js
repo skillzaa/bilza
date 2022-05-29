@@ -1,7 +1,7 @@
-import { XAlignment } from "../xAxis/xAlignment.js";
+import { XAlignment } from "../../../../design/xAlignment.js";
 import notInitError from "../../../../functions/noInitError.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
-import { OffScreenXOpt } from "../xAxis/OffScreenXOpt.js";
+import { OffScreenXOpt } from "../../../../design/OffScreenXOpt.js";
 export default function solveX(ls, compWidth = null, canvasWidth = null) {
     if (canvasWidth == null) {
         throw new Error("canvasWidth = null");

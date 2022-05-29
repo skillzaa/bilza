@@ -1,7 +1,7 @@
-import { YAlignment } from "../yAxis/yAlignment.js";
+import { YAlignment } from "../../../../design/yAlignment.js";
 import notInitError from "../../../../functions/noInitError.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
-import {OffScreenYOpt} from "../yAxis/OffScreenYOpt.js";
+import {OffScreenYOpt} from "../../../../design/OffScreenYOpt.js";
 import LocItem from "./locItem.js";
 
 export default function solveY(ls :LocItem,compHeight :number|null=null,canvasHeight :number|null=null):number{

@@ -4,8 +4,8 @@ import Style from "../design/style.js";
 import BaseProps from "./BaseProps.js";
 
 // import MoveYItem from "./moveYItem.js";
-import { OffScreenXOpt } from "./animation/aniNumber/xAxis/OffScreenXOpt.js";
-import { OffScreenYOpt } from "./animation/aniNumber/yAxis/OffScreenYOpt.js";
+import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
+import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
 export default class BaseComponent  implements IComponent {
 public props :BaseProps;

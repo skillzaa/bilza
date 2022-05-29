@@ -1,5 +1,5 @@
 import { OffScreenYOpt } from "./OffScreenYOpt.js";
-import { YAlignment } from "./yAlignment.js";
+import { YAlignment } from "../../../../design/yAlignment.js";
 import Axis from "../axis/axis.js";
 import PreInitIncDecYAxis from "./preInitIncDecYAxis.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";

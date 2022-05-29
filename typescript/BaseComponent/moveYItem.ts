@@ -1,4 +1,4 @@
-import { OffScreenYOpt } from "./animation/aniNumber/yAxis/OffScreenYOpt.js";
+import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
 export default class MoveYItem {
 from :number;

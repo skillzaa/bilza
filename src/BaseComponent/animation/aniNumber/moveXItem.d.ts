@@ -1,4 +1,4 @@
-import { OffScreenXOpt } from "./xAxis/OffScreenXOpt.js";
+import { OffScreenXOpt } from "../../../design/OffScreenXOpt.js";
 export default class MoveXItem {
     from: number;
     to: number;

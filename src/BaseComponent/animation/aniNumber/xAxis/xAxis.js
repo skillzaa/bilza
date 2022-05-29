@@ -1,6 +1,6 @@
 import Axis from "../axis/axis.js";
 import { OffScreenXOpt } from "./OffScreenXOpt.js";
-import { XAlignment } from "./xAlignment.js";
+import { XAlignment } from "../../../../design/xAlignment.js";
 import PreInitIncDecXAxis from "./preInitIncDecXAxis.js";
 import setBWzeroNhundred from "../../../../functions/setBWzeroNhundred.js";
 export default class XAxis extends Axis {
