@@ -43,8 +43,8 @@ this.yAlignOpt = YAlignment; //final-ok
 this.xAlignOpt = XAlignment; //final-ok    
 }    
 init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHeight :number): boolean {
-    this.compWidth = compWidth;
-    this.compHeight = compHeight;
+    this.compWidth = compWidth;  // THIS IS A FUNCTION
+    this.compHeight = compHeight; // THIS IS A FUNCTION
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
 
