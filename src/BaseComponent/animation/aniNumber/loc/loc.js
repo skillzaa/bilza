@@ -6,7 +6,7 @@ import solveY from "./solveY.js";
 import PreInitArray from "./preInitArray.js";
 import XY from "./xy.js";
 import Increment from "../../filters/increment.js";
-import Decrement from "../../filters/decrementTimeBased.js";
+import Decrement from "../../filters/decrement.js";
 export default class Loc {
     constructor(x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
         this._ret_data = new XY(0, 0);
@@ -46,8 +46,6 @@ export default class Loc {
             this.initIncDecX(elm, compWidth);
             this.initIncDecY(elm, compHeight);
         }
-        console.log("this.animationsX", this.animationsX);
-        console.log("this.animationsY", this.animationsY);
     }
     initIncDecX(elm, compWidth) {
         const start = solveX(elm.from, compWidth, this.canvasWidth);

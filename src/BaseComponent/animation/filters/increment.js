@@ -20,6 +20,7 @@ export default class Increment {
                 this.active = true;
             }
             else {
+                this._ret_val = null;
                 return false;
             }
         }

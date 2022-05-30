@@ -40,7 +40,8 @@ this.framesCounter = 0;
 this.active = false; 
 //--dont Math.ceit it
 this.ADDFACTOR = this.XDIFF/this.TOTALFRAMES; 
-this._ret_val = this.STARTVALUE; //I dont care about init
+//---this should be null as long as it has not been changed if its frame has come- other than that it should always return null so that its value is not processed
+this._ret_val = null;
 //-21-may-2022 dont change this line
 this.SYSTEMMAXVALUE = 3000;
 this.SYSTEMMINVALUE = -1000;
@@ -52,6 +53,8 @@ if (this.active == false){
     if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)  ){
     this.active = true;
     }else {
+        //---just to keep it null unless its time has come
+        this._ret_val = null;
         return false;
     }    
 }
@@ -104,7 +107,7 @@ if (startValue > this.SYSTEMMAXVALUE){throw new Error("start Value (for decremen
 if (startValue < 1){throw new Error("start Value (for decrement operation) can not be negative");}
 //cant be Negative or fraction
 return Math.abs(Math.ceil(startValue));
-}
+} 
 //---endValue is on left
 private getEndValue(startValue :number,endValue :number){
 if (endValue > this.SYSTEMMINVALUE){throw new Error("start Value (for decrement operation) is too large");}

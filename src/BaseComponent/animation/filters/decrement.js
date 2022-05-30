@@ -10,7 +10,7 @@ export default class Decrement {
         this.framesCounter = 0;
         this.active = false;
         this.ADDFACTOR = this.XDIFF / this.TOTALFRAMES;
-        this._ret_val = this.STARTVALUE;
+        this._ret_val = null;
         this.SYSTEMMAXVALUE = 3000;
         this.SYSTEMMINVALUE = -1000;
     }
@@ -20,6 +20,7 @@ export default class Decrement {
                 this.active = true;
             }
             else {
+                this._ret_val = null;
                 return false;
             }
         }

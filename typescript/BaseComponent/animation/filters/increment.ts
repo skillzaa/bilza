@@ -59,6 +59,8 @@ if (this.active == false){
     if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)  ){
     this.active = true;
     }else {
+        //---just to keep it null unless its time has come
+        this._ret_val = null;
         return false;
     }    
 }

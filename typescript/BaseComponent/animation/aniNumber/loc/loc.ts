@@ -9,7 +9,7 @@ import { OffScreenXOpt } from "../../../../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../../../../design/OffScreenYOpt.js";
 import IFilter from "../IFilter.js";
 import Increment from "../../filters/increment.js";
-import Decrement from "../../filters/decrementTimeBased.js";
+import Decrement from "../../filters/decrement.js";
 
 export default class Loc {
 private animationsX :IFilter[];   
@@ -67,8 +67,8 @@ public initIncDec(compWidth :number,compHeight :number){
       this.initIncDecX(elm,compWidth);
       this.initIncDecY(elm,compHeight);
     }
-console.log("this.animationsX",this.animationsX);    
-console.log("this.animationsY",this.animationsY);    
+// console.log("this.animationsX",this.animationsX);    
+// console.log("this.animationsY",this.animationsY);    
 }
 initIncDecX(elm :PreInitArray,compWidth :number){
     const start = solveX(elm.from,compWidth,this.canvasWidth);
