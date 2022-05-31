@@ -6,6 +6,7 @@ import { OffScreenYOpt } from "../../../../design/OffScreenYOpt.js";
 export default class Loc {
     private animationsX;
     private animationsY;
+    private gotoArray;
     private _ret_data;
     private _set_data;
     private preInitArray;
@@ -23,12 +24,14 @@ export default class Loc {
     initIncDecY(elm: PreInitArray, compHeight: number): void;
     private runAnimationsX;
     private runExhaustedCheckX;
+    private runGoto;
     private runExhaustedCheckY;
     private removeExhaustedX;
     private removeExhaustedY;
     private runAnimationsY;
     private runSet;
     set(x: number | OffScreenXOpt, y: number | OffScreenYOpt, xAlign?: XAlignment, yAlign?: YAlignment, xExtra?: number, yExtra?: number): void;
+    goTo(atFrame: number, x: number | OffScreenXOpt, y: number | OffScreenYOpt, xAlign?: XAlignment, yAlign?: YAlignment, xExtra?: number, yExtra?: number): void;
     animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number, xAlignFrom?: XAlignment, xAlignTo?: XAlignment, yAlignFrom?: YAlignment, yAlignTo?: YAlignment, xExtraFrom?: number, xExtraTo?: number, yExtraFrom?: number, yExtraTo?: number): void;
     x(): number;
     y(): number;

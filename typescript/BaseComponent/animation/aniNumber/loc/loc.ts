@@ -10,10 +10,11 @@ import { OffScreenYOpt } from "../../../../design/OffScreenYOpt.js";
 import IFilter from "../IFilter.js";
 import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrement.js";
-
+import GotoArray from "./gotoArray.js";
 export default class Loc {
 private animationsX :IFilter[];   
 private animationsY :IFilter[];   
+private gotoArray :GotoArray[];   
 private _ret_data :XY;
 private _set_data :LocItem | null;
 private preInitArray :PreInitArray[];
@@ -33,6 +34,7 @@ constructor(x :number | OffScreenXOpt,y :number |OffScreenYOpt, xAlign :XAlignme
     this.preInitArray = [];
     this.animationsX = [];
     this.animationsY = [];
+    this.gotoArray = [];
 //------------------
 this.compWidth = null;
 this.compHeight = null;
@@ -54,13 +56,14 @@ init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHei
 }
 update(msDelta :number):boolean{
 if (this.compWidth == null){throw new Error("init error");}    
-this.runSet();
+// this.runSet();
 this.runAnimationsX(msDelta);
 this.runAnimationsY(msDelta);
 this.runExhaustedCheckX(msDelta);
 this.runExhaustedCheckY(msDelta);
 this.removeExhaustedX(msDelta);
 this.removeExhaustedY(msDelta);
+this.runGoto(msDelta);
 return true;    
 }
 //-This fn converts all the  preInitIncDecArray commands into inc dec objects during init
@@ -77,7 +80,12 @@ public initIncDec(compWidth :number,compHeight :number){
 initIncDecX(elm :PreInitArray,compWidth :number){
     const start = solveX(elm.fromLocItem,compWidth,this.canvasWidth);
     const end = solveX(elm.toLocItem,compWidth,this.canvasWidth);
+///-------
+let locItem = new LocItem(elm.toLocItem.x,elm.toLocItem.y,elm.toLocItem.xAlign,elm.toLocItem.yAlign,elm.toLocItem.xExtra,elm.toLocItem.yExtra);
 
+const gotoItem = new GotoArray(elm.timeTo,locItem);
+this.gotoArray.push(gotoItem);
+///-------
     if (start < end ){
         let c = this.newIncrement(elm.timeFrom,elm.timeTo,start,end);
         this.animationsX.push(c);
@@ -120,6 +128,19 @@ private runExhaustedCheckX(msDelta :number){
         if ( ani.isExhausted() == true){
         // console.log("is exhaused",msDelta);
         }
+} 
+}
+private runGoto(msDelta :number){
+if (this.compWidth == null){throw new Error("init error");}
+if (this.compHeight == null){throw new Error("init error");}
+
+    for (let i = 0; i < this.gotoArray.length; i++) {
+        const gotoItem = this.gotoArray[i];
+     if ( (gotoItem.atFrame * 1000) >= msDelta){
+        this._ret_data.x = solveX(gotoItem.gotoLocItem,this.compWidth(),this.canvasWidth);
+        this._ret_data.y = solveY(gotoItem.gotoLocItem,this.compHeight(),this.canvasHeight);
+        this.gotoArray.splice(i,1); ////important remove it;
+     }   
 } 
 }
 private runExhaustedCheckY(msDelta :number){
@@ -173,12 +194,16 @@ if (this.compHeight == null){throw new Error("init error");}
     this._ret_data.x = solveX(this._set_data,this.compWidth(),this.canvasWidth);
     this._ret_data.y = solveY(this._set_data,this.compHeight(),this.canvasHeight);
     //---importantay use once
-    // this._set_data = null; //assign null
+    this._set_data = null; //assign null
     }   
 }
 set(x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
 
     this._set_data = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
+}
+goTo(atFrame :number,x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
+    let loc = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
+let c = new GotoArray(atFrame,loc);
 }
 
 animate(timeFrom :number,timeTo :number,

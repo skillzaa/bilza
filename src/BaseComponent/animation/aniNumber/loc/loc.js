@@ -7,6 +7,7 @@ import PreInitArray from "./preInitArray.js";
 import XY from "./xy.js";
 import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrement.js";
+import GotoArray from "./gotoArray.js";
 export default class Loc {
     constructor(x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
         this._set_data = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
@@ -15,6 +16,7 @@ export default class Loc {
         this.preInitArray = [];
         this.animationsX = [];
         this.animationsY = [];
+        this.gotoArray = [];
         this.compWidth = null;
         this.compHeight = null;
         this.canvasWidth = null;
@@ -35,13 +37,13 @@ export default class Loc {
         if (this.compWidth == null) {
             throw new Error("init error");
         }
-        this.runSet();
         this.runAnimationsX(msDelta);
         this.runAnimationsY(msDelta);
         this.runExhaustedCheckX(msDelta);
         this.runExhaustedCheckY(msDelta);
         this.removeExhaustedX(msDelta);
         this.removeExhaustedY(msDelta);
+        this.runGoto(msDelta);
         return true;
     }
     initIncDec(compWidth, compHeight) {
@@ -54,6 +56,9 @@ export default class Loc {
     initIncDecX(elm, compWidth) {
         const start = solveX(elm.fromLocItem, compWidth, this.canvasWidth);
         const end = solveX(elm.toLocItem, compWidth, this.canvasWidth);
+        let locItem = new LocItem(elm.toLocItem.x, elm.toLocItem.y, elm.toLocItem.xAlign, elm.toLocItem.yAlign, elm.toLocItem.xExtra, elm.toLocItem.yExtra);
+        const gotoItem = new GotoArray(elm.timeTo, locItem);
+        this.gotoArray.push(gotoItem);
         if (start < end) {
             let c = this.newIncrement(elm.timeFrom, elm.timeTo, start, end);
             this.animationsX.push(c);
@@ -89,6 +94,22 @@ export default class Loc {
         for (let i = 0; i < this.animationsX.length; i++) {
             const ani = this.animationsX[i];
             if (ani.isExhausted() == true) {
+            }
+        }
+    }
+    runGoto(msDelta) {
+        if (this.compWidth == null) {
+            throw new Error("init error");
+        }
+        if (this.compHeight == null) {
+            throw new Error("init error");
+        }
+        for (let i = 0; i < this.gotoArray.length; i++) {
+            const gotoItem = this.gotoArray[i];
+            if ((gotoItem.atFrame * 1000) >= msDelta) {
+                this._ret_data.x = solveX(gotoItem.gotoLocItem, this.compWidth(), this.canvasWidth);
+                this._ret_data.y = solveY(gotoItem.gotoLocItem, this.compHeight(), this.canvasHeight);
+                this.gotoArray.splice(i, 1);
             }
         }
     }
@@ -137,10 +158,15 @@ export default class Loc {
         if (this._set_data !== null && this._set_data.x !== null) {
             this._ret_data.x = solveX(this._set_data, this.compWidth(), this.canvasWidth);
             this._ret_data.y = solveY(this._set_data, this.compHeight(), this.canvasHeight);
+            this._set_data = null;
         }
     }
     set(x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
         this._set_data = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
+    }
+    goTo(atFrame, x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
+        let loc = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
+        let c = new GotoArray(atFrame, loc);
     }
     animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo, xAlignFrom = XAlignment.Left, xAlignTo = XAlignment.Left, yAlignFrom = YAlignment.Top, yAlignTo = YAlignment.Top, xExtraFrom = 0, xExtraTo = 0, yExtraFrom = 0, yExtraTo = 0) {
         const fromLocItem = new LocItem(xFrom, yFrom, xAlignFrom, yAlignFrom, xExtraFrom, yExtraFrom);
