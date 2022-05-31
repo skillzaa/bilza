@@ -56,10 +56,10 @@ update(msDelta :number):boolean{
 if (this.compWidth == null){throw new Error("init error");}    
 this.runAnimationsX(msDelta);
 this.runAnimationsY(msDelta);
-this.runExhaustedCheckX(msDelta);
-this.runExhaustedCheckY(msDelta);
-this.removeExhaustedX(msDelta);
-this.removeExhaustedY(msDelta);
+// this.runExhaustedCheckX(msDelta);
+// this.runExhaustedCheckY(msDelta);
+// this.removeExhaustedX(msDelta);
+// this.removeExhaustedY(msDelta);
 this.runGoto(msDelta);
 return true;    
 }

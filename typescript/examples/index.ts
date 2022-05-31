@@ -12,14 +12,14 @@ bil.insert.alwaysOn(grid);
 
 let tst = cf.rect();
 tst.duration = 600;
-// tst.p.loc.set(0,0, XAlignment.Mid , YAlignment.Mid);
-// tst.p.dynWidth.animate(4,6,1,50);
+
+// tst.p.loc.goto(0,90,10,XAlignment.Mid,YAlignment.Mid);
+tst.p.dynWidth.animate(0,2,10,20);
 tst.p.loc.animate(3,6,
-    0,50,0,1,
-    XAlignment.Left,XAlignment.Left,
-    YAlignment.Top,YAlignment.Top
+    0,50,0,50,
+    XAlignment.Left,XAlignment.Mid,
+    YAlignment.Top,YAlignment.Mid
     );
-tst.p.loc.goto(0,90,10,XAlignment.Mid,YAlignment.Mid);
 bil.insert.append(tst, tst.duration);
 
 ////////////////////////////////////////////

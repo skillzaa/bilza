@@ -32,7 +32,7 @@ constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
 // this.x= new XAxis(0);
 // this.y = new YAxis(0);
 // this.y.setValue(0);
-this.loc = new Loc(0,0);
+this.loc = new Loc();
 this.dynWidth = new AnimatedNoBase(10);    
 this.dynHeight = new AnimatedNoBase(10);    
 this.canvasWidth = null;    

@@ -36,10 +36,6 @@ export default class Loc {
         }
         this.runAnimationsX(msDelta);
         this.runAnimationsY(msDelta);
-        this.runExhaustedCheckX(msDelta);
-        this.runExhaustedCheckY(msDelta);
-        this.removeExhaustedX(msDelta);
-        this.removeExhaustedY(msDelta);
         this.runGoto(msDelta);
         return true;
     }

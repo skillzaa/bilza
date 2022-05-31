@@ -2,7 +2,7 @@ import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.
 import Loc from "./animation/aniNumber/loc/loc.js";
 export default class BaseProps {
     constructor(compWidth, compHeight) {
-        this.loc = new Loc(0, 0);
+        this.loc = new Loc();
         this.dynWidth = new AnimatedNoBase(10);
         this.dynHeight = new AnimatedNoBase(10);
         this.canvasWidth = null;
