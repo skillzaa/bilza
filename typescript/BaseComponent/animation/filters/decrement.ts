@@ -3,26 +3,25 @@
 //--2--From can not be larger than To.
 //--3--From can be 0 but To can min be 1.
 //--4--Keep in mind startValue is not negative and larger one on the right side where as the endValue is on left and is smaller since this is decrement operation.
+import Motherfilter from "./motherFilter.js";
 
-export default class Decrement{
-private readonly FROM :number;
-private readonly TO :number;
-private readonly STARTVALUE :number;
-private readonly ENDVALUE :number;
-private readonly TOTALFRAMES :number;
-private  framesCounter :number;
-private  ADDFACTOR :number;
-private  active :boolean;
-private readonly SYSTEMMAXVALUE :number;
-private readonly SYSTEMMINVALUE :number;
-//--just for use if required
-private  readonly TIMEDIFFSEC :number;
-private  readonly XDIFF :number;
-//--it can send null if there is no correct answer
-private    _ret_val :number | null;
+export default class Decrement extends Motherfilter{
+// private readonly FROM :number;
+// private readonly TO :number;
+// private readonly ENDVALUE :number;
+// private readonly TOTALFRAMES :number;
+// private  framesCounter :number;
+// private  ADDFACTOR :number;
+// // private  active :boolean;
+// private readonly SYSTEMMAXVALUE :number;
+// private readonly SYSTEMMINVALUE :number;
+// //--just for use if required
+// private  readonly TIMEDIFFSEC :number;
+// private  readonly XDIFF :number;
+// protected    readonly STARTVALUE :number;
 
 constructor(from :number,to :number,startValue :number,endValue :number){
-
+super();
 this.FROM =  this.getFrom(from,to);
 this.TO =  this.getTo(from,to);
 //--this is what we add out answer to finally
@@ -37,27 +36,18 @@ this.XDIFF = this.getXDiff(this.STARTVALUE,this.ENDVALUE);
 //--D
 this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
 this.framesCounter = 0; 
-this.active = false; 
+// this.active = false; 
 //--dont Math.ceit it
 this.ADDFACTOR = this.XDIFF/this.TOTALFRAMES; 
 //---this should be null as long as it has not been changed if its frame has come- other than that it should always return null so that its value is not processed
 this._ret_val = null;
 //-21-may-2022 dont change this line
-this.SYSTEMMAXVALUE = 3000;
-this.SYSTEMMINVALUE = -1000;
 }
  
 update(msDelta :number):boolean{
-if (this.active == false){
-    // if FROM = 0 then 0 X 1000 = 0; 
-    if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)  ){
-    this.active = true;
-    }else {
-        //---just to keep it null unless its time has come
-        this._ret_val = null;
-        return false;
-    }    
-}
+    this.setActive(msDelta);
+    this.setExhausted(msDelta);    
+
 //-----------------------------------
 if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
 //--here we are missing one frame since the first frame has frameCounter == 0 so result is zero.--may be make ADDFACTOR = 1    
@@ -79,17 +69,6 @@ if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
 }
 }
 
-value():number | null{
-    return this._ret_val;
-}
-
-//////////////////////////////
-
-
-private getTimeLapsed(msDelta :number):number{
-    // if (msDelta > this.TO){throw new Error("getTimeLapsed error: msDelta can not be bigger than To value");}
-    return Math.ceil(msDelta - this.FROM);
-}
 private getFrom(from :number, to :number):number{
 if (from < 0 ){throw new Error("from can not be smaller than zero");}
 if (from >= to ){throw new Error("from can not be smaller than zero");}
@@ -114,19 +93,6 @@ if (endValue > this.SYSTEMMINVALUE){throw new Error("start Value (for decrement 
 if (endValue > startValue){throw new Error("end Value (for decrement operation) can not be larger than start value");}
 //CAN be Negative
 return Math.ceil(endValue);
-}
-
-private getXDiff(startValue :number,endValue :number):number{
-let r = null;    
-if (endValue > 0 ){//startValue == positive
-r = startValue - endValue; //st val is beigger
-}else {
-   r =  startValue + Math.abs(endValue);
-}    
-    if (r !== null){return r;}
-    else {
-        throw new Error("failed to getXDiff");
-    }
 }
 
 } 

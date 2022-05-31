@@ -48,15 +48,19 @@ init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHei
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
 
-    this.runSetValue();
+    this.runSet();
     this.initIncDec(this.compWidth(),this.compHeight());
     return true;
 }
 update(msDelta :number):boolean{
 if (this.compWidth == null){throw new Error("init error");}    
-this.runSetValue();
+this.runSet();
 this.runAnimationsX(msDelta);
 this.runAnimationsY(msDelta);
+this.runExhaustedCheckX(msDelta);
+this.runExhaustedCheckY(msDelta);
+this.removeExhaustedX(msDelta);
+this.removeExhaustedY(msDelta);
 return true;    
 }
 //-This fn converts all the  preInitIncDecArray commands into inc dec objects during init
@@ -99,7 +103,6 @@ private runAnimationsX(msDelta :number){
     for (let i = 0; i < this.animationsX.length; i++) {
         const ani = this.animationsX[i];
         // ani.init(p);
-        
         ani.update(msDelta);
         let v  = ani.value(); 
         if ( v != null){
@@ -107,6 +110,44 @@ private runAnimationsX(msDelta :number){
             this._ret_data.x = v;
             // console.log("v",v);
             // console.log("msDelta",msDelta,"value",this._ret_value);
+        }
+} 
+}
+private runExhaustedCheckX(msDelta :number){
+    for (let i = 0; i < this.animationsX.length; i++) {
+        const ani = this.animationsX[i];
+
+        if ( ani.isExhausted() == true){
+        // console.log("is exhaused",msDelta);
+        }
+} 
+}
+private runExhaustedCheckY(msDelta :number){
+    for (let i = 0; i < this.animationsY.length; i++) {
+        const ani = this.animationsY[i];
+
+        if ( ani.isExhausted() == true){
+        // console.log("is exhaused",msDelta);
+        }
+} 
+}
+private removeExhaustedX(msDelta :number){
+    for (let i = 0; i < this.animationsX.length; i++) {
+        const ani = this.animationsX[i];
+
+        if ( ani.isExhausted() == true){
+        console.log("is exhaused",msDelta);
+        this.animationsX.splice(i, 1);
+        }
+} 
+}
+private removeExhaustedY(msDelta :number){
+    for (let i = 0; i < this.animationsY.length; i++) {
+        const ani = this.animationsY[i];
+
+        if ( ani.isExhausted() == true){
+        console.log("is exhaused",msDelta);
+        this.animationsY.splice(i, 1);
         }
 } 
 }
@@ -124,8 +165,7 @@ private runAnimationsY(msDelta :number){
 } 
 }
 //-using a seperate variable this._set_value it brilliant
-private runSetValue(){
-
+private runSet(){
 if (this.compWidth == null){throw new Error("init error");}
 if (this.compHeight == null){throw new Error("init error");}
     if (this._set_data !== null && this._set_data.x !== null){
@@ -133,10 +173,10 @@ if (this.compHeight == null){throw new Error("init error");}
     this._ret_data.x = solveX(this._set_data,this.compWidth(),this.canvasWidth);
     this._ret_data.y = solveY(this._set_data,this.compHeight(),this.canvasHeight);
     //---importantay use once
-    this._set_data = null; //assign null
+    // this._set_data = null; //assign null
     }   
 }
-private set(x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
+set(x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
 
     this._set_data = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
 }

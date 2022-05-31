@@ -8,7 +8,7 @@ test('setup', () => {
 test('update(0) = null not included', () => {
     let inc = new Increment (0,10,0,100);
     inc.update(0); //msDelta is in ms
-    expect(inc.value()).toBe(0);
+    expect(inc.value()).toBeNull();
 });
 
 

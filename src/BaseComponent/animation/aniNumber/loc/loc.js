@@ -27,7 +27,7 @@ export default class Loc {
         this.compHeight = compHeight;
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
-        this.runSetValue();
+        this.runSet();
         this.initIncDec(this.compWidth(), this.compHeight());
         return true;
     }
@@ -35,9 +35,13 @@ export default class Loc {
         if (this.compWidth == null) {
             throw new Error("init error");
         }
-        this.runSetValue();
+        this.runSet();
         this.runAnimationsX(msDelta);
         this.runAnimationsY(msDelta);
+        this.runExhaustedCheckX(msDelta);
+        this.runExhaustedCheckY(msDelta);
+        this.removeExhaustedX(msDelta);
+        this.removeExhaustedY(msDelta);
         return true;
     }
     initIncDec(compWidth, compHeight) {
@@ -81,6 +85,38 @@ export default class Loc {
             }
         }
     }
+    runExhaustedCheckX(msDelta) {
+        for (let i = 0; i < this.animationsX.length; i++) {
+            const ani = this.animationsX[i];
+            if (ani.isExhausted() == true) {
+            }
+        }
+    }
+    runExhaustedCheckY(msDelta) {
+        for (let i = 0; i < this.animationsY.length; i++) {
+            const ani = this.animationsY[i];
+            if (ani.isExhausted() == true) {
+            }
+        }
+    }
+    removeExhaustedX(msDelta) {
+        for (let i = 0; i < this.animationsX.length; i++) {
+            const ani = this.animationsX[i];
+            if (ani.isExhausted() == true) {
+                console.log("is exhaused", msDelta);
+                this.animationsX.splice(i, 1);
+            }
+        }
+    }
+    removeExhaustedY(msDelta) {
+        for (let i = 0; i < this.animationsY.length; i++) {
+            const ani = this.animationsY[i];
+            if (ani.isExhausted() == true) {
+                console.log("is exhaused", msDelta);
+                this.animationsY.splice(i, 1);
+            }
+        }
+    }
     runAnimationsY(msDelta) {
         for (let i = 0; i < this.animationsY.length; i++) {
             const ani = this.animationsY[i];
@@ -91,7 +127,7 @@ export default class Loc {
             }
         }
     }
-    runSetValue() {
+    runSet() {
         if (this.compWidth == null) {
             throw new Error("init error");
         }
@@ -101,7 +137,6 @@ export default class Loc {
         if (this._set_data !== null && this._set_data.x !== null) {
             this._ret_data.x = solveX(this._set_data, this.compWidth(), this.canvasWidth);
             this._ret_data.y = solveY(this._set_data, this.compHeight(), this.canvasHeight);
-            this._set_data = null;
         }
     }
     set(x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {

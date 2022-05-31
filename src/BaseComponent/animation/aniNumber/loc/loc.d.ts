@@ -22,9 +22,13 @@ export default class Loc {
     initIncDecX(elm: PreInitArray, compWidth: number): void;
     initIncDecY(elm: PreInitArray, compHeight: number): void;
     private runAnimationsX;
+    private runExhaustedCheckX;
+    private runExhaustedCheckY;
+    private removeExhaustedX;
+    private removeExhaustedY;
     private runAnimationsY;
-    private runSetValue;
-    private set;
+    private runSet;
+    set(x: number | OffScreenXOpt, y: number | OffScreenYOpt, xAlign?: XAlignment, yAlign?: YAlignment, xExtra?: number, yExtra?: number): void;
     animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number, xAlignFrom?: XAlignment, xAlignTo?: XAlignment, yAlignFrom?: YAlignment, yAlignTo?: YAlignment, xExtraFrom?: number, xExtraTo?: number, yExtraFrom?: number, yExtraTo?: number): void;
     x(): number;
     y(): number;

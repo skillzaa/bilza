@@ -6,64 +6,30 @@
 //--5--systemMaxEndValue for endValue is 3000
 //--6--delayFactor = total ms / total pix Math.ceil. it means after each delay factor add One.
 //--7--we can not find startValue and endValue till init since if these values are offScreen we need canvas dims BUT THIS CLASS DOES NOT HAVE TO KNOW ABOUT INIT-- RUN IT IN INIT--this class just get numbers no abstractions.
-//--8-- _ret_val ?? cant be null since this module is not cencerned about init.
+//--8-- _ret_val ?? CAN be null since this module is not cencerned about init.
 //--9-- THE START AND END values must be simple numbers not percentages not some enum--translate it and give it to us
 //--10--Remember This class does not need init.
 //--once you sr this thing ON it will work till end no way to stop it. AND there is no need to. After one correct starting Frame (which can be the starting frame its-self or any msDelta larger than it and lower than endTime) once it starts then it will run till end @ 60 fps.
+import Motherfilter from "./motherFilter.js";
 
-
-export default class Increment{
-private readonly FROM :number;
-private readonly TO :number;
-private readonly STARTVALUE :number;
-private readonly ENDVALUE :number;
-private readonly TOTALFRAMES :number;
-private  framesCounter :number;
-private  ADDFACTOR :number;
-private  active :boolean;
-private readonly SYSTEMMAXVALUE :number;
-private readonly SYSTEMMINVALUE :number;
-//--just for use if required
-private  readonly TIMEDIFFSEC :number;
-private  readonly XDIFF :number;
-//--it can send null if there is no correct answer
-private    _ret_val :number | null;
+export default class Increment extends Motherfilter{
 
 constructor(from :number,to :number,startValue :number,endValue :number){
-
+super();
 this.FROM =  this.getFrom(from,to);
 this.TO =  this.getTo(from,to);
-//--this is what we add out answer to finally
-//---This time is in seconds no ms
 this.TIMEDIFFSEC = Math.ceil(this.TO - this.FROM);
 this.STARTVALUE = Math.ceil(startValue);//can be negative
-//-We have to reach this number in any case
 this.ENDVALUE = this.getEndValue(endValue,startValue);
-//since start number is bigger or else we get -ve number
 this.XDIFF = this.getXDiff(this.ENDVALUE,this.STARTVALUE);
-//--D
 this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
 this.framesCounter = 0; 
-this.active = false; 
-//--dont Math.ceit it
 this.ADDFACTOR = this.XDIFF/this.TOTALFRAMES; 
-this._ret_val = this.STARTVALUE; //I dont care about init
-//-21-may-2022 dont change this line
-this.SYSTEMMAXVALUE = 3000;
-this.SYSTEMMINVALUE = -1000;
 }
- 
+
 update(msDelta :number):boolean{
-if (this.active == false){
-    // if FROM = 0 then 0 X 1000 = 0; 
-    if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)  ){
-    this.active = true;
-    }else {
-        //---just to keep it null unless its time has come
-        this._ret_val = null;
-        return false;
-    }    
-}
+this.setActive(msDelta);
+this.setExhausted(msDelta);
 //-----------------------------------
 if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
 //--here we are missing one frame since the first frame has frameCounter == 0 so result is zero.--may be make ADDFACTOR = 1    
@@ -85,17 +51,7 @@ if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
 }
 }
 
-value():number | null{
-    return this._ret_val;
-}
 
-//////////////////////////////
-
-
-private getTimeLapsed(msDelta :number):number{
-    // if (msDelta > this.TO){throw new Error("getTimeLapsed error: msDelta can not be bigger than To value");}
-    return Math.ceil(msDelta - this.FROM);
-}
 private getFrom(from :number, to :number):number{
 if (from < 0 ){throw new Error("from can not be smaller than zero");}
 if (from >= to ){throw new Error("from can not be smaller than zero");}
@@ -113,18 +69,4 @@ if (endValue > this.SYSTEMMAXVALUE){throw new Error("endValue is too large");}
 if (endValue < 0){throw new Error("endValue can not be negative");}
 return (Math.ceil(endValue));//cant be fraction
 }
-
-private getXDiff(endValue :number,startValue :number):number{
-let r = null;    
-if (startValue > 0 ){//startValue == positive
-r = endValue - startValue;
-}else {
-   r = endValue + Math.abs(startValue);
-}    
-    if (r !== null){return r;}
-    else {
-        throw new Error("failed to getXDiff");
-    }
-}
-
 } 

@@ -1,5 +1,7 @@
-export default class Increment {
+import Motherfilter from "./motherFilter.js";
+export default class Increment extends Motherfilter {
     constructor(from, to, startValue, endValue) {
+        super();
         this.FROM = this.getFrom(from, to);
         this.TO = this.getTo(from, to);
         this.TIMEDIFFSEC = Math.ceil(this.TO - this.FROM);
@@ -8,22 +10,11 @@ export default class Increment {
         this.XDIFF = this.getXDiff(this.ENDVALUE, this.STARTVALUE);
         this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
         this.framesCounter = 0;
-        this.active = false;
         this.ADDFACTOR = this.XDIFF / this.TOTALFRAMES;
-        this._ret_val = this.STARTVALUE;
-        this.SYSTEMMAXVALUE = 3000;
-        this.SYSTEMMINVALUE = -1000;
     }
     update(msDelta) {
-        if (this.active == false) {
-            if (msDelta > (this.FROM * 1000) && msDelta <= (this.TO * 1000)) {
-                this.active = true;
-            }
-            else {
-                this._ret_val = null;
-                return false;
-            }
-        }
+        this.setActive(msDelta);
+        this.setExhausted(msDelta);
         if (this.active == true && (this.framesCounter <= this.TOTALFRAMES)) {
             const rezult = Math.ceil(this.ADDFACTOR * this.framesCounter);
             this.framesCounter += 1;
@@ -40,12 +31,6 @@ export default class Increment {
             this.active = false;
             return false;
         }
-    }
-    value() {
-        return this._ret_val;
-    }
-    getTimeLapsed(msDelta) {
-        return Math.ceil(msDelta - this.FROM);
     }
     getFrom(from, to) {
         if (from < 0) {
@@ -73,20 +58,5 @@ export default class Increment {
             throw new Error("endValue can not be negative");
         }
         return (Math.ceil(endValue));
-    }
-    getXDiff(endValue, startValue) {
-        let r = null;
-        if (startValue > 0) {
-            r = endValue - startValue;
-        }
-        else {
-            r = endValue + Math.abs(startValue);
-        }
-        if (r !== null) {
-            return r;
-        }
-        else {
-            throw new Error("failed to getXDiff");
-        }
     }
 }

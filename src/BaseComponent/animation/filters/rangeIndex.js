@@ -1,4 +1,4 @@
-import Decrement from "./decrementTimeBased.js";
+import Decrement from "./decrement.js";
 let rng = new Decrement(0, 10, 500, -500);
 rng.update(10000);
 console.log("10000", rng.value());
