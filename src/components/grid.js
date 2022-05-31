@@ -1,21 +1,21 @@
-import { DrawLayer } from "../../Bilza.js";
-import BaseComponent from "../../BaseComponent/BaseComponent.js";
-export default class StaticGrid extends BaseComponent {
-    constructor(cellWidth = 100, cellHeight = 100, color) {
+import { DrawLayer } from "../Bilza.js";
+import Basecomponent from "../BaseComponent/BaseComponent.js";
+export default class Grid extends Basecomponent {
+    constructor(colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
         super();
-        this.cellWidth = cellWidth;
-        this.cellHeight = cellHeight;
-        this.colorHorizontalLines = color;
-        this.colorVerticalLines = color;
-        this.drawLayer = DrawLayer.BackGround;
-        this.fontSize = 8;
-        this.colorNumbers = "grey";
-        this.flagDrawNumbers = false;
-        this.flagDrawHorizontal = false;
-        this.flagDrawVertical = false;
+        this.fontSize = 12;
+        this.cellWidthPerc = 10;
+        this.cellHeightPerc = 10;
+        this.colorHorizontalLines = "grey";
+        this.colorVerticalLines = "grey";
+        this.colorNumbers = "black";
+        this.showNumbers = true;
+        this.showHorizontalLines = true;
+        this.showVerticalLines = true;
         this.lineWidthVertical = 1;
         this.lineWidthHorizontal = 1;
         this.lineDash = [];
+        this.drawLayer = DrawLayer.BackGround;
     }
     draw(p) {
         this.draw_horizontal(p);
@@ -33,11 +33,11 @@ export default class StaticGrid extends BaseComponent {
             this.style.lineDash = this.lineDash;
             this.style.lineWidth = this.lineWidthHorizontal;
             p.drawLine(x, y, end_x, y, this.style);
-            if (this.flagDrawNumbers == true) {
+            if (this.showNumbers == true) {
                 this.style.strokeStyle = this.colorNumbers;
-                this.drawText(p, y, x, y);
+                this.drawText(p, Math.ceil(y), x + 4, y + 4);
             }
-            y += this.cellHeight;
+            y += ((p.canvasHeight() / 100) * this.cellHeightPerc);
         } while (height > y);
     }
     draw_vertical(p) {
@@ -51,11 +51,11 @@ export default class StaticGrid extends BaseComponent {
             this.style.lineWidth = this.lineWidthVertical;
             this.style.lineDash = this.lineDash;
             p.drawLine(x, y, x, end_y, this.style);
-            if (this.flagDrawNumbers == true) {
+            if (this.showNumbers == true) {
                 this.style.strokeStyle = this.colorNumbers;
-                this.drawText(p, x, x, y);
+                this.drawText(p, Math.ceil(x), x + 4, y + 2);
             }
-            x += this.cellWidth;
+            x += ((p.canvasWidth() / 100) * this.cellWidthPerc);
         } while (width > x);
     }
     drawText(p, content, x, y) {

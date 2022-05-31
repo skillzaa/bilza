@@ -89,7 +89,7 @@ return Math.abs(Math.ceil(startValue));
 } 
 //---endValue is on left
 private getEndValue(startValue :number,endValue :number){
-if (endValue > this.SYSTEMMINVALUE){throw new Error("start Value (for decrement operation) is too large");}
+if (endValue <= this.SYSTEMMINVALUE){throw new Error("start Value (for decrement operation) is too large");}
 if (endValue > startValue){throw new Error("end Value (for decrement operation) can not be larger than start value");}
 //CAN be Negative
 return Math.ceil(endValue);

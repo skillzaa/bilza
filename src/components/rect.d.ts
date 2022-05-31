@@ -1,4 +1,4 @@
-import { Pack, BaseComponent, AnimatedNoBase } from "../../Bilza.js";
+import { Pack, BaseComponent, AnimatedNoBase } from "../Bilza.js";
 export default class Rect extends BaseComponent {
     lineWidth: AnimatedNoBase;
     color: string;

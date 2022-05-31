@@ -1,6 +1,8 @@
-import Grid from "./components/grid/grid.js";
-import Rect from "./components/rect/rect.js";
-import StaticGrid from "./components/staticGrid/staticGrid.js";
+import Grid from "./grid.js";
+import Rect from "./rect.js";
+import FillRect from "./fillRect.js";
+import StaticGrid from "./staticGrid.js";
+import FrameCounter from "./frameCounter.js";
 export default class CompFactory {
     static staticGrid(cellWidth = 100, cellHeight = 100, color) {
         let g = new StaticGrid(cellWidth, cellHeight, color);
@@ -15,7 +17,11 @@ export default class CompFactory {
         return g;
     }
     static fillRect(color = "#000000") {
-        let g = new Rect(color);
+        let g = new FillRect(color);
+        return g;
+    }
+    static frameCounter(color = "#000000") {
+        let g = new FrameCounter(color);
         return g;
     }
 }

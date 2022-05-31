@@ -1,14 +1,14 @@
-import {Pack,BaseComponent,AnimatedNoBase} from "../../Bilza.js";
+import {Pack,BaseComponent,AnimatedNoBase} from "../Bilza.js";
 
 export default class Rect extends BaseComponent {
   
     lineWidth :AnimatedNoBase;
     color :string;
-constructor (){ 
+constructor (color :string="#000000"){ 
     super();
-    this.lineWidth = new AnimatedNoBase(2) ;
-    this.color = "#000000" ; 
-  
+    this.lineWidth = new AnimatedNoBase(1) ;
+    this.color = color ; 
+    
 }
 init(p: Pack): boolean {
     super.init(p);

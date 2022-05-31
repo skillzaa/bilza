@@ -1,4 +1,4 @@
-import { BaseComponent, AnimatedNoBase } from "../../Bilza.js";
+import { BaseComponent, AnimatedNoBase } from "../Bilza.js";
 export default class Rect extends BaseComponent {
     constructor(color = "#000000") {
         super();

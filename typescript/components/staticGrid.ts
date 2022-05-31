@@ -1,48 +1,44 @@
-import {Pack,DrawLayer} from "../../Bilza.js";
+import {Pack,DrawLayer} from "../Bilza.js";
+import BaseComponent from "../BaseComponent/BaseComponent.js";
 
-import Basecomponent from "../../BaseComponent/BaseComponent.js";
 
-export default class Grid extends Basecomponent {
-
-    lineDash :number[];
+export default class StaticGrid extends BaseComponent {
+    cellWidth :number;    
+    cellHeight :number;
     
-    cellWidthPerc :number;    
-    cellHeightPerc :number;
+    colorHorizontalLines :string ;   
+    colorVerticalLines :string ;
     
-    //--Lines---
-    showHorizontalLines :boolean ;   
-    showVerticalLines :boolean ;   
+    colorNumbers :string ;   
+    
+    flagDrawNumbers :boolean ;   
+    flagDrawHorizontal :boolean ;   
+    flagDrawVertical :boolean ;   
     
     lineWidthVertical :number;
     lineWidthHorizontal :number;
-    
-    colorHorizontalLines :string ;   
-    colorVerticalLines :string ; 
-    //--numbers
     fontSize :number;
-    colorNumbers :string ;   
-    showNumbers :boolean ;   
-    
+    lineDash :number[];
       
-constructor (colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
+    
+constructor (cellWidth :number=100,cellHeight :number=100, color :string){
 super();
-this.fontSize = 12;
+this.cellWidth = cellWidth;
+this.cellHeight = cellHeight;
+this.colorHorizontalLines = color;
+this.colorVerticalLines = color;
+this.drawLayer = DrawLayer.BackGround;
 
-this.cellWidthPerc = 10;    
-this.cellHeightPerc =10;
+this.fontSize = 8;
 
-this.colorHorizontalLines = "grey";   
-this.colorVerticalLines = "grey";   
+this.colorNumbers = "grey"; 
 
-this.colorNumbers = "black"; 
-
-this.showNumbers = true;   
-this.showHorizontalLines = true;   
-this.showVerticalLines = true;   
+this.flagDrawNumbers = false;   
+this.flagDrawHorizontal = false;   
+this.flagDrawVertical = false;   
 this.lineWidthVertical = 1;
 this.lineWidthHorizontal = 1;
 this.lineDash = [];
- this.drawLayer = DrawLayer.BackGround;   
 }    
 
 draw(p:Pack): boolean {
@@ -50,7 +46,6 @@ draw(p:Pack): boolean {
     this.draw_vertical(p);    
 return true;
 }    
-
 draw_horizontal(p:Pack){
 let x = 0;
 let y = 0;
@@ -63,12 +58,12 @@ let end_x = x + width;
         this.style.lineDash = this.lineDash;        
         this.style.lineWidth = this.lineWidthHorizontal;        
     p.drawLine(x,y,end_x,y,this.style);
-        if (this.showNumbers == true){
+        if (this.flagDrawNumbers == true){
             this.style.strokeStyle = this.colorNumbers;
             // p.drawText(y.toString(),x,y,this.style);
-            this.drawText(p,Math.ceil(y) ,x+4,y+4);
+            this.drawText(p,y,x,y);
         }
-    y += ((p.canvasHeight()/100) * this.cellHeightPerc);
+    y += this.cellHeight;
     } while (height > y );
 }
 draw_vertical(p:Pack){
@@ -84,15 +79,12 @@ let end_y = y + height;
     this.style.lineDash = this.lineDash;        
     p.drawLine(x,y,x,end_y,this.style);
 
-            if (this.showNumbers == true){
+            if (this.flagDrawNumbers == true){
                 this.style.strokeStyle = this.colorNumbers;
-                // this.drawText(p,x,x,y);//2nd x = content
-                this.drawText(p,Math.ceil(x) ,x+4,y+2);
-
+                this.drawText(p,x,x,y);//2nd x = content
                 // p.drawText(x.toString(),x,y,this.style);
             }
-    x += ((p.canvasWidth()/100) * this.cellWidthPerc);
-
+    x += this.cellWidth;
     } while (width > x );
 }
 

@@ -61,7 +61,7 @@ export default class Decrement extends Motherfilter {
         return Math.abs(Math.ceil(startValue));
     }
     getEndValue(startValue, endValue) {
-        if (endValue > this.SYSTEMMINVALUE) {
+        if (endValue <= this.SYSTEMMINVALUE) {
             throw new Error("start Value (for decrement operation) is too large");
         }
         if (endValue > startValue) {
