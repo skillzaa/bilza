@@ -15,8 +15,8 @@ export default class Loc {
 private animationsX :IFilter[];   
 private animationsY :IFilter[];   
 private gotoArray :GotoArray[];   
+//--can never be null
 private _ret_data :XY;
-private _set_data :LocItem | null;
 private preInitArray :PreInitArray[];
 //--------------------------------init data----------------
     protected compWidth    : null | (()=>number) ;
@@ -28,8 +28,8 @@ public readonly yAlignOpt:typeof YAlignment;
 public readonly xAlignOpt:typeof XAlignment;   
 
 //-------------------------------------------
-constructor(x :number | OffScreenXOpt,y :number |OffScreenYOpt, xAlign :XAlignment = XAlignment.Left, yAlign :YAlignment = YAlignment.Top,xExtra :number=0,yExtra :number = 0){
-    this._set_data = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);;
+constructor(){
+//---you get it at 0,0 now use goto    
     this._ret_data = new XY(0,0);
     this.preInitArray = [];
     this.animationsX = [];
@@ -49,14 +49,11 @@ init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHei
     this.compHeight = compHeight; // THIS IS A FUNCTION
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
-
-    this.runSet();
     this.initIncDec(this.compWidth(),this.compHeight());
     return true;
 }
 update(msDelta :number):boolean{
 if (this.compWidth == null){throw new Error("init error");}    
-// this.runSet();
 this.runAnimationsX(msDelta);
 this.runAnimationsY(msDelta);
 this.runExhaustedCheckX(msDelta);
@@ -81,10 +78,10 @@ initIncDecX(elm :PreInitArray,compWidth :number){
     const start = solveX(elm.fromLocItem,compWidth,this.canvasWidth);
     const end = solveX(elm.toLocItem,compWidth,this.canvasWidth);
 ///-------
-let locItem = new LocItem(elm.toLocItem.x,elm.toLocItem.y,elm.toLocItem.xAlign,elm.toLocItem.yAlign,elm.toLocItem.xExtra,elm.toLocItem.yExtra);
+// let locItem = new LocItem(elm.toLocItem.x,elm.toLocItem.y,elm.toLocItem.xAlign,elm.toLocItem.yAlign,elm.toLocItem.xExtra,elm.toLocItem.yExtra);
 
-const gotoItem = new GotoArray(elm.timeTo,locItem);
-this.gotoArray.push(gotoItem);
+// const gotoItem = new GotoArray(elm.timeTo,locItem);
+// this.gotoArray.push(gotoItem);
 ///-------
     if (start < end ){
         let c = this.newIncrement(elm.timeFrom,elm.timeTo,start,end);
@@ -130,13 +127,19 @@ private runExhaustedCheckX(msDelta :number){
         }
 } 
 }
+
+goto(atFrame :number,x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
+    let loc = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
+let c = new GotoArray(atFrame,loc);
+this.gotoArray.push(c);
+}
 private runGoto(msDelta :number){
 if (this.compWidth == null){throw new Error("init error");}
 if (this.compHeight == null){throw new Error("init error");}
 
     for (let i = 0; i < this.gotoArray.length; i++) {
         const gotoItem = this.gotoArray[i];
-     if ( (gotoItem.atFrame * 1000) >= msDelta){
+     if ( (gotoItem.atFrame * 1000) <= msDelta){
         this._ret_data.x = solveX(gotoItem.gotoLocItem,this.compWidth(),this.canvasWidth);
         this._ret_data.y = solveY(gotoItem.gotoLocItem,this.compHeight(),this.canvasHeight);
         this.gotoArray.splice(i,1); ////important remove it;
@@ -184,26 +187,6 @@ private runAnimationsY(msDelta :number){
             this._ret_data.y = v;
         }
 } 
-}
-//-using a seperate variable this._set_value it brilliant
-private runSet(){
-if (this.compWidth == null){throw new Error("init error");}
-if (this.compHeight == null){throw new Error("init error");}
-    if (this._set_data !== null && this._set_data.x !== null){
-    //--place 2 of 3 where _ret_value is changed
-    this._ret_data.x = solveX(this._set_data,this.compWidth(),this.canvasWidth);
-    this._ret_data.y = solveY(this._set_data,this.compHeight(),this.canvasHeight);
-    //---importantay use once
-    this._set_data = null; //assign null
-    }   
-}
-set(x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
-
-    this._set_data = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
-}
-goTo(atFrame :number,x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
-    let loc = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
-let c = new GotoArray(atFrame,loc);
 }
 
 animate(timeFrom :number,timeTo :number,
