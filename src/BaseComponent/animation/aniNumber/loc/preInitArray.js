@@ -1,7 +1,7 @@
 export default class PreInitArray {
-    constructor(timeFrom, timeTo, from, to) {
-        this.from = from;
-        this.to = to;
+    constructor(timeFrom, timeTo, fromLocItem, toLocItem) {
+        this.fromLocItem = fromLocItem;
+        this.toLocItem = toLocItem;
         this.timeFrom = timeFrom;
         this.timeTo = timeTo;
     }

@@ -1,13 +1,13 @@
 import LocItem from "./locItem.js";
 
 export default class PreInitArray {
-from :LocItem;
-to :LocItem;
+fromLocItem :LocItem;
+toLocItem :LocItem; 
 timeFrom :number;
 timeTo :number;
-constructor(timeFrom:number,timeTo :number,from :LocItem,to :LocItem){
-    this.from = from  ;
-    this.to = to  ;
+constructor(timeFrom:number,timeTo :number,fromLocItem :LocItem,toLocItem :LocItem){
+    this.fromLocItem = fromLocItem  ;
+    this.toLocItem = toLocItem  ;
     this.timeFrom = timeFrom  ;
     this.timeTo = timeTo  ;
 }

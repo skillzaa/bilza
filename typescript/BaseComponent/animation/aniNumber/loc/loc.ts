@@ -75,8 +75,8 @@ public initIncDec(compWidth :number,compHeight :number){
 // console.log("this.animationsY",this.animationsY);    
 }
 initIncDecX(elm :PreInitArray,compWidth :number){
-    const start = solveX(elm.from,compWidth,this.canvasWidth);
-    const end = solveX(elm.to,compWidth,this.canvasWidth);
+    const start = solveX(elm.fromLocItem,compWidth,this.canvasWidth);
+    const end = solveX(elm.toLocItem,compWidth,this.canvasWidth);
 
     if (start < end ){
         let c = this.newIncrement(elm.timeFrom,elm.timeTo,start,end);
@@ -87,8 +87,8 @@ initIncDecX(elm :PreInitArray,compWidth :number){
     }
 }
 initIncDecY(elm :PreInitArray,compHeight :number){
-    const start = solveY(elm.from,compHeight,this.canvasHeight);
-    const end = solveY(elm.to,compHeight,this.canvasHeight);
+    const start = solveY(elm.fromLocItem,compHeight,this.canvasHeight);
+    const end = solveY(elm.toLocItem,compHeight,this.canvasHeight);
 
     if (start < end ){
         let c = this.newIncrement(elm.timeFrom,elm.timeTo,start,end);
@@ -188,9 +188,9 @@ animate(timeFrom :number,timeTo :number,
     
     xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0){
 
-const from = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
-const to = new LocItem(xTo,yTo,xAlignTo,yAlignTo,xExtraTo,yExtraTo);
-const c = new PreInitArray(timeFrom,timeTo,from,to);
+const fromLocItem = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
+const toLocItem = new LocItem(xTo,yTo,xAlignTo,yAlignTo,xExtraTo,yExtraTo);
+const c = new PreInitArray(timeFrom,timeTo,fromLocItem,toLocItem);
 this.preInitArray.push(c);
 // console.log("this.preInitArray", this.preInitArray);
 }

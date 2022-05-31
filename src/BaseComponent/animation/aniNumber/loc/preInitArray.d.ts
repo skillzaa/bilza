@@ -1,9 +1,9 @@
 import LocItem from "./locItem.js";
 export default class PreInitArray {
-    from: LocItem;
-    to: LocItem;
+    fromLocItem: LocItem;
+    toLocItem: LocItem;
     timeFrom: number;
     timeTo: number;
-    constructor(timeFrom: number, timeTo: number, from: LocItem, to: LocItem);
+    constructor(timeFrom: number, timeTo: number, fromLocItem: LocItem, toLocItem: LocItem);
 }
 //# sourceMappingURL=preInitArray.d.ts.map

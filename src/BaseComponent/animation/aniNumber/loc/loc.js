@@ -52,8 +52,8 @@ export default class Loc {
         }
     }
     initIncDecX(elm, compWidth) {
-        const start = solveX(elm.from, compWidth, this.canvasWidth);
-        const end = solveX(elm.to, compWidth, this.canvasWidth);
+        const start = solveX(elm.fromLocItem, compWidth, this.canvasWidth);
+        const end = solveX(elm.toLocItem, compWidth, this.canvasWidth);
         if (start < end) {
             let c = this.newIncrement(elm.timeFrom, elm.timeTo, start, end);
             this.animationsX.push(c);
@@ -64,8 +64,8 @@ export default class Loc {
         }
     }
     initIncDecY(elm, compHeight) {
-        const start = solveY(elm.from, compHeight, this.canvasHeight);
-        const end = solveY(elm.to, compHeight, this.canvasHeight);
+        const start = solveY(elm.fromLocItem, compHeight, this.canvasHeight);
+        const end = solveY(elm.toLocItem, compHeight, this.canvasHeight);
         if (start < end) {
             let c = this.newIncrement(elm.timeFrom, elm.timeTo, start, end);
             this.animationsY.push(c);
@@ -143,9 +143,9 @@ export default class Loc {
         this._set_data = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
     }
     animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo, xAlignFrom = XAlignment.Left, xAlignTo = XAlignment.Left, yAlignFrom = YAlignment.Top, yAlignTo = YAlignment.Top, xExtraFrom = 0, xExtraTo = 0, yExtraFrom = 0, yExtraTo = 0) {
-        const from = new LocItem(xFrom, yFrom, xAlignFrom, yAlignFrom, xExtraFrom, yExtraFrom);
-        const to = new LocItem(xTo, yTo, xAlignTo, yAlignTo, xExtraTo, yExtraTo);
-        const c = new PreInitArray(timeFrom, timeTo, from, to);
+        const fromLocItem = new LocItem(xFrom, yFrom, xAlignFrom, yAlignFrom, xExtraFrom, yExtraFrom);
+        const toLocItem = new LocItem(xTo, yTo, xAlignTo, yAlignTo, xExtraTo, yExtraTo);
+        const c = new PreInitArray(timeFrom, timeTo, fromLocItem, toLocItem);
         this.preInitArray.push(c);
     }
     x() {
