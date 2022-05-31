@@ -27,13 +27,13 @@ export default class Loc {
         this.compHeight = compHeight;
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
-        this.initIncDec(this.compWidth(), this.compHeight());
         return true;
     }
     update(msDelta) {
         if (this.compWidth == null) {
             throw new Error("init error");
         }
+        this.activateFilter(msDelta);
         this.runAnimationsX(msDelta);
         this.runAnimationsY(msDelta);
         this.runGoto(msDelta);
@@ -44,6 +44,22 @@ export default class Loc {
             const elm = this.preInitArray[i];
             this.initIncDecX(elm, compWidth);
             this.initIncDecY(elm, compHeight);
+        }
+    }
+    activateFilter(msDelta) {
+        if (this.compWidth == null) {
+            throw new Error("init error");
+        }
+        if (this.compHeight == null) {
+            throw new Error("init error");
+        }
+        for (let i = 0; i < this.preInitArray.length; i++) {
+            const elm = this.preInitArray[i];
+            if ((elm.timeFrom * 1000) <= msDelta) {
+                this.initIncDecX(elm, this.compWidth());
+                this.initIncDecY(elm, this.compHeight());
+                this.preInitArray.splice(i, 1);
+            }
         }
     }
     initIncDecX(elm, compWidth) {

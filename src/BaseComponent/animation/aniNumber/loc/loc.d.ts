@@ -19,6 +19,7 @@ export default class Loc {
     init(compWidth: () => number, compHeight: () => number, canvasWidth: number, canvasHeight: number): boolean;
     update(msDelta: number): boolean;
     initIncDec(compWidth: number, compHeight: number): void;
+    activateFilter(msDelta: number): void;
     initIncDecX(elm: PreInitArray, compWidth: number): void;
     initIncDecY(elm: PreInitArray, compHeight: number): void;
     private runAnimationsX;
