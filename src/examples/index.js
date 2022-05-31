@@ -1,12 +1,11 @@
-import Bilza, { XAlignment, YAlignment, CompFactory as cf } from "../Bilza.js";
+import Bilza, { CompFactory as cf } from "../Bilza.js";
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
 let grid = cf.grid();
 bil.insert.alwaysOn(grid);
 let tst = cf.rect();
 tst.duration = 600;
-tst.p.loc.set(50, 50, XAlignment.Mid, YAlignment.Mid);
-tst.p.dynWidth.animate(2, 6, 10, 40);
+tst.p.loc.animate(2, 5, 0, 50, 0, 50);
 bil.insert.append(tst, tst.duration);
 bil.init();
 bil.start();

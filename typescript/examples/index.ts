@@ -12,9 +12,8 @@ bil.insert.alwaysOn(grid);
 
 let tst = cf.rect();
 tst.duration = 600;
-tst.p.loc.set(50,50, XAlignment.Mid , YAlignment.Mid);
-
-tst.p.dynWidth.animate(2,6,10,40);
+// tst.p.loc.set(0,0, XAlignment.Left , YAlignment.Top);
+tst.p.loc.animate(2,5,0,50,0,50);
 
 bil.insert.append(tst, tst.duration);
 

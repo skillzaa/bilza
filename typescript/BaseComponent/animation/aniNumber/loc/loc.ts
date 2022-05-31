@@ -28,8 +28,8 @@ public readonly xAlignOpt:typeof XAlignment;
 
 //-------------------------------------------
 constructor(x :number | OffScreenXOpt,y :number |OffScreenYOpt, xAlign :XAlignment = XAlignment.Left, yAlign :YAlignment = YAlignment.Top,xExtra :number=0,yExtra :number = 0){
-    this._ret_data = new XY(0,0);
     this._set_data = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);;
+    this._ret_data = new XY(0,0);
     this.preInitArray = [];
     this.animationsX = [];
     this.animationsY = [];
@@ -136,12 +136,18 @@ if (this.compHeight == null){throw new Error("init error");}
     this._set_data = null; //assign null
     }   
 }
-set(x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
+private set(x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
 
     this._set_data = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
 }
 
-animate(timeFrom :number,timeTo :number,xFrom :number,xTo :number , yFrom :number,yTo :number,xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0){
+animate(timeFrom :number,timeTo :number,
+    xFrom :number,xTo :number , yFrom :number,yTo :number,
+    
+    xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,
+    
+    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0){
+
 const from = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
 const to = new LocItem(xTo,yTo,xAlignTo,yAlignTo,xExtraTo,yExtraTo);
 const c = new PreInitArray(timeFrom,timeTo,from,to);

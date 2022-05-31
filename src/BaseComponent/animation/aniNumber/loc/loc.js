@@ -9,9 +9,9 @@ import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrement.js";
 export default class Loc {
     constructor(x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
-        this._ret_data = new XY(0, 0);
         this._set_data = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
         ;
+        this._ret_data = new XY(0, 0);
         this.preInitArray = [];
         this.animationsX = [];
         this.animationsY = [];
