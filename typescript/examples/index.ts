@@ -15,7 +15,7 @@ tst.duration = 600;
 
 // tst.p.loc.goto(0,90,10,XAlignment.Mid,YAlignment.Mid);
 tst.p.dynWidth.animate(0,2,10,20);
-tst.p.loc.animate(3,6,
+tst.p.loc.animate(5,8,
     0,50,0,50,
     XAlignment.Left,XAlignment.Mid,
     YAlignment.Top,YAlignment.Mid

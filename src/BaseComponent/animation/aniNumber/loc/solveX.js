@@ -9,12 +9,12 @@ export default function solveX(ls, compWidth = null, canvasWidth = null) {
     let localX = 0;
     if (typeof ls.x != "number") {
         const converted = OffScreenToNumber(ls.x, compWidth, canvasWidth);
-        const adjest = adjestAlign(converted, ls.xAlign, compWidth);
+        const adjest = adjestAlignX(converted, ls.xAlign, compWidth);
         localX = converted + ls.xExtra;
     }
     else {
         const pix = xPercToPix(ls.x, canvasWidth);
-        const adjest = adjestAlign(pix, ls.xAlign, compWidth);
+        const adjest = adjestAlignX(pix, ls.xAlign, compWidth);
         return adjest + ls.xExtra;
     }
     return localX;
@@ -47,7 +47,7 @@ function OffScreenToNumber(value, compWidth, canvasWidth) {
     }
     return Math.ceil(r);
 }
-function adjestAlign(incomming, xAlign, compWidth) {
+export function adjestAlignX(incomming, xAlign, compWidth) {
     if (compWidth == null) {
         throw new Error("init error");
     }

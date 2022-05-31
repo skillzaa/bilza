@@ -11,6 +11,7 @@ import IFilter from "../IFilter.js";
 import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrement.js";
 import GotoArray from "./gotoArray.js";
+import { adjestAlignX } from "./solveX.js";
 export default class Loc {
 private animationsX :IFilter[];   
 private animationsY :IFilter[];   
@@ -77,12 +78,7 @@ public initIncDec(compWidth :number,compHeight :number){
 initIncDecX(elm :PreInitArray,compWidth :number){
     const start = solveX(elm.fromLocItem,compWidth,this.canvasWidth);
     const end = solveX(elm.toLocItem,compWidth,this.canvasWidth);
-///-------
-// let locItem = new LocItem(elm.toLocItem.x,elm.toLocItem.y,elm.toLocItem.xAlign,elm.toLocItem.yAlign,elm.toLocItem.xExtra,elm.toLocItem.yExtra);
 
-// const gotoItem = new GotoArray(elm.timeTo,locItem);
-// this.gotoArray.push(gotoItem);
-///-------
     if (start < end ){
         let c = this.newIncrement(elm.timeFrom,elm.timeTo,start,end);
         this.animationsX.push(c);
@@ -113,7 +109,6 @@ private runAnimationsX(msDelta :number){
         if ( v != null){
             //--place 3 of 3 where _ret_value is changed
             this._ret_data.x = v;
-            // console.log("v",v);
             // console.log("msDelta",msDelta,"value",this._ret_value);
         }
 } 

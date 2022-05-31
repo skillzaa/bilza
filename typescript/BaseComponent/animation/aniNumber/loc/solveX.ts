@@ -11,11 +11,11 @@ let localX = 0;
 
 if (typeof ls.x != "number"){
 const converted = OffScreenToNumber(ls.x,compWidth,canvasWidth);
-const adjest = adjestAlign(converted,ls.xAlign,compWidth);
+const adjest = adjestAlignX(converted,ls.xAlign,compWidth);
 localX = converted + ls.xExtra;
 }else {
     const pix = xPercToPix(ls.x,canvasWidth);
-    const adjest = adjestAlign(pix,ls.xAlign,compWidth);
+    const adjest = adjestAlignX(pix,ls.xAlign,compWidth);
     return adjest + ls.xExtra;
 }
 return localX;    
@@ -50,7 +50,7 @@ switch (value) {
 }
 return Math.ceil(r);
 } 
-function adjestAlign(incomming :number,xAlign :XAlignment, compWidth :number |null):number{
+export function adjestAlignX(incomming :number,xAlign :XAlignment, compWidth :number |null):number{
 if(compWidth==null){throw new Error("init error");
 }    
 let x = incomming    
