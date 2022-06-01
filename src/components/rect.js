@@ -19,7 +19,7 @@ export default class Rect extends BaseComponent {
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
         this.style.lineWidth = this.lineWidth.value();
-        p.drawRect(this.props.loc.x(), this.props.loc.y(), this.width(), this.height(), this.style);
+        p.drawRect(this.loc.x(), this.loc.y(), this.width(), this.height(), this.style);
         return true;
     }
 }

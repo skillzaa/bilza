@@ -3,7 +3,7 @@ import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.
 import Loc from "./animation/aniNumber/loc/loc.js";
 import {Pack} from "../Bilza.js";
 
-export default class BaseProps{
+export default class BaseComponentBase{
 loc :Loc;
 
 colorBoundingRectangle:string;
@@ -28,7 +28,7 @@ visible :boolean;////just to tell people from outside??????
 selected :boolean;
 //---So every component can be draw using concrete x and Y or relative default is relative
 
-constructor(compWidth :(p :Pack)=>number,compHeight :(p :Pack)=>number){
+constructor(){
 // this.x= new XAxis(0);
 // this.y = new YAxis(0);
 // this.y.setValue(0);

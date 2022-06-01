@@ -1,15 +1,10 @@
 import {Pack,IComponent,DrawLayer} from "../Bilza.js";
 import Style from "../design/style.js";
-// import {YAlignment} from "../design/yAlignment.js";
-import BaseProps from "./BaseProps.js";
-
-// import MoveYItem from "./moveYItem.js";
+import BaseComponentBase from "./BaseComponentBase.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
-export default class BaseComponent  implements IComponent {
-public props :BaseProps;
-public  p:BaseProps;
+export default class BaseComponent extends BaseComponentBase implements IComponent {
 public readonly id :string;
 public drawLayer : DrawLayer; 
 public style:Style;
@@ -18,14 +13,13 @@ public  duration :number;
 public readonly offScreenXOpt :typeof OffScreenXOpt;
 public readonly offScreenYOpt :typeof OffScreenYOpt;
 // public readonly yAlignmentOptions:typeof YAlignment;  
-/////////////////----PRIVATE----///////////////////
- 
-// private moveYArray :MoveYItem[];  
+/////////////////----PRIVATE----/////////////////// 
 private  insertTimeInVid:number; 
 public alwaysOn: boolean;
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
+    super();
     this.alwaysOn = false;
     // this.moveYArray = [];
     this.offScreenXOpt = OffScreenXOpt; //final-ok
@@ -40,20 +34,20 @@ constructor (){
     this.id = Math.random().toString(36).slice(2);
     this.style = new Style(); 
     
-this.props = new BaseProps(this.width.bind(this),this.height.bind(this));;    
-this.p = this.props;
+// this.props = new BaseProps(this.width.bind(this),this.height.bind(this));;    
+// this.p = this.props;
 }
 
 width(): number {
-    if (this.p.canvasWidth !== null ){
-        return Math.ceil((this.p.canvasWidth/100) * this.p.dynWidth.value());
+    if (this.canvasWidth !== null ){
+        return Math.ceil((this.canvasWidth/100) * this.dynWidth.value());
     }else {
         throw new Error("the component is not initialized yet");        
     }
 }
 height(): number {
-    if (this.p.canvasHeight !== null){
-    return Math.ceil((this.p.canvasHeight/100)*this.p.dynHeight.value());
+    if (this.canvasHeight !== null){
+    return Math.ceil((this.canvasHeight/100)*this.dynHeight.value());
     }else {
         throw new Error("the component is not initialized yet");        
     }
@@ -61,28 +55,25 @@ height(): number {
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {
 //--- now i have width in pix when app is init and width in percentage when not init    
-this.p.canvasWidth =  p.canvasWidth();  
-this.p.canvasHeight =  p.canvasHeight();  
+this.canvasWidth =  p.canvasWidth();  
+this.canvasHeight =  p.canvasHeight();  
 
-this.p.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
-// this.p.x.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+this.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-// this.p.y.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-this.p.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+this.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-this.p.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
-
-    return true;
+return true;
 }
 
 
 update(msDelta :number,p :Pack): boolean {
-    // this.p.x.update(msDelta);
-    // this.p.y.update(msDelta);
-    this.p.loc.update(msDelta);
-    this.p.dynWidth.update(msDelta);
-    this.p.dynHeight.update(msDelta);
+    // this.x.update(msDelta);
+    // this.y.update(msDelta);
+    this.loc.update(msDelta);
+    this.dynWidth.update(msDelta);
+    this.dynHeight.update(msDelta);
 return true;    
 }
 

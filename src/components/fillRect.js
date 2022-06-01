@@ -15,7 +15,7 @@ export default class FillRect extends BaseComponent {
     draw(p) {
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        p.drawFillRect(this.props.loc.x(), this.props.loc.y(), this.width(), this.height(), this.style);
+        p.drawFillRect(this.loc.x(), this.loc.y(), this.width(), this.height(), this.style);
         return true;
     }
 }

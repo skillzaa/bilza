@@ -1,11 +1,9 @@
 import { Pack, IComponent, DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
-import BaseProps from "./BaseProps.js";
+import BaseComponentBase from "./BaseComponentBase.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
-export default class BaseComponent implements IComponent {
-    props: BaseProps;
-    p: BaseProps;
+export default class BaseComponent extends BaseComponentBase implements IComponent {
     readonly id: string;
     drawLayer: DrawLayer;
     style: Style;

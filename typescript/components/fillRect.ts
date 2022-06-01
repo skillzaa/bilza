@@ -27,8 +27,8 @@ this.style.strokeStyle = this.color;
 // this.style.lineWidth = this.lineWidth.value();
 
    p.drawFillRect(
-    this.props.loc.x(),
-    this.props.loc.y(),
+    this.loc.x(),
+    this.loc.y(),
     this.width(),
     this.height(),
     this.style

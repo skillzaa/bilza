@@ -18,10 +18,10 @@ export default class FrameCounter extends BaseComponent {
     draw(p) {
         this.style.fillStyle = this.bgColor;
         this.style.strokeStyle = this.bgColor;
-        p.drawFillRect(this.props.loc.x(), this.props.loc.y(), this.width(), this.height(), this.style);
+        p.drawFillRect(this.loc.x(), this.loc.y(), this.width(), this.height(), this.style);
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        p.drawText(this.content, this.props.loc.x() + 10, this.props.loc.y() + 10, this.style);
+        p.drawText(this.content, this.loc.x() + 10, this.loc.y() + 10, this.style);
         return true;
     }
 }
