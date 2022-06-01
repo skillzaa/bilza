@@ -6,10 +6,7 @@ padding :number;
 border :number;
 maxDisplayChars :number; //implemented
 
-fontSize :number;
-// flagUseDynResize:boolean;
-// flagShrinkHeightToFit:boolean;
-// flagUseRelativeXY:boolean;
+protected fontSize :number;
 
 color :string;
 colorBorder :string;
@@ -22,14 +19,9 @@ showBorderShadow :boolean;
 showBgShadow :boolean; 
     
     
-constructor (content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=20,dynHeight :number=20){
+constructor (content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=40,dynHeight :number=20){
     
-    super();
-    
-    // this.flagUseRelativeXY = true;//outof box its RESPONSIVE text
-    // this.flagUseDynResize = true; //--dynResize ON by default
-    // this.flagShrinkHeightToFit = true; //--shring ON by default
-    
+    super();    
     
     this.content = "Text Component" ; 
     this.padding = 0;
@@ -42,36 +34,32 @@ constructor (content :string="",colorHax :string="#000000",x:number=0,y:number =
     this.color = "black" ; 
     
     this.fontSize = 25;
-    
+    //-----------------------------
     this.showContent = true;
     this.showBg = false;
-    
     this.showTextShadow = false;
     this.showBgShadow = false;
     this.showBorderShadow = false;
-    
     this.maxDisplayChars = 200;
-    
-    
     //-------Base Component Values--keep all here except x and y
     this.drawLayer = DrawLayer.MiddleGround;
 }
 width():number {
-return this.dynWidth.value();
+if(this.canvasWidth==null){throw new Error("init error");
+}    
+return Math.ceil(this.canvasWidth / 100 * this.dynWidth.value());    
 }
 height():number {
-return this.dynHeight.value();
+if(this.canvasHeight==null){throw new Error("init error");
+}    
+return Math.ceil(this.canvasHeight / 100 * this.dynHeight.value());    
 }
 
 
 update(msDelta: number, p: Pack): boolean {
 super.update(msDelta,p);
-    // if (this.flagUseDynResize ==true){
-    //     this.dynamicFontSize(p);
-    // }
-    // if (this.flagShrinkHeightToFit ==true){
-    //     this.shrinkHeightToFit(p);
-    // }
+        this.dynamicFontSize(p);
+
     return true;
 }
 
@@ -117,10 +105,10 @@ private drawBg(p :Pack) :boolean{
     } else {
         this.shadowsOff();
     }
-    // this.style.fillStyle = this.colorBg;
-    // this.style.strokeStyle = this.colorBg;
-    this.style.fillStyle = "red";
-    this.style.strokeStyle = "green";
+    this.style.fillStyle = this.colorBg;
+    this.style.strokeStyle = this.colorBg;
+    // this.style.fillStyle = "red";
+    // this.style.strokeStyle = "green";
     this.style.fontSize = this.fontSize;
       
 p.drawFillRect(
@@ -151,29 +139,34 @@ p.drawText(this.content.substring(0,this.maxDisplayChars),
 }
 
 
-// public dynamicFontSize(p :Pack):number | null{
-// let reqWd = (p.canvasWidth() /100 * this.dynWidth);
-// this.style.fontSize = this.fontSize; //if not already in sync
-// // let oldFontSize = this.fontSize;
-// let newWidth = 0; 
-//     for (let i = 1; i < 900; i++) {
-//     //----Big secret found in the code txt.d.fontSize vs text.style.fontSize
-//     // txt.d.fontSize = i; 
-//     this.style.fontSize = i; 
-//     newWidth = this.width(p)
-// //---which Ever is reached first
-// //console.log("i",i, "newWidth",newWidth,"reqWd",reqWd);
-// //console.log("----");
-//     // if (newWidth >= reqWd || newHeight >= reqHt){
-//     if (newWidth >= reqWd ){
-//         this.fontSize = i; 
-//         this.style.fontSize = i;
-//         return this.fontSize;
-//     } 
-// }//for end  
-// return null;
-// }//dynamic font size
-// public shrinkHeightToFit(p :Pack):boolean{
+public dynamicFontSize(p :Pack):number | null{
+const reqWd = (p.canvasWidth() /100 * this.dynWidth.value());
+
+
+//if not already in sync
+this.style.fontSize = this.fontSize; 
+//------------------------------------
+let newWidth = 0; 
+    for (let i = 1; i < 900; i++) {
+    //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
+    this.style.fontSize = i; 
+    newWidth = p.charsWidth(this.content,this.style.fontSize,this.style.fontFamily);
+//----------------------------
+const newHtpix = p.charsWidth("W",this.style.fontSize,this.style.fontFamily);
+const pixToPerc = Math.ceil(newHtpix/p.canvasHeight() * 100);
+    if (newWidth >= reqWd ){
+        this.fontSize = i; 
+        this.style.fontSize = i;
+
+        this.dynHeight.setValue(pixToPerc);
+        return this.fontSize;
+    } 
+}//for end  
+return null;
+}//dynamic font size
+
+
+// private shrinkHeightToFit(p :Pack):boolean{
 // let reqHt = (p.canvasHeight() /100 * this.dynHeight.value());
 
 // if (this.height() < reqHt){return true;}
@@ -184,8 +177,8 @@ p.drawText(this.content.substring(0,this.maxDisplayChars),
 // for (let i = this.style.fontSize; i > 5; i--) {
 //         this.style.fontSize -= 1;
 //         this.fontSize = this.style.fontSize;
-//         // const newHt = this.height(p);
-//         if (this.height(p) < reqHt){return true;}
+
+//         if (this.height() < reqHt){return true;}
 // }
 // return false;
 // }//dynamic font size

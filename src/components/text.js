@@ -1,6 +1,6 @@
 import { BaseComponent, DrawLayer } from "../Bilza.js";
 export default class Text extends BaseComponent {
-    constructor(content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 20, dynHeight = 20) {
+    constructor(content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 40, dynHeight = 20) {
         super();
         this.content = "Text Component";
         this.padding = 0;
@@ -20,13 +20,20 @@ export default class Text extends BaseComponent {
         this.drawLayer = DrawLayer.MiddleGround;
     }
     width() {
-        return this.dynWidth.value();
+        if (this.canvasWidth == null) {
+            throw new Error("init error");
+        }
+        return Math.ceil(this.canvasWidth / 100 * this.dynWidth.value());
     }
     height() {
-        return this.dynHeight.value();
+        if (this.canvasHeight == null) {
+            throw new Error("init error");
+        }
+        return Math.ceil(this.canvasHeight / 100 * this.dynHeight.value());
     }
     update(msDelta, p) {
         super.update(msDelta, p);
+        this.dynamicFontSize(p);
         return true;
     }
     draw(p) {
@@ -62,8 +69,8 @@ export default class Text extends BaseComponent {
         else {
             this.shadowsOff();
         }
-        this.style.fillStyle = "red";
-        this.style.strokeStyle = "green";
+        this.style.fillStyle = this.colorBg;
+        this.style.strokeStyle = this.colorBg;
         this.style.fontSize = this.fontSize;
         p.drawFillRect(this.loc.x() + (this.border), this.loc.y() + (this.border), this.width(), this.height(), this.style);
         return true;
@@ -79,5 +86,23 @@ export default class Text extends BaseComponent {
         this.style.strokeStyle = this.color;
         this.style.fontSize = this.fontSize;
         p.drawText(this.content.substring(0, this.maxDisplayChars), this.loc.x() + (this.border + this.padding), this.loc.y() + (this.border + this.padding), this.style);
+    }
+    dynamicFontSize(p) {
+        const reqWd = (p.canvasWidth() / 100 * this.dynWidth.value());
+        this.style.fontSize = this.fontSize;
+        let newWidth = 0;
+        for (let i = 1; i < 900; i++) {
+            this.style.fontSize = i;
+            newWidth = p.charsWidth(this.content, this.style.fontSize, this.style.fontFamily);
+            const newHtpix = p.charsWidth("W", this.style.fontSize, this.style.fontFamily);
+            const pixToPerc = Math.ceil(newHtpix / p.canvasHeight() * 100);
+            if (newWidth >= reqWd) {
+                this.fontSize = i;
+                this.style.fontSize = i;
+                this.dynHeight.setValue(pixToPerc);
+                return this.fontSize;
+            }
+        }
+        return null;
     }
 }

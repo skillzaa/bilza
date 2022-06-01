@@ -16,6 +16,8 @@ bil.insert.alwaysOn(grid);
 let text = new Text("Rise Again");
 text.duration = 600;
 text.showBg = true;
+// text.loc.animate(2,10,0,50,0,50,XAlignment.Left,XAlignment.Mid,YAlignment.Top,YAlignment.Mid);
+text.dynWidth.animate(2,10,40,100);
 // bil.insert.alwaysOn(line);
 bil.insert.append(text, text.duration);
 

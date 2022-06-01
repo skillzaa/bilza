@@ -4,7 +4,7 @@ export default class Text extends BaseComponent {
     padding: number;
     border: number;
     maxDisplayChars: number;
-    fontSize: number;
+    protected fontSize: number;
     color: string;
     colorBorder: string;
     colorBg: string;
@@ -21,5 +21,6 @@ export default class Text extends BaseComponent {
     private drawBorder;
     private drawBg;
     private drawContent;
+    dynamicFontSize(p: Pack): number | null;
 }
 //# sourceMappingURL=text.d.ts.map
