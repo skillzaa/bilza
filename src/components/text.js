@@ -1,15 +1,15 @@
 import { BaseComponent, DrawLayer } from "../Bilza.js";
 export default class Text extends BaseComponent {
-    constructor(content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 40, dynHeight = 20) {
+    constructor(content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 30) {
         super();
-        this.content = "Text Component";
+        this.content = content;
         this.padding = 0;
         this.border = 0;
         this.dynWidth.setValue(dynWidth);
-        this.dynHeight.setValue(dynHeight);
+        this.localDynHeight = 20;
         this.colorBorder = "black";
         this.colorBg = "#e1f4e1";
-        this.color = "black";
+        this.color = colorHax;
         this.fontSize = 25;
         this.showContent = true;
         this.showBg = false;
@@ -29,7 +29,7 @@ export default class Text extends BaseComponent {
         if (this.canvasHeight == null) {
             throw new Error("init error");
         }
-        return Math.ceil(this.canvasHeight / 100 * this.dynHeight.value());
+        return Math.ceil(this.canvasHeight / 100 * this.localDynHeight);
     }
     update(msDelta, p) {
         super.update(msDelta, p);
@@ -99,7 +99,7 @@ export default class Text extends BaseComponent {
             if (newWidth >= reqWd) {
                 this.fontSize = i;
                 this.style.fontSize = i;
-                this.dynHeight.setValue(pixToPerc);
+                this.localDynHeight = pixToPerc;
                 return this.fontSize;
             }
         }

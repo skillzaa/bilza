@@ -1,9 +1,15 @@
+/**
+ * Main thing to manage in a comp is width and height. in text dynHeight is not implemented, there is no effect of it instead the height is automatically adjesyed using local var
+ * also text always use percentage 
+ */
 import {Pack,BaseComponent,DrawLayer} from "../Bilza.js";
 
 export default class Text extends BaseComponent {
 content :string;
 padding :number;
 border :number;
+private localDynHeight :number;
+
 maxDisplayChars :number; //implemented
 
 protected fontSize :number;
@@ -19,19 +25,20 @@ showBorderShadow :boolean;
 showBgShadow :boolean; 
     
     
-constructor (content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=40,dynHeight :number=20){
+constructor (content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=30){
     
     super();    
-    
-    this.content = "Text Component" ; 
+    // this.loc.x.set
+    this.content = content ; 
     this.padding = 0;
     this.border = 0;
     this.dynWidth.setValue(dynWidth);
-    this.dynHeight.setValue(dynHeight);
+    //am not using the base comp dynHeight
+    this.localDynHeight = 20;
     
     this.colorBorder = "black";
     this.colorBg = "#e1f4e1";
-    this.color = "black" ; 
+    this.color = colorHax ; 
     
     this.fontSize = 25;
     //-----------------------------
@@ -52,7 +59,7 @@ return Math.ceil(this.canvasWidth / 100 * this.dynWidth.value());
 height():number {
 if(this.canvasHeight==null){throw new Error("init error");
 }    
-return Math.ceil(this.canvasHeight / 100 * this.dynHeight.value());    
+return Math.ceil(this.canvasHeight / 100 * this.localDynHeight);    
 }
 
 
@@ -157,8 +164,8 @@ const pixToPerc = Math.ceil(newHtpix/p.canvasHeight() * 100);
     if (newWidth >= reqWd ){
         this.fontSize = i; 
         this.style.fontSize = i;
-
-        this.dynHeight.setValue(pixToPerc);
+//--dont use base comp dynHeight
+        this.localDynHeight = pixToPerc;
         return this.fontSize;
     } 
 }//for end  

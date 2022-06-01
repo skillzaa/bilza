@@ -3,6 +3,7 @@ export default class Text extends BaseComponent {
     content: string;
     padding: number;
     border: number;
+    private localDynHeight;
     maxDisplayChars: number;
     protected fontSize: number;
     color: string;
@@ -13,7 +14,7 @@ export default class Text extends BaseComponent {
     showTextShadow: boolean;
     showBorderShadow: boolean;
     showBgShadow: boolean;
-    constructor(content?: string, colorHax?: string, x?: number, y?: number, dynWidth?: number, dynHeight?: number);
+    constructor(content?: string, colorHax?: string, x?: number, y?: number, dynWidth?: number);
     width(): number;
     height(): number;
     update(msDelta: number, p: Pack): boolean;

@@ -1,5 +1,5 @@
 import Bilza,{ XAlignment, YAlignment, CompFactory as cf } from "../../src/Bilza.js";
-import Text from "../../src/components/text.js";
+
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000,400);
 
@@ -13,11 +13,11 @@ let grid = cf.grid();
 bil.insert.alwaysOn(grid);
 
 //=========================================
-let text = new Text("Rise Again");
+let text = cf.text("Rise Again");
 text.duration = 600;
 text.showBg = true;
-// text.loc.animate(2,10,0,50,0,50,XAlignment.Left,XAlignment.Mid,YAlignment.Top,YAlignment.Mid);
-text.dynWidth.animate(2,10,40,100);
+text.loc.animate(2,10,0,50,0,50,XAlignment.Left,XAlignment.Mid,YAlignment.Top,YAlignment.Mid);
+// text.dynWidth.animate(2,10,40,60);
 // bil.insert.alwaysOn(line);
 bil.insert.append(text, text.duration);
 
