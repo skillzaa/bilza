@@ -1,11 +1,13 @@
 import Bilza, { XAlignment, YAlignment, CompFactory as cf } from 
 "../Bilza.js";
-// import Bilza, { XAlignment, YAlignment, CompFactory as cf } from 
-// "../00lib/Bilza_0_0_15.js";
+
 
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
 
+
+// let bc = cf.bgCircles();
+// bil.insert.alwaysOn(bc);
 
 let grid = cf.grid();
 bil.insert.alwaysOn(grid);

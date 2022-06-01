@@ -3,7 +3,7 @@ import Rect from "./rect.js";
 import FillRect from "./fillRect.js";
 import StaticGrid from "./staticGrid.js";
 import FrameCounter from "./frameCounter.js";
-
+import BgCircles from "./bgCircles.js";
 
 export default class CompFactory {
 
@@ -25,6 +25,10 @@ return g;
 }
 static frameCounter(color :string="#000000"){
 let g = new FrameCounter(color);
+return g;    
+}
+static bgCircles(count :number= 10,color :string="#008000",delay :number=1){
+let g = new BgCircles(count,color,delay);
 return g;    
 }
 
