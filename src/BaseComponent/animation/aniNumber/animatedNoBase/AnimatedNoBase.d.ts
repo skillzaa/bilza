@@ -14,7 +14,7 @@ export default class AnimatedNoBase {
     update(msDelta: number): boolean;
     value(): number;
     protected runSetValue(): void;
-    protected setValue(n: number): void;
+    setValue(n: number): void;
     animate(from?: number, to?: number, startValue?: number, endValue?: number): void;
     protected initIncDec(): void;
     private runAnimations;

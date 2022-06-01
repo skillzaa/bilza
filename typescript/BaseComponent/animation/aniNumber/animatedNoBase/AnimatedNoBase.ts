@@ -68,7 +68,7 @@ protected runSetValue(){
         this._set_value = null;
     }   
 }
-protected setValue(n :number){
+public setValue(n :number){
 //--just assign it to _set_value and in the update => runSetValue.       
 this._set_value = n;
 }

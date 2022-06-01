@@ -16,7 +16,7 @@ export default class TestComp extends Component {
     }
     draw(p) {
         this.style.fontSize = 50;
-        p.drawText(this.name + "=>" + Math.ceil(this.msDelta / 1000).toString(), this.p.loc.x(), this.p.loc.y(), this.style);
+        p.drawText(this.name + "=>" + Math.ceil(this.msDelta / 1000).toString(), this.loc.x(), this.loc.y(), this.style);
         return true;
     }
 }

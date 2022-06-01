@@ -21,8 +21,8 @@ init(p: Pack): boolean {
 update(msDelta: number,p :Pack): boolean {
     super.update(msDelta,p);
     this.msDelta = msDelta;
-    // this.p.x.update(msDelta);
-    // this.p.y.update(msDelta);
+    // this.x.update(msDelta);
+    // this.y.update(msDelta);
     return true;
 }
 
@@ -30,7 +30,7 @@ draw(p:Pack):boolean{
 this.style.fontSize = 50;
 
 p.drawText( this.name + "=>" + Math.ceil(this.msDelta/1000).toString(),
-this.p.loc.x(),this.p.loc.y(),
+this.loc.x(),this.loc.y(),
 this.style);
 
 return true;

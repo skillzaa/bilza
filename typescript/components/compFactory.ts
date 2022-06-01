@@ -4,6 +4,7 @@ import FillRect from "./fillRect.js";
 import StaticGrid from "./staticGrid.js";
 import FrameCounter from "./frameCounter.js";
 import BgCircles from "./bgCircles.js";
+import Line from "./line.js";
 
 export default class CompFactory {
 
@@ -29,6 +30,10 @@ return g;
 }
 static bgCircles(count :number= 10,color :string="#008000",delay :number=1){
 let g = new BgCircles(count,color,delay);
+return g;    
+}
+static Line(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
+let g = new Line(x1,y1,x2,y2,color);
 return g;    
 }
 
