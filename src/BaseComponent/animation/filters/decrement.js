@@ -55,7 +55,7 @@ export default class Decrement extends Motherfilter {
         if (startValue > this.SYSTEMMAXVALUE) {
             throw new Error("start Value (for decrement operation) is too large");
         }
-        if (startValue < 1) {
+        if (startValue < 0) {
             throw new Error("start Value (for decrement operation) can not be negative");
         }
         return Math.abs(Math.ceil(startValue));

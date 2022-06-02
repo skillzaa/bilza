@@ -100,7 +100,7 @@ initIncDecX(elm :PreInitArray,compWidth :number){
     if (start < end ){
         let c = this.newIncrement(elm.timeFrom,elm.timeTo,start,end);
         this.animationsX.push(c);
-    }else {
+    }else if (end < start  ) {
         let c = this.newDecrement(elm.timeFrom,elm.timeTo,start,end);
         this.animationsX.push(c); 
     }

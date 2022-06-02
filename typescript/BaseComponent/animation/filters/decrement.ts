@@ -83,7 +83,7 @@ return to;
 }
 private getStartValue(startValue :number,endValue :number){
 if (startValue > this.SYSTEMMAXVALUE){throw new Error("start Value (for decrement operation) is too large");}
-if (startValue < 1){throw new Error("start Value (for decrement operation) can not be negative");}
+if (startValue < 0){throw new Error("start Value (for decrement operation) can not be negative");}
 //cant be Negative or fraction
 return Math.abs(Math.ceil(startValue));
 } 
