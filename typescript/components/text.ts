@@ -10,7 +10,7 @@ padding :number;
 border :number;
 private localDynHeight :number;
 
-maxDisplayChars :number; //implemented
+maxDisplayChars :number;
 
 protected fontSize :number;
 
