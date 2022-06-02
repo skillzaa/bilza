@@ -5,12 +5,18 @@
 ---
 > Bilza.js is a javascript framework for creating business and educational visualizations in the browser using HTML5 canvas.
 ---
-
+# Lot..lot..lot..lot of new components are coming next month (July-2022)
+## Mission
+To be an easy to use library for creating 
+    - Presentations.
+    - Slides with text, images and other components (with some basic    animation and effects).
+    - Demo videos, tutorials etc.
+    - Lessons and educational content.
 
 ## What Bilza is Not
- - Bilza is NOT fast, currently I am running it on 1 frame per second which by any animation standerds is as low as it gets.
- - Bilza is not an animation framework.
- - Bilza is not a game engine.
+ - Bilza is NOT fast, can be running it on even low frame rate.
+ - Bilza is not an animation framework. It actually has very basic animation features.
+ - Bilza is not a game engine. Please keep this in mind, the purpose is to make slides, presentations, demo videos etc
  - The output code is simple javascript which will draw its content on a HTML5 canvas.
 - Bilza is not (yet) interactive (since its a lot of work, may be some day).
 ---
@@ -35,7 +41,6 @@
 <li><h3><a href="https://skillzaa.github.io/bilza/samples/simpleSlide/index.html" target="_blank">A simple slide Example</a> (2022-May-08 using ver-0.0.13)</h3></li>
 
 </ol>
-
 
 
 **This library is still in early stages and is error prone. You should play with it but wait till version 1.0.0 for serious use.**

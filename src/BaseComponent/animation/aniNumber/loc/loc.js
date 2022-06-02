@@ -9,8 +9,8 @@ import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrement.js";
 import GotoArray from "./gotoArray.js";
 export default class Loc {
-    constructor() {
-        this._ret_data = new XY(0, 0);
+    constructor(x = 0, y = 0) {
+        this._ret_data = new XY(x, y);
         this.preInitArray = [];
         this.animationsX = [];
         this.animationsY = [];
@@ -81,7 +81,7 @@ export default class Loc {
             let c = this.newIncrement(elm.timeFrom, elm.timeTo, start, end);
             this.animationsY.push(c);
         }
-        else {
+        else if (end < start) {
             let c = this.newDecrement(elm.timeFrom, elm.timeTo, start, end);
             this.animationsY.push(c);
         }

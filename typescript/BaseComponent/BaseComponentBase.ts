@@ -7,7 +7,7 @@ export default class BaseComponentBase{
 loc :Loc;
 
 colorBoundingRectangle:string;
-
+// public static VERSION = "0_0_15";
 dynWidth :AnimatedNoBase;    
 dynHeight :AnimatedNoBase;    
 //---these 2 variables will be set in init

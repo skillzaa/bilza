@@ -13,6 +13,8 @@ import { YAlignment } from "./design/yAlignment.js";
 
 import AnimatedNoBase from "./BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 
+import TextTempl from "./templ/textTempl.js";
+
 export default Bilza;
 
 export {
@@ -24,5 +26,6 @@ Bilza,
 BaseComponent,
 CompFactory,
 XAlignment,
-YAlignment
+YAlignment,
+TextTempl
 }

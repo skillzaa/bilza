@@ -28,7 +28,6 @@ showBgShadow :boolean;
 constructor (content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=30){
     
     super();    
-    // this.loc.x.set
     this.content = content ; 
     this.padding = 0;
     this.border = 0;

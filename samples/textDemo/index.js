@@ -1,4 +1,4 @@
-import Bilza, { XAlignment, YAlignment, CompFactory as cf } from 
+import Bilza, { XAlignment,Templ, YAlignment, CompFactory as cf } from 
 "../../src/Bilza.js";
 // import Bilza, { XAlignment, YAlignment, CompFactory as cf } from 
 // "../00lib/Bilza_0_0_15.js";
@@ -15,7 +15,8 @@ counter.loc.goto(0,90,0);
 bil.insert.alwaysOn(counter);
 
 
-let tst = cf.text("Hello!","#008000");
+// let tst = cf.text("Hello!","#008000");
+let tst = Templ.textTempl.h1();
 tst.showBg = true;
 tst.colorBg = "#008000";
 tst.color = "#ff0000";

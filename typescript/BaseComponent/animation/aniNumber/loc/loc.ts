@@ -29,9 +29,9 @@ public readonly yAlignOpt:typeof YAlignment;
 public readonly xAlignOpt:typeof XAlignment;   
 
 //-------------------------------------------
-constructor(){
+constructor(x :number=0,y :number=0){
 //---you get it at 0,0 now use goto    
-    this._ret_data = new XY(0,0);
+    this._ret_data = new XY(x,y);
     this.preInitArray = [];
     this.animationsX = [];
     this.animationsY = [];
@@ -112,7 +112,7 @@ initIncDecY(elm :PreInitArray,compHeight :number){
     if (start < end ){
         let c = this.newIncrement(elm.timeFrom,elm.timeTo,start,end);
         this.animationsY.push(c);
-    }else {
+    }else if (end < start  ){
         let c = this.newDecrement(elm.timeFrom,elm.timeTo,start,end);
         this.animationsY.push(c); 
     }
@@ -203,7 +203,7 @@ private runAnimationsY(msDelta :number){
 }
 
 animate(timeFrom :number,timeTo :number,
-    xFrom :number,xTo :number , yFrom :number,yTo :number,
+    xFrom :number |OffScreenXOpt,xTo :number |OffScreenXOpt, yFrom :number|OffScreenYOpt,yTo :number |OffScreenYOpt,
     
     xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,
     
