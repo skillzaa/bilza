@@ -27,11 +27,10 @@ private preInitArray :PreInitArray[];
 //--------------------------------
 public readonly yAlignOpt:typeof YAlignment;   
 public readonly xAlignOpt:typeof XAlignment;   
-
 //-------------------------------------------
-constructor(x :number=0,y :number=0){
+constructor(){
 //---you get it at 0,0 now use goto    
-    this._ret_data = new XY(x,y);
+    this._ret_data = new XY();
     this.preInitArray = [];
     this.animationsX = [];
     this.animationsY = [];
@@ -41,16 +40,16 @@ this.compWidth = null;
 this.compHeight = null;
 this.canvasWidth = null;
 this.canvasHeight = null;
-//------------------
 this.yAlignOpt = YAlignment; //final-ok    
 this.xAlignOpt = XAlignment; //final-ok    
+//------------------
 }    
 init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHeight :number): boolean {
     this.compWidth = compWidth;  // THIS IS A FUNCTION
     this.compHeight = compHeight; // THIS IS A FUNCTION
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
-    // this.initIncDec(this.compWidth(),this.compHeight());
+    //----------------------------------
     return true;
 }
 update(msDelta :number):boolean{
@@ -58,10 +57,6 @@ if (this.compWidth == null){throw new Error("init error");}
 this.activateFilter(msDelta);
 this.runAnimationsX(msDelta);
 this.runAnimationsY(msDelta);
-// this.runExhaustedCheckX(msDelta);
-// this.runExhaustedCheckY(msDelta);
-// this.removeExhaustedX(msDelta);
-// this.removeExhaustedY(msDelta);
 this.runGoto(msDelta);
 return true;    
 }
@@ -131,16 +126,6 @@ private runAnimationsX(msDelta :number){
         }
 } 
 }
-private runExhaustedCheckX(msDelta :number){
-    for (let i = 0; i < this.animationsX.length; i++) {
-        const ani = this.animationsX[i];
-
-        if ( ani.isExhausted() == true){
-        // console.log("is exhaused",msDelta);
-        }
-} 
-}
-
 goto(atFrame :number,x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
     let loc = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
 let c = new GotoArray(atFrame,loc);
@@ -159,35 +144,6 @@ if (this.compHeight == null){throw new Error("init error");}
      }   
 } 
 }
-private runExhaustedCheckY(msDelta :number){
-    for (let i = 0; i < this.animationsY.length; i++) {
-        const ani = this.animationsY[i];
-
-        if ( ani.isExhausted() == true){
-        // console.log("is exhaused",msDelta);
-        }
-} 
-}
-private removeExhaustedX(msDelta :number){
-    for (let i = 0; i < this.animationsX.length; i++) {
-        const ani = this.animationsX[i];
-
-        if ( ani.isExhausted() == true){
-        console.log("is exhaused",msDelta);
-        this.animationsX.splice(i, 1);
-        }
-} 
-}
-private removeExhaustedY(msDelta :number){
-    for (let i = 0; i < this.animationsY.length; i++) {
-        const ani = this.animationsY[i];
-
-        if ( ani.isExhausted() == true){
-        console.log("is exhaused",msDelta);
-        this.animationsY.splice(i, 1);
-        }
-} 
-}
 private runAnimationsY(msDelta :number){
     for (let i = 0; i < this.animationsY.length; i++) {
         const ani = this.animationsY[i];
@@ -201,7 +157,6 @@ private runAnimationsY(msDelta :number){
         }
 } 
 }
-
 animate(timeFrom :number,timeTo :number,
     xFrom :number |OffScreenXOpt,xTo :number |OffScreenXOpt, yFrom :number|OffScreenYOpt,yTo :number |OffScreenYOpt,
     
@@ -229,7 +184,6 @@ y():number{
         throw new Error("init error");
     } 
 }
-
 private newIncrement(from :number,to :number,startValue :number,endValue :number):Increment{
     let c = new Increment(from,to,startValue,endValue);
     return c;   
@@ -238,5 +192,4 @@ private newDecrement(from :number,to :number,startValue :number,endValue :number
     let c = new Decrement(from,to,startValue,endValue);
     return c;    
 } 
-
 }

@@ -9,8 +9,8 @@ import Increment from "../../filters/increment.js";
 import Decrement from "../../filters/decrement.js";
 import GotoArray from "./gotoArray.js";
 export default class Loc {
-    constructor(x = 0, y = 0) {
-        this._ret_data = new XY(x, y);
+    constructor() {
+        this._ret_data = new XY();
         this.preInitArray = [];
         this.animationsX = [];
         this.animationsY = [];
@@ -96,13 +96,6 @@ export default class Loc {
             }
         }
     }
-    runExhaustedCheckX(msDelta) {
-        for (let i = 0; i < this.animationsX.length; i++) {
-            const ani = this.animationsX[i];
-            if (ani.isExhausted() == true) {
-            }
-        }
-    }
     goto(atFrame, x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
         let loc = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
         let c = new GotoArray(atFrame, loc);
@@ -121,31 +114,6 @@ export default class Loc {
                 this._ret_data.x = solveX(gotoItem.gotoLocItem, this.compWidth(), this.canvasWidth);
                 this._ret_data.y = solveY(gotoItem.gotoLocItem, this.compHeight(), this.canvasHeight);
                 this.gotoArray.splice(i, 1);
-            }
-        }
-    }
-    runExhaustedCheckY(msDelta) {
-        for (let i = 0; i < this.animationsY.length; i++) {
-            const ani = this.animationsY[i];
-            if (ani.isExhausted() == true) {
-            }
-        }
-    }
-    removeExhaustedX(msDelta) {
-        for (let i = 0; i < this.animationsX.length; i++) {
-            const ani = this.animationsX[i];
-            if (ani.isExhausted() == true) {
-                console.log("is exhaused", msDelta);
-                this.animationsX.splice(i, 1);
-            }
-        }
-    }
-    removeExhaustedY(msDelta) {
-        for (let i = 0; i < this.animationsY.length; i++) {
-            const ani = this.animationsY[i];
-            if (ani.isExhausted() == true) {
-                console.log("is exhaused", msDelta);
-                this.animationsY.splice(i, 1);
             }
         }
     }

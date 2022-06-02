@@ -31,7 +31,7 @@ export default class CompFactory {
         return g;
     }
     static text(content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 30) {
-        let g = new Text(content, colorHax, x, y, dynWidth);
+        let g = new Text(content, colorHax, dynWidth);
         return g;
     }
 }

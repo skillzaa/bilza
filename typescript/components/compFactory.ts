@@ -34,7 +34,7 @@ return g;
 }
 
 static text(content :string="",colorHax :string="#000000",x:number=0,y:number =0,dynWidth :number=30){
-let g = new Text(content,colorHax,x,y,dynWidth);
+let g = new Text(content,colorHax,dynWidth);
 return g;    
 }
 // static Line(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){

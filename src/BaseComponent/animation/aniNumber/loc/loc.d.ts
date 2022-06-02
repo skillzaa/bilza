@@ -15,7 +15,7 @@ export default class Loc {
     protected canvasHeight: number | null;
     readonly yAlignOpt: typeof YAlignment;
     readonly xAlignOpt: typeof XAlignment;
-    constructor(x?: number, y?: number);
+    constructor();
     init(compWidth: () => number, compHeight: () => number, canvasWidth: number, canvasHeight: number): boolean;
     update(msDelta: number): boolean;
     initIncDec(compWidth: number, compHeight: number): void;
@@ -23,12 +23,8 @@ export default class Loc {
     initIncDecX(elm: PreInitArray, compWidth: number): void;
     initIncDecY(elm: PreInitArray, compHeight: number): void;
     private runAnimationsX;
-    private runExhaustedCheckX;
     goto(atFrame: number, x: number | OffScreenXOpt, y: number | OffScreenYOpt, xAlign?: XAlignment, yAlign?: YAlignment, xExtra?: number, yExtra?: number): void;
     private runGoto;
-    private runExhaustedCheckY;
-    private removeExhaustedX;
-    private removeExhaustedY;
     private runAnimationsY;
     animate(timeFrom: number, timeTo: number, xFrom: number | OffScreenXOpt, xTo: number | OffScreenXOpt, yFrom: number | OffScreenYOpt, yTo: number | OffScreenYOpt, xAlignFrom?: XAlignment, xAlignTo?: XAlignment, yAlignFrom?: YAlignment, yAlignTo?: YAlignment, xExtraFrom?: number, xExtraTo?: number, yExtraFrom?: number, yExtraTo?: number): void;
     x(): number;

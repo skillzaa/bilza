@@ -1,6 +1,6 @@
 import { BaseComponent, DrawLayer } from "../Bilza.js";
 export default class Text extends BaseComponent {
-    constructor(content = "", colorHax = "#000000", x = 0, y = 0, dynWidth = 30) {
+    constructor(content = "", colorHax = "#000000", dynWidth = 30) {
         super();
         this.content = content;
         this.padding = 0;
@@ -95,11 +95,11 @@ export default class Text extends BaseComponent {
             this.style.fontSize = i;
             newWidth = p.charsWidth(this.content, this.style.fontSize, this.style.fontFamily);
             const newHtpix = p.charsWidth("W", this.style.fontSize, this.style.fontFamily);
-            const pixToPerc = Math.ceil(newHtpix / p.canvasHeight() * 100);
-            if (newWidth >= reqWd) {
+            const HtpixToPerc = Math.ceil(newHtpix / p.canvasHeight() * 100);
+            if (newWidth >= (reqWd)) {
                 this.fontSize = i;
                 this.style.fontSize = i;
-                this.localDynHeight = pixToPerc;
+                this.localDynHeight = HtpixToPerc;
                 return this.fontSize;
             }
         }
