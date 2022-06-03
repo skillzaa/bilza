@@ -1,7 +1,6 @@
-import Bilza, { XAlignment,Templ, YAlignment, CompFactory as cf } from 
-"../../src/Bilza.js";
-// import Bilza, { XAlignment, YAlignment, CompFactory as cf } from 
-// "../00lib/Bilza_0_0_15.js";
+
+import Bilza, { XAlignment, YAlignment,TextTempl, CompFactory as cf } from 
+"../Bilza_0_0_15.js";
 
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
@@ -14,13 +13,12 @@ let counter = cf.frameCounter();
 counter.loc.goto(0,90,0);
 bil.insert.alwaysOn(counter);
 
-
-// let tst = cf.text("Hello!","#008000");
-let tst = Templ.textTempl.h1();
+let tst = TextTempl.h1("Text Demo");
 tst.showBg = true;
 tst.colorBg = "#008000";
-tst.color = "#ff0000";
-tst.duration = 15;
+tst.color = "#ffffff";
+//--Being the only appended component, duration of the videos = 10 sec
+tst.duration = 10; 
 tst.dynWidth.setValue(20);
 tst.dynWidth.animate(2,3,20,40);
 
