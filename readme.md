@@ -5,7 +5,8 @@
 ---
 > Bilza.js is a javascript framework for creating business and educational visualizations in the browser using HTML5 canvas.
 ---
-# Lot..lot..lot..lot of new components are coming next month (July-2022)
+# Lot..lot..lot..lot of new components are coming by end next month (July-2022)
+# Complete documentation and examples will be added with in next 1 week (by approx 10-Jun-2022)
 ## Mission
 To be an easy to use library for creating 
     - Presentations.
@@ -50,6 +51,7 @@ If you want to be in touch or send me a bug report please use github issues.
 I will add some tests and then improve documentations.
 
 -----
+###### 03-jun-2022   (version 0.0.15)
 ###### 09-May-2022   (version 0.0.14)
 ###### 08-May-2022   (version 0.0.13)
 ###### 15-Apr-2022   (version 0.0.12)
