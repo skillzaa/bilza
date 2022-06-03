@@ -22,6 +22,7 @@ export default class Text extends BaseComponent {
     private drawBorder;
     private drawBg;
     private drawContent;
+    private reqWdInPix;
     dynamicFontSize(p: Pack): number | null;
 }
 //# sourceMappingURL=text.d.ts.map

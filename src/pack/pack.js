@@ -117,6 +117,27 @@ export default class Pack {
         }
         this.ctx.stroke();
     }
+    textBaseline(opt) {
+        switch (opt) {
+            case "top":
+                this.ctx.textBaseline = "top";
+                break;
+            case "middle":
+                this.ctx.textBaseline = "middle";
+                break;
+            case "bottom":
+                this.ctx.textBaseline = "middle";
+                break;
+            case "alphabetic":
+                this.ctx.textBaseline = "alphabetic";
+                break;
+            case "hanging":
+                this.ctx.textBaseline = "hanging";
+                break;
+            default:
+                break;
+        }
+    }
     drawText(content, x, y, incomCtx) {
         this.commitCtxData(incomCtx);
         this.ctx.textBaseline = "top";

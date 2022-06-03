@@ -157,4 +157,6 @@ export default class Loc {
         let c = new Decrement(from, to, startValue, endValue);
         return c;
     }
+    wobble() {
+    }
 }

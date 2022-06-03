@@ -1,6 +1,7 @@
 /**
  * Main thing to manage in a comp is width and height. in text dynHeight is not implemented, there is no effect of it instead the height is automatically adjesyed using local var
  * also text always use percentage 
+ * -- Border is being treated as external comp its width and height is not included in the component
  */
  import {Pack,BaseComponent,DrawLayer} from "../Bilza.js";
 
@@ -55,7 +56,7 @@
  }    
  return Math.ceil(this.canvasWidth / 100 * this.dynWidth.value());    
  }
- height():number {
+ height():number {//this.localDynHeight
  if(this.canvasHeight==null){throw new Error("init error");
  }    
  return Math.ceil(this.canvasHeight / 100 * this.localDynHeight);    
@@ -97,10 +98,10 @@
  this.style.fontSize = this.fontSize;       
  
  p.drawRect(
-     this.loc.x() + (this.border/2),
-     this.loc.y() + (this.border/2),
-     this.width(),
-     this.height(),
+     this.loc.x() - (this.border/2),
+     this.loc.y() - (this.border/2),
+     this.width() + (this.border),
+     this.height() + (this.border),
      this.style);
  return true;
  }
@@ -113,13 +114,11 @@
      }
      this.style.fillStyle = this.colorBg;
      this.style.strokeStyle = this.colorBg;
-     // this.style.fillStyle = "red";
-     // this.style.strokeStyle = "green";
      this.style.fontSize = this.fontSize;
-       
+//--the bg is classic width and       
  p.drawFillRect(
-     this.loc.x() + (this.border),
-     this.loc.y() + (this.border),
+     this.loc.x(),
+     this.loc.y(),
      this.width(),
      this.height(),
      this.style);
@@ -131,24 +130,30 @@
      this.setShadow(this.shadowBlur,this.shadowOffsetX,this.shadowOffsetY,this.shadowColor);
  } else { 
      this.shadowsOff();
-     
  }       
      this.style.fillStyle = this.color;    
      this.style.strokeStyle = this.color; 
      //---must--
-     this.style.fontSize = this.fontSize;
-        
- p.drawText(this.content.substring(0,this.maxDisplayChars),
-     this.loc.x() + (this.border + this.padding),
-     this.loc.y() + (this.border + this.padding),
+     this.style.fontSize = this.fontSize;    
+    //  ctx.textBaseline = "middle";
+
+//--p.textBaseline("top");//--must     
+ p.drawText(
+     this.content.substring(0,this.maxDisplayChars),
+     this.loc.x() + (this.padding),
+     this.loc.y() + (this.padding/2),
      this.style);   
+//--p.textBaseline("top");//--must     
  }
  
- 
+ private reqWdInPix(p :Pack){
+const r =  (p.canvasWidth() /100 * this.dynWidth.value());
+ const s = r - (this.padding * 2);
+ return s;
+ }
  public dynamicFontSize(p :Pack):number | null{
- const reqWd = (p.canvasWidth() /100 * this.dynWidth.value());
- 
- 
+//----required with should exclude padding     
+ const reqWdInPix = this.reqWdInPix(p);
  //if not already in sync
  this.style.fontSize = this.fontSize; 
  //------------------------------------
@@ -156,11 +161,11 @@
      for (let i = 1; i < 900; i++) {
      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
      this.style.fontSize = i; 
-     newWidth = p.charsWidth(this.content,this.style.fontSize,this.style.fontFamily);
+     const newWidthInPix = p.charsWidth(this.content,this.style.fontSize,this.style.fontFamily);
  //----------------------------
  const newHtpix = p.charsWidth("W",this.style.fontSize,this.style.fontFamily);
  const HtpixToPerc = Math.ceil(newHtpix/p.canvasHeight() * 100);
-     if (newWidth >= (reqWd) ){
+     if (newWidthInPix >= (reqWdInPix) ){
          this.fontSize = i; 
          this.style.fontSize = i;
  //--dont use base comp dynHeight
@@ -171,5 +176,4 @@
  return null;
  }//dynamic font size
  
-
  }//class

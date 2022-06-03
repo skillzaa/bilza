@@ -31,5 +31,6 @@ export default class Loc {
     y(): number;
     private newIncrement;
     private newDecrement;
+    private wobble;
 }
 //# sourceMappingURL=loc.d.ts.map

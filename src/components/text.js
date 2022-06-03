@@ -59,7 +59,7 @@ export default class Text extends BaseComponent {
         this.style.strokeStyle = this.colorBorder;
         this.style.lineWidth = this.border;
         this.style.fontSize = this.fontSize;
-        p.drawRect(this.loc.x() + (this.border / 2), this.loc.y() + (this.border / 2), this.width(), this.height(), this.style);
+        p.drawRect(this.loc.x() - (this.border / 2), this.loc.y() - (this.border / 2), this.width() + (this.border), this.height() + (this.border), this.style);
         return true;
     }
     drawBg(p) {
@@ -72,7 +72,7 @@ export default class Text extends BaseComponent {
         this.style.fillStyle = this.colorBg;
         this.style.strokeStyle = this.colorBg;
         this.style.fontSize = this.fontSize;
-        p.drawFillRect(this.loc.x() + (this.border), this.loc.y() + (this.border), this.width(), this.height(), this.style);
+        p.drawFillRect(this.loc.x(), this.loc.y(), this.width(), this.height(), this.style);
         return true;
     }
     drawContent(p) {
@@ -85,18 +85,23 @@ export default class Text extends BaseComponent {
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
         this.style.fontSize = this.fontSize;
-        p.drawText(this.content.substring(0, this.maxDisplayChars), this.loc.x() + (this.border + this.padding), this.loc.y() + (this.border + this.padding), this.style);
+        p.drawText(this.content.substring(0, this.maxDisplayChars), this.loc.x() + (this.padding), this.loc.y() + (this.padding / 2), this.style);
+    }
+    reqWdInPix(p) {
+        const r = (p.canvasWidth() / 100 * this.dynWidth.value());
+        const s = r - (this.padding * 2);
+        return s;
     }
     dynamicFontSize(p) {
-        const reqWd = (p.canvasWidth() / 100 * this.dynWidth.value());
+        const reqWdInPix = this.reqWdInPix(p);
         this.style.fontSize = this.fontSize;
         let newWidth = 0;
         for (let i = 1; i < 900; i++) {
             this.style.fontSize = i;
-            newWidth = p.charsWidth(this.content, this.style.fontSize, this.style.fontFamily);
+            const newWidthInPix = p.charsWidth(this.content, this.style.fontSize, this.style.fontFamily);
             const newHtpix = p.charsWidth("W", this.style.fontSize, this.style.fontFamily);
             const HtpixToPerc = Math.ceil(newHtpix / p.canvasHeight() * 100);
-            if (newWidth >= (reqWd)) {
+            if (newWidthInPix >= (reqWdInPix)) {
                 this.fontSize = i;
                 this.style.fontSize = i;
                 this.localDynHeight = HtpixToPerc;

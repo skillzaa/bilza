@@ -142,6 +142,30 @@ this.ctx.arc(x, y, radius, startAngle, endAngle, false);
                 }
 this.ctx.stroke();
 }
+public textBaseline(opt :string){
+switch (opt) {
+    case "top":
+    this.ctx.textBaseline = "top";        
+        break;
+    case "middle":
+    this.ctx.textBaseline = "middle";            
+        break;
+    case "bottom":
+    this.ctx.textBaseline = "middle";                
+    break;
+
+    case "alphabetic":
+    this.ctx.textBaseline = "alphabetic";                
+    break;
+    
+    case "hanging":
+    this.ctx.textBaseline = "hanging";                
+    break;
+
+    default:
+        break;
+}
+}
 public drawText(content:string,x:number,y:number,incomCtx:Style){
     this.commitCtxData(incomCtx);
     //--must

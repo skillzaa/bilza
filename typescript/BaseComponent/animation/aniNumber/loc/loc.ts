@@ -192,4 +192,7 @@ private newDecrement(from :number,to :number,startValue :number,endValue :number
     let c = new Decrement(from,to,startValue,endValue);
     return c;    
 } 
+private wobble(){
+// return this._ret_data    
+}
 }
