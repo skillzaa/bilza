@@ -1,7 +1,7 @@
 
 import {CompFactory as cf,OffScreenXOpt,OffScreenYOpt,XAlignment,YAlignment} from "../Bilza.js";
 import lightenDarkenColor from "../functions/lightenDarkenColor.js";
-export default function topInHdg(content :string, colorHax :string,y=2,duration=10){
+export default function topInHdg(content :string, colorHax :string,y=2,duration=10,timeFrom=0,timeTo=2){
 const t = cf.text(content,colorHax);
 t.dynWidth.setValue(80);
 t.duration = duration;
@@ -13,7 +13,7 @@ t.padding = 15;
 t.color = colorHax;
 t.border = 5;
 t.colorBorder = colorHax;
-t.loc.animate(0,2,50,50,OffScreenYOpt.YTop,y);
+t.loc.animate(timeFrom,timeTo,50,50,OffScreenYOpt.YTop,y);
 
 return t;
 }
