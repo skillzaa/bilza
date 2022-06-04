@@ -1,30 +1,28 @@
-import Bilza from "../../src/Bilza.js";
-import Text from "../../src/components/text/text.js";
-import Para from "../../src/components/para/para.js";
-import SlideHL from "../../src/components/slideHL/slideHL.js";
-let bil = new Bilza("bilza",10,300,12);
-bil.dynamicCanvas(90);
-bil.add.counter(0,90,60000);
-bil.add.bgShapes();
+import Bilza, { XAlignment, YAlignment,TextTempl, CompFactory as cf } from "./bilza_0_0_16.js";
 
-////////// Starting 
-///////////////////////////slide 1
-let slide = new SlideHL(0,10,"This is the Heading","#008000");
-//--------------------------
-slide.list.d.dimList = [1,2,3];
-slide.addItem("In the name of Allah most merciful");
-slide.addItem("To Allah we belong and to him we return");
-slide.addItem("Every thing that lives will taste death");
-slide.addItem("Free will is restricted between Birth and Death");
+let bil = new Bilza("bilza");
+bil.resizeCanvas(1000, 400);
 
-bil.insert(slide);
 
-// bil.drawInit();
+let grid = cf.grid();
+bil.insert.alwaysOn(grid);
+
+let counter = cf.frameCounter();
+counter.loc.goto(0,90,0);
+bil.insert.alwaysOn(counter);
+
+let tst = cf.text("Some Text");
+tst.showBg = true;
+tst.colorBg = "#008000";
+tst.color = "#ffffff";
+//--Being the only appended component, duration of the videos = 10 sec
+tst.duration = 100; 
+tst.fontSize.setValue(20);
+tst.fontSize.animate(3,5,20,200);
+
+tst.loc.goto(0,0,0, XAlignment.Left, YAlignment.Top);
+
+bil.insert.append(tst, tst.duration);
+////////////////////////////////////////////
+bil.init();
 bil.start();
-////////////////////////////////////////////////////////////////////
-let counter = 0;
-let inter = setInterval(function(){
-    if (counter > 3){clearInterval(inter);}
-slide.list.d.highlightList.push(counter++);
-bil.drawInit();
-},2000);

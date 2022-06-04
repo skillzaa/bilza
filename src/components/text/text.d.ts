@@ -1,4 +1,5 @@
 import { Pack, BaseComponent, FontFamily } from "../../Bilza.js";
+import AnimatedNoBase from "../../BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 export default class Text extends BaseComponent {
     content: string;
     fontFamily: FontFamily;
@@ -6,7 +7,7 @@ export default class Text extends BaseComponent {
     paddingRight: number;
     paddingTop: number;
     paddingBottom: number;
-    fontSize: number;
+    fontSize: AnimatedNoBase;
     border: number;
     maxDisplayChars: number;
     color: string;
@@ -20,6 +21,7 @@ export default class Text extends BaseComponent {
     private realWidth;
     private realHeight;
     constructor(content?: string, colorHax?: string, fontSize?: number, x?: number, y?: number);
+    init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     width(): number;
     height(): number;

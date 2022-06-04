@@ -30,8 +30,8 @@ export default class CompFactory {
         let g = new BgCircles(count, color, delay);
         return g;
     }
-    static text(content = "", colorHax = "#000000", dynWidth = 30) {
-        let g = new Text(content, colorHax, dynWidth);
+    static text(content = "", colorHax = "#000000") {
+        let g = new Text(content, colorHax);
         return g;
     }
 }

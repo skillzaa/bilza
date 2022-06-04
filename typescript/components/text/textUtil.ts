@@ -18,11 +18,14 @@ return  textHeight + (paddingTop + paddingBottom);
  // =- AM USING drawRect (Empty rect) for border and not line
  static drawBorder(p :Pack,style :Style,x:number,y:number,borderWidth :number,width:number,height:number) :boolean{
 if ( borderWidth <= 0 ){return false;}
- p.drawRect(
-     x ,
-     y ,
-     width ,
-     height ,
+
+style.lineWidth = borderWidth;
+
+p.drawRect(
+     x - Math.ceil(borderWidth/2),
+     y - Math.ceil(borderWidth/2),
+     width + (borderWidth),
+     height + (borderWidth),
      style);
  return true;
  }

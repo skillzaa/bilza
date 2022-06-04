@@ -1,16 +1,17 @@
 import {Pack,BaseComponent,DrawLayer,FontFamily} from "../../Bilza.js";
-import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
+// import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import TextUtil from "./textUtil.js";
+import AnimatedNoBase from "../../BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 export default class Text extends BaseComponent {
 public content :string;
 public fontFamily :FontFamily;
-//--padding
+//--padding--
 public paddingLeft :number;
 public paddingRight :number;
 public paddingTop :number;
 public paddingBottom :number;
 //--numbers
-public fontSize :number;
+public fontSize :AnimatedNoBase;
 public border :number;
 public maxDisplayChars :number; //implement it
 //--colors
@@ -30,7 +31,7 @@ private realHeight :number;
 constructor (content :string="",colorHax :string="#000000",fontSize :number=40,x :number=0,y :number=0){
 super();  
 this.content = content ; 
-this.fontSize = fontSize;
+this.fontSize = new AnimatedNoBase(fontSize);
 this.fontFamily = FontFamily.Calibri;
 this.paddingLeft = 0;
 this.paddingRight = 0;
@@ -54,12 +55,19 @@ this.drawLayer = DrawLayer.MiddleGround;
 this.realWidth = 0;
 this.realHeight = 0;
 }
+init(p: Pack): boolean {
+super.init(p);
+
+this.fontSize.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+
+return true;
+}
 update(msDelta: number, p: Pack): boolean {
 super.update(msDelta,p);
-this.realWidth = TextUtil.realWidth(p,this.content,this.maxDisplayChars,this.fontSize,this.fontFamily,this.paddingLeft,this.paddingRight);
+this.realWidth = TextUtil.realWidth(p,this.content,this.maxDisplayChars,this.fontSize.value(),this.fontFamily,this.paddingLeft,this.paddingRight);
 
-this.realHeight = TextUtil.realHeight(p,this.fontSize,this.fontFamily,this.paddingTop,this.paddingBottom);
-
+this.realHeight = TextUtil.realHeight(p,this.fontSize.value(),this.fontFamily,this.paddingTop,this.paddingBottom);
+this.fontSize.update(msDelta);
 return true;
 }
 width():number {
@@ -75,11 +83,11 @@ this.style.strokeStyle = this.colorBg;
 TextUtil.drawBg(p,this.style,this.loc.x(),this.loc.y(),this.realWidth,this.realHeight);
 this.style.fillStyle = this.colorBorder;    
 this.style.strokeStyle = this.colorBorder;    
-TextUtil.drawBorder(p,this.style,this.loc.x(),this.loc.y(),5,this.realWidth,this.realHeight);
+TextUtil.drawBorder(p,this.style,this.loc.x(),this.loc.y(),this.border,this.realWidth,this.realHeight);
 
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color;
-this.style.fontSize = this.fontSize;
+this.style.fontSize = this.fontSize.value();
 this.style.fontFamily = this.fontFamily;
 TextUtil.drawContent(p,this.style,this.content,this.loc.x(),this.loc.y(),this.maxDisplayChars,this.paddingLeft,this.paddingTop,this.showContent);
 return true;

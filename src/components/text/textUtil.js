@@ -15,7 +15,8 @@ export default class TextUtil {
         if (borderWidth <= 0) {
             return false;
         }
-        p.drawRect(x, y, width, height, style);
+        style.lineWidth = borderWidth;
+        p.drawRect(x - Math.ceil(borderWidth / 2), y - Math.ceil(borderWidth / 2), width + (borderWidth), height + (borderWidth), style);
         return true;
     }
     static drawBg(p, style, x, y, width, height) {
