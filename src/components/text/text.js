@@ -7,11 +7,11 @@ export default class Text extends BaseComponent {
         this.content = content;
         this.fontSize = new AnimatedNoBase(fontSize);
         this.fontFamily = FontFamily.Calibri;
-        this.paddingLeft = 0;
-        this.paddingRight = 0;
-        this.paddingTop = 0;
-        this.paddingBottom = 0;
-        this.border = 0;
+        this.paddingLeft = new AnimatedNoBase(0);
+        this.paddingRight = new AnimatedNoBase(0);
+        this.paddingTop = new AnimatedNoBase(0);
+        this.paddingBottom = new AnimatedNoBase(0);
+        this.border = new AnimatedNoBase(0);
         this.colorBorder = colorHax;
         this.colorBg = "pink";
         this.color = colorHax;
@@ -28,13 +28,23 @@ export default class Text extends BaseComponent {
     init(p) {
         super.init(p);
         this.fontSize.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
+        this.paddingBottom.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
+        this.paddingLeft.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
+        this.paddingRight.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
+        this.paddingTop.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
+        this.border.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         return true;
     }
     update(msDelta, p) {
         super.update(msDelta, p);
-        this.realWidth = TextUtil.realWidth(p, this.content, this.maxDisplayChars, this.fontSize.value(), this.fontFamily, this.paddingLeft, this.paddingRight);
-        this.realHeight = TextUtil.realHeight(p, this.fontSize.value(), this.fontFamily, this.paddingTop, this.paddingBottom);
+        this.realWidth = TextUtil.realWidth(p, this.content, this.maxDisplayChars, this.fontSize.value(), this.fontFamily, this.paddingLeft.value(), this.paddingRight.value());
+        this.realHeight = TextUtil.realHeight(p, this.fontSize.value(), this.fontFamily, this.paddingTop.value(), this.paddingBottom.value());
         this.fontSize.update(msDelta);
+        this.paddingBottom.update(msDelta);
+        this.paddingLeft.update(msDelta);
+        this.paddingRight.update(msDelta);
+        this.paddingTop.update(msDelta);
+        this.border.update(msDelta);
         return true;
     }
     width() {
@@ -49,12 +59,12 @@ export default class Text extends BaseComponent {
         TextUtil.drawBg(p, this.style, this.loc.x(), this.loc.y(), this.realWidth, this.realHeight);
         this.style.fillStyle = this.colorBorder;
         this.style.strokeStyle = this.colorBorder;
-        TextUtil.drawBorder(p, this.style, this.loc.x(), this.loc.y(), this.border, this.realWidth, this.realHeight);
+        TextUtil.drawBorder(p, this.style, this.loc.x(), this.loc.y(), this.border.value(), this.realWidth, this.realHeight);
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
         this.style.fontSize = this.fontSize.value();
         this.style.fontFamily = this.fontFamily;
-        TextUtil.drawContent(p, this.style, this.content, this.loc.x(), this.loc.y(), this.maxDisplayChars, this.paddingLeft, this.paddingTop, this.showContent);
+        TextUtil.drawContent(p, this.style, this.content, this.loc.x(), this.loc.y(), this.maxDisplayChars, this.paddingLeft.value(), this.paddingTop.value(), this.showContent);
         return true;
     }
 }

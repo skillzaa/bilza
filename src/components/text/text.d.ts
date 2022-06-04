@@ -3,12 +3,12 @@ import AnimatedNoBase from "../../BaseComponent/animation/aniNumber/animatedNoBa
 export default class Text extends BaseComponent {
     content: string;
     fontFamily: FontFamily;
-    paddingLeft: number;
-    paddingRight: number;
-    paddingTop: number;
-    paddingBottom: number;
+    paddingLeft: AnimatedNoBase;
+    paddingRight: AnimatedNoBase;
+    paddingTop: AnimatedNoBase;
+    paddingBottom: AnimatedNoBase;
     fontSize: AnimatedNoBase;
-    border: number;
+    border: AnimatedNoBase;
     maxDisplayChars: number;
     color: string;
     colorBorder: string;
