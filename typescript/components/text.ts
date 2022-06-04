@@ -1,65 +1,74 @@
 /**
- * Main thing to manage in a comp is width and height. in text dynHeight is not implemented, there is no effect of it instead the height is automatically adjesyed using local var
- * also text always use percentage 
+ * Main thing to manage in a comp is width and height. in text dynHeight is not implemented, there is no effect of it instead the height is managed by maxHeight (we can just set max height and its a :number not an animated number-- leave the base width prop alone)
+ * also text always use percentage no more raw pix
  * -- Border is being treated as external comp its width and height is not included in the component
  */
+ import lightenDarkenColor from "../functions/lightenDarkenColor.js";
  import {Pack,BaseComponent,DrawLayer} from "../Bilza.js";
 
  export default class Text extends BaseComponent {
- content :string;
- padding :number;
- border :number;
- private localDynHeight :number;
+ public content :string;
+ public padding :number;
+ public border :number;
+ public maxHeight :number;
  
- maxDisplayChars :number;
+ public maxDisplayChars :number;
  
+ //---i need this for internal workings
  protected fontSize :number;
  
- color :string;
- colorBorder :string;
- colorBg :string;
+ public color :string;
+ public colorBorder :string;
+ public colorBg :string;
      
- showContent :boolean;
- showBg :boolean;
- showTextShadow :boolean;
- showBorderShadow :boolean; 
- showBgShadow :boolean; 
+ public showContent :boolean;
+ public showBg :boolean;
+ public showTextShadow :boolean;
+ public showBorderShadow :boolean; 
+ public showBgShadow :boolean; 
      
      
  constructor (content :string="",colorHax :string="#000000",dynWidth :number=30){
-     
-     super();    
-     this.content = content ; 
-     this.padding = 0;
-     this.border = 0;
-     this.dynWidth.setValue(dynWidth);
-     //am not using the base comp dynHeight
-     this.localDynHeight = 20;
-     
-     this.colorBorder = "black";
-     this.colorBg = "#e1f4e1";
-     this.color = colorHax ; 
-     
-     this.fontSize = 25;
-     //-----------------------------
-     this.showContent = true;
-     this.showBg = false;
-     this.showTextShadow = false;
-     this.showBgShadow = false;
-     this.showBorderShadow = false;
-     this.maxDisplayChars = 200;
-     //-------Base Component Values--keep all here except x and y
-     this.drawLayer = DrawLayer.MiddleGround;
+super();    
+this.content = content ; 
+this.padding = 0;
+this.border = 0;
+this.dynWidth.setValue(dynWidth);
+//am not using the base comp dynHeight
+this.maxHeight = 20;
+//---------------------------     
+this.colorBorder = colorHax;
+this.colorBg = lightenDarkenColor(colorHax,225);
+this.color = colorHax ; 
+this.fontSize = 25;
+//-----------------------------
+this.showContent = true;
+this.showBg = false;
+this.showTextShadow = false;
+this.showBgShadow = false;
+this.showBorderShadow = false;
+this.maxDisplayChars = 200;
+//-------Base Component Values--keep all here except x and y
+this.drawLayer = DrawLayer.MiddleGround;
+}
+/**
+ * Q-The reason why p :Pack was removed from width and height is
+ * A-At init the comp is given canvasWidth and canvasHeight so it is upto the component to decide its own width and height
+ * Q-But what if we need to use some Pack method like fontSize
+ * A- At update comp gets Pack there it can set its variables.06 
+ * 
+ */
+width():number {
+if(this.canvasWidth==null){throw new Error("init error");
+}    
+ const widthInPix = Math.ceil(this.canvasWidth / 100 * this.dynWidth.value());    
+return widthInPix + (this.padding * 2);
+
  }
- width():number {
- if(this.canvasWidth==null){throw new Error("init error");
- }    
- return Math.ceil(this.canvasWidth / 100 * this.dynWidth.value());    
- }
- height():number {//this.localDynHeight
+ height():number {//this.maxHeight
  if(this.canvasHeight==null){throw new Error("init error");
  }    
- return Math.ceil(this.canvasHeight / 100 * this.localDynHeight);    
+ return Math.ceil(this.canvasHeight / 100 * this.maxHeight);    
  }
  
  
@@ -169,7 +178,7 @@ const r =  (p.canvasWidth() /100 * this.dynWidth.value());
          this.fontSize = i; 
          this.style.fontSize = i;
  //--dont use base comp dynHeight
-         this.localDynHeight = HtpixToPerc;
+         this.maxHeight = HtpixToPerc;
          return this.fontSize;
      } 
  }//for end  
