@@ -1,41 +1,33 @@
 import lightenDarkenColor from "../functions/lightenDarkenColor.js";
-import { BaseComponent, DrawLayer } from "../Bilza.js";
-export default class Text extends BaseComponent {
-    constructor(content = "", colorHax = "#000000", dynWidth = 30) {
-        super();
+import { FontFamily, Style } from "../Bilza.js";
+export default class TextBase {
+    constructor(content = "", colorHax = "#000000", fontSize = 30) {
+        this.style = new Style();
         this.content = content;
-        this.padding = 0;
+        this.fontSize = fontSize;
+        this.fontFamily = FontFamily.Calibri;
+        this.paddingLeft = 0;
+        this.paddingRight = 0;
+        this.paddingTop = 0;
+        this.paddingBottom = 0;
         this.border = 0;
-        this.dynWidth.setValue(dynWidth);
-        this.maxHeight = 20;
-        this.calcHeight = 0;
         this.colorBorder = colorHax;
         this.colorBg = lightenDarkenColor(colorHax, 225);
         this.color = colorHax;
-        this.fontSize = 25;
         this.showContent = true;
         this.showBg = false;
         this.showTextShadow = false;
         this.showBgShadow = false;
         this.showBorderShadow = false;
         this.maxDisplayChars = 200;
-        this.drawLayer = DrawLayer.MiddleGround;
     }
-    width() {
-        if (this.canvasWidth == null) {
-            throw new Error("init error");
-        }
-        const widthInPix = Math.ceil(this.canvasWidth / 100 * this.dynWidth.value());
-        return widthInPix + (this.padding * 2);
+    width(p) {
+        const textWdith = p.charsWidth(this.content, this.fontSize, this.fontFamily);
+        return textWdith + (this.paddingLeft + this.paddingRight);
     }
-    height() {
-        return this.calcHeight;
-    }
-    update(msDelta, p) {
-        super.update(msDelta, p);
-        this.dynamicFontSize(p);
-        this.calcHeight = p.textWidth(this.content, this.style);
-        return true;
+    height(p) {
+        const textHeight = p.charsWidth("W", this.fontSize, this.fontFamily);
+        return textHeight + (this.paddingTop + this.paddingBottom);
     }
     draw(p) {
         if (this.showBg == true) {
@@ -64,12 +56,6 @@ export default class Text extends BaseComponent {
         return true;
     }
     drawBg(p) {
-        if (this.showBgShadow == true) {
-            this.setShadow(this.shadowBlur, this.shadowOffsetX, this.shadowOffsetY, this.shadowColor);
-        }
-        else {
-            this.shadowsOff();
-        }
         this.style.fillStyle = this.colorBg;
         this.style.strokeStyle = this.colorBg;
         this.style.fontSize = this.fontSize;
@@ -87,28 +73,5 @@ export default class Text extends BaseComponent {
         this.style.strokeStyle = this.color;
         this.style.fontSize = this.fontSize;
         p.drawText(this.content.substring(0, this.maxDisplayChars), this.loc.x() + (this.padding), this.loc.y() + (this.padding / 2), this.style);
-    }
-    reqWdInPix(p) {
-        const r = (p.canvasWidth() / 100 * this.dynWidth.value());
-        const s = r - (this.padding * 2);
-        return s;
-    }
-    dynamicFontSize(p) {
-        const reqWdInPix = this.reqWdInPix(p);
-        this.style.fontSize = this.fontSize;
-        let newWidth = 0;
-        for (let i = 1; i < 900; i++) {
-            this.style.fontSize = i;
-            const newWidthInPix = p.charsWidth(this.content, this.style.fontSize, this.style.fontFamily);
-            const newHtpix = p.charsWidth("W", this.style.fontSize, this.style.fontFamily);
-            const HtpixToPerc = Math.ceil(newHtpix / p.canvasHeight() * 100);
-            if (newWidthInPix >= (reqWdInPix)) {
-                this.fontSize = i;
-                this.style.fontSize = i;
-                this.maxHeight = HtpixToPerc;
-                return this.fontSize;
-            }
-        }
-        return null;
     }
 }

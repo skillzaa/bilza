@@ -3,9 +3,10 @@ export default class Text extends BaseComponent {
     content: string;
     padding: number;
     border: number;
-    private localDynHeight;
+    maxHeight: number;
     maxDisplayChars: number;
     protected fontSize: number;
+    private calcHeight;
     color: string;
     colorBorder: string;
     colorBg: string;

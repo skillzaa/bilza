@@ -5,7 +5,9 @@ import Pack from "./pack/pack.js";
 //--Required by Engine and Comp both
 import {DrawLayer} from "./design/drawLayer.js";
 //--Export IComponent since developers will use it;
-import IComponent from "./design/IComponent";
+import IComponent from "./design/IComponent.js";
+import {FontFamily} from "./design/fontFamily.js";
+import Style from "./design/style.js";
 import BaseComponent from "./BaseComponent/BaseComponent.js"
 
 import { XAlignment } from "./design/xAlignment.js";
@@ -32,5 +34,7 @@ XAlignment,
 YAlignment,
 OffScreenXOpt,
 OffScreenYOpt,
+FontFamily,
+Style,
 TextTempl
 }

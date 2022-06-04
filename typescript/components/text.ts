@@ -16,7 +16,7 @@
  
  //---i need this for internal workings
  protected fontSize :number;
- 
+private calcHeight :number; 
  public color :string;
  public colorBorder :string;
  public colorBg :string;
@@ -36,6 +36,7 @@ this.border = 0;
 this.dynWidth.setValue(dynWidth);
 //am not using the base comp dynHeight
 this.maxHeight = 20;
+this.calcHeight = 0;
 //---------------------------     
 this.colorBorder = colorHax;
 this.colorBg = lightenDarkenColor(colorHax,225);
@@ -58,6 +59,7 @@ this.drawLayer = DrawLayer.MiddleGround;
  * A- At update comp gets Pack there it can set its variables.06 
  * 
  */
+//--Width return the width that It should have its authors job to make comp width equal to the value being returned by width();
 width():number {
 if(this.canvasWidth==null){throw new Error("init error");
 }    
@@ -65,17 +67,17 @@ if(this.canvasWidth==null){throw new Error("init error");
 return widthInPix + (this.padding * 2);
 
  }
- height():number {//this.maxHeight
- if(this.canvasHeight==null){throw new Error("init error");
- }    
- return Math.ceil(this.canvasHeight / 100 * this.maxHeight);    
+ //The height of Text comp cant be maxHeight, it has to be the actual height this we need fontSize for this and need to set this in updateg
+ 
+ height():number {
+ return this.calcHeight;
  }
  
  
  update(msDelta: number, p: Pack): boolean {
  super.update(msDelta,p);
          this.dynamicFontSize(p);
- 
+ this.calcHeight = p.textWidth(this.content,this.style);
      return true;
  }
  
@@ -185,4 +187,5 @@ const r =  (p.canvasWidth() /100 * this.dynWidth.value());
  return null;
  }//dynamic font size
  
+
  }//class
