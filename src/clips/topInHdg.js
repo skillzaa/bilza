@@ -7,7 +7,6 @@ export default function topInHdg(content, colorHax, y = 2, duration = 10, timeFr
     t.loc.goto(0, 50, OffScreenYOpt.YTop, XAlignment.Mid, YAlignment.Mid);
     t.showBg = true;
     t.colorBg = lightenDarkenColor(colorHax, 225);
-    t.padding = 15;
     t.color = colorHax;
     t.border = 5;
     t.colorBorder = colorHax;

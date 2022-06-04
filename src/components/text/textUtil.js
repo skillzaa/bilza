@@ -4,18 +4,18 @@ export default class TextUtil {
         return p.charsWidth(content.substring(0, maxDisplayChars), fontSize, fontFamily);
     }
     static realWidth(p, content, maxDisplayChars, fontSize, fontFamily, paddingLeft, paddingRight) {
-        const textWdith = p.charsWidth(content.substring(maxDisplayChars), fontSize, fontFamily);
+        const textWdith = p.charsWidth(content.substring(0, maxDisplayChars), fontSize, fontFamily);
         return textWdith + (paddingLeft + paddingRight);
     }
     static realHeight(p, fontSize, fontFamily, paddingTop, paddingBottom) {
         const textHeight = p.charsWidth("W", fontSize, fontFamily);
         return textHeight + (paddingTop + paddingBottom);
     }
-    drawBorder(p, style, x, y, borderWidth, width, height) {
+    static drawBorder(p, style, x, y, borderWidth, width, height) {
         if (borderWidth <= 0) {
             return false;
         }
-        p.drawRect(x - borderWidth, y - borderWidth, width + (borderWidth * 2), height + (borderWidth * 2), style);
+        p.drawRect(x, y, width, height, style);
         return true;
     }
     static drawBg(p, style, x, y, width, height) {

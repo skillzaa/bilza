@@ -4,7 +4,7 @@ import FillRect from "./fillRect.js";
 import StaticGrid from "./staticGrid.js";
 import FrameCounter from "./frameCounter.js";
 import BgCircles from "./bgCircles.js";
-import Text from "./text.js";
+import Text from "./text/text.js";
 export default class CompFactory {
     static staticGrid(cellWidth: number | undefined, cellHeight: number | undefined, color: string): StaticGrid;
     static grid(colorHax?: string, cellWidthPerc?: number, cellHeightPerc?: number): Grid;

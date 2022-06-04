@@ -69,8 +69,6 @@ return true;
 
 
 update(msDelta :number,p :Pack): boolean {
-    // this.x.update(msDelta);
-    // this.y.update(msDelta);
     this.loc.update(msDelta);
     this.dynWidth.update(msDelta);
     this.dynHeight.update(msDelta);
