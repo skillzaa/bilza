@@ -72,14 +72,14 @@ counter.loc.goto(0,0,20);
 bil.insert.alwaysOn(counter);
 
 
-let tst = cf.fillRect("red");
+let tst = cf.text("red");
 tst.duration = 30;
 tst.loc.goto(0,0, 0, XAlignment.Left, YAlignment.Top);
 
 //---The animations
-tst.loc.animate(2,6,0,90,0,90);
-tst.loc.animate(7,10,90,50,90,50);
-tst.loc.animate(11,15,50,50,50,0);
+tst.loc.animate(2,8,0,90,0,0,);
+// tst.loc.animate(7,10,90,50,90,50);
+// tst.loc.animate(11,15,50,50,50,0);
 
 bil.insert.append(tst, tst.duration);
 ////////////////////////////////////////////

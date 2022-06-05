@@ -3,31 +3,28 @@ import Bilza, { XAlignment, YAlignment,TextTempl, CompFactory as cf } from "../B
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
 
+
 let grid = cf.grid();
 bil.insert.alwaysOn(grid);
 
-let counter = cf.frameCounter("#008000");
-counter.loc.goto(0,10,20);
+let counter = cf.frameCounter();
+counter.loc.goto(0,0,20);
 bil.insert.alwaysOn(counter);
 
-let tst = cf.fillRect("red");
-tst.duration = 120;
+let tst = cf.text("123--123");
+tst.duration = 30;
+tst.border.setValue(1);
+tst.colorBorder = "red";
+tst.loc.goto(0,0, 0, XAlignment.Right, YAlignment.Top);
 
-tst.loc.goto(0,0,0, XAlignment.Left, YAlignment.Top);
-//---Right Top
-tst.loc.animate(2,20,0,100,0,0,XAlignment.Left,
-    XAlignment.Right);
-//--Right Bottom    
-tst.loc.animate(22,40,100,100,0,100,XAlignment.Right,
-    XAlignment.Right,YAlignment.Top,YAlignment.Bot);
-//--Left Bottom    
-tst.loc.animate(42,60,100,0,100,100,XAlignment.Right,
-    XAlignment.Left,YAlignment.Bot,YAlignment.Bot);
-//--Right Top    
-tst.loc.animate(62,80,0,0,100,0,XAlignment.Left,
-    XAlignment.Left,YAlignment.Bot,YAlignment.Bot);
+//---The animations
+//--enter from (out of screen) and stop before exit
+// tst.loc.animate(2,10,0,100,0,0,XAlignment.Right,XAlignment.Right);
+//--enter from out of screen and exist out of screen
+tst.loc.animate(2,10,0,100,0,0,XAlignment.Right,XAlignment.Left,YAlignment.Top,YAlignment.Top);
 
 bil.insert.append(tst, tst.duration);
+
 ////////////////////////////////////////////
 bil.init();
 bil.start();
