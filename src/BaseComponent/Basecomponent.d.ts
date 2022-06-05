@@ -1,17 +1,6 @@
-import { Pack, IComponent, DrawLayer } from "../Bilza.js";
-import Style from "../design/style.js";
+import { Pack, IComponent } from "../Bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
-import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
-import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 export default class BaseComponent extends BaseComponentBase implements IComponent {
-    readonly id: string;
-    drawLayer: DrawLayer;
-    style: Style;
-    duration: number;
-    readonly offScreenXOpt: typeof OffScreenXOpt;
-    readonly offScreenYOpt: typeof OffScreenYOpt;
-    private insertTimeInVid;
-    alwaysOn: boolean;
     constructor();
     width(): number;
     height(): number;

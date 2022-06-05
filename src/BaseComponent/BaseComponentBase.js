@@ -1,10 +1,19 @@
-import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
+import { DrawLayer } from "../Bilza.js";
+import Style from "../design/style.js";
+import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
+import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 import Loc from "./animation/aniNumber/loc/loc.js";
 export default class BaseComponentBase {
     constructor() {
+        this.alwaysOn = false;
+        this.offScreenXOpt = OffScreenXOpt;
+        this.offScreenYOpt = OffScreenYOpt;
+        this.duration = 0;
+        this.insertTimeInVid = 0;
+        this.drawLayer = DrawLayer.MiddleGround;
+        this.id = Math.random().toString(36).slice(2);
+        this.style = new Style();
         this.loc = new Loc();
-        this.dynWidth = new AnimatedNoBase(10);
-        this.dynHeight = new AnimatedNoBase(10);
         this.canvasWidth = null;
         this.canvasHeight = null;
         this.selected = false;
@@ -16,3 +25,4 @@ export default class BaseComponentBase {
         this.colorBoundingRectangle = "black";
     }
 }
+BaseComponentBase.VERSION = "0_0_15";

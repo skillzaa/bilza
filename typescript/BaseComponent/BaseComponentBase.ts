@@ -1,18 +1,31 @@
+import {DrawLayer} from "../Bilza.js";
+import Style from "../design/style.js";
+import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
+import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
-import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
+// import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 import Loc from "./animation/aniNumber/loc/loc.js";
-import {Pack} from "../Bilza.js";
 
 export default class BaseComponentBase{
-loc :Loc;
+    public readonly id :string;//req for all components
+    public drawLayer : DrawLayer; 
+    public style:Style; ///--may be removed in future
+    public  duration :number;
+    //-----Alignment
+    public readonly offScreenXOpt :typeof OffScreenXOpt;
+    public readonly offScreenYOpt :typeof OffScreenYOpt;
+    // public readonly yAlignmentOptions:typeof YAlignment;  
+    /////////////////----PRIVATE----/////////////////// 
+    protected  insertTimeInVid:number; 
+    public alwaysOn: boolean;
+    loc :Loc; //required by all comps
 
-colorBoundingRectangle:string;
-// public static VERSION = "0_0_15";
-dynWidth :AnimatedNoBase;    
-dynHeight :AnimatedNoBase;    
+colorBoundingRectangle:string; //required by all comps
+public static VERSION = "0_0_15";//required by all comps
+
 //---these 2 variables will be set in init
-canvasWidth :number | null;    
-canvasHeight :number | null;    
+canvasWidth :number | null;    //required by all comps
+canvasHeight :number | null;    //required by all comps
 
 //-------------shadow-------------------------//    
 // shadowDisplay :boolean; //show or not -- this is abstraction
@@ -29,12 +42,22 @@ selected :boolean;
 //---So every component can be draw using concrete x and Y or relative default is relative
 
 constructor(){
-// this.x= new XAxis(0);
-// this.y = new YAxis(0);
-// this.y.setValue(0);
+    this.alwaysOn = false;
+    // this.moveYArray = [];
+    this.offScreenXOpt = OffScreenXOpt; //final-ok
+    this.offScreenYOpt = OffScreenYOpt; //final-ok
+    // this.yAlignmentOptions = YAlignment; //final-ok
+    this.duration = 0; //can not be changed again even not by children comps
+    this.insertTimeInVid = 0; //final-ok
+    //--there is no this.endTime --since has this.endTime()
+    //--must
+    this.drawLayer = DrawLayer.MiddleGround;
+    //--must
+    this.id = Math.random().toString(36).slice(2);
+    this.style = new Style(); 
+/////////////    
 this.loc = new Loc();
-this.dynWidth = new AnimatedNoBase(10);    
-this.dynHeight = new AnimatedNoBase(10);    
+
 this.canvasWidth = null;    
 this.canvasHeight = null;    
 

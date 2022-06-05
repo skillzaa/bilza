@@ -1,56 +1,22 @@
-import {Pack,IComponent,DrawLayer} from "../Bilza.js";
-import Style from "../design/style.js";
+import {Pack,IComponent} from "../Bilza.js";
+// import Style from "../design/style.js";
 import BaseComponentBase from "./BaseComponentBase.js";
-import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
-import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
+// import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
+// import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
 export default class BaseComponent extends BaseComponentBase implements IComponent {
-public readonly id :string;
-public drawLayer : DrawLayer; 
-public style:Style;
-public  duration :number;
-//-----Alignment
-public readonly offScreenXOpt :typeof OffScreenXOpt;
-public readonly offScreenYOpt :typeof OffScreenYOpt;
-// public readonly yAlignmentOptions:typeof YAlignment;  
-/////////////////----PRIVATE----/////////////////// 
-private  insertTimeInVid:number; 
-public alwaysOn: boolean;
+
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
-    super();
-    this.alwaysOn = false;
-    // this.moveYArray = [];
-    this.offScreenXOpt = OffScreenXOpt; //final-ok
-    this.offScreenYOpt = OffScreenYOpt; //final-ok
-    // this.yAlignmentOptions = YAlignment; //final-ok
-    this.duration = 0; //can not be changed again even not by children comps
-    this.insertTimeInVid = 0; //final-ok
-    //--there is no this.endTime --since has this.endTime()
-    //--must
-    this.drawLayer = DrawLayer.MiddleGround;
-    //--must
-    this.id = Math.random().toString(36).slice(2);
-    this.style = new Style(); 
-    
-// this.props = new BaseProps(this.width.bind(this),this.height.bind(this));;    
-// this.p = this.props;
+    super();  
 }
 
 width(): number {
-    if (this.canvasWidth !== null ){
-        return Math.ceil((this.canvasWidth/100) * this.dynWidth.value());
-    }else {
-        throw new Error("the component is not initialized yet");        
-    }
+   return 10;
 }
 height(): number {
-    if (this.canvasHeight !== null){
-    return Math.ceil((this.canvasHeight/100)*this.dynHeight.value());
-    }else {
-        throw new Error("the component is not initialized yet");        
-    }
+    return 10;
 }
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {
@@ -60,9 +26,6 @@ this.canvasHeight =  p.canvasHeight();
 
 this.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
-
-this.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
 return true;
 }
@@ -70,8 +33,8 @@ return true;
 
 update(msDelta :number,p :Pack): boolean {
     this.loc.update(msDelta);
-    this.dynWidth.update(msDelta);
-    this.dynHeight.update(msDelta);
+    // this.dynWidth.update(msDelta);
+    // this.dynHeight.update(msDelta);
 return true;    
 }
 
@@ -114,17 +77,6 @@ setStartTime(n :number):number{
 this.insertTimeInVid = n;
 return this.insertTimeInVid;
 }
-
-// moveX (from :number=0,to :number=10,startValue :number | OffScreenXOpt =0,endValue :number | OffScreenXOpt =100){
-// this.props.x.animate(from,to,startValue,endValue);
-// }
-// moveY (from :number=0,to :number=10,startValue :number | OffScreenYOpt =0,endValue :number | OffScreenYOpt =100){
-//     const item = new MoveYItem(from,to,startValue,endValue);
-// this.moveYArray.push(item);        
-// }
-// move (from :number=0,to :number=10,startX :number=0,endX :number=100,startY :number=0,endY :number=100){
-
-// }
 
 ////////////////////////////////////////////////////////
 }//component ends 

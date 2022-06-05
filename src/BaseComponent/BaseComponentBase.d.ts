@@ -1,10 +1,20 @@
-import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
+import { DrawLayer } from "../Bilza.js";
+import Style from "../design/style.js";
+import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
+import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 import Loc from "./animation/aniNumber/loc/loc.js";
 export default class BaseComponentBase {
+    readonly id: string;
+    drawLayer: DrawLayer;
+    style: Style;
+    duration: number;
+    readonly offScreenXOpt: typeof OffScreenXOpt;
+    readonly offScreenYOpt: typeof OffScreenYOpt;
+    protected insertTimeInVid: number;
+    alwaysOn: boolean;
     loc: Loc;
     colorBoundingRectangle: string;
-    dynWidth: AnimatedNoBase;
-    dynHeight: AnimatedNoBase;
+    static VERSION: string;
     canvasWidth: number | null;
     canvasHeight: number | null;
     shadowColor: string;
