@@ -24,7 +24,7 @@ return true;
 }
 
 update(msDelta: number, p: Pack): boolean {
-    super.update(msDelta,p);
+    
     this.dynWidth.update(msDelta);
     if (this.useDynWidth == true){
         this.dynamicFontSize(p);
@@ -32,6 +32,7 @@ update(msDelta: number, p: Pack): boolean {
     if (this.useMaxHeight == true){
         this.shrinkToFitMaxHeight(p);
     }
+    super.update(msDelta,p);//--keep it down here so that Loc is updated late;
     return true;
 }
 
@@ -63,9 +64,11 @@ const r =  (p.canvasWidth() /100 * this.dynWidth.value());
     }
     
 private shrinkToFitMaxHeight(p :Pack):boolean{
+if (this.charsWidth==null){throw new Error("init error");
+}    
 const reqHtInPix =  (p.canvasHeight() /100 * this.maxHeight);
 const reqHtInPixwoPad = reqHtInPix - (this.paddingTop.value() + this.paddingBottom.value()); 
-const contentHeight = TextUtil.contentHeight(p,this.style.fontSize,this.style.fontFamily);
+const contentHeight = this.charsWidth("W",this.style.fontSize,this.style.fontFamily);
 if ( contentHeight < reqHtInPixwoPad){return true;}
 //-----------------------------------------
     for (let i = 300; i > 0; i--) {

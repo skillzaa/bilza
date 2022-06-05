@@ -1,6 +1,5 @@
 import { AnimatedNoBase } from "../../Bilza.js";
 import Text002 from "./text002.js";
-import TextUtil from "./textUtil.js";
 export default class Text extends Text002 {
     constructor(content = "", colorHax = "#000000", fontSize = 40, x = 0, y = 0) {
         super(content, colorHax, fontSize, x, y);
@@ -15,7 +14,6 @@ export default class Text extends Text002 {
         return true;
     }
     update(msDelta, p) {
-        super.update(msDelta, p);
         this.dynWidth.update(msDelta);
         if (this.useDynWidth == true) {
             this.dynamicFontSize(p);
@@ -23,6 +21,7 @@ export default class Text extends Text002 {
         if (this.useMaxHeight == true) {
             this.shrinkToFitMaxHeight(p);
         }
+        super.update(msDelta, p);
         return true;
     }
     dynamicFontSize(p) {
@@ -44,9 +43,12 @@ export default class Text extends Text002 {
         return s;
     }
     shrinkToFitMaxHeight(p) {
+        if (this.charsWidth == null) {
+            throw new Error("init error");
+        }
         const reqHtInPix = (p.canvasHeight() / 100 * this.maxHeight);
         const reqHtInPixwoPad = reqHtInPix - (this.paddingTop.value() + this.paddingBottom.value());
-        const contentHeight = TextUtil.contentHeight(p, this.style.fontSize, this.style.fontFamily);
+        const contentHeight = this.charsWidth("W", this.style.fontSize, this.style.fontFamily);
         if (contentHeight < reqHtInPixwoPad) {
             return true;
         }

@@ -6,18 +6,18 @@ constructor (){}
 static contentWidth(p :Pack,content :string,maxDisplayChars :number,fontSize :number,fontFamily :FontFamily):number {
 return p.charsWidth(content.substring(0,maxDisplayChars),fontSize,fontFamily);
 } 
-static contentHeight(p :Pack,fontSize :number,fontFamily :FontFamily,char="W"):number {
-return p.charsWidth(char,fontSize,fontFamily);
-} 
-static realWidth(p :Pack,content :string,maxDisplayChars :number,fontSize :number,fontFamily :FontFamily,paddingLeft:number,paddingRight :number):number {
-const textWdith = p.charsWidth(content.substring(0,maxDisplayChars),fontSize,fontFamily)
-return textWdith + (paddingLeft + paddingRight); 
-}
+// static contentHeight(p :Pack,fontSize :number,fontFamily :FontFamily,char="W"):number {
+// return p.charsWidth(char,fontSize,fontFamily);
+// } 
+// static realWidth(p :Pack,content :string,maxDisplayChars :number,fontSize :number,fontFamily :FontFamily,paddingLeft:number,paddingRight :number):number {
+// const textWdith = p.charsWidth(content.substring(0,maxDisplayChars),fontSize,fontFamily)
+// return textWdith + (paddingLeft + paddingRight); 
+// }
  
-static realHeight(p :Pack,fontSize :number,fontFamily :FontFamily,paddingTop:number,paddingBottom :number):number {
-const textHeight = p.charsWidth("W",fontSize,fontFamily)
-return  textHeight + (paddingTop + paddingBottom);
-}
+// static realHeight(p :Pack,fontSize :number,fontFamily :FontFamily,paddingTop:number,paddingBottom :number):number {
+// const textHeight = p.charsWidth("W",fontSize,fontFamily)
+// return  textHeight + (paddingTop + paddingBottom);
+// }
  // =- AM USING drawRect (Empty rect) for border and not line
  static drawBorder(p :Pack,style :Style,x:number,y:number,borderWidth :number,width:number,height:number) :boolean{
 if ( borderWidth <= 0 ){return false;}

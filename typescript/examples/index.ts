@@ -16,13 +16,14 @@ tst.color = "#ffffff";
 
 tst.fontSize = 100;
 
-// tst.useDynWidth = true;
-// tst.dynWidth.setValue(50);
-// tst.useMaxHeight = true;
-// tst.maxHeight = 40;
+tst.useDynWidth = true;
+tst.dynWidth.setValue(50);
+tst.useMaxHeight = true;
+tst.maxHeight = 20;
 // tst.loc.goto(0,20,20, XAlignment.Left, YAlignment.Top);
 tst.loc.goto(0,50,50, XAlignment.Mid, YAlignment.Mid);
 
+tst.dynWidth.animate(2,6,5,50);
 
 bil.insert.append(tst, tst.duration);
 ////////////////////////////////////////////
