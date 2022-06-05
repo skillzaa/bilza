@@ -2,12 +2,19 @@ import BaseComponentBase from "./BaseComponentBase.js";
 export default class BaseComponent extends BaseComponentBase {
     constructor() {
         super();
+        this.charsWidth = null;
     }
     width() {
-        return 10;
+        if (this.charsWidth !== null) {
+            return this.charsWidth("Hello", 50, "Arial");
+        }
+        return 0;
     }
     height() {
-        return 10;
+        if (this.charsWidth !== null) {
+            return this.charsWidth("Hello", 50, "Arial");
+        }
+        return 0;
     }
     init(p) {
         this.canvasWidth = p.canvasWidth();

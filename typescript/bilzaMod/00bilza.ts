@@ -24,7 +24,7 @@ constructor (canvasId="bilza",screenWidthInPercent=80){
 this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
 this.duration = new Duration();
-this.insert = new Insert(this.comps,this.duration);
+this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();

@@ -18,13 +18,11 @@ export default class Text002 extends BaseComponent {
     showTextShadow: boolean;
     showBorderShadow: boolean;
     showBgShadow: boolean;
-    protected realWidth: number;
-    protected realHeight: number;
     constructor(content?: string, colorHax?: string, fontSize?: number, x?: number, y?: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
-    width(): number;
     height(): number;
+    width(): number;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=text002.d.ts.map

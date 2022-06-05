@@ -66,7 +66,7 @@ public clearCanvas(){
 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);    
 }
 
-public charsWidth(chars="",fontSize:number,fontName:string){
+public charsWidth(chars:string,fontSize:number,fontName:string):number{
 this.ctx.save();
 //--no commitCtxData thus setFont is required
 this.setFont(fontSize,fontName);

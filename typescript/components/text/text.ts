@@ -19,9 +19,10 @@ init(p: Pack): boolean {
 super.init(p);    
 this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-// this.maxHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+
 return true;       
 }
+
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
     this.dynWidth.update(msDelta);

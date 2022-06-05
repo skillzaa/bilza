@@ -6,6 +6,7 @@ export default interface IComponent {
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
+    charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     checkCollision(x: number, y: number, p: Pack): boolean;
     resize(width: number, height: number): number;
     getStartTime(inMilliSec?: boolean): number;

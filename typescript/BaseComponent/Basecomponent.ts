@@ -5,18 +5,26 @@ import BaseComponentBase from "./BaseComponentBase.js";
 // import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
 export default class BaseComponent extends BaseComponentBase implements IComponent {
-
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
+
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
-    super();  
+    super();
+    this.charsWidth = null;  
 }
 
 width(): number {
-   return 10;
+if (this.charsWidth !== null){
+ return this.charsWidth("Hello",50,"Arial");
+}    
+return 0;
 }
 height(): number {
-    return 10;
+    if (this.charsWidth !== null){
+        return this.charsWidth("Hello",50,"Arial");
+       }    
+       return 0;
 }
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {

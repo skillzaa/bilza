@@ -47,7 +47,7 @@ export default class Pack {
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-    charsWidth(chars = "", fontSize, fontName) {
+    charsWidth(chars, fontSize, fontName) {
         this.ctx.save();
         this.setFont(fontSize, fontName);
         let m = this.ctx.measureText(chars).width;

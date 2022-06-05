@@ -23,8 +23,6 @@ export default class Text002 extends BaseComponent {
         this.showBorderShadow = false;
         this.maxDisplayChars = 200;
         this.drawLayer = DrawLayer.MiddleGround;
-        this.realWidth = 0;
-        this.realHeight = 0;
     }
     init(p) {
         super.init(p);
@@ -36,8 +34,6 @@ export default class Text002 extends BaseComponent {
         return true;
     }
     update(msDelta, p) {
-        this.realWidth = TextUtil.realWidth(p, this.content, this.maxDisplayChars, this.fontSize, this.fontFamily, this.paddingLeft.value(), this.paddingRight.value());
-        this.realHeight = TextUtil.realHeight(p, this.fontSize, this.fontFamily, this.paddingTop.value(), this.paddingBottom.value());
         super.update(msDelta, p);
         this.paddingBottom.update(msDelta);
         this.paddingLeft.update(msDelta);
@@ -46,19 +42,27 @@ export default class Text002 extends BaseComponent {
         this.border.update(msDelta);
         return true;
     }
-    width() {
-        return this.realWidth;
-    }
     height() {
-        return this.realHeight;
+        if (this.charsWidth == null) {
+            throw new Error("init error");
+        }
+        const textHeight = this.charsWidth("W", this.style.fontSize, this.style.fontFamily);
+        return textHeight + (this.paddingTop.value() + this.paddingBottom.value());
+    }
+    width() {
+        if (this.charsWidth == null) {
+            throw new Error("init error");
+        }
+        const textWdith = this.charsWidth(this.content.substring(0, this.maxDisplayChars), this.fontSize, this.fontFamily);
+        return textWdith + (this.paddingLeft.value() + this.paddingRight.value());
     }
     draw(p) {
         this.style.fillStyle = this.colorBg;
         this.style.strokeStyle = this.colorBg;
-        TextUtil.drawBg(p, this.style, this.loc.x(), this.loc.y(), this.realWidth, this.realHeight);
+        TextUtil.drawBg(p, this.style, this.loc.x(), this.loc.y(), this.width(), this.height());
         this.style.fillStyle = this.colorBorder;
         this.style.strokeStyle = this.colorBorder;
-        TextUtil.drawBorder(p, this.style, this.loc.x(), this.loc.y(), this.border.value(), this.realWidth, this.realHeight);
+        TextUtil.drawBorder(p, this.style, this.loc.x(), this.loc.y(), this.border.value(), this.width(), this.height());
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
         this.style.fontSize = this.fontSize;

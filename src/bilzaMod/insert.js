@@ -1,9 +1,11 @@
 export default class Insert {
-    constructor(comps, duration) {
+    constructor(comps, duration, charsWidth) {
         this.comps = comps;
         this.duration = duration;
+        this.charsWidth = charsWidth;
     }
     append(comp, duration) {
+        comp.charsWidth = this.charsWidth;
         if (duration < 1 || (typeof duration == "undefined")) {
             throw new Error("for Insert operation to succeed you need component duration greater than 0");
         }
@@ -15,6 +17,7 @@ export default class Insert {
         return this.comps.push(comp);
     }
     add(comp, startTime, duration) {
+        comp.charsWidth = this.charsWidth;
         if ((duration < 1) || (typeof duration == "undefined")) {
             throw new Error("for Insert operation to succeed you need component duration greater than 0");
         }
@@ -34,6 +37,7 @@ export default class Insert {
         return this.comps.push(comp);
     }
     alwaysOn(comp) {
+        comp.charsWidth = this.charsWidth;
         comp.alwaysOn = true;
         return this.comps.push(comp);
     }

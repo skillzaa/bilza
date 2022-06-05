@@ -1,16 +1,20 @@
-import {IComponent} from "../Bilza.js";
+import {IComponent,Pack} from "../Bilza.js";
 import Comps from "./comps.js";
 import Duration from "./duration.js";
 
 export default class Insert {
 private duration :Duration;     
 private comps :Comps;
-constructor(comps :Comps,duration :Duration){
-this.comps = comps;    
-this.duration = duration;    
+private charsWidth :(chars:string,fontSize:number,fontName:string)=>number;
+
+constructor(comps :Comps,duration :Duration,charsWidth:(chars:string,fontSize:number,fontName:string)=>number){
+this.comps = comps;  
+this.duration = duration;  
+this.charsWidth =   charsWidth;
 }
 
 public append(comp :IComponent,duration :number){
+    comp.charsWidth = this.charsWidth;
      //--1 : comp.duration cant be > 0 
     if (duration < 1 || (typeof duration == "undefined")) {
         throw new Error("for Insert operation to succeed you need component duration greater than 0");
@@ -25,7 +29,8 @@ public append(comp :IComponent,duration :number){
 return this.comps.push(comp);
 }
 public add(comp :IComponent,startTime :number,duration :number){
-    //--1 : comp.duration cant be > 0 
+    comp.charsWidth = this.charsWidth;
+        //--1 : comp.duration cant be > 0 
     if ((duration < 1) || (typeof duration == "undefined")) {
         throw new Error("for Insert operation to succeed you need component duration greater than 0");
     }else {
@@ -51,6 +56,7 @@ return this.comps.push(comp);
 } 
 
 public alwaysOn(comp:IComponent):IComponent{
+    comp.charsWidth = this.charsWidth;    
  comp.alwaysOn = true;   
 return this.comps.push(comp);
 }  

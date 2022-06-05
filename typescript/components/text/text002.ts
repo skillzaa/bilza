@@ -26,8 +26,6 @@ public showTextShadow :boolean;
 public showBorderShadow :boolean; 
 public showBgShadow :boolean; 
 //-----------------------------
-protected realWidth :number;
-protected realHeight :number;
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000",fontSize :number=40,x :number=0,y :number=0){
 super();  
@@ -53,8 +51,6 @@ this.showBorderShadow = false;
 this.maxDisplayChars = 200; 
 this.drawLayer = DrawLayer.MiddleGround;
 //-----------------------------
-this.realWidth = 0;
-this.realHeight = 0;
 }
 init(p: Pack): boolean {
 super.init(p);
@@ -75,10 +71,6 @@ return true;
 }
 update(msDelta: number, p: Pack): boolean {
     
-this.realWidth = TextUtil.realWidth(p,this.content,this.maxDisplayChars,this.fontSize,this.fontFamily,this.paddingLeft.value(),this.paddingRight.value());
-    
-this.realHeight = TextUtil.realHeight(p,this.fontSize,this.fontFamily,this.paddingTop.value(),this.paddingBottom.value());
-//---we need realWidth and realHeight so keep super.update down here    
 super.update(msDelta,p);
 
 // this.fontSize.update(msDelta);
@@ -91,20 +83,26 @@ this.border.update(msDelta);
 
 return true;
 }
-width():number {
-return this.realWidth;
-}
+ 
 height():number {
-return this.realHeight;
+if (this.charsWidth == null){throw new Error("init error");}    
+const textHeight = this.charsWidth("W",this.style.fontSize,this.style.fontFamily)
+return  textHeight + (this.paddingTop.value() + this.paddingBottom.value());
 }
+width():number {
+if (this.charsWidth == null){throw new Error("init error");}        
+const textWdith = this.charsWidth(this.content.substring(0,this.maxDisplayChars),this.fontSize,this.fontFamily)
+return textWdith + (this.paddingLeft.value() + this.paddingRight.value()); 
+}
+
   
 draw(p:Pack):boolean{
 this.style.fillStyle = this.colorBg;    
 this.style.strokeStyle = this.colorBg;    
-TextUtil.drawBg(p,this.style,this.loc.x(),this.loc.y(),this.realWidth,this.realHeight);
+TextUtil.drawBg(p,this.style,this.loc.x(),this.loc.y(),this.width(),this.height());
 this.style.fillStyle = this.colorBorder;    
 this.style.strokeStyle = this.colorBorder;    
-TextUtil.drawBorder(p,this.style,this.loc.x(),this.loc.y(),this.border.value(),this.realWidth,this.realHeight);
+TextUtil.drawBorder(p,this.style,this.loc.x(),this.loc.y(),this.border.value(),this.width( ),this.height( ));
 
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color;

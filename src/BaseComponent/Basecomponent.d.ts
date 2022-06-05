@@ -1,6 +1,7 @@
 import { Pack, IComponent } from "../Bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 export default class BaseComponent extends BaseComponentBase implements IComponent {
+    charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     constructor();
     width(): number;
     height(): number;

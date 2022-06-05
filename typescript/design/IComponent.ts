@@ -11,11 +11,7 @@ export default interface IComponent{
     drawLayer:DrawLayer; 
     alwaysOn :boolean;
 
-    //--we can get the width and height thus we can use components into array and trees like table,list etc
-    //-- since we have to use it externally thus Pack is always avaialbe
-    // While using internally it shd be used when draw/update is called is called
-    // width(p:Pack):number;
-    // height(p :Pack):number;
+    
 //---init is one time settings unlike update it is run on required basis
     init(p :Pack):boolean; 
     //--UPDATE SHD NOT HAVE DRAW FUNCTIONS
@@ -23,7 +19,7 @@ export default interface IComponent{
     update(msDelta :number,p :Pack):boolean; //second not frame 
     //finally
     draw(p :Pack):boolean; 
-
+    charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
     ///----check collision
     checkCollision(x :number,y :number, p :Pack):boolean;
     resize(width :number,height :number):number;

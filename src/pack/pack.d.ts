@@ -14,7 +14,7 @@ export default class Pack {
     save(): void;
     drawImage(image: HTMLImageElement, x: number, y: number, width: number, height: number): void;
     clearCanvas(): void;
-    charsWidth(chars: string | undefined, fontSize: number, fontName: string): number;
+    charsWidth(chars: string, fontSize: number, fontName: string): number;
     textWidth(chars: string, incomTempl: Style): number;
     drawLine(startX: number, startY: number, endX: number, endY: number, incomTempl: Style): void;
     line(startX: number, startY: number, endX: number, endY: number): void;
