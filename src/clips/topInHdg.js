@@ -8,7 +8,7 @@ export default function topInHdg(content, colorHax, y = 2, duration = 10, timeFr
     t.showBg = true;
     t.colorBg = lightenDarkenColor(colorHax, 225);
     t.color = colorHax;
-    t.border = 5;
+    t.border.setValue(5);
     t.colorBorder = colorHax;
     t.loc.animate(timeFrom, timeTo, 50, 50, OffScreenYOpt.YTop, y);
     return t;

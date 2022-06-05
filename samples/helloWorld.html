@@ -27,7 +27,7 @@
 <pre class="language-javascript">
 <code>
 // import Bilza,{ XAlignment, YAlignment, CompFactory as cf } from "../../src/Bilza.js";
-import Bilza,{ XAlignment, YAlignment, CompFactory as cf } from "./bilza_0_0_15.js";
+import Bilza,{ XAlignment, YAlignment, CompFactory as cf } from "./bilza_0_0_16.js";
 
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000,400);
@@ -63,7 +63,7 @@ bil.start();
 </pre>
 <script  type="module">
 // import Bilza,{ XAlignment, YAlignment, CompFactory as cf } from "../../src/Bilza.js";
-import Bilza,{ XAlignment, YAlignment, CompFactory as cf } from "./bilza_0_0_15.js";
+import Bilza,{ XAlignment, YAlignment, CompFactory as cf } from "./bilza_0_0_16.js";
 
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000,400);
@@ -81,14 +81,13 @@ bil.insert.alwaysOn(grid);
 //==================The Text Component
 let text = cf.text("Hello World");
 //--This will decide the duaration of the video
-text.duration = 200; 
+text.duration = 20; 
 text.showBg = true;
-text.border = 10;
+text.border.setValue(5);
 text.colorBorder = "green";
-text.padding = 10;
 text.colorBg = "crimson";
 text.color = "white";
-text.loc.goto(0,50,50,XAlignment.Mid,YAlignment.Mid);
+text.loc.goto(0,50,50,XAlignment.Right,YAlignment.Mid);
 bil.insert.append(text, text.duration);
 //=========================================
 //////////////////////////////////////////
