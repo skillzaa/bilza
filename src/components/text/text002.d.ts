@@ -18,7 +18,7 @@ export default class Text002 extends BaseComponent {
     showTextShadow: boolean;
     showBorderShadow: boolean;
     showBgShadow: boolean;
-    constructor(content?: string, colorHax?: string, fontSize?: number, x?: number, y?: number);
+    constructor(content?: string, colorHax?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     height(): number;

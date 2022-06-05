@@ -8,8 +8,8 @@ public useMaxHeight :boolean;
 public dynWidth :AnimatedNoBase;    //required by all comps--no
 public maxHeight :number;    //required by all comps--no    
 /////////////////////////////////////////
-constructor (content :string="",colorHax :string="#000000",fontSize :number=40,x :number=0,y :number=0){
-super(content,colorHax,fontSize,x,y);  
+constructor (content :string="",colorHax :string="#000000"){
+super(content,colorHax);  
 this.maxHeight = 20;//max Height is 20% of canvas
 this.dynWidth = new AnimatedNoBase(10); 
 this.useDynWidth = false;

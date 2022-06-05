@@ -3,7 +3,7 @@ import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import TextUtil from "./textUtil.js";
 import AnimatedNoBase from "../../BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 export default class Text002 extends BaseComponent {
-    constructor(content = "", colorHax = "#000000", fontSize = 40, x = 0, y = 0) {
+    constructor(content = "", colorHax = "#000000") {
         super();
         this.content = content;
         this.fontSize = 50;

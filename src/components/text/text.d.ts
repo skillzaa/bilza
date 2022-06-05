@@ -5,7 +5,7 @@ export default class Text extends Text002 {
     useMaxHeight: boolean;
     dynWidth: AnimatedNoBase;
     maxHeight: number;
-    constructor(content?: string, colorHax?: string, fontSize?: number, x?: number, y?: number);
+    constructor(content?: string, colorHax?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     private dynamicFontSize;

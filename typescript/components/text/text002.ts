@@ -27,7 +27,7 @@ public showBorderShadow :boolean;
 public showBgShadow :boolean; 
 //-----------------------------
 /////////////////////////////////////////
-constructor (content :string="",colorHax :string="#000000",fontSize :number=40,x :number=0,y :number=0){
+constructor (content :string="",colorHax :string="#000000"){
 super();  
 this.content = content ; 
 this.fontSize = 50;

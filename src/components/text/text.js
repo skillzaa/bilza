@@ -1,8 +1,8 @@
 import { AnimatedNoBase } from "../../Bilza.js";
 import Text002 from "./text002.js";
 export default class Text extends Text002 {
-    constructor(content = "", colorHax = "#000000", fontSize = 40, x = 0, y = 0) {
-        super(content, colorHax, fontSize, x, y);
+    constructor(content = "", colorHax = "#000000") {
+        super(content, colorHax);
         this.maxHeight = 20;
         this.dynWidth = new AnimatedNoBase(10);
         this.useDynWidth = false;
