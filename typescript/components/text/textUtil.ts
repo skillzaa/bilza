@@ -5,7 +5,10 @@ constructor (){}
 
 static contentWidth(p :Pack,content :string,maxDisplayChars :number,fontSize :number,fontFamily :FontFamily):number {
 return p.charsWidth(content.substring(0,maxDisplayChars),fontSize,fontFamily);
-}
+} 
+static contentHeight(p :Pack,fontSize :number,fontFamily :FontFamily,char="W"):number {
+return p.charsWidth(char,fontSize,fontFamily);
+} 
 static realWidth(p :Pack,content :string,maxDisplayChars :number,fontSize :number,fontFamily :FontFamily,paddingLeft:number,paddingRight :number):number {
 const textWdith = p.charsWidth(content.substring(0,maxDisplayChars),fontSize,fontFamily)
 return textWdith + (paddingLeft + paddingRight); 

@@ -13,7 +13,7 @@ export default class Style {
     globalAlpha: number;
     lineCap: LineCapStyle;
     lineDash: number[];
-    constructor(applyAtMs?: number);
+    constructor();
     merge(incom: Style): void;
 }
 //# sourceMappingURL=style.d.ts.map

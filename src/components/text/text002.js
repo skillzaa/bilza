@@ -6,7 +6,7 @@ export default class Text002 extends BaseComponent {
     constructor(content = "", colorHax = "#000000", fontSize = 40, x = 0, y = 0) {
         super();
         this.content = content;
-        this.fontSize = new AnimatedNoBase(fontSize);
+        this.fontSize = 50;
         this.fontFamily = FontFamily.Calibri;
         this.paddingLeft = new AnimatedNoBase(0);
         this.paddingRight = new AnimatedNoBase(0);
@@ -28,7 +28,6 @@ export default class Text002 extends BaseComponent {
     }
     init(p) {
         super.init(p);
-        this.fontSize.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.paddingBottom.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.paddingLeft.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         this.paddingRight.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
@@ -37,10 +36,9 @@ export default class Text002 extends BaseComponent {
         return true;
     }
     update(msDelta, p) {
-        this.realWidth = TextUtil.realWidth(p, this.content, this.maxDisplayChars, this.fontSize.value(), this.fontFamily, this.paddingLeft.value(), this.paddingRight.value());
-        this.realHeight = TextUtil.realHeight(p, this.fontSize.value(), this.fontFamily, this.paddingTop.value(), this.paddingBottom.value());
+        this.realWidth = TextUtil.realWidth(p, this.content, this.maxDisplayChars, this.fontSize, this.fontFamily, this.paddingLeft.value(), this.paddingRight.value());
+        this.realHeight = TextUtil.realHeight(p, this.fontSize, this.fontFamily, this.paddingTop.value(), this.paddingBottom.value());
         super.update(msDelta, p);
-        this.fontSize.update(msDelta);
         this.paddingBottom.update(msDelta);
         this.paddingLeft.update(msDelta);
         this.paddingRight.update(msDelta);
@@ -63,7 +61,7 @@ export default class Text002 extends BaseComponent {
         TextUtil.drawBorder(p, this.style, this.loc.x(), this.loc.y(), this.border.value(), this.realWidth, this.realHeight);
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        this.style.fontSize = this.fontSize.value();
+        this.style.fontSize = this.fontSize;
         this.style.fontFamily = this.fontFamily;
         TextUtil.drawContent(p, this.style, this.content, this.loc.x(), this.loc.y(), this.maxDisplayChars, this.paddingLeft.value(), this.paddingTop.value(), this.showContent);
         return true;

@@ -7,7 +7,7 @@ export default class Text002 extends BaseComponent {
     paddingRight: AnimatedNoBase;
     paddingTop: AnimatedNoBase;
     paddingBottom: AnimatedNoBase;
-    fontSize: AnimatedNoBase;
+    fontSize: number;
     border: AnimatedNoBase;
     maxDisplayChars: number;
     color: string;
@@ -18,8 +18,8 @@ export default class Text002 extends BaseComponent {
     showTextShadow: boolean;
     showBorderShadow: boolean;
     showBgShadow: boolean;
-    private realWidth;
-    private realHeight;
+    protected realWidth: number;
+    protected realHeight: number;
     constructor(content?: string, colorHax?: string, fontSize?: number, x?: number, y?: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;

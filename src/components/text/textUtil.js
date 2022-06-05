@@ -3,6 +3,9 @@ export default class TextUtil {
     static contentWidth(p, content, maxDisplayChars, fontSize, fontFamily) {
         return p.charsWidth(content.substring(0, maxDisplayChars), fontSize, fontFamily);
     }
+    static contentHeight(p, fontSize, fontFamily, char = "W") {
+        return p.charsWidth(char, fontSize, fontFamily);
+    }
     static realWidth(p, content, maxDisplayChars, fontSize, fontFamily, paddingLeft, paddingRight) {
         const textWdith = p.charsWidth(content.substring(0, maxDisplayChars), fontSize, fontFamily);
         return textWdith + (paddingLeft + paddingRight);
