@@ -12,8 +12,8 @@ constructor (content :string="",colorHax :string="#000000",fontSize :number=40,x
 super(content,colorHax,fontSize,x,y);  
 this.maxHeight = 20;//max Height is 20% of canvas
 this.dynWidth = new AnimatedNoBase(10); 
-this.useDynWidth = true;
-this.useMaxHeight = true;
+this.useDynWidth = false;
+this.useMaxHeight = false;
 }
 init(p: Pack): boolean {
 super.init(p);    
