@@ -2,9 +2,8 @@ import { XAlignment, YAlignment, OffScreenYOpt } from "./Bilza.js";
 export default class AniPre {
     constructor() {
     }
-    static LinStop(comp, fromSec = 0, toSec = 4, xUpto = 100, y = 0) {
-        comp.loc.goto(fromSec, 0, y, XAlignment.Right, YAlignment.Top);
-        comp.loc.animate(fromSec, toSec, 0, xUpto, y, y, XAlignment.Right, XAlignment.Right);
+    static LinStop(comp, fromSec = 0, toSec = 4, y = 0, xUpto = 50) {
+        comp.loc.animate(fromSec, toSec, comp.offScreenXOpt.XLeft, xUpto, y, y, XAlignment.Right, XAlignment.Right);
     }
     static TinStop(comp, fromSec = 0, toSec = 4, x = 0, yUpto = 90) {
         comp.loc.goto(fromSec, x, OffScreenYOpt.YTop, XAlignment.Mid, YAlignment.Top);

@@ -9,9 +9,11 @@ constructor(){
 
 }
 
-static LinStop(comp :BaseComponent,fromSec :number=0,toSec:number=4,xUpto:number=100,y:number=0){
-comp.loc.goto(fromSec,0,y,XAlignment.Right,YAlignment.Top)    
-comp.loc.animate(fromSec,toSec,0,xUpto,y,y,XAlignment.Right,XAlignment.Right);
+static LinStop(comp :BaseComponent,fromSec :number=0,toSec:number=4,y:number=0,xUpto:number= 50){
+// comp.loc.goto(fromSec,
+// comp.offScreenXOpt.XLeft,y,XAlignment.Right,YAlignment.Mid);    
+
+comp.loc.animate(fromSec,toSec,comp.offScreenXOpt.XLeft,xUpto,y,y,XAlignment.Right,XAlignment.Right);
 }
 static TinStop(comp :BaseComponent,fromSec :number=0,toSec:number=4,x:number=0,yUpto:number=90){
 comp.loc.goto(fromSec,x,OffScreenYOpt.YTop,XAlignment.Mid,YAlignment.Top);    
