@@ -14,11 +14,16 @@ this.charsWidth =   charsWidth;
 }
 
 public append(comp :IComponent,duration :number){
+    //???????????????
     comp.charsWidth = this.charsWidth;
      //--1 : comp.duration cant be > 0 
     if (duration < 1 || (typeof duration == "undefined")) {
         throw new Error("for Insert operation to succeed you need component duration greater than 0");
     }else {
+        //--so we dont need to assign comp.duration before insert it happes here so instead of 
+        //bil.insert.append(tst, tst.duration);
+        //we can write
+        // /bil.insert.append(tst, 20);
         comp.duration = duration;    
     }
     //--2 : set comp startTime = bilza.len() now.
@@ -34,6 +39,8 @@ public add(comp :IComponent,startTime :number,duration :number){
     if ((duration < 1) || (typeof duration == "undefined")) {
         throw new Error("for Insert operation to succeed you need component duration greater than 0");
     }else {
+        //so we dont need to assign duration before
+        //this reduces thousands of code lines
         comp.duration = duration;    
     }
 

@@ -1,0 +1,15 @@
+import CompDataBase from "../../../BaseComponent/BaseProps.js";
+export class ObjectData extends CompDataBase {
+    constructor() {
+        super();
+        this.listStartY = 30;
+        this.listGapFactor = 10;
+        this.applyWdHtPerc = false;
+        this.maxLiChars = 50;
+    }
+}
+;
+export default function DataFn() {
+    let td = new ObjectData();
+    return td;
+}
