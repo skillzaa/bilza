@@ -4,6 +4,7 @@ bil.resizeCanvas(1000, 400);
 let grid = cf.grid();
 bil.insert.alwaysOn(grid);
 let counter = cf.frameCounter();
+console.log("version", counter.version);
 counter.loc.goto(0, 0, 20);
 bil.insert.alwaysOn(counter);
 let tst = TextTempl.TinHdg("TinHdg", "#ff0000", 1, 2, 50, 10, 50);

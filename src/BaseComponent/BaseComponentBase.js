@@ -5,6 +5,7 @@ import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 import Loc from "./animation/aniNumber/loc/loc.js";
 export default class BaseComponentBase {
     constructor() {
+        this.version = "0_0_16";
         this.alwaysOn = false;
         this.offScreenXOpt = OffScreenXOpt;
         this.offScreenYOpt = OffScreenYOpt;
@@ -25,4 +26,3 @@ export default class BaseComponentBase {
         this.colorBoundingRectangle = "black";
     }
 }
-BaseComponentBase.VERSION = "0_0_15";

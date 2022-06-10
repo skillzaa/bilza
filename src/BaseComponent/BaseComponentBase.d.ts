@@ -14,7 +14,7 @@ export default class BaseComponentBase {
     alwaysOn: boolean;
     loc: Loc;
     colorBoundingRectangle: string;
-    static VERSION: string;
+    version: string;
     canvasWidth: number | null;
     canvasHeight: number | null;
     shadowColor: string;

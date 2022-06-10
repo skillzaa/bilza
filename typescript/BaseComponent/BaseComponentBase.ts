@@ -21,8 +21,7 @@ export default class BaseComponentBase{
     loc :Loc; //required by all comps
 
 colorBoundingRectangle:string; //required by all comps
-public static VERSION = "0_0_15";//required by all comps
-
+public version :string;
 //---these 2 variables will be set in init
 canvasWidth :number | null;    //required by all comps
 canvasHeight :number | null;    //required by all comps
@@ -42,6 +41,8 @@ selected :boolean;
 //---So every component can be draw using concrete x and Y or relative default is relative
 
 constructor(){
+    //--insert the current version numebr into components
+    this.version = "0_0_16";
     this.alwaysOn = false;
     // this.moveYArray = [];
     this.offScreenXOpt = OffScreenXOpt; //final-ok

@@ -10,6 +10,7 @@ bil.insert.alwaysOn(grid);
 
 //--create the component
 let counter = cf.frameCounter();
+console.log("version",counter.version);
 //--The initial location set at frame 0
 counter.loc.goto(0,0,20);
 //--insert the component
