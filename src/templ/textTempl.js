@@ -13,8 +13,8 @@ export default class TextTempl {
         g.dynWidth.setValue(dynWidth);
         g.showBg = true;
         g.border.setValue(2);
-        g.loc.goto(0, x, OffScreenYOpt.YTop, XAlignment.Mid, YAlignment.Top);
-        g.loc.animate(fromSec, toSec, x, x, OffScreenYOpt.YTop, yUpto, XAlignment.Mid, XAlignment.Mid);
+        g.goto(0, x, OffScreenYOpt.YTop, XAlignment.Mid, YAlignment.Top);
+        g.animate(fromSec, toSec, x, x, OffScreenYOpt.YTop, yUpto, XAlignment.Mid, XAlignment.Mid);
         return g;
     }
 }

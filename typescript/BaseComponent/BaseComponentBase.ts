@@ -18,7 +18,8 @@ export default class BaseComponentBase{
     /////////////////----PRIVATE----/////////////////// 
     protected  insertTimeInVid:number; 
     public alwaysOn: boolean;
-    loc :Loc; //required by all comps
+//--6-june-2022 made it protected    
+    protected    loc :Loc; //required by all comps
 
 colorBoundingRectangle:string; //required by all comps
 public version :string;
@@ -56,7 +57,8 @@ constructor(){
     //--must
     this.id = Math.random().toString(36).slice(2);
     this.style = new Style(); 
-/////////////    
+///////////// 
+
 this.loc = new Loc();
 
 this.canvasWidth = null;    

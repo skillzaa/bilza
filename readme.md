@@ -5,8 +5,7 @@
 ---
 > Bilza.js is a javascript framework for creating business and educational visualizations in the browser using HTML5 canvas.
 ---
-# Lot..lot..lot..lot of new components are coming by end next month (July-2022)
-# Complete documentation and examples will be added with in next 1 week (by approx 10-Jun-2022)
+
 ## Mission
 To be an easy to use library for creating 
     - Presentations.
@@ -25,7 +24,11 @@ To be an easy to use library for creating
 
 > npm install bilza
 
-### What is a Component 
+### How Bilza Works
++ You create a component
++ You set component properties, attach animations to it etc etc.
++ You insert the component into the engine.
++ You start the engine.
 
 > A component is what bilza library consumes. The only objective of bilza library is to draw components on the screen. That means that bilza library is extended through components.
 
@@ -44,13 +47,11 @@ To be an easy to use library for creating
 </ol>
 
 
-**This library is still in early stages and is error prone. You should play with it but wait till version 1.0.0 for serious use.**
-
 
 If you want to be in touch or send me a bug report please use github issues.
-I will add some tests and then improve documentations.
 
 -----
+###### 06-july-2022   (version 0.0.16)
 ###### 03-jun-2022   (version 0.0.15)
 ###### 09-May-2022   (version 0.0.14)
 ###### 08-May-2022   (version 0.0.13)

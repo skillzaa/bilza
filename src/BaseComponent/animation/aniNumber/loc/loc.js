@@ -39,6 +39,34 @@ export default class Loc {
         this.runGoto(msDelta);
         return true;
     }
+    goto(atFrame, x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
+        let loc = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
+        let c = new GotoArray(atFrame, loc);
+        this.gotoArray.push(c);
+        return true;
+    }
+    animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo, xAlignFrom = XAlignment.Left, xAlignTo = XAlignment.Left, yAlignFrom = YAlignment.Top, yAlignTo = YAlignment.Top, xExtraFrom = 0, xExtraTo = 0, yExtraFrom = 0, yExtraTo = 0) {
+        const fromLocItem = new LocItem(xFrom, yFrom, xAlignFrom, yAlignFrom, xExtraFrom, yExtraFrom);
+        const toLocItem = new LocItem(xTo, yTo, xAlignTo, yAlignTo, xExtraTo, yExtraTo);
+        const c = new PreInitArray(timeFrom, timeTo, fromLocItem, toLocItem);
+        this.preInitArray.push(c);
+    }
+    x() {
+        if (this._ret_data !== null) {
+            return this._ret_data.x;
+        }
+        else {
+            throw new Error("init error");
+        }
+    }
+    y() {
+        if (this._ret_data !== null) {
+            return this._ret_data.y;
+        }
+        else {
+            throw new Error("init error");
+        }
+    }
     initIncDec(compWidth, compHeight) {
         for (let i = 0; i < this.preInitArray.length; i++) {
             const elm = this.preInitArray[i];
@@ -96,11 +124,6 @@ export default class Loc {
             }
         }
     }
-    goto(atFrame, x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
-        let loc = new LocItem(x, y, xAlign, yAlign, xExtra, yExtra);
-        let c = new GotoArray(atFrame, loc);
-        this.gotoArray.push(c);
-    }
     runGoto(msDelta) {
         if (this.compWidth == null) {
             throw new Error("init error");
@@ -125,28 +148,6 @@ export default class Loc {
             if (v != null) {
                 this._ret_data.y = v;
             }
-        }
-    }
-    animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo, xAlignFrom = XAlignment.Left, xAlignTo = XAlignment.Left, yAlignFrom = YAlignment.Top, yAlignTo = YAlignment.Top, xExtraFrom = 0, xExtraTo = 0, yExtraFrom = 0, yExtraTo = 0) {
-        const fromLocItem = new LocItem(xFrom, yFrom, xAlignFrom, yAlignFrom, xExtraFrom, yExtraFrom);
-        const toLocItem = new LocItem(xTo, yTo, xAlignTo, yAlignTo, xExtraTo, yExtraTo);
-        const c = new PreInitArray(timeFrom, timeTo, fromLocItem, toLocItem);
-        this.preInitArray.push(c);
-    }
-    x() {
-        if (this._ret_data !== null) {
-            return this._ret_data.x;
-        }
-        else {
-            throw new Error("init error");
-        }
-    }
-    y() {
-        if (this._ret_data !== null) {
-            return this._ret_data.y;
-        }
-        else {
-            throw new Error("init error");
         }
     }
     newIncrement(from, to, startValue, endValue) {

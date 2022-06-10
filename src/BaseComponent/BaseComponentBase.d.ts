@@ -12,7 +12,7 @@ export default class BaseComponentBase {
     readonly offScreenYOpt: typeof OffScreenYOpt;
     protected insertTimeInVid: number;
     alwaysOn: boolean;
-    loc: Loc;
+    protected loc: Loc;
     colorBoundingRectangle: string;
     version: string;
     canvasWidth: number | null;

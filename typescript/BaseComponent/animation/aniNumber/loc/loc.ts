@@ -60,6 +60,39 @@ this.runAnimationsY(msDelta);
 this.runGoto(msDelta);
 return true;    
 }
+goto(atFrame :number,x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0):boolean{
+    let loc = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
+let c = new GotoArray(atFrame,loc);
+this.gotoArray.push(c);
+return true;
+}
+animate(timeFrom :number,timeTo :number,
+    xFrom :number |OffScreenXOpt,xTo :number |OffScreenXOpt, yFrom :number|OffScreenYOpt,yTo :number |OffScreenYOpt,
+    
+    xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,
+    
+    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0){
+
+const fromLocItem = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
+const toLocItem = new LocItem(xTo,yTo,xAlignTo,yAlignTo,xExtraTo,yExtraTo);
+const c = new PreInitArray(timeFrom,timeTo,fromLocItem,toLocItem);
+this.preInitArray.push(c);
+// console.log("this.preInitArray", this.preInitArray);
+}
+x():number{   
+    if (this._ret_data !== null){
+        return this._ret_data.x;
+    }else {
+        throw new Error("init error");
+    } 
+}
+y():number{   
+    if (this._ret_data !== null){
+        return this._ret_data.y;
+    }else {
+        throw new Error("init error");
+    } 
+}
 //-This fn converts all the  preInitIncDecArray commands into inc dec objects during init
 public initIncDec(compWidth :number,compHeight :number){
 // const from = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
@@ -126,11 +159,7 @@ private runAnimationsX(msDelta :number){
         }
 } 
 }
-goto(atFrame :number,x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0){
-    let loc = new LocItem(x,y,xAlign,yAlign,xExtra,yExtra);
-let c = new GotoArray(atFrame,loc);
-this.gotoArray.push(c);
-}
+
 private runGoto(msDelta :number){
 if (this.compWidth == null){throw new Error("init error");}
 if (this.compHeight == null){throw new Error("init error");}
@@ -156,33 +185,6 @@ private runAnimationsY(msDelta :number){
             this._ret_data.y = v;
         }
 } 
-}
-animate(timeFrom :number,timeTo :number,
-    xFrom :number |OffScreenXOpt,xTo :number |OffScreenXOpt, yFrom :number|OffScreenYOpt,yTo :number |OffScreenYOpt,
-    
-    xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,
-    
-    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0){
-
-const fromLocItem = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
-const toLocItem = new LocItem(xTo,yTo,xAlignTo,yAlignTo,xExtraTo,yExtraTo);
-const c = new PreInitArray(timeFrom,timeTo,fromLocItem,toLocItem);
-this.preInitArray.push(c);
-// console.log("this.preInitArray", this.preInitArray);
-}
-x():number{   
-    if (this._ret_data !== null){
-        return this._ret_data.x;
-    }else {
-        throw new Error("init error");
-    } 
-}
-y():number{   
-    if (this._ret_data !== null){
-        return this._ret_data.y;
-    }else {
-        throw new Error("init error");
-    } 
 }
 private newIncrement(from :number,to :number,startValue :number,endValue :number):Increment{
     let c = new Increment(from,to,startValue,endValue);

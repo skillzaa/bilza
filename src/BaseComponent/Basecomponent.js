@@ -1,3 +1,4 @@
+import { XAlignment, YAlignment } from "../Bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 export default class BaseComponent extends BaseComponentBase {
     constructor() {
@@ -5,15 +6,9 @@ export default class BaseComponent extends BaseComponentBase {
         this.charsWidth = null;
     }
     width() {
-        if (this.charsWidth !== null) {
-            return this.charsWidth("Hello", 50, "Arial");
-        }
         return 0;
     }
     height() {
-        if (this.charsWidth !== null) {
-            return this.charsWidth("Hello", 50, "Arial");
-        }
         return 0;
     }
     init(p) {
@@ -62,5 +57,17 @@ export default class BaseComponent extends BaseComponentBase {
     setStartTime(n) {
         this.insertTimeInVid = n;
         return this.insertTimeInVid;
+    }
+    goto(atFrame, x, y, xAlign = XAlignment.Left, yAlign = YAlignment.Top, xExtra = 0, yExtra = 0) {
+        return this.loc.goto(atFrame, x, y, xAlign, yAlign, xExtra, yExtra);
+    }
+    animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo, xAlignFrom = XAlignment.Left, xAlignTo = XAlignment.Left, yAlignFrom = YAlignment.Top, yAlignTo = YAlignment.Top, xExtraFrom = 0, xExtraTo = 0, yExtraFrom = 0, yExtraTo = 0) {
+        return this.loc.animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo, xAlignFrom, xAlignTo, yAlignFrom, yAlignTo, xExtraFrom, xExtraTo, yExtraFrom, yExtraTo);
+    }
+    x() {
+        return this.loc.x();
+    }
+    y() {
+        return this.loc.y();
     }
 }

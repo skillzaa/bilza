@@ -1,8 +1,8 @@
-import {Pack,IComponent} from "../Bilza.js";
+import {Pack,IComponent,XAlignment,YAlignment} from "../Bilza.js";
 // import Style from "../design/style.js";
 import BaseComponentBase from "./BaseComponentBase.js";
-// import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
-// import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
+import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
+import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
 export default class BaseComponent extends BaseComponentBase implements IComponent {
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -15,16 +15,10 @@ constructor (){
 }
 
 width(): number {
-if (this.charsWidth !== null){
- return this.charsWidth("Hello",50,"Arial");
-}    
 return 0;
-}
-height(): number {
-    if (this.charsWidth !== null){
-        return this.charsWidth("Hello",50,"Arial");
-       }    
-       return 0;
+} 
+height(): number {   
+return 0;
 }
 // brilent do not send frame in draw args just send frame in update-
 init(p: Pack): boolean {
@@ -85,6 +79,26 @@ setStartTime(n :number):number{
 this.insertTimeInVid = n;
 return this.insertTimeInVid;
 }
+goto(atFrame :number,x :number|OffScreenXOpt , y :number|OffScreenYOpt,xAlign :XAlignment=XAlignment.Left,yAlign :YAlignment=YAlignment.Top,xExtra :number=0,yExtra :number=0):boolean{
+return this.loc.goto(atFrame,x, y,xAlign,yAlign,xExtra,yExtra);
 
+}
+animate(timeFrom :number,timeTo :number,
+    xFrom :number |OffScreenXOpt,xTo :number |OffScreenXOpt, yFrom :number|OffScreenYOpt,yTo :number |OffScreenYOpt,
+    
+    xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,
+    
+    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0) {
+return this.loc.animate(timeFrom,timeTo,
+    xFrom,xTo, yFrom ,yTo,
+    xAlignFrom,xAlignTo,yAlignFrom,yAlignTo,
+    xExtraFrom,xExtraTo,yExtraFrom,yExtraTo);
+}
+x():number{   
+return this.loc.x();
+}
+y():number{   
+ return this.loc.y(); 
+}
 ////////////////////////////////////////////////////////
 }//component ends 

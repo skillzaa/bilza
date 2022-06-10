@@ -66,6 +66,8 @@ this.pack.dynamicCanvas(widthInPercent,heightInPercent);
 return true;
 }
 start():boolean{
+//-06-june-2022 the init is moved inside start ..may create problems    
+    this.init(); 
     this.stopWatch.start(this.draw.bind(this));
     return true;
 }
