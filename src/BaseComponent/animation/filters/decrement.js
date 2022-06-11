@@ -10,7 +10,7 @@ export default class Decrement extends Motherfilter {
         this.XDIFF = this.getXDiff(this.STARTVALUE, this.ENDVALUE);
         this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
         this.framesCounter = 0;
-        this.ADDFACTOR = this.XDIFF / this.TOTALFRAMES;
+        this.ADDFACTOR = Math.abs(this.XDIFF / this.TOTALFRAMES);
         this._ret_val = null;
     }
     update(msDelta) {
@@ -19,12 +19,7 @@ export default class Decrement extends Motherfilter {
         if (this.active == true && (this.framesCounter <= this.TOTALFRAMES)) {
             const rezult = Math.ceil(this.ADDFACTOR * this.framesCounter);
             this.framesCounter += 1;
-            if (this.STARTVALUE >= 0) {
-                this._ret_val = Math.abs(this.STARTVALUE - rezult);
-            }
-            else {
-                this._ret_val = this.STARTVALUE + rezult;
-            }
+            this._ret_val = this.STARTVALUE - rezult;
             return true;
         }
         else {

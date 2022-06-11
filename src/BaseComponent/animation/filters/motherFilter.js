@@ -8,7 +8,7 @@ export default class Motherfilter {
         this.ENDVALUE = 0;
         this.TOTALFRAMES = 0;
         this.SYSTEMMAXVALUE = 3000;
-        this.SYSTEMMINVALUE = -1000;
+        this.SYSTEMMINVALUE = -3000;
         this.TIMEDIFFSEC = 0;
         this.XDIFF = 0;
         this.STARTVALUE = 0;

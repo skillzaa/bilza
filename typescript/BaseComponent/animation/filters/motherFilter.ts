@@ -15,10 +15,10 @@ protected  readonly SYSTEMMINVALUE :number;
 //--just for use if required
 protected    TIMEDIFFSEC :number;
 protected    XDIFF :number;
-protected     STARTVALUE :number;
-
+protected    STARTVALUE :number;
 
 constructor(){
+
     this.active = false; 
 this.exhausted = false;
 this._ret_val = null;
@@ -28,7 +28,7 @@ this.TO =0;
 this.ENDVALUE =0; 
 this.TOTALFRAMES =0; 
 this.SYSTEMMAXVALUE = 3000; 
-this.SYSTEMMINVALUE = -1000; 
+this.SYSTEMMINVALUE = -3000; 
 this.TIMEDIFFSEC =0; 
 this.XDIFF =0; 
 this.STARTVALUE =0; 

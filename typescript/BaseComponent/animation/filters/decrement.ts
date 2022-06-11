@@ -1,44 +1,32 @@
-// Rules
-// --1-- From and To can not be negative, since they are time.also math.ceil
-//--2--From can not be larger than To.
-//--3--From can be 0 but To can min be 1.
-//--4--Keep in mind startValue is not negative and larger one on the right side where as the endValue is on left and is smaller since this is decrement operation.
 import Motherfilter from "./motherFilter.js";
 
+/**
+ * Rules
+ * startValue can not be negative since this is decrement operation and we have to reduce /subtract. if startValue is negative then it is already offLeft of screen how can be decrement it more 
+ * the endValue can be negative since the com may have to go offscreen left.
+ * the add factor is subtract factor in decrement operation.
+ */
 export default class Decrement extends Motherfilter{
-// private readonly FROM :number;
-// private readonly TO :number;
-// private readonly ENDVALUE :number;
-// private readonly TOTALFRAMES :number;
-// private  framesCounter :number;
-// private  ADDFACTOR :number;
-// // private  active :boolean;
-// private readonly SYSTEMMAXVALUE :number;
-// private readonly SYSTEMMINVALUE :number;
-// //--just for use if required
-// private  readonly TIMEDIFFSEC :number;
-// private  readonly XDIFF :number;
-// protected    readonly STARTVALUE :number;
 
 constructor(from :number,to :number,startValue :number,endValue :number){
 super();
 this.FROM =  this.getFrom(from,to);
 this.TO =  this.getTo(from,to);
-//--this is what we add out answer to finally
 //---This time is in seconds no ms
 this.TIMEDIFFSEC = Math.ceil(this.TO - this.FROM);
 //---Start and End value
-this.STARTVALUE = this.getStartValue(startValue,endValue);//can be negative
-//-We have to reach this number in any case
+//can Not be negative ????
+this.STARTVALUE = this.getStartValue(startValue,endValue);
+//-We have to reach this number in any case. CAN BE NEGATIVE
 this.ENDVALUE = this.getEndValue(startValue,endValue);
 //since start number is bigger or else we get -ve number
 this.XDIFF = this.getXDiff(this.STARTVALUE,this.ENDVALUE);
-//--D
+//--?? the 60 needs to be changed
 this.TOTALFRAMES = Math.ceil(this.TIMEDIFFSEC * 60);
 this.framesCounter = 0; 
 // this.active = false; 
 //--dont Math.ceit it
-this.ADDFACTOR = this.XDIFF/this.TOTALFRAMES; 
+this.ADDFACTOR = Math.abs(this.XDIFF/this.TOTALFRAMES); 
 //---this should be null as long as it has not been changed if its frame has come- other than that it should always return null so that its value is not processed
 this._ret_val = null;
 //-21-may-2022 dont change this line
@@ -54,13 +42,13 @@ if (this.active == true  && (this.framesCounter <= this.TOTALFRAMES)){
     const rezult = Math.ceil(this.ADDFACTOR *  this.framesCounter);
     this.framesCounter +=1;
 
-    if (this.STARTVALUE >= 0 ){//startValue == positive
-        this._ret_val = Math.abs(this.STARTVALUE - rezult);
+    // if (this.STARTVALUE >= 0 ){//startValue == positive
+        this._ret_val = this.STARTVALUE - rezult;
         // console.log("msDelta",msDelta,"this._ret_Val",this._ret_val);
-        }else {
+        // }else {
             //since this.STARTVALUE is -ve so + will have -ve effect
-            this._ret_val = this.STARTVALUE + rezult;
-        }    
+            // this._ret_val = this.STARTVALUE + rezult;
+        // }    
     return true;
 }else {
     this._ret_val = null;
@@ -81,7 +69,14 @@ if (from >= to ){throw new Error("from can not be smaller than zero");}
 if (to < 1){throw new Error("To can not be smaller than One");}
 return to;
 }
-private getStartValue(startValue :number,endValue :number){
+/**
+ * 
+ * @param startValue can NOT be negative in decrement operations
+ * @param endValue can be negative
+ * @returns 
+ */
+private getStartValue(startValue :number,endValue :number):number{
+
 if (startValue > this.SYSTEMMAXVALUE){throw new Error("start Value (for decrement operation) is too large");}
 if (startValue < 0){throw new Error("start Value (for decrement operation) can not be negative");}
 //cant be Negative or fraction
