@@ -2,7 +2,7 @@ import Bilza, { CompFactory as cf } from "../Bilza.js";
 
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
-bil.soundTrackUrl = "./mix.mp3";
+bil.soundTrack = "./mix.mp3";
 //--create the component
 let grid = cf.grid();
 //--insert the component
@@ -47,12 +47,7 @@ bil.drawInit();
 
 document.getElementById("play")?.addEventListener("click",function(){
     bil.start();
-    bil.soundTrack?.play();
 });
 document.getElementById("stop")?.addEventListener("click",function(){
     bil.stop();
-    if (bil.soundTrack !== null){
-        bil.soundTrack.pause();
-        bil.soundTrack.currentTime = 0;
-    }
 });

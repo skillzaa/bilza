@@ -13,8 +13,8 @@ export default class Bilza {
 public background :Background;
 public insert:Insert; 
 public set :Settings; 
-public  soundTrack :HTMLAudioElement | null;
-public soundTrackUrl :string | null;
+public  soundTrackElement :HTMLAudioElement | null;
+public soundTrack :string | null;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 private duration : Duration; 
 private comps:Comps;//--009
@@ -26,7 +26,7 @@ constructor (canvasId="bilza",screenWidthInPercent=80){
 this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
 this.duration = new Duration();
-this.soundTrackUrl = null;
+this.soundTrackElement = null;
 this.soundTrack = null;
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
@@ -34,9 +34,8 @@ this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();
 } 
 public init():boolean{
-    if (this.soundTrackUrl !== null){
-        // console.log("soundUrl",this.soundUrl);
-        this.soundTrack = new Audio(this.soundTrackUrl);
+    if (this.soundTrack !== null){
+        this.soundTrackElement = new Audio(this.soundTrack);
     }
     this.comps.init(this.pack);
     return true;
@@ -76,10 +75,17 @@ return true;
 start():boolean{
 //-06-june-2022 the init is moved inside start ..may create problems    
     this.init(); 
+    if (this.soundTrackElement !== null){
+        this.soundTrackElement.play();
+    }
     this.stopWatch.start(this.draw.bind(this));
     return true;
 }
 stop():boolean{
+    if (this.soundTrackElement !== null){
+        this.soundTrackElement.pause();
+        this.soundTrackElement.currentTime = 0;
+    }
     this.stopWatch.stop();
     return true; 
 }

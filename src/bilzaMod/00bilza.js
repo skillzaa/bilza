@@ -10,7 +10,7 @@ export default class Bilza {
         this.pack = new Pack(canvasId, screenWidthInPercent);
         this.comps = new Comps();
         this.duration = new Duration();
-        this.soundTrackUrl = null;
+        this.soundTrackElement = null;
         this.soundTrack = null;
         this.insert = new Insert(this.comps, this.duration, this.pack.charsWidth.bind(this.pack));
         this.stopWatch = new StopWatch();
@@ -18,8 +18,8 @@ export default class Bilza {
         this.background = new Background();
     }
     init() {
-        if (this.soundTrackUrl !== null) {
-            this.soundTrack = new Audio(this.soundTrackUrl);
+        if (this.soundTrack !== null) {
+            this.soundTrackElement = new Audio(this.soundTrack);
         }
         this.comps.init(this.pack);
         return true;
@@ -57,10 +57,17 @@ export default class Bilza {
     }
     start() {
         this.init();
+        if (this.soundTrackElement !== null) {
+            this.soundTrackElement.play();
+        }
         this.stopWatch.start(this.draw.bind(this));
         return true;
     }
     stop() {
+        if (this.soundTrackElement !== null) {
+            this.soundTrackElement.pause();
+            this.soundTrackElement.currentTime = 0;
+        }
         this.stopWatch.stop();
         return true;
     }
