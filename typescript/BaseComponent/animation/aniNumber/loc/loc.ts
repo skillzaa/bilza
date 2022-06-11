@@ -71,12 +71,13 @@ animate(timeFrom :number,timeTo :number,
     
     xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,
     
-    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0){
+    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0):boolean{
 
 const fromLocItem = new LocItem(xFrom,yFrom,xAlignFrom,yAlignFrom,xExtraFrom,yExtraFrom);
 const toLocItem = new LocItem(xTo,yTo,xAlignTo,yAlignTo,xExtraTo,yExtraTo);
 const c = new PreInitArray(timeFrom,timeTo,fromLocItem,toLocItem);
 this.preInitArray.push(c);
+return true;
 // console.log("this.preInitArray", this.preInitArray);
 }
 x():number{   

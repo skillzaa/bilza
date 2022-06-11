@@ -50,6 +50,7 @@ export default class Loc {
         const toLocItem = new LocItem(xTo, yTo, xAlignTo, yAlignTo, xExtraTo, yExtraTo);
         const c = new PreInitArray(timeFrom, timeTo, fromLocItem, toLocItem);
         this.preInitArray.push(c);
+        return true;
     }
     x() {
         if (this._ret_data !== null) {

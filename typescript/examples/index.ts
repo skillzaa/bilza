@@ -1,4 +1,4 @@
-import Bilza, { XAlignment, YAlignment,TextTempl,OffScreenXOpt,OffScreenYOpt, AniTempl, CompFactory as cf } from "../Bilza.js";
+import Bilza, { XAlignment, YAlignment,TextTempl,OffScreenXOpt,OffScreenYOpt, CompFactory as cf } from "../Bilza.js";
 
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
@@ -24,7 +24,7 @@ bil.insert.alwaysOn(counter);
 // bil.insert.append(tst, 20);
 
 let p = cf.pic("./scream.jpg",50,30);
-AniTempl.TinStop(p,0,2,50,5);
+p.aniPreset.TinStop(p,0,2,50,5)
 // p.resize(0,2,10,50,10,80);
 bil.insert.append(p,20);
 

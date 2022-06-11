@@ -1,4 +1,4 @@
-import Bilza, { AniTempl, CompFactory as cf } from "../Bilza.js";
+import Bilza, { CompFactory as cf } from "../Bilza.js";
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
 let grid = cf.grid();
@@ -7,6 +7,6 @@ let counter = cf.frameCounter();
 counter.goto(0, 0, 20);
 bil.insert.alwaysOn(counter);
 let p = cf.pic("./scream.jpg", 50, 30);
-AniTempl.TinStop(p, 0, 2, 50, 5);
+p.aniPreset.TinStop(p, 0, 2, 50, 5);
 bil.insert.append(p, 20);
 bil.start();

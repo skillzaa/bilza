@@ -1,11 +1,9 @@
 import { XAlignment, YAlignment } from "../Bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
-import AniPresent from "./aniPresent.js";
-export default class BaseComponent extends BaseComponentBase {
+export default class BaseComponentMain extends BaseComponentBase {
     constructor() {
         super();
         this.charsWidth = null;
-        this.aniPreset = new AniPresent(this);
     }
     width() {
         return 0;

@@ -2,10 +2,8 @@ import { Pack, IComponent, XAlignment, YAlignment } from "../Bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
-import AniPresent from "./aniPresent.js";
-export default class BaseComponent extends BaseComponentBase implements IComponent {
+export default class BaseComponentMain extends BaseComponentBase implements IComponent {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
-    aniPreset: AniPresent;
     constructor();
     width(): number;
     height(): number;
@@ -20,8 +18,8 @@ export default class BaseComponent extends BaseComponentBase implements ICompone
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
     goto(atFrame: number, x: number | OffScreenXOpt, y: number | OffScreenYOpt, xAlign?: XAlignment, yAlign?: YAlignment, xExtra?: number, yExtra?: number): boolean;
-    animate(timeFrom: number, timeTo: number, xFrom: number | OffScreenXOpt, xTo: number | OffScreenXOpt, yFrom: number | OffScreenYOpt, yTo: number | OffScreenYOpt, xAlignFrom?: XAlignment, xAlignTo?: XAlignment, yAlignFrom?: YAlignment, yAlignTo?: YAlignment, xExtraFrom?: number, xExtraTo?: number, yExtraFrom?: number, yExtraTo?: number): boolean;
+    animate(timeFrom: number, timeTo: number, xFrom: number | OffScreenXOpt, xTo: number | OffScreenXOpt, yFrom: number | OffScreenYOpt, yTo: number | OffScreenYOpt, xAlignFrom?: XAlignment, xAlignTo?: XAlignment, yAlignFrom?: YAlignment, yAlignTo?: YAlignment, xExtraFrom?: number, xExtraTo?: number, yExtraFrom?: number, yExtraTo?: number): void;
     x(): number;
     y(): number;
 }
-//# sourceMappingURL=BaseComponent.d.ts.map
+//# sourceMappingURL=BaseComponentMain.d.ts.map

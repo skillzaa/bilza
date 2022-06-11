@@ -9,7 +9,6 @@ import IComponent from "./design/IComponent.js";
 import {FontFamily} from "./design/fontFamily.js";
 import Style from "./design/style.js";
 import BaseComponent from "./BaseComponent/BaseComponent.js"
-import AniTempl from "./templ/aniTempl.js";
 import { XAlignment } from "./design/xAlignment.js";
 import { YAlignment } from "./design/yAlignment.js";
 
@@ -36,6 +35,5 @@ OffScreenXOpt,
 OffScreenYOpt,
 FontFamily,
 Style,
-AniTempl,
 TextTempl
 }

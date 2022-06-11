@@ -3,15 +3,17 @@ import {Pack,IComponent,XAlignment,YAlignment} from "../Bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
+import AniPresent from "./aniPresent.js";
 
 export default class BaseComponent extends BaseComponentBase implements IComponent {
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
-
+aniPreset :AniPresent;
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
     super();
     this.charsWidth = null;  
+    this.aniPreset = new AniPresent(this);
 }
 
 width(): number {
@@ -85,7 +87,7 @@ animate(timeFrom :number,timeTo :number,
     
     xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,
     
-    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0) {
+    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0):boolean {
 return this.loc.animate(timeFrom,timeTo,
     xFrom,xTo, yFrom ,yTo,
     xAlignFrom,xAlignTo,yAlignFrom,yAlignTo,
