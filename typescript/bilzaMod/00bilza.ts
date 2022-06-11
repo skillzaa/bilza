@@ -13,6 +13,8 @@ export default class Bilza {
 public background :Background;
 public insert:Insert; 
 public set :Settings; 
+public  soundTrack :HTMLAudioElement | null;
+public soundTrackUrl :string | null;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 private duration : Duration; 
 private comps:Comps;//--009
@@ -24,12 +26,18 @@ constructor (canvasId="bilza",screenWidthInPercent=80){
 this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
 this.duration = new Duration();
+this.soundTrackUrl = null;
+this.soundTrack = null;
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();
 } 
 public init():boolean{
+    if (this.soundTrackUrl !== null){
+        // console.log("soundUrl",this.soundUrl);
+        this.soundTrack = new Audio(this.soundTrackUrl);
+    }
     this.comps.init(this.pack);
     return true;
 }
@@ -41,7 +49,7 @@ public drawInit():boolean{
 public draw():boolean{
  if(this.pack == null){
 throw new Error("bilzaa is not initialized");}   
-let msDelta = this.stopWatch.getMsDelta();
+    let    msDelta = this.stopWatch.getMsDelta();
 
 if(msDelta >= this.len(true)){ this.stopWatch.stop();}     
 this.pack.clearCanvas();          

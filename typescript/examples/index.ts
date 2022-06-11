@@ -1,8 +1,8 @@
-import Bilza, { XAlignment, YAlignment,TextTempl,OffScreenXOpt,OffScreenYOpt, CompFactory as cf } from "../Bilza.js";
+import Bilza, { CompFactory as cf } from "../Bilza.js";
 
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
-
+bil.soundTrackUrl = "./mix.mp3";
 //--create the component
 let grid = cf.grid();
 //--insert the component
@@ -23,8 +23,8 @@ bil.insert.alwaysOn(counter);
 //--insert the component
 // bil.insert.append(tst, 20);
 
-let p = cf.pic("./scream.jpg",50,30);
-p.aniPreset.TinStop(p,0,2,50,5)
+let p = cf.pic("./scream.jpg",20,50);
+p.aniPreset.TinStop(p,0,2,50,10)
 // p.resize(0,2,10,50,10,80);
 bil.insert.append(p,20);
 
@@ -39,7 +39,20 @@ bil.insert.append(p,20);
 // AniTempl.BinStop(bullet02,2,4,50,50);
 
 // bil.insert.add(bullet02,0,20);
-
+bil.drawInit();
 
 ////////////////////////////////////////////
-bil.start();
+
+
+
+document.getElementById("play")?.addEventListener("click",function(){
+    bil.start();
+    bil.soundTrack?.play();
+});
+document.getElementById("stop")?.addEventListener("click",function(){
+    bil.stop();
+    if (bil.soundTrack !== null){
+        bil.soundTrack.pause();
+        bil.soundTrack.currentTime = 0;
+    }
+});

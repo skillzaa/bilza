@@ -10,12 +10,17 @@ export default class Bilza {
         this.pack = new Pack(canvasId, screenWidthInPercent);
         this.comps = new Comps();
         this.duration = new Duration();
+        this.soundTrackUrl = null;
+        this.soundTrack = null;
         this.insert = new Insert(this.comps, this.duration, this.pack.charsWidth.bind(this.pack));
         this.stopWatch = new StopWatch();
         this.set = new Settings();
         this.background = new Background();
     }
     init() {
+        if (this.soundTrackUrl !== null) {
+            this.soundTrack = new Audio(this.soundTrackUrl);
+        }
         this.comps.init(this.pack);
         return true;
     }
