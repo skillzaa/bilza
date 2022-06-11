@@ -5,9 +5,14 @@ import StaticGrid from "./staticGrid.js";
 import FrameCounter from "./frameCounter.js";
 import BgCircles from "./bgCircles.js";
 import Text from "./text/text.js";
+import Pic from "./pic.js";
 
 export default class CompFactory {
 
+static pic(imgId :string,dynWidth:number=10,dynHeight :number=10){
+let g = new Pic(imgId,dynWidth,dynHeight);
+return g;    
+}
 static staticGrid(cellWidth :number=100,cellHeight :number=100, color :string){
 let g = new StaticGrid(cellWidth,cellHeight, color);
 return g;    

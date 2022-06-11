@@ -8,7 +8,6 @@ export default interface IComponent {
     draw(p: Pack): boolean;
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     checkCollision(x: number, y: number, p: Pack): boolean;
-    resize(width: number, height: number): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
     duration: number;

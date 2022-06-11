@@ -22,7 +22,7 @@ export default interface IComponent{
     charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
     ///----check collision
     checkCollision(x :number,y :number, p :Pack):boolean;
-    resize(width :number,height :number):number;
+    // resize(width :number,height :number):number;
 
 //----insert/displayType ==> 1append-2Timed-3AlwaysShow
 getStartTime(inMilliSec ?:boolean) :number;

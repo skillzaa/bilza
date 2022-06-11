@@ -64,9 +64,6 @@ shadowsOn(){
     this.style.shadowOffsetY = 10;
     this.style.shadowColor = "grey";
 }
-resize(width :number,height :number):number{
- return 0;
-}
 
 getEndTime(inMilliSec :boolean = true) :number{
 let r = this.insertTimeInVid + this.duration; //both r in sec

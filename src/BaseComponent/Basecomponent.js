@@ -1,6 +1,6 @@
 import { XAlignment, YAlignment } from "../Bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
-export default class BaseComponent extends BaseComponentBase {
+export default class BaseComponentMain extends BaseComponentBase {
     constructor() {
         super();
         this.charsWidth = null;
@@ -43,9 +43,6 @@ export default class BaseComponent extends BaseComponentBase {
         this.style.shadowOffsetX = 10;
         this.style.shadowOffsetY = 10;
         this.style.shadowColor = "grey";
-    }
-    resize(width, height) {
-        return 0;
     }
     getEndTime(inMilliSec = true) {
         let r = this.insertTimeInVid + this.duration;

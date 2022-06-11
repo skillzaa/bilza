@@ -19,13 +19,6 @@ public init(pack :Pack):boolean{
     }
 return true;
 }
-public resizeAll(width :number = 800,height :number = 400):boolean{
-    for (let i = 0; i < this.compArray.length; i++) {
-        const element = this.compArray[i];
-        element.resize(width,height); 
-    }
-    return true;
-}    
 public drawByDrawLayer(msDelta :number,drawLayer :DrawLayer,pack :Pack):boolean{ 
 for (let i = 0; i < this.compArray.length; i++) {
 let comp = this.compArray[i];       

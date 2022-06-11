@@ -18,22 +18,27 @@ counter.goto(0,0,20);
 bil.insert.alwaysOn(counter);
 
 //--create the component
-let tst = TextTempl.hdg("Heading","#ff0000",50,30,12);
-AniTempl.TinStop(tst,0,2,50,5);
+// let tst = TextTempl.hdg("Heading","#ff0000",50,30,12);
+// AniTempl.TinStop(tst,0,2,50,5);
 //--insert the component
-bil.insert.append(tst, 20);
+// bil.insert.append(tst, 20);
 
-let bullet01 = cf.text("Bullet point for the heading","#008000",);
-AniTempl.BinStop(bullet01,4,6,50,40);
-bil.insert.add(bullet01,0,20);
+let p = cf.pic("./scream.jpg",50,30);
+AniTempl.TinStop(p,0,2,50,5);
+// p.resize(0,2,10,50,10,80);
+bil.insert.append(p,20);
 
-let bullet02 = cf.text("Bullet point for the heading","#008000",);
+// let bullet01 = cf.text("Bullet point for the heading","#008000",);
+// AniTempl.BinStop(bullet01,4,6,50,40);
+// bil.insert.add(bullet01,0,20);
+
+// let bullet02 = cf.text("Bullet point for the heading","#008000",);
 // AniTempl.RinStop(bullet02,8,12,50,80);
 // AniTempl.RinLout(bullet02,8,12,80);
 // AniTempl.BinTout(bullet02,2,12,50);
-AniTempl.BinStop(bullet02,2,4,50,50);
+// AniTempl.BinStop(bullet02,2,4,50,50);
 
-bil.insert.add(bullet02,0,20);
+// bil.insert.add(bullet02,0,20);
 
 
 ////////////////////////////////////////////

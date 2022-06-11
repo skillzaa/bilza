@@ -12,13 +12,6 @@ export default class Comps {
         }
         return true;
     }
-    resizeAll(width = 800, height = 400) {
-        for (let i = 0; i < this.compArray.length; i++) {
-            const element = this.compArray[i];
-            element.resize(width, height);
-        }
-        return true;
-    }
     drawByDrawLayer(msDelta, drawLayer, pack) {
         for (let i = 0; i < this.compArray.length; i++) {
             let comp = this.compArray[i];

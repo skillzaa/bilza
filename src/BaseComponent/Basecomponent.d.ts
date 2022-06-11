@@ -2,7 +2,7 @@ import { Pack, IComponent, XAlignment, YAlignment } from "../Bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
-export default class BaseComponent extends BaseComponentBase implements IComponent {
+export default class BaseComponentMain extends BaseComponentBase implements IComponent {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     constructor();
     width(): number;
@@ -14,7 +14,6 @@ export default class BaseComponent extends BaseComponentBase implements ICompone
     shadowsOff(): void;
     setShadow(shadowBlur?: number, shadowOffsetX?: number, shadowOffsetY?: number, shadowColor?: string): void;
     shadowsOn(): void;
-    resize(width: number, height: number): number;
     getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;

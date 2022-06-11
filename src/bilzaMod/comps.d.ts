@@ -4,7 +4,6 @@ export default class Comps {
     constructor();
     push(comp: IComponent): IComponent;
     init(pack: Pack): boolean;
-    resizeAll(width?: number, height?: number): boolean;
     drawByDrawLayer(msDelta: number, drawLayer: DrawLayer, pack: Pack): boolean;
     qualifyForDraw(comp: IComponent, msDelta: number): boolean;
     len(): number;
