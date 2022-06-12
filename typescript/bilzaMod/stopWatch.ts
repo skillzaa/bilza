@@ -32,7 +32,7 @@ stop():boolean{
     this.runningStartTimeTS = null;
     if (this.interval !== null){
         clearInterval(this.interval);
-    }
+    } 
 return true;    
 }
 public getMsDelta() :number{

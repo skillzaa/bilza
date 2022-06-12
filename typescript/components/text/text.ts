@@ -1,7 +1,7 @@
 import { Pack ,AnimatedNoBase,Style } from "../../Bilza.js";
 import Text002 from "./text002.js"
 ;
-import TextUtil from "./textUtil.js";
+// import TextUtil from "./textUtil.js";
 export default class Text extends Text002 {
 public useDynWidth :boolean;
 public useMaxHeight :boolean;

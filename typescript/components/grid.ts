@@ -1,8 +1,7 @@
 import {Pack,DrawLayer} from "../Bilza.js";
 
-import Basecomponent from "../BaseComponent/BaseComponent.js";
-
-export default class Grid extends Basecomponent {
+import BaseComponent from "../BaseComponent/BaseComponent.js";
+export default class Grid extends BaseComponent {
 
     lineDash :number[];
     

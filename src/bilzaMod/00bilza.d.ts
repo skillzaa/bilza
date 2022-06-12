@@ -15,6 +15,7 @@ export default class Bilza {
     init(): boolean;
     drawInit(): boolean;
     draw(): boolean;
+    drawFrame(msDelta: number): void;
     len(inMilliSeconds?: boolean): number;
     drawEvent(msDelta: number): boolean;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;

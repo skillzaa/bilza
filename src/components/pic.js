@@ -1,5 +1,4 @@
-import { DrawLayer, AnimatedNoBase } from "../Bilza.js";
-import BaseComponent from "../BaseComponent/BaseComponent.js";
+import { DrawLayer, AnimatedNoBase, BaseComponent } from "../Bilza.js";
 export default class Pic extends BaseComponent {
     constructor(imgUrl = "./scream.jpg", dynWidth = 10, dynHeight = 10) {
         super();

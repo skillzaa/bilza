@@ -2,7 +2,7 @@
 
 export default class Duration {
 private _pvt_duration_val :number; //the size of video-length in milli seconds     
-
+ 
 constructor(){
 this._pvt_duration_val = 0; 
 }

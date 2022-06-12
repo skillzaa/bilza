@@ -7,9 +7,9 @@ export default class BaseComponent extends BaseComponentBase implements ICompone
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     aniPreset: AniPresent;
     constructor();
+    init(p: Pack): boolean;
     width(): number;
     height(): number;
-    init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     checkCollision(x: number, y: number, p: Pack): boolean;

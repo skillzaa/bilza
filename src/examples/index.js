@@ -11,7 +11,8 @@ bil.insert.alwaysOn(counter);
 let p = cf.pic("./scream.jpg", 20, 50);
 p.aniPreset.TinStop(p, 0, 2, 50, 10);
 bil.insert.append(p, 20);
-bil.drawInit();
+bil.init();
+bil.drawFrame(8000);
 (_a = document.getElementById("play")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
     bil.start();
 });

@@ -46,21 +46,25 @@ public drawInit():boolean{
     return true;
 }
 public draw():boolean{
- if(this.pack == null){
-throw new Error("bilzaa is not initialized");}   
-    let    msDelta = this.stopWatch.getMsDelta();
+ let msDelta = this.stopWatch.getMsDelta();
+this.drawFrame(msDelta); /// The draw mechanism without titbits
+///-----connection with outer world
+this.drawEvent(msDelta);
+return true;
+}
+ 
+public drawFrame(msDelta :number){
+if(this.pack == null){throw new Error("bilzaa is not initialized");}   
+if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
 
-if(msDelta >= this.len(true)){ this.stopWatch.stop();}     
 this.pack.clearCanvas();          
 this.pack.drawBackground(this.background.color);
 
 this.comps.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
-///-----connection with outer world
-this.drawEvent(msDelta);
-return true;
 }
+
 len(inMilliSeconds :boolean = true):number{
 return this.duration.len(inMilliSeconds);
 }

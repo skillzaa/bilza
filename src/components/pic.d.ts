@@ -1,5 +1,4 @@
-import { Pack, AnimatedNoBase } from "../Bilza.js";
-import BaseComponent from "../BaseComponent/BaseComponent.js";
+import { Pack, AnimatedNoBase, BaseComponent } from "../Bilza.js";
 export default class Pic extends BaseComponent {
     img: HTMLImageElement;
     protected orignalWidth: number;

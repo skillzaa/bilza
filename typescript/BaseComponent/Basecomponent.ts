@@ -16,24 +16,20 @@ constructor (){
     this.aniPreset = new AniPresent(this);
 }
 
+init(p: Pack): boolean {
+//--- now i have width in pix when app is init and width in percentage when not init    
+this.canvasWidth =  p.canvasWidth();  
+this.canvasHeight =  p.canvasHeight();  
+this.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+return true;
+}
+
 width(): number {
 return 0;
 } 
 height(): number {   
 return 0;
 }
-// brilent do not send frame in draw args just send frame in update-
-init(p: Pack): boolean {
-//--- now i have width in pix when app is init and width in percentage when not init    
-this.canvasWidth =  p.canvasWidth();  
-this.canvasHeight =  p.canvasHeight();  
-
-this.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
-
-
-return true;
-}
-
 
 update(msDelta :number,p :Pack): boolean {
     this.loc.update(msDelta);

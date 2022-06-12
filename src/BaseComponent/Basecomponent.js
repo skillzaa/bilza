@@ -7,17 +7,17 @@ export default class BaseComponent extends BaseComponentBase {
         this.charsWidth = null;
         this.aniPreset = new AniPresent(this);
     }
-    width() {
-        return 0;
-    }
-    height() {
-        return 0;
-    }
     init(p) {
         this.canvasWidth = p.canvasWidth();
         this.canvasHeight = p.canvasHeight();
         this.loc.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         return true;
+    }
+    width() {
+        return 0;
+    }
+    height() {
+        return 0;
     }
     update(msDelta, p) {
         this.loc.update(msDelta);

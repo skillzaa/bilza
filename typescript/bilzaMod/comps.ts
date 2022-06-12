@@ -5,7 +5,7 @@ import {DrawLayer,IComponent,Pack } from "../Bilza";
  */
 export default class Comps {
 public compArray :IComponent[];    
-    
+     
 constructor(){
 this.compArray = [];    
 }
