@@ -19,10 +19,21 @@
     
     <div id="canvasContainer">
         <canvas id="bilza"></canvas>
-        <button id="play">play</button>
-        <button id="stop">Stop</button>
 
-    </div>
+<table id="controls" style="width:100%">
+<tr>    
+    <td style="width:5%"><button id="play">Play</button></td>
+    <td style="width:5%"><button id="pause">Pause</button></td>
+    <td style="width:5%"><button id="stop">Stop</button></td>
+    <td style="width:75%">
+        <input type="range" id="slider" style="width:100%">
+    </td>
+    <td style="width:10%"></td>
+</tr>
+</table>
+
+</div>
+
 
 <script src="../../src/examples/index.js" type="module"></script>
 
