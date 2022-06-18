@@ -1,10 +1,12 @@
 // Rules
-// --1-- From and To can not be negative, since they are time.also math.ceil
-//--2--From can not be larger than To.
-//--3--From can be 0 but To can min be 1.
-//--4--startValue can be negative but endValue can not be negative
-//--5--systemMaxEndValue for endValue is 3000
-//--6--delayFactor = total ms / total pix Math.ceil. it means after each delay factor add One.
+//--From and To 
+//-1-From and To can not be negative, since they are time.also math.ceil
+//-2--From can not be larger than To.
+//-3--From can be 0 but To can min be 1.
+//----------
+//-4--startValue can be negative but endValue can not be negative
+//-5--systemMaxEndValue for endValue is 3000
+//-6--delayFactor = total ms / total pix Math.ceil. it means after each delay factor add One.
 //--7--we can not find startValue and endValue till init since if these values are offScreen we need canvas dims BUT THIS CLASS DOES NOT HAVE TO KNOW ABOUT INIT-- RUN IT IN INIT--this class just get numbers no abstractions.
 //--8-- _ret_val ?? CAN be null since this module is not cencerned about init.
 //--9-- THE START AND END values must be simple numbers not percentages not some enum--translate it and give it to us

@@ -1,3 +1,9 @@
+// import IncrementTimed from "../BaseComponent/animation/filters/IncrementTimed.js";
+
+// let inc = new IncrementTimed(0,10,0,100);
+// inc.update(5000);
+// console.log("inc.update(5000)", inc.value());
+
 import Bilza, { CompFactory as cf } from "../Bilza.js";
 
 let bil = new Bilza("bilza");
@@ -11,14 +17,9 @@ let counter = cf.frameCounter();
 counter.goto(0,0,20);
 bil.insert.alwaysOn(counter);
 
-//--create the component
-// let tst = TextTempl.hdg("Heading","#ff0000",50,30,12);
-// AniTempl.TinStop(tst,0,2,50,5);
-//--insert the component
-// bil.insert.append(tst, 20);
-
-let p = cf.pic("./scream.jpg",20,50);
-p.aniPreset.TinStop(p,0,2,50,10)
+let p = cf.fillRect("red");
+p.goto(0,10,50);
+p.animate(2,4,10,80,50,50);
 // p.resize(0,2,10,50,10,80);
 bil.insert.append(p,20);
 

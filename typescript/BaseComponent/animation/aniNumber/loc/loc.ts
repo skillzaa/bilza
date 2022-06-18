@@ -1,17 +1,19 @@
 import { XAlignment } from "../../../../design/xAlignment.js";
 import { YAlignment } from "../../../../design/yAlignment.js";
+import { OffScreenXOpt } from "../../../../design/OffScreenXOpt.js";
+import { OffScreenYOpt } from "../../../../design/OffScreenYOpt.js";
+import Increment from "../../filters/increment.js";
+import Decrement from "../../filters/decrement.js";
+
 import LocItem from "./locItem.js";
 import solveX from "./solveX.js";
 import solveY from "./solveY.js";
 import PreInitArray from "./preInitArray.js";
 import XY from "./xy.js";
-import { OffScreenXOpt } from "../../../../design/OffScreenXOpt.js";
-import { OffScreenYOpt } from "../../../../design/OffScreenYOpt.js";
 import IFilter from "../IFilter.js";
-import Increment from "../../filters/increment.js";
-import Decrement from "../../filters/decrement.js";
 import GotoArray from "./gotoArray.js";
-import { adjestAlignX } from "./solveX.js";
+
+
 export default class Loc {
 private animationsX :IFilter[];   
 private animationsY :IFilter[];   
@@ -40,8 +42,8 @@ this.compWidth = null;
 this.compHeight = null;
 this.canvasWidth = null;
 this.canvasHeight = null;
-this.yAlignOpt = YAlignment; //final-ok    
-this.xAlignOpt = XAlignment; //final-ok    
+this.yAlignOpt = YAlignment;     
+this.xAlignOpt = XAlignment;     
 //------------------
 }    
 init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHeight :number): boolean {
@@ -54,7 +56,6 @@ init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHei
 }
 update(msDelta :number):boolean{
 if (this.compWidth == null){throw new Error("init error");}    
-this.activateFilter(msDelta);
 this.runAnimationsX(msDelta);
 this.runAnimationsY(msDelta);
 this.runGoto(msDelta);
@@ -106,22 +107,8 @@ public initIncDec(compWidth :number,compHeight :number){
 // console.log("this.animationsX",this.animationsX);    
 // console.log("this.animationsY",this.animationsY);    
 }
-public activateFilter(msDelta :number){
-if (this.compWidth == null){ throw new Error("init error");}
-if (this.compHeight == null){ throw new Error("init error");}
-    
-    for (let i = 0; i < this.preInitArray.length; i++) {
-        const elm = this.preInitArray[i];
-        if ( (elm.timeFrom * 1000) <= msDelta ) {
-            this.initIncDecX(elm,this.compWidth());
-            this.initIncDecY(elm,this.compHeight());
-            this.preInitArray.splice(i,1);
-        }
-    }
 
-// console.log("this.animationsX",this.animationsX);    
-// console.log("this.animationsY",this.animationsY);    
-}
+
 initIncDecX(elm :PreInitArray,compWidth :number){
     const start = solveX(elm.fromLocItem,compWidth,this.canvasWidth);
     const end = solveX(elm.toLocItem,compWidth,this.canvasWidth);

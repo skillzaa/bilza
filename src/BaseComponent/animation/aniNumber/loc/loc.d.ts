@@ -1,8 +1,8 @@
 import { XAlignment } from "../../../../design/xAlignment.js";
 import { YAlignment } from "../../../../design/yAlignment.js";
-import PreInitArray from "./preInitArray.js";
 import { OffScreenXOpt } from "../../../../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../../../../design/OffScreenYOpt.js";
+import PreInitArray from "./preInitArray.js";
 export default class Loc {
     private animationsX;
     private animationsY;
@@ -23,7 +23,6 @@ export default class Loc {
     x(): number;
     y(): number;
     initIncDec(compWidth: number, compHeight: number): void;
-    activateFilter(msDelta: number): void;
     initIncDecX(elm: PreInitArray, compWidth: number): void;
     initIncDecY(elm: PreInitArray, compHeight: number): void;
     private runAnimationsX;
