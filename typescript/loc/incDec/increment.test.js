@@ -1,5 +1,5 @@
 
-import Increment from "../../src/filters/increment.js";
+import Increment from "../../../src/loc/incDec/increment.js";
 //increment does not need init
 
 test('negative time is not allowed', () => {
@@ -10,8 +10,7 @@ test('end Time can not be equal or smaller than start time', () => {
 expect(()=>{ new Increment (20,10,1,100) }).toThrow("end Time can not be equal or smaller than start time");
 });
 
-test('start value can not be equal to or larger than end value in an increment operation', () => {
-expect(()=>{ new Increment (0,10,10,1) }).toThrow("start value can not be equal to or larger than end value in an increment operation");
+test('end value can not be less than zero in an increment operation', () => {expect(()=>{ new Increment (0,10,-20,-10) }).toThrow("end value can not be less than zero in an increment operation");
 });
 
 test('setup', () => {

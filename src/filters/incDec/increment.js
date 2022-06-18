@@ -1,4 +1,4 @@
-import { FilterState } from "../design/filterState.js";
+import { FilterState } from "../../design/filterState.js";
 export default class Increment {
     constructor(startTimeSec, endTimeSec, startValue, endValue) {
         if (startTimeSec < 0 || endTimeSec < 0) {

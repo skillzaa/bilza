@@ -1,8 +1,17 @@
 import { FilterState } from "../design/filterState.js";
 export default class Decrement {
     constructor(startTimeSec, endTimeSec, startValue, endValue) {
+        if (startTimeSec < 0 || endTimeSec < 0) {
+            throw new Error("time can not be negative");
+        }
         if (endTimeSec <= startTimeSec) {
             throw new Error("end Time can not be equal or smaller than start time");
+        }
+        if (endValue >= startValue) {
+            throw new Error("start value can not be equal to or larger than end value in an increment operation");
+        }
+        if (startValue < 0) {
+            throw new Error("start value can not be equal to or less than zero in decrement operation");
         }
         this.startTime = startTimeSec * 1000;
         this.endTime = endTimeSec * 1000;
@@ -17,8 +26,9 @@ export default class Decrement {
         this.setState(msDelta);
         if (this.filterState == FilterState.Running) {
             const timeLapsed = Math.ceil(msDelta - this.startTime);
-            const timeLapPercent = (timeLapsed / (this.timeDiff * 1000)) * 100;
-            this._ret_val = (this.Xdiff / 100) * timeLapPercent;
+            const timeLapPercent = (timeLapsed / (this.timeDiff)) * 100;
+            const distanceLapsed = (this.Xdiff / 100) * timeLapPercent;
+            this._ret_val = this.startValue + distanceLapsed;
         }
         else {
             this._ret_val = null;

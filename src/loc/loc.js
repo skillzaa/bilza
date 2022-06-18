@@ -1,7 +1,7 @@
 import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
-import Increment from "../filters/increment.js";
-import Decrement from "../filters/decrement.js";
+import Increment from "./incDec/increment.js";
+import Decrement from "./incDec/decrement.js";
 import LocItem from "./locItem.js";
 import solveX from "./solveX.js";
 import solveY from "./solveY.js";

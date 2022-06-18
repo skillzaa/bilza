@@ -1,6 +1,7 @@
-import IFilter from "../design/IFilter.js";
-import { FilterState } from "../design/filterState.js";
-
+import IFilter from "../../design/IFilter.js";
+import { FilterState } from "../../design/filterState.js";
+//--now start value is always positive
+// and end value can be negative.
 export default class Decrement implements IFilter{
     
 protected  _ret_val :number | null;
@@ -16,9 +17,13 @@ protected Xdiff :number;
 protected  timeDiff :number;
 
 constructor(startTimeSec :number,endTimeSec :number,startValue :number,endValue :number){
+if (startTimeSec < 0 || endTimeSec < 0 ){throw new Error("time can not be negative");}
 
-if (endTimeSec <= startTimeSec ){throw new Error("end Time can not be equal or smaller than start time");
-}    
+if (endTimeSec <= startTimeSec ){throw new Error("end Time can not be equal or smaller than start time");}  
+  
+if ( startValue  <= endValue  ){throw new Error("end value can not be equal to or larger than start value in an decrement operation");}    
+//--it can be
+if ( startValue < 0 ){throw new Error("start value can not be less than zero in decrement operation");}    
 
 this.startTime = startTimeSec * 1000; 
 this.endTime = endTimeSec * 1000; 
@@ -27,8 +32,9 @@ this.endTime = endTimeSec * 1000;
 this.startValue = startValue; 
 this.endValue = endValue; 
 
-this.timeDiff = Math.abs(this.endTime - this.startTime) ;
-this.Xdiff = Math.abs(this.startValue - this.endValue);
+this.timeDiff = Math.abs(this.startTime - this.endTime) ;
+
+this.Xdiff = Math.abs( this.startValue - this.endValue );
 
 this._ret_val = null;
 this.filterState = FilterState.Waiting;
@@ -40,8 +46,13 @@ this.setState(msDelta);
 
 if (this.filterState == FilterState.Running){    
 const timeLapsed = Math.ceil(msDelta - this.startTime);
-const timeLapPercent = (timeLapsed/(this.timeDiff * 1000)) * 100;
-this._ret_val = (this.Xdiff/100) * timeLapPercent;
+const timeLapPercent = (timeLapsed/(this.timeDiff)) * 100;
+//--we have to flip the perc for decrement
+const timeLapPercDecrement = Math.abs(100-timeLapPercent); 
+const distanceLapsed =  (this.Xdiff/100) * timeLapPercDecrement;
+
+// this._ret_val = this.startValue + distanceLapsed;
+this._ret_val = this.endValue + distanceLapsed;
 }else {
     this._ret_val = null;
 }

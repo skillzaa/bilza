@@ -1,5 +1,5 @@
-import IFilter from "../design/IFilter.js";
-import { FilterState } from "../design/filterState.js";
+import IFilter from "../../design/IFilter.js";
+import { FilterState } from "../../design/filterState.js";
 
 export default class Increment implements IFilter{
     
@@ -16,12 +16,14 @@ protected Xdiff :number;
 protected  timeDiff :number;
 
 constructor(startTimeSec :number,endTimeSec :number,startValue :number,endValue :number){
-if (startTimeSec < 0 || endTimeSec < 0 ){throw new Error("time can not be negative");
-}
-if (endTimeSec <= startTimeSec ){throw new Error("end Time can not be equal or smaller than start time");
-}    
-if (startValue >= endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");
-}    
+
+if (startTimeSec < 0 || endTimeSec < 0 ){throw new Error("time can not be negative");}
+
+if (endTimeSec <= startTimeSec ){throw new Error("end Time can not be equal or smaller than start time");}    
+
+if (startValue >= endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");}    
+
+if ( endValue < 0 ){throw new Error("end value can not be less than zero in an increment operation");}    
 
 this.startTime = startTimeSec * 1000; 
 this.endTime = endTimeSec * 1000; 

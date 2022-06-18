@@ -4,8 +4,8 @@ import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
 import { FilterState } from "../design/filterState.js";
-import Increment from "../filters/increment.js";
-import Decrement from "../filters/decrement.js";
+import Increment from "./incDec/increment.js";
+import Decrement from "./incDec/decrement.js";
 
 import LocItem from "./locItem.js";
 import solveX from "./solveX.js";
