@@ -2,7 +2,7 @@ import { DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
-import Loc from "./animation/aniNumber/loc/loc.js";
+import Loc from "../loc/loc.js";
 export default class BaseComponentBase {
     readonly id: string;
     drawLayer: DrawLayer;

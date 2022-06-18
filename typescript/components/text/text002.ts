@@ -1,7 +1,7 @@
 import {Pack,BaseComponent,DrawLayer,FontFamily} from "../../Bilza.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import TextUtil from "./textUtil.js";
-import AnimatedNoBase from "../../BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
+import AnimatedNoBase from "../../animatedNo/AnimatedNoBase.js";
 
 export default class Text002 extends BaseComponent {
 public content :string;

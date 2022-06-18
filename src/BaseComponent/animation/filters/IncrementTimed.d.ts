@@ -1,4 +1,4 @@
-import IFilter from "../aniNumber/IFilter";
+import IFilter from "../../../loc/IFilter";
 export default class IncrementTimed implements IFilter {
     protected exhausted: boolean;
     protected _ret_val: number | null;

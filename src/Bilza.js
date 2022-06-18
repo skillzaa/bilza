@@ -9,7 +9,7 @@ import { XAlignment } from "./design/xAlignment.js";
 import { YAlignment } from "./design/yAlignment.js";
 import { OffScreenXOpt } from "./design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "./design/OffScreenYOpt.js";
-import AnimatedNoBase from "./BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
+import AnimatedNoBase from "./animatedNo/AnimatedNoBase.js";
 import TextTempl from "./templ/textTempl.js";
 export default Bilza;
 export { Pack, DrawLayer, AnimatedNoBase, Bilza, BaseComponent, CompFactory, XAlignment, YAlignment, OffScreenXOpt, OffScreenYOpt, FontFamily, Style, TextTempl };

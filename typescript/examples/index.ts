@@ -8,7 +8,7 @@ import Bilza, { CompFactory as cf } from "../Bilza.js";
 
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 400);
-bil.soundTrack = "./mix.mp3";
+// bil.soundTrack = "./mix.mp3";
 
 let grid = cf.grid();
 bil.insert.alwaysOn(grid);
@@ -19,7 +19,7 @@ bil.insert.alwaysOn(counter);
 
 let p = cf.fillRect("red");
 p.goto(0,10,50);
-p.animate(2,4,10,80,50,50);
+p.animate(0,10,0,95,50,50);
 // p.resize(0,2,10,50,10,80);
 bil.insert.append(p,20);
 

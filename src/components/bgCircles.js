@@ -1,5 +1,5 @@
 import { BaseComponent, DrawLayer } from "../Bilza.js";
-import XY from "../BaseComponent/animation/aniNumber/loc/xy.js";
+import XY from "../design/xy.js";
 export default class BgCircles extends BaseComponent {
     constructor(count = 10, color = "#008000", delay = 1) {
         super();

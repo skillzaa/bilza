@@ -1,5 +1,5 @@
 import PreInitIncDec from "./preInitIncDec.js";
-import IFilter from "../IFilter.js";
+import IFilter from "../../../../loc/IFilter.js";
 export default class AnimatedNoBase {
     private _ret_value;
     protected _set_value: number | null;

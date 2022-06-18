@@ -4,7 +4,7 @@ import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
 // import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
-import Loc from "./animation/aniNumber/loc/loc.js";
+import Loc from "../loc/loc.js";
 
 export default class BaseComponentBase{
     public readonly id :string;//req for all components
