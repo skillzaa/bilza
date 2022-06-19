@@ -11,35 +11,43 @@ export default class CompFactory {
 
 static pic(imgId :string,dynWidth:number=10,dynHeight :number=10){
 let g = new Pic(imgId,dynWidth,dynHeight);
+g.goto(0,0,0,g.xAlign.Left,g.yAlign.Top);
 return g;    
 }
 static staticGrid(cellWidth :number=100,cellHeight :number=100, color :string){
 let g = new StaticGrid(cellWidth,cellHeight, color);
+g.goto(0,0,0,g.xAlign.Left,g.yAlign.Top);
 return g;    
 }
 static grid(colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
 let g = new Grid(colorHax,cellWidthPerc,cellHeightPerc);
+g.goto(0,0,0,g.xAlign.Left,g.yAlign.Top);
 return g;    
 }
 static rect(color :string="#000000"){
 let g = new Rect(color);
+g.goto(0,0,0,g.xAlign.Left,g.yAlign.Top);
 return g;    
 }
 static fillRect(color :string="#000000"){
 let g = new FillRect(color);
+g.goto(0,0,0,g.xAlign.Left,g.yAlign.Top);
 return g;    
 }
 static frameCounter(color :string="#000000"){
 let g = new FrameCounter(color);
+g.goto(0,0,0,g.xAlign.Left,g.yAlign.Top);
 return g;    
 }
 static bgCircles(count :number= 10,color :string="#008000",delay :number=1){
 let g = new BgCircles(count,color,delay);
+g.goto(0,0,0,g.xAlign.Left,g.yAlign.Top);
 return g;    
 }
 
 static text(content :string="",colorHax :string="#000000"){
 let g = new Text(content,colorHax);
+g.goto(0,0,0,g.xAlign.Left,g.yAlign.Top);
 return g;    
 }
 // static Line(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){

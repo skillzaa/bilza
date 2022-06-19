@@ -1,19 +1,16 @@
-var _a, _b;
-import Bilza, { CompFactory as cf } from "../Bilza.js";
+import Bilza, { XAlignment, YAlignment, CompFactory as cf } from "../Bilza.js";
 let bil = new Bilza("bilza");
-bil.resizeCanvas(1000, 400);
+let counter = cf.frameCounter("#000fff");
+bil.insert.alwaysOn(counter);
 let grid = cf.grid();
 bil.insert.alwaysOn(grid);
-let counter = cf.frameCounter();
-counter.goto(0, 0, 20);
-bil.insert.alwaysOn(counter);
-let p = cf.fillRect("red");
-p.aniPreset.LinStop(0, 4, 90, 50);
-bil.insert.append(p, 20);
+let text = cf.text("Hello World");
+text.duration = 20;
+text.showBg = true;
+text.border.setValue(5);
+text.colorBorder = "green";
+text.colorBg = "crimson";
+text.color = "white";
+text.goto(0, 50, 50, XAlignment.Mid, YAlignment.Mid);
+bil.insert.append(text, text.duration);
 bil.start();
-(_a = document.getElementById("play")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
-    bil.start();
-});
-(_b = document.getElementById("stop")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", function () {
-    bil.stop();
-});

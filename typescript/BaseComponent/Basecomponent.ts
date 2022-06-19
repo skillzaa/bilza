@@ -33,6 +33,7 @@ return 0;
 
 update(msDelta :number,p :Pack): boolean {
     this.loc.update(msDelta);
+//--dont use them here use them in comps    
     // this.dynWidth.update(msDelta);
     // this.dynHeight.update(msDelta);
 return true;    
