@@ -16,7 +16,7 @@ localX = converted + ls.xExtra;
 }else {
     const pix = xPercToPix(ls.x,canvasWidth);
     const adjest = adjestAlignX(pix,ls.xAlign,compWidth);
-    return adjest + ls.xExtra;
+    localX = adjest + ls.xExtra;
 }
 return localX;    
 }

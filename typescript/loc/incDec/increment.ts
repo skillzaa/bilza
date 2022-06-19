@@ -70,7 +70,7 @@ return     this.filterState;
 
 
 public value():number | null{
-return this._ret_val;
+return  this._ret_val;
 }
 
 }

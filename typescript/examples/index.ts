@@ -12,14 +12,12 @@ counter.goto(0,0,20);
 bil.insert.alwaysOn(counter);
 
 let p = cf.fillRect("red");
-// p.aniPreset.BinStop(2,4,50,10);
-// p.aniPreset.BinTout(2,4,50);
-// p.aniPreset.LinRout(2,4,50);
-// p.aniPreset.RinLout(2,4,50); //--defective
-// p.aniPreset.RinStop(2,4,10,50); //--align left not Mid
-// p.aniPreset.TinBout(2,4,50); //--goto is not fixed
-p.aniPreset.TinStop(2,4,50,90);
-
+// p.goto(0,p.offScreenXOpt.XRight,50);
+// p.animate(2,6,p.offScreenXOpt.XRight,p.offScreenXOpt.XLeft,50,50,p.xAlign.Left,p.xAlign.Right,p.yAlign.Top,p.yAlign.Top,0,-100);
+// p.aniPreset.BinStop(0,3,50,10);
+// p.aniPreset.BinTout(0,12,50);
+// p.aniPreset.LinRout(0,6,50);
+p.aniPreset.LinStop(0,4,90,50);
 
 bil.insert.append(p,20);
 

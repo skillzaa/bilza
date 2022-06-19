@@ -15,7 +15,7 @@ export default function solveX(ls, compWidth = null, canvasWidth = null) {
     else {
         const pix = xPercToPix(ls.x, canvasWidth);
         const adjest = adjestAlignX(pix, ls.xAlign, compWidth);
-        return adjest + ls.xExtra;
+        localX = adjest + ls.xExtra;
     }
     return localX;
 }

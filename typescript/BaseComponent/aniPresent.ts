@@ -23,19 +23,19 @@ this.comp.animate(fromSec,toSec,OffScreenXOpt.XRight,xUpto,y,y,XAlignment.Right,
 }
 RinLout(fromSec :number=0,toSec:number=4,y:number=50){
 this.comp.goto(0,this.comp.offScreenXOpt.XRight,y);
-this.comp.animate(fromSec,toSec,OffScreenXOpt.XRight,OffScreenXOpt.XLeft,y,y,XAlignment.Right,XAlignment.Mid);
+this.comp.animate(fromSec,toSec,OffScreenXOpt.XRight,OffScreenXOpt.XLeft,y,y,XAlignment.Left,XAlignment.Right,YAlignment.Top,YAlignment.Top,0,-100);
 }
 
 ///////////////////////===left==//////////////////////////////
 LinStop(fromSec :number=0,toSec:number=4,xUpto :number,y:number=50){
 this.comp.goto(0,this.comp.offScreenXOpt.XLeft,y);
-this.comp.animate(fromSec,toSec,this.comp.offScreenXOpt.XLeft,xUpto,y,y,XAlignment.Right,XAlignment.Mid);
+this.comp.animate(fromSec,toSec,this.comp.offScreenXOpt.XLeft,xUpto,y,y,XAlignment.Right,XAlignment.Right);
 }
 LinRout(fromSec :number=0,toSec:number=4,y:number=50){
 this.comp.goto(0,this.comp.offScreenXOpt.XLeft,y);
 this.comp.animate(fromSec,toSec,this.comp.offScreenXOpt.XLeft,this.comp.offScreenXOpt.XRight,y,y,XAlignment.Right,XAlignment.Mid); 
 }
-
+ 
 ///////////////////////===BOTTOM==//////////////////////////////
 BinTout(fromSec :number=0,toSec:number=4,x:number=50){
 this.comp.goto(0,x,this.comp.offScreenYOpt.YBot,XAlignment.Mid,YAlignment.Top);

@@ -52,7 +52,8 @@ const timeLapPercDecrement = Math.abs(100-timeLapPercent);
 const distanceLapsed =  (this.Xdiff/100) * timeLapPercDecrement;
 
 // this._ret_val = this.startValue + distanceLapsed;
-this._ret_val = this.endValue + distanceLapsed;
+this._ret_val = Math.ceil(this.endValue + distanceLapsed);
+console.log("msDelta : this._ret_val",msDelta, this._ret_val);    
 }else {
     this._ret_val = null;
 }

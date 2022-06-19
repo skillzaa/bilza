@@ -2,11 +2,15 @@ import { DrawLayer } from "../Bilza.js";
 import Style from "../design/style.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
+import { XAlignment } from "../design/xAlignment.js";
+import { YAlignment } from "../design/yAlignment.js";
 import Loc from "../loc/loc.js";
 export default class BaseComponentBase {
     constructor() {
         this.version = "0_0_16";
         this.alwaysOn = false;
+        this.xAlign = XAlignment;
+        this.yAlign = YAlignment;
         this.offScreenXOpt = OffScreenXOpt;
         this.offScreenYOpt = OffScreenYOpt;
         this.duration = 0;

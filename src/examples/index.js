@@ -8,7 +8,7 @@ let counter = cf.frameCounter();
 counter.goto(0, 0, 20);
 bil.insert.alwaysOn(counter);
 let p = cf.fillRect("red");
-p.aniPreset.TinStop(2, 4, 50, 90);
+p.aniPreset.LinStop(0, 4, 90, 50);
 bil.insert.append(p, 20);
 bil.start();
 (_a = document.getElementById("play")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {

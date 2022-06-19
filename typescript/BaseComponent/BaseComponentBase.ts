@@ -2,7 +2,8 @@ import {DrawLayer} from "../Bilza.js";
 import Style from "../design/style.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
-
+import {XAlignment} from "../design/xAlignment.js";
+import {YAlignment} from "../design/yAlignment.js";
 // import AnimatedNoBase from "./animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 import Loc from "../loc/loc.js";
 
@@ -12,6 +13,8 @@ export default class BaseComponentBase{
     public style:Style; ///--may be removed in future
     public  duration :number;
     //-----Alignment
+    public readonly xAlign :typeof XAlignment;
+    public readonly yAlign :typeof YAlignment;
     public readonly offScreenXOpt :typeof OffScreenXOpt;
     public readonly offScreenYOpt :typeof OffScreenYOpt;
     // public readonly yAlignmentOptions:typeof YAlignment;  
@@ -46,6 +49,8 @@ constructor(){
     this.version = "0_0_16";
     this.alwaysOn = false;
     // this.moveYArray = [];
+    this.xAlign = XAlignment; //final-ok
+    this.yAlign = YAlignment; //final-ok
     this.offScreenXOpt = OffScreenXOpt; //final-ok
     this.offScreenYOpt = OffScreenYOpt; //final-ok
     // this.yAlignmentOptions = YAlignment; //final-ok

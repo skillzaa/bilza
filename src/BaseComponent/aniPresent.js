@@ -17,11 +17,11 @@ export default class AniPresent {
     }
     RinLout(fromSec = 0, toSec = 4, y = 50) {
         this.comp.goto(0, this.comp.offScreenXOpt.XRight, y);
-        this.comp.animate(fromSec, toSec, OffScreenXOpt.XRight, OffScreenXOpt.XLeft, y, y, XAlignment.Right, XAlignment.Mid);
+        this.comp.animate(fromSec, toSec, OffScreenXOpt.XRight, OffScreenXOpt.XLeft, y, y, XAlignment.Left, XAlignment.Right, YAlignment.Top, YAlignment.Top, 0, -100);
     }
     LinStop(fromSec = 0, toSec = 4, xUpto, y = 50) {
         this.comp.goto(0, this.comp.offScreenXOpt.XLeft, y);
-        this.comp.animate(fromSec, toSec, this.comp.offScreenXOpt.XLeft, xUpto, y, y, XAlignment.Right, XAlignment.Mid);
+        this.comp.animate(fromSec, toSec, this.comp.offScreenXOpt.XLeft, xUpto, y, y, XAlignment.Right, XAlignment.Right);
     }
     LinRout(fromSec = 0, toSec = 4, y = 50) {
         this.comp.goto(0, this.comp.offScreenXOpt.XLeft, y);
