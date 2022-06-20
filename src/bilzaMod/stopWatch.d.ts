@@ -4,7 +4,7 @@ export default class StopWatch {
     private runningStartTimeTS;
     constructor();
     start(drawFn: () => boolean): boolean;
-    isAlreadyRunning(): boolean;
+    isRunning(): boolean;
     stop(): boolean;
     getMsDelta(): number;
 }

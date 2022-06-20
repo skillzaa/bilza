@@ -1,6 +1,6 @@
 import Bilza, { XAlignment,YAlignment,CompFactory as cf } from "../Bilza.js";
 
-let bil = new Bilza("bilza");
+let bil = new Bilza("bilza",70);
 // bil.resizeCanvas(1000, 400);
 
 let grid = cf.grid();
@@ -17,10 +17,29 @@ mt.animate(1,10,0,100,50,50,mt.xAlign.Left,mt.xAlign.Right);
 //---------------------------------------------
 bil.insert.append(mt,20);
 ////////////////////////////////////////////
-// bil.start();
 bil.init();
-let currentFrame = 0;
-setInterval(function(){
-bil.drawFrame(currentFrame);
-currentFrame += 1000;
-},1000);
+bil.drawFrame(0);
+//--------------------------------
+const slider  = document.getElementById("slider");
+slider?.addEventListener("input",function(e){
+//@ts-expect-error
+bil.drawFrame(e.target.value * 1000);
+});
+
+const start  = document.getElementById("start");
+start?.addEventListener("click",(e)=>{
+    console.log("start");
+bil.start();
+});
+
+const stop  = document.getElementById("stop");
+stop?.addEventListener("click",(e)=>{
+bil.stop();
+});
+
+setInterval(()=>{
+    if (bil.isRunning()==true){
+    //@ts-expect-error        
+    slider.value = Math.ceil(bil.lastMeDelta()/1000);  
+    }
+},500);

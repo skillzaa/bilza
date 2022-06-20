@@ -5,7 +5,7 @@ export default class StopWatch {
         this.msPerFrame = 20;
     }
     start(drawFn) {
-        if (this.isAlreadyRunning() == true) {
+        if (this.isRunning() == true) {
             return false;
         }
         this.stop();
@@ -15,7 +15,7 @@ export default class StopWatch {
         }, this.msPerFrame);
         return true;
     }
-    isAlreadyRunning() {
+    isRunning() {
         if (this.runningStartTimeTS == null) {
             return false;
         }

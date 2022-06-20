@@ -20,12 +20,14 @@ private duration : Duration;
 private comps:Comps;//--009
 private stopWatch:StopWatch;
 private pack:Pack; //---later
+private lastMsDelta:number; //---later
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor (canvasId="bilza",screenWidthInPercent=80){
 this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
 this.duration = new Duration();
+this.lastMsDelta =0;
 this.soundTrackElement = null;
 this.soundTrack = null;
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
@@ -47,13 +49,19 @@ public drawInit():boolean{
 }
 public draw():boolean{
  let msDelta = this.stopWatch.getMsDelta();
+
+//-------------------------------------------------------- 
+//--we need to save this msDelta as lastMsDelta
+this.lastMsDelta = msDelta;
+//-------------------------------------------------------- 
+
 this.drawFrame(msDelta); /// The draw mechanism without titbits
 ///-----connection with outer world
 this.drawEvent(msDelta);
 return true;
 }
  
-public drawFrame(msDelta :number){
+public drawFrame(msDelta :number=0){
 if(this.pack == null){throw new Error("bilzaa is not initialized");}   
 if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
 
@@ -95,5 +103,11 @@ stop():boolean{
 }
 public resizeCanvas(width :number, height :number | null){
 this.pack.resizeCanvas(width, height);    
+}
+lastMeDelta():number{
+    return this.lastMsDelta;
+}
+isRunning():boolean{
+return this.stopWatch.isRunning();    
 }
 }//ends

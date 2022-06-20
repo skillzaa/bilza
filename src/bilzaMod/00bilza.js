@@ -10,6 +10,7 @@ export default class Bilza {
         this.pack = new Pack(canvasId, screenWidthInPercent);
         this.comps = new Comps();
         this.duration = new Duration();
+        this.lastMsDelta = 0;
         this.soundTrackElement = null;
         this.soundTrack = null;
         this.insert = new Insert(this.comps, this.duration, this.pack.charsWidth.bind(this.pack));
@@ -31,11 +32,12 @@ export default class Bilza {
     }
     draw() {
         let msDelta = this.stopWatch.getMsDelta();
+        this.lastMsDelta = msDelta;
         this.drawFrame(msDelta);
         this.drawEvent(msDelta);
         return true;
     }
-    drawFrame(msDelta) {
+    drawFrame(msDelta = 0) {
         if (this.pack == null) {
             throw new Error("bilzaa is not initialized");
         }
@@ -76,5 +78,11 @@ export default class Bilza {
     }
     resizeCanvas(width, height) {
         this.pack.resizeCanvas(width, height);
+    }
+    lastMeDelta() {
+        return this.lastMsDelta;
+    }
+    isRunning() {
+        return this.stopWatch.isRunning();
     }
 }
