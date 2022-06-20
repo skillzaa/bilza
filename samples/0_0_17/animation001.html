@@ -35,12 +35,10 @@
 
 </div>
 
-<!-- 
-<script src="../../../src/coreSamples/helloWorld/index.js" type="module"></script> -->
-
 <script type="module">
 import Bilza, { CompFactory as cf } from "./bilza_0_0_17.js";
 let bil = new Bilza("bilza", 70);
+bil.soundTrack = "../music/mix.mp3";
 //----Grid
 let grid = cf.grid();
 bil.insert.alwaysOn(grid);
