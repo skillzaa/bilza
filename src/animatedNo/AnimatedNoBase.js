@@ -1,6 +1,6 @@
 import PreInitIncDec from "./preInitIncDec.js";
-import Increment from "./filters/increment.js";
-import Decrement from "./filters/decrement.js";
+import Increment from "../filters/incDec/increment.js";
+import Decrement from "../filters/incDec/decrement.js";
 export default class AnimatedNoBase {
     constructor(defaultValue = 0) {
         this._ret_value = defaultValue;

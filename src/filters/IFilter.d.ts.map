@@ -1,1 +1,0 @@
-{"version":3,"file":"IFilter.d.ts","sourceRoot":"","sources":["../../typescript/filters/IFilter.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,eAAe,CAAC;AAC5C,MAAM,CAAC,OAAO,WAAW,OAAO;IAC5B,MAAM,CAAC,OAAO,EAAE,MAAM,EAAC,IAAK,CAAC,EAAC,GAAG,GAAE,WAAW,CAAC;IAC/C,KAAK,IAAG,MAAM,GAAC,IAAI,CAAC;CACvB"}

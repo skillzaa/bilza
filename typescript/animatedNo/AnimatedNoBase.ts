@@ -2,10 +2,10 @@
 
 import PreInitIncDec from "./preInitIncDec.js";
 // import IAnimatedNo from "./IAnimatedNo.js";
-import Increment from "./filters/increment.js";
-import Decrement from "./filters/decrement.js";
+import Increment from "../filters/incDec/increment.js";
+import Decrement from "../filters/incDec/decrement.js";
 // import Constant from "../../filters/constant.js";
-import IFilter from "./IFilter.js";
+import IFilter from "../design/IFilter.js";
 // import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 
 // export default class AnimatedNoBase implements IAnimatedNo{

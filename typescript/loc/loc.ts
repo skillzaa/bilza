@@ -3,9 +3,10 @@ import { YAlignment } from "../design/yAlignment.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
 
-import { FilterState } from "../design/filterState.js";
-import Increment from "./incDec/increment.js";
-import Decrement from "./incDec/decrement.js";
+// import { FilterState } from "../design/filterState.js";
+import Increment from "../filters/incDec/increment.js";
+import Decrement from "../filters/incDec/decrement.js";
+import ConstantNo from "../filters/constantNo.js";
 
 import LocItem from "./locItem.js";
 import solveX from "./solveX.js";
@@ -124,6 +125,9 @@ initIncDecX(elm :PreInitArray,compWidth :number){
     }else if (end < start  ) {
         let c = this.newDecrement(elm.timeFrom,elm.timeTo,start,end);
         this.animationsX.push(c); 
+    }else if (end == start  ){
+        let c = new ConstantNo(elm.timeFrom,elm.timeTo,start);
+        this.animationsX.push(c); 
     }
 }
 initIncDecY(elm :PreInitArray,compHeight :number){
@@ -135,6 +139,9 @@ initIncDecY(elm :PreInitArray,compHeight :number){
         this.animationsY.push(c);
     }else if (end < start  ){
         let c = this.newDecrement(elm.timeFrom,elm.timeTo,start,end);
+        this.animationsY.push(c); 
+    }else if (end == start  ){
+        let c = new ConstantNo(elm.timeFrom,elm.timeTo,start);
         this.animationsY.push(c); 
     }
 }

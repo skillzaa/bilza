@@ -29,7 +29,7 @@ export default class Decrement {
             const timeLapPercent = (timeLapsed / (this.timeDiff)) * 100;
             const timeLapPercDecrement = Math.abs(100 - timeLapPercent);
             const distanceLapsed = (this.Xdiff / 100) * timeLapPercDecrement;
-            this._ret_val = this.endValue + distanceLapsed;
+            this._ret_val = Math.ceil(this.endValue + distanceLapsed);
         }
         else {
             this._ret_val = null;
