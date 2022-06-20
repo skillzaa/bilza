@@ -1,7 +1,7 @@
-import Bilza, { XAlignment,YAlignment,CompFactory as cf } from "../Bilza.js";
+import Bilza, { XAlignment,YAlignment,CompFactory as cf } from "../../Bilza.js";
 
 let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(1000, 400);
+
 
 let grid = cf.grid();
 bil.insert.alwaysOn(grid);
@@ -35,6 +35,10 @@ bil.start();
 const stop  = document.getElementById("stop");
 stop?.addEventListener("click",(e)=>{
 bil.stop();
+//@ts-expect-error
+slider.value=0;
+bil.init();
+bil.drawFrame(0);
 });
 
 setInterval(()=>{
