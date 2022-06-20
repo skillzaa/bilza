@@ -1,0 +1,1 @@
+{"version":3,"file":"stopWatch.d.ts","sourceRoot":"","sources":["../../typescript/bilzaMod/stopWatch.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,OAAO,SAAS;IAC9B,OAAO,CAAC,QAAQ,CAAiB;IAEjC,OAAO,CAAE,UAAU,CAAS;IAE5B,OAAO,CAAC,kBAAkB,CAAgB;;IAO1C,KAAK,CAAC,MAAM,EAAC,MAAI,OAAO,GAAG,OAAO;IAUlC,SAAS,IAAG,OAAO;IAOnB,IAAI,IAAG,OAAO;IAOP,UAAU,IAAI,MAAM;CAU1B"}
