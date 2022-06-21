@@ -5,7 +5,7 @@ export default class Pic extends BaseComponent {
     protected orignalHeight: number;
     dynWidth: AnimatedNoBase;
     dynHeight: AnimatedNoBase;
-    constructor(imgUrl?: string, dynWidth?: number, dynHeight?: number);
+    constructor(imgUrl: string, dynWidth?: number, dynHeight?: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     width(): number;

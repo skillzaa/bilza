@@ -14,4 +14,8 @@ export default class Duration {
         this._pvt_duration_val += n;
         return this._pvt_duration_val;
     }
+    set(n) {
+        this._pvt_duration_val = n;
+        return this._pvt_duration_val;
+    }
 }

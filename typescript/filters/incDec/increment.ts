@@ -23,7 +23,8 @@ if (endTimeSec <= startTimeSec ){throw new Error("end Time can not be equal or s
 
 if (startValue >= endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");}    
 
-if ( endValue < 0 ){throw new Error("end value can not be less than zero in an increment operation");}    
+//-21-06-2022 - I have commented this since at times we have very large comps which just need to be shown half on screen.
+// if ( endValue < 0 ){throw new Error("end value can not be less than zero in an increment operation");}    
 
 this.startTime = startTimeSec * 1000; 
 this.endTime = endTimeSec * 1000; 

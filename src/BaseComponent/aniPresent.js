@@ -4,7 +4,7 @@ export default class AniPresent {
         this.comp = comp;
     }
     TinStop(fromSec = 0, toSec = 4, x = 0, yUpto = 90, xAlign = XAlignment.Mid, yAlign = YAlignment.Top) {
-        this.comp.goto(fromSec, x, OffScreenYOpt.YTop, xAlign, yAlign);
+        this.comp.goto(0, x, OffScreenYOpt.YTop, xAlign, yAlign);
         this.comp.animate(fromSec, toSec, x, x, OffScreenYOpt.YTop, yUpto, xAlign, xAlign, yAlign, yAlign);
     }
     TinBout(fromSec = 0, toSec = 4, x = 50) {
@@ -21,7 +21,7 @@ export default class AniPresent {
     }
     LinStop(fromSec = 0, toSec = 4, xUpto, y = 50) {
         this.comp.goto(0, this.comp.offScreenXOpt.XLeft, y);
-        this.comp.animate(fromSec, toSec, this.comp.offScreenXOpt.XLeft, xUpto, y, y, XAlignment.Right, XAlignment.Right);
+        this.comp.animate(fromSec, toSec, this.comp.offScreenXOpt.XLeft, xUpto, y, y, XAlignment.Right, XAlignment.Mid);
     }
     LinRout(fromSec = 0, toSec = 4, y = 50) {
         this.comp.goto(0, this.comp.offScreenXOpt.XLeft, y);

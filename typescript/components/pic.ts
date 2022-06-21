@@ -7,7 +7,7 @@ protected orignalHeight :number;
 public dynWidth :AnimatedNoBase;    //required by all comps--no
 public dynHeight :AnimatedNoBase;    //required by all comps--no
 
-constructor(imgUrl :string="./scream.jpg",dynWidth:number=10,dynHeight :number=10){
+constructor(imgUrl :string,dynWidth:number=10,dynHeight :number=10){
 super();
 this.dynWidth = new AnimatedNoBase(dynWidth); 
 this.dynHeight = new AnimatedNoBase(dynHeight) ;
@@ -15,7 +15,7 @@ this.dynHeight = new AnimatedNoBase(dynHeight) ;
 
 // this.img = document.getElementById(imgId) as HTMLImageElement;
 this.img = new Image();
-this.img.src = "./scream.jpg";
+this.img.src = imgUrl;
     if (this.img == null){
         throw new Error("image could not be found");
     }else {

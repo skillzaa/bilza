@@ -1,11 +1,11 @@
 import { DrawLayer, AnimatedNoBase, BaseComponent } from "../Bilza.js";
 export default class Pic extends BaseComponent {
-    constructor(imgUrl = "./scream.jpg", dynWidth = 10, dynHeight = 10) {
+    constructor(imgUrl, dynWidth = 10, dynHeight = 10) {
         super();
         this.dynWidth = new AnimatedNoBase(dynWidth);
         this.dynHeight = new AnimatedNoBase(dynHeight);
         this.img = new Image();
-        this.img.src = "./scream.jpg";
+        this.img.src = imgUrl;
         if (this.img == null) {
             throw new Error("image could not be found");
         }

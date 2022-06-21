@@ -33,11 +33,12 @@ public append(comp :IComponent,duration :number){
 //---finally    
 return this.comps.push(comp);
 }
+//-21-6-2022 previously blank frame between startTime and Video.len were not allowed BUT now we allow it the gap is just inserted.
 public add(comp :IComponent,startTime :number,duration :number){
     comp.charsWidth = this.charsWidth;
         //--1 : comp.duration cant be > 0 
     if ((duration < 1) || (typeof duration == "undefined")) {
-        throw new Error("for Insert operation to succeed you need component duration greater than 0");
+        throw new Error("for Add operation to succeed you need component duration greater than 0");
     }else {
         //so we dont need to assign duration before
         //this reduces thousands of code lines
@@ -48,15 +49,17 @@ public add(comp :IComponent,startTime :number,duration :number){
 //--2 : stop if startTime > bil.duration(false);
     comp.setStartTime(startTime);
   if (comp.getStartTime(false) > this.duration.len(false)){
-    throw new Error(`to insert a clip inside the video, the start time of the clip can not be larger than the duration of the video since that will create blank frames, the start time of the component is set as ${comp.getStartTime()} where as the end time of current video at this time is ${this.duration.len()} , this creates a blank space of ${Math.ceil(comp.getStartTime() - this.duration.len())} seconds.`);
+    this.duration.set(comp.getStartTime(false));
 }
 //--3 : now check if endTime of comp is larger than the bil or not (check endTime)
 //false means in seconds
-    if (comp.getEndTime(false) > this.duration.len()){
-    //no need to change anything
+    if (comp.getEndTime(false) > this.duration.len(false)  ){
+        let overlap = comp.getEndTime(false) - this.duration.len(false);
+        this.duration.extend(overlap);
+        
     }else {
-    let overlap = comp.getEndTime(false) - this.duration.len(false);
-    this.duration.extend(overlap);
+    //no need to change anything
+    // console.log("do nothing");
     }
 //---finally    
 return this.comps.push(comp);      

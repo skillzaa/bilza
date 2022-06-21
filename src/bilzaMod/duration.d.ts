@@ -3,5 +3,6 @@ export default class Duration {
     constructor();
     len(inMilliSeconds?: boolean): number;
     extend(n: number): number;
+    set(n: number): number;
 }
 //# sourceMappingURL=duration.d.ts.map

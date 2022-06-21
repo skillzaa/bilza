@@ -19,5 +19,9 @@ public extend(n :number):number {
 this._pvt_duration_val += n;
     return this._pvt_duration_val;
 }
+public set(n :number):number {
+this._pvt_duration_val = n;
+    return this._pvt_duration_val;
+}
   
 }//duration

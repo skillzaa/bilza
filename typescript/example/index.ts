@@ -1,21 +1,31 @@
-import Bilza, { XAlignment,YAlignment,CompFactory as cf } from "../../Bilza.js";
+import Bilza, { CompFactory as cf } from "../Bilza.js";
 
 let bil = new Bilza("bilza",70);
 
-
-let grid = cf.grid();
-bil.insert.alwaysOn(grid);
+// bil.soundTrack = "../../"
 
 let c = cf.frameCounter();
-c.goto(0,90,0,c.xAlign.Right);
+c.goto(0,100,0,c.xAlign.Right);
 bil.insert.alwaysOn(c);
 
-let mt = cf.fillRect("red");
-// mt.goto(0,0,50);
-mt.animate(1,10,0,100,50,50,mt.xAlign.Left,mt.xAlign.Right);
+//------------------------------
+let text01 = cf.text("Image 01");
+// text01.duration = 20;
+text01.aniPreset.TinStop(1,2,50,5);
+bil.insert.add(text01,0,10);
 
-//---------------------------------------------
-bil.insert.append(mt,20);
+let mt = cf.pic("./beans.jpg",70,70);
+mt.aniPreset.BinStop(1,4,50,20);
+bil.insert.add(mt,0,10);
+
+//------------------------------
+let text02 = cf.text("Image --- 02");
+text02.aniPreset.TinStop(11,12,50,5);
+bil.insert.add(text02,11,10);
+
+let mt2 = cf.pic("./house.jpg",70,70);
+mt2.aniPreset.LinStop(11,13,50,20);
+bil.insert.add(mt2,11,10);
 ////////////////////////////////////////////
 bil.init();
 bil.drawFrame(0);
@@ -28,7 +38,7 @@ bil.drawFrame(e.target.value * 1000);
 
 const start  = document.getElementById("start");
 start?.addEventListener("click",(e)=>{
-    console.log("start");
+    // console.log("start");
 bil.start();
 });
 
