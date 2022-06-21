@@ -1,4 +1,4 @@
-##### Everything is underconstruction please!!!!!
+##### Things are some what stable yet fragile !!!!!
 
 # What is Bilza.js
 
@@ -35,22 +35,14 @@ To be an easy to use library for creating
 ###### At the moment some very basic components have been added like "Text" and "Grid".
 
 # Docs and Samples 
- Following is link to Docs / sample / examples / small appresentations created with Bilza library. You can have a look at them to better understand the library.
-
+ Following is link to Docs / sample / examples:.
 <h3><a href="https://skillzaa.github.io/bilza/index.html" target="_blank">Docs and Samples</a></h3>
 ---
-# Beginner Examples
-<ol>
-<li><h3><a href="https://skillzaa.github.io/bilza/samples/helloWorld/index.html" target="_blank">Hello World Example</a> (2022-May-08 using ver-0.0.13)</h3></li>
-<li><h3><a href="https://skillzaa.github.io/bilza/samples/simpleSlide/index.html" target="_blank">A simple slide Example</a> (2022-May-08 using ver-0.0.13)</h3></li>
-
-</ol>
-
-
 
 If you want to be in touch or send me a bug report please use github issues.
 
 -----
+###### 21-june-2022   (version 0.0.17)
 ###### 06-july-2022   (version 0.0.16)
 ###### 03-jun-2022   (version 0.0.15)
 ###### 09-May-2022   (version 0.0.14)
