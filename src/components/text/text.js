@@ -5,7 +5,7 @@ export default class Text extends Text002 {
         super(content, colorHax);
         this.maxHeight = 20;
         this.dynWidth = new AnimatedNoBase(10);
-        this.useDynWidth = false;
+        this.useDynWidth = true;
         this.useMaxHeight = false;
     }
     init(p) {

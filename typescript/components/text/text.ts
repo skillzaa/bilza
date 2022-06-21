@@ -6,13 +6,13 @@ export default class Text extends Text002 {
 public useDynWidth :boolean;
 public useMaxHeight :boolean;
 public dynWidth :AnimatedNoBase;    //required by all comps--no
-public maxHeight :number;    //required by all comps--no    
+public maxHeight :number;    //required by all comps--no     
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);  
 this.maxHeight = 20;//max Height is 20% of canvas
 this.dynWidth = new AnimatedNoBase(10); 
-this.useDynWidth = false;
+this.useDynWidth = true;
 this.useMaxHeight = false;
 }
 init(p: Pack): boolean {

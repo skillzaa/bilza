@@ -24,7 +24,7 @@ public showContent :boolean;
 public showBg :boolean;
 public showTextShadow :boolean;
 public showBorderShadow :boolean; 
-public showBgShadow :boolean; 
+public showBgShadow :boolean;  
 //-----------------------------
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
