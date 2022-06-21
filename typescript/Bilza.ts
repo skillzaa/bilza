@@ -1,5 +1,6 @@
 import Bilza from "./bilzaMod/00bilza.js";
 import CompFactory from "./components/compFactory.js";
+import PresetComps from "./presetComps/presetComps.js";
 //--A seperate package on top of which Engine build abstractions
 import Pack from "./pack/pack.js";
 //--Required by Engine and Comp both
@@ -29,6 +30,7 @@ IComponent,
 Bilza,
 BaseComponent,
 CompFactory,
+PresetComps,
 XAlignment,
 YAlignment,
 OffScreenXOpt,
