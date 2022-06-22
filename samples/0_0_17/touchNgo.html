@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
-    <script src="./00misc/prism.js"></script>
-    <link rel="stylesheet" href="./00misc/prism.css">   
+    <script src="../00misc/prism.js"></script>
+    <link rel="stylesheet" href="../00misc/prism.css">   
     <link rel="stylesheet" href="../00misc/custom.css">
   
     <title>Bilza Samples-HelloWorld</title>
@@ -34,20 +33,20 @@ counter.goto(0,0,20);
 bil.insert.alwaysOn(counter);
 
 let tst = cf.fillRect("red");
-tst.duration = 120;
+tst.duration = 50;
 
 tst.goto(0,0,0, XAlignment.Left, YAlignment.Top);
 //---Right Top
-tst.animate(2,20,0,100,0,0,XAlignment.Left,
+tst.animate(2,10,0,100,0,0,XAlignment.Left,
     XAlignment.Right);
 //--Right Bottom    
-tst.animate(22,40,100,100,0,100,XAlignment.Right,
+tst.animate(12,20,100,100,0,100,XAlignment.Right,
     XAlignment.Right,YAlignment.Top,YAlignment.Bot);
 //--Left Bottom    
-tst.animate(42,60,100,0,100,100,XAlignment.Right,
+tst.animate(22,30,100,0,100,100,XAlignment.Right,
     XAlignment.Left,YAlignment.Bot,YAlignment.Bot);
 //--Right Top    
-tst.animate(62,80,0,0,100,0,XAlignment.Left,
+tst.animate(32,40,0,0,100,0,XAlignment.Left,
     XAlignment.Left,YAlignment.Bot,YAlignment.Bot);
 
 bil.insert.append(tst, tst.duration);
@@ -56,7 +55,6 @@ bil.start();
 </code>
 </pre>
 <script  type="module">
-
 import Bilza, { XAlignment, YAlignment, CompFactory as cf } from 
 "./bilza_0_0_17.js";
 
@@ -71,20 +69,20 @@ counter.goto(0,0,20);
 bil.insert.alwaysOn(counter);
 
 let tst = cf.fillRect("red");
-tst.duration = 120;
+tst.duration = 50;
 
 tst.goto(0,0,0, XAlignment.Left, YAlignment.Top);
 //---Right Top
-tst.animate(2,20,0,100,0,0,XAlignment.Left,
+tst.animate(2,10,0,100,0,0,XAlignment.Left,
     XAlignment.Right);
 //--Right Bottom    
-tst.animate(22,40,100,100,0,100,XAlignment.Right,
+tst.animate(12,20,100,100,0,100,XAlignment.Right,
     XAlignment.Right,YAlignment.Top,YAlignment.Bot);
 //--Left Bottom    
-tst.animate(42,60,100,0,100,100,XAlignment.Right,
+tst.animate(22,30,100,0,100,100,XAlignment.Right,
     XAlignment.Left,YAlignment.Bot,YAlignment.Bot);
 //--Right Top    
-tst.animate(62,80,0,0,100,0,XAlignment.Left,
+tst.animate(32,40,0,0,100,0,XAlignment.Left,
     XAlignment.Left,YAlignment.Bot,YAlignment.Bot);
 
 bil.insert.append(tst, tst.duration);

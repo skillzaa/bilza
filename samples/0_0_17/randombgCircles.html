@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
-<script src="./00misc/prism.js"></script>
-<link rel="stylesheet" href="./00misc/prism.css">    
+
+<script src="../00misc/prism.js"></script>
+<link rel="stylesheet" href="../00misc/prism.css">    
 <title>Bilza Samples-HelloWorld</title>
 <style>        
 #canvasContainer {
@@ -20,11 +20,10 @@ text-align: center;
     <canvas id="bilza"></canvas>
     </div>
 <hr/>
-<h6>version 0_0_15</h6>
+
 <h3>Code</h3>
 <pre class="language-javascript">
 <code>
-
 import Bilza, { XAlignment, YAlignment, CompFactory as cf } from 
 "./bilza_0_0_15.js";
     let bil = new Bilza("bilza");
@@ -59,9 +58,9 @@ import Bilza, { XAlignment, YAlignment, CompFactory as cf } from
 </pre>
 <script type="module">
 import Bilza, { XAlignment, YAlignment, CompFactory as cf } from 
-"./bilza_0_0_16.js";
-let bil = new Bilza("bilza");
-bil.resizeCanvas(1000,400);
+"./bilza_0_0_17.js";
+
+let bil = new Bilza("bilza",75);
 //===================BgCircles Component
 let bc = cf.bgCircles(5,"#008000",2);
 bc.size = 50;
@@ -78,12 +77,10 @@ bil.insert.alwaysOn(grid);
 let tst = cf.fillRect();
 tst.color = "red";
 tst.shadowsOn();
-tst.duration = 600;
-tst.loc.goto(5, 50, 50, XAlignment.Mid, YAlignment.Mid);
+tst.duration = 20;
+tst.loc.goto(10, 50, 50, XAlignment.Mid, YAlignment.Mid);
 bil.insert.append(tst, tst.duration);
 //////////////////////////////////////////
-//////////////////////////////////////////
-bil.init();
 bil.start();
 </script>
 
