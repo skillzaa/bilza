@@ -6,11 +6,17 @@ export default class Text extends Text002 {
         this.maxHeight = 20;
         this.dynWidth = new AnimatedNoBase(10);
         this.useDynWidth = true;
-        this.useMaxHeight = false;
+        this.useMaxHeight = true;
     }
     init(p) {
         super.init(p);
         this.dynWidth.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
+        if (this.useDynWidth == true) {
+            this.dynamicFontSize(p);
+        }
+        if (this.useMaxHeight == true) {
+            this.shrinkToFitMaxHeight(p);
+        }
         return true;
     }
     update(msDelta, p) {
@@ -23,6 +29,17 @@ export default class Text extends Text002 {
         }
         super.update(msDelta, p);
         return true;
+    }
+    width() {
+        if (this.useDynWidth == true) {
+            if (this.canvasWidth == null) {
+                throw new Error("init error");
+            }
+            return Math.ceil((this.canvasWidth / 100) * this.dynWidth.value());
+        }
+        else {
+            return super.width();
+        }
     }
     dynamicFontSize(p) {
         const reqWdInPix = this.reqWdInPixForFontSize(p);

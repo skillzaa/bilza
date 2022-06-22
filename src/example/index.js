@@ -1,30 +1,21 @@
-import Bilza, { CompFactory as cf, PresetComps } from "../Bilza.js";
-let bil = new Bilza("bilza", 70);
-bil.background.color = "#407740";
+import Bilza, { CompFactory as cf } from "../Bilza.js";
+import Controls from "./controls.js";
+let bil = new Bilza("bilza");
+bil.resizeCanvas(800, 400);
+const controls = new Controls(bil);
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 let c = cf.frameCounter();
 c.goto(0, 90, 0, c.xAlign.Right);
 bil.insert.alwaysOn(c);
-const jt = PresetComps.jumbotron(1, 3, "Jumbotron", "#008000");
+const content = "12345-12345";
+const colorHax = "#008000";
+const startFrame = 4;
+const endFrame = 6;
+const yUpto = 70;
+const jt = cf.text(content, colorHax);
+jt.dynWidth.setValue(60);
+jt.maxHeight = 30;
+jt.goto(0, 50, 50, jt.xAlign.Mid, jt.yAlign.Top);
+jt.animate(startFrame, endFrame, 50, 50, jt.offScreenYOpt.YTop, yUpto, jt.xAlign.Mid, jt.xAlign.Mid, jt.yAlign.Top, jt.yAlign.Top);
 bil.insert.add(jt, 0, 10);
-bil.init();
-bil.drawFrame(0);
-const slider = document.getElementById("slider");
-slider === null || slider === void 0 ? void 0 : slider.addEventListener("input", function (e) {
-    bil.drawFrame(e.target.value * 1000);
-});
-const start = document.getElementById("start");
-start === null || start === void 0 ? void 0 : start.addEventListener("click", (e) => {
-    bil.start();
-});
-const stop = document.getElementById("stop");
-stop === null || stop === void 0 ? void 0 : stop.addEventListener("click", (e) => {
-    bil.stop();
-    slider.value = 0;
-    bil.init();
-    bil.drawFrame(0);
-});
-setInterval(() => {
-    if (bil.isRunning() == true) {
-        slider.value = Math.ceil(bil.lastMeDelta() / 1000);
-    }
-}, 500);

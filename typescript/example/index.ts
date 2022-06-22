@@ -1,43 +1,41 @@
 import Bilza, { CompFactory as cf , PresetComps } from "../Bilza.js";
+import Controls from "./controls.js";
+let bil = new Bilza("bilza");
+bil.resizeCanvas(800,400);
+const controls = new Controls(bil);
+//-----------------------------------------
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 
-let bil = new Bilza("bilza",70);
-// bil.soundTrack = ""
-bil.background.color = "#407740";
 let c = cf.frameCounter();
 c.goto(0,90,0,c.xAlign.Right);
 bil.insert.alwaysOn(c);
 
-const jt = PresetComps.jumbotron(1,3,"Jumbotron" , "#008000")
+
+// const jt = PresetComps.topInHdg(0,1);
+const content = "12345-12345";
+const colorHax = "#008000";
+const startFrame = 4;
+const endFrame = 6;
+const yUpto = 70;
+
+const jt = cf.text(content,colorHax);
+// const jt = cf.fillRect("blue");
+jt.dynWidth.setValue(60);
+jt.maxHeight = 30;    
+jt.goto(0,50,50,jt.xAlign.Mid,jt.yAlign.Top);
+    // jt.border.setValue(2);
+jt.animate(
+    startFrame,endFrame,    
+    50,50, //x                  
+    jt.offScreenYOpt.YTop,yUpto,
+    jt.xAlign.Mid,jt.xAlign.Mid,
+    jt.yAlign.Top,jt.yAlign.Top
+    );
 bil.insert.add(jt,0,10);
 
-////////////////////////////////////////////
-bil.init();
-bil.drawFrame(0);
-//--------------------------------
-const slider  = document.getElementById("slider");
-slider?.addEventListener("input",function(e){
-//@ts-expect-error
-bil.drawFrame(e.target.value * 1000);
-});
 
-const start  = document.getElementById("start");
-start?.addEventListener("click",(e)=>{
-    // console.log("start");
-bil.start();
-});
-
-const stop  = document.getElementById("stop");
-stop?.addEventListener("click",(e)=>{
-bil.stop();
-//@ts-expect-error
-slider.value=0;
-bil.init();
-bil.drawFrame(0);
-});
-
-setInterval(()=>{
-    if (bil.isRunning()==true){
-    //@ts-expect-error        
-    slider.value = Math.ceil(bil.lastMeDelta()/1000);  
-    }
-},500);    
+// bil.init();
+// bil.drawFrame();
+// bil.start();
+//--------------------------------------

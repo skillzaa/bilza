@@ -4,7 +4,7 @@ export default class FillRect extends BaseComponent {
   
     // lineWidth :AnimatedNoBase;
     color :string;
-    trueWidth :number;
+    // trueWidth :number;
 public dynWidth :AnimatedNoBase;    //required by all comps--no
 public dynHeight :AnimatedNoBase;    //required by all comps--no
 
@@ -12,7 +12,7 @@ constructor (color :string="#000000"){
     super();
     // this.lineWidth = new AnimatedNoBase(1) ;
     this.color = color ; 
-    this.trueWidth = 0;
+    // this.trueWidth = 0;
     this.dynHeight = new AnimatedNoBase(10) ;
     this.dynWidth = new AnimatedNoBase(10); 
   

@@ -3,7 +3,6 @@ export default class FillRect extends BaseComponent {
     constructor(color = "#000000") {
         super();
         this.color = color;
-        this.trueWidth = 0;
         this.dynHeight = new AnimatedNoBase(10);
         this.dynWidth = new AnimatedNoBase(10);
     }

@@ -1,7 +1,6 @@
 import { Pack, BaseComponent, AnimatedNoBase } from "../Bilza.js";
 export default class FillRect extends BaseComponent {
     color: string;
-    trueWidth: number;
     dynWidth: AnimatedNoBase;
     dynHeight: AnimatedNoBase;
     constructor(color?: string);

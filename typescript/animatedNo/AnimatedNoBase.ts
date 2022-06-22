@@ -71,7 +71,9 @@ protected runSetValue(){
 }
 public setValue(n :number){
 //--just assign it to _set_value and in the update => runSetValue.       
-this._set_value = n;
+
+ this._ret_value = n;
+// this._set_value = n;
 }
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
 public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){

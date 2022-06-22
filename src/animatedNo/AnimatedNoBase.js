@@ -36,7 +36,7 @@ export default class AnimatedNoBase {
         }
     }
     setValue(n) {
-        this._set_value = n;
+        this._ret_value = n;
     }
     animate(from = 0, to = 10, startValue = 0, endValue = 100) {
         let a = new PreInitIncDec(from, to, startValue, endValue);
