@@ -3,17 +3,17 @@ import {Pack,IComponent,XAlignment,YAlignment} from "../bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
-import AniPresent from "./aniPresent.js";
+import AniPreset from "./aniPreset.js";
 
 export default class BaseComponent extends BaseComponentBase implements IComponent {
 // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
-aniPreset :AniPresent;
+aniPreset :AniPreset;
 //--KEEP COMP drfault duration at 10 sec
 constructor (){
     super();
     this.charsWidth = null;  
-    this.aniPreset = new AniPresent(this);
+    this.aniPreset = new AniPreset(this);
 }
 
 init(p: Pack): boolean {

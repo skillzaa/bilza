@@ -1,6 +1,6 @@
 import { IComponent,BaseComponent,XAlignment,YAlignment,OffScreenYOpt,OffScreenXOpt } from "../bilza.js";
 
-export default class AniPresent {
+export default class AniPreset {
 private comp :IComponent;
 constructor(comp :IComponent){
 this.comp = comp;
