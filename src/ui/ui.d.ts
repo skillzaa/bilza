@@ -1,7 +1,7 @@
 import Bilza from "../Bilza.js";
-export default class Controls {
+export default class Ui {
     start: HTMLElement;
     stop: HTMLElement;
     constructor(bil: Bilza);
 }
-//# sourceMappingURL=controls.d.ts.map
+//# sourceMappingURL=ui.d.ts.map

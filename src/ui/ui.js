@@ -1,4 +1,4 @@
-export default class Controls {
+export default class Ui {
     constructor(bil) {
         sliderFn(bil);
         const startExists = document.getElementById("start");

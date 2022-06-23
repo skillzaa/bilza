@@ -1,8 +1,10 @@
-import Bilza, { CompFactory as cf , PresetComps } from "../Bilza.js";
-import Controls from "./controls.js";
+import Bilza, { CompFactory as cf , PresetComps,Ui } from "../Bilza.js";
+import bulletPoint from "../presetComps/bulletPoint.js";
+
+
+
 let bil = new Bilza("bilza");
-bil.resizeCanvas(800,400);
-const controls = new Controls(bil);
+bil.resizeCanvas(1000,400);
 //-----------------------------------------
 const g = cf.grid();
 bil.insert.alwaysOn(g);
@@ -12,30 +14,38 @@ c.goto(0,90,0,c.xAlign.Right);
 bil.insert.alwaysOn(c);
 
 
-// const jt = PresetComps.topInHdg(0,1);
-const content = "12345-12345";
-const colorHax = "#008000";
-const startFrame = 4;
-const endFrame = 6;
-const yUpto = 70;
-
-const jt = cf.text(content,colorHax);
-// const jt = cf.fillRect("blue");
-jt.dynWidth.setValue(60);
-jt.maxHeight = 30;    
-jt.goto(0,50,50,jt.xAlign.Mid,jt.yAlign.Top);
-    // jt.border.setValue(2);
-jt.animate(
-    startFrame,endFrame,    
-    50,50, //x                  
-    jt.offScreenYOpt.YTop,yUpto,
-    jt.xAlign.Mid,jt.xAlign.Mid,
-    jt.yAlign.Top,jt.yAlign.Top
-    );
-bil.insert.add(jt,0,10);
+const hdg = PresetComps.topInHdg(0,1,"Main Heading","#0000ff",10);
+bil.insert.add(hdg,0,20);
 
 
-// bil.init();
-// bil.drawFrame();
+const jt01 = PresetComps.bulletPoint(1,2,"This is the bullet point sentence", "#008000",30);
+bil.insert.add(jt01,0,10);
+
+const jt02 = PresetComps.bulletPoint(3,5,"This is the bullet point sentence","#008000",50);
+bil.insert.add(jt02,0,10);
+
+const jt03 = PresetComps.bulletPoint(6,8,"This is the bullet point sentence", "#008000",70);
+
+bil.insert.add(jt03,0,10);
+
+
+bil.init();
+const ui = new Ui(bil);
+bil.drawFrame(0);
 // bil.start();
 //--------------------------------------
+
+// const slider = document.getElementById("slider");
+// slider.min = 0;
+// slider.max = 10;
+// slider.value = 0;
+// // slider.set       
+// console.log("slider",slider);        
+// setInterval(()=>{
+//     if (bil.isRunning()==true){
+//         //----@ts-expect-error 
+//         slider.value = Math.ceil(bil.lastMeDelta()/1000);  
+//         // console.log("Math.ceil(bil.lastMeDelta()/1000)",Math.ceil(bil.lastMeDelta()/1000));        
+//     // console.log("this.slider.value",this.slider.value);
+//     }
+// },500);    

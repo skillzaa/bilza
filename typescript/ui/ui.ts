@@ -1,25 +1,14 @@
 import Bilza from "../Bilza.js";
+/**
+ * This class is responsible for any UI controls
+ */
+export default class Ui{
 
-export default class Controls{
-// bil :Bilza;
-slider :HTMLElement;
 start :HTMLElement;
 stop :HTMLElement;
+
 constructor(bil :Bilza){
-// this.bil = bil;
-//------------slider---------
-const sliderExists = document.getElementById("slider");
-if ( sliderExists !== null){
-this.slider  = sliderExists;
-//bil.len(false)
-this.slider.setAttribute('max',bil.len(false).toString());
-this.slider.addEventListener("input",function(e){
-    //@ts-expect-error
-    bil.drawFrame(e.target.value * 1000);
-    });
-}else {
-    throw new Error("slider not found");
-}
+sliderFn(bil);
 //------------start---------
 const startExists = document.getElementById("start");
     if ( startExists !== null){
@@ -44,16 +33,37 @@ const stopExists = document.getElementById("stop");
 }else {
     throw new Error("stop button not found");
 }
-//---------interval
-setInterval(()=>{
-    if (bil.isRunning()==true){
-    //@ts-expect-error        
-    this.slider.value = Math.ceil(bil.lastMeDelta()/1000);  
-    }
-},500);    
 
 
 }    
 
 //////////////////
+}
+
+function sliderFn(bil :Bilza){
+  //------------slider---------
+const sliderExists = document.getElementById("slider");
+if ( sliderExists== null){ throw new Error("slider error");
+}
+const slider  = sliderExists;
+
+//@ts-expect-error 
+slider.min = "0";
+//@ts-expect-error 
+slider.max = bil.len(false).toString() ;
+//@ts-expect-error 
+slider.value = "0";
+
+setInterval(()=>{
+    if (bil.isRunning()==true){
+        //@ts-expect-error 
+        slider.value = Math.ceil(bil.lastMeDelta()/1000);  
+    }
+},500);    
+//..........
+    slider.addEventListener("input",function(e){
+    //@ts-expect-error
+    bil.drawFrame(e.target.value * 1000);
+    });
+  
 }

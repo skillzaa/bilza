@@ -1,6 +1,7 @@
 import Bilza from "./bilzaMod/00bilza.js";
 import CompFactory from "./components/compFactory.js";
 import PresetComps from "./presetComps/presetComps.js";
+import Ui from "./ui/ui.js";
 import Pack from "./pack/pack.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import IComponent from "./design/IComponent.js";
@@ -14,5 +15,5 @@ import { OffScreenYOpt } from "./design/OffScreenYOpt.js";
 import AnimatedNoBase from "./animatedNo/AnimatedNoBase.js";
 import TextTempl from "./templ/textTempl.js";
 export default Bilza;
-export { Pack, DrawLayer, AnimatedNoBase, IComponent, Bilza, BaseComponent, CompFactory, PresetComps, XAlignment, YAlignment, OffScreenXOpt, OffScreenYOpt, FontFamily, Style, TextTempl };
+export { Pack, DrawLayer, AnimatedNoBase, IComponent, Ui, Bilza, BaseComponent, CompFactory, PresetComps, XAlignment, YAlignment, OffScreenXOpt, OffScreenYOpt, FontFamily, Style, TextTempl };
 //# sourceMappingURL=Bilza.d.ts.map

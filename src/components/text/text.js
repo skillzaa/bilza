@@ -30,17 +30,6 @@ export default class Text extends Text002 {
         super.update(msDelta, p);
         return true;
     }
-    width() {
-        if (this.useDynWidth == true) {
-            if (this.canvasWidth == null) {
-                throw new Error("init error");
-            }
-            return Math.ceil((this.canvasWidth / 100) * this.dynWidth.value());
-        }
-        else {
-            return super.width();
-        }
-    }
     dynamicFontSize(p) {
         const reqWdInPix = this.reqWdInPixForFontSize(p);
         this.style.fontSize = this.fontSize;

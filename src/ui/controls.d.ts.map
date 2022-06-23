@@ -1,0 +1,1 @@
+{"version":3,"file":"controls.d.ts","sourceRoot":"","sources":["../../typescript/ui/controls.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,aAAa,CAAC;AAEhC,MAAM,CAAC,OAAO,OAAO,QAAQ;IAE7B,KAAK,EAAE,WAAW,CAAC;IACnB,IAAI,EAAE,WAAW,CAAC;gBAEN,GAAG,EAAE,KAAK;CA+BrB"}

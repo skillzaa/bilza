@@ -41,16 +41,16 @@ update(msDelta: number, p: Pack): boolean {
     return true;
 }
 //--height sift super ki use kerain lekin super ka aur this ka width seperate hai  
-width():number {
-    if (this.useDynWidth == true){
-        if (this.canvasWidth == null)
-        {throw new Error("init error");}        
-        return Math.ceil((this.canvasWidth/100)*this.dynWidth.value());
+// width():number {
+//     if (this.useDynWidth == true){
+//         if (this.canvasWidth == null)
+//         {throw new Error("init error");}        
+//         return Math.ceil((this.canvasWidth/100)*this.dynWidth.value());
     
-    }else {
-        return super.width();
-        }
-}  
+//     }else {
+//         return super.width();
+//         }
+// }  
 private dynamicFontSize(p :Pack):number | null{
 //----required with should exclude padding     
  const reqWdInPix = this.reqWdInPixForFontSize(p);

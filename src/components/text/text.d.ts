@@ -8,7 +8,6 @@ export default class Text extends Text002 {
     constructor(content?: string, colorHax?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
-    width(): number;
     private dynamicFontSize;
     private reqWdInPixForFontSize;
     private shrinkToFitMaxHeight;

@@ -1,6 +1,7 @@
 import Bilza from "./bilzaMod/00bilza.js";
 import CompFactory from "./components/compFactory.js";
 import PresetComps from "./presetComps/presetComps.js";
+import Ui from "./ui/ui.js";
 //--A seperate package on top of which Engine build abstractions
 import Pack from "./pack/pack.js";
 //--Required by Engine and Comp both
@@ -27,6 +28,7 @@ Pack,
 DrawLayer,
 AnimatedNoBase,
 IComponent,
+Ui,
 Bilza,
 BaseComponent,
 CompFactory,
