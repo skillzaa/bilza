@@ -17,7 +17,7 @@ constructor (){
 }
 
 init(p: Pack): boolean {
-//--- now i have width in pix when app is init and width in percentage when not init    
+//--- now i have width in pix when app is init and width in percentage when not init...    
 this.canvasWidth =  p.canvasWidth();  
 this.canvasHeight =  p.canvasHeight();  
 this.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
@@ -43,9 +43,9 @@ draw(p: Pack): boolean {
     return true;
 }
 ////////////////////////////////////////////////////////
-checkCollision(x: number, y: number, p: Pack): boolean {
-    return false;
-}
+// checkCollision(x: number, y: number, p: Pack): boolean {
+//     return false;
+// }
 shadowsOff(){
 this.style.shadowBlur = 0;
 this.style.shadowOffsetX = 0;
@@ -81,7 +81,7 @@ return this.loc.goto(atFrame,x, y,xAlign,yAlign,xExtra,yExtra);
 }
 animate(timeFrom :number,timeTo :number,
     xFrom :number |OffScreenXOpt,xTo :number |OffScreenXOpt, yFrom :number|OffScreenYOpt,yTo :number |OffScreenYOpt,
-    
+     
     xAlignFrom :XAlignment=XAlignment.Left,xAlignTo :XAlignment=XAlignment.Left,yAlignFrom :YAlignment=YAlignment.Top,yAlignTo :YAlignment=YAlignment.Top,
     
     xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0):boolean {

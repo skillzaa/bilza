@@ -23,7 +23,7 @@ export default interface IComponent{
     draw(p :Pack):boolean; 
     charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
     ///----check collision
-    checkCollision(x :number,y :number, p :Pack):boolean;
+    // checkCollision(x :number,y :number, p :Pack):boolean;
     // resize(width :number,height :number):number;
 
 //----insert/displayType ==> 1append-2Timed-3AlwaysShow
