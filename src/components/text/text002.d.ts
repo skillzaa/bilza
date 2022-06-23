@@ -1,4 +1,4 @@
-import { Pack, BaseComponent, FontFamily } from "../../Bilza.js";
+import { Pack, BaseComponent, FontFamily } from "../../bilza.js";
 import AnimatedNoBase from "../../animatedNo/AnimatedNoBase.js";
 export default class Text002 extends BaseComponent {
     content: string;

@@ -1,4 +1,5 @@
-import {OffScreenYOpt,XAlignment,YAlignment} from "../Bilza.js";
+
+
 import Text from "../components/text/text.js";
 
 export default class TextTempl {

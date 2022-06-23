@@ -1,4 +1,4 @@
-import {DrawLayer,Pack} from "../Bilza.js";
+import {DrawLayer,Pack} from "../bilza.js";
 import Background from "./background.js";
 //----------functions
 import StopWatch from "./stopWatch.js";

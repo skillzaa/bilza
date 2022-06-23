@@ -1,4 +1,4 @@
-import {Pack,DrawLayer} from "../Bilza.js";
+import {Pack,DrawLayer} from "../bilza.js";
 import BaseComponent from "../BaseComponent/BaseComponent.js";
 
 

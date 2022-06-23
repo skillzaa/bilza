@@ -1,4 +1,4 @@
-import { XAlignment, YAlignment, OffScreenYOpt, OffScreenXOpt } from "../Bilza.js";
+import { XAlignment, YAlignment, OffScreenYOpt, OffScreenXOpt } from "../bilza.js";
 export default class AniPresent {
     constructor(comp) {
         this.comp = comp;

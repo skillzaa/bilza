@@ -1,4 +1,4 @@
-import { Pack, BaseComponent } from "../Bilza.js";
+import { Pack, BaseComponent } from "../bilza.js";
 export default class BgCircles extends BaseComponent {
     count: number;
     size: number;

@@ -1,4 +1,4 @@
-import { CompFactory as cf } from "../Bilza.js";
+import { CompFactory as cf } from "../bilza.js";
 export default function topInHdg(startFrame = 1, endFrame = 2, content = "Top In Heading", colorHax = "#000000", yUpto = 5) {
     const jt = cf.text(content, colorHax);
     jt.dynWidth.setValue(60);

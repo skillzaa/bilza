@@ -1,4 +1,4 @@
-import Bilza, {IComponent, CompFactory as cf } from "../Bilza.js";
+import Bilza, {IComponent, CompFactory as cf } from "../bilza.js";
 
 export default function jumbotron(startFrame :number=1,endFrame :number=2, content :string="Jumbotron",colorHax :string = "#000000"):IComponent{
     const jt = cf.text(content,colorHax);

@@ -1,4 +1,4 @@
-import { DrawLayer } from "../Bilza.js";
+import { DrawLayer } from "../bilza.js";
 import Style from "../design/style.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";

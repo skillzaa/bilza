@@ -1,4 +1,4 @@
-import { IComponent, XAlignment, YAlignment } from "../Bilza.js";
+import { IComponent, XAlignment, YAlignment } from "../bilza.js";
 export default class AniPresent {
     private comp;
     constructor(comp: IComponent);

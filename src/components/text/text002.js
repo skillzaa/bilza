@@ -1,4 +1,4 @@
-import { BaseComponent, DrawLayer, FontFamily } from "../../Bilza.js";
+import { BaseComponent, DrawLayer, FontFamily } from "../../bilza.js";
 import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
 import TextUtil from "./textUtil.js";
 import AnimatedNoBase from "../../animatedNo/AnimatedNoBase.js";

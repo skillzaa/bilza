@@ -16,4 +16,4 @@ import AnimatedNoBase from "./animatedNo/AnimatedNoBase.js";
 import TextTempl from "./templ/textTempl.js";
 export default Bilza;
 export { Pack, DrawLayer, AnimatedNoBase, IComponent, Ui, Bilza, BaseComponent, CompFactory, PresetComps, XAlignment, YAlignment, OffScreenXOpt, OffScreenYOpt, FontFamily, Style, TextTempl };
-//# sourceMappingURL=Bilza.d.ts.map
+//# sourceMappingURL=bilza.d.ts.map

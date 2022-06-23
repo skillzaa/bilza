@@ -1,4 +1,4 @@
-import { BaseComponent, XAlignment, YAlignment } from "../Bilza.js";
+import { BaseComponent, XAlignment, YAlignment } from "../bilza.js";
 export default class AniTempl {
     static TinStop(comp: BaseComponent, fromSec?: number, toSec?: number, x?: number, yUpto?: number, xAlign?: XAlignment, yAlign?: YAlignment): void;
     static TinBout(comp: BaseComponent, fromSec?: number, toSec?: number, x?: number): void;

@@ -1,4 +1,4 @@
-import {Pack,BaseComponent,AnimatedNoBase} from "../Bilza.js";
+import {Pack,BaseComponent,AnimatedNoBase} from "../bilza.js";
 
 export default class FillRect extends BaseComponent {
   

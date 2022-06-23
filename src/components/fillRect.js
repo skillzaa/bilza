@@ -1,4 +1,4 @@
-import { BaseComponent, AnimatedNoBase } from "../Bilza.js";
+import { BaseComponent, AnimatedNoBase } from "../bilza.js";
 export default class FillRect extends BaseComponent {
     constructor(color = "#000000") {
         super();

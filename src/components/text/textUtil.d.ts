@@ -1,4 +1,4 @@
-import { Pack, Style, FontFamily } from "../../Bilza.js";
+import { Pack, Style, FontFamily } from "../../bilza.js";
 export default class TextUtil {
     constructor();
     static contentWidth(p: Pack, content: string, maxDisplayChars: number, fontSize: number, fontFamily: FontFamily): number;

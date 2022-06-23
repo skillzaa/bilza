@@ -1,4 +1,4 @@
-import { XAlignment, YAlignment, OffScreenYOpt, OffScreenXOpt } from "../Bilza.js";
+import { XAlignment, YAlignment, OffScreenYOpt, OffScreenXOpt } from "../bilza.js";
 export default class AniTempl {
     static TinStop(comp, fromSec = 0, toSec = 4, x = 0, yUpto = 90, xAlign = XAlignment.Mid, yAlign = YAlignment.Top) {
         comp.goto(fromSec, x, OffScreenYOpt.YTop, xAlign, yAlign);

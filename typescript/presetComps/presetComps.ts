@@ -1,4 +1,4 @@
-import {IComponent} from "../Bilza.js";
+import {IComponent} from "../bilza.js";
 import jumbotron from "../presetComps/jumbotron.js";
 import topInHdg from "../presetComps/topInHdg.js";
 import bulletPoint from "../presetComps/bulletPoint.js";

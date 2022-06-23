@@ -1,4 +1,4 @@
-import { CompFactory as cf } from "../Bilza.js";
+import { CompFactory as cf } from "../bilza.js";
 export default function bulletPoint(startFrame = 1, endFrame = 2, content = "bulletPoint", colorHax = "#000000", y = 5) {
     const jt = cf.text(content, colorHax);
     jt.dynWidth.setValue(80);

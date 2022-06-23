@@ -1,6 +1,6 @@
 import Pack from "../pack/pack.js";
 import { DrawLayer } from "../design/drawLayer.js";
-import { OffScreenXOpt, OffScreenYOpt, XAlignment, YAlignment } from "../Bilza.js";
+import { OffScreenXOpt, OffScreenYOpt, XAlignment, YAlignment } from "../bilza.js";
 export default interface IComponent {
     drawLayer: DrawLayer;
     alwaysOn: boolean;

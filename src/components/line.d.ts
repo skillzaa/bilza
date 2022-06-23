@@ -1,4 +1,4 @@
-import { Pack, BaseComponent } from "../Bilza.js";
+import { Pack, BaseComponent } from "../bilza.js";
 export default class Line extends BaseComponent {
     x1: number;
     y1: number;

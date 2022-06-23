@@ -1,6 +1,6 @@
 import Pack from "../pack/pack.js";
 import {DrawLayer} from "../design/drawLayer.js";
-import {OffScreenXOpt,OffScreenYOpt,XAlignment,YAlignment} from "../Bilza.js";
+import {OffScreenXOpt,OffScreenYOpt,XAlignment,YAlignment} from "../bilza.js";
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business legic etc inside. That will come when we build systems.
  * The components (tools / items / objects) needs to be like lego pieces exposing just this.d.xyz and reacting to that.

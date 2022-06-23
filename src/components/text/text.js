@@ -1,4 +1,4 @@
-import { AnimatedNoBase } from "../../Bilza.js";
+import { AnimatedNoBase } from "../../bilza.js";
 import Text002 from "./text002.js";
 export default class Text extends Text002 {
     constructor(content = "", colorHax = "#000000") {

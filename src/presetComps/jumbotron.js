@@ -1,4 +1,4 @@
-import { CompFactory as cf } from "../Bilza.js";
+import { CompFactory as cf } from "../bilza.js";
 export default function jumbotron(startFrame = 1, endFrame = 2, content = "Jumbotron", colorHax = "#000000") {
     const jt = cf.text(content, colorHax);
     jt.dynWidth.setValue(90);

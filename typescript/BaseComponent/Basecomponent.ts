@@ -1,4 +1,4 @@
-import {Pack,IComponent,XAlignment,YAlignment} from "../Bilza.js";
+import {Pack,IComponent,XAlignment,YAlignment} from "../bilza.js";
 // import Style from "../design/style.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";

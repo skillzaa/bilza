@@ -1,4 +1,4 @@
-import {IComponent, CompFactory as cf } from "../Bilza.js";
+import {IComponent, CompFactory as cf } from "../bilza.js";
 
 export default function topInHdg(startFrame :number=1,endFrame :number=2, content :string="Top In Heading",colorHax :string = "#000000",yUpto :number = 5):IComponent{
     

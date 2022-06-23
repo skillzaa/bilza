@@ -1,6 +1,6 @@
 // import AnimatedNoBase from "../BaseComponent/animation/aniNumber/animatedNoBase/AnimatedNoBase.js";
 
-import {Pack,BaseComponent,AnimatedNoBase} from "../Bilza.js";
+import {Pack,BaseComponent,AnimatedNoBase} from "../bilza.js";
 
 export default class Rect extends BaseComponent {
 public dynWidth :AnimatedNoBase;    //required by all comps--no

@@ -1,4 +1,4 @@
-import {OffScreenXOpt,OffScreenYOpt,XAlignment,YAlignment} from "../Bilza.js";
+import {OffScreenXOpt,OffScreenYOpt,XAlignment,YAlignment} from "../bilza.js";
 
 export default interface IAnimatable{
 

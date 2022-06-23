@@ -1,4 +1,4 @@
-import {Pack,BaseComponent,DrawLayer} from "../Bilza.js";
+import {Pack,BaseComponent,DrawLayer} from "../bilza.js";
 import XY from "../design/xy.js";
 
 export default class BgCircles extends BaseComponent {

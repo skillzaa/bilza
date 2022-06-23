@@ -1,4 +1,4 @@
-import { XAlignment, YAlignment } from "../Bilza.js";
+import { XAlignment, YAlignment } from "../bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 import AniPresent from "./aniPresent.js";
 export default class BaseComponent extends BaseComponentBase {

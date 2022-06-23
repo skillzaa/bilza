@@ -1,4 +1,4 @@
-import {IComponent, CompFactory as cf } from "../Bilza.js";
+import {IComponent, CompFactory as cf } from "../bilza.js";
 
 export default function bulletPoint(startFrame :number = 1,endFrame :number = 2, content :string = "bulletPoint",colorHax :string = "#000000" ,y :number = 5):IComponent{
     

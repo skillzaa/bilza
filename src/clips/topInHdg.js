@@ -1,4 +1,4 @@
-import { CompFactory as cf, OffScreenYOpt, XAlignment, YAlignment } from "../Bilza.js";
+import { CompFactory as cf, OffScreenYOpt, XAlignment, YAlignment } from "../bilza.js";
 import lightenDarkenColor from "../functions/lightenDarkenColor.js";
 export default function topInHdg(content, colorHax, y = 2, duration = 10, timeFrom = 0, timeTo = 2) {
     const t = cf.text(content, colorHax);

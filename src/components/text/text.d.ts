@@ -1,4 +1,4 @@
-import { Pack, AnimatedNoBase } from "../../Bilza.js";
+import { Pack, AnimatedNoBase } from "../../bilza.js";
 import Text002 from "./text002.js";
 export default class Text extends Text002 {
     useDynWidth: boolean;

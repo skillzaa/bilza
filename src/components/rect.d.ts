@@ -1,4 +1,4 @@
-import { Pack, BaseComponent, AnimatedNoBase } from "../Bilza.js";
+import { Pack, BaseComponent, AnimatedNoBase } from "../bilza.js";
 export default class Rect extends BaseComponent {
     dynWidth: AnimatedNoBase;
     dynHeight: AnimatedNoBase;

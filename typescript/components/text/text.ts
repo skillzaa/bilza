@@ -1,4 +1,4 @@
-import { Pack ,AnimatedNoBase,Style } from "../../Bilza.js";
+import { Pack ,AnimatedNoBase,Style } from "../../bilza.js";
 import Text002 from "./text002.js"
 ;
 // import TextUtil from "./textUtil.js";
