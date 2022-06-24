@@ -1,6 +1,8 @@
 import Increment from "../filters/incDec/increment.js";
 import Decrement from "../filters/incDec/decrement.js";
 import Vibrate from "../filters/vibrate.js";
+import JumpBetween from "../filters/jumpBetween.js";
+import RandomNo from "../filters/randomNo.js";
 export default class AniNumber {
     constructor(defaultValue = 0) {
         this._value = defaultValue;
@@ -40,6 +42,14 @@ export default class AniNumber {
     }
     vibrate(from, to, seed = 10, offset = 10, delay = 0) {
         const v = new Vibrate(from, to, seed, offset, delay);
+        this.filters.push(v);
+    }
+    jumpBetween(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, everyXFrame = 0) {
+        const v = new JumpBetween(startTimeSec, endTimeSec, pointOne, pointTwo, everyXFrame);
+        this.filters.push(v);
+    }
+    random(startTimeSec, endTimeSec, min = 0, max = 100, everyXFrame = 0) {
+        const v = new RandomNo(startTimeSec, endTimeSec, min, max, everyXFrame);
         this.filters.push(v);
     }
     runFilters(msDelta) {
