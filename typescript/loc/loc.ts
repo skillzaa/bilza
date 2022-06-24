@@ -2,7 +2,7 @@ import { XAlignment } from "../design/xAlignment.js";
 import { YAlignment } from "../design/yAlignment.js";
 import { OffScreenXOpt } from "../design/OffScreenXOpt.js";
 import { OffScreenYOpt } from "../design/OffScreenYOpt.js";
-
+ 
 // import { FilterState } from "../design/filterState.js";
 import Increment from "../filters/incDec/increment.js";
 import Decrement from "../filters/incDec/decrement.js";
@@ -144,7 +144,7 @@ initIncDecY(elm :PreInitArray,compHeight :number){
         let c = new ConstantNo(elm.timeFrom,elm.timeTo,start);
         this.animationsY.push(c); 
     }
-}
+} 
 // This runs ALL THE ANIMATIONS (EACH filter is called and its value integrated )
 private runAnimationsX(msDelta :number){
     for (let i = 0; i < this.animationsX.length; i++) {

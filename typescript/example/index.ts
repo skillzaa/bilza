@@ -1,27 +1,23 @@
 import Bilza, { CompFactory as cf , PresetComps,Ui } from "../bilza.js";
 
-let bil = new Bilza("bilza",70);
+import TestComp from "../components/testComp.js";
+
+let bil = new Bilza("bilza");
+bil.resizeCanvas(1000,350);
 //-----------------------------------------
 const g = cf.grid();
 bil.insert.alwaysOn(g);
+const counter = cf.frameCounter();
+bil.insert.alwaysOn(counter);
 
-let c = cf.frameCounter();
-c.goto(0,90,0,c.xAlign.Right);
-bil.insert.alwaysOn(c);
-
-const hdg = PresetComps.topInHdg(0,1,"Main Heading","#0000ff",10);
-bil.insert.add(hdg,0,15);
-
-
-const jt01 = PresetComps.bulletPoint(1,2,"This is the bullet point sentence", "#008000",30);
-bil.insert.add(jt01,0,15);
-
-const jt02 = PresetComps.bulletPoint(3,5,"This is the bullet point sentence","#008000",50);
-bil.insert.add(jt02,0,15);
-
-const jt03 = PresetComps.bulletPoint(6,8,"This is the bullet point sentence", "#008000",70);
-
-bil.insert.add(jt03,0,15);
+const rect  = new TestComp();
+// rect.goto(0,0,50);
+//---goto commands inbetween animation are over written.
+// rect.animate(2,10,0,100,50,50,rect.xAlign.Left,rect.xAlign.Right);
+rect.local_y.set(200);
+rect.local_y.vibrate(0,10,50,1,10);
+rect.local_x.animate(0,10,0,900);
+bil.insert.add(rect,0,15);
 ///----------------
 const ui = new Ui(bil);
 // bil.start();

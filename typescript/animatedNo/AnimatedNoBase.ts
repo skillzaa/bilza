@@ -45,12 +45,6 @@ init(compWidth :()=>number,compHeight :()=>number,canvasWidth :number, canvasHei
     this.initIncDec();
     return true;
 }
-//--There are different kind of Filters that can be applied to a number One such filter is increment another decrement. There can be other filters like Wiggle, SpanBetweenXPoints, CosCurve etc etc.
-//--For each type of filter we will have a preInitArray which will collect all the filters applied 
-//-- AND when init all these Arrays are converted into real objects which then effect the out put values when their time comes.
-//---initIncDec is one such fn which while init will convert.
-//---Every such fn which initialize an array into Filter Objects there is also a collecting function -they work in pair. The pair function for this fn is this.animate.
-//--For wiggle filter there may be a fn this.wiggle which will collect all the preInit wiggle commands and store then into some preInitWiggle array and then run them during init with initWiggle. 
 update(msDelta :number):boolean{
 this.runSetValue();
 this.runAnimations(msDelta);
@@ -74,7 +68,7 @@ public setValue(n :number){
 
  this._ret_value = n;
 // this._set_value = n;
-}
+} 
 //--we are using PreInitIncDec obj to save the increment or decrement both since both structure are the same but for saving other Filter preInit commands we need seperate Array for one filter. 
 public animate(from :number=0,to :number=10,startValue :number=0,endValue :number=100){
     let a = new PreInitIncDec(from,to,startValue,endValue);

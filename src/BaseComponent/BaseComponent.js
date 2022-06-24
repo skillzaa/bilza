@@ -1,11 +1,11 @@
 import { XAlignment, YAlignment } from "../bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
-import AniPresent from "./aniPresent.js";
+import AniPreset from "./aniPreset.js";
 export default class BaseComponent extends BaseComponentBase {
     constructor() {
         super();
         this.charsWidth = null;
-        this.aniPreset = new AniPresent(this);
+        this.aniPreset = new AniPreset(this);
     }
     init(p) {
         this.canvasWidth = p.canvasWidth();
@@ -25,9 +25,6 @@ export default class BaseComponent extends BaseComponentBase {
     }
     draw(p) {
         return true;
-    }
-    checkCollision(x, y, p) {
-        return false;
     }
     shadowsOff() {
         this.style.shadowBlur = 0;

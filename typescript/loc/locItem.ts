@@ -12,7 +12,7 @@ export default class LocItem {
     xExtra :number;
     yExtra :number;
 
-constructor(x :number | OffScreenXOpt,y :number |OffScreenYOpt, xAlign :XAlignment = XAlignment.Left, yAlign :YAlignment = YAlignment.Top,xExtra :number=0,yExtra :number = 0){
+constructor(x :number | OffScreenXOpt,y :number |OffScreenYOpt, xAlign :XAlignment = XAlignment.Left, yAlign :YAlignment = YAlignment.Top,xExtra :number=0,yExtra :number = 0){ 
     this.x =x ;
     this.y =y ;
     this.xAlign =xAlign;
