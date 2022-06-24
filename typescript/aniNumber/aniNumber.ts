@@ -4,6 +4,7 @@ import Increment from "../filters/incDec/increment.js";
 import Decrement from "../filters/incDec/decrement.js";
 import Vibrate from "../filters/vibrate.js";
 import JumpBetween from "../filters/jumpBetween.js";
+import SetOnce from "../filters/setOnce_goto.js";
 import RandomNo from "../filters/randomNo.js";
 import IFilter from "../design/IFilter.js";
 import GotoArray from "./gotoArray.js";
@@ -42,16 +43,7 @@ public value():number{
 return this._value;
 }
 
-private runGoto(msDelta :number){
-    for (let i = 0; i < this.gotoArray.length; i++) {
-        const gotoItem = this.gotoArray[i];
-    if ( (gotoItem.atFrame * 1000) <= msDelta){
-        this._value = gotoItem.value;
-        this.gotoArray.splice(i,1); ////important remove it;
-    }   
-} 
-}
-
+//--this has effect only before init
 public set(n :number){
  this._value = n;
  return this._value;
@@ -76,6 +68,10 @@ public jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, p
 }
 public random(startTimeSec :number,endTimeSec :number,min :number=0, max :number=100,everyXFrame :number=0){
 const v = new RandomNo(startTimeSec,endTimeSec,min, max,everyXFrame);
+this.filters.push(v);
+}
+public goto(startTimeSec :number,theValue :number=0){
+const v = new SetOnce(startTimeSec,theValue);
 this.filters.push(v);
 }
 

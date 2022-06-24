@@ -5,7 +5,8 @@ export default class BaseFilter implements IFilter {
     
 protected  _ret_val :number | null;
 protected filterState :FilterState
-
+//--not implemented yet
+// public exhausted:boolean;
 protected  startTime :number;
 protected  endTime :number;
 
@@ -22,6 +23,7 @@ this.endTime = endTimeSec * 1000;
 
 this._ret_val = null;
 this.filterState = FilterState.Waiting;
+// this.exhausted = false;
 //--------------------------------
 }
 

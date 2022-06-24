@@ -2,6 +2,7 @@ import Increment from "../filters/incDec/increment.js";
 import Decrement from "../filters/incDec/decrement.js";
 import Vibrate from "../filters/vibrate.js";
 import JumpBetween from "../filters/jumpBetween.js";
+import SetOnce from "../filters/setOnce_goto.js";
 import RandomNo from "../filters/randomNo.js";
 export default class AniNumber {
     constructor(defaultValue = 0) {
@@ -16,15 +17,6 @@ export default class AniNumber {
     }
     value() {
         return this._value;
-    }
-    runGoto(msDelta) {
-        for (let i = 0; i < this.gotoArray.length; i++) {
-            const gotoItem = this.gotoArray[i];
-            if ((gotoItem.atFrame * 1000) <= msDelta) {
-                this._value = gotoItem.value;
-                this.gotoArray.splice(i, 1);
-            }
-        }
     }
     set(n) {
         this._value = n;
@@ -50,6 +42,10 @@ export default class AniNumber {
     }
     random(startTimeSec, endTimeSec, min = 0, max = 100, everyXFrame = 0) {
         const v = new RandomNo(startTimeSec, endTimeSec, min, max, everyXFrame);
+        this.filters.push(v);
+    }
+    goto(startTimeSec, theValue = 0) {
+        const v = new SetOnce(startTimeSec, theValue);
         this.filters.push(v);
     }
     runFilters(msDelta) {
