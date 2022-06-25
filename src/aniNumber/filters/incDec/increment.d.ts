@@ -1,5 +1,5 @@
-import IFilter from "../IFilter.js";
-import { FilterState } from "../filterState.js";
+import IFilter from "../../IFilter.js";
+import { FilterState } from "../../filterState.js";
 export default class Increment implements IFilter {
     protected _ret_val: number | null;
     protected filterState: FilterState;

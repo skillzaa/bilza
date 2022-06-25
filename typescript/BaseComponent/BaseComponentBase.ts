@@ -8,6 +8,7 @@ import Y from "./y.js";
 
 export default class BaseComponentBase{
     public readonly id :string;//req for all components
+    public usePercentages : boolean; 
     public drawLayer : DrawLayer; 
     public style:Style; ///--may be removed in future
     public  duration :number;
@@ -51,6 +52,8 @@ constructor(){
     //--insert the current version numebr into components
     this.version = "0_0_18";
     this.alwaysOn = false;
+    // this.usePercentages = false;
+    this.usePercentages = true;
 
     this.x = new X(0);
     this.y = new Y(0);

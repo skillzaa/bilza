@@ -1,4 +1,4 @@
-import { FilterState } from "../filterState.js";
+import { FilterState } from "../../filterState.js";
 export default class Decrement {
     constructor(startTimeSec, endTimeSec, startValue, endValue) {
         if (startTimeSec < 0 || endTimeSec < 0) {

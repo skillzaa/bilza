@@ -1,15 +1,24 @@
 import {Pack,IComponent,XAlignOpt,YAlignOpt} from "../bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
+import PreInitGoto from "./designBC/preInitGoto.js";
+import PreInitAnimate from "./designBC/preInitAnimate.js";
+import PreInitVibrate from "./designBC/preInitVibrate.js";
 // import AniPreset from "./aniPreset.js";
 
 export default class Loc extends BaseComponentBase implements IComponent{
 // XX-------------||||||||||||||||||||||---------------XX 
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
+private preInitGotos:PreInitGoto[];
+private preInitAnimates:PreInitAnimate[];
+private preInitVibrates:PreInitVibrate[];
+
 // aniPreset :AniPreset;
 
-//--KEEP COMP drfault duration at 10 sec
 constructor (){
     super();
+    this.preInitGotos = []; 
+    this.preInitAnimates = []; 
+    this.preInitVibrates = []; 
     this.charsWidth = null;  
     // this.aniPreset = new AniPreset(this);
 }
@@ -17,11 +26,58 @@ constructor (){
 init(p: Pack): boolean {
 //--- now i have width in pix when app is init and width in percentage when not init...    
 this.canvasWidth =  p.canvasWidth();  
-this.canvasHeight =  p.canvasHeight();  
+this.canvasHeight =  p.canvasHeight();
+this.initGoto();
+this.initAnimate();
+this.initVibrateX();
 // this.x.init(); There is no AniNumber.init :)
 // this.y.init(); There is no AniNumber.init :)
 // this.loc.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 return true;
+}
+initVibrateX(){
+for (let i = 0; i < this.preInitVibrates.length; i++) {
+    const elm = this.preInitVibrates[i];
+    let v = elm.seed;
+    if (this.usePercentages == true){
+        v = this.percToX(elm.seed);
+    }
+    this.x.vibrate(elm.from,elm.to,v,elm.offset,elm.delay);
+}    
+}
+initGoto(){
+for (let i = 0; i < this.preInitGotos.length; i++) {
+    const elm = this.preInitGotos[i];
+    if (elm.gotoFor == "x"){
+        let v = elm.theValue;
+        if (this.usePercentages == true){
+            v = this.percToX(elm.theValue)
+        }
+        this.x.goto(elm.frame,v);
+
+    }else if (elm.gotoFor == "y"){
+        let v = elm.theValue;
+        if (this.usePercentages == true){
+            v = this.percToY(elm.theValue)
+        }
+        this.y.goto(elm.frame,v);
+    }
+}      
+}
+initAnimate(){
+for (let i = 0; i < this.preInitAnimates.length; i++) {
+    const e= this.preInitAnimates[i];
+        if (this.usePercentages == true){
+this.x.animate(e.timeFrom,e.timeTo,this.percToX(e.xFrom),this.percToX(e.xTo));
+
+this.y.animate(e.timeFrom,e.timeTo,this.percToY(e.yFrom),this.percToY(e.yTo));
+
+        }else {
+this.x.animate(e.timeFrom,e.timeTo,e.xFrom,e.xTo);
+this.y.animate(e.timeFrom,e.timeTo,e.yFrom,e.yTo);
+        }
+    
+}      
 }
 //--width is actually /shd be dynWidth in pix
 width(): number {
@@ -46,11 +102,14 @@ draw(p: Pack): boolean {
     return true;
 }
 
-goto(atFrame :number,x :number , y :number,xAlign :XAlignOpt=XAlignOpt.Left,yAlign :YAlignOpt=YAlignOpt.Top,xExtra :number=0,yExtra :number=0):boolean{
-this.xAlign = xAlign;     
-this.yAlign = yAlign;     
-this.x.goto(atFrame,x);
-this.y.goto(atFrame,y);
+
+goto(atFrame :number,x :number ,y :number,xAlign :XAlignOpt=XAlignOpt.Left,yAlign :YAlignOpt=YAlignOpt.Top,xExtra :number=0,yExtra :number=0):boolean{
+// this.xAlign = xAlign;     
+// this.yAlign = yAlign; 
+const c = new PreInitGoto("x",atFrame,x);
+this.preInitGotos.push(c);
+const d = new PreInitGoto("y",atFrame,y);
+this.preInitGotos.push(d);
 return true;
 }
 shadowsOff(){
@@ -82,17 +141,26 @@ setStartTime(n :number):number{
 this.insertTimeInVid = n;
 return this.insertTimeInVid;
 }
+percToX(perc :number){
+if (this.canvasWidth == null){throw("init error");}
+return ((this.canvasWidth /100) * perc);
+}
+percToY(perc :number){
+if (this.canvasHeight == null){throw("init error");}
+return ((this.canvasHeight /100) * perc);
+}
+vibrateX(from :number,to :number,xValue :number,offset :number,delay :number){    
+    let v = xValue;
+    let c = new PreInitVibrate(from,to,v,offset,delay);
+    this.preInitVibrates.push(c);
 
-animate(timeFrom :number,timeTo :number,
-    xFrom :number,xTo :number, yFrom :number,yTo :number,
-     
-    xAlignFrom :XAlignOpt=XAlignOpt.Left,xAlignTo :XAlignOpt=XAlignOpt.Left,yAlignFrom :YAlignOpt=YAlignOpt.Top,yAlignTo :YAlignOpt=YAlignOpt.Top,
-    
-    xExtraFrom :number=0,xExtraTo :number=0,yExtraFrom :number=0,yExtraTo :number=0):boolean {
-// return this.loc.animate(timeFrom,timeTo,
-//     xFrom,xTo, yFrom ,yTo,
-//     xAlignFrom,xAlignTo,yAlignFrom,yAlignTo,
-//     xExtraFrom,xExtraTo,yExtraFrom,yExtraTo);
+}
+// xAlignFrom :XAlignOpt=XAlignOpt.Left,xAlignTo :XAlignOpt=XAlignOpt.Left,yAlignFrom :YAlignOpt=YAlignOpt.Top,yAlignTo :YAlignOpt=YAlignOpt.Top,
+animate(timeFrom :number,timeTo :number,xFrom :number,xTo :number, 
+    yFrom :number,yTo :number):boolean {
+
+ const ani = new PreInitAnimate(timeFrom,timeTo,xFrom,xTo,yFrom,yTo);
+        this.preInitAnimates.push(ani);
 return true;
 }
 xAligned():number{   
@@ -125,6 +193,7 @@ switch (this.yAlign) {
 }
 return y;    
 }
+
 
 ////////////////////////////////////////////////////////
 }//component ends 

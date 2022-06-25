@@ -6,6 +6,7 @@ import X from "./x.js";
 import Y from "./y.js";
 export default class BaseComponentBase {
     readonly id: string;
+    usePercentages: boolean;
     drawLayer: DrawLayer;
     style: Style;
     duration: number;

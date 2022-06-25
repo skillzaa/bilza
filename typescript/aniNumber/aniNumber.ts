@@ -1,10 +1,11 @@
-import Increment from "./filters/incDec/increment.js";
-import Decrement from "./filters/incDec/decrement.js";
+import Increment from "./filters/increment.js";
+import Decrement from "./filters/decrement.js";
 import Vibrate from "./filters/vibrate.js";
 import JumpBetween from "./filters/jumpBetween.js";
 import SetOnce from "./filters/setOnce_goto.js";
 import RandomNo from "./filters/randomNo.js";
-import IFilter from "./filters/IFilter.js";
+import IFilter from "./IFilter.js";
+import ConstantNo from "./filters/constantNo.js";
 
 
 export default class AniNumber {
@@ -46,8 +47,11 @@ public animate(from :number,to :number,startValue :number,endValue :number){
     if (startValue < endValue ){
         let c = new Increment(from,to,startValue,endValue);
         this.filters.push(c);
-    }else {
+    }else if (startValue > endValue){
         let c = new Decrement(from,to,startValue,endValue);
+        this.filters.push(c);
+    }else if (startValue == endValue){
+        let c = new ConstantNo(from,to,startValue);
         this.filters.push(c);
     }
 }

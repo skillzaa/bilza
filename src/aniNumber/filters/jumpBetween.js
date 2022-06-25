@@ -1,4 +1,4 @@
-import { FilterState } from "./filterState.js";
+import { FilterState } from "../filterState.js";
 import BaseFilter from "./baseFilter.js";
 export default class JumpBetween extends BaseFilter {
     constructor(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, everyXFrame = 0) {

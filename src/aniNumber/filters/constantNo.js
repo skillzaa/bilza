@@ -1,4 +1,4 @@
-import { FilterState } from "./filterState.js";
+import { FilterState } from "../filterState.js";
 import BaseFilter from "./baseFilter.js";
 export default class ConstantNo extends BaseFilter {
     constructor(startTimeSec, endTimeSec, constantValue) {

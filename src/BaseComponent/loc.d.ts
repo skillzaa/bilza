@@ -2,8 +2,14 @@ import { Pack, IComponent, XAlignOpt, YAlignOpt } from "../bilza.js";
 import BaseComponentBase from "./BaseComponentBase.js";
 export default class Loc extends BaseComponentBase implements IComponent {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
+    private preInitGotos;
+    private preInitAnimates;
+    private preInitVibrates;
     constructor();
     init(p: Pack): boolean;
+    initVibrateX(): void;
+    initGoto(): void;
+    initAnimate(): void;
     width(): number;
     height(): number;
     update(msDelta: number, p: Pack): boolean;
@@ -15,7 +21,10 @@ export default class Loc extends BaseComponentBase implements IComponent {
     getEndTime(inMilliSec?: boolean): number;
     getStartTime(inMilliSec?: boolean): number;
     setStartTime(n: number): number;
-    animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number, xAlignFrom?: XAlignOpt, xAlignTo?: XAlignOpt, yAlignFrom?: YAlignOpt, yAlignTo?: YAlignOpt, xExtraFrom?: number, xExtraTo?: number, yExtraFrom?: number, yExtraTo?: number): boolean;
+    percToX(perc: number): number;
+    percToY(perc: number): number;
+    vibrateX(from: number, to: number, xValue: number, offset: number, delay: number): void;
+    animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
     xAligned(): number;
     yAligned(): number;
 }

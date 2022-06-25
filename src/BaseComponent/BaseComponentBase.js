@@ -8,6 +8,7 @@ export default class BaseComponentBase {
     constructor() {
         this.version = "0_0_18";
         this.alwaysOn = false;
+        this.usePercentages = true;
         this.x = new X(0);
         this.y = new Y(0);
         this.XAlignOpt = XAlignOpt;

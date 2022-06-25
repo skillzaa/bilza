@@ -1,4 +1,4 @@
-import { FilterState } from "./filterState.js";
+import { FilterState } from "../filterState.js";
 import BaseFilter from "./baseFilter.js";
 export default class RandomNo extends BaseFilter {
     constructor(startTimeSec, endTimeSec, min = 1, max = 10, everyXFrame = 0) {
