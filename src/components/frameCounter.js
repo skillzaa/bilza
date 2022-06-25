@@ -2,7 +2,7 @@ import Text from "./text/text.js";
 export default class FrameCounter extends Text {
     constructor(color = "#008000") {
         super("", color);
-        this.border.setValue(2);
+        this.border.set(0);
         this.maxHeight = 10;
     }
     init(p) {

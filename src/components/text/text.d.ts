@@ -1,9 +1,9 @@
-import { Pack, AnimatedNoBase } from "../../bilza.js";
+import { Pack, AniNumber } from "../../bilza.js";
 import Text002 from "./text002.js";
 export default class Text extends Text002 {
     useDynWidth: boolean;
     useMaxHeight: boolean;
-    dynWidth: AnimatedNoBase;
+    dynWidth: AniNumber;
     maxHeight: number;
     constructor(content?: string, colorHax?: string);
     init(p: Pack): boolean;

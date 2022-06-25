@@ -1,31 +1,31 @@
-import {Pack,BaseComponent,AnimatedNoBase} from "../bilza.js";
+import {Pack,BaseComponent} from "../bilza.js";
 import AniNumber from "../aniNumber/aniNumber.js";
 export default class TestComp extends BaseComponent {
-  local_x :AniNumber;
-  local_y :AniNumber;
+//   local_x :AniNumber;
+//   local_y :AniNumber;
     // lineWidth :AnimatedNoBase;
     color :string;
     // trueWidth :number;
-public dynWidth :AnimatedNoBase;    //required by all comps--no
-public dynHeight :AnimatedNoBase;    //required by all comps--no
+public dynWidth :AniNumber;    //required by all comps--no
+public dynHeight :AniNumber;    //required by all comps--no
 
 constructor (color :string="#008000"){ 
     super();
     // this.lineWidth = new AnimatedNoBase(1) ;
     this.color = color ; 
-    this.local_x = new AniNumber(0);
-    this.local_y = new AniNumber(0);
+    // this.local_x = new AniNumber(0);
+    // this.local_y = new AniNumber(0);
     // this.trueWidth = 0;
-    this.dynHeight = new AnimatedNoBase(10) ;
-    this.dynWidth = new AnimatedNoBase(10); 
+    this.dynHeight = new AniNumber(10) ;
+    this.dynWidth = new AniNumber(10); 
   
 }
 init(p: Pack): boolean {
     super.init(p);
     // this.local_x.init();//-------------
-    this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+    // this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-    this.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+    // this.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
     
 // this.lineWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 return true;
@@ -33,8 +33,10 @@ return true;
 }
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
-    this.local_x.update(msDelta);
-    this.local_y.update(msDelta);
+    // this.local_x.update(msDelta);
+    // this.local_y.update(msDelta);
+    this.x.update(msDelta);
+    this.y.update(msDelta);
     // this.lineWidth.update(msDelta);
     this.dynWidth.update(msDelta);
     this.dynHeight.update(msDelta);
@@ -60,8 +62,8 @@ this.style.strokeStyle = this.color;
 // this.style.lineWidth = this.lineWidth.value();
 
    p.drawFillRect(
-    this.local_x.value(),
-    this.local_y.value(),
+    this.xAligned(),
+    this.yAligned(),
     this.width(),
     this.height(),
     this.style

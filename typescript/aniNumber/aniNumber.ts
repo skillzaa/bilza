@@ -1,20 +1,16 @@
+import Increment from "./filters/incDec/increment.js";
+import Decrement from "./filters/incDec/decrement.js";
+import Vibrate from "./filters/vibrate.js";
+import JumpBetween from "./filters/jumpBetween.js";
+import SetOnce from "./filters/setOnce_goto.js";
+import RandomNo from "./filters/randomNo.js";
+import IFilter from "./filters/IFilter.js";
 
-import PreInitIncDec from "./preInitIncDec.js";
-import Increment from "../filters/incDec/increment.js";
-import Decrement from "../filters/incDec/decrement.js";
-import Vibrate from "../filters/vibrate.js";
-import JumpBetween from "../filters/jumpBetween.js";
-import SetOnce from "../filters/setOnce_goto.js";
-import RandomNo from "../filters/randomNo.js";
-import IFilter from "../design/IFilter.js";
-import GotoArray from "./gotoArray.js";
 
 export default class AniNumber {
     //--this is the only output from this obj and we do NOT want to send out null BUT filters can be null and we dont consider that
     private _value :number;                 
     
-    private preInitIncDec :PreInitIncDec[];
-    private gotoArray :GotoArray[];
     //------------------
     private filters :IFilter[];
     
@@ -22,9 +18,6 @@ constructor(defaultValue :number=0){
 // place 1/2 to set this._ret_value
     this._value  = defaultValue; 
     
-    this.preInitIncDec = [];
-    this.gotoArray = [];
-
     this.filters = [];
 }
 //We need init to convert preInit arrays into filters

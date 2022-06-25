@@ -1,9 +1,9 @@
-import { DrawLayer, AnimatedNoBase, BaseComponent } from "../bilza.js";
+import { DrawLayer, AniNumber, BaseComponent } from "../bilza.js";
 export default class Pic extends BaseComponent {
     constructor(imgUrl, dynWidth = 10, dynHeight = 10) {
         super();
-        this.dynWidth = new AnimatedNoBase(dynWidth);
-        this.dynHeight = new AnimatedNoBase(dynHeight);
+        this.dynWidth = new AniNumber(dynWidth);
+        this.dynHeight = new AniNumber(dynHeight);
         this.img = new Image();
         this.img.src = imgUrl;
         if (this.img == null) {
@@ -19,8 +19,6 @@ export default class Pic extends BaseComponent {
     }
     init(p) {
         super.init(p);
-        this.dynWidth.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
-        this.dynHeight.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         if (this.canvasWidth == null) {
             throw new Error("init error");
         }
@@ -53,7 +51,7 @@ export default class Pic extends BaseComponent {
         return this.canvasHeight / 100 * this.dynHeight.value();
     }
     draw(p) {
-        p.drawImage(this.img, this.loc.x(), this.loc.y(), this.width(), this.height());
+        p.drawImage(this.img, this.xAligned(), this.yAligned(), this.width(), this.height());
         return true;
     }
     resize(fromTime, toTime, fromWidth, toWidth, fromHeight, toHeight) {

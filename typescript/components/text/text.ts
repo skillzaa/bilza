@@ -1,23 +1,23 @@
-import { Pack ,AnimatedNoBase,Style } from "../../bilza.js";
+import { Pack ,AniNumber,Style } from "../../bilza.js";
 import Text002 from "./text002.js"
 ;
 // import TextUtil from "./textUtil.js";
 export default class Text extends Text002 {
 public useDynWidth :boolean;
 public useMaxHeight :boolean;
-public dynWidth :AnimatedNoBase;    //required by all comps--no
+public dynWidth :AniNumber;    //required by all comps--no
 public maxHeight :number;    //required by all comps--no     
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);  
 this.maxHeight = 20;//max Height is 10% of canvas
-this.dynWidth = new AnimatedNoBase(10); 
+this.dynWidth = new AniNumber(10); 
 this.useDynWidth = true;
 this.useMaxHeight = true;
 }
 init(p: Pack): boolean {
 super.init(p);    
-this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+// this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 //---- this code from init is also run here
 // this.dynWidth.update(0);
 if (this.useDynWidth == true){

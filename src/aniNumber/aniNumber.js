@@ -1,14 +1,12 @@
-import Increment from "../filters/incDec/increment.js";
-import Decrement from "../filters/incDec/decrement.js";
-import Vibrate from "../filters/vibrate.js";
-import JumpBetween from "../filters/jumpBetween.js";
-import SetOnce from "../filters/setOnce_goto.js";
-import RandomNo from "../filters/randomNo.js";
+import Increment from "./filters/incDec/increment.js";
+import Decrement from "./filters/incDec/decrement.js";
+import Vibrate from "./filters/vibrate.js";
+import JumpBetween from "./filters/jumpBetween.js";
+import SetOnce from "./filters/setOnce_goto.js";
+import RandomNo from "./filters/randomNo.js";
 export default class AniNumber {
     constructor(defaultValue = 0) {
         this._value = defaultValue;
-        this.preInitIncDec = [];
-        this.gotoArray = [];
         this.filters = [];
     }
     update(msDelta) {

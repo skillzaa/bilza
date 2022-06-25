@@ -1,27 +1,27 @@
-import {Pack,BaseComponent,AnimatedNoBase} from "../bilza.js";
+import {Pack,BaseComponent,AniNumber} from "../bilza.js";
 
 export default class FillRect extends BaseComponent {
   
-    // lineWidth :AnimatedNoBase;
+    // lineWidth :AniNumber;
     color :string;
     // trueWidth :number;
-public dynWidth :AnimatedNoBase;    //required by all comps--no
-public dynHeight :AnimatedNoBase;    //required by all comps--no
+public dynWidth :AniNumber;    //required by all comps--no
+public dynHeight :AniNumber;    //required by all comps--no
 
 constructor (color :string="#000000"){ 
     super();
-    // this.lineWidth = new AnimatedNoBase(1) ;
+    // this.lineWidth = new AniNumber(1) ;
     this.color = color ; 
     // this.trueWidth = 0;
-    this.dynHeight = new AnimatedNoBase(10) ;
-    this.dynWidth = new AnimatedNoBase(10); 
+    this.dynHeight = new AniNumber(10) ;
+    this.dynWidth = new AniNumber(10); 
   
 }
 init(p: Pack): boolean {
     super.init(p);
-    this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+    // this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-    this.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+    // this.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
     
 // this.lineWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 return true;
@@ -54,8 +54,8 @@ this.style.strokeStyle = this.color;
 // this.style.lineWidth = this.lineWidth.value();
 
    p.drawFillRect(
-    this.loc.x(),
-    this.loc.y(),
+    this.xAligned(),
+    this.yAligned(),
     this.width(),
     this.height(),
     this.style

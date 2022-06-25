@@ -1,14 +1,13 @@
-import { Pack, BaseComponent, FontFamily } from "../../bilza.js";
-import AnimatedNoBase from "../../animatedNo/AnimatedNoBase.js";
+import { Pack, BaseComponent, FontFamily, AniNumber } from "../../bilza.js";
 export default class Text002 extends BaseComponent {
     content: string;
     fontFamily: FontFamily;
-    paddingLeft: AnimatedNoBase;
-    paddingRight: AnimatedNoBase;
-    paddingTop: AnimatedNoBase;
-    paddingBottom: AnimatedNoBase;
+    paddingLeft: AniNumber;
+    paddingRight: AniNumber;
+    paddingTop: AniNumber;
+    paddingBottom: AniNumber;
     fontSize: number;
-    border: AnimatedNoBase;
+    border: AniNumber;
     maxDisplayChars: number;
     color: string;
     colorBorder: string;

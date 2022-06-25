@@ -1,1 +1,1 @@
-{"version":3,"file":"jumbotron.d.ts","sourceRoot":"","sources":["../../typescript/presetComps/jumbotron.ts"],"names":[],"mappings":"AAAA,OAAc,EAAC,UAAU,EAAqB,MAAM,aAAa,CAAC;AAElE,MAAM,CAAC,OAAO,UAAU,SAAS,CAAC,UAAU,GAAE,MAAQ,EAAC,QAAQ,GAAE,MAAQ,EAAE,OAAO,GAAE,MAAkB,EAAC,QAAQ,GAAE,MAAkB,GAAE,UAAU,CAc9I"}
+{"version":3,"file":"jumbotron.d.ts","sourceRoot":"","sources":["../../typescript/presetComps/jumbotron.ts"],"names":[],"mappings":""}

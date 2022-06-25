@@ -1,7 +1,5 @@
 export default class AniNumber {
     private _value;
-    private preInitIncDec;
-    private gotoArray;
     private filters;
     constructor(defaultValue?: number);
     update(msDelta: number): boolean;

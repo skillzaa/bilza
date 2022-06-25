@@ -1,16 +1,15 @@
-import { AnimatedNoBase } from "../../bilza.js";
+import { AniNumber } from "../../bilza.js";
 import Text002 from "./text002.js";
 export default class Text extends Text002 {
     constructor(content = "", colorHax = "#000000") {
         super(content, colorHax);
         this.maxHeight = 20;
-        this.dynWidth = new AnimatedNoBase(10);
+        this.dynWidth = new AniNumber(10);
         this.useDynWidth = true;
         this.useMaxHeight = true;
     }
     init(p) {
         super.init(p);
-        this.dynWidth.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         if (this.useDynWidth == true) {
             this.dynamicFontSize(p);
         }

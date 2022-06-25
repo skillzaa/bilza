@@ -1,15 +1,13 @@
-import { BaseComponent, AnimatedNoBase } from "../bilza.js";
+import { BaseComponent, AniNumber } from "../bilza.js";
 export default class FillRect extends BaseComponent {
     constructor(color = "#000000") {
         super();
         this.color = color;
-        this.dynHeight = new AnimatedNoBase(10);
-        this.dynWidth = new AnimatedNoBase(10);
+        this.dynHeight = new AniNumber(10);
+        this.dynWidth = new AniNumber(10);
     }
     init(p) {
         super.init(p);
-        this.dynWidth.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
-        this.dynHeight.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         return true;
     }
     update(msDelta, p) {
@@ -37,7 +35,7 @@ export default class FillRect extends BaseComponent {
     draw(p) {
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        p.drawFillRect(this.loc.x(), this.loc.y(), this.width(), this.height(), this.style);
+        p.drawFillRect(this.xAligned(), this.yAligned(), this.width(), this.height(), this.style);
         return true;
     }
 }

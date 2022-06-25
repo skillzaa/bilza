@@ -1,16 +1,16 @@
-import {Pack,DrawLayer,AnimatedNoBase,BaseComponent } from "../bilza.js";
+import {Pack,DrawLayer,AniNumber,BaseComponent } from "../bilza.js";
 
 export default class Pic extends BaseComponent {
 img :HTMLImageElement;
 protected orignalWidth :number;
 protected orignalHeight :number;
-public dynWidth :AnimatedNoBase;    //required by all comps--no
-public dynHeight :AnimatedNoBase;    //required by all comps--no
+public dynWidth :AniNumber;    //required by all comps--no
+public dynHeight :AniNumber;    //required by all comps--no
 
 constructor(imgUrl :string,dynWidth:number=10,dynHeight :number=10){
 super();
-this.dynWidth = new AnimatedNoBase(dynWidth); 
-this.dynHeight = new AnimatedNoBase(dynHeight) ;
+this.dynWidth = new AniNumber(dynWidth); 
+this.dynHeight = new AniNumber(dynHeight) ;
 
 
 // this.img = document.getElementById(imgId) as HTMLImageElement;
@@ -40,9 +40,9 @@ this.img.src = imgUrl;
 
 init(p: Pack): boolean {
     super.init(p);    
-this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+// this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
-this.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
+// this.dynHeight.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
 
 if(this.canvasWidth==null){throw new Error("init error");}
 if(this.canvasHeight==null){throw new Error("init error");}
@@ -77,8 +77,8 @@ if(this.canvasHeight==null){throw new Error("init error");}
 
 draw(p:Pack):boolean{
     p.drawImage(this.img,
-                this.loc.x(),
-                this.loc.y(),
+                this.xAligned(),
+                this.yAligned(),
                 this.width(),
                 this.height()
             );    

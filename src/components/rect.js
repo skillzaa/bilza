@@ -1,17 +1,14 @@
-import { BaseComponent, AnimatedNoBase } from "../bilza.js";
+import { BaseComponent, AniNumber } from "../bilza.js";
 export default class Rect extends BaseComponent {
     constructor(color = "#000000") {
         super();
-        this.lineWidth = new AnimatedNoBase(1);
-        this.dynWidth = new AnimatedNoBase(10);
-        this.dynHeight = new AnimatedNoBase(10);
+        this.lineWidth = new AniNumber(1);
+        this.dynWidth = new AniNumber(10);
+        this.dynHeight = new AniNumber(10);
         this.color = color;
     }
     init(p) {
         super.init(p);
-        this.dynWidth.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
-        this.dynHeight.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
-        this.lineWidth.init(this.width.bind(this), this.height.bind(this), p.canvasWidth(), p.canvasHeight());
         return true;
     }
     update(msDelta, p) {
@@ -41,7 +38,7 @@ export default class Rect extends BaseComponent {
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
         this.style.lineWidth = this.lineWidth.value();
-        p.drawRect(this.loc.x(), this.loc.y(), this.width(), this.height(), this.style);
+        p.drawRect(this.xAligned(), this.yAligned(), this.width(), this.height(), this.style);
         return true;
     }
 }
