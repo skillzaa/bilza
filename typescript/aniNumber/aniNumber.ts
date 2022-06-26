@@ -6,7 +6,9 @@ import SetOnce from "./filters/setOnce_goto.js";
 import RandomNo from "./filters/randomNo.js";
 import IFilter from "./IFilter.js";
 import ConstantNo from "./filters/constantNo.js";
-
+/**
+ * I have used _vibrate and _goto so that if we want to extend them the user facing side (of the extended class) can be named as vibrate and the _vibrate does  not get overwritten
+ */
 
 export default class AniNumber {
     //--this is the only output from this obj and we do NOT want to send out null BUT filters can be null and we dont consider that
@@ -43,7 +45,7 @@ public set(n :number){
  return this._value;
 } 
 
-public animate(from :number,to :number,startValue :number,endValue :number){
+public _animate(from :number,to :number,startValue :number,endValue :number){
     if (startValue < endValue ){
         let c = new Increment(from,to,startValue,endValue);
         this.filters.push(c);
@@ -55,19 +57,19 @@ public animate(from :number,to :number,startValue :number,endValue :number){
         this.filters.push(c);
     }
 }
-public vibrate(from :number,to :number,seed :number=10,offset :number=10,delay :number=0){
+public _vibrate(from :number,to :number,seed :number=10,offset :number=10,delay :number=0){
     const v = new Vibrate(from,to,seed,offset,delay);
     this.filters.push(v);
 }
-public jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,everyXFrame :number=0){
+public _jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,everyXFrame :number=0){
     const v = new JumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,everyXFrame);
     this.filters.push(v);
 }
-public random(startTimeSec :number,endTimeSec :number,min :number=0, max :number=100,everyXFrame :number=0){
+public _random(startTimeSec :number,endTimeSec :number,min :number=0, max :number=100,everyXFrame :number=0){
 const v = new RandomNo(startTimeSec,endTimeSec,min, max,everyXFrame);
 this.filters.push(v);
 }
-public goto(startTimeSec :number,theValue :number=0){
+public _goto(startTimeSec :number,theValue :number=0){
 const v = new SetOnce(startTimeSec,theValue);
 this.filters.push(v);
 }

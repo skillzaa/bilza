@@ -5,10 +5,10 @@ import TestComp from "../components/testComp.js";
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000,350);
 //-----------------------------------------
-const g = cf.grid();
-bil.insert.alwaysOn(g);
-const counter = cf.frameCounter();
-bil.insert.alwaysOn(counter);
+// const g = cf.grid();
+// bil.insert.alwaysOn(g);
+// const counter = cf.frameCounter();
+// bil.insert.alwaysOn(counter);
 
 const rect  = new TestComp();
 // rect.goto(0,0,50);
@@ -16,7 +16,9 @@ const rect  = new TestComp();
 // rect.animate(2,10,0,100,50,50,rect.xAlign.Left,rect.xAlign.Right);
 // rect.goto(0,0,10);
 // rect.animate(0,10,0,95,10,10);
-rect.vibrateX(0,10,50,1,5);
+// rect.vibrateX(0,10,50,1,5);
+rect.x.vibrate(0,10,50,10,2);
+rect.x.animate()
 // rect.goto(0,0,0);
 // rect.goto(1,10,10);
 // rect.goto(2,20,20);

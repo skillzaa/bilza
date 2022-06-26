@@ -1,13 +1,10 @@
-import Bilza, { Ui, CompFactory as cf } from "../bilza.js";
+import Bilza, { Ui } from "../bilza.js";
 import TestComp from "../components/testComp.js";
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000, 350);
-const g = cf.grid();
-bil.insert.alwaysOn(g);
-const counter = cf.frameCounter();
-bil.insert.alwaysOn(counter);
 const rect = new TestComp();
-rect.vibrateX(0, 10, 50, 1, 5);
+rect.x.vibrate(0, 10, 50, 10, 2);
+rect.x.animate();
 bil.insert.add(rect, 0, 15);
 const ui = new Ui(bil);
 bil.init();

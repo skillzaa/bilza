@@ -7,9 +7,6 @@ export default class Loc extends BaseComponentBase implements IComponent {
     private preInitVibrates;
     constructor();
     init(p: Pack): boolean;
-    initVibrateX(): void;
-    initGoto(): void;
-    initAnimate(): void;
     width(): number;
     height(): number;
     update(msDelta: number, p: Pack): boolean;

@@ -14,52 +14,8 @@ export default class Loc extends BaseComponentBase {
     init(p) {
         this.canvasWidth = p.canvasWidth();
         this.canvasHeight = p.canvasHeight();
-        this.initGoto();
-        this.initAnimate();
-        this.initVibrateX();
+        this.x.init(this.usePercentages, this.canvasWidth);
         return true;
-    }
-    initVibrateX() {
-        for (let i = 0; i < this.preInitVibrates.length; i++) {
-            const elm = this.preInitVibrates[i];
-            let v = elm.seed;
-            if (this.usePercentages == true) {
-                v = this.percToX(elm.seed);
-            }
-            this.x.vibrate(elm.from, elm.to, v, elm.offset, elm.delay);
-        }
-    }
-    initGoto() {
-        for (let i = 0; i < this.preInitGotos.length; i++) {
-            const elm = this.preInitGotos[i];
-            if (elm.gotoFor == "x") {
-                let v = elm.theValue;
-                if (this.usePercentages == true) {
-                    v = this.percToX(elm.theValue);
-                }
-                this.x.goto(elm.frame, v);
-            }
-            else if (elm.gotoFor == "y") {
-                let v = elm.theValue;
-                if (this.usePercentages == true) {
-                    v = this.percToY(elm.theValue);
-                }
-                this.y.goto(elm.frame, v);
-            }
-        }
-    }
-    initAnimate() {
-        for (let i = 0; i < this.preInitAnimates.length; i++) {
-            const e = this.preInitAnimates[i];
-            if (this.usePercentages == true) {
-                this.x.animate(e.timeFrom, e.timeTo, this.percToX(e.xFrom), this.percToX(e.xTo));
-                this.y.animate(e.timeFrom, e.timeTo, this.percToY(e.yFrom), this.percToY(e.yTo));
-            }
-            else {
-                this.x.animate(e.timeFrom, e.timeTo, e.xFrom, e.xTo);
-                this.y.animate(e.timeFrom, e.timeTo, e.yFrom, e.yTo);
-            }
-        }
     }
     width() {
         return 0;
