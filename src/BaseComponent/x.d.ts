@@ -1,15 +1,14 @@
-import AniNumber from "../aniNumber/aniNumber.js";
-export default class X extends AniNumber {
-    private preInitGotosX;
-    private preInitAnimatesX;
-    private preInitVibratesX;
-    constructor(defaultValue?: number);
+import { XAlignOpt } from "./designBC/xAlignOpt.js";
+import XyBaseAdaptor from "./xyBaseAdaptor.js";
+export default class X extends XyBaseAdaptor {
+    xAlign: XAlignOpt;
+    readonly XAlignOpt: typeof XAlignOpt;
+    constructor();
     init(usePercentages: boolean, canvasWidth: number): void;
     initVibrate(usePercentages: boolean, canvasWidth: number): void;
     initGoto(usePercentages: boolean, canvasWidth: number): void;
     initAnimate(usePercentages: boolean, canvasWidth: number): void;
     private percToX;
-    vibrate(from: number, to: number, xValue: number, offset: number, delay: number): void;
-    animate(): void;
+    aligned(width: number): number;
 }
 //# sourceMappingURL=x.d.ts.map

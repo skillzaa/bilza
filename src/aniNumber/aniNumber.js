@@ -21,7 +21,7 @@ export default class AniNumber {
         this._value = n;
         return this._value;
     }
-    _animate(from, to, startValue, endValue) {
+    animate(from, to, startValue, endValue) {
         if (startValue < endValue) {
             let c = new Increment(from, to, startValue, endValue);
             this.filters.push(c);
@@ -35,19 +35,19 @@ export default class AniNumber {
             this.filters.push(c);
         }
     }
-    _vibrate(from, to, seed = 10, offset = 10, delay = 0) {
+    vibrate(from, to, seed = 10, offset = 10, delay = 0) {
         const v = new Vibrate(from, to, seed, offset, delay);
         this.filters.push(v);
     }
-    _jumpBetween(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, everyXFrame = 0) {
+    jumpBetween(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, everyXFrame = 0) {
         const v = new JumpBetween(startTimeSec, endTimeSec, pointOne, pointTwo, everyXFrame);
         this.filters.push(v);
     }
-    _random(startTimeSec, endTimeSec, min = 0, max = 100, everyXFrame = 0) {
+    random(startTimeSec, endTimeSec, min = 0, max = 100, everyXFrame = 0) {
         const v = new RandomNo(startTimeSec, endTimeSec, min, max, everyXFrame);
         this.filters.push(v);
     }
-    _goto(startTimeSec, theValue = 0) {
+    goto(startTimeSec, theValue = 0) {
         const v = new SetOnce(startTimeSec, theValue);
         this.filters.push(v);
     }

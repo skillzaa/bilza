@@ -36,15 +36,11 @@ duration :number;
 getEndTime(inMilliSec ?:boolean) :number;
 ///////////////////////////////////////////////////
 
-goto(atFrame :number,x :number , y :number,xAlign ?:XAlignOpt,yAlign ?:YAlignOpt,xExtra ?:number,yExtra ?:number):boolean; 
+goto(atFrame :number,x :number , y :number):boolean; 
 
 animate(timeFrom :number,timeTo :number,
     xFrom :number,xTo :number, yFrom :number,yTo :number,
-    
-    xAlignFrom ?:XAlignOpt,xAlignTo ?:XAlignOpt,
-    yAlignFrom ?:YAlignOpt,yAlignTo ?:YAlignOpt,
-    
-    xExtraFrom ?:number,xExtraTo ?:number,yExtraFrom ?:number,yExtraTo ?:number):boolean;
+    ):boolean;
 
 ///////////////////////////////////////////////////////
 

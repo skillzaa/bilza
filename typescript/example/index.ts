@@ -5,10 +5,10 @@ import TestComp from "../components/testComp.js";
 let bil = new Bilza("bilza");
 bil.resizeCanvas(1000,350);
 //-----------------------------------------
-// const g = cf.grid();
-// bil.insert.alwaysOn(g);
-// const counter = cf.frameCounter();
-// bil.insert.alwaysOn(counter);
+const g = cf.grid();
+bil.insert.alwaysOn(g);
+const counter = cf.frameCounter();
+bil.insert.alwaysOn(counter);
 
 const rect  = new TestComp();
 // rect.goto(0,0,50);
@@ -17,8 +17,9 @@ const rect  = new TestComp();
 // rect.goto(0,0,10);
 // rect.animate(0,10,0,95,10,10);
 // rect.vibrateX(0,10,50,1,5);
-rect.x.vibrate(0,10,50,10,2);
-rect.x.animate()
+// rect.x.vibrate(0,10,50,10,5);
+// rect.x.animate(1,10,0,90);
+rect.animate(1,10,0,90,0,90);
 // rect.goto(0,0,0);
 // rect.goto(1,10,10);
 // rect.goto(2,20,20);
@@ -26,6 +27,13 @@ rect.x.animate()
 // rect.goto(4,40,40);
 // rect.goto(5,50,50);
 // rect.goto(6,60,60);
+// rect.x.goto(0,0);
+// rect.x.goto(1,10);
+// rect.x.goto(2,20);
+// rect.x.goto(3,30);
+// rect.x.goto(4,40);
+// rect.x.goto(5,50);
+// rect.x.goto(6,60);
 // rect.x.random(0,15,10,1000,20);
 // rect.x.jumpBetween(0,10,10,400,90);
 // rect.x.vibrate(0,10,200,1,10);

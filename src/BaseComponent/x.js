@@ -1,12 +1,10 @@
-import AniNumber from "../aniNumber/aniNumber.js";
-import PreInitAnimate from "./designBC/preInitAnimate.js";
-import PreInitVibrate from "./designBC/preInitVibrate.js";
-export default class X extends AniNumber {
-    constructor(defaultValue = 0) {
-        super(defaultValue);
-        this.preInitGotosX = [];
-        this.preInitAnimatesX = [];
-        this.preInitVibratesX = [];
+import { XAlignOpt } from "./designBC/xAlignOpt.js";
+import XyBaseAdaptor from "./xyBaseAdaptor.js";
+export default class X extends XyBaseAdaptor {
+    constructor() {
+        super();
+        this.XAlignOpt = XAlignOpt;
+        this.xAlign = this.XAlignOpt.Left;
     }
     init(usePercentages, canvasWidth) {
         this.initVibrate(usePercentages, canvasWidth);
@@ -14,33 +12,33 @@ export default class X extends AniNumber {
         this.initAnimate(usePercentages, canvasWidth);
     }
     initVibrate(usePercentages, canvasWidth) {
-        for (let i = 0; i < this.preInitVibratesX.length; i++) {
-            const elm = this.preInitVibratesX[i];
+        for (let i = 0; i < this.preInitVibrates.length; i++) {
+            const elm = this.preInitVibrates[i];
             let __v = elm.seed;
             if (usePercentages == true) {
                 __v = this.percToX(elm.seed, canvasWidth);
             }
-            this._vibrate(elm.from, elm.to, __v, elm.offset, elm.delay);
+            this.baseVibrate(elm.from, elm.to, __v, elm.offset, elm.delay);
         }
     }
     initGoto(usePercentages, canvasWidth) {
-        for (let i = 0; i < this.preInitGotosX.length; i++) {
-            const elm = this.preInitGotosX[i];
+        for (let i = 0; i < this.preInitGotos.length; i++) {
+            const elm = this.preInitGotos[i];
             let v = elm.theValue;
             if (usePercentages == true) {
                 v = this.percToX(elm.theValue, canvasWidth);
             }
-            this._goto(elm.frame, v);
+            this.baseGoto(elm.frame, v);
         }
     }
     initAnimate(usePercentages, canvasWidth) {
-        for (let i = 0; i < this.preInitAnimatesX.length; i++) {
-            const e = this.preInitAnimatesX[i];
+        for (let i = 0; i < this.preInitAnimates.length; i++) {
+            const e = this.preInitAnimates[i];
             if (usePercentages == true) {
-                this._animate(e.timeFrom, e.timeTo, this.percToX(e.xFrom, canvasWidth), this.percToX(e.xTo, canvasWidth));
+                this.baseAnimate(e.startTime, e.endTime, this.percToX(e.startValue, canvasWidth), this.percToX(e.endValue, canvasWidth));
             }
             else {
-                this._animate(e.timeFrom, e.timeTo, e.xFrom, e.xTo);
+                this.baseAnimate(e.startTime, e.endTime, e.startValue, e.endValue);
             }
         }
     }
@@ -50,12 +48,18 @@ export default class X extends AniNumber {
         }
         return ((canvasWidth / 100) * perc);
     }
-    vibrate(from, to, xValue, offset, delay) {
-        const c = new PreInitVibrate(from, to, xValue, offset, delay);
-        this.preInitVibratesX.push(c);
-    }
-    animate() {
-        const c = new PreInitAnimate();
-        this.preInitVibratesX.push(c);
+    aligned(width) {
+        let x = this.value();
+        switch (this.xAlign) {
+            case this.XAlignOpt.Left:
+                break;
+            case this.XAlignOpt.Mid:
+                x = x - (width / 2);
+                break;
+            case this.XAlignOpt.Right:
+                x = x - width;
+                break;
+        }
+        return x;
     }
 }

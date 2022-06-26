@@ -1,6 +1,5 @@
 export default class PreInitGoto {
-    constructor(gotoFor, frame, theValue) {
-        this.gotoFor = gotoFor;
+    constructor(frame, theValue) {
         this.frame = frame;
         this.theValue = theValue;
     }

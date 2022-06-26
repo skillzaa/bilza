@@ -29,8 +29,7 @@ this.filterState = FilterState.Waiting;
 
 update(msDelta: number): FilterState {
 this.setState(msDelta);
-
-return     this.filterState;
+return this.filterState;
 }
  
 

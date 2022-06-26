@@ -1,9 +1,5 @@
 import { DrawLayer } from "../bilza.js";
 import Style from "../design/style.js";
-import { XAlignOpt } from "./designBC/xAlignOpt.js";
-import { YAlignOpt } from "./designBC/yAlignOpt.js";
-import X from "./x.js";
-import Y from "./y.js";
 export default class BaseComponentBase {
     readonly id: string;
     usePercentages: boolean;
@@ -12,12 +8,6 @@ export default class BaseComponentBase {
     duration: number;
     protected insertTimeInVid: number;
     alwaysOn: boolean;
-    x: X;
-    y: Y;
-    xAlign: XAlignOpt;
-    yAlign: YAlignOpt;
-    readonly XAlignOpt: typeof XAlignOpt;
-    readonly YAlignOpt: typeof YAlignOpt;
     colorBoundingRectangle: string;
     version: string;
     canvasWidth: number | null;
@@ -29,5 +19,11 @@ export default class BaseComponentBase {
     visible: boolean;
     selected: boolean;
     constructor();
+    shadowsOff(): void;
+    setShadow(shadowBlur?: number, shadowOffsetX?: number, shadowOffsetY?: number, shadowColor?: string): void;
+    shadowsOn(): void;
+    getEndTime(inMilliSec?: boolean): number;
+    getStartTime(inMilliSec?: boolean): number;
+    setStartTime(n: number): number;
 }
 //# sourceMappingURL=BaseComponentBase.d.ts.map

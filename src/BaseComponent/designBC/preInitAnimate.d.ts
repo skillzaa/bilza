@@ -1,14 +1,8 @@
 export default class PreInitAnimate {
-    timeFrom: number;
-    timeTo: number;
-    xFrom: number;
-    xTo: number;
-    yFrom: number;
-    yTo: number;
-    xExtraFrom: number;
-    xExtraTo: number;
-    yExtraFrom: number;
-    yExtraTo: number;
-    constructor(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number, xExtraFrom?: number, xExtraTo?: number, yExtraFrom?: number, yExtraTo?: number);
+    startTime: number;
+    endTime: number;
+    startValue: number;
+    endValue: number;
+    constructor(startTime: number, endTime: number, startValue: number, endValue: number);
 }
 //# sourceMappingURL=preInitAnimate.d.ts.map
