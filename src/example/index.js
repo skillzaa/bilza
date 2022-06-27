@@ -17,5 +17,4 @@ rect.y.vibrate(1, 10, 30, 1, 1);
 bil.insert.add(rect, 0, 20);
 bil.insert.add(rect02, 0, 15);
 const ui = new Ui(bil);
-bil.init();
-bil.drawFrame(0);
+bil.draw();

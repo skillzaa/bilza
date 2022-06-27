@@ -56,6 +56,6 @@ bil.insert.add(rect02,0,15);
 ///----------------
 const ui = new Ui(bil);
 // bil.start();
-bil.init();
-bil.drawFrame(0);
+// bil.init();
+bil.draw();
 //--------------------------------------

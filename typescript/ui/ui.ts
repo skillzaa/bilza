@@ -27,8 +27,8 @@ const stopExists = document.getElementById("stop");
             bil.stop();
             //@ts-expect-error
             slider.value=0;
-            bil.init();
-            bil.drawFrame(0);
+            // bil.init();
+            bil.draw(0);
             });
 }else {
     throw new Error("stop button not found");

@@ -25,19 +25,13 @@ export default class Bilza {
         this.comps.init(this.pack);
         return true;
     }
-    drawInit() {
-        this.comps.init(this.pack);
-        this.draw();
-        return true;
-    }
-    draw() {
+    drawForStart() {
         let msDelta = this.stopWatch.getMsDelta();
         this.lastMsDelta = msDelta;
-        this.drawFrame(msDelta);
-        this.drawEvent(msDelta);
+        this.draw(msDelta);
         return true;
     }
-    drawFrame(msDelta = 0) {
+    draw(msDelta = 0) {
         if (this.pack == null) {
             throw new Error("bilzaa is not initialized");
         }
@@ -49,6 +43,7 @@ export default class Bilza {
         this.comps.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);
+        this.drawEvent(msDelta);
     }
     len(inMilliSeconds = true) {
         return this.duration.len(inMilliSeconds);
@@ -65,7 +60,7 @@ export default class Bilza {
         if (this.soundTrackElement !== null) {
             this.soundTrackElement.play();
         }
-        this.stopWatch.start(this.draw.bind(this));
+        this.stopWatch.start(this.drawForStart.bind(this));
         return true;
     }
     stop() {

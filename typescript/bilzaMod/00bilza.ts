@@ -35,34 +35,33 @@ this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();
 } 
-public init():boolean{
+// --27-june-2022 converted to private since user does not need to know
+private init():boolean{
     if (this.soundTrack !== null){
         this.soundTrackElement = new Audio(this.soundTrack);
     }
     this.comps.init(this.pack);
     return true;
 }
-public drawInit():boolean{
-    this.comps.init(this.pack);
-    this.draw();
-    return true;
-}
-//--27-june-2022 converted to private
-private draw():boolean{
+// private drawInit():boolean{
+//     this.comps.init(this.pack);
+//     this.draw();
+//     return true;
+// }
+// --27-june-2022 converted to private
+private drawForStart():boolean{
  let msDelta = this.stopWatch.getMsDelta();
-
 //-------------------------------------------------------- 
 //--we need to save this msDelta as lastMsDelta
 this.lastMsDelta = msDelta;
 //-------------------------------------------------------- 
 
-this.drawFrame(msDelta); /// The draw mechanism without titbits
-///-----connection with outer world
-this.drawEvent(msDelta);
+this.draw(msDelta); /// The draw mechanism without titbits
+//---27-6-2022 draw Event removed from here
 return true;
 }
- 
-public drawFrame(msDelta :number=0){
+//---this is old drawFrame --its public
+public draw(msDelta :number=0){
 if(this.pack == null){throw new Error("bilzaa is not initialized");}   
 //--Auto Stop
 if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
@@ -74,13 +73,15 @@ this.pack.drawBackground(this.background.color);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
+///-----connection with outer world
+this.drawEvent(msDelta);
 }
 
 len(inMilliSeconds :boolean = true):number{
 return this.duration.len(inMilliSeconds);
 }
 drawEvent(msDelta :number):boolean{
-// console.log("drawEventn");
+// console.log("drawEvent",msDelta);
     return true;
 }
 dynamicCanvas(widthInPercent:number = 95,heightInPercent :number | null=null):boolean{
@@ -93,7 +94,7 @@ start():boolean{
     if (this.soundTrackElement !== null){
         this.soundTrackElement.play();
     }
-    this.stopWatch.start(this.draw.bind(this));
+    this.stopWatch.start(this.drawForStart.bind(this));
     return true;
 }
 stop():boolean{

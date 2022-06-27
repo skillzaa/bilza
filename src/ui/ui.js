@@ -17,8 +17,7 @@ export default class Ui {
             this.stop.addEventListener("click", (e) => {
                 bil.stop();
                 slider.value = 0;
-                bil.init();
-                bil.drawFrame(0);
+                bil.draw(0);
             });
         }
         else {
