@@ -47,4 +47,4 @@ return false;
 len(){
     return this.compArray.length;
 }
-}//comps
+}//comps 

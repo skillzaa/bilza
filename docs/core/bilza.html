@@ -15,22 +15,39 @@
 <body>
     <h6><a href="https://skillzaa.github.io/bilza/index.html">Home</a></h6>
 
-<h1>Bilza.js</h1>
+<h1>Bilza Engine</h1>
 
-<h3>add</h3>
-<h3>Background</h3>
+<h3>Objects contained in Bilza</h3>
+<ol>
+<li>background :Background;</li>
+<li>insert:Insert; </li>
+<li>set :Settings; </li>
+<li>soundTrackElement :HTMLAudioElement | null;</li>
+<li>soundTrack :string | null;</li>
+</ol>
 
+<h3>Public Methods</h3>
 <ol> 
-<li><h3>Create new</h3></li>
-let x = new Bilza(canvasId="bilza",screenWidthInPercent=80)
-<li><h3>drawInit():boolean</h3></li>
-<li><h3>draw():boolean</h3></li>
-<li><h3>len(inMilliSeconds :boolean = true):number</h3></li>
-<li><h3>drawEvent(msDelta :number):boolean</h3></li>
-<li><h3>dynamicCanvas(widthInPercent:number = 95,heightInPercent :number | null=null):boolean</h3></li>
-<li><h3>start():boolean</h3></li>
-<li><h3>stop():boolean</h3></li>
+<li><h3>init</h3></li>
+It is necessary to run init() before running bil.start(). During init process all the components are initialized (using current canvas width and height). bil.init() also performs other loading tasks.
+<li><h3>drawInit</h3></li>
+This method will call init first and then call draw().
+It is equivilant of :: <br>
+bil.init();<br>
+bil.drawFrmae();<br>
 
+<li><h3>drawFrame</h3></li>
 
+<li><h3>draw</h3></li>
+This is main draw function
+<li><h3>len</h3></li>
+<li><h3>drawEvent</h3></li>
+<li><h3>dynamicCanvas</h3></li>
+<li><h3>start</h3></li>
+<li><h3>stop</h3></li>
+<li><h3>resizeCanvas</h3></li>
+<li><h3>getLastMsDelta</h3></li>
+<li><h3>isRunning</h3></li>
+</ol>
 </body>
 </html>

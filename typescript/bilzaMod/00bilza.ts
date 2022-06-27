@@ -23,7 +23,7 @@ private pack:Pack; //---later
 private lastMsDelta:number; //---later
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",screenWidthInPercent=80){
+constructor (canvasId="bilza",screenWidthInPercent=75){
 this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
 this.duration = new Duration();
@@ -47,7 +47,8 @@ public drawInit():boolean{
     this.draw();
     return true;
 }
-public draw():boolean{
+//--27-june-2022 converted to private
+private draw():boolean{
  let msDelta = this.stopWatch.getMsDelta();
 
 //-------------------------------------------------------- 
@@ -63,11 +64,13 @@ return true;
  
 public drawFrame(msDelta :number=0){
 if(this.pack == null){throw new Error("bilzaa is not initialized");}   
+//--Auto Stop
 if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
-
+//--Clear Canvas
 this.pack.clearCanvas();          
+//--drawBackground
 this.pack.drawBackground(this.background.color);
-
+//--Draw All three layers. In future if i need to add more layers OR if I want the user to be able to insert layers then this is the starting point.
 this.comps.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
@@ -104,7 +107,7 @@ stop():boolean{
 public resizeCanvas(width :number, height :number | null){
 this.pack.resizeCanvas(width, height);    
 }
-lastMeDelta():number{
+getLastMsDelta():number{
     return this.lastMsDelta;
 }
 isRunning():boolean{

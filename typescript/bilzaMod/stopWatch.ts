@@ -5,7 +5,7 @@ private interval : number | null;
 private  msPerFrame :number; //????
 //--change to runningStartTime
 private runningStartTimeTS :number | null; //when we start video
-
+ 
 constructor(){
     this.runningStartTimeTS = null;
     this.interval = null; 

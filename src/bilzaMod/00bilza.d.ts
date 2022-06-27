@@ -15,7 +15,7 @@ export default class Bilza {
     constructor(canvasId?: string, screenWidthInPercent?: number);
     init(): boolean;
     drawInit(): boolean;
-    draw(): boolean;
+    private draw;
     drawFrame(msDelta?: number): void;
     len(inMilliSeconds?: boolean): number;
     drawEvent(msDelta: number): boolean;
@@ -23,7 +23,7 @@ export default class Bilza {
     start(): boolean;
     stop(): boolean;
     resizeCanvas(width: number, height: number | null): void;
-    lastMeDelta(): number;
+    getLastMsDelta(): number;
     isRunning(): boolean;
 }
 //# sourceMappingURL=00bilza.d.ts.map

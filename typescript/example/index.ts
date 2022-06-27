@@ -51,7 +51,7 @@ rect.y.vibrate(1,10,30,1,1);
 // rect.x.vibrate(0,10,200,1,10);
 // rect.local_y.vibrate(0,10,200,1,10);
 // rect.x.animate(0,10,0,900);
-bil.insert.add(rect,0,15);
+bil.insert.add(rect,0,20);
 bil.insert.add(rect02,0,15);
 ///----------------
 const ui = new Ui(bil);

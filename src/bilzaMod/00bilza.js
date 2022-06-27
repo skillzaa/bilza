@@ -6,7 +6,7 @@ import Comps from "./comps.js";
 import Insert from "./insert.js";
 import Duration from "./duration.js";
 export default class Bilza {
-    constructor(canvasId = "bilza", screenWidthInPercent = 80) {
+    constructor(canvasId = "bilza", screenWidthInPercent = 75) {
         this.pack = new Pack(canvasId, screenWidthInPercent);
         this.comps = new Comps();
         this.duration = new Duration();
@@ -79,7 +79,7 @@ export default class Bilza {
     resizeCanvas(width, height) {
         this.pack.resizeCanvas(width, height);
     }
-    lastMeDelta() {
+    getLastMsDelta() {
         return this.lastMsDelta;
     }
     isRunning() {
