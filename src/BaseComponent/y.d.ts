@@ -5,6 +5,8 @@ export default class Y extends XyBaseAdaptor {
     readonly YAlignOpt: typeof YAlignOpt;
     constructor();
     init(usePercentages: boolean, canvasHeight: number): void;
+    initJumpBetween(usePercentages: boolean, canvasHeight: number): void;
+    initRandom(usePercentages: boolean, canvasHeight: number): void;
     initVibrate(usePercentages: boolean, canvasHeight: number): void;
     initGoto(usePercentages: boolean, canvasHeight: number): void;
     initAnimate(usePercentages: boolean, canvasHeight: number): void;

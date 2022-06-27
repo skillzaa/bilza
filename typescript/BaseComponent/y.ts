@@ -19,9 +19,33 @@ init(usePercentages :boolean,canvasHeight :number){
 this.initVibrate(usePercentages,canvasHeight);
 this.initGoto(usePercentages,canvasHeight);
 this.initAnimate(usePercentages,canvasHeight);
+this.initRandom(usePercentages,canvasHeight);
+this.initJumpBetween(usePercentages,canvasHeight);
 }
-
-
+initJumpBetween(usePercentages :boolean,canvasHeight :number){
+for (let i = 0; i < this.preInitJumpBetweens.length; i++) {
+    const elm = this.preInitJumpBetweens[i];
+    let __pointOne = elm.pointOne;
+    let __pointTwo = elm.pointTwo;
+        if ( usePercentages == true){
+            __pointOne = this.percToY(elm.pointOne,canvasHeight);
+            __pointTwo = this.percToY(elm.pointTwo,canvasHeight);
+        }
+this.baseJumpBetween(elm.startTimeSec,elm.endTimeSec,__pointOne,__pointTwo,elm.skipFrames);
+}    
+}
+initRandom(usePercentages :boolean,canvasHeight :number){
+    for (let i = 0; i < this.preInitRandoms.length; i++) {
+        const elm = this.preInitRandoms[i];
+        let __min = elm.min;
+        let __max = elm.max;
+            if ( usePercentages == true){
+                __min = this.percToY(elm.min,canvasHeight);
+                __max = this.percToY(elm.max,canvasHeight);
+            }
+    this.baseRandom(elm.startTimeSec,elm.endTimeSec,__min,__max,elm.skipFrames);
+    }    
+}
 initVibrate(usePercentages :boolean,canvasHeight :number){
 for (let i = 0; i < this.preInitVibrates.length; i++) {
     const elm = this.preInitVibrates[i];

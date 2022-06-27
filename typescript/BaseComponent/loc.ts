@@ -14,15 +14,16 @@ charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 //--24-june 2022 removed loc for indl x and y using new AniNumber class
 public x :X; 
 public y :Y;
-
+public rotation :number;
 // aniPreset :AniPreset;
 
 constructor (){
     super();
 this.x = new X();
 this.y = new Y();
-    this.charsWidth = null;  
-    // this.aniPreset = new AniPreset(this);
+this.rotation = 20;
+this.charsWidth = null;  
+// this.aniPreset = new AniPreset(this);
 }
 
 init(p: Pack): boolean {
@@ -42,9 +43,8 @@ return 0;
 }
 
 update(msDelta :number,p :Pack): boolean {
-    // this.loc.update(msDelta);
     this.x.update(msDelta);
-    // this.y.update(msDelta);
+    this.y.update(msDelta);
     // this.dynWidth.update(msDelta);
     // this.dynHeight.update(msDelta);
 return true;    
@@ -52,6 +52,14 @@ return true;
 
 draw(p: Pack): boolean {
     return true;
+}
+public random(startTimeSec :number,endTimeSec :number,Xmin :number=1, Xmax :number=100,Ymin :number=1, Ymax :number=100,skipXFrames :number=60){
+this.x.random(startTimeSec,endTimeSec,Xmin,Xmax,skipXFrames);
+this.y.random(startTimeSec,endTimeSec,Ymin,Ymax,skipXFrames);
+}
+public vibrate(from: number, to: number, x: number,y: number, offset: number, delay: number): void {
+    this.x.vibrate(from,to,x,offset,delay);
+    this.y.vibrate(from,to,y,offset,delay);
 }
 goto(atFrame: number, x: number, y: number): boolean {
 this.x.goto(atFrame,x);
@@ -70,4 +78,12 @@ yAligned():number{
 return this.y.aligned(this.height());
 }
 ////////////////////////////////////////////////////////
+applyRotation(p :Pack){
+    p.translate(this.xAligned(),this.yAligned());
+    p.rotate(this.rotation);
+}
+removeRotation(p :Pack){
+    p.translate(this.xAligned(),this.yAligned());
+    p.rotate(this.rotation,true);
+}
 }//component ends 

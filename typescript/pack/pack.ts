@@ -274,6 +274,17 @@ dynamicCanvas(widthInPercent:number = 95,heightInPercent :number | null=null):bo
     let wd = this.dynCanvasWidth(widthInPercent);
     this.resizeCanvas(wd,this.dynCanvasHeight(wd,heightInPercent));  
     return true;
-}    
+}   
+rotate(degrees :number,reverse :boolean=false){
+    const rad = degrees * (Math.PI/180);
+    if (reverse == false){
+        this.ctx.rotate(rad);
+    }else {
+        this.ctx.rotate(-rad);
+    }
+} 
+translate(x :number, y :number){
+this.ctx.translate(x,y);    
+}
 /////////////////////////////////////////////////////////////
 }

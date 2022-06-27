@@ -60,14 +60,19 @@ draw(p:Pack):boolean{
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color; 
 // this.style.lineWidth = this.lineWidth.value();
-
+p.save();
+this.applyRotation(p);
    p.drawFillRect(
-    this.xAligned(),
-    this.yAligned(),
+    // this.xAligned(),
+    0,
+    0,
+    // this.yAligned(),
     this.width(),
     this.height(),
     this.style
     );
+p.restore();    
+// this.removeRotation(p);    
 return true;
 }
 

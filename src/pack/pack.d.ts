@@ -41,5 +41,7 @@ export default class Pack {
     dynCanvasHeight(widthInPix: number, heightInPercent?: number | null): number;
     resizeCanvas(width: number, height: number | null): void;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
+    rotate(degrees: number, reverse?: boolean): void;
+    translate(x: number, y: number): void;
 }
 //# sourceMappingURL=pack.d.ts.map

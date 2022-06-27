@@ -6,6 +6,7 @@ export default class Loc extends BaseComponentBase {
         super();
         this.x = new X();
         this.y = new Y();
+        this.rotation = 20;
         this.charsWidth = null;
     }
     init(p) {
@@ -23,10 +24,19 @@ export default class Loc extends BaseComponentBase {
     }
     update(msDelta, p) {
         this.x.update(msDelta);
+        this.y.update(msDelta);
         return true;
     }
     draw(p) {
         return true;
+    }
+    random(startTimeSec, endTimeSec, Xmin = 1, Xmax = 100, Ymin = 1, Ymax = 100, skipXFrames = 60) {
+        this.x.random(startTimeSec, endTimeSec, Xmin, Xmax, skipXFrames);
+        this.y.random(startTimeSec, endTimeSec, Ymin, Ymax, skipXFrames);
+    }
+    vibrate(from, to, x, y, offset, delay) {
+        this.x.vibrate(from, to, x, offset, delay);
+        this.y.vibrate(from, to, y, offset, delay);
     }
     goto(atFrame, x, y) {
         this.x.goto(atFrame, x);
@@ -43,5 +53,13 @@ export default class Loc extends BaseComponentBase {
     }
     yAligned() {
         return this.y.aligned(this.height());
+    }
+    applyRotation(p) {
+        p.translate(this.xAligned(), this.yAligned());
+        p.rotate(this.rotation);
+    }
+    removeRotation(p) {
+        p.translate(this.xAligned(), this.yAligned());
+        p.rotate(this.rotation, true);
     }
 }

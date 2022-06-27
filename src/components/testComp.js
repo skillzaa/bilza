@@ -38,7 +38,10 @@ export default class TestComp extends BaseComponent {
     draw(p) {
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        p.drawFillRect(this.xAligned(), this.yAligned(), this.width(), this.height(), this.style);
+        p.save();
+        this.applyRotation(p);
+        p.drawFillRect(0, 0, this.width(), this.height(), this.style);
+        p.restore();
         return true;
     }
 }

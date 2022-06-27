@@ -1,18 +1,18 @@
 import { FilterState } from "../filterState.js";
 import BaseFilter from "./baseFilter.js";
 export default class JumpBetween extends BaseFilter {
-    constructor(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, everyXFrame = 0) {
+    constructor(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, skipFrames = 0) {
         super(startTimeSec, endTimeSec);
         this.pointOne = pointOne;
         this.pointTwo = pointTwo;
-        this.everyXFrame = everyXFrame;
+        this.skipFrames = skipFrames;
         this.delayCounter = 0;
         this._ret_val = null;
     }
     update(msDelta) {
         super.update(msDelta);
         if (this.filterState == FilterState.Running) {
-            if (this.delayCounter >= this.everyXFrame) {
+            if (this.delayCounter >= this.skipFrames) {
                 this.delayCounter = 0;
                 if (this._ret_val !== this.pointOne) {
                     this._ret_val = this.pointOne;

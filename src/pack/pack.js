@@ -232,4 +232,16 @@ export default class Pack {
         this.resizeCanvas(wd, this.dynCanvasHeight(wd, heightInPercent));
         return true;
     }
+    rotate(degrees, reverse = false) {
+        const rad = degrees * (Math.PI / 180);
+        if (reverse == false) {
+            this.ctx.rotate(rad);
+        }
+        else {
+            this.ctx.rotate(-rad);
+        }
+    }
+    translate(x, y) {
+        this.ctx.translate(x, y);
+    }
 }
