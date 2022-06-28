@@ -11,7 +11,7 @@ export default interface IComponent{
     readonly id :string;
     usePercentages : boolean; 
     drawLayer : DrawLayer; 
-    duration :number;//---------?
+    duration :number;
     alwaysOn: boolean;
     version :string;
 

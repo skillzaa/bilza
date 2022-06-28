@@ -21,10 +21,54 @@ A component is what the Bilza Engine consumes. There is no animation without com
 Every component has following properties and objects: <br>
 
 <h3>Public Properties</h3>
-<ol> 
-<li><h3></h3></li>
+<ol>
+<li><h3>readonly id :string;</h3></li>
+Every component has an automatically generated unique id. This id can be used for serializing.
+<li><h3>usePercentages : boolean; </h3></li>
+If we set "usePercentages" to true the component will treat x and y values as percentages and will convert them into pixels before use. However if "usePercentages" is set to false then the component x and y will be treated as pixels.
 
+<li><h3>drawLayer : DrawLayer; </h3></li>
+Component are drawn into three layers: <br>
+<ol>
+    <li>Background Layer</li>
+    <li>Middleground Layer</li>
+    <li>Foreground Layer</li>
+</ol>
+While drawing the engine will first draw all the Background Layer components and then Middleground layer components and finally the Foreground layer components.
+
+<li><h3>duration :number;</h3></li>
+This value will decide the length / duration of display of a component. The end time of a component is calculated as start time + duration. <br>
+When we append or add a component to the engine we have to provide its duration as well.
+<small>duration may be converted to a method</small>
+
+<li><h3>alwaysOn: boolean;</h3></li>
+<small>docs being written</small>
+<li><h3>version :string; </h3></li>
+<small>docs being written</small>
 </ol>
 <hr>
+
+<h3>Public Methods</h3>
+<ol>
+<small>Basic Methods</small>
+<!-- This is a big design problem -->
+<!-- <li><h3>init(p :Pack):boolean;</h3></li>
+A compon -->
+<li><h3>update(msDelta :number,p :Pack):boolean; //second not frame 
+</h3></li>
+<li><h3>draw(p :Pack):boolean;</h3></li>
+
+<small>Time Methods</small>
+<li><h3>getStartTime(inMilliSec ?:boolean) :number;</h3></li>
+<li><h3>setStartTime(n :number) :number;</h3></li>
+<li><h3>getEndTime(inMilliSec ?:boolean) :number;</h3></li>
+
+<small>Animation X and Y</small>
+<li><h3>goto(atFrame :number,x :number , y :number):boolean;</h3></li>
+<li><h3>animate(timeFrom :number,timeTo :number,
+    xFrom :number,xTo :number, 
+    yFrom :number,yTo :number,
+    ):boolean;</h3></li>
+</ol>
 </body>
 </html>

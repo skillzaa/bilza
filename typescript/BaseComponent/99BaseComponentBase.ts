@@ -9,15 +9,14 @@ public  drawLayer : DrawLayer;
 public  style:Style; 
 public  alwaysOn: boolean;
 public  version :string;
+public  visible :boolean;//--? not implemented yet??
+//--this will come in handy during using the lib with gui and while making interactive tools.
+public  selected :boolean;
 /////////////////----PRIVATE----/////////////////// 
 //---these 2 variables will be set in init
 canvasWidth :number | null;    //required by all comps
 canvasHeight :number | null;    //required by all comps
 
-visible :boolean;////its for users of comp  from outside??????
-//--this will come in handy during using the lib with gui and while making interactive tools.
-selected :boolean;
-//---So every component can be draw using concrete x and Y or relative default is relative
 
 constructor(){
     //--insert the current version numebr into components

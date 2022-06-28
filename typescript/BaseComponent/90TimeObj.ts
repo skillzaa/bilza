@@ -8,7 +8,7 @@ protected  insertTimeInVid:number;
 
 constructor(){
     super();
-    this.duration = 0; //can not be changed again even not by children comps
+    this.duration = 0;
     this.insertTimeInVid = 0; //final-ok    
 }
 

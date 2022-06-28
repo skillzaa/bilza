@@ -7,10 +7,10 @@ export default class BaseComponentBase {
     style: Style;
     alwaysOn: boolean;
     version: string;
-    canvasWidth: number | null;
-    canvasHeight: number | null;
     visible: boolean;
     selected: boolean;
+    canvasWidth: number | null;
+    canvasHeight: number | null;
     constructor();
 }
 //# sourceMappingURL=99BaseComponentBase.d.ts.map
