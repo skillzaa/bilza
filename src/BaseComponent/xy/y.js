@@ -1,5 +1,5 @@
-import { YAlignOpt } from "../designBC/yAlignOpt.js";
 import XyBaseAdaptor from "./xyBaseAdaptor.js";
+import { YAlignOpt } from "../designBC/yAlignOpt.js";
 export default class Y extends XyBaseAdaptor {
     constructor() {
         super();

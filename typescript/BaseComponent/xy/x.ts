@@ -4,7 +4,7 @@ import {XAlignOpt} from "../designBC/xAlignOpt.js";
 export default class X extends XyBaseAdaptor {
 public xAlign :XAlignOpt;
 public readonly XAlignOpt :typeof XAlignOpt;
-
+ 
 constructor(){
 super();    
 this.XAlignOpt = XAlignOpt; //final-ok
