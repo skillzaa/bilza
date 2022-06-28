@@ -15,14 +15,12 @@ charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 //--24-june 2022 removed loc for indl x and y using new AniNumber class
 public x :X; 
 public y :Y;
-public rotation :number;
 // aniPreset :AniPreset;
 
 constructor (){
     super();
 this.x = new X();
 this.y = new Y();
-this.rotation = 20;
 this.charsWidth = null;  
 // this.aniPreset = new AniPreset(this);
 }
@@ -78,13 +76,5 @@ return this.x.aligned(this.width());
 yAligned():number{   
 return this.y.aligned(this.height());
 }
-////////////////////////////////////////////////////////
-applyRotation(p :Pack){
-    p.translate(this.xAligned(),this.yAligned());
-    p.rotate(this.rotation);
-}
-removeRotation(p :Pack){
-    p.translate(this.xAligned(),this.yAligned());
-    p.rotate(this.rotation,true);
-}
+
 }//component ends 

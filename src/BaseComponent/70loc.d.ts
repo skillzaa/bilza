@@ -6,7 +6,6 @@ export default class Loc extends Shadow {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     x: X;
     y: Y;
-    rotation: number;
     constructor();
     init(p: Pack): boolean;
     width(): number;
@@ -19,7 +18,5 @@ export default class Loc extends Shadow {
     animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
     xAligned(): number;
     yAligned(): number;
-    applyRotation(p: Pack): void;
-    removeRotation(p: Pack): void;
 }
 //# sourceMappingURL=70loc.d.ts.map

@@ -21,7 +21,7 @@ selected :boolean;
 
 constructor(){
     //--insert the current version numebr into components
-    this.version = "0_0_18";
+    this.version = "0.0.1";
     this.alwaysOn = false;
     // this.usePercentages = false;
     this.usePercentages = true;

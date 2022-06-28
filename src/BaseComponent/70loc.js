@@ -6,7 +6,6 @@ export default class Loc extends Shadow {
         super();
         this.x = new X();
         this.y = new Y();
-        this.rotation = 20;
         this.charsWidth = null;
     }
     init(p) {
@@ -53,13 +52,5 @@ export default class Loc extends Shadow {
     }
     yAligned() {
         return this.y.aligned(this.height());
-    }
-    applyRotation(p) {
-        p.translate(this.xAligned(), this.yAligned());
-        p.rotate(this.rotation);
-    }
-    removeRotation(p) {
-        p.translate(this.xAligned(), this.yAligned());
-        p.rotate(this.rotation, true);
     }
 }

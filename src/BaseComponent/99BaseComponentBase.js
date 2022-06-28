@@ -2,7 +2,7 @@ import { DrawLayer } from "../bilza.js";
 import Style from "../design/style.js";
 export default class BaseComponentBase {
     constructor() {
-        this.version = "0_0_18";
+        this.version = "0.0.1";
         this.alwaysOn = false;
         this.usePercentages = true;
         this.drawLayer = DrawLayer.MiddleGround;

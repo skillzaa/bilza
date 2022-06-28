@@ -11,7 +11,6 @@ constructor (){
 this.rotation = 20;
 }
 
-
 ////////////////////////////////////////////////////////
 applyRotation(p :Pack){
     p.save();
