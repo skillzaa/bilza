@@ -1,14 +1,15 @@
-import {Pack,IComponent,XAlignOpt,YAlignOpt} from "../bilza.js";
-import BaseComponentBase from "./BaseComponentBase.js";
-import PreInitGoto from "./designBC/preInitGoto.js";
-import PreInitAnimate from "./designBC/preInitAnimate.js";
-import PreInitVibrate from "./designBC/preInitVibrate.js";
+import {Pack,IComponent} from "../bilza.js";
+import Shadow from "./80Shadow.js";
+import BaseComponentBase from "./99BaseComponentBase.js";
+// import PreInitGoto from "./designBC/preInitGoto.js";
+// import PreInitAnimate from "./designBC/preInitAnimate.js";
+// import PreInitVibrate from "./designBC/preInitVibrate.js";
 // import AniPreset from "./aniPreset.js";
 
 import X from "./x.js";
 import Y from "./y.js";
 
-export default class Loc extends BaseComponentBase implements IComponent{
+export default class Loc extends Shadow {
 // XX-------------||||||||||||||||||||||---------------XX 
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 //--24-june 2022 removed loc for indl x and y using new AniNumber class
@@ -49,10 +50,10 @@ update(msDelta :number,p :Pack): boolean {
     // this.dynHeight.update(msDelta);
 return true;    
 }
-
 draw(p: Pack): boolean {
     return true;
 }
+
 public random(startTimeSec :number,endTimeSec :number,Xmin :number=1, Xmax :number=100,Ymin :number=1, Ymax :number=100,skipXFrames :number=60){
 this.x.random(startTimeSec,endTimeSec,Xmin,Xmax,skipXFrames);
 this.y.random(startTimeSec,endTimeSec,Ymin,Ymax,skipXFrames);

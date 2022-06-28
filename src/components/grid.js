@@ -1,5 +1,5 @@
 import { DrawLayer } from "../bilza.js";
-import BaseComponent from "../BaseComponent/BaseComponent.js";
+import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class Grid extends BaseComponent {
     constructor(colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
         super();

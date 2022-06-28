@@ -22,4 +22,4 @@ export default class Loc extends Shadow {
     applyRotation(p: Pack): void;
     removeRotation(p: Pack): void;
 }
-//# sourceMappingURL=loc.d.ts.map
+//# sourceMappingURL=70loc.d.ts.map

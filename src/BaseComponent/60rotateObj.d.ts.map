@@ -1,0 +1,1 @@
+{"version":3,"file":"60rotateObj.d.ts","sourceRoot":"","sources":["../../typescript/BaseComponent/60rotateObj.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,IAAI,EAAgC,MAAM,aAAa,CAAC;AAEhE,OAAO,GAAG,MAAM,YAAY,CAAC;AAE7B,MAAM,CAAC,OAAO,OAAO,SAAU,SAAQ,GAAG;IACnC,QAAQ,EAAE,MAAM,CAAC;;IAUxB,aAAa,CAAC,CAAC,EAAE,IAAI;IAKrB,cAAc,CAAC,CAAC,EAAE,IAAI;CAIrB"}

@@ -13,4 +13,4 @@ export default class BaseComponentBase {
     selected: boolean;
     constructor();
 }
-//# sourceMappingURL=BaseComponentBase.d.ts.map
+//# sourceMappingURL=99BaseComponentBase.d.ts.map

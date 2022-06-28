@@ -1,4 +1,6 @@
-##### Things are some what stable yet fragile !!!!!
+### Things are NOT final .API will change and there are breaking changes in each new version...please give it a few weeks more !!!!!
+### I will upload 1 version per week till the API is stable
+---
 
 # What is Bilza.js
 
@@ -42,7 +44,7 @@ To be an easy to use library for creating
 If you want to be in touch or send me a bug report please use github issues.
 
 -----
-###### 21-june-2022   (version 0.0.17)
+###### 21-june-2022   (version 0.0.17) //also ver 18
 ###### 06-july-2022   (version 0.0.16)
 ###### 03-jun-2022   (version 0.0.15)
 ###### 09-May-2022   (version 0.0.14)

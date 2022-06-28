@@ -5,7 +5,7 @@ import Pack from "./pack/pack.js";
 import { DrawLayer } from "./design/drawLayer.js";
 import { FontFamily } from "./design/fontFamily.js";
 import Style from "./design/style.js";
-import BaseComponent from "./BaseComponent/BaseComponent.js";
+import BaseComponent from "./BaseComponent/00BaseComponent.js";
 import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
 import AniNumber from "./aniNumber/aniNumber.js";

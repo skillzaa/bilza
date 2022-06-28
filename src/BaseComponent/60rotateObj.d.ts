@@ -6,4 +6,4 @@ export default class RotateObj extends Loc {
     applyRotation(p: Pack): void;
     removeRotation(p: Pack): void;
 }
-//# sourceMappingURL=rotateObj.d.ts.map
+//# sourceMappingURL=60rotateObj.d.ts.map

@@ -7,10 +7,10 @@ import Pack from "./pack/pack.js";
 //--Required by Engine and Comp both
 import {DrawLayer} from "./design/drawLayer.js";
 //--Export IComponent since developers will use it;
-import IComponent from "./BaseComponent/IComponent.js";
+import IComponent from "./BaseComponent/designBC/IComponent.js";
 import {FontFamily} from "./design/fontFamily.js";
 import Style from "./design/style.js";
-import BaseComponent from "./BaseComponent/BaseComponent.js"
+import BaseComponent from "./BaseComponent/00BaseComponent.js"
 import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
 import AniNumber from "./aniNumber/aniNumber.js";
