@@ -6,8 +6,8 @@ import BaseComponentBase from "./99BaseComponentBase.js";
 // import PreInitVibrate from "./designBC/preInitVibrate.js";
 // import AniPreset from "./aniPreset.js";
 
-import X from "./x.js";
-import Y from "./y.js";
+import X from "./xy/x.js";
+import Y from "./xy/y.js";
 
 export default class Loc extends Shadow {
 // XX-------------||||||||||||||||||||||---------------XX 

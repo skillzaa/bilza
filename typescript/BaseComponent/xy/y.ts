@@ -1,8 +1,8 @@
-import AniNumber from "../aniNumber/aniNumber.js";
-import PreInitGoto from "./designBC/preInitGoto.js";
-import PreInitAnimate from "./designBC/preInitAnimate.js";
-import PreInitVibrate from "./designBC/preInitVibrate.js";
-import {YAlignOpt} from "./designBC/yAlignOpt.js";
+import AniNumber from "../../aniNumber/aniNumber.js";
+import PreInitGoto from "../designBC/preInitGoto.js";
+import PreInitAnimate from "../designBC/preInitAnimate.js";
+import PreInitVibrate from "../designBC/preInitVibrate.js";
+import {YAlignOpt} from "../designBC/yAlignOpt.js";
 import XyBaseAdaptor from "./xyBaseAdaptor.js";
 
 export default class Y extends XyBaseAdaptor {

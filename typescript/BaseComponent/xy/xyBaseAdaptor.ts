@@ -1,9 +1,9 @@
-import AniNumber from "../aniNumber/aniNumber.js";
-import PreInitGoto from "./designBC/preInitGoto.js";
-import PreInitAnimate from "./designBC/preInitAnimate.js";
-import PreInitVibrate from "./designBC/preInitVibrate.js";
-import PreInitRandom from "./designBC/preInitRandom.js";
-import PreInitJumpBetween from "./designBC/preInitJumpBetween.js";
+import AniNumber from "../../aniNumber/aniNumber.js";
+import PreInitGoto from "../designBC/preInitGoto.js";
+import PreInitAnimate from "../designBC/preInitAnimate.js";
+import PreInitVibrate from "../designBC/preInitVibrate.js";
+import PreInitRandom from "../designBC/preInitRandom.js";
+import PreInitJumpBetween from "../designBC/preInitJumpBetween.js";
 //--Purpose to collect preInit Data into various arrays for each filter the child classes can then init these values once they have the canvasWidth and height.
 //--ANDDDDDD since the aniNumber is also wrapped by this adaptor so this is a combination of 2 classes the wrapper and the base functions (baseVibrate , baseAnimate) gives acces to the base/wrapped aniNumber functions which are used by the child class during init
 //--This is just the preinit data collection of filters mechanism

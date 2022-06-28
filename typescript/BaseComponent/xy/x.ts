@@ -1,5 +1,5 @@
 import XyBaseAdaptor from "./xyBaseAdaptor.js";
-import {XAlignOpt} from "./designBC/xAlignOpt.js";
+import {XAlignOpt} from "../designBC/xAlignOpt.js";
 
 export default class X extends XyBaseAdaptor {
 public xAlign :XAlignOpt;

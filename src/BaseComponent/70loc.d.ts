@@ -1,7 +1,7 @@
 import { Pack } from "../bilza.js";
 import Shadow from "./80Shadow.js";
-import X from "./x.js";
-import Y from "./y.js";
+import X from "./xy/x.js";
+import Y from "./xy/y.js";
 export default class Loc extends Shadow {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     x: X;
