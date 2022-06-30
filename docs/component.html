@@ -19,11 +19,16 @@
 
 A component is what the Bilza Engine consumes. There is no animation without components. <br>
 Every component has following properties and objects: <br>
+Keep in mind that every component may not implement all of the following properties. For further details the docs of the component must be consulted. <br>
 
 <h3>Public Properties</h3>
 <ol>
 <li><h3>readonly id :string;</h3></li>
 Every component has an automatically generated unique id. This id can be used for serializing.
+<li><h3>width : AniNumber; </h3></li>
+If implemented this should be the width of the comp.
+<li><h3>height : AniNumber; </h3></li>
+If implemented this should be the height of the comp.
 <li><h3>usePercentages : boolean; </h3></li>
 If we set "usePercentages" to true the component will treat x and y values as percentages and will convert them into pixels before use. However if "usePercentages" is set to false then the component x and y will be treated as pixels.
 
@@ -57,6 +62,8 @@ A compon -->
 <li><h3>update(msDelta :number,p :Pack):boolean; //second not frame 
 </h3></li>
 <li><h3>draw(p :Pack):boolean;</h3></li>
+<li><h3>widthInPix():number;</h3></li>
+<li><h3>heightInPix():number;</h3></li>
 
 <small>Time Methods</small>
 <li><h3>getStartTime(inMilliSec ?:boolean) :number;</h3></li>

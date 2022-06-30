@@ -4,7 +4,7 @@ import FillRect from "./fillRect.js";
 import StaticGrid from "./staticGrid.js";
 import FrameCounter from "./frameCounter.js";
 import BgCircles from "./bgCircles.js";
-import Text from "./text/text.js";
+import Text from "./text.js";
 import Pic from "./pic.js";
 
 import PlainText from "./plainText.js";

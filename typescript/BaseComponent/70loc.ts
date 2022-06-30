@@ -1,15 +1,10 @@
-import {Pack,IComponent} from "../bilza.js";
-import Shadow from "./80Shadow.js";
-import BaseComponentBase from "./99BaseComponentBase.js";
-// import PreInitGoto from "./designBC/preInitGoto.js";
-// import PreInitAnimate from "./designBC/preInitAnimate.js";
-// import PreInitVibrate from "./designBC/preInitVibrate.js";
-// import AniPreset from "./aniPreset.js";
+import {Pack} from "../bilza.js";
+import WidthHeight from "./71WidthHeight.js";
 
 import X from "./xy/x.js";
 import Y from "./xy/y.js";
 
-export default class Loc extends Shadow {
+export default class Loc extends WidthHeight {
 // XX-------------||||||||||||||||||||||---------------XX 
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 //--24-june 2022 removed loc for indl x and y using new AniNumber class
@@ -33,19 +28,12 @@ this.y.init(this.usePercentages,this.canvasHeight);//canvasHeight
 return true;
 }
 
-width(): number {
-return 0;
-}
-//--width is actually /shd be dynWidth in pix
-height(): number {   
-return 0;
-}
 
 update(msDelta :number,p :Pack): boolean {
     this.x.update(msDelta);
     this.y.update(msDelta);
-    // this.dynWidth.update(msDelta);
-    // this.dynHeight.update(msDelta);
+    this.width.update(msDelta);
+    this.height.update(msDelta);
 return true;    
 }
 draw(p: Pack): boolean {
@@ -71,10 +59,10 @@ this.y.animate(timeFrom,timeTo,yFrom,yTo);
 return true;    
 }
 xAligned():number{   
-return this.x.aligned(this.width());
+return this.x.aligned(this.widthInPix());
 }
 yAligned():number{   
-return this.y.aligned(this.height());
+return this.y.aligned(this.heightInPix());
 }
 
 }//component ends 

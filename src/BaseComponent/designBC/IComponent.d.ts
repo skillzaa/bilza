@@ -1,4 +1,4 @@
-import { DrawLayer, Pack, Style } from "../../bilza.js";
+import { DrawLayer, Pack, Style, AniNumber } from "../../bilza.js";
 export default interface IComponent {
     readonly id: string;
     usePercentages: boolean;
@@ -6,10 +6,14 @@ export default interface IComponent {
     duration: number;
     alwaysOn: boolean;
     version: string;
+    width: AniNumber;
+    height: AniNumber;
     style: Style;
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
+    widthInPix(): number;
+    heightInPix(): number;
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     setStartTime(n: number): number;
     getStartTime(inMilliSec?: boolean): number;

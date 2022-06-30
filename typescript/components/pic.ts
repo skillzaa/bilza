@@ -64,13 +64,13 @@ update(msDelta: number, p: Pack): boolean {
     return true;
 }
 
-width():number {
+widthInPix():number {
 if(this.canvasWidth==null){throw new Error("init error");
 }    
         let wd =  this.canvasWidth /100 * this.dynWidth.value();
         return wd;
 }
-height():number {
+heightInPix():number {
 if(this.canvasHeight==null){throw new Error("init error");}    
         return  this.canvasHeight /100 * this.dynHeight.value();
 }
@@ -79,8 +79,8 @@ draw(p:Pack):boolean{
     p.drawImage(this.img,
                 this.xAligned(),
                 this.yAligned(),
-                this.width(),
-                this.height()
+                this.widthInPix(),
+                this.heightInPix()
             );    
 return true;
 }

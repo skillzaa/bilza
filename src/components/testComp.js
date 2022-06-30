@@ -19,7 +19,7 @@ export default class TestComp extends BaseComponent {
         this.dynHeight.update(msDelta);
         return true;
     }
-    width() {
+    widthInPix() {
         if (this.canvasWidth !== null) {
             return Math.ceil((this.canvasWidth / 100) * this.dynWidth.value());
         }
@@ -27,7 +27,7 @@ export default class TestComp extends BaseComponent {
             throw new Error("the component is not initialized yet");
         }
     }
-    height() {
+    heightInPix() {
         if (this.canvasHeight !== null) {
             return Math.ceil((this.canvasHeight / 100) * this.dynHeight.value());
         }
@@ -40,7 +40,7 @@ export default class TestComp extends BaseComponent {
         this.style.strokeStyle = this.color;
         p.save();
         this.applyRotation(p);
-        p.drawFillRect(0, 0, this.width(), this.height(), this.style);
+        p.drawFillRect(0, 0, this.widthInPix(), this.heightInPix(), this.style);
         p.restore();
         return true;
     }

@@ -1,4 +1,4 @@
-import Text from "./text/text.js";
+import Text from "./text.js";
 export default class FrameCounter extends Text {
     constructor(color = "#008000") {
         super("", color);

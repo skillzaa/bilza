@@ -1,15 +1,13 @@
 import { Pack } from "../bilza.js";
-import Shadow from "./80Shadow.js";
+import WidthHeight from "./71WidthHeight.js";
 import X from "./xy/x.js";
 import Y from "./xy/y.js";
-export default class Loc extends Shadow {
+export default class Loc extends WidthHeight {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     x: X;
     y: Y;
     constructor();
     init(p: Pack): boolean;
-    width(): number;
-    height(): number;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     random(startTimeSec: number, endTimeSec: number, Xmin?: number, Xmax?: number, Ymin?: number, Ymax?: number, skipXFrames?: number): void;

@@ -1,4 +1,4 @@
-import {DrawLayer,XAlignOpt,YAlignOpt} from "../bilza.js";
+import {DrawLayer,XAlignOpt,YAlignOpt,AniNumber} from "../bilza.js";
 import Style from "../design/style.js";
 
 export default class BaseComponentBase{
@@ -11,6 +11,8 @@ public  style:Style;
 public  alwaysOn: boolean;
 public  version :string;
 public  visible :boolean;//--? not implemented yet??
+public width :AniNumber;
+public height :AniNumber;
 //--this will come in handy during using the lib with gui and while making interactive tools.
 public  selected :boolean;
 /////////////////----PRIVATE----/////////////////// 
@@ -28,7 +30,8 @@ constructor(){
 
     // this.usePercentages = false;
     this.usePercentages = true;
-    
+    this.width = new AniNumber(0);
+    this.height = new AniNumber(0);
     //--there is no this.endTime --since has this.endTime()
     //--must
     this.drawLayer = DrawLayer.MiddleGround;

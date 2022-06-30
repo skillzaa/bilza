@@ -1,56 +1,25 @@
-import { Pack ,AniNumber,Style } from "../../bilza.js";
-import PlainText from "../plainText.js";
+import { Pack ,AniNumber} from "../bilza.js";
+import PlainText from "./plainText.js";
 
-// import TextUtil from "./textUtil.js";
 export default class Text extends PlainText {
-public useDynWidth :boolean;
-public useMaxHeight :boolean;
-public dynWidth :AniNumber;    //required by all comps--no
+
 public maxHeight :number;    //required by all comps--no     
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);  
-this.maxHeight = 20;//max Height is 10% of canvas
-this.dynWidth = new AniNumber(10); 
-this.useDynWidth = true;
-this.useMaxHeight = true;
+this.maxHeight = 500;//max Height is 10% of canvas
 }
 init(p: Pack): boolean {
 super.init(p);    
-// this.dynWidth.init(this.width.bind(this),this.height.bind(this),p.canvasWidth(),p.canvasHeight());
-//---- this code from init is also run here
-// this.dynWidth.update(0);
-if (this.useDynWidth == true){
-    this.dynamicFontSize(p);
-}
-if (this.useMaxHeight == true){
-    this.shrinkToFitMaxHeight(p);
-} 
+this.applyBoth(p);
 return true;       
 }
 update(msDelta: number, p: Pack): boolean {
-    
-    this.dynWidth.update(msDelta);
-    if (this.useDynWidth == true){
-        this.dynamicFontSize(p);
-    }
-    if (this.useMaxHeight == true){
-        this.shrinkToFitMaxHeight(p);
-    }
+    this.applyBoth(p);
     super.update(msDelta,p);//--keep it down here so that Loc is updated late;
     return true;
 }
-//--height sift super ki use kerain lekin super ka aur this ka width seperate hai  
-// width():number {
-//     if (this.useDynWidth == true){
-//         if (this.canvasWidth == null)
-//         {throw new Error("init error");}        
-//         return Math.ceil((this.canvasWidth/100)*this.dynWidth.value());
-    
-//     }else {
-//         return super.width();
-//         }
-// }  
+
 private dynamicFontSize(p :Pack):number | null{
 //----required with should exclude padding     
  const reqWdInPix = this.reqWdInPixForFontSize(p);
@@ -72,11 +41,11 @@ private dynamicFontSize(p :Pack):number | null{
  return null; 
  }//dynamic font size
 private reqWdInPixForFontSize(p :Pack){
-const r =  (p.canvasWidth() /100 * this.dynWidth.value());
+const r =  (p.canvasWidth() /100 * this.width.value());
 //--we removed padding here
-    const s = r - (this.paddingLeft.value() + this.paddingRight.value());
+const s = r - (this.paddingLeft.value() + this.paddingRight.value());
     return s;
-    }
+}
     
 private shrinkToFitMaxHeight(p :Pack):boolean{
 if (this.charsWidth==null){throw new Error("init error");
@@ -99,7 +68,11 @@ if ( contentHeight < reqHtInPixwoPad){return true;}
 }
 return true;
 }  
-
+private applyBoth(p :Pack){
+   
+    this.dynamicFontSize(p);
+    this.shrinkToFitMaxHeight(p);
+}
 }//class
 
  

@@ -8,8 +8,8 @@ export default class Pic extends BaseComponent {
     constructor(imgUrl: string, dynWidth?: number, dynHeight?: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
-    width(): number;
-    height(): number;
+    widthInPix(): number;
+    heightInPix(): number;
     draw(p: Pack): boolean;
     resize(fromTime: number, toTime: number, fromWidth: number, toWidth: number, fromHeight: number, toHeight: number): void;
 }

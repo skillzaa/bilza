@@ -70,26 +70,25 @@ this.fontSize.update(msDelta);
 return true;
 }
  
-height():number {
+heightInPix():number {
 if (this.charsWidth == null){throw new Error("init error");}    
 const textHeight = this.charsWidth("W",this.style.fontSize,this.style.fontFamily)
 return  textHeight + (this.paddingTop.value() + this.paddingBottom.value());
 }
 
-width():number {
+widthInPix():number {
 if (this.charsWidth == null){throw new Error("init error");}        
 const textWdith = this.charsWidth(this.content.substring(0,this.maxDisplayChars),this.fontSize.value(),this.fontFamily)
 return textWdith + (this.paddingLeft.value() + this.paddingRight.value()); 
 }
-
   
 draw(p:Pack):boolean{
 this.style.fillStyle = this.colorBg;    
 this.style.strokeStyle = this.colorBg;    
-this.drawBg(p,this.style,this.xAligned(),this.yAligned(),this.width(),this.height());
+this.drawBg(p,this.style,this.xAligned(),this.yAligned(),this.widthInPix(),this.heightInPix( ));
 this.style.fillStyle = this.colorBorder;    
 this.style.strokeStyle = this.colorBorder;    
-this.drawBorder(p,this.style,this.xAligned(),this.yAligned(),this.border.value(),this.width( ),this.height( ));
+this.drawBorder(p,this.style,this.xAligned(),this.yAligned(),this.border.value(),this.widthInPix( ),this.heightInPix( ));
  
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color;
@@ -113,7 +112,7 @@ p.drawRect(
  return true;
  }
 
- drawBg(p :Pack,style :Style,x:number,y:number,width:number,height:number) :boolean{
+drawBg(p :Pack,style :Style,x:number,y:number,width:number,height:number) :boolean{
  p.drawFillRect(
      x,
      y,

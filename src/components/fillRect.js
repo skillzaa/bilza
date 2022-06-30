@@ -16,7 +16,7 @@ export default class FillRect extends BaseComponent {
         this.dynHeight.update(msDelta);
         return true;
     }
-    width() {
+    widthInPix() {
         if (this.canvasWidth !== null) {
             return Math.ceil((this.canvasWidth / 100) * this.dynWidth.value());
         }
@@ -24,7 +24,7 @@ export default class FillRect extends BaseComponent {
             throw new Error("the component is not initialized yet");
         }
     }
-    height() {
+    heightInPix() {
         if (this.canvasHeight !== null) {
             return Math.ceil((this.canvasHeight / 100) * this.dynHeight.value());
         }
@@ -35,7 +35,7 @@ export default class FillRect extends BaseComponent {
     draw(p) {
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        p.drawFillRect(this.xAligned(), this.yAligned(), this.width(), this.height(), this.style);
+        p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
         return true;
     }
 }

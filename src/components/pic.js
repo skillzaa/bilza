@@ -37,21 +37,21 @@ export default class Pic extends BaseComponent {
         this.dynHeight.update(msDelta);
         return true;
     }
-    width() {
+    widthInPix() {
         if (this.canvasWidth == null) {
             throw new Error("init error");
         }
         let wd = this.canvasWidth / 100 * this.dynWidth.value();
         return wd;
     }
-    height() {
+    heightInPix() {
         if (this.canvasHeight == null) {
             throw new Error("init error");
         }
         return this.canvasHeight / 100 * this.dynHeight.value();
     }
     draw(p) {
-        p.drawImage(this.img, this.xAligned(), this.yAligned(), this.width(), this.height());
+        p.drawImage(this.img, this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix());
         return true;
     }
     resize(fromTime, toTime, fromWidth, toWidth, fromHeight, toHeight) {

@@ -42,14 +42,14 @@ update(msDelta: number, p: Pack): boolean {
     this.dynHeight.update(msDelta);
     return true;
 }
-width(): number {
+widthInPix(): number {
     if (this.canvasWidth !== null ){
         return Math.ceil((this.canvasWidth/100) * this.dynWidth.value());
     }else {
         throw new Error("the component is not initialized yet");        
     }
 }
-height(): number {
+heightInPix(): number {
     if (this.canvasHeight !== null){
     return Math.ceil((this.canvasHeight/100)*this.dynHeight.value());
     }else {
@@ -67,8 +67,8 @@ this.applyRotation(p);
     0,
     0,
     // this.yAligned(),
-    this.width(),
-    this.height(),
+    this.widthInPix(),
+    this.heightInPix(),
     this.style
     );
 p.restore();    

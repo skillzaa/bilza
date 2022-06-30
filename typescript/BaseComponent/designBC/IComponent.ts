@@ -1,4 +1,4 @@
-import {DrawLayer,Pack,Style} from "../../bilza.js";
+import {DrawLayer,Pack,Style,AniNumber} from "../../bilza.js";
 
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business logic etc inside. That will come when we build systems.
@@ -22,6 +22,11 @@ export default interface IComponent{
     duration :number;
     alwaysOn: boolean;
     version :string;
+/**
+ * 30-july-2022 : added since now all those component which implement this can be widened and shortened (scaled) using width.animate height.animate.
+ */
+    width :AniNumber;
+    height :AniNumber;
 
 //-----Public Objects
     style:Style; 
@@ -34,6 +39,12 @@ init(p :Pack):boolean;
 update(msDelta :number,p :Pack):boolean; //second not frame 
 
 draw(p :Pack):boolean;
+/**
+ *--30-june-2022 : widthInPix and heightInPix added.
+ From now on there is not confusion. "width" and "height" (IF APPLIED BY YHE COMPONENT) are both aniNumber where as the fol methods will just return the size of comp in pix
+ */
+widthInPix():number;
+heightInPix():number;
 ///////////28-june-2022/////////// 
 //-- This is one function reference that it gets so that it can directly access one function of the main "bilza" pack object.
 //-- There can be more such functions but those functions can not make breaking changes just get information from rest of the system.

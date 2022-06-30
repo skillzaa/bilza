@@ -1,7 +1,7 @@
-import Shadow from "./80Shadow.js";
+import WidthHeight from "./71WidthHeight.js";
 import X from "./xy/x.js";
 import Y from "./xy/y.js";
-export default class Loc extends Shadow {
+export default class Loc extends WidthHeight {
     constructor() {
         super();
         this.x = new X();
@@ -15,15 +15,11 @@ export default class Loc extends Shadow {
         this.y.init(this.usePercentages, this.canvasHeight);
         return true;
     }
-    width() {
-        return 0;
-    }
-    height() {
-        return 0;
-    }
     update(msDelta, p) {
         this.x.update(msDelta);
         this.y.update(msDelta);
+        this.width.update(msDelta);
+        this.height.update(msDelta);
         return true;
     }
     draw(p) {
@@ -48,9 +44,9 @@ export default class Loc extends Shadow {
         return true;
     }
     xAligned() {
-        return this.x.aligned(this.width());
+        return this.x.aligned(this.widthInPix());
     }
     yAligned() {
-        return this.y.aligned(this.height());
+        return this.y.aligned(this.heightInPix());
     }
 }

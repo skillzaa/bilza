@@ -7,8 +7,8 @@ export default class TestComp extends BaseComponent {
     constructor(color?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
-    width(): number;
-    height(): number;
+    widthInPix(): number;
+    heightInPix(): number;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=testComp.d.ts.map

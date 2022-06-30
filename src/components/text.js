@@ -1,12 +1,8 @@
-import { AniNumber } from "../../bilza.js";
-import PlainText from "../plainText.js";
+import PlainText from "./plainText.js";
 export default class Text extends PlainText {
     constructor(content = "", colorHax = "#000000") {
         super(content, colorHax);
-        this.maxHeight = 20;
-        this.dynWidth = new AniNumber(10);
-        this.useDynWidth = true;
-        this.useMaxHeight = true;
+        this.maxHeight = 500;
     }
     init(p) {
         super.init(p);
@@ -14,7 +10,6 @@ export default class Text extends PlainText {
         return true;
     }
     update(msDelta, p) {
-        this.dynWidth.update(msDelta);
         this.applyBoth(p);
         super.update(msDelta, p);
         return true;
@@ -33,7 +28,7 @@ export default class Text extends PlainText {
         return null;
     }
     reqWdInPixForFontSize(p) {
-        const r = (p.canvasWidth() / 100 * this.dynWidth.value());
+        const r = (p.canvasWidth() / 100 * this.width.value());
         const s = r - (this.paddingLeft.value() + this.paddingRight.value());
         return s;
     }
@@ -58,11 +53,7 @@ export default class Text extends PlainText {
         return true;
     }
     applyBoth(p) {
-        if (this.useDynWidth == true) {
-            this.dynamicFontSize(p);
-        }
-        if (this.useMaxHeight == true) {
-            this.shrinkToFitMaxHeight(p);
-        }
+        this.dynamicFontSize(p);
+        this.shrinkToFitMaxHeight(p);
     }
 }

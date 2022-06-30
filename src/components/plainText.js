@@ -36,14 +36,14 @@ export default class PlainText extends BaseComponent {
         this.fontSize.update(msDelta);
         return true;
     }
-    height() {
+    heightInPix() {
         if (this.charsWidth == null) {
             throw new Error("init error");
         }
         const textHeight = this.charsWidth("W", this.style.fontSize, this.style.fontFamily);
         return textHeight + (this.paddingTop.value() + this.paddingBottom.value());
     }
-    width() {
+    widthInPix() {
         if (this.charsWidth == null) {
             throw new Error("init error");
         }
@@ -53,10 +53,10 @@ export default class PlainText extends BaseComponent {
     draw(p) {
         this.style.fillStyle = this.colorBg;
         this.style.strokeStyle = this.colorBg;
-        this.drawBg(p, this.style, this.xAligned(), this.yAligned(), this.width(), this.height());
+        this.drawBg(p, this.style, this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix());
         this.style.fillStyle = this.colorBorder;
         this.style.strokeStyle = this.colorBorder;
-        this.drawBorder(p, this.style, this.xAligned(), this.yAligned(), this.border.value(), this.width(), this.height());
+        this.drawBorder(p, this.style, this.xAligned(), this.yAligned(), this.border.value(), this.widthInPix(), this.heightInPix());
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
         this.style.fontSize = this.fontSize.value();

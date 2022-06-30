@@ -20,8 +20,8 @@ export default class PlainText extends BaseComponent {
     constructor(content?: string, colorHax?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
-    height(): number;
-    width(): number;
+    heightInPix(): number;
+    widthInPix(): number;
     draw(p: Pack): boolean;
     drawBorder(p: Pack, style: Style, x: number, y: number, borderWidth: number, width: number, height: number): boolean;
     drawBg(p: Pack, style: Style, x: number, y: number, width: number, height: number): boolean;

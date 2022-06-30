@@ -1,5 +1,5 @@
 import { Pack } from "../bilza.js";
-import Text from "./text/text.js";
+import Text from "./text.js";
 export default class FrameCounter extends Text {
     constructor(color?: string);
     init(p: Pack): boolean;
