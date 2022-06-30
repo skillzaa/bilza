@@ -6,6 +6,7 @@ import FrameCounter from "./frameCounter.js";
 import BgCircles from "./bgCircles.js";
 import Text from "./text.js";
 import Pic from "./pic.js";
+import Line from "./line.js";
 
 import PlainText from "./plainText.js";
 
@@ -49,10 +50,10 @@ static text(content :string="",colorHax :string="#000000"){
 let g = new Text(content,colorHax);
 return g;    
 }
-// static Line(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
-// let g = new Line(x1,y1,x2,y2,color);
-// return g;    
-// }
+static line(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
+let g = new Line(x1,y1,x2,y2,color);
+return g;    
+}
 
 
 }

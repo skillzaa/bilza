@@ -19,6 +19,9 @@ export default class XyBaseAdaptor {
     value() {
         return this._XorY.value();
     }
+    set(n) {
+        this._XorY.set(n);
+    }
     jumpBetween(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, skipFrames = 0) {
         const c = new PreInitJumpBetween(startTimeSec, endTimeSec, pointOne, pointTwo, skipFrames);
         this.preInitJumpBetweens.push(c);

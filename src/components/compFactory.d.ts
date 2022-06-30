@@ -6,6 +6,7 @@ import FrameCounter from "./frameCounter.js";
 import BgCircles from "./bgCircles.js";
 import Text from "./text.js";
 import Pic from "./pic.js";
+import Line from "./line.js";
 import PlainText from "./plainText.js";
 export default class CompFactory {
     static pic(imgId: string, dynWidth?: number, dynHeight?: number): Pic;
@@ -17,5 +18,6 @@ export default class CompFactory {
     static bgCircles(count?: number, color?: string, delay?: number): BgCircles;
     static plainText(content?: string, colorHax?: string): PlainText;
     static text(content?: string, colorHax?: string): Text;
+    static line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string): Line;
 }
 //# sourceMappingURL=compFactory.d.ts.map

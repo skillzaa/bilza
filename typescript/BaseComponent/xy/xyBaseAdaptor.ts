@@ -34,7 +34,9 @@ this._XorY.update(msDelta);
 value():number{
     return this._XorY.value();
 }
-
+set(n :number){
+this._XorY.set(n);
+}
 public jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,skipFrames :number=0){
 const c = new PreInitJumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,skipFrames);    
 this.preInitJumpBetweens.push(c);

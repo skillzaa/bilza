@@ -13,6 +13,7 @@ export default class XyBaseAdaptor {
     constructor();
     update(msDelta: number): void;
     value(): number;
+    set(n: number): void;
     jumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, skipFrames?: number): void;
     baseJumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, skipFrames?: number): void;
     goto(atSecond: number, value: number): void;

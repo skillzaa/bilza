@@ -17,8 +17,8 @@ this.initGoto(usePercentages,canvasWidth);
 this.initAnimate(usePercentages,canvasWidth);
 this.initRandom(usePercentages,canvasWidth);
 this.initJumpBetween(usePercentages,canvasWidth);
-}
 
+}
 
 initVibrate(usePercentages :boolean,canvasWidth :number){
 for (let i = 0; i < this.preInitVibrates.length; i++) {

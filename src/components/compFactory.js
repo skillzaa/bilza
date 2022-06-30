@@ -6,6 +6,7 @@ import FrameCounter from "./frameCounter.js";
 import BgCircles from "./bgCircles.js";
 import Text from "./text.js";
 import Pic from "./pic.js";
+import Line from "./line.js";
 import PlainText from "./plainText.js";
 export default class CompFactory {
     static pic(imgId, dynWidth = 10, dynHeight = 10) {
@@ -42,6 +43,10 @@ export default class CompFactory {
     }
     static text(content = "", colorHax = "#000000") {
         let g = new Text(content, colorHax);
+        return g;
+    }
+    static line(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
+        let g = new Line(x1, y1, x2, y2, color);
         return g;
     }
 }
