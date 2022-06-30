@@ -1,8 +1,8 @@
 import { Pack ,AniNumber,Style } from "../../bilza.js";
-import Text002 from "./text002.js"
-;
+import PlainText from "../plainText.js";
+
 // import TextUtil from "./textUtil.js";
-export default class Text extends Text002 {
+export default class Text extends PlainText {
 public useDynWidth :boolean;
 public useMaxHeight :boolean;
 public dynWidth :AniNumber;    //required by all comps--no
@@ -25,7 +25,7 @@ if (this.useDynWidth == true){
 }
 if (this.useMaxHeight == true){
     this.shrinkToFitMaxHeight(p);
-}
+} 
 return true;       
 }
 update(msDelta: number, p: Pack): boolean {

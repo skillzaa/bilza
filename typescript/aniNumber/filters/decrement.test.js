@@ -1,5 +1,5 @@
 
-import Decrement from "../../../src/filters/incDec/decrement.js";
+import Decrement from "../../../src/aniNumber/filters/decrement.js";
 //increment does not need init
 
 test('negative time is not allowed', () => {

@@ -24,4 +24,4 @@ export default class PlainText extends BaseComponent {
     width(): number;
     draw(p: Pack): boolean;
 }
-//# sourceMappingURL=text002.d.ts.map
+//# sourceMappingURL=plainText.d.ts.map

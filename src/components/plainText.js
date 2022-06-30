@@ -1,6 +1,5 @@
-import { BaseComponent, DrawLayer, FontFamily, AniNumber } from "../../bilza.js";
-import lightenDarkenColor from "../../functions/lightenDarkenColor.js";
-import TextUtil from "./textUtil.js";
+import { BaseComponent, DrawLayer, FontFamily, AniNumber } from "../bilza.js";
+import lightenDarkenColor from "../functions/lightenDarkenColor.js";
 export default class PlainText extends BaseComponent {
     constructor(content = "", colorHax = "#000000") {
         super();
@@ -53,15 +52,33 @@ export default class PlainText extends BaseComponent {
     draw(p) {
         this.style.fillStyle = this.colorBg;
         this.style.strokeStyle = this.colorBg;
-        TextUtil.drawBg(p, this.style, this.xAligned(), this.yAligned(), this.width(), this.height());
+        this.drawBg(p, this.style, this.xAligned(), this.yAligned(), this.width(), this.height());
         this.style.fillStyle = this.colorBorder;
         this.style.strokeStyle = this.colorBorder;
-        TextUtil.drawBorder(p, this.style, this.xAligned(), this.yAligned(), this.border.value(), this.width(), this.height());
+        this.drawBorder(p, this.style, this.xAligned(), this.yAligned(), this.border.value(), this.width(), this.height());
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
         this.style.fontSize = this.fontSize;
         this.style.fontFamily = this.fontFamily;
-        TextUtil.drawContent(p, this.style, this.content, this.xAligned(), this.yAligned(), this.maxDisplayChars, this.paddingLeft.value(), this.paddingTop.value(), this.showContent);
+        this.drawContent(p, this.style, this.content, this.xAligned(), this.yAligned(), this.maxDisplayChars, this.paddingLeft.value(), this.paddingTop.value(), this.showContent);
         return true;
+    }
+    drawBorder(p, style, x, y, borderWidth, width, height) {
+        if (borderWidth <= 0) {
+            return false;
+        }
+        style.lineWidth = borderWidth;
+        p.drawRect(x - Math.ceil(borderWidth / 2), y - Math.ceil(borderWidth / 2), width + (borderWidth), height + (borderWidth), style);
+        return true;
+    }
+    drawBg(p, style, x, y, width, height) {
+        p.drawFillRect(x, y, width, height, style);
+        return true;
+    }
+    drawContent(p, style, content, x, y, maxDisplayChars, paddingLeft, paddingTop, showContent) {
+        if (showContent == false) {
+            return false;
+        }
+        p.drawText(content.substring(0, maxDisplayChars), x + paddingLeft, y + paddingTop, style);
     }
 }

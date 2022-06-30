@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-        * {
+* {
     padding:0;
     margin:0;
 }
-body {background-color: rgb(15, 67, 15);}
+#parentDiv {
+    background-color:azure;
+    padding: 10px;
+    overflow-y: scroll;
+    height: 400px;
+}
 
 #canvasContainer {
     text-align: center;
@@ -27,6 +32,7 @@ body {background-color: rgb(15, 67, 15);}
     <title>Bilza Core Samples</title>
 </head>
 <body>
+
 <div id="canvasContainer">
     <canvas id="bilza"></canvas>
 <!--controls table-->
@@ -43,44 +49,16 @@ body {background-color: rgb(15, 67, 15);}
 </table>
 
 </div>
+<hr/>
+<h2>Test Controls</h2>
+<div id="parentDiv"></div>
 
-
-<script  type="module" >
-import Bilza, { CompFactory as cf, Ui } from "./bilza.js";
-
-let bil = new Bilza("bilza", 70);
-
-const g = cf.grid();
-bil.insert.alwaysOn(g);
-
-let c = cf.frameCounter();
-c.goto(0, 90, 0);
-bil.insert.append(c,50);
-
-const ui = new Ui(bil);
-bil.draw(0);
-</script>
+<script  type="module" src="../src/example/index.js" ></script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { CompFactory as cf, PresetComps, Ui } from "./bilza.js";
-let bil = new Bilza("bilza", 70);
-const g = cf.grid();
-bil.insert.alwaysOn(g);
-let c = cf.frameCounter();
-c.goto(0, 90, 0, c.xAlign.Right);
-bil.insert.alwaysOn(c);
-const hdg = PresetComps.topInHdg(0, 1, "Main Heading", "#0000ff", 10);
-bil.insert.add(hdg, 0, 15);
-const jt01 = PresetComps.bulletPoint(1, 2, "This is the bullet point sentence", "#008000", 30);
-bil.insert.add(jt01, 0, 15);
-const jt02 = PresetComps.bulletPoint(3, 5, "This is the bullet point sentence", "#008000", 50);
-bil.insert.add(jt02, 0, 15);
-const jt03 = PresetComps.bulletPoint(6, 8, "This is the bullet point sentence", "#008000", 70);
-bil.insert.add(jt03, 0, 15);
-const ui = new Ui(bil);
-bil.init();
-bil.drawFrame(0);
+
+    
 </code>
 </pre>
 

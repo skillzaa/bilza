@@ -1,6 +1,6 @@
 import { Pack, AniNumber } from "../../bilza.js";
-import Text002 from "./text002.js";
-export default class Text extends Text002 {
+import PlainText from "../plainText.js";
+export default class Text extends PlainText {
     useDynWidth: boolean;
     useMaxHeight: boolean;
     dynWidth: AniNumber;

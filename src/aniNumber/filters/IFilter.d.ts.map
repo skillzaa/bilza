@@ -1,1 +1,0 @@
-{"version":3,"file":"IFilter.d.ts","sourceRoot":"","sources":["../../../typescript/aniNumber/filters/IFilter.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,eAAe,CAAC;AAC5C,MAAM,CAAC,OAAO,WAAW,OAAO;IAE5B,MAAM,CAAC,OAAO,EAAE,MAAM,GAAE,WAAW,CAAC;IACpC,KAAK,IAAG,MAAM,GAAC,IAAI,CAAC;CACvB"}

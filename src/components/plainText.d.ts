@@ -1,4 +1,4 @@
-import { Pack, BaseComponent, FontFamily, AniNumber } from "../../bilza.js";
+import { Pack, BaseComponent, FontFamily, AniNumber, Style } from "../bilza.js";
 export default class PlainText extends BaseComponent {
     content: string;
     fontFamily: FontFamily;
@@ -23,5 +23,8 @@ export default class PlainText extends BaseComponent {
     height(): number;
     width(): number;
     draw(p: Pack): boolean;
+    drawBorder(p: Pack, style: Style, x: number, y: number, borderWidth: number, width: number, height: number): boolean;
+    drawBg(p: Pack, style: Style, x: number, y: number, width: number, height: number): boolean;
+    drawContent(p: Pack, style: Style, content: string, x: number, y: number, maxDisplayChars: number, paddingLeft: number, paddingTop: number, showContent: boolean): false | undefined;
 }
-//# sourceMappingURL=text002.d.ts.map
+//# sourceMappingURL=plainText.d.ts.map

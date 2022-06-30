@@ -1,5 +1,5 @@
-import Bilza from "../src/Bilza.js";
-import FillRect from "../src/components/fillRect.js";
+import Bilza from "../../src/Bilza.js";
+import FillRect from "../../src/components/fillRect.js";
 
 test('Append Basic', () => {
     let bil  =  new Bilza();

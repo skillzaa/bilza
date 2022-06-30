@@ -57,7 +57,7 @@ slider.value = "0";
 setInterval(()=>{
     if (bil.isRunning()==true){
         //@ts-expect-error 
-        slider.value = Math.ceil(bil.lastMeDelta()/1000);  
+        slider.value = Math.ceil(bil.getLastMsDelta()/1000);  
     }
 },500);    
 //..........

@@ -1,5 +1,5 @@
 
-import Increment from "../../../src/filters/incDec/increment.js";
+import Increment from "../../../src/aniNumber/filters/increment.js";
 //increment does not need init
 
 test('negative time is not allowed', () => {
@@ -10,8 +10,9 @@ test('end Time can not be equal or smaller than start time', () => {
 expect(()=>{ new Increment (20,10,1,100) }).toThrow("end Time can not be equal or smaller than start time");
 });
 
-test('end value can not be less than zero in an increment operation', () => {expect(()=>{ new Increment (0,10,-20,-10) }).toThrow("end value can not be less than zero in an increment operation");
-});
+//--Now end value can be less than zero since components can be very wide and some of their part may still end up on screen
+// test('end value can not be less than zero in an increment operation', () => {expect(()=>{ new Increment (0,10,-20,-10) }).toThrow("end value can not be less than zero in an increment operation");
+// });
 
 test('setup', () => {
     let inc = new Increment (0,10,1,100);

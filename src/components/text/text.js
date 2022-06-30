@@ -1,6 +1,6 @@
 import { AniNumber } from "../../bilza.js";
-import Text002 from "./text002.js";
-export default class Text extends Text002 {
+import PlainText from "../plainText.js";
+export default class Text extends PlainText {
     constructor(content = "", colorHax = "#000000") {
         super(content, colorHax);
         this.maxHeight = 20;

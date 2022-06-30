@@ -1,6 +1,6 @@
 
-import Bilza from "../src/Bilza.js"
-import FillRect from "../src/components/fillRect.js";
+import Bilza from "../../src/Bilza.js"
+import FillRect from "../../src/components/fillRect.js";
 
 test('insert_add_setup = 0', () => {
 let bil = new Bilza()

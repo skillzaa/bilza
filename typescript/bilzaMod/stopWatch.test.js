@@ -1,12 +1,12 @@
 
 // import Bilza from "../src/Bilza.js"
-import StopWatch from "../src/bilzaMod/stopWatch.js";
+import StopWatch from "../../src/bilzaMod/stopWatch.js";
 
 
 
 test('check stop watch', () => {
 let s = new StopWatch();
-    expect(s.isAlreadyRunning()).toBeFalsy();
+    expect(s.isRunning()).toBeFalsy();
 });
 
 test('getMsDelta', () => {
