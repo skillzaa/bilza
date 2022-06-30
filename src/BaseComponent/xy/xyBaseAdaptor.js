@@ -33,8 +33,8 @@ export default class XyBaseAdaptor {
     baseGoto(atSecond, value) {
         this._XorY.goto(atSecond, value);
     }
-    vibrate(from, to, xValue, offset, delay) {
-        const c = new PreInitVibrate(from, to, xValue, offset, delay);
+    vibrate(from, to, seed, offset, delay) {
+        const c = new PreInitVibrate(from, to, seed, offset, delay);
         this.preInitVibrates.push(c);
     }
     baseVibrate(from, to, xValue, offset, delay) {

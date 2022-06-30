@@ -51,8 +51,8 @@ this.preInitGotos.push(c);
 public baseGoto(atSecond  :number,value :number){
     this._XorY.goto(atSecond,value);
 }
-public vibrate(from: number, to: number, xValue: number, offset: number, delay: number): void {
-    const c = new PreInitVibrate(from,to,xValue,offset,delay);
+public vibrate(from: number, to: number, seed: number, offset: number, delay: number): void {
+    const c = new PreInitVibrate(from,to,seed,offset,delay);
     this.preInitVibrates.push(c);
 }
 public baseVibrate(from: number, to: number, xValue: number, offset: number, delay: number): void {

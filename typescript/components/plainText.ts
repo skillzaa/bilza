@@ -10,7 +10,7 @@ public paddingRight  :AniNumber;
 public paddingTop    :AniNumber;
 public paddingBottom :AniNumber;
 //--numbers
-public fontSize :number;
+public fontSize :AniNumber;
 public border :AniNumber;
 public maxDisplayChars :number; 
 //--colors
@@ -28,7 +28,7 @@ public showBgShadow :boolean;
 constructor (content :string="",colorHax :string="#000000"){
 super();  
 this.content = content ; 
-this.fontSize = 50;
+this.fontSize = new AniNumber(50);
 this.fontFamily = FontFamily.Calibri;
 this.paddingLeft = new AniNumber(0);
 this.paddingRight = new AniNumber(0);
@@ -65,6 +65,7 @@ this.paddingRight.update(msDelta);
 this.paddingTop.update(msDelta);
 
 this.border.update(msDelta);
+this.fontSize.update(msDelta);
 
 return true;
 }
@@ -77,7 +78,7 @@ return  textHeight + (this.paddingTop.value() + this.paddingBottom.value());
 
 width():number {
 if (this.charsWidth == null){throw new Error("init error");}        
-const textWdith = this.charsWidth(this.content.substring(0,this.maxDisplayChars),this.fontSize,this.fontFamily)
+const textWdith = this.charsWidth(this.content.substring(0,this.maxDisplayChars),this.fontSize.value(),this.fontFamily)
 return textWdith + (this.paddingLeft.value() + this.paddingRight.value()); 
 }
 
@@ -92,7 +93,7 @@ this.drawBorder(p,this.style,this.xAligned(),this.yAligned(),this.border.value()
  
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color;
-this.style.fontSize = this.fontSize;
+this.style.fontSize = this.fontSize.value();
 this.style.fontFamily = this.fontFamily;
 this.drawContent(p,this.style,this.content,this.xAligned(),this.yAligned(),this.maxDisplayChars,this.paddingLeft.value(),this.paddingTop.value(),this.showContent);
 return true;

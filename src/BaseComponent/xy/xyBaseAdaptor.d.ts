@@ -17,7 +17,7 @@ export default class XyBaseAdaptor {
     baseJumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, skipFrames?: number): void;
     goto(atSecond: number, value: number): void;
     baseGoto(atSecond: number, value: number): void;
-    vibrate(from: number, to: number, xValue: number, offset: number, delay: number): void;
+    vibrate(from: number, to: number, seed: number, offset: number, delay: number): void;
     baseVibrate(from: number, to: number, xValue: number, offset: number, delay: number): void;
     random(startTimeSec: number, endTimeSec: number, min?: number, max?: number, skipXFrames?: number): void;
     baseRandom(startTimeSec: number, endTimeSec: number, min?: number, max?: number, skipXFrames?: number): void;

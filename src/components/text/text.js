@@ -31,13 +31,13 @@ export default class Text extends PlainText {
     }
     dynamicFontSize(p) {
         const reqWdInPix = this.reqWdInPixForFontSize(p);
-        this.style.fontSize = this.fontSize;
+        this.style.fontSize = this.fontSize.value();
         for (let i = 1; i < 900; i++) {
             const newWidthInPix = p.charsWidth(this.content, i, this.style.fontFamily);
             if (newWidthInPix >= (reqWdInPix)) {
-                this.fontSize = i;
+                this.fontSize.set(i);
                 this.style.fontSize = i;
-                return this.fontSize;
+                return this.fontSize.value();
             }
         }
         return null;
@@ -60,7 +60,7 @@ export default class Text extends PlainText {
         for (let i = 300; i > 0; i--) {
             const newHeightInPix = p.charsWidth("W", i, this.style.fontFamily);
             if (newHeightInPix <= reqHtInPixwoPad) {
-                this.fontSize = i;
+                this.fontSize.set(i);
                 this.style.fontSize = i;
                 return true;
             }

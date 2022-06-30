@@ -6,6 +6,7 @@ import FrameCounter from "./frameCounter.js";
 import BgCircles from "./bgCircles.js";
 import Text from "./text/text.js";
 import Pic from "./pic.js";
+import PlainText from "./plainText.js";
 export default class CompFactory {
     static pic(imgId, dynWidth = 10, dynHeight = 10) {
         let g = new Pic(imgId, dynWidth, dynHeight);
@@ -33,6 +34,10 @@ export default class CompFactory {
     }
     static bgCircles(count = 10, color = "#008000", delay = 1) {
         let g = new BgCircles(count, color, delay);
+        return g;
+    }
+    static plainText(content = "", colorHax = "#000000") {
+        let g = new PlainText(content, colorHax);
         return g;
     }
     static text(content = "", colorHax = "#000000") {

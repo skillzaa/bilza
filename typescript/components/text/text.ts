@@ -56,7 +56,7 @@ private dynamicFontSize(p :Pack):number | null{
  const reqWdInPix = this.reqWdInPixForFontSize(p);
  
  //if not already in sync
- this.style.fontSize = this.fontSize; 
+ this.style.fontSize = this.fontSize.value(); 
  //------------------------------------
      for (let i = 1; i < 900; i++) {
      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
@@ -64,9 +64,9 @@ private dynamicFontSize(p :Pack):number | null{
      const newWidthInPix = p.charsWidth(this.content,i,this.style.fontFamily);
  //----------------------------
      if (newWidthInPix >= (reqWdInPix) ){
-         this.fontSize = i; 
+         this.fontSize.set(i); 
          this.style.fontSize = i;
-         return this.fontSize;
+         return this.fontSize.value();
      } 
  }//for end  
  return null; 
@@ -92,7 +92,7 @@ if ( contentHeight < reqHtInPixwoPad){return true;}
 //----------------------------
 // if (i < 100){debugger;}
     if (newHeightInPix <= reqHtInPixwoPad ){
-        this.fontSize = i; 
+        this.fontSize.set(i); 
         this.style.fontSize = i;//may not be required
         return true;
     }

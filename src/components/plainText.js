@@ -4,7 +4,7 @@ export default class PlainText extends BaseComponent {
     constructor(content = "", colorHax = "#000000") {
         super();
         this.content = content;
-        this.fontSize = 50;
+        this.fontSize = new AniNumber(50);
         this.fontFamily = FontFamily.Calibri;
         this.paddingLeft = new AniNumber(0);
         this.paddingRight = new AniNumber(0);
@@ -33,6 +33,7 @@ export default class PlainText extends BaseComponent {
         this.paddingRight.update(msDelta);
         this.paddingTop.update(msDelta);
         this.border.update(msDelta);
+        this.fontSize.update(msDelta);
         return true;
     }
     height() {
@@ -46,7 +47,7 @@ export default class PlainText extends BaseComponent {
         if (this.charsWidth == null) {
             throw new Error("init error");
         }
-        const textWdith = this.charsWidth(this.content.substring(0, this.maxDisplayChars), this.fontSize, this.fontFamily);
+        const textWdith = this.charsWidth(this.content.substring(0, this.maxDisplayChars), this.fontSize.value(), this.fontFamily);
         return textWdith + (this.paddingLeft.value() + this.paddingRight.value());
     }
     draw(p) {
@@ -58,7 +59,7 @@ export default class PlainText extends BaseComponent {
         this.drawBorder(p, this.style, this.xAligned(), this.yAligned(), this.border.value(), this.width(), this.height());
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        this.style.fontSize = this.fontSize;
+        this.style.fontSize = this.fontSize.value();
         this.style.fontFamily = this.fontFamily;
         this.drawContent(p, this.style, this.content, this.xAligned(), this.yAligned(), this.maxDisplayChars, this.paddingLeft.value(), this.paddingTop.value(), this.showContent);
         return true;

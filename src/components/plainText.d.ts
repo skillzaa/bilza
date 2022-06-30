@@ -6,7 +6,7 @@ export default class PlainText extends BaseComponent {
     paddingRight: AniNumber;
     paddingTop: AniNumber;
     paddingBottom: AniNumber;
-    fontSize: number;
+    fontSize: AniNumber;
     border: AniNumber;
     maxDisplayChars: number;
     color: string;
