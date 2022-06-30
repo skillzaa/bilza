@@ -43,14 +43,11 @@ private init():boolean{
     this.comps.init(this.pack);
     return true;
 }
-// private drawInit():boolean{
-//     this.comps.init(this.pack);
-//     this.draw();
-//     return true;
-// }
+
 // --27-june-2022 converted to private
 private drawForStart():boolean{
  let msDelta = this.stopWatch.getMsDelta();
+ window.requestAnimationFrame(this.drawForStart.bind(this));
 //-------------------------------------------------------- 
 //--we need to save this msDelta as lastMsDelta
 this.lastMsDelta = msDelta;
@@ -94,7 +91,11 @@ start():boolean{
     if (this.soundTrackElement !== null){
         this.soundTrackElement.play();
     }
-    this.stopWatch.start(this.drawForStart.bind(this));
+
+    if (this.stopWatch.isRunning() == true){return false;}
+        this.stop();
+        this.stopWatch.runningStartTimeTS = new Date().getTime();
+        window.requestAnimationFrame(this.drawForStart.bind(this));
     return true;
 }
 stop():boolean{

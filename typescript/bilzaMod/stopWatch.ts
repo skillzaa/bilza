@@ -4,23 +4,14 @@ private interval : number | null;
 //??
 private  msPerFrame :number; //????
 //--change to runningStartTime
-private runningStartTimeTS :number | null; //when we start video
+public runningStartTimeTS :number | null; //when we start video
  
 constructor(){
     this.runningStartTimeTS = null;
     this.interval = null; 
     this.msPerFrame = 20;
 }
-start(drawFn:()=>boolean) :boolean{
-    if (this.isRunning() == true){return false;}
-    this.stop();
-        this.runningStartTimeTS = new Date().getTime();
-        this.interval = window.setInterval(()=>{
-            //<<=this is the engine main draw fn reference
-            drawFn(); 
-        },this.msPerFrame);
-        return true;
-}
+
 isRunning():boolean{
 if (this.runningStartTimeTS == null){
     return false;

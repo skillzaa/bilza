@@ -4,17 +4,6 @@ export default class StopWatch {
         this.interval = null;
         this.msPerFrame = 20;
     }
-    start(drawFn) {
-        if (this.isRunning() == true) {
-            return false;
-        }
-        this.stop();
-        this.runningStartTimeTS = new Date().getTime();
-        this.interval = window.setInterval(() => {
-            drawFn();
-        }, this.msPerFrame);
-        return true;
-    }
     isRunning() {
         if (this.runningStartTimeTS == null) {
             return false;

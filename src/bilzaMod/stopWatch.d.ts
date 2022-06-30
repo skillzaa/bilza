@@ -1,9 +1,8 @@
 export default class StopWatch {
     private interval;
     private msPerFrame;
-    private runningStartTimeTS;
+    runningStartTimeTS: number | null;
     constructor();
-    start(drawFn: () => boolean): boolean;
     isRunning(): boolean;
     stop(): boolean;
     getMsDelta(): number;
