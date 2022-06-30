@@ -1,8 +1,9 @@
-import {DrawLayer} from "../bilza.js";
+import {DrawLayer,XAlignOpt,YAlignOpt} from "../bilza.js";
 import Style from "../design/style.js";
 
 export default class BaseComponentBase{
-
+public readonly XAlignOpt :typeof XAlignOpt;
+public readonly YAlignOpt :typeof YAlignOpt;
 public  readonly id :string;
 public  usePercentages : boolean; 
 public  drawLayer : DrawLayer; 
@@ -22,6 +23,9 @@ constructor(){
     //--insert the current version numebr into components
     this.version = "0.0.1";
     this.alwaysOn = false;
+    this.XAlignOpt = XAlignOpt; //final-ok
+    this.YAlignOpt = YAlignOpt; //final-ok
+
     // this.usePercentages = false;
     this.usePercentages = true;
     

@@ -1,6 +1,8 @@
-import { DrawLayer } from "../bilza.js";
+import { DrawLayer, XAlignOpt, YAlignOpt } from "../bilza.js";
 import Style from "../design/style.js";
 export default class BaseComponentBase {
+    readonly XAlignOpt: typeof XAlignOpt;
+    readonly YAlignOpt: typeof YAlignOpt;
     readonly id: string;
     usePercentages: boolean;
     drawLayer: DrawLayer;
