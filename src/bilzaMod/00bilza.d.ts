@@ -13,9 +13,10 @@ export default class Bilza {
     private pack;
     private lastMsDelta;
     constructor(canvasId?: string, screenWidthInPercent?: number);
-    private init;
+    init(): boolean;
     private drawForStart;
     draw(msDelta?: number): void;
+    private draw_internal;
     len(inMilliSeconds?: boolean): number;
     drawEvent(msDelta: number): boolean;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;

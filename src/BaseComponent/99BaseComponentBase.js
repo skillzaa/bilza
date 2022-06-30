@@ -7,8 +7,8 @@ export default class BaseComponentBase {
         this.XAlignOpt = XAlignOpt;
         this.YAlignOpt = YAlignOpt;
         this.usePercentages = true;
-        this.width = new AniNumber(0);
-        this.height = new AniNumber(0);
+        this.width = new AniNumber(10);
+        this.height = new AniNumber(10);
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();

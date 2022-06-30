@@ -30,8 +30,8 @@ constructor(){
 
     // this.usePercentages = false;
     this.usePercentages = true;
-    this.width = new AniNumber(0);
-    this.height = new AniNumber(0);
+    this.width = new AniNumber(10);
+    this.height = new AniNumber(10);
     //--there is no this.endTime --since has this.endTime()
     //--must
     this.drawLayer = DrawLayer.MiddleGround;

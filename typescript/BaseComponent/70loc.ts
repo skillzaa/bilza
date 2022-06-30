@@ -20,22 +20,6 @@ this.charsWidth = null;
 // this.aniPreset = new AniPreset(this);
 }
 
-init(p: Pack): boolean {
-this.canvasWidth =  p.canvasWidth();  
-this.canvasHeight =  p.canvasHeight();
-this.x.init(this.usePercentages,this.canvasWidth);//canvasWidth
-this.y.init(this.usePercentages,this.canvasHeight);//canvasHeight
-return true;
-}
-
-
-update(msDelta :number,p :Pack): boolean {
-    this.x.update(msDelta);
-    this.y.update(msDelta);
-    this.width.update(msDelta);
-    this.height.update(msDelta);
-return true;    
-}
 draw(p: Pack): boolean {
     return true;
 }

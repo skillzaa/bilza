@@ -23,15 +23,15 @@ export default class Grid extends BaseComponent {
     showNumbers :boolean ;   
     
       
-constructor (colorHax :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
+constructor (color :string="grey",cellWidthPerc :number=10,cellHeightPerc :number=10){
 super();
 this.fontSize = 12;
 
-this.cellWidthPerc = 10;    
-this.cellHeightPerc =10;
+this.cellWidthPerc = cellWidthPerc;    
+this.cellHeightPerc = cellHeightPerc;
 
-this.colorHorizontalLines = "grey";   
-this.colorVerticalLines = "grey";   
+this.colorHorizontalLines = color;   
+this.colorVerticalLines = color;   
 
 this.colorNumbers = "black"; 
 
@@ -41,7 +41,7 @@ this.showVerticalLines = true;
 this.lineWidthVertical = 1;
 this.lineWidthHorizontal = 1;
 this.lineDash = [];
- this.drawLayer = DrawLayer.BackGround;   
+this.drawLayer = DrawLayer.BackGround;   
 }    
 
 draw(p:Pack): boolean {

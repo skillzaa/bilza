@@ -1,10 +1,8 @@
-import { BaseComponent, AniNumber } from "../bilza.js";
+import { BaseComponent } from "../bilza.js";
 export default class FillRect extends BaseComponent {
     constructor(color = "#000000") {
         super();
         this.color = color;
-        this.dynHeight = new AniNumber(10);
-        this.dynWidth = new AniNumber(10);
     }
     init(p) {
         super.init(p);
@@ -12,13 +10,11 @@ export default class FillRect extends BaseComponent {
     }
     update(msDelta, p) {
         super.update(msDelta, p);
-        this.dynWidth.update(msDelta);
-        this.dynHeight.update(msDelta);
         return true;
     }
     widthInPix() {
         if (this.canvasWidth !== null) {
-            return Math.ceil((this.canvasWidth / 100) * this.dynWidth.value());
+            return Math.ceil((this.canvasWidth / 100) * this.width.value());
         }
         else {
             throw new Error("the component is not initialized yet");
@@ -26,7 +22,7 @@ export default class FillRect extends BaseComponent {
     }
     heightInPix() {
         if (this.canvasHeight !== null) {
-            return Math.ceil((this.canvasHeight / 100) * this.dynHeight.value());
+            return Math.ceil((this.canvasHeight / 100) * this.height.value());
         }
         else {
             throw new Error("the component is not initialized yet");

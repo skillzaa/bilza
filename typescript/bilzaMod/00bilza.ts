@@ -36,7 +36,8 @@ this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 this.background = new Background();
 } 
 // --27-june-2022 converted to private since user does not need to know
-private init():boolean{
+//--30-june-2022 back to puiblic lets see
+public init():boolean{
     if (this.soundTrack !== null){
         this.soundTrackElement = new Audio(this.soundTrack);
     }
@@ -53,12 +54,16 @@ private drawForStart():boolean{
 this.lastMsDelta = msDelta;
 //-------------------------------------------------------- 
 
-this.draw(msDelta); /// The draw mechanism without titbits
+this.draw_internal(msDelta); /// The draw mechanism without titbits
 //---27-6-2022 draw Event removed from here
 return true;
 }
-//---this is old drawFrame --its public
 public draw(msDelta :number=0){
+    this.init();
+    this.draw_internal(msDelta);
+}
+
+private draw_internal(msDelta :number=0){
 if(this.pack == null){throw new Error("bilzaa is not initialized");}   
 //--Auto Stop
 if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
@@ -87,13 +92,14 @@ return true;
 }
 start():boolean{
 //-06-june-2022 the init is moved inside start ..may create problems    
-    this.init(); 
+    
     if (this.soundTrackElement !== null){
         this.soundTrackElement.play();
     }
 
     if (this.stopWatch.isRunning() == true){return false;}
         this.stop();
+        this.init(); 
         this.stopWatch.runningStartTimeTS = new Date().getTime();
         window.requestAnimationFrame(this.drawForStart.bind(this));
     return true;

@@ -1,13 +1,13 @@
 import { DrawLayer } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class Grid extends BaseComponent {
-    constructor(colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
+    constructor(color = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
         super();
         this.fontSize = 12;
-        this.cellWidthPerc = 10;
-        this.cellHeightPerc = 10;
-        this.colorHorizontalLines = "grey";
-        this.colorVerticalLines = "grey";
+        this.cellWidthPerc = cellWidthPerc;
+        this.cellHeightPerc = cellHeightPerc;
+        this.colorHorizontalLines = color;
+        this.colorVerticalLines = color;
         this.colorNumbers = "black";
         this.showNumbers = true;
         this.showHorizontalLines = true;

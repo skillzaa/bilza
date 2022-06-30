@@ -13,7 +13,7 @@ export default class Grid extends BaseComponent {
     fontSize: number;
     colorNumbers: string;
     showNumbers: boolean;
-    constructor(colorHax?: string, cellWidthPerc?: number, cellHeightPerc?: number);
+    constructor(color?: string, cellWidthPerc?: number, cellHeightPerc?: number);
     draw(p: Pack): boolean;
     draw_horizontal(p: Pack): void;
     draw_vertical(p: Pack): void;

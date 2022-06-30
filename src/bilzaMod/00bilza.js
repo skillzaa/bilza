@@ -29,10 +29,14 @@ export default class Bilza {
         let msDelta = this.stopWatch.getMsDelta();
         window.requestAnimationFrame(this.drawForStart.bind(this));
         this.lastMsDelta = msDelta;
-        this.draw(msDelta);
+        this.draw_internal(msDelta);
         return true;
     }
     draw(msDelta = 0) {
+        this.init();
+        this.draw_internal(msDelta);
+    }
+    draw_internal(msDelta = 0) {
         if (this.pack == null) {
             throw new Error("bilzaa is not initialized");
         }
@@ -57,7 +61,6 @@ export default class Bilza {
         return true;
     }
     start() {
-        this.init();
         if (this.soundTrackElement !== null) {
             this.soundTrackElement.play();
         }
@@ -65,6 +68,7 @@ export default class Bilza {
             return false;
         }
         this.stop();
+        this.init();
         this.stopWatch.runningStartTimeTS = new Date().getTime();
         window.requestAnimationFrame(this.drawForStart.bind(this));
         return true;
