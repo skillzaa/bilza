@@ -13,7 +13,7 @@ export default class CompFactory {
         let g = new Pic(imgId, dynWidth, dynHeight);
         return g;
     }
-    static staticGrid(cellWidth = 100, cellHeight = 100, color) {
+    static staticGrid(cellWidth = 100, cellHeight = 100, color = "#efe1e1") {
         let g = new StaticGrid(cellWidth, cellHeight, color);
         return g;
     }

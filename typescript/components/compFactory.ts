@@ -17,7 +17,7 @@ static pic(imgId :string,dynWidth:number=10,dynHeight :number=10){
 let g = new Pic(imgId,dynWidth,dynHeight);
 return g;    
 }
-static staticGrid(cellWidth :number=100,cellHeight :number=100, color :string){
+static staticGrid(cellWidth :number=100,cellHeight :number=100, color :string="#efe1e1"){
 let g = new StaticGrid(cellWidth,cellHeight, color);
 return g;    
 }

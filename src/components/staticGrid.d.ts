@@ -1,19 +1,20 @@
-import { Pack } from "../bilza.js";
+import { Pack, AniNumber } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class StaticGrid extends BaseComponent {
-    cellWidth: number;
-    cellHeight: number;
+    cellWidth: AniNumber;
+    cellHeight: AniNumber;
+    lineWidthVertical: AniNumber;
+    lineWidthHorizontal: AniNumber;
     colorHorizontalLines: string;
     colorVerticalLines: string;
     colorNumbers: string;
     flagDrawNumbers: boolean;
     flagDrawHorizontal: boolean;
     flagDrawVertical: boolean;
-    lineWidthVertical: number;
-    lineWidthHorizontal: number;
     fontSize: number;
     lineDash: number[];
-    constructor(cellWidth: number | undefined, cellHeight: number | undefined, color: string);
+    constructor(cellWidth?: number, cellHeight?: number, color?: string);
+    update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     draw_horizontal(p: Pack): void;
     draw_vertical(p: Pack): void;

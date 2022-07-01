@@ -10,7 +10,7 @@ import Line from "./line.js";
 import PlainText from "./plainText.js";
 export default class CompFactory {
     static pic(imgId: string, dynWidth?: number, dynHeight?: number): Pic;
-    static staticGrid(cellWidth: number | undefined, cellHeight: number | undefined, color: string): StaticGrid;
+    static staticGrid(cellWidth?: number, cellHeight?: number, color?: string): StaticGrid;
     static grid(colorHax?: string, cellWidthPerc?: number, cellHeightPerc?: number): Grid;
     static rect(color?: string): Rect;
     static fillRect(color?: string): FillRect;
