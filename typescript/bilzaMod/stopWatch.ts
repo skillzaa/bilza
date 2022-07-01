@@ -1,6 +1,7 @@
 
 export default class StopWatch {
 private interval : number | null; 
+private _stopFlag :boolean;
 //??
 private  msPerFrame :number; //????
 //--change to runningStartTime
@@ -10,6 +11,7 @@ constructor(){
     this.runningStartTimeTS = null;
     this.interval = null; 
     this.msPerFrame = 20;
+    this._stopFlag = true;
 }
 
 isRunning():boolean{
@@ -19,11 +21,16 @@ if (this.runningStartTimeTS == null){
     return true;
 }
 }
+shouldStop():boolean{
+ return this._stopFlag;
+}
 stop():boolean{
     this.runningStartTimeTS = null;
-    if (this.interval !== null){
-        clearInterval(this.interval);
-    } 
+    this._stopFlag = true; 
+return true;    
+}
+start():boolean{
+    this._stopFlag = false; 
 return true;    
 }
 public getMsDelta() :number{

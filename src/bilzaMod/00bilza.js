@@ -27,7 +27,9 @@ export default class Bilza {
     }
     drawForStart() {
         let msDelta = this.stopWatch.getMsDelta();
-        window.requestAnimationFrame(this.drawForStart.bind(this));
+        if (this.stopWatch.shouldStop() == false) {
+            window.requestAnimationFrame(this.drawForStart.bind(this));
+        }
         this.lastMsDelta = msDelta;
         this.draw_internal(msDelta);
         return true;
@@ -68,6 +70,7 @@ export default class Bilza {
             return false;
         }
         this.stop();
+        this.stopWatch.start();
         this.init();
         this.stopWatch.runningStartTimeTS = new Date().getTime();
         window.requestAnimationFrame(this.drawForStart.bind(this));

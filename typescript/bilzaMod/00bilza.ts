@@ -48,7 +48,10 @@ public init():boolean{
 // --27-june-2022 converted to private
 private drawForStart():boolean{
  let msDelta = this.stopWatch.getMsDelta();
- window.requestAnimationFrame(this.drawForStart.bind(this));
+ if (this.stopWatch.shouldStop() == false){
+    window.requestAnimationFrame(this.drawForStart.bind(this));
+}
+//  window.requestAnimationFrame(this.drawForStart.bind(this));
 //-------------------------------------------------------- 
 //--we need to save this msDelta as lastMsDelta
 this.lastMsDelta = msDelta;
@@ -99,9 +102,13 @@ start():boolean{
 
     if (this.stopWatch.isRunning() == true){return false;}
         this.stop();
+        this.stopWatch.start();
         this.init(); 
         this.stopWatch.runningStartTimeTS = new Date().getTime();
-        window.requestAnimationFrame(this.drawForStart.bind(this));
+
+        // if (this.stopWatch.shouldStop() == false){
+            window.requestAnimationFrame(this.drawForStart.bind(this));
+        // }
     return true;
 }
 stop():boolean{
