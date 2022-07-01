@@ -1,6 +1,5 @@
 import Bilza, { Ui, CompFactory as cf } from "../bilza.js";
 let bil = new Bilza("bilza", 70);
-bil.resizeCanvas(800, 300);
 const g = cf.grid();
 bil.insert.alwaysOn(g);
 const counter = cf.frameCounter("#ff0000");

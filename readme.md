@@ -1,30 +1,20 @@
-### Things are NOT final .API will change and there are breaking changes in each new version...please give it a few weeks more !!!!!
-### I will upload 1 version per week till the API is stable
+### This version is release candidate. The API is reasonably mature and I do hope no breaking changes in it.
 ---
 
 # What is Bilza.js
 
 ---
-> Bilza.js is a javascript framework for creating business and educational visualizations in the browser using HTML5 canvas.
+> Bilza.js is a javascript framework for creating business and educational Visualizations / Presentations  in the browser using HTML5 canvas.
+> The output is simple javascript code which will draw its content on a HTML5 canvas element.
 ---
 
 ## Mission
 To be an easy to use library for creating 
     - Presentations.
-    - Slides with text, images and other components (with some basic    animation and effects).
+    - Slides with text.
+    - Images and other components with some basic animations and effects.
     - Demo videos, tutorials etc.
     - Lessons and educational content.
-
-## What Bilza is Not
- - Bilza is NOT fast, can be running it on even low frame rate.
- - Bilza is not an animation framework. It actually has very basic animation features.
- - Bilza is not a game engine. Please keep this in mind, the purpose is to make slides, presentations, demo videos etc
- - The output code is simple javascript which will draw its content on a HTML5 canvas.
-- Bilza is not (yet) interactive (since its a lot of work, may be some day).
----
-## Installation
-
-> npm install bilza
 
 ### How Bilza Works
 + You create a component
@@ -34,7 +24,21 @@ To be an easy to use library for creating
 
 > A component is what bilza library consumes. The only objective of bilza library is to draw components on the screen. That means that bilza library is extended through components.
 
-###### At the moment some very basic components have been added like "Text" and "Grid".
+
+
+## What Bilza is Not
+
+ - Bilza is NOT fast, can be running it on even low frame rate.
+ - Bilza is not an animation framework. It actually has very basic animation features.
+ - Bilza is not a game engine. Please keep this in mind, the purpose is to make slides, presentations, demo videos etc
+ - Bilza is not (yet) interactive (since its a lot of work, may be some day).
+
+---
+## Installation
+
+> npm install bilza
+
+---
 
 # Docs and Samples 
  Following is link to Docs / sample / examples:.
@@ -44,6 +48,7 @@ To be an easy to use library for creating
 If you want to be in touch or send me a bug report please use github issues.
 
 -----
+###### 3-june-2022   (version 0.0.19) //release candidate for 0.1
 ###### 21-june-2022   (version 0.0.17) //also ver 18
 ###### 06-july-2022   (version 0.0.16)
 ###### 03-jun-2022   (version 0.0.15)
