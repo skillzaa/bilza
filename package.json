@@ -1,7 +1,7 @@
 {
   "name": "bilza",
-  "version": "0.0.18",
-  "description": "Bilza is a javascript framework for creating business and educational visualizations in the browser using HTML5 canvas",
+  "version": "0.0.19",
+  "description": "Bilza is a javascript framework/library specially designed for creating business and educational Visualizations / Presentations / Slides using HTML5 canvas.",
   "main": "src/Bilza.js",
   "scripts": {
     "rollup": "rollup -c",
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/skillzaa/bilza"
   },
-  "keywords": [],
+  "keywords": ["animation", "javascipt animation", "canvas" , "html5 canvas","business presentation" , "slides"],
   "author": "Bilal Tariq",
   "license": "MIT",
   "bugs": {
