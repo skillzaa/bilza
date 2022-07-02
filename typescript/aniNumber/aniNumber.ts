@@ -10,7 +10,7 @@ import ConstantNo from "./filters/constantNo.js";
 
 export default class AniNumber {
     //--this is the only output from this obj and we do NOT want to send out null BUT filters can be null and we dont consider that
-    private _value :number;                 
+private _value :number;                 
     
     //------------------
     private filters :IFilter[];
