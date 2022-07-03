@@ -1,24 +1,35 @@
-import AniNumber from "../../animations/aniNumber/aniNumber.js";
-import PreInitGoto from "../designBC/preInitGoto.js";
-import PreInitAnimate from "../designBC/preInitAnimate.js";
-import PreInitVibrate from "../designBC/preInitVibrate.js";
-import PreInitRandom from "../designBC/preInitRandom.js";
-import PreInitJumpBetween from "../designBC/preInitJumpBetween.js";
-//--Purpose to collect preInit Data into various arrays for each filter the child classes can then init these values once they have the canvasWidth and height.
-//--ANDDDDDD since the aniNumber is also wrapped by this adaptor so this is a combination of 2 classes the wrapper and the base functions (baseVibrate , baseAnimate) gives acces to the base/wrapped aniNumber functions which are used by the child class during init
-//--This is just the preinit data collection of filters mechanism
-//--This class does not need init
-export default class XyBaseAdaptor {
+// import AniProp from "../animationDesign/aniProp.js";
+import AniNumber from "../aniNumber/aniNumber.js";
+
+import PreInitGoto from "./designNoPerc/preInitGoto.js";
+import PreInitAnimate from "./designNoPerc/preInitAnimate.js";
+import PreInitVibrate from "./designNoPerc/preInitVibrate.js";
+import PreInitRandom from "./designNoPerc/preInitRandom.js";
+import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
+
+/**
+ * Purpose to collect preInit Data into various arrays for each AniPROPERTY the child classes can then init these values once they have the canvasWidth and height
+ * This class uses aniNumber internally and wrappes it such that all the pre-init data is saved and on init its converted into concrete values and actual filters are loaded.
+ * Since Percentages are just used when we consider canvas width or canvas height. So we have 2 diliects of child classes
+ * Hence this class can further have 2 types of classes 
+ * -- the X classes (canasWidth) 
+ * -- the Y classes (canasHeight)
+ * hence the _XorY
+ * 
+ * --- However this class doen not need to extends AniProp since thats already done in AniMumber extends AniProp <number>
+ */
+
+export default class AniNoPerc {
 protected preInitGotos:PreInitGoto[];
 protected preInitAnimates:PreInitAnimate[];
 protected preInitVibrates:PreInitVibrate[];
 protected preInitRandoms:PreInitRandom[];
 protected preInitJumpBetweens:PreInitJumpBetween[];
-private _XorY :AniNumber;
+private _XorY :AniNumber; 
   
 
-constructor(){
-this._XorY = new AniNumber(0);
+constructor(defaultValue=0){
+this._XorY = new AniNumber(defaultValue);
 this.preInitRandoms = []; 
 this.preInitGotos = []; 
 this.preInitAnimates = []; 
@@ -34,9 +45,9 @@ this._XorY.update(msDelta);
 value():number{
     return this._XorY.value();
 }
-set(n :number){
-this._XorY.set(n);
-}
+// set(n :number){
+// this._XorY.set(n);
+// }
 public jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,skipFrames :number=0){
 const c = new PreInitJumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,skipFrames);    
 this.preInitJumpBetweens.push(c);

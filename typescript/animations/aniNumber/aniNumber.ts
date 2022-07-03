@@ -5,7 +5,7 @@ import Vibrate from "./filters/vibrate.js";
 import JumpBetween from "./filters/jumpBetween.js";
 import SetOnce from "./filters/setOnce_goto.js";
 import RandomNo from "./filters/randomNo.js";
-import IFilter from "../animationDesign/IFilter.js";
+// import IFilter from "../animationDesign/IFilter.js";
 import ConstantNo from "./filters/constantNo.js";
  
 
