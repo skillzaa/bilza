@@ -59,8 +59,8 @@ counter.goto(0,90,0);
 bil.insert.alwaysOn(counter);
 
 const plain = cf.pic("./images/house.jpg",80,80);
-plain.y.set(20);
-plain.x.xAlign = plain.XAlignOpt.Right;
+plain.y.setInitValue(10);
+plain.xAlign = plain.XAlignOpt.Right;
 plain.x.animate(0,10,0,100);
 bil.insert.add(plain,0,15);
 const ui = new Ui(bil);
@@ -82,8 +82,8 @@ counter.goto(0,90,0);
 bil.insert.alwaysOn(counter);
 
 const plain = cf.pic("./images/house.jpg",80,80);
-plain.y.set(20);
-plain.x.xAlign = plain.XAlignOpt.Right;
+plain.y.setInitValue(20);
+plain.xAlign = plain.XAlignOpt.Right;
 plain.x.animate(0,10,0,100);
 bil.insert.add(plain,0,15);
 const ui = new Ui(bil);

@@ -1,14 +1,24 @@
-import XyBaseAdaptor from "./AniNoPerc.js";
-export default class AniNoXPerc extends XyBaseAdaptor {
+import AniNoPerc from "./AniNoPerc.js";
+export default class AniNoXPerc extends AniNoPerc {
     constructor() {
         super();
     }
     init(usePercentages, canvasWidth) {
+        this.initSetInitValue(usePercentages, canvasWidth);
         this.initVibrate(usePercentages, canvasWidth);
         this.initGoto(usePercentages, canvasWidth);
         this.initAnimate(usePercentages, canvasWidth);
         this.initRandom(usePercentages, canvasWidth);
         this.initJumpBetween(usePercentages, canvasWidth);
+    }
+    set(n) {
+        throw new Error("set method can not be called on this property ");
+    }
+    initSetInitValue(usePercentages, canvasWidth) {
+        if (usePercentages == true) {
+            const _v = this.percToX(this._initValue, canvasWidth);
+            this._XorY.set(_v);
+        }
     }
     initVibrate(usePercentages, canvasWidth) {
         for (let i = 0; i < this.preInitVibrates.length; i++) {

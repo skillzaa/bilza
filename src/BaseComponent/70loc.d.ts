@@ -1,11 +1,17 @@
 import { Pack } from "../bilza.js";
 import WidthHeight from "./71WidthHeight.js";
-import X from "./xy/x.js";
-import Y from "./xy/y.js";
+import { XAlignOpt } from "./designBC/xAlignOpt.js";
+import { YAlignOpt } from "./designBC/yAlignOpt.js";
+import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
+import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 export default class Loc extends WidthHeight {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
-    x: X;
-    y: Y;
+    x: AniNoXPerc;
+    y: AniNoYPerc;
+    xAlign: XAlignOpt;
+    readonly XAlignOpt: typeof XAlignOpt;
+    yAlign: YAlignOpt;
+    readonly YAlignOpt: typeof YAlignOpt;
     constructor();
     draw(p: Pack): boolean;
     random(startTimeSec: number, endTimeSec: number, Xmin?: number, Xmax?: number, Ymin?: number, Ymax?: number, skipXFrames?: number): void;

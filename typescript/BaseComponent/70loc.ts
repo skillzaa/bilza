@@ -1,23 +1,39 @@
 import {Pack} from "../bilza.js";
 import WidthHeight from "./71WidthHeight.js";
+import {XAlignOpt} from "./designBC/xAlignOpt.js";
+import {YAlignOpt} from "./designBC/yAlignOpt.js";
 
-import X from "./xy/x.js";
-import Y from "./xy/y.js";
+import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
+import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
+// import X from "./xy/x.js";
+// import Y from "./xy/y.js";
 
 export default class Loc extends WidthHeight {
 // XX-------------||||||||||||||||||||||---------------XX 
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 //--24-june 2022 removed loc for indl x and y using new AniNumber class
-public x :X; 
-public y :Y;
+public x :AniNoXPerc; 
+public y :AniNoYPerc;
+
+public xAlign :XAlignOpt;
+public readonly XAlignOpt :typeof XAlignOpt;
+
+public yAlign : YAlignOpt;
+public readonly YAlignOpt :typeof YAlignOpt;
+
 // aniPreset :AniPreset;
 
 constructor (){
     super();
-this.x = new X();
-this.y = new Y();
+this.x = new AniNoXPerc();
+this.y = new AniNoYPerc();
 this.charsWidth = null;  
 // this.aniPreset = new AniPreset(this);
+this.XAlignOpt = XAlignOpt; //final-ok
+this.xAlign = this.XAlignOpt.Left;
+this.YAlignOpt = YAlignOpt;
+this.yAlign = this.YAlignOpt.Top;
+
 }
 
 draw(p: Pack): boolean {
@@ -43,10 +59,35 @@ this.y.animate(timeFrom,timeTo,yFrom,yTo);
 return true;    
 }
 xAligned():number{   
-return this.x.aligned(this.widthInPix());
+let x = this.x.value();     
+switch (this.xAlign) {
+    
+    case this.XAlignOpt.Left :
+    //--nothing        
+    break;
+    case this.XAlignOpt.Mid:
+    x = x - (this.widthInPix()/2);    
+    break;
+    case this.XAlignOpt.Right:
+    x = x - this.widthInPix();    
+    break;
+}
+return x;    
 }
 yAligned():number{   
-return this.y.aligned(this.heightInPix());
+let y = this.y.value();     
+switch (this.yAlign) {   
+    case this.YAlignOpt.Top :
+    //--nothing        
+    break;
+    case this.YAlignOpt.Mid:
+    y = y - (this.heightInPix()/2);    
+    break;
+    case this.YAlignOpt.Bot:
+    y = y - this.heightInPix();    
+    break;
+}
+return y;    
 }
 
 }//component ends 

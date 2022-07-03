@@ -1,3 +1,4 @@
+import AniNumber from "../aniNumber/aniNumber.js";
 import PreInitGoto from "./designNoPerc/preInitGoto.js";
 import PreInitAnimate from "./designNoPerc/preInitAnimate.js";
 import PreInitVibrate from "./designNoPerc/preInitVibrate.js";
@@ -9,8 +10,10 @@ export default class AniNoPerc {
     protected preInitVibrates: PreInitVibrate[];
     protected preInitRandoms: PreInitRandom[];
     protected preInitJumpBetweens: PreInitJumpBetween[];
-    private _XorY;
+    protected _XorY: AniNumber;
+    protected _initValue: number;
     constructor(defaultValue?: number);
+    setInitValue(n: number): void;
     update(msDelta: number): void;
     value(): number;
     jumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, skipFrames?: number): void;

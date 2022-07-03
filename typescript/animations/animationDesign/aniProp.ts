@@ -20,7 +20,7 @@ public value():T{
 return this._value;
 }
 
-//--this has effect only before init
+//--We can use set any time IF the prop is not percent based incase of percentages they need init and can not be used during compile time just during run time
 public set(n :T){
  this._value = n;
  return this._value;

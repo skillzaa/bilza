@@ -1,7 +1,9 @@
-import XyBaseAdaptor from "./AniNoPerc.js";
-export default class AniNoXPerc extends XyBaseAdaptor {
+import AniNoPerc from "./AniNoPerc.js";
+export default class AniNoXPerc extends AniNoPerc {
     constructor();
     init(usePercentages: boolean, canvasWidth: number): void;
+    set(n: number): void;
+    initSetInitValue(usePercentages: boolean, canvasWidth: number): void;
     initVibrate(usePercentages: boolean, canvasWidth: number): void;
     initRandom(usePercentages: boolean, canvasWidth: number): void;
     initJumpBetween(usePercentages: boolean, canvasWidth: number): void;

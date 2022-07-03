@@ -7,11 +7,15 @@ import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
 export default class AniNoPerc {
     constructor(defaultValue = 0) {
         this._XorY = new AniNumber(defaultValue);
+        this._initValue = defaultValue;
         this.preInitRandoms = [];
         this.preInitGotos = [];
         this.preInitAnimates = [];
         this.preInitVibrates = [];
         this.preInitJumpBetweens = [];
+    }
+    setInitValue(n) {
+        this._initValue = n;
     }
     update(msDelta) {
         this._XorY.update(msDelta);

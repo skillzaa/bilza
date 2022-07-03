@@ -25,11 +25,15 @@ protected preInitAnimates:PreInitAnimate[];
 protected preInitVibrates:PreInitVibrate[];
 protected preInitRandoms:PreInitRandom[];
 protected preInitJumpBetweens:PreInitJumpBetween[];
-private _XorY :AniNumber; 
+protected _XorY :AniNumber; 
+protected _initValue :number; 
   
 
 constructor(defaultValue=0){
 this._XorY = new AniNumber(defaultValue);
+
+//--user can use setInitValue if this prop is deeply nested
+this._initValue = defaultValue;
 this.preInitRandoms = []; 
 this.preInitGotos = []; 
 this.preInitAnimates = []; 
@@ -37,7 +41,14 @@ this.preInitVibrates = [];
 this.preInitJumpBetweens = [];
 
 }
-//--it conts preinit data so no init here init will be in child classes
+/**
+ * 4-july-2022
+ * There is "set" method in AniProp and then in AniNumber but here in AniNoPerc we can not use "set" without init--so dont over-ride set here rather over-r-de it in AniNoXPerc and AniNoYPerc.
+ * Also add a "setDefaultValue" since these props are deeply nested and providing a default value at creation may not be possible. 
+ */
+setInitValue(n :number){
+this._initValue = n;
+}
 
 update(msDelta :number){
 this._XorY.update(msDelta);
@@ -45,9 +56,7 @@ this._XorY.update(msDelta);
 value():number{
     return this._XorY.value();
 }
-// set(n :number){
-// this._XorY.set(n);
-// }
+
 public jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,skipFrames :number=0){
 const c = new PreInitJumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,skipFrames);    
 this.preInitJumpBetweens.push(c);

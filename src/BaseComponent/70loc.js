@@ -1,12 +1,18 @@
 import WidthHeight from "./71WidthHeight.js";
-import X from "./xy/x.js";
-import Y from "./xy/y.js";
+import { XAlignOpt } from "./designBC/xAlignOpt.js";
+import { YAlignOpt } from "./designBC/yAlignOpt.js";
+import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
+import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 export default class Loc extends WidthHeight {
     constructor() {
         super();
-        this.x = new X();
-        this.y = new Y();
+        this.x = new AniNoXPerc();
+        this.y = new AniNoYPerc();
         this.charsWidth = null;
+        this.XAlignOpt = XAlignOpt;
+        this.xAlign = this.XAlignOpt.Left;
+        this.YAlignOpt = YAlignOpt;
+        this.yAlign = this.YAlignOpt.Top;
     }
     draw(p) {
         return true;
@@ -30,9 +36,31 @@ export default class Loc extends WidthHeight {
         return true;
     }
     xAligned() {
-        return this.x.aligned(this.widthInPix());
+        let x = this.x.value();
+        switch (this.xAlign) {
+            case this.XAlignOpt.Left:
+                break;
+            case this.XAlignOpt.Mid:
+                x = x - (this.widthInPix() / 2);
+                break;
+            case this.XAlignOpt.Right:
+                x = x - this.widthInPix();
+                break;
+        }
+        return x;
     }
     yAligned() {
-        return this.y.aligned(this.heightInPix());
+        let y = this.y.value();
+        switch (this.yAlign) {
+            case this.YAlignOpt.Top:
+                break;
+            case this.YAlignOpt.Mid:
+                y = y - (this.heightInPix() / 2);
+                break;
+            case this.YAlignOpt.Bot:
+                y = y - this.heightInPix();
+                break;
+        }
+        return y;
     }
 }

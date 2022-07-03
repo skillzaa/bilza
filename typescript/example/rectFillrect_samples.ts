@@ -13,7 +13,7 @@ bil.insert.alwaysOn(counter);
 // const plain = cf.rect("#008000");
 const plain = cf.rect("#008000");
 
-plain.x.xAlign = plain.XAlignOpt.Left;
+plain.xAlign = plain.XAlignOpt.Left;
 plain.goto(0,10,10);
 plain.width.goto(0,60);
 // plain.goto(0,10,10);

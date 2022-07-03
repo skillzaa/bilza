@@ -20,7 +20,7 @@ const cmp = cf.text("Text Demo","#008000");
 //--fontSize is effective only in plainText where as text uses percentages
 // cmp.fontSize.set(200);
 cmp.maxHeight = 20;
-cmp.x.xAlign = cmp.XAlignOpt.Mid;
+cmp.xAlign = cmp.XAlignOpt.Mid;
 cmp.border.set(1);
 
 cmp.x.goto(0,0);

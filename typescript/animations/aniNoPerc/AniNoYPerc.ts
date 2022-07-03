@@ -7,12 +7,25 @@ super();
 }
 
 init(usePercentages :boolean,canvasHeight :number){
+this.initSetInitValue(usePercentages,canvasHeight);    
 this.initVibrate(usePercentages,canvasHeight);
 this.initGoto(usePercentages,canvasHeight);
 this.initAnimate(usePercentages,canvasHeight);
 this.initRandom(usePercentages,canvasHeight);
 this.initJumpBetween(usePercentages,canvasHeight);
 }
+//----7-july-2022 --doubt
+set(n: number): void {
+    throw new Error("set method can not be called on this property ");
+ } 
+ 
+initSetInitValue(usePercentages :boolean,canvasWidth:number){
+     if ( usePercentages == true){
+       const _v = this.percToY(this._initValue,canvasWidth);
+       this._XorY.set(_v);
+     } 
+}
+
 initJumpBetween(usePercentages :boolean,canvasHeight :number){
 for (let i = 0; i < this.preInitJumpBetweens.length; i++) {
     const elm = this.preInitJumpBetweens[i];

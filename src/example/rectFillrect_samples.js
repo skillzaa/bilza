@@ -6,7 +6,7 @@ const counter = cf.frameCounter("#ff0000");
 counter.goto(0, 90, 0);
 bil.insert.alwaysOn(counter);
 const plain = cf.rect("#008000");
-plain.x.xAlign = plain.XAlignOpt.Left;
+plain.xAlign = plain.XAlignOpt.Left;
 plain.goto(0, 10, 10);
 plain.width.goto(0, 60);
 plain.width.animate(1, 8, 10, 90);

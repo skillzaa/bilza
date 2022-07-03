@@ -2,6 +2,8 @@ import XyBaseAdaptor from "./AniNoPerc.js";
 export default class AniNoYPerc extends XyBaseAdaptor {
     constructor();
     init(usePercentages: boolean, canvasHeight: number): void;
+    set(n: number): void;
+    initSetInitValue(usePercentages: boolean, canvasWidth: number): void;
     initJumpBetween(usePercentages: boolean, canvasHeight: number): void;
     initRandom(usePercentages: boolean, canvasHeight: number): void;
     initVibrate(usePercentages: boolean, canvasHeight: number): void;

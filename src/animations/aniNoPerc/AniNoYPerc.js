@@ -4,11 +4,21 @@ export default class AniNoYPerc extends XyBaseAdaptor {
         super();
     }
     init(usePercentages, canvasHeight) {
+        this.initSetInitValue(usePercentages, canvasHeight);
         this.initVibrate(usePercentages, canvasHeight);
         this.initGoto(usePercentages, canvasHeight);
         this.initAnimate(usePercentages, canvasHeight);
         this.initRandom(usePercentages, canvasHeight);
         this.initJumpBetween(usePercentages, canvasHeight);
+    }
+    set(n) {
+        throw new Error("set method can not be called on this property ");
+    }
+    initSetInitValue(usePercentages, canvasWidth) {
+        if (usePercentages == true) {
+            const _v = this.percToY(this._initValue, canvasWidth);
+            this._XorY.set(_v);
+        }
     }
     initJumpBetween(usePercentages, canvasHeight) {
         for (let i = 0; i < this.preInitJumpBetweens.length; i++) {
