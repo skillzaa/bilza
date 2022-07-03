@@ -7,6 +7,7 @@ import BgCircles from "./bgCircles.js";
 import Text from "./text.js";
 import Pic from "./pic.js";
 import Line from "./line.js";
+import RawText from "./rawText.js";
 import PlainText from "./plainText.js";
 export default class CompFactory {
     static pic(imgId, dynWidth = 10, dynHeight = 10) {
@@ -39,6 +40,10 @@ export default class CompFactory {
     }
     static plainText(content = "", colorHax = "#000000") {
         let g = new PlainText(content, colorHax);
+        return g;
+    }
+    static rawText(content = "", colorHax = "#000000") {
+        let g = new RawText(content, colorHax);
         return g;
     }
     static text(content = "", colorHax = "#000000") {

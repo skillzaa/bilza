@@ -7,7 +7,7 @@ import BgCircles from "./bgCircles.js";
 import Text from "./text.js";
 import Pic from "./pic.js";
 import Line from "./line.js";
-
+import RawText from "./rawText.js";
 import PlainText from "./plainText.js";
 
 
@@ -44,6 +44,10 @@ return g;
 
 static plainText(content :string="",colorHax :string="#000000"){
 let g = new PlainText(content,colorHax);
+return g;    
+}
+static rawText(content :string="",colorHax :string="#000000"){
+let g = new RawText(content,colorHax);
 return g;    
 }
 static text(content :string="",colorHax :string="#000000"){

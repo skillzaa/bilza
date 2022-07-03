@@ -7,6 +7,7 @@ import BgCircles from "./bgCircles.js";
 import Text from "./text.js";
 import Pic from "./pic.js";
 import Line from "./line.js";
+import RawText from "./rawText.js";
 import PlainText from "./plainText.js";
 export default class CompFactory {
     static pic(imgId: string, dynWidth?: number, dynHeight?: number): Pic;
@@ -17,6 +18,7 @@ export default class CompFactory {
     static frameCounter(color?: string): FrameCounter;
     static bgCircles(count?: number, color?: string, delay?: number): BgCircles;
     static plainText(content?: string, colorHax?: string): PlainText;
+    static rawText(content?: string, colorHax?: string): RawText;
     static text(content?: string, colorHax?: string): Text;
     static line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string): Line;
 }
