@@ -13,4 +13,4 @@ export default class RawText extends BaseComponent {
     draw(p: Pack): boolean;
     drawContent(p: Pack): void;
 }
-//# sourceMappingURL=rawText.d.ts.map
+//# sourceMappingURL=rawTextGoto.d.ts.map

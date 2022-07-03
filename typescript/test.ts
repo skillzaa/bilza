@@ -1,4 +1,4 @@
-import Bilza, { Ui,CompFactory as cf } from "../bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 
 let bil = new Bilza("bilza",70);
 bil.background.color = "#031363"
@@ -12,12 +12,18 @@ bil.insert.alwaysOn(g);
 const counter = cf.frameCounter("#ff0000");
 counter.goto(0,90,0);
 bil.insert.alwaysOn(counter);
-const vidDuration = 15;
 
 const comp = cf.rawText("Raw Text","#ff0000");
-comp.fontSize.animate(2,10,50,500);
-bil.insert.add(comp,0,vidDuration);
+comp.fontSize.set(80);
+comp.x.goto(0,10);
+comp.y.goto(0,10);
+
+comp.content.goto(2,"Terminator");
+comp.content.goto(4,"Kill Bill");
+comp.content.goto(6,"Back To The Future");
+comp.content.goto(8,"Forest Gump");
+comp.content.goto(10,"Intersteller");
+
+bil.insert.add(comp,0,15);
 const ui = new Ui(bil);
 bil.draw();
-
-//////////////////////////////////////////////////////////
