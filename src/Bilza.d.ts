@@ -9,7 +9,7 @@ import Style from "./design/style.js";
 import BaseComponent from "./BaseComponent/00BaseComponent.js";
 import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
-import AniNumber from "./aniNumber/aniNumber.js";
+import AniNumber from "./animations/aniNumber/aniNumber.js";
 export default Bilza;
 export { Pack, DrawLayer, AniNumber, IComponent, Ui, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, };
 //# sourceMappingURL=bilza.d.ts.map

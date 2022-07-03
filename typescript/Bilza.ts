@@ -13,7 +13,7 @@ import Style from "./design/style.js";
 import BaseComponent from "./BaseComponent/00BaseComponent.js"
 import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
-import AniNumber from "./aniNumber/aniNumber.js";
+import AniNumber from "./animations/aniNumber/aniNumber.js";
 
 export default Bilza;
 

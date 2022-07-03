@@ -1,5 +1,5 @@
 import IFilter from "../IFilter.js";
-import { FilterState } from "../filterState.js";
+import { FilterState } from "../../design/filterState.js";
 export default class Decrement implements IFilter {
     protected _ret_val: number | null;
     protected filterState: FilterState;

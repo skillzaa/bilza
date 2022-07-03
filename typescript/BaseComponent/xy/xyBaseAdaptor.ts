@@ -1,4 +1,4 @@
-import AniNumber from "../../aniNumber/aniNumber.js";
+import AniNumber from "../../animations/aniNumber/aniNumber.js";
 import PreInitGoto from "../designBC/preInitGoto.js";
 import PreInitAnimate from "../designBC/preInitAnimate.js";
 import PreInitVibrate from "../designBC/preInitVibrate.js";
@@ -15,7 +15,7 @@ protected preInitVibrates:PreInitVibrate[];
 protected preInitRandoms:PreInitRandom[];
 protected preInitJumpBetweens:PreInitJumpBetween[];
 private _XorY :AniNumber;
-
+ 
 
 constructor(){
 this._XorY = new AniNumber(0);

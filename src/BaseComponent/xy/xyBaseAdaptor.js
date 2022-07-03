@@ -1,4 +1,4 @@
-import AniNumber from "../../aniNumber/aniNumber.js";
+import AniNumber from "../../animations/aniNumber/aniNumber.js";
 import PreInitGoto from "../designBC/preInitGoto.js";
 import PreInitAnimate from "../designBC/preInitAnimate.js";
 import PreInitVibrate from "../designBC/preInitVibrate.js";

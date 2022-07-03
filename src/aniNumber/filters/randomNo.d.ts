@@ -1,4 +1,4 @@
-import { FilterState } from "../filterState.js";
+import { FilterState } from "../../design/filterState.js";
 import BaseFilter from "./baseFilter.js";
 export default class RandomNo extends BaseFilter {
     private min;

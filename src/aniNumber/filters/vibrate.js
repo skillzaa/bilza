@@ -1,4 +1,4 @@
-import { FilterState } from "../filterState.js";
+import { FilterState } from "../../design/filterState.js";
 import BaseFilter from "./baseFilter.js";
 export default class Vibrate extends BaseFilter {
     constructor(startTimeSec, endTimeSec, seed = 1, offset = 10, delay = 0) {

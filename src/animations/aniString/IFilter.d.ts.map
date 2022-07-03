@@ -1,0 +1,1 @@
+{"version":3,"file":"IFilter.d.ts","sourceRoot":"","sources":["../../../typescript/animations/aniString/IFilter.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,WAAW,EAAE,MAAM,0BAA0B,CAAC;AACvD,MAAM,CAAC,OAAO,WAAW,OAAO;IAC5B,MAAM,CAAC,OAAO,EAAE,MAAM,GAAE,WAAW,CAAC;IACpC,KAAK,IAAG,MAAM,GAAC,IAAI,CAAC;CACvB"}
