@@ -6,7 +6,7 @@ import Comps from "./comps.js";
 import Insert from "./insert.js";
 import Duration from "./duration.js";
 export default class Bilza {
-    constructor(canvasId = "bilza", screenWidthInPercent = 75) {
+    constructor(canvasId = "bilza", screenWidthInPercent = 70) {
         this.pack = new Pack(canvasId, screenWidthInPercent);
         this.comps = new Comps();
         this.duration = new Duration();

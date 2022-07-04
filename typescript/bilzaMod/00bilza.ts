@@ -23,7 +23,7 @@ private pack:Pack; //---later
 private lastMsDelta:number; //---later
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",screenWidthInPercent=75){
+constructor (canvasId="bilza",screenWidthInPercent=70){
 this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
 this.duration = new Duration();
