@@ -5,10 +5,14 @@ import Vibrate from "./filters/vibrate.js";
 import JumpBetween from "./filters/jumpBetween.js";
 import SetOnce from "./filters/setOnce_goto.js";
 import RandomNo from "./filters/randomNo.js";
-// import IFilter from "../animationDesign/IFilter.js";
 import ConstantNo from "./filters/constantNo.js";
  
-
+/**
+ * 4-july-2022 AniNumber is the <number> imple of AniProp
+ * It provides an interface for All the number Filters when ever we add any new Filter. This is from where its interface is presented.
+ * All the classes upto this point ie baseFilter , AniProp and finally this one AniNumber does not need init and use raw numbers.
+ * Any property that is based on any sort of number will either use AniNumber as base class or will write an adapter around it.
+ */
 export default class AniNumber extends AniProp <number> {
 constructor(defaultValue :number){
    super(defaultValue); 

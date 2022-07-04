@@ -5,6 +5,7 @@ import PreInitVibrate from "./designNoPerc/preInitVibrate.js";
 import PreInitRandom from "./designNoPerc/preInitRandom.js";
 import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
 export default class AniNoPerc {
+    protected usePercentages: boolean | null;
     protected preInitGotos: PreInitGoto[];
     protected preInitAnimates: PreInitAnimate[];
     protected preInitVibrates: PreInitVibrate[];

@@ -8,8 +8,19 @@ import PreInitRandom from "./designNoPerc/preInitRandom.js";
 import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
 
 /**
- * Purpose to collect preInit Data into various arrays for each AniPROPERTY the child classes can then init these values once they have the canvasWidth and height
- * This class uses aniNumber internally and wrappes it such that all the pre-init data is saved and on init its converted into concrete values and actual filters are loaded.
+ * 4-july-2022 
+ * So far we have 
+ *      - Filter
+ *      - AniProp which has filters array.
+ *      - AniNumber a <number> impl of AniProp
+ *      - Finally AniNoPerc : a base class for animated properties which uses NUMBER  and need init.
+ * keep in mind---
+ * ---------- Only AniNumber children needs init. Other AniProps like AniString or AniBoolean does not need init.
+ * ---------- The init just means getting the canvasWidth and canvasHeight property.
+ * ---------- This measn that the init Prop can be of 2 flavours 1--which need canvasWidth and 2--needs canvasHeight. and we need seperate classes for them each of these classes during init will create their own concrete values
+* 
+* 2-july-2022 Purpose to collect preInit Data into various arrays for each AniNumber the child classes can then init these values once they have the canvasWidth and height
+ * This class uses aniNumber internally and wrappes it such that all the pre-init data is saved and on init its converted into concrete values and actual filters are loaded.//ADAPTER PATTERN
  * Since Percentages are just used when we consider canvas width or canvas height. So we have 2 diliects of child classes
  * Hence this class can further have 2 types of classes 
  * -- the X classes (canasWidth) 
@@ -19,7 +30,8 @@ import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
  * --- However this class doen not need to extends AniProp since thats already done in AniMumber extends AniProp <number>
  */
 
-export default class AniNoPerc {
+export default class AniNoPerc { 
+protected usePercentages :boolean | null; 
 protected preInitGotos:PreInitGoto[];
 protected preInitAnimates:PreInitAnimate[];
 protected preInitVibrates:PreInitVibrate[];
@@ -30,9 +42,11 @@ protected _initValue :number;
   
 
 constructor(defaultValue=0){
+// 4-july 2022 : i think we shd not give it defaultValue since that not in percentages we should give that to _initValue and during init translate it; ??? - but that is already happens    
 this._XorY = new AniNumber(defaultValue);
 
 //--user can use setInitValue if this prop is deeply nested
+this.usePercentages = true; 
 this._initValue = defaultValue;
 this.preInitRandoms = []; 
 this.preInitGotos = []; 

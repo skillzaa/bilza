@@ -7,6 +7,7 @@ import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
 export default class AniNoPerc {
     constructor(defaultValue = 0) {
         this._XorY = new AniNumber(defaultValue);
+        this.usePercentages = true;
         this._initValue = defaultValue;
         this.preInitRandoms = [];
         this.preInitGotos = [];
