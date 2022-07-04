@@ -1,5 +1,4 @@
 import {DrawLayer,Pack} from "../bilza.js";
-import Background from "./background.js";
 //----------functions
 import StopWatch from "./stopWatch.js";
 //-------------------------------------------
@@ -10,7 +9,7 @@ import Duration from "./duration.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
 //==================PUBLIC API
-public background :Background;
+// public background :Background;
 public insert:Insert; 
 public set :Settings; 
 public  soundTrackElement :HTMLAudioElement | null;
@@ -33,14 +32,17 @@ this.soundTrack = null;
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
-this.background = new Background();
+
+
 } 
 // --27-june-2022 converted to private since user does not need to know
 //--30-june-2022 back to puiblic lets see
 public init():boolean{
+//---sound
     if (this.soundTrack !== null){
         this.soundTrackElement = new Audio(this.soundTrack);
     }
+//--now init    
     this.comps.init(this.pack);
     return true;
 }
@@ -73,7 +75,7 @@ if(msDelta >= this.len(true)){ this.stopWatch.stop();}
 //--Clear Canvas
 this.pack.clearCanvas();          
 //--drawBackground
-this.pack.drawBackground(this.background.color);
+// this.pack.drawBackground(this.background.color.value());
 //--Draw All three layers. In future if i need to add more layers OR if I want the user to be able to insert layers then this is the starting point.
 this.comps.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);

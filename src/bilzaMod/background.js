@@ -1,5 +1,1 @@
-export default class Background {
-    constructor() {
-        this.color = "#efeee3";
-    }
-}
+"use strict";

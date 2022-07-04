@@ -1,5 +1,4 @@
 import {DrawLayer,IComponent,Pack } from "../bilza";
-
 /**
  * JUst keep it for most obvious comps functions but also keep compsArray public for now
  */
