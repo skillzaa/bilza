@@ -10,7 +10,9 @@ import ConstantNo from "./filters/constantNo.js";
  
 
 export default class AniNumber extends AniProp <number> {
-   
+constructor(defaultValue :number){
+   super(defaultValue); 
+}
 public animate(from :number,to :number,startValue :number,endValue :number){
     if (startValue < endValue ){
         let c = new Increment(from,to,startValue,endValue);

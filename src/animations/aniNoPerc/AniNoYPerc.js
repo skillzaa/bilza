@@ -1,7 +1,7 @@
 import XyBaseAdaptor from "./AniNoPerc.js";
 export default class AniNoYPerc extends XyBaseAdaptor {
-    constructor() {
-        super();
+    constructor(defaultValue = 0) {
+        super(defaultValue);
     }
     init(usePercentages, canvasHeight) {
         this.initSetInitValue(usePercentages, canvasHeight);

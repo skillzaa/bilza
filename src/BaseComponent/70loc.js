@@ -6,8 +6,8 @@ import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 export default class Loc extends WidthHeight {
     constructor() {
         super();
-        this.x = new AniNoXPerc();
-        this.y = new AniNoYPerc();
+        this.x = new AniNoXPerc(0);
+        this.y = new AniNoYPerc(0);
         this.charsWidth = null;
         this.XAlignOpt = XAlignOpt;
         this.xAlign = this.XAlignOpt.Left;

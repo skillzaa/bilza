@@ -25,8 +25,8 @@ public readonly YAlignOpt :typeof YAlignOpt;
 
 constructor (){
     super();
-this.x = new AniNoXPerc();
-this.y = new AniNoYPerc();
+this.x = new AniNoXPerc(0);
+this.y = new AniNoYPerc(0);
 this.charsWidth = null;  
 // this.aniPreset = new AniPreset(this);
 this.XAlignOpt = XAlignOpt; //final-ok

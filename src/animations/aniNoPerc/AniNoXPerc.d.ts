@@ -1,6 +1,6 @@
 import AniNoPerc from "./AniNoPerc.js";
 export default class AniNoXPerc extends AniNoPerc {
-    constructor();
+    constructor(defaultValue?: number);
     init(usePercentages: boolean, canvasWidth: number): void;
     set(n: number): void;
     initSetInitValue(usePercentages: boolean, canvasWidth: number): void;

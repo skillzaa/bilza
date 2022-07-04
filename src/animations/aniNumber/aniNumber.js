@@ -7,6 +7,9 @@ import SetOnce from "./filters/setOnce_goto.js";
 import RandomNo from "./filters/randomNo.js";
 import ConstantNo from "./filters/constantNo.js";
 export default class AniNumber extends AniProp {
+    constructor(defaultValue) {
+        super(defaultValue);
+    }
     animate(from, to, startValue, endValue) {
         if (startValue < endValue) {
             let c = new Increment(from, to, startValue, endValue);

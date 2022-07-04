@@ -2,9 +2,9 @@ import AniNoPerc from "./AniNoPerc.js";
 
 export default class AniNoXPerc extends AniNoPerc {
  
-constructor(){
-super();    
-}
+constructor(defaultValue :number=0){
+super(defaultValue); 
+}    
 
 
 init(usePercentages :boolean,canvasWidth :number){
