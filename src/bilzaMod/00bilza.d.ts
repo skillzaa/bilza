@@ -1,6 +1,8 @@
+import Background from "../components/background.js";
 import Settings from "./settings.js";
 import Insert from "./insert.js";
 export default class Bilza {
+    background: Background;
     insert: Insert;
     set: Settings;
     soundTrackElement: HTMLAudioElement | null;

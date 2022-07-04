@@ -1,1 +1,0 @@
-{"version":3,"file":"baseFilterNumber.d.ts","sourceRoot":"","sources":["../../../typescript/animations/aniNumber/baseFilterNumber.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,MAAM,kCAAkC,CAAC;AAG1D,MAAM,CAAC,OAAO,OAAO,gBAAiB,SAAQ,UAAU,CAAE,MAAM,CAAC;gBAErD,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM;CAMlD"}

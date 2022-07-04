@@ -1,1 +1,0 @@
-{"version":3,"file":"gotoArray.d.ts","sourceRoot":"","sources":["../../../typescript/animations/aniNumber/gotoArray.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,OAAO,SAAS;IAC9B,OAAO,EAAE,MAAM,CAAC;IAChB,KAAK,EAAE,MAAM,CAAC;gBACF,OAAO,EAAC,MAAM,EAAC,KAAK,EAAE,MAAM;CAKvC"}

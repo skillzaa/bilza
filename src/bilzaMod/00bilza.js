@@ -1,4 +1,5 @@
 import { DrawLayer, Pack } from "../bilza.js";
+import Background from "../components/background.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
 import Comps from "./comps.js";
@@ -15,6 +16,8 @@ export default class Bilza {
         this.insert = new Insert(this.comps, this.duration, this.pack.charsWidth.bind(this.pack));
         this.stopWatch = new StopWatch();
         this.set = new Settings();
+        this.background = new Background();
+        this.insert.alwaysOn(this.background);
     }
     init() {
         if (this.soundTrack !== null) {

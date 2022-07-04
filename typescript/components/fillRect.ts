@@ -1,4 +1,6 @@
-import {Pack,BaseComponent,AniNumber} from "../bilza.js";
+// import {Pack,BaseComponent,AniNumber} from "../bilza.js";
+import Pack from "../pack/pack.js";
+import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 export default class FillRect extends BaseComponent {
   

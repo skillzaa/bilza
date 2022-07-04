@@ -1,4 +1,5 @@
-import { Pack, BaseComponent } from "../bilza.js";
+import Pack from "../pack/pack.js";
+import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import AniColor from "../animations/aniColor/aniColor.js";
 export default class Background extends BaseComponent {
     color: AniColor;

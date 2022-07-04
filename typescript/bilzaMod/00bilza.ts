@@ -1,5 +1,6 @@
 import {DrawLayer,Pack} from "../bilza.js";
 //----------functions
+import Background from "../components/background.js";
 import StopWatch from "./stopWatch.js";
 //-------------------------------------------
 import Settings from "./settings.js";
@@ -9,7 +10,7 @@ import Duration from "./duration.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
 //==================PUBLIC API
-// public background :Background;
+public background :Background;
 public insert:Insert; 
 public set :Settings; 
 public  soundTrackElement :HTMLAudioElement | null;
@@ -32,8 +33,9 @@ this.soundTrack = null;
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
-
-
+//-----------Add Bg
+this.background = new Background();
+this.insert.alwaysOn(this.background);
 } 
 // --27-june-2022 converted to private since user does not need to know
 //--30-june-2022 back to puiblic lets see

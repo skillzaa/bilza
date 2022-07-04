@@ -1,4 +1,5 @@
-import { BaseComponent, DrawLayer } from "../bilza.js";
+import { DrawLayer } from "../design/drawLayer.js";
+import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import AniColor from "../animations/aniColor/aniColor.js";
 export default class Background extends BaseComponent {
     constructor(color = "#efeee3") {
@@ -12,6 +13,7 @@ export default class Background extends BaseComponent {
     }
     update(msDelta, p) {
         super.update(msDelta, p);
+        this.color.update(msDelta);
         return true;
     }
     widthInPix() {

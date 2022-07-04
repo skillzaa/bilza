@@ -1,6 +1,9 @@
-import {Pack,BaseComponent,DrawLayer} from "../bilza.js";
-import AniColor from "../animations/aniColor/aniColor.js";
+import {DrawLayer} from "../design/drawLayer.js";
+import Pack from "../pack/pack.js";
+import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
+import AniColor from "../animations/aniColor/aniColor.js";
+////////////////////////////////////////////////////////
 export default class Background extends BaseComponent {
   
 public color:AniColor;
@@ -17,6 +20,7 @@ return true;
 
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
+    this.color.update(msDelta);
     return true;
 }
 widthInPix(): number {
