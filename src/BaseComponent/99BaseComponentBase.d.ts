@@ -1,4 +1,4 @@
-import { DrawLayer, XAlignOpt, YAlignOpt, AniNumber } from "../bilza.js";
+import { DrawLayer, XAlignOpt, AniBoolean, YAlignOpt, AniNumber } from "../bilza.js";
 import Style from "../design/style.js";
 export default class BaseComponentBase {
     readonly XAlignOpt: typeof XAlignOpt;
@@ -9,7 +9,7 @@ export default class BaseComponentBase {
     style: Style;
     alwaysOn: boolean;
     version: string;
-    visible: boolean;
+    visible: AniBoolean;
     width: AniNumber;
     height: AniNumber;
     selected: boolean;

@@ -7,17 +7,20 @@ protected _ret_val : T | null;
 protected filterState :FilterState
 protected  startTime :number;
 protected  endTime :number;
+private skipXframes :number;
+private skipframesCounter :number;
 
-constructor(startTimeSec :number,endTimeSec :number){
+constructor(startTimeSec :number,endTimeSec :number,skipXframes :number=0){
     
 if (startTimeSec < 0 || endTimeSec < 0 ){throw new Error("time can not be negative");}
 
 if (endTimeSec <= startTimeSec ){throw new Error("end Time can not be equal or smaller than start time");}    
 
-
+this.skipXframes = skipXframes;
+this.skipframesCounter = 0;
 this.startTime = startTimeSec * 1000; 
 this.endTime = endTimeSec * 1000; 
-this._ret_val = null;
+this._ret_val = null; //must to start with null
 this.filterState = FilterState.Waiting;
 }
  
@@ -43,5 +46,38 @@ return     this.filterState;
 
 value(): T | null {
     return this._ret_val;
+}
+
+protected okToGo():boolean{
+    if ( (this.filterState == FilterState.Running) ) {
+            //-----------------
+            if (this.skipframesCounter < this.skipXframes) {
+                    this.skipframesCounter += 1 ;
+                    return false;
+            }else {
+                this.skipframesCounter = 0;
+                return true;
+            }
+            //-----------------        
+    }else {
+        return false;
+    }    
+}
+
+protected xFramesSkipped():boolean{
+    if (this.skipframesCounter < this.skipXframes) {
+            this.skipframesCounter += 1 ;
+            return false;
+    }else {
+        this.skipframesCounter = 0;
+        return true;
+    }
+}
+protected isRunning():boolean{
+    if ( (this.filterState == FilterState.Running) ) {
+            return true;
+    }else {
+        return false;
+    }    
 }
 }

@@ -35,7 +35,8 @@ return true;
 }
 
 public qualifyForDraw(comp :IComponent,msDelta :number):boolean{
-if (comp.visible == false){
+//-5-july-2022 : isnt this more coupling between engine and comp?    
+if (comp.visible.value() == false){
     return false;
 }
 if (comp.alwaysOn == true){

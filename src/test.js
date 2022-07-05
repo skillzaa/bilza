@@ -12,5 +12,5 @@ bil.insert.add(txt, 0, 20);
 const ui = new Ui(bil);
 bil.draw();
 setInterval(function () {
-    txt.visible = !txt.visible;
+    txt.visible.set(!txt.visible.value());
 }, 1000);

@@ -1,4 +1,4 @@
-import {DrawLayer,XAlignOpt,YAlignOpt,AniNumber} from "../bilza.js";
+import {DrawLayer,XAlignOpt,AniBoolean,YAlignOpt,AniNumber} from "../bilza.js";
 import Style from "../design/style.js";
 
 export default class BaseComponentBase{
@@ -11,7 +11,7 @@ public style:Style;
 public alwaysOn: boolean;
 public version :string;
 // IMPLEMENTED IN ENGINE-- visible = false will not be drawn
-public visible :boolean;//
+public visible :AniBoolean;//
 public width :AniNumber;
 public height :AniNumber;
 //--this will come in handy during using the lib with gui and while making interactive tools.
@@ -46,7 +46,7 @@ this.canvasHeight = null;
 
 //---flags--//--\\ 
 this.selected = false;
-this.visible = true;
+this.visible = new AniBoolean(true);
 
 }
 

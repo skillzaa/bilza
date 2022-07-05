@@ -1,4 +1,4 @@
-import {DrawLayer,Pack,Style,AniNumber} from "../../bilza.js";
+import {DrawLayer,Pack,Style,AniNumber,AniBoolean} from "../../bilza.js";
 
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business logic etc inside. That will come when we build systems.
@@ -21,7 +21,7 @@ export default interface IComponent{
     drawLayer : DrawLayer; 
     duration :number;
     alwaysOn: boolean;
-    visible: boolean;
+    visible: AniBoolean;
     version :string;
 /**
  * 30-july-2022 : added since now all those component which implement this can be widened and shortened (scaled) using width.animate height.animate.
