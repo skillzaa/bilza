@@ -21,6 +21,7 @@ export default interface IComponent{
     drawLayer : DrawLayer; 
     duration :number;
     alwaysOn: boolean;
+    visible: boolean;
     version :string;
 /**
  * 30-july-2022 : added since now all those component which implement this can be widened and shortened (scaled) using width.animate height.animate.

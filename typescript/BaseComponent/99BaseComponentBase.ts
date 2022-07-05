@@ -4,13 +4,14 @@ import Style from "../design/style.js";
 export default class BaseComponentBase{
 public readonly XAlignOpt :typeof XAlignOpt;
 public readonly YAlignOpt :typeof YAlignOpt;
-public  readonly id :string;
-public  usePercentages : boolean; 
-public  drawLayer : DrawLayer; 
-public  style:Style; 
-public  alwaysOn: boolean;
-public  version :string;
-public  visible :boolean;//--? not implemented yet??
+public readonly id :string;
+public usePercentages : boolean; 
+public drawLayer : DrawLayer; 
+public style:Style; 
+public alwaysOn: boolean;
+public version :string;
+// IMPLEMENTED IN ENGINE-- visible = false will not be drawn
+public visible :boolean;//
 public width :AniNumber;
 public height :AniNumber;
 //--this will come in handy during using the lib with gui and while making interactive tools.

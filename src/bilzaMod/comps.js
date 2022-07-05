@@ -27,6 +27,9 @@ export default class Comps {
         return true;
     }
     qualifyForDraw(comp, msDelta) {
+        if (comp.visible == false) {
+            return false;
+        }
         if (comp.alwaysOn == true) {
             return true;
         }

@@ -35,6 +35,9 @@ return true;
 }
 
 public qualifyForDraw(comp :IComponent,msDelta :number):boolean{
+if (comp.visible == false){
+    return false;
+}
 if (comp.alwaysOn == true){
     return true;
 }

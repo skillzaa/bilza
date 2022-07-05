@@ -4,6 +4,7 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 import AniColor from "../animations/aniColor/aniColor.js";
 ////////////////////////////////////////////////////////
+
 export default class Background extends BaseComponent {
   
 public color:AniColor;

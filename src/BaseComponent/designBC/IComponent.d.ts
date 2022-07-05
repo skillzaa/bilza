@@ -5,6 +5,7 @@ export default interface IComponent {
     drawLayer: DrawLayer;
     duration: number;
     alwaysOn: boolean;
+    visible: boolean;
     version: string;
     width: AniNumber;
     height: AniNumber;

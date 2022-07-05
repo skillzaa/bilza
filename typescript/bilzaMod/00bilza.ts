@@ -33,7 +33,7 @@ this.soundTrack = null;
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
-//-----------Add Bg
+//-----------Add Background
 this.background = new Background();
 this.insert.alwaysOn(this.background);
 } 
@@ -55,7 +55,6 @@ private drawForStart():boolean{
  if (this.stopWatch.shouldStop() == false){
     window.requestAnimationFrame(this.drawForStart.bind(this));
 }
-//  window.requestAnimationFrame(this.drawForStart.bind(this));
 //-------------------------------------------------------- 
 //--we need to save this msDelta as lastMsDelta
 this.lastMsDelta = msDelta;
