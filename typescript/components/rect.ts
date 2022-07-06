@@ -1,4 +1,4 @@
-import {Pack,BaseComponent,AniNumber} from "../bilza.js";
+import {Pack,BaseComponent,AniNumber} from "../Bilza.js";
 
 export default class Rect extends BaseComponent {
 public color :string;

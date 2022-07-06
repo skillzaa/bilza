@@ -1,4 +1,4 @@
-import {Pack,BaseComponent} from "../bilza.js";
+import {Pack,BaseComponent} from "../Bilza.js";
 import Text from "./text.js";
 export default class FrameCounter extends Text {
 

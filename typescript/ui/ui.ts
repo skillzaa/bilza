@@ -1,4 +1,4 @@
-import Bilza from "../bilza.js";
+import Bilza from "../Bilza.js";
 /**
  * This class is responsible for any UI controls
  */

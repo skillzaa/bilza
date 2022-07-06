@@ -1,4 +1,4 @@
-import { Pack ,AniNumber} from "../bilza.js";
+import { Pack ,AniNumber} from "../Bilza.js";
 import PlainText from "./plainText.js";
 
 export default class Text extends PlainText {

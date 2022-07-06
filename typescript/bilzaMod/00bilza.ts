@@ -1,4 +1,4 @@
-import {DrawLayer,Pack} from "../bilza.js";
+import {DrawLayer,Pack} from "../Bilza.js";
 //----------functions
 import Background from "../components/background.js";
 import StopWatch from "./stopWatch.js";
@@ -35,15 +35,19 @@ this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
 //-----------Add Background
 this.background = new Background();
-this.insert.alwaysOn(this.background);
+// this.insert.alwaysOn(this.background);
 } 
 // --27-june-2022 converted to private since user does not need to know
 //--30-june-2022 back to puiblic lets see
 public init():boolean{
 //---sound
-    if (this.soundTrack !== null){
-        this.soundTrackElement = new Audio(this.soundTrack);
-    }
+if (this.soundTrack !== null){
+    this.soundTrackElement = new Audio(this.soundTrack);
+}
+//---Background
+if (this.set.loadDefaultBackground == true){
+    this.insert.alwaysOn(this.background);
+}        
 //--now init    
     this.comps.init(this.pack);
     return true;
@@ -74,7 +78,9 @@ if(this.pack == null){throw new Error("bilzaa is not initialized");}
 //--Auto Stop
 if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
 //--Clear Canvas
+if (this.set.clearCanvasBwFrames == true){
 this.pack.clearCanvas();          
+}
 //--drawBackground
 // this.pack.drawBackground(this.background.color.value());
 //--Draw All three layers. In future if i need to add more layers OR if I want the user to be able to insert layers then this is the starting point.
@@ -95,7 +101,7 @@ drawEvent(msDelta :number):boolean{
 dynamicCanvas(widthInPercent:number = 95,heightInPercent :number | null=null):boolean{
 this.pack.dynamicCanvas(widthInPercent,heightInPercent);
 return true;
-}
+} 
 start():boolean{
 //-06-june-2022 the init is moved inside start ..may create problems    
     

@@ -1,4 +1,4 @@
-import {DrawLayer,XAlignOpt,AniBoolean,YAlignOpt,AniNumber} from "../bilza.js";
+import {DrawLayer,XAlignOpt,AniBoolean,YAlignOpt,AniNumber} from "../Bilza.js";
 import Style from "../design/style.js";
 
 export default class BaseComponentBase{

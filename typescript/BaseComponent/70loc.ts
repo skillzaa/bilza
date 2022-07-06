@@ -1,4 +1,4 @@
-import {Pack} from "../bilza.js";
+import {Pack} from "../Bilza.js";
 import WidthHeight from "./71WidthHeight.js";
 import {XAlignOpt} from "./designBC/xAlignOpt.js";
 import {YAlignOpt} from "./designBC/yAlignOpt.js";

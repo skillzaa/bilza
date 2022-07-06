@@ -1,5 +1,5 @@
-import { BaseComponent } from "../bilza.js";
-import AniNumber from "../animations/aniNumber/aniNumber.js";
+import { BaseComponent } from "../Bilza.js";
+import AniNumber from "../ animations/aniNumber/aniNumber.js";
 export default class TestComp extends BaseComponent {
     constructor(color = "#008000") {
         super();

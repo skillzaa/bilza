@@ -1,4 +1,4 @@
-import { DrawLayer, AniNumber } from "../bilza.js";
+import { DrawLayer, AniNumber } from "../Bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class StaticGrid extends BaseComponent {
     constructor(cellWidth = 100, cellHeight = 100, color = "#efe1e1") {

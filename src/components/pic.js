@@ -1,4 +1,4 @@
-import { DrawLayer, BaseComponent } from "../bilza.js";
+import { DrawLayer, BaseComponent } from "../Bilza.js";
 export default class Pic extends BaseComponent {
     constructor(imgUrl, width = 10, height = 10) {
         super();

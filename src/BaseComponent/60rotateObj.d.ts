@@ -1,4 +1,4 @@
-import { Pack } from "../bilza.js";
+import { Pack } from "../Bilza.js";
 import Loc from "./70loc.js";
 export default class RotateObj extends Loc {
     rotation: number;

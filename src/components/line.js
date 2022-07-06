@@ -1,4 +1,4 @@
-import { BaseComponent, DrawLayer, AniNumber } from "../bilza.js";
+import { BaseComponent, DrawLayer, AniNumber } from "../Bilza.js";
 import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 export default class Line extends BaseComponent {

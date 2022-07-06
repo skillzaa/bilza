@@ -1,4 +1,4 @@
-import { Pack } from "../bilza.js";
+import { Pack } from "../Bilza.js";
 import PlainText from "./plainText.js";
 export default class Text extends PlainText {
     maxHeight: number;

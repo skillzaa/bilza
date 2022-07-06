@@ -1,4 +1,4 @@
-import {Pack,DrawLayer,AniNumber} from "../bilza.js";
+import {Pack,DrawLayer,AniNumber} from "../Bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 

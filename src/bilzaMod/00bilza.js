@@ -1,4 +1,4 @@
-import { DrawLayer, Pack } from "../bilza.js";
+import { DrawLayer, Pack } from "../Bilza.js";
 import Background from "../components/background.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
@@ -17,11 +17,13 @@ export default class Bilza {
         this.stopWatch = new StopWatch();
         this.set = new Settings();
         this.background = new Background();
-        this.insert.alwaysOn(this.background);
     }
     init() {
         if (this.soundTrack !== null) {
             this.soundTrackElement = new Audio(this.soundTrack);
+        }
+        if (this.set.loadDefaultBackground == true) {
+            this.insert.alwaysOn(this.background);
         }
         this.comps.init(this.pack);
         return true;
@@ -46,7 +48,9 @@ export default class Bilza {
         if (msDelta >= this.len(true)) {
             this.stopWatch.stop();
         }
-        this.pack.clearCanvas();
+        if (this.set.clearCanvasBwFrames == true) {
+            this.pack.clearCanvas();
+        }
         this.comps.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);

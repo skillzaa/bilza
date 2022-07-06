@@ -1,4 +1,4 @@
-import {Pack,BaseComponent,DrawLayer,FontFamily,AniNumber} from "../bilza.js";
+import {Pack,BaseComponent,DrawLayer,FontFamily,AniNumber} from "../Bilza.js";
 import AniString from "../animations/aniString/aniString.js";
 /**
  * A totally Non-Openionated Text Swiss kinfe

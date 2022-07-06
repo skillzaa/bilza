@@ -1,4 +1,4 @@
-import {Pack,BaseComponent,DrawLayer,AniNumber} from "../bilza.js";
+import {Pack,BaseComponent,DrawLayer,AniNumber} from "../Bilza.js";
 import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 

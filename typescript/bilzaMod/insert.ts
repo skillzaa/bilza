@@ -1,4 +1,4 @@
-import {IComponent,Pack} from "../bilza.js";
+import {IComponent,Pack} from "../Bilza.js";
 import Comps from "./comps.js";
 import Duration from "./duration.js";
 

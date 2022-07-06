@@ -1,4 +1,4 @@
-import { Pack } from "../bilza.js";
+import { Pack } from "../Bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class Grid extends BaseComponent {
     lineDash: number[];

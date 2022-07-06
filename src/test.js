@@ -1,4 +1,4 @@
-import Bilza, { Ui, CompFactory as cf } from "./bilza.js";
+import Bilza, { Ui, CompFactory as cf } from "./Bilza.js";
 let bil = new Bilza("bilza", 70);
 const counter = cf.frameCounter("#ff0000");
 counter.goto(0, 90, 0);

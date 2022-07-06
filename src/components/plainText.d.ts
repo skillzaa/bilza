@@ -1,4 +1,4 @@
-import { Pack, BaseComponent, FontFamily, AniNumber, Style } from "../bilza.js";
+import { Pack, BaseComponent, FontFamily, AniNumber, Style } from "../Bilza.js";
 export default class PlainText extends BaseComponent {
     content: string;
     fontFamily: FontFamily;

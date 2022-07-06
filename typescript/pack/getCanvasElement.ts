@@ -1,5 +1,5 @@
 
-import {DrawLayer,IComponent,Pack} from "../bilza.js";
+import {DrawLayer,IComponent,Pack} from "../Bilza.js";
 
 export default function getCanvasElement(canvasId :string="bilza") {
     

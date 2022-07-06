@@ -1,4 +1,4 @@
-import { BaseComponent, DrawLayer, FontFamily, AniNumber } from "../bilza.js";
+import { BaseComponent, DrawLayer, FontFamily, AniNumber } from "../Bilza.js";
 import AniString from "../animations/aniString/aniString.js";
 export default class RawText extends BaseComponent {
     constructor(content = "", colorHax = "#000000") {

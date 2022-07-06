@@ -1,4 +1,4 @@
-import {DrawLayer,Pack,Style,AniNumber,AniBoolean} from "../../bilza.js";
+import {DrawLayer,Pack,Style,AniNumber,AniBoolean} from "../../Bilza.js";
 
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business logic etc inside. That will come when we build systems.

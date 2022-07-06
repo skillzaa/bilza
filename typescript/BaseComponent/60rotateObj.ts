@@ -1,4 +1,4 @@
-import {Pack,IComponent,XAlignOpt,YAlignOpt} from "../bilza.js";
+import {Pack,IComponent,XAlignOpt,YAlignOpt} from "../Bilza.js";
 
 import Loc from "./70loc.js";
 

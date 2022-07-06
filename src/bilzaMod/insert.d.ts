@@ -1,4 +1,4 @@
-import { IComponent } from "../bilza.js";
+import { IComponent } from "../Bilza.js";
 import Comps from "./comps.js";
 import Duration from "./duration.js";
 export default class Insert {

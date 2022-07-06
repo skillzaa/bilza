@@ -1,5 +1,5 @@
-import { Pack, BaseComponent } from "../bilza.js";
-import AniNumber from "../animations/aniNumber/aniNumber.js";
+import { Pack, BaseComponent } from "../Bilza.js";
+import AniNumber from "../ animations/aniNumber/aniNumber.js";
 export default class TestComp extends BaseComponent {
     color: string;
     dynWidth: AniNumber;

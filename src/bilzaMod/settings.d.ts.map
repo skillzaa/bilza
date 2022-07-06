@@ -1,1 +1,1 @@
-{"version":3,"file":"settings.d.ts","sourceRoot":"","sources":["../../typescript/bilzaMod/settings.ts"],"names":[],"mappings":"AAGA,MAAM,CAAC,OAAO,OAAO,QAAQ;IAC7B,SAAgB,SAAS,EAAE,OAAO,CAAC;IAEnC,OAAO,CAAC,QAAQ,CAAC,aAAa,CAAU;;IAKxC,UAAU,CAAC,GAAG,EAAE,MAAM;CAOrB"}
+{"version":3,"file":"settings.d.ts","sourceRoot":"","sources":["../../typescript/bilzaMod/settings.ts"],"names":[],"mappings":"AAGA,MAAM,CAAC,OAAO,OAAO,QAAQ;IACzB,mBAAmB,EAAE,OAAO,CAAC;IAC7B,qBAAqB,EAAE,OAAO,CAAC;;CAMlC"}
