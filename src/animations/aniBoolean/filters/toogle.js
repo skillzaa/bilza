@@ -4,19 +4,8 @@ export default class Toogle extends BaseFilter {
         super(startTimeSec, endTimeSec, skipXFrames);
     }
     value() {
-        if (this.isRunning() == false) {
-            return null;
-        }
-        else {
-            if (this.xFramesSkipped() == true) {
-                if (this._ret_val == false || this._ret_val == null) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-        }
-        return null;
+        this._ret_val = !this._ret_val;
+        console.log("toogle::  value", this._ret_val);
+        return this._ret_val;
     }
 }

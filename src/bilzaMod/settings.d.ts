@@ -1,7 +1,6 @@
 export default class Settings {
-    readonly debugMode: boolean;
-    private readonly fixBugWarning;
+    loadDefaultBackground: boolean;
+    clearCanvasBwFrames: boolean;
     constructor();
-    fixBugWarn(msg: string): void;
 }
 //# sourceMappingURL=settings.d.ts.map

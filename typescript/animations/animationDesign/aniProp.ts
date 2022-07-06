@@ -21,6 +21,7 @@ this.filters = [];
 }
 
 update(msDelta :number):boolean{
+console.log("AniProp msDelta",msDelta);    
 this.runFilters(msDelta);
 return true;    
 }

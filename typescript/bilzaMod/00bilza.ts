@@ -33,13 +33,19 @@ this.soundTrack = null;
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
 this.set = new Settings(); ///EasyPeasyyyyyy...!!!
-//-----------Add Background
+//-----------Add Background--usinf set
 this.background = new Background();
-this.insert.alwaysOn(this.background);
+// if (this.set.loadDefaultBackground == true){
+//     this.insert.alwaysOn(this.background);
+// }
 } 
 // --27-june-2022 converted to private since user does not need to know
 //--30-june-2022 back to puiblic lets see
 public init():boolean{
+//-----------Add Background--usinf set
+if (this.set.loadDefaultBackground == true){
+    this.insert.alwaysOn(this.background);
+}    
 //---sound
     if (this.soundTrack !== null){
         this.soundTrackElement = new Audio(this.soundTrack);
@@ -51,16 +57,13 @@ public init():boolean{
 
 // --27-june-2022 converted to private
 private drawForStart():boolean{
+//  this.init();  //--init is already added in start     
  let msDelta = this.stopWatch.getMsDelta();
- if (this.stopWatch.shouldStop() == false){
+ this.draw_internal(msDelta); /// The draw mechanism without titbits
+//  if (this.stopWatch.shouldStop() == false){
     window.requestAnimationFrame(this.drawForStart.bind(this));
-}
-//-------------------------------------------------------- 
-//--we need to save this msDelta as lastMsDelta
-this.lastMsDelta = msDelta;
-//-------------------------------------------------------- 
+// }
 
-this.draw_internal(msDelta); /// The draw mechanism without titbits
 //---27-6-2022 draw Event removed from here
 return true;
 }
@@ -70,13 +73,19 @@ public draw(msDelta :number=0){
 }
 
 private draw_internal(msDelta :number=0){
+//-------------------------------------------------------- 
+//--we need to save this msDelta as lastMsDelta
+this.lastMsDelta = msDelta;
+//-------------------------------------------------------- 
+
 if(this.pack == null){throw new Error("bilzaa is not initialized");}   
 //--Auto Stop
 if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
 //--Clear Canvas
-this.pack.clearCanvas();          
-//--drawBackground
-// this.pack.drawBackground(this.background.color.value());
+if (this.set.clearCanvasBwFrames == true){
+    this.pack.clearCanvas();          
+}
+
 //--Draw All three layers. In future if i need to add more layers OR if I want the user to be able to insert layers then this is the starting point.
 this.comps.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);

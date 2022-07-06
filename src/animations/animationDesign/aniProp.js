@@ -4,6 +4,7 @@ export default class AniProp {
         this.filters = [];
     }
     update(msDelta) {
+        console.log("AniProp msDelta", msDelta);
         this.runFilters(msDelta);
         return true;
     }

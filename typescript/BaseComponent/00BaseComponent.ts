@@ -23,6 +23,10 @@ return true;
 update(msDelta :number,p :Pack): boolean {
     this.x.update(msDelta);
     this.y.update(msDelta);
+    // console.log("base comp update",msDelta);
+    // if (msDelta > 2000){debugger;}
+    this.visible.update(msDelta);
+
     this.width.update(msDelta);
     this.height.update(msDelta);
 return true;    
