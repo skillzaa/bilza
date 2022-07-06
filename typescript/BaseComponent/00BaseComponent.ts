@@ -23,6 +23,8 @@ return true;
 update(msDelta :number,p :Pack): boolean {
     this.x.update(msDelta);
     this.y.update(msDelta);
+    //--6-july-2022 visible.update added
+    this.visible.update(msDelta);
     this.width.update(msDelta);
     this.height.update(msDelta);
 return true;    

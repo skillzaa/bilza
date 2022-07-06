@@ -29,9 +29,13 @@ export default class FillRect extends BaseComponent {
         }
     }
     draw(p) {
+        p.save();
+        p.translate(this.widthInPix(), this.heightInPix());
+        p.rotate(this.rotation);
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
+        p.drawFillRect(-(this.widthInPix() / 2), -(this.heightInPix() / 2), this.widthInPix(), this.heightInPix(), this.style);
+        p.restore();
         return true;
     }
 }

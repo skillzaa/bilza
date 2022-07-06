@@ -8,7 +8,7 @@ public rotation :number;
 
 constructor (){
     super();
-this.rotation = 20;
+this.rotation = 0;
 }
 
 ////////////////////////////////////////////////////////

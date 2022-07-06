@@ -2,7 +2,7 @@ import Loc from "./70loc.js";
 export default class RotateObj extends Loc {
     constructor() {
         super();
-        this.rotation = 20;
+        this.rotation = 0;
     }
     applyRotation(p) {
         p.save();

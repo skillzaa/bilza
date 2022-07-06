@@ -13,6 +13,7 @@ export default class BaseComponent extends RotateObj {
     update(msDelta, p) {
         this.x.update(msDelta);
         this.y.update(msDelta);
+        this.visible.update(msDelta);
         this.width.update(msDelta);
         this.height.update(msDelta);
         return true;

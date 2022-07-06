@@ -33,19 +33,30 @@ heightInPix(): number {
     }
 }
 draw(p:Pack):boolean{
+//--------------
+p.save();    
+p.translate(this.widthInPix() , this.heightInPix() );
+p.rotate(this.rotation);
+
+// ctx?.fillRect( 0 - (width/2) , 0 - (height/2) , 200 , 200 );
+//--------------
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color; 
-// this.style.lineWidth = this.lineWidth.value();
-
+//---------------------------------------
    p.drawFillRect(
-    this.xAligned(),
-    this.yAligned(),
-    // 200,
-    // 200,
+    -(this.widthInPix()/2),
+    -(this.heightInPix()/2),
+    // (0 - (this.widthInPix()/2)),
+    // (0 - (this.heightInPix()/2)),
     this.widthInPix(),
     this.heightInPix(),
     this.style
     );
+
+//--------------
+p.restore();    
+//--------------
+//--------------------------------------------
 return true;
 }
 
