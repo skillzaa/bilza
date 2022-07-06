@@ -1,4 +1,4 @@
-import { Pack, AniNumber } from "../Bilza.js";
+import { Pack, AniNumber } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class StaticGrid extends BaseComponent {
     cellWidth: AniNumber;

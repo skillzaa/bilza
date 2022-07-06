@@ -2,11 +2,11 @@
   "name": "bilza",
   "version": "0.0.19",
   "description": "Bilza is a javascript framework/library specially designed for creating business and educational Visualizations / Presentations / Slides using HTML5 canvas.",
-  "main": "src/Bilza.js",
+  "main": "src/bilza.js",
   "scripts": {
     "rollup": "rollup -c",
     "rollup:help": "rollup --help",
-    "rollup:es": "rollup ./src/Bilza.js --file ./build/Bilza.js --format es",
+    "rollup:es": "rollup ./src/bilza.js --file ./build/bilza.js --format es",
     "rollup:cjs": "rollup ./src/index.js --file ./build/bilza_cjs.js --format cjs",
     "test": "jest --watchAll --detectOpenHandles"
   },

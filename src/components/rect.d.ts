@@ -1,4 +1,4 @@
-import { Pack, BaseComponent, AniNumber } from "../Bilza.js";
+import { Pack, BaseComponent, AniNumber } from "../bilza.js";
 export default class Rect extends BaseComponent {
     color: string;
     lineWidth: AniNumber;

@@ -1,5 +1,5 @@
 import Text from "../../src/components/text/text.js";
-// import {IComponent} from "../../src/Bilza.js";
+// import {IComponent} from "../../src/bilza.js";
 // import Fn from ".."
 function range(comp,id,dValue){
     let labelId = id + "Label";

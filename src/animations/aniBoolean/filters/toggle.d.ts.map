@@ -1,1 +1,0 @@
-{"version":3,"file":"toggle.d.ts","sourceRoot":"","sources":["../../../../typescript/animations/aniBoolean/filters/toggle.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,MAAM,qCAAqC,CAAC;AAG7D,MAAM,CAAC,OAAO,OAAO,MAAO,SAAQ,UAAU,CAAC,OAAO,CAAC;gBAG3C,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EAAC,WAAW,GAAE,MAAQ;IASzE,KAAK,IAAI,OAAO,GAAG,IAAI;CAiBtB"}

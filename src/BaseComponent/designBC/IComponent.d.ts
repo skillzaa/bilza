@@ -1,4 +1,4 @@
-import { DrawLayer, Pack, Style, AniNumber, AniBoolean } from "../../Bilza.js";
+import { DrawLayer, Pack, Style, AniNumber, AniBoolean } from "../../bilza.js";
 export default interface IComponent {
     readonly id: string;
     usePercentages: boolean;

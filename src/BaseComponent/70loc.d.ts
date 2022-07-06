@@ -1,4 +1,4 @@
-import { Pack } from "../Bilza.js";
+import { Pack } from "../bilza.js";
 import WidthHeight from "./71WidthHeight.js";
 import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";

@@ -1,4 +1,4 @@
-import {Pack,DrawLayer,BaseComponent } from "../Bilza.js";
+import {Pack,DrawLayer,BaseComponent } from "../bilza.js";
 
 export default class Pic extends BaseComponent {
 img :HTMLImageElement;

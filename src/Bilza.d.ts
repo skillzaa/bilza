@@ -13,4 +13,4 @@ import AniNumber from "./animations/aniNumber/aniNumber.js";
 import AniBoolean from "./animations/aniBoolean/aniBoolean.js";
 export default Bilza;
 export { Pack, DrawLayer, AniNumber, AniBoolean, IComponent, Ui, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, };
-//# sourceMappingURL=Bilza.d.ts.map
+//# sourceMappingURL=bilza.d.ts.map

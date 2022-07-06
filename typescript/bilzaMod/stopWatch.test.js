@@ -1,5 +1,5 @@
 
-// import Bilza from "../src/Bilza.js"
+// import Bilza from "../src/bilza.js"
 import StopWatch from "../../src/bilzaMod/stopWatch.js";
 
 

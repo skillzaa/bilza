@@ -1,4 +1,4 @@
-import { BaseComponent, DrawLayer, FontFamily, AniNumber } from "../Bilza.js";
+import { BaseComponent, DrawLayer, FontFamily, AniNumber } from "../bilza.js";
 import lightenDarkenColor from "../functions/lightenDarkenColor.js";
 export default class PlainText extends BaseComponent {
     constructor(content = "", colorHax = "#000000") {

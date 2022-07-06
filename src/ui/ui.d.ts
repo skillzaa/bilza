@@ -1,4 +1,4 @@
-import Bilza from "../Bilza.js";
+import Bilza from "../bilza.js";
 export default class Ui {
     start: HTMLElement;
     stop: HTMLElement;

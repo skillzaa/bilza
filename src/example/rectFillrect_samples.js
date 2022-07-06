@@ -1,4 +1,4 @@
-import Bilza, { Ui, CompFactory as cf } from "../Bilza.js";
+import Bilza, { Ui, CompFactory as cf } from "../bilza.js";
 let bil = new Bilza("bilza", 70);
 const g = cf.grid();
 bil.insert.alwaysOn(g);

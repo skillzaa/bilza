@@ -1,4 +1,4 @@
-import Bilza from "../../src/Bilza.js";
+import Bilza from "../../src/bilza.js";
 import FillRect from "../../src/components/fillRect.js";
 
 test('Append Basic', () => {

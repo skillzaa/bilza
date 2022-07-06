@@ -1,4 +1,4 @@
-import Bilza, { Ui, CompFactory as cf, XAlignOpt, YAlignOpt } from "./Bilza.js";
+import Bilza, { Ui, CompFactory as cf, XAlignOpt, YAlignOpt } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set("#151f59");
 bil.insert.alwaysOn(cf.frameCounter());
@@ -25,8 +25,6 @@ rotatingRectangle(45, 80, XAlignOpt.Mid, YAlignOpt.Bot);
 rotatingRectangle(75, 80, XAlignOpt.Right, YAlignOpt.Bot);
 const ui = new Ui(bil);
 bil.draw();
-
-
 function baseRect(x, y) {
     const rectBase = cf.fillRect("#FFF000");
     rectBase.goto(0, x, y);

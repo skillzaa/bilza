@@ -1,4 +1,4 @@
-import Bilza, { Ui,CompFactory as cf,XAlignOpt,YAlignOpt } from "./Bilza.js";
+import Bilza, { Ui,CompFactory as cf,XAlignOpt,YAlignOpt } from "./bilza.js";
 let bil = new Bilza("bilza",70);
 bil.background.color.set("#151f59")
 // bil.resizeCanvas(500,200);

@@ -1,4 +1,4 @@
-import {DrawLayer,AniBoolean,AniNumber} from "../Bilza.js";
+import {DrawLayer,AniBoolean,AniNumber} from "../bilza.js";
 import Style from "../design/style.js";
 
 import {XAlignOpt} from "./designBC/xAlignOpt.js";
