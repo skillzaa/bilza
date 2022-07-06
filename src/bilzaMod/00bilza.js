@@ -74,8 +74,8 @@ export default class Bilza {
             return false;
         }
         this.stop();
-        this.stopWatch.start();
         this.init();
+        this.stopWatch.start();
         this.stopWatch.runningStartTimeTS = new Date().getTime();
         window.requestAnimationFrame(this.drawForStart.bind(this));
         return true;

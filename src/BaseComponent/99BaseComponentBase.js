@@ -15,6 +15,7 @@ export default class BaseComponentBase {
         this.usePercentages = true;
         this.width = new AniNumber(10);
         this.rotation = new AniNumber(0);
+        this.opacity = new AniNumber(1);
         this.height = new AniNumber(10);
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);

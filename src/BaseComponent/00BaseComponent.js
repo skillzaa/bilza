@@ -15,8 +15,12 @@ export default class BaseComponent extends RotateObj {
         this.y.update(msDelta);
         this.visible.update(msDelta);
         this.rotation.update(msDelta);
+        this.opacity.update(msDelta);
         this.width.update(msDelta);
         this.height.update(msDelta);
         return true;
+    }
+    removeOpacity() {
+        this.opacity.set(1);
     }
 }

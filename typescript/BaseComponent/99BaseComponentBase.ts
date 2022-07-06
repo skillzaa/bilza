@@ -24,10 +24,11 @@ public version :string;
 // IMPLEMENTED IN ENGINE-- visible = false will not be drawn
 public visible :AniBoolean;//
 public rotation :AniNumber;
-public width :AniNumber;
-public height :AniNumber;
+public opacity :AniNumber;
+public width :AniNumber; // no need to convert it into AniNoPers
+public height :AniNumber;// no need to convert it into AniNoPers
 //--this will come in handy during using the lib with gui and while making interactive tools.
-public  selected :boolean;
+public  selected :boolean; //dont complicate
 /////////////////----PRIVATE----/////////////////// 
 //---these 2 variables will be set in init
 canvasWidth :number | null;    //required by all comps
@@ -44,8 +45,6 @@ constructor(){
     this.xAlign = this.XAlignOpt.Left;
     this.yAlign = this.YAlignOpt.Top;
     
-    // this.xRotate = this.XAlignOpt.Mid;
-    // this.yRotate = this.YAlignOpt.Mid;
     this.xRotate = this.XAlignOpt.Left;
     this.yRotate = this.YAlignOpt.Top;
     
@@ -53,6 +52,7 @@ constructor(){
     this.usePercentages = true;
     this.width = new AniNumber(10);
     this.rotation = new AniNumber(0);
+    this.opacity = new AniNumber(1);
     this.height = new AniNumber(10);
     //--there is no this.endTime --since has this.endTime()
     //--must

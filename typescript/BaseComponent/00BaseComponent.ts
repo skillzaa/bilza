@@ -26,10 +26,16 @@ update(msDelta :number,p :Pack): boolean {
     //--6-july-2022 visible.update added
     this.visible.update(msDelta);
     this.rotation.update(msDelta);
+    this.opacity.update(msDelta);
     this.width.update(msDelta);
     this.height.update(msDelta);
 return true;    
 }
 
+
+
+removeOpacity(){
+this.opacity.set(1);    
+}
 ////////////////////////////////////////////////////////
 }//component ends 

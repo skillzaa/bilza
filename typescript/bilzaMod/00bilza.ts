@@ -111,8 +111,9 @@ start():boolean{
 
     if (this.stopWatch.isRunning() == true){return false;}
         this.stop();
+        this.init();
+        // this.pack.clearCanvas(); 
         this.stopWatch.start();
-        this.init(); 
         this.stopWatch.runningStartTimeTS = new Date().getTime();
 
         // if (this.stopWatch.shouldStop() == false){

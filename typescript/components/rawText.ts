@@ -47,6 +47,8 @@ return this.charsWidth(this.content.value().substring(0,this.maxDisplayChars.val
 }
   
 draw(p:Pack):boolean{
+this.style.globalAlpha = (this.opacity.value()/100);
+
 this.style.fillStyle = this.color;    
 this.style.strokeStyle = this.color;
 this.style.fontSize = this.fontSize.value();

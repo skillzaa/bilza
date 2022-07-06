@@ -17,6 +17,7 @@ export default class BaseComponentBase {
     version: string;
     visible: AniBoolean;
     rotation: AniNumber;
+    opacity: AniNumber;
     width: AniNumber;
     height: AniNumber;
     selected: boolean;

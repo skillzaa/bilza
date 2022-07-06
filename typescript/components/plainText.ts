@@ -84,7 +84,9 @@ return textWdith + (this.paddingLeft.value() + this.paddingRight.value());
   
 draw(p:Pack):boolean{
 this.style.fillStyle = this.colorBg;    
-this.style.strokeStyle = this.colorBg;    
+this.style.strokeStyle = this.colorBg;
+this.style.globalAlpha = (this.opacity.value()/100);
+
 this.drawBg(p,this.style,this.xAligned(),this.yAligned(),this.widthInPix(),this.heightInPix( ));
 this.style.fillStyle = this.colorBorder;    
 this.style.strokeStyle = this.colorBorder;    

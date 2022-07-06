@@ -37,9 +37,12 @@ draw(p:Pack):boolean{
 this.applyRotation(p);
 //--------------
 this.style.fillStyle = this.color;    
+this.style.globalAlpha = (this.opacity.value()/100);
+// console.log("this.opacity.value()/100",this.opacity.value()/100);
+// p.applyOpacity(this.opacity.value());
 this.style.strokeStyle = this.color; 
-console.log("this.xRotateAligned()",this.xRotateAligned());
-console.log("this.xAligned()",this.xAligned());
+// console.log("this.xRotateAligned()",this.xRotateAligned());
+// console.log("this.xAligned()",this.xAligned());
 //---------------------------------------
    p.drawFillRect(
      this.xAligned(),
@@ -51,6 +54,7 @@ console.log("this.xAligned()",this.xAligned());
     );
 //----------------------------
 this.removeRotation(p);
+this.style.globalAlpha = 1;
 //----------------------------
 return true;
 }
