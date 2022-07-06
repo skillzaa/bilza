@@ -9,7 +9,9 @@ import Pic from "./pic.js";
 import Line from "./line.js";
 import RawText from "./rawText.js";
 import PlainText from "./plainText.js";
+import Marker from "./marker.js";
 export default class CompFactory {
+    static marker(colorHax?: string): Marker;
     static pic(imgId: string, dynWidth?: number, dynHeight?: number): Pic;
     static staticGrid(cellWidth?: number, cellHeight?: number, color?: string): StaticGrid;
     static grid(colorHax?: string, cellWidthPerc?: number, cellHeightPerc?: number): Grid;

@@ -51,7 +51,9 @@ this.style.fillStyle = this.color;
 this.style.strokeStyle = this.color;
 this.style.fontSize = this.fontSize.value();
 this.style.fontFamily = this.fontFamily;
+this.applyRotation(p);
 this.drawContent(p);
+this.removeRotation(p);
 return true;
 } 
 

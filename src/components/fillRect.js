@@ -32,7 +32,9 @@ export default class FillRect extends BaseComponent {
         this.applyRotation(p);
         this.style.fillStyle = this.color;
         this.style.strokeStyle = this.color;
-        p.drawFillRect((0 - (this.widthInPix() / 2)), (0 - (this.heightInPix() / 2)), this.widthInPix(), this.heightInPix(), this.style);
+        console.log("this.xRotateAligned()", this.xRotateAligned());
+        console.log("this.xAligned()", this.xAligned());
+        p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
         this.removeRotation(p);
         return true;
     }

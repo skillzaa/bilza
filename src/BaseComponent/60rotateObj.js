@@ -1,15 +1,13 @@
-import { AniNumber } from "../Bilza.js";
 import Loc from "./70loc.js";
 export default class RotateObj extends Loc {
     constructor() {
         super();
-        this.rotation = new AniNumber(0);
     }
     applyRotation(p) {
         p.save();
-        p.translate(this.xAligned(), this.yAligned());
+        p.translate(this.xRotateAligned(), this.yRotateAligned());
         p.rotate(this.rotation.value());
-        console.log("this.rotation.value()", this.rotation.value());
+        p.translate(-this.xRotateAligned(), -this.yRotateAligned());
     }
     removeRotation(p) {
         p.restore();

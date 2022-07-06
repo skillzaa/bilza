@@ -37,7 +37,9 @@ export default class RawText extends BaseComponent {
         this.style.strokeStyle = this.color;
         this.style.fontSize = this.fontSize.value();
         this.style.fontFamily = this.fontFamily;
+        this.applyRotation(p);
         this.drawContent(p);
+        this.removeRotation(p);
         return true;
     }
     drawContent(p) {

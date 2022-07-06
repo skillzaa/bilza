@@ -1,12 +1,9 @@
 import {Pack} from "../Bilza.js";
 import WidthHeight from "./71WidthHeight.js";
-import {XAlignOpt} from "./designBC/xAlignOpt.js";
-import {YAlignOpt} from "./designBC/yAlignOpt.js";
 
 import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
-// import X from "./xy/x.js";
-// import Y from "./xy/y.js";
+
 
 export default class Loc extends WidthHeight {
 // XX-------------||||||||||||||||||||||---------------XX 
@@ -15,11 +12,6 @@ charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 public x :AniNoXPerc; 
 public y :AniNoYPerc;
 
-public xAlign :XAlignOpt;
-public readonly XAlignOpt :typeof XAlignOpt;
-
-public yAlign : YAlignOpt;
-public readonly YAlignOpt :typeof YAlignOpt;
 
 // aniPreset :AniPreset;
 
@@ -29,10 +21,6 @@ this.x = new AniNoXPerc(0);
 this.y = new AniNoYPerc(0);
 this.charsWidth = null;  
 // this.aniPreset = new AniPreset(this);
-this.XAlignOpt = XAlignOpt; //final-ok
-this.xAlign = this.XAlignOpt.Left;
-this.YAlignOpt = YAlignOpt;
-this.yAlign = this.YAlignOpt.Top;
 
 }
 
@@ -89,5 +77,37 @@ switch (this.yAlign) {
 }
 return y;    
 }
+xRotateAligned():number{   
+let x = this.xAligned();     
+switch (this.xRotate) {
+    
+    case this.XAlignOpt.Left :
+    //--nothing        
+    break;
+    case this.XAlignOpt.Mid:
+    x = x + (this.widthInPix()/2);    
+    break;
+    case this.XAlignOpt.Right:
+    x = x + this.widthInPix();    
+    break;
+}
+return x;    
+}
+yRotateAligned():number{   
+let y = this.yAligned();     
+switch (this.yRotate) {   
+    case this.YAlignOpt.Top :
+    //--nothing        
+    break;
+    case this.YAlignOpt.Mid:
+    y = y + (this.heightInPix()/2);    
+    break;
+    case this.YAlignOpt.Bot:
+    y = y + this.heightInPix();    
+    break;
+}
+return y;    
+}
+
 
 }//component ends 

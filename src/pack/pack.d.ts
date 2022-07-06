@@ -43,5 +43,6 @@ export default class Pack {
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     rotate(degrees: number, reverse?: boolean): void;
     translate(x: number, y: number): void;
+    setTransform(a?: number, b?: number, c?: number, d?: number, e?: number, f?: number): void;
 }
 //# sourceMappingURL=pack.d.ts.map

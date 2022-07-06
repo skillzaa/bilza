@@ -9,7 +9,12 @@ import Pic from "./pic.js";
 import Line from "./line.js";
 import RawText from "./rawText.js";
 import PlainText from "./plainText.js";
+import Marker from "./marker.js";
 export default class CompFactory {
+    static marker(colorHax = "red") {
+        let g = new Marker(colorHax);
+        return g;
+    }
     static pic(imgId, dynWidth = 10, dynHeight = 10) {
         let g = new Pic(imgId, dynWidth, dynHeight);
         return g;

@@ -286,5 +286,8 @@ rotate(degrees :number,reverse :boolean=false){
 translate(x :number, y :number){
 this.ctx.translate(x,y);    
 }
+setTransform( a:number=1, b:number=0, c:number=0, d:number=1, e:number=0, f:number=0){
+this.ctx.setTransform(a, b, c, d, e, f);    
+}
 /////////////////////////////////////////////////////////////
 }

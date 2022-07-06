@@ -15,7 +15,7 @@ export default class Grid extends BaseComponent {
         this.lineWidthVertical = 1;
         this.lineWidthHorizontal = 1;
         this.lineDash = [];
-        this.drawLayer = DrawLayer.BackGround;
+        this.drawLayer = DrawLayer.MiddleGround;
     }
     draw(p) {
         this.draw_horizontal(p);

@@ -1,6 +1,4 @@
 import WidthHeight from "./71WidthHeight.js";
-import { XAlignOpt } from "./designBC/xAlignOpt.js";
-import { YAlignOpt } from "./designBC/yAlignOpt.js";
 import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 export default class Loc extends WidthHeight {
@@ -9,10 +7,6 @@ export default class Loc extends WidthHeight {
         this.x = new AniNoXPerc(0);
         this.y = new AniNoYPerc(0);
         this.charsWidth = null;
-        this.XAlignOpt = XAlignOpt;
-        this.xAlign = this.XAlignOpt.Left;
-        this.YAlignOpt = YAlignOpt;
-        this.yAlign = this.YAlignOpt.Top;
     }
     draw(p) {
         return true;
@@ -59,6 +53,34 @@ export default class Loc extends WidthHeight {
                 break;
             case this.YAlignOpt.Bot:
                 y = y - this.heightInPix();
+                break;
+        }
+        return y;
+    }
+    xRotateAligned() {
+        let x = this.xAligned();
+        switch (this.xRotate) {
+            case this.XAlignOpt.Left:
+                break;
+            case this.XAlignOpt.Mid:
+                x = x + (this.widthInPix() / 2);
+                break;
+            case this.XAlignOpt.Right:
+                x = x + this.widthInPix();
+                break;
+        }
+        return x;
+    }
+    yRotateAligned() {
+        let y = this.yAligned();
+        switch (this.yRotate) {
+            case this.YAlignOpt.Top:
+                break;
+            case this.YAlignOpt.Mid:
+                y = y + (this.heightInPix() / 2);
+                break;
+            case this.YAlignOpt.Bot:
+                y = y + this.heightInPix();
                 break;
         }
         return y;
