@@ -52,7 +52,7 @@ constructor(){
     this.usePercentages = true;
     this.width = new AniNumber(10);
     this.rotation = new AniNumber(0);
-    this.opacity = new AniNumber(1);
+    this.opacity = new AniNumber(100);
     this.height = new AniNumber(10);
     //--there is no this.endTime --since has this.endTime()
     //--must
