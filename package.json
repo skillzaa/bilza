@@ -1,6 +1,6 @@
 {
   "name": "bilza",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Bilza is a javascript framework/library specially designed for creating business and educational Visualizations / Presentations / Slides using HTML5 canvas.",
   "main": "src/bilza.js",
   "scripts": {

@@ -1,5 +1,8 @@
 ### This version is release candidate. The API is reasonably mature and I hope there will be no breaking changes in it.
 ### However there will surely be minor changes.
+### The lib is feature complete (i.e it has all the features that I like it to have) however fine tuning and testing remains.
+### Help and detailed demos are being made.
+### THIS PROJECT WILL ACTIVELY BE DEVELOPED FOR A VERY VERY LONG TIME (God willingly).
 ---
 
 # What is Bilza
@@ -45,6 +48,7 @@ To be an easy to use library for creating
 If you want to be in touch or send me a bug report please use github issues.
 
 -----
+###### 7-july-2022   (version 0.0.20) //release candidate for 0.1
 ###### 2-july-2022   (version 0.0.19) //release candidate for 0.1
 ###### 21-june-2022   (version 0.0.17) //also ver 18
 ###### 06-jun-2022   (version 0.0.16)
