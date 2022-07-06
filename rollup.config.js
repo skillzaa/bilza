@@ -7,7 +7,7 @@ console.log(`${ devMode ? 'development' : 'production' } mode bundle`);
 export default [
   {
 
-    input: './src/bilza.js',
+    input: './src/Bilza.js',
     // input: './src/Bilza.js',
     // input: './standalone/standalone.js',
 
