@@ -16,12 +16,13 @@ import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
 import AniNumber from "./animations/aniNumber/aniNumber.js";
 import AniBoolean from "./animations/aniBoolean/aniBoolean.js";
 export default Bilza;
-
+import AniColor from "./animations/aniColor/aniColor.js";
 export {
 Pack,
 DrawLayer,
 AniNumber,
 AniBoolean,
+AniColor,
 IComponent,
 Ui,
 Bilza,

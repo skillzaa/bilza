@@ -2,7 +2,7 @@ import { BaseComponent, DrawLayer } from "../bilza.js";
 export default class BgCircles extends BaseComponent {
     constructor(count = 10, color = "#008000", delay = 1) {
         super();
-        this.drawLayer = DrawLayer.BackGround;
+        this.drawLayer = DrawLayer.MiddleGround;
         this.count = count;
         this.color = color;
         this.size = 20;

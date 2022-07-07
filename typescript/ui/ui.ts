@@ -63,7 +63,7 @@ setInterval(()=>{
 //..........
     slider.addEventListener("input",function(e){
     //@ts-expect-error
-    bil.drawFrame(e.target.value * 1000);
+    bil.draw(e.target.value * 1000);
     });
   
 }

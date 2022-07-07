@@ -10,7 +10,12 @@ import Line from "./line.js";
 import RawText from "./rawText.js";
 import PlainText from "./plainText.js";
 import Marker from "./marker.js";
+import Circle from "./circle.js";
 export default class CompFactory {
+    static circle(colorHax = "red") {
+        let g = new Circle(colorHax);
+        return g;
+    }
     static marker(colorHax = "red") {
         let g = new Marker(colorHax);
         return g;

@@ -8,7 +8,7 @@ export default class BgCircles extends BaseComponent {
     color :string;
 constructor (count :number= 10,color :string="#008000",delay :number=1) { 
     super();
-    this.drawLayer = DrawLayer.BackGround;
+    this.drawLayer = DrawLayer.MiddleGround;
     // this.lineWidth = new AnimatedNoBase(1) ;
     this.count = count ;   
     this.color = color ;  

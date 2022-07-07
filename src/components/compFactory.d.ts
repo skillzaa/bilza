@@ -10,7 +10,9 @@ import Line from "./line.js";
 import RawText from "./rawText.js";
 import PlainText from "./plainText.js";
 import Marker from "./marker.js";
+import Circle from "./circle.js";
 export default class CompFactory {
+    static circle(colorHax?: string): Circle;
     static marker(colorHax?: string): Marker;
     static pic(imgId: string, dynWidth?: number, dynHeight?: number): Pic;
     static staticGrid(cellWidth?: number, cellHeight?: number, color?: string): StaticGrid;

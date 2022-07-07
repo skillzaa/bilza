@@ -40,6 +40,6 @@ function sliderFn(bil) {
         }
     }, 500);
     slider.addEventListener("input", function (e) {
-        bil.drawFrame(e.target.value * 1000);
+        bil.draw(e.target.value * 1000);
     });
 }

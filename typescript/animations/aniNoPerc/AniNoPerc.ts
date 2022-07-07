@@ -1,6 +1,6 @@
 // import AniProp from "../animationDesign/aniProp.js";
 import AniNumber from "../aniNumber/aniNumber.js";
-
+ 
 import PreInitGoto from "./designNoPerc/preInitGoto.js";
 import PreInitAnimate from "./designNoPerc/preInitAnimate.js";
 import PreInitVibrate from "./designNoPerc/preInitVibrate.js";
@@ -17,7 +17,7 @@ import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
  * keep in mind---
  * ---------- Only AniNumber children needs init. Other AniProps like AniString or AniBoolean does not need init.
  * ---------- The init just means getting the canvasWidth and canvasHeight property.
- * ---------- This measn that the init Prop can be of 2 flavours 1--which need canvasWidth and 2--needs canvasHeight. and we need seperate classes for them each of these classes during init will create their own concrete values
+ * ---------- This measn that the init Prop can be of 2 flavours 1--which need canvasWidth and 2--needs canvasHeight. and we need seperate classes for them each of these classes during init will create their own concrete values (7-july-2022 we dont need seperate class)
 * 
 * 2-july-2022 Purpose to collect preInit Data into various arrays for each AniNumber the child classes can then init these values once they have the canvasWidth and height
  * This class uses aniNumber internally and wrappes it such that all the pre-init data is saved and on init its converted into concrete values and actual filters are loaded.//ADAPTER PATTERN
@@ -57,8 +57,8 @@ this.preInitJumpBetweens = [];
 }
 /**
  * 4-july-2022
- * There is "set" method in AniProp and then in AniNumber but here in AniNoPerc we can not use "set" without init--so dont over-ride set here rather over-r-de it in AniNoXPerc and AniNoYPerc.
- * Also add a "setDefaultValue" since these props are deeply nested and providing a default value at creation may not be possible. 
+ * There is "set" method in AniProp and then in AniNumber but here in AniNoPerc we can not use "set" without init--so dont over-ride set here rather over-ride it in AniNoXPerc and AniNoYPerc.
+ * Also  "setInitValue" is req since these props are deeply nested and providing a default value at creation may not be possible. 
  */
 setInitValue(n :number){
 this._initValue = n;

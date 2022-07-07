@@ -11,7 +11,8 @@ this.canvasWidth =  null;
 
 init(usePercentages :boolean,canvasWidth :number){
 this.usePercentages = usePercentages;
-this.canvasWidth = canvasWidth;     
+this.canvasWidth = canvasWidth;   
+//-- the init values set by setInitValue is converted once  
 this.initSetInitValue();    
 this.initVibrate();
 this.initGoto();
@@ -22,10 +23,11 @@ this.initJumpBetween();
 }
 //---set method does a different task than other methods
 public set(n :number){
-if (this.canvasWidth == null){throw new Error("init error");}    
+if (this.canvasWidth == null){throw new Error("init error : set value can not be used at compile time for properties which need canvas width or height. For such values you should use setInitValue at compile time and use \"set\" only at run time when the protety has been initialized");}    
 if ( this.usePercentages == true){
     const _v = this.percToX( n);
-    this._XorY.set(_v);
+    //remember we are wrapping AniNumber and not inheret
+    this._XorY.set(_v); 
     } else {
         this._XorY.set(n);    
     }
