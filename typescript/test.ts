@@ -1,39 +1,32 @@
 import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
-
 let bil = new Bilza("bilza",70);
-bil.background.color.set("#151f59")
-// bil.resizeCanvas(500,200);
+// bil.resizeCanvas(800,300);
+bil.background.color.set("#330505");
+//-----------------------------------------
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 
-bil.insert.alwaysOn(cf.frameCounter());
+const counter = cf.frameCounter("#ff0000");
+counter.goto(0,90,0);
+bil.insert.alwaysOn(counter);
 
-const rect = cf.fillRect("#FF0000");
-rect.width.set(70);
-rect.height.set(70);
-
-rect.xAlign = rect.XAlignOpt.Mid;
-rect.yAlign = rect.YAlignOpt.Mid;
-
-rect.goto(0,50,50);
-
-rect.opacity.set(0);
-rect.opacity.animate(0,5,0,100);
-
-bil.insert.add(rect,0,15);
-//------------------------------
-
-// const txt = cf.rawText("Opacity Demo");
-const txt = cf.text("Opacity Demo");
-txt.width.set(50);
-txt.goto(0,50,50);
-
-txt.xAlign = txt.XAlignOpt.Mid;
-txt.yAlign = txt.YAlignOpt.Mid;
-
-txt.opacity.set(0);
-txt.opacity.animate(5,10,0,100);
-
-bil.insert.alwaysOn(txt);
-
+getDancingLine();
+getDancingLine();
+getDancingLine();
+getDancingLine();
+getDancingLine();
 const ui = new Ui(bil);
 bil.draw();
-//////////////////////////////////////
+//----------------------
+function getDancingLine(){
+const plain = cf.line(50,50,100,50);
+
+plain.color = "#96a4f2";
+plain.lineWidth.set(5);
+
+plain.x.random(0,20,0,100,10);
+plain.y.random(0,20,0,100,10);
+plain.x2.random(0,20,0,100,10);
+plain.y2.random(0,20,0,100,10);
+bil.insert.add(plain,0,20);
+}
