@@ -4,9 +4,12 @@ import Loc from "./70loc.js";
 export default class RotateObj extends Loc{
 // aniPreset :AniPreset;
 constructor (){
+    
     super();
+
 }
 
+////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 applyRotation(p :Pack){
     p.save();    
