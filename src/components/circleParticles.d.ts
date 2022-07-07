@@ -1,5 +1,5 @@
 import { Pack, BaseComponent } from "../bilza.js";
-export default class BgCircles extends BaseComponent {
+export default class CircleParticles extends BaseComponent {
     private skipXFrames;
     private xyArray;
     count: number;
@@ -10,4 +10,4 @@ export default class BgCircles extends BaseComponent {
     draw(p: Pack): boolean;
     private getRandomXY;
 }
-//# sourceMappingURL=bgCircles.d.ts.map
+//# sourceMappingURL=circleParticles.d.ts.map

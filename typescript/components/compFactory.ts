@@ -3,7 +3,7 @@ import Rect from "./rect.js";
 import FillRect from "./fillRect.js";
 import StaticGrid from "./staticGrid.js";
 import FrameCounter from "./frameCounter.js";
-import BgCircles from "./bgCircles.js";
+import CircleParticles from "./circleParticles.js";
 import Text from "./text.js";
 import Pic from "./pic.js";
 import Line from "./line.js";
@@ -47,8 +47,8 @@ static frameCounter(color :string="#000000"){
 let g = new FrameCounter(color);
 return g;    
 }
-static bgCircles(count :number= 10,color :string="#008000",delay :number=1){
-let g = new BgCircles(count,color,delay);
+static circleParticles(count :number= 10,color :string="#008000",framesToSkip :number=50){
+let g = new CircleParticles(count,color,framesToSkip);
 return g;    
 }
 

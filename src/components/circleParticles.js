@@ -1,7 +1,7 @@
 import { BaseComponent, DrawLayer } from "../bilza.js";
 import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
 import XY from "../BaseComponent/designBC/xy.js";
-export default class BgCircles extends BaseComponent {
+export default class CircleParticles extends BaseComponent {
     constructor(count = 10, color = "#008000", framesToSkip = 50) {
         super();
         this.skipXFrames = new SkipXFrames(framesToSkip);

@@ -3,7 +3,7 @@ import Rect from "./rect.js";
 import FillRect from "./fillRect.js";
 import StaticGrid from "./staticGrid.js";
 import FrameCounter from "./frameCounter.js";
-import BgCircles from "./bgCircles.js";
+import CircleParticles from "./circleParticles.js";
 import Text from "./text.js";
 import Pic from "./pic.js";
 import Line from "./line.js";
@@ -20,7 +20,7 @@ export default class CompFactory {
     static rect(color?: string): Rect;
     static fillRect(color?: string): FillRect;
     static frameCounter(color?: string): FrameCounter;
-    static bgCircles(count?: number, color?: string, delay?: number): BgCircles;
+    static circleParticles(count?: number, color?: string, framesToSkip?: number): CircleParticles;
     static plainText(content?: string, colorHax?: string): PlainText;
     static rawText(content?: string, colorHax?: string): RawText;
     static text(content?: string, colorHax?: string): Text;
