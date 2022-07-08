@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        * {
+    padding:0;
+    margin:0;
+}
+#parnetDiv {width:100%;padding :15px;background-color:aqua;}
+
+#canvasContainer {
+    text-align: center;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    margin-top:5px;
+    background-color: rgb(1, 1, 45);
+}
+</style>
+    <!-- <script src="./00misc/custom.css"></script> -->
+    <script src="./00misc/prism.js"></script>
+    <link rel="stylesheet" href="./00misc/prism.css">   
+
+    <title>Bilza Text Rotate</title>
+</head>
+<body>
+
+<div id="canvasContainer">
+<canvas id="bilza"></canvas>
+<!--controls table-->
+<table id="controls" style="width:100%">
+<tr>    
+    <td style="width:10%"><button style="width:100%" id="start">Play</button></td>
+    <td style="width:10%"><button style="width:100%" id="stop">Stop</button></td>
+
+    <td style="width:70%">
+        <input type="range" id="slider" style="width:100%" value="0" max="20">
+    </td>
+    <td style="width:10%"></td>
+</tr>
+</table>
+
+</div>
+
+<script  type="module" >
+import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+
+let bil = new Bilza("bilza",70);
+// bil.resizeCanvas(1000,350);
+//-----------------------------------------
+const g = cf.grid();
+bil.insert.alwaysOn(g);
+
+const counter = cf.frameCounter("#ff0000");
+counter.goto(0,80,0);
+bil.insert.alwaysOn(counter);
+
+const plain = cf.text("Text Demo","#008000");
+plain.goto(0,50,40);
+
+plain.width.set(10);
+plain.xAlign = plain.XAlignOpt.Left;
+// plain.maxHeight = 20;
+plain.width.animate(1,2,10,20);
+//---There is an error of 2 -- This is a rounding off error
+plain.rotation.animate(4,10,0,360 * 4 + 2);
+bil.insert.add(plain,0,30);
+const ui = new Ui(bil);
+bil.draw();
+
+</script>
+
+<pre class="language-javascript">
+<code>
+import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+
+let bil = new Bilza("bilza",70);
+// bil.resizeCanvas(1000,350);
+//-----------------------------------------
+const g = cf.grid();
+bil.insert.alwaysOn(g);
+
+const counter = cf.frameCounter("#ff0000");
+counter.goto(0,80,0);
+bil.insert.alwaysOn(counter);
+
+const plain = cf.text("Text Demo","#008000");
+plain.goto(0,50,40);
+
+plain.width.set(10);
+plain.xAlign = plain.XAlignOpt.Left;
+// plain.maxHeight = 20;
+plain.width.animate(1,2,10,20);
+//---There is an error of 2 -- This is a rounding off error
+plain.rotation.animate(4,10,0,360 * 4 + 2);
+bil.insert.add(plain,0,30);
+const ui = new Ui(bil);
+bil.draw();
+
+</code>
+</pre>
+
+</body>
+</html>
