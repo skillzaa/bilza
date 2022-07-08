@@ -1,30 +1,28 @@
-import { Pack, BaseComponent, FontFamily, AniNumber, Style } from "../bilza.js";
-export default class PlainText extends BaseComponent {
-    content: string;
-    fontFamily: FontFamily;
-    paddingLeft: AniNumber;
-    paddingRight: AniNumber;
-    paddingTop: AniNumber;
-    paddingBottom: AniNumber;
-    fontSize: AniNumber;
+import { Pack, AniNumber, AniColor } from "../bilza.js";
+import RawText from "./rawText.js";
+import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
+import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
+export default class Text extends RawText {
+    paddingTop: AniNoYPerc;
+    paddingBottom: AniNoYPerc;
+    paddingRight: AniNoXPerc;
+    paddingLeft: AniNoXPerc;
     border: AniNumber;
-    maxDisplayChars: number;
-    color: string;
-    colorBorder: string;
-    colorBg: string;
-    showContent: boolean;
-    showBg: boolean;
-    showTextShadow: boolean;
-    showBorderShadow: boolean;
-    showBgShadow: boolean;
+    maxHeight: number;
+    colorBackground: AniColor;
+    colorBorder: AniColor;
     constructor(content?: string, colorHax?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
-    heightInPix(): number;
     widthInPix(): number;
+    heightInPix(): number;
     draw(p: Pack): boolean;
-    drawBorder(p: Pack, style: Style, x: number, y: number, borderWidth: number, width: number, height: number): boolean;
-    drawBg(p: Pack, style: Style, x: number, y: number, width: number, height: number): boolean;
-    drawContent(p: Pack, style: Style, content: string, x: number, y: number, maxDisplayChars: number, paddingLeft: number, paddingTop: number, showContent: boolean): false | undefined;
+    drawBackground(p: Pack): void;
+    drawBorder(p: Pack): void;
+    drawContent(p: Pack): void;
+    private dynamicFontSize;
+    private reqWdInPixForFontSize;
+    private shrinkToFitMaxHeight;
+    private applyBoth;
 }
 //# sourceMappingURL=plainText.d.ts.map
