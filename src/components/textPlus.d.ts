@@ -2,7 +2,7 @@ import { Pack, AniNumber, AniColor } from "../bilza.js";
 import RawText from "./rawText.js";
 import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
-export default class PlainText extends RawText {
+export default class TextPlus extends RawText {
     paddingTop: AniNoYPerc;
     paddingBottom: AniNoYPerc;
     paddingRight: AniNoXPerc;
@@ -20,5 +20,9 @@ export default class PlainText extends RawText {
     drawBackground(p: Pack): void;
     drawBorder(p: Pack): void;
     drawContent(p: Pack): void;
+    private dynamicFontSize;
+    private reqWdInPixForFontSize;
+    private shrinkToFitMaxHeight;
+    private applyBoth;
 }
-//# sourceMappingURL=plainText.d.ts.map
+//# sourceMappingURL=textPlus.d.ts.map
