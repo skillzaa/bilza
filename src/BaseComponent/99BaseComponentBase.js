@@ -1,4 +1,4 @@
-import { DrawLayer, AniBoolean, AniNumber } from "../bilza.js";
+import { DrawLayer, AniBoolean, AniNumber, AniColor } from "../bilza.js";
 import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
@@ -17,6 +17,7 @@ export default class BaseComponentBase {
         this.rotation = new AniNumber(0);
         this.opacity = new AniNumber(100);
         this.height = new AniNumber(10);
+        this.color = new AniColor("#000000");
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();

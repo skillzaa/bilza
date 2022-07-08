@@ -8,7 +8,7 @@ public y2 :AniNoYPerc;
 
 lineWidth :AniNumber;
     
-color :string;
+
 constructor (x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
 super();
 //--we can not use set directly for props which need init
@@ -19,7 +19,7 @@ this.y.setInitValue(y1);
 this.x2 = new AniNoXPerc(x2);
 this.y2 = new AniNoYPerc(y2);
 this.lineWidth = new AniNumber(2);
-this.color = color;
+this.color.set(color);
 this.drawLayer = DrawLayer.MiddleGround;
 }
 
@@ -42,8 +42,8 @@ update(msDelta: number, p: Pack): boolean {
    return true;
 }
 draw(p:Pack):boolean{
-this.style.fillStyle = this.color;    
-this.style.strokeStyle = this.color; 
+this.style.fillStyle = this.color.value();    
+this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value(); 
 p.drawLine(
     this.x.value(),

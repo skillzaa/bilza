@@ -6,7 +6,7 @@ export default class Marker extends BaseComponent {
         this.yAlign = this.YAlignOpt.Mid;
         this.x.setInitValue(50);
         this.y.setInitValue(50);
-        this.color = color;
+        this.color.set(color);
     }
     widthInPix() {
         return 0;
@@ -15,8 +15,8 @@ export default class Marker extends BaseComponent {
         return 0;
     }
     draw(p) {
-        this.style.fillStyle = this.color;
-        this.style.strokeStyle = this.color;
+        this.style.fillStyle = this.color.value();
+        this.style.strokeStyle = this.color.value();
         p.drawFillRect(this.x.value(), this.y.value(), 4, 4, this.style);
         return true;
     }

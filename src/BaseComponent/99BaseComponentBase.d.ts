@@ -1,4 +1,4 @@
-import { DrawLayer, AniBoolean, AniNumber } from "../bilza.js";
+import { DrawLayer, AniBoolean, AniNumber, AniColor } from "../bilza.js";
 import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
@@ -18,6 +18,7 @@ export default class BaseComponentBase {
     visible: AniBoolean;
     rotation: AniNumber;
     opacity: AniNumber;
+    color: AniColor;
     width: AniNumber;
     height: AniNumber;
     selected: boolean;

@@ -4,7 +4,6 @@ export default class CircleParticles extends BaseComponent {
     private xyArray;
     count: number;
     size: number;
-    color: string;
     constructor(count?: number, color?: string, framesToSkip?: number);
     init(p: Pack): boolean;
     draw(p: Pack): boolean;

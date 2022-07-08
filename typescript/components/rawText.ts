@@ -17,6 +17,9 @@ constructor (content :string="",colorHax :string="#000000"){
 super();  
 
 this.content = new AniString(content); 
+//---for later use in Text
+this.width.set(20);
+this.content = new AniString(content); 
 
 this.fontSize = new AniNumber(50);
 this.maxDisplayChars = new AniNumber(200);

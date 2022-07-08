@@ -1,12 +1,11 @@
-import {Pack,BaseComponent,AniNumber} from "../bilza.js";
+import {Pack,BaseComponent,AniNumber,AniColor} from "../bilza.js";
 
 export default class Rect extends BaseComponent {
-public color :string;
 public lineWidth :AniNumber;
 
 constructor (color :string="#000000"){ 
     super();
-    this.color = color ; 
+    this.color.set(color); 
     this.lineWidth = new AniNumber(1);
     
 }
@@ -32,8 +31,8 @@ heightInPix(): number {
     }
 }
 draw(p:Pack):boolean{
-this.style.fillStyle = this.color;    
-this.style.strokeStyle = this.color; 
+this.style.fillStyle = this.color.value();    
+this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value();
 ''
    p.drawRect(

@@ -1,4 +1,4 @@
-import {DrawLayer,AniBoolean,AniNumber} from "../bilza.js";
+import {DrawLayer,AniBoolean,AniNumber,AniColor} from "../bilza.js";
 import Style from "../design/style.js";
 
 import {XAlignOpt} from "./designBC/xAlignOpt.js";
@@ -25,6 +25,7 @@ public version :string;
 public visible :AniBoolean;//
 public rotation :AniNumber;
 public opacity :AniNumber;
+public color :AniColor;
 public width :AniNumber; // no need to convert it into AniNoPers
 public height :AniNumber;// no need to convert it into AniNoPers
 //--this will come in handy during using the lib with gui and while making interactive tools.
@@ -54,6 +55,7 @@ constructor(){
     this.rotation = new AniNumber(0);
     this.opacity = new AniNumber(100);
     this.height = new AniNumber(10);
+    this.color = new AniColor("#000000");
     //--there is no this.endTime --since has this.endTime()
     //--must
     this.drawLayer = DrawLayer.MiddleGround;

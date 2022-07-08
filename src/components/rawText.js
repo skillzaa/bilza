@@ -3,6 +3,8 @@ export default class RawText extends BaseComponent {
     constructor(content = "", colorHax = "#000000") {
         super();
         this.content = new AniString(content);
+        this.width.set(20);
+        this.content = new AniString(content);
         this.fontSize = new AniNumber(50);
         this.maxDisplayChars = new AniNumber(200);
         this.fontFamily = FontFamily.Calibri;

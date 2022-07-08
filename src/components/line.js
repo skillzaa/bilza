@@ -9,7 +9,7 @@ export default class Line extends BaseComponent {
         this.x2 = new AniNoXPerc(x2);
         this.y2 = new AniNoYPerc(y2);
         this.lineWidth = new AniNumber(2);
-        this.color = color;
+        this.color.set(color);
         this.drawLayer = DrawLayer.MiddleGround;
     }
     init(p) {
@@ -29,8 +29,8 @@ export default class Line extends BaseComponent {
         return true;
     }
     draw(p) {
-        this.style.fillStyle = this.color;
-        this.style.strokeStyle = this.color;
+        this.style.fillStyle = this.color.value();
+        this.style.strokeStyle = this.color.value();
         this.style.lineWidth = this.lineWidth.value();
         p.drawLine(this.x.value(), this.y.value(), this.x2.value(), this.y2.value(), this.style);
         return true;

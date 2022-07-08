@@ -1,4 +1,5 @@
+import Icon from "../components/icon/icon.js";
 export default class Experimental {
-    constructor();
+    static Icon(code?: number, colorHax?: string): Icon;
 }
 //# sourceMappingURL=experimental.d.ts.map

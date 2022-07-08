@@ -2,7 +2,7 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class FillRect extends BaseComponent {
     constructor(color = "#000000") {
         super();
-        this.color = color;
+        this.color.set(color);
     }
     init(p) {
         super.init(p);
@@ -30,9 +30,9 @@ export default class FillRect extends BaseComponent {
     }
     draw(p) {
         this.applyRotation(p);
-        this.style.fillStyle = this.color;
+        this.style.fillStyle = this.color.value();
         this.style.globalAlpha = (this.opacity.value() / 100);
-        this.style.strokeStyle = this.color;
+        this.style.strokeStyle = this.color.value();
         p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
         this.removeRotation(p);
         this.style.globalAlpha = 1;

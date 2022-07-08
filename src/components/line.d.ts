@@ -5,7 +5,6 @@ export default class Line extends BaseComponent {
     x2: AniNoXPerc;
     y2: AniNoYPerc;
     lineWidth: AniNumber;
-    color: string;
     constructor(x1?: number, y1?: number, x2?: number, y2?: number, color?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;

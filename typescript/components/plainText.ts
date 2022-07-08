@@ -15,7 +15,7 @@ public maxHeight :number;    //required by all comps--no
 
 public colorBackground :AniColor;
 public colorBorder :AniColor;
-/////////////////////////////////////////
+///////////////////////////////////////// 
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);
 

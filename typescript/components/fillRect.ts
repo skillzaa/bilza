@@ -4,10 +4,9 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 export default class FillRect extends BaseComponent {
   
-color :string;
 constructor (color :string="#000000"){ 
 super();
-this.color = color ; 
+this.color.set(color) ; 
 }
 init(p: Pack): boolean {
 super.init(p);
@@ -36,11 +35,11 @@ draw(p:Pack):boolean{
 
 this.applyRotation(p);
 //--------------
-this.style.fillStyle = this.color;    
+this.style.fillStyle = this.color.value();    
 this.style.globalAlpha = (this.opacity.value()/100);
 // console.log("this.opacity.value()/100",this.opacity.value()/100);
 // p.applyOpacity(this.opacity.value());
-this.style.strokeStyle = this.color; 
+this.style.strokeStyle = this.color.value(); 
 // console.log("this.xRotateAligned()",this.xRotateAligned());
 // console.log("this.xAligned()",this.xAligned());
 //---------------------------------------

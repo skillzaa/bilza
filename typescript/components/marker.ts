@@ -3,14 +3,14 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 export default class Marker extends BaseComponent {
   
-color :string;
+// color :string;
 constructor (color :string="#ffff00"){ 
 super();
 this.xAlign = this.XAlignOpt.Mid;
 this.yAlign = this.YAlignOpt.Mid;
 this.x.setInitValue(50);
 this.y.setInitValue(50);
-this.color = color ; 
+this.color.set(color) ; 
 }
 // init(p: Pack): boolean {
 // super.init(p);
@@ -29,8 +29,8 @@ heightInPix(): number {
 }
 draw(p:Pack):boolean{
 
-this.style.fillStyle = this.color;    
-this.style.strokeStyle = this.color; 
+this.style.fillStyle = this.color.value();    
+this.style.strokeStyle = this.color.value(); 
    p.drawFillRect(
      this.x.value(),
      this.y.value(),

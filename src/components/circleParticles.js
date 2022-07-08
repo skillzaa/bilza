@@ -8,7 +8,7 @@ export default class CircleParticles extends BaseComponent {
         this.xyArray = [];
         this.drawLayer = DrawLayer.MiddleGround;
         this.count = count;
-        this.color = color;
+        this.color.set(color);
         this.size = 10;
     }
     init(p) {
@@ -23,9 +23,9 @@ export default class CircleParticles extends BaseComponent {
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.style.fillStyle = this.color;
+        this.style.fillStyle = this.color.value();
         this.style.globalAlpha = (this.opacity.value() / 100);
-        this.style.strokeStyle = this.color;
+        this.style.strokeStyle = this.color.value();
         for (let i = 0; i < this.count; i++) {
             p.drawCircle(this.xyArray[i].x, this.xyArray[i].y, this.size, true, 0, (2 * Math.PI), this.style);
         }

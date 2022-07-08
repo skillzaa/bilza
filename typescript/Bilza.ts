@@ -18,10 +18,11 @@ import AniBoolean from "./animations/aniBoolean/aniBoolean.js";
 export default Bilza;
 import AniColor from "./animations/aniColor/aniColor.js";
 import AniString from "./animations/aniString/aniString.js";
-
+import Experimental from "./experimental/experimental.js";
 export {
 Pack,
 DrawLayer,
+Experimental,
 AniNumber,
 AniString,
 AniBoolean,

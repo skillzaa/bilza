@@ -6,7 +6,7 @@ const counter = cf.frameCounter("#ff0000");
 counter.goto(0, 90, 0);
 bil.insert.alwaysOn(counter);
 const plain = cf.line();
-plain.color = "#008000";
+plain.color.set("#008000");
 plain.y2.animate(0, 10, 10, 100);
 plain.lineWidth.animate(0, 10, 0, 100);
 bil.insert.add(plain, 0, 15);

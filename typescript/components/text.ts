@@ -1,5 +1,5 @@
 import { Pack ,AniNumber,AniColor} from "../bilza.js";
-import PlainText from "./plainText.js";
+import PlainText from "./plainText.js"; 
 //  import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 //  import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 
