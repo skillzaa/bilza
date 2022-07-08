@@ -81,7 +81,7 @@ if (this.charsWidth == null){throw new Error("init error");}
 const textWdith = this.charsWidth(this.content.substring(0,this.maxDisplayChars),this.fontSize.value(),this.fontFamily)
 return textWdith + (this.paddingLeft.value() + this.paddingRight.value()); 
 }
-  
+   
 draw(p:Pack):boolean{
 this.style.fillStyle = this.colorBg;    
 this.style.strokeStyle = this.colorBg;

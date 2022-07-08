@@ -1,5 +1,4 @@
-import { BaseComponent, DrawLayer, FontFamily, AniNumber } from "../bilza.js";
-import AniString from "../animations/aniString/aniString.js";
+import { BaseComponent, DrawLayer, FontFamily, AniNumber, AniColor, AniString } from "../bilza.js";
 export default class RawText extends BaseComponent {
     constructor(content = "", colorHax = "#000000") {
         super();
@@ -7,13 +6,14 @@ export default class RawText extends BaseComponent {
         this.fontSize = new AniNumber(50);
         this.maxDisplayChars = new AniNumber(200);
         this.fontFamily = FontFamily.Calibri;
-        this.color = colorHax;
+        this.color = new AniColor(colorHax);
         this.drawLayer = DrawLayer.MiddleGround;
     }
     update(msDelta, p) {
         super.update(msDelta, p);
         this.fontSize.update(msDelta);
         this.content.update(msDelta);
+        this.color.update(msDelta);
         this.maxDisplayChars.update(msDelta);
         return true;
     }
@@ -34,8 +34,8 @@ export default class RawText extends BaseComponent {
     }
     draw(p) {
         this.style.globalAlpha = (this.opacity.value() / 100);
-        this.style.fillStyle = this.color;
-        this.style.strokeStyle = this.color;
+        this.style.fillStyle = this.color.value();
+        this.style.strokeStyle = this.color.value();
         this.style.fontSize = this.fontSize.value();
         this.style.fontFamily = this.fontFamily;
         this.applyRotation(p);

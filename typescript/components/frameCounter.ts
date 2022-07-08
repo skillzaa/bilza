@@ -10,11 +10,11 @@ constructor (color :string="#008000"){
 init(p: Pack): boolean {
     super.init(p);
 return true;
-
 }
+
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
-    this.content = "sec:" +(Math.ceil(msDelta/1000)).toString();
+    this.content.set("sec:" +(Math.ceil(msDelta/1000)).toString());
     return true;
 }
 
