@@ -6,5 +6,6 @@ export default class AniNumber extends AniProp<number> {
     jumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, everyXFrame?: number): void;
     random(startTimeSec: number, endTimeSec: number, min?: number, max?: number, everyXFrame?: number): void;
     goto(startTimeSec: number, theValue?: number): void;
+    oscillate(startTimeSec: number, endTimeSec: number, startValue?: number, endValue?: number, speed?: number): void;
 }
 //# sourceMappingURL=aniNumber.d.ts.map

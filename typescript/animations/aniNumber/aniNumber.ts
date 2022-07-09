@@ -6,7 +6,7 @@ import JumpBetween from "./filters/jumpBetween.js";
 import SetOnce from "./filters/setOnce_goto.js";
 import RandomNo from "./filters/randomNo.js";
 import ConstantNo from "./filters/constantNo.js";
- 
+import Oscillate from "./filters/oscillate.js";
 /**
  * 4-july-2022 AniNumber is the <number> imple of AniProp
  * It provides an interface for All the number Filters when ever we add any new Filter. This is from where its interface is presented.
@@ -43,6 +43,10 @@ this.filters.push(v);
 }
 public goto(startTimeSec :number,theValue :number=0){
 const v = new SetOnce(startTimeSec,theValue);
+this.filters.push(v);
+}
+public oscillate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
+const v = new Oscillate(startTimeSec,endTimeSec,startValue, endValue,speed);
 this.filters.push(v);
 }
 

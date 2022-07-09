@@ -6,6 +6,7 @@ import JumpBetween from "./filters/jumpBetween.js";
 import SetOnce from "./filters/setOnce_goto.js";
 import RandomNo from "./filters/randomNo.js";
 import ConstantNo from "./filters/constantNo.js";
+import Oscillate from "./filters/oscillate.js";
 export default class AniNumber extends AniProp {
     constructor(defaultValue) {
         super(defaultValue);
@@ -38,6 +39,10 @@ export default class AniNumber extends AniProp {
     }
     goto(startTimeSec, theValue = 0) {
         const v = new SetOnce(startTimeSec, theValue);
+        this.filters.push(v);
+    }
+    oscillate(startTimeSec, endTimeSec, startValue = 1, endValue = 10, speed = 1) {
+        const v = new Oscillate(startTimeSec, endTimeSec, startValue, endValue, speed);
         this.filters.push(v);
     }
 }
