@@ -48,9 +48,10 @@ To be an easy to use library for creating
 If you want to be in touch or send me a bug report please use github issues.
 
 -----
-###### 7-july-2022   (version 0.0.20) //release candidate for 0.1
+###### 9-july-2022   (version 0.0.22) //Getting close to 0.1.0
+###### 7-july-2022   (version 0.0.21) //also ver 0.0.20
 ###### 2-july-2022   (version 0.0.19) //release candidate for 0.1
-###### 21-june-2022   (version 0.0.17) //also ver 18
+###### 21-june-2022   (version 0.0.17) //also ver 0.0.18
 ###### 06-jun-2022   (version 0.0.16)
 ###### 03-jun-2022   (version 0.0.15)
 ###### 09-May-2022   (version 0.0.14)
