@@ -1,4 +1,4 @@
-import { Pack, AniNumber, AniColor } from "../bilza.js";
+import { Pack, AniNumber, AniColor, AniBoolean } from "../bilza.js";
 import RawText from "./rawText.js";
 import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
@@ -11,6 +11,7 @@ export default class PlainText extends RawText {
     maxHeight: number;
     colorBackground: AniColor;
     colorBorder: AniColor;
+    showBackground: AniBoolean;
     constructor(content?: string, colorHax?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;

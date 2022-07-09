@@ -1,24 +1,22 @@
 import { Pack ,AniNumber,AniColor} from "../bilza.js";
 import PlainText from "./plainText.js"; 
-//  import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
-//  import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 
 export default class Text extends PlainText {
 
 public fitTextToWidth :boolean;    
-public maxHeight :number;    //required by all comps--no   
+public maxHeight :number;       
 
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);
 this.fitTextToWidth = true;
-this.maxHeight = 500;//max Height is 10% of canvas
+this.maxHeight = 500; // is this pix or percentage?
 }
 
 update(msDelta: number, p: Pack): boolean {
 this.dynamicFontSize(p);    
 super.update(msDelta,p);//
-    return true;
+return true;
 }
 
 ///////////////////////////////////////////
@@ -41,15 +39,9 @@ private dynamicFontSize(p :Pack):number | null{
      } 
  }//for end  
  return null; 
- }//dynamic font size
-// private reqWdInPixForFontSize(p :Pack){
-// //---The this.width = width     
-// const r =  (p.canvasWidth() /100 * this.width.value());
-// //--we removed padding here
-// // const s = r - (this.paddingLeft.value() + this.paddingRight.value());
-//     return s;
-// }
-    
+}//dynamic font size
+
+
 private shrinkToFitMaxHeight(p :Pack):boolean{
 if (this.charsWidth==null){throw new Error("init error");
 }    

@@ -10,7 +10,7 @@ export default class Style {
     shadowOffsetX: number;
     shadowOffsetY: number;
     shadowBlur: number;
-    globalAlpha: number;
+    opacity: number;
     lineCap: LineCapStyle;
     lineDash: number[];
     constructor();

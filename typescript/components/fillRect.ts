@@ -1,16 +1,16 @@
-// import {Pack,BaseComponent,AniNumber} from "../bilza.js";
 import Pack from "../pack/pack.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 export default class FillRect extends BaseComponent {
   
 constructor (color :string="#000000"){ 
-super();
-this.color.set(color) ; 
+    super();
+    this.color.set(color) ; 
 }
+
 init(p: Pack): boolean {
-super.init(p);
-return true;
+    super.init(p);
+    return true;
 }
 
 update(msDelta: number, p: Pack): boolean {
@@ -36,7 +36,7 @@ draw(p:Pack):boolean{
 this.applyRotation(p);
 //--------------
 this.style.fillStyle = this.color.value();    
-this.style.globalAlpha = (this.opacity.value()/100);
+this.style.opacity = this.opacity.value();
 // console.log("this.opacity.value()/100",this.opacity.value()/100);
 // p.applyOpacity(this.opacity.value());
 this.style.strokeStyle = this.color.value(); 
@@ -53,7 +53,7 @@ this.style.strokeStyle = this.color.value();
     );
 //----------------------------
 this.removeRotation(p);
-this.style.globalAlpha = 1;
+this.style.opacity = 1;
 //----------------------------
 return true;
 }

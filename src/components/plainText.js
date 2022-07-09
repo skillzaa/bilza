@@ -1,4 +1,4 @@
-import { AniNumber, AniColor } from "../bilza.js";
+import { AniNumber, AniColor, AniBoolean } from "../bilza.js";
 import RawText from "./rawText.js";
 import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
 import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
@@ -13,6 +13,7 @@ export default class PlainText extends RawText {
         this.maxHeight = 500;
         this.colorBackground = new AniColor("#ffffff");
         this.colorBorder = new AniColor("#000000");
+        this.showBackground = new AniBoolean(false);
     }
     init(p) {
         super.init(p);
@@ -66,12 +67,16 @@ export default class PlainText extends RawText {
         return Math.floor(pt + pb + txt + borderX2);
     }
     draw(p) {
-        this.style.globalAlpha = (this.opacity.value() / 100);
+        this.style.opacity = (this.opacity.value());
         this.style.fontSize = this.fontSize.value();
         this.style.fontFamily = this.fontFamily;
         this.applyRotation(p);
-        this.drawBackground(p);
-        this.drawBorder(p);
+        if (this.showBackground.value() == true) {
+            this.drawBackground(p);
+        }
+        if (this.border.value() > 0) {
+            this.drawBorder(p);
+        }
         this.drawContent(p);
         this.removeRotation(p);
         return true;

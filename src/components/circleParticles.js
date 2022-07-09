@@ -24,7 +24,7 @@ export default class CircleParticles extends BaseComponent {
             throw new Error("init error");
         }
         this.style.fillStyle = this.color.value();
-        this.style.globalAlpha = (this.opacity.value() / 100);
+        this.style.opacity = (this.opacity.value());
         this.style.strokeStyle = this.color.value();
         for (let i = 0; i < this.count; i++) {
             p.drawCircle(this.xyArray[i].x, this.xyArray[i].y, this.size, true, 0, (2 * Math.PI), this.style);

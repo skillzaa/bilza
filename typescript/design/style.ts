@@ -12,7 +12,7 @@ shadowColor:string ;
 shadowOffsetX:number ;
 shadowOffsetY:number ;
 shadowBlur :number ;
-globalAlpha :number ;
+opacity :number ;
 lineCap : LineCapStyle ;
 lineDash :number[];
 
@@ -30,7 +30,7 @@ this.shadowColor = "black";
 this.shadowOffsetX = 0;
 this.shadowOffsetY = 0;
 this.shadowBlur = 0;
-this.globalAlpha = 1;
+this.opacity = 1;
 this.lineCap = LineCapStyle.Round;
 this.lineDash = [];
 } 
@@ -42,8 +42,8 @@ merge(incom :Style){//---12 prop excl msStart
         this.lineCap = incom.lineCap;
     }
 //--2    
-    if (incom.globalAlpha !== null){
-        this.globalAlpha = incom.globalAlpha;
+    if (incom.opacity !== null){
+        this.opacity = incom.opacity;
     }
 //--3    
     if (incom.shadowBlur !== null){

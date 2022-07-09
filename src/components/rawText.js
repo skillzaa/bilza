@@ -35,7 +35,7 @@ export default class RawText extends BaseComponent {
         return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.fontSize.value(), this.fontFamily);
     }
     draw(p) {
-        this.style.globalAlpha = (this.opacity.value() / 100);
+        this.style.opacity = (this.opacity.value());
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
         this.style.fontSize = this.fontSize.value();

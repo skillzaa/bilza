@@ -1,4 +1,4 @@
-import { Pack ,AniNumber,AniColor} from "../bilza.js";
+import { Pack ,AniNumber,AniColor,AniBoolean} from "../bilza.js";
 import RawText from "./rawText.js";
  import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
  import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
@@ -15,6 +15,8 @@ public maxHeight :number;    //required by all comps--no
 
 public colorBackground :AniColor;
 public colorBorder :AniColor;
+
+public showBackground :AniBoolean;
 ///////////////////////////////////////// 
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);
@@ -31,6 +33,7 @@ this.maxHeight = 500;//max Height is 10% of canvas
 
 this.colorBackground = new AniColor("#ffffff");
 this.colorBorder = new AniColor("#000000");
+this.showBackground = new AniBoolean(false);
 }
 init(p: Pack): boolean {
 super.init(p);    
@@ -42,9 +45,6 @@ this.paddingRight.init(this.usePercentages,this.canvasWidth);
 this.paddingTop.init(this.usePercentages,this.canvasWidth);
 this.paddingBottom.init(this.usePercentages,this.canvasWidth);
 
-// console.log("width",this.widthInPix());
-// console.log("height",this.heightInPix());
-
 // this.applyBoth(p);
 return true;       
 }
@@ -55,11 +55,6 @@ update(msDelta: number, p: Pack): boolean {
     this.paddingRight.update(msDelta);
     this.paddingTop.update(msDelta);
     this.paddingBottom.update(msDelta);
-
-    // console.log("paddingLeft",this.paddingLeft.value() );
-    // console.log("paddingRight",this.paddingRight.value() );
-    // console.log("paddingTop",this.paddingTop.value() );
-    // console.log("paddingBottom",this.paddingBottom.value() );
 
     // this.applyBoth(p);
     super.update(msDelta,p);//--keep it down here so that Loc is updated late;
@@ -98,14 +93,18 @@ return Math.floor( pt + pb + txt + borderX2);
 }
 
 draw(p:Pack):boolean{
-this.style.globalAlpha = (this.opacity.value()/100);
-
+    this.style.opacity = (this.opacity.value());
+    
 this.style.fontSize = this.fontSize.value();
 this.style.fontFamily = this.fontFamily;
 
 this.applyRotation(p);
-this.drawBackground(p);
-this.drawBorder(p);
+    if (this.showBackground.value() == true ){
+        this.drawBackground(p);
+    }
+    if (this.border.value() > 0 ){
+        this.drawBorder(p);
+    }
 this.drawContent(p);
 this.removeRotation(p);
 

@@ -27,8 +27,7 @@ draw(p:Pack):boolean{
 
 //--------------
 this.style.fillStyle = this.color.value();    
-this.style.globalAlpha = (this.opacity.value()/100);
-// console.log("this.opacity.value()/100",this.opacity.value()/100);
+this.style.opacity = (this.opacity.value());
 // p.applyOpacity(this.opacity.value());
 this.style.strokeStyle = this.color.value(); 
 //---------------------------------------

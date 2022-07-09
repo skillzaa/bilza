@@ -196,8 +196,8 @@ public commitCtxData(incomCtx:Style){
     if (incomCtx.lineCap !== null){
         this.ctx.lineCap = "round";
     }
-    if (incomCtx.globalAlpha !== null){
-        this.ctx.globalAlpha = incomCtx.globalAlpha;
+    if (incomCtx.opacity !== null){
+        this.ctx.globalAlpha = incomCtx.opacity/100;
     }
     if (incomCtx.shadowBlur !== null){
         this.ctx.shadowBlur = incomCtx.shadowBlur;

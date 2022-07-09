@@ -35,7 +35,7 @@ if (this.canvasWidth == null || this.canvasHeight == null){
     
 }    
         this.style.fillStyle = this.color.value();
-        this.style.globalAlpha = (this.opacity.value()/100);
+        this.style.opacity = (this.opacity.value());
         this.style.strokeStyle = this.color.value();
         for (let i = 0; i < this.count ; i++) {
             p.drawCircle(

@@ -31,11 +31,11 @@ export default class FillRect extends BaseComponent {
     draw(p) {
         this.applyRotation(p);
         this.style.fillStyle = this.color.value();
-        this.style.globalAlpha = (this.opacity.value() / 100);
+        this.style.opacity = this.opacity.value();
         this.style.strokeStyle = this.color.value();
         p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
         this.removeRotation(p);
-        this.style.globalAlpha = 1;
+        this.style.opacity = 1;
         return true;
     }
 }

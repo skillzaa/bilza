@@ -11,7 +11,7 @@ export default class Style {
         this.shadowOffsetX = 0;
         this.shadowOffsetY = 0;
         this.shadowBlur = 0;
-        this.globalAlpha = 1;
+        this.opacity = 1;
         this.lineCap = LineCapStyle.Round;
         this.lineDash = [];
     }
@@ -19,8 +19,8 @@ export default class Style {
         if (incom.lineCap !== null) {
             this.lineCap = incom.lineCap;
         }
-        if (incom.globalAlpha !== null) {
-            this.globalAlpha = incom.globalAlpha;
+        if (incom.opacity !== null) {
+            this.opacity = incom.opacity;
         }
         if (incom.shadowBlur !== null) {
             this.shadowBlur = incom.shadowBlur;
