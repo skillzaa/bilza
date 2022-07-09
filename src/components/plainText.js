@@ -22,8 +22,8 @@ export default class PlainText extends RawText {
         }
         this.paddingLeft.init(this.usePercentages, this.canvasWidth);
         this.paddingRight.init(this.usePercentages, this.canvasWidth);
-        this.paddingTop.init(this.usePercentages, this.canvasWidth);
-        this.paddingBottom.init(this.usePercentages, this.canvasWidth);
+        this.paddingTop.init(this.usePercentages, this.canvasHeight);
+        this.paddingBottom.init(this.usePercentages, this.canvasHeight);
         return true;
     }
     update(msDelta, p) {

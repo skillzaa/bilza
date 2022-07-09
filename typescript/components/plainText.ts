@@ -42,8 +42,9 @@ if (this.canvasWidth == null || this.canvasHeight == null){
 }
 this.paddingLeft.init(this.usePercentages,this.canvasWidth);
 this.paddingRight.init(this.usePercentages,this.canvasWidth);
-this.paddingTop.init(this.usePercentages,this.canvasWidth);
-this.paddingBottom.init(this.usePercentages,this.canvasWidth);
+//--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
+this.paddingTop.init(this.usePercentages,this.canvasHeight);
+this.paddingBottom.init(this.usePercentages,this.canvasHeight);
 
 // this.applyBoth(p);
 return true;       
