@@ -50,8 +50,18 @@ import Bilza, { Ui, CompFactory as cf } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
 // bil.resizeCanvas(800, 400);
 bil.background.color.set("#031363");
-const t = cf.text("Eid Mubarak", "#ffff00");
-t.width.set(30);
+//-----------------------------------------
+const bg = cf.circleParticles(10,"yellow",100);
+bg.width.set(100);
+bg.height.set(100);
+bg.size = 40;
+bg.opacity.set(50);
+bg.color.random(0,60,30);
+bil.insert.alwaysOn(bg);
+
+//-----------------------------------------
+const t = cf.text("Eid Mubarak From Bilal Tariq", "#ffff00");
+t.width.set(40);
 t.paddingLeft.setInitValue(5);
 t.paddingRight.setInitValue(5);
 t.paddingTop.setInitValue(10);
@@ -69,7 +79,7 @@ t.rotation.set(-25);
 t.rotation.oscillate(1, 60, -25, 25, 0.25);
 bil.insert.add(t, 0, 60);
 const ui = new Ui(bil);
-bil.draw();
+bil.start();
 </script>
 </body>
 </html>
