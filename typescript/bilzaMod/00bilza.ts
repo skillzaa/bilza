@@ -45,7 +45,7 @@ if (this.soundTrack !== null){
     this.soundTrackElement = new Audio(this.soundTrack);
 }
 //---Background
-if (this.set.loadDefaultBackground == true){
+if (this.set.loadSystemBackground == true){
     this.insert.alwaysOn(this.background);
 }        
 //--now init    
@@ -84,6 +84,7 @@ this.pack.clearCanvas();
 //--drawBackground
 // this.pack.drawBackground(this.background.color.value());
 //--Draw All three layers. In future if i need to add more layers OR if I want the user to be able to insert layers then this is the starting point.
+this.comps.drawByDrawLayer(msDelta,DrawLayer.SystemBackGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.BackGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.MiddleGround,this.pack);
 this.comps.drawByDrawLayer(msDelta,DrawLayer.ForeGround,this.pack);
@@ -108,13 +109,13 @@ start():boolean{
     if (this.soundTrackElement !== null){
         this.soundTrackElement.play();
     }
-
+ 
     if (this.stopWatch.isRunning() == true){return false;}
         this.stop();
         this.init();
         // this.pack.clearCanvas(); 
         this.stopWatch.start();
-        this.stopWatch.runningStartTimeTS = new Date().getTime();
+        // this.stopWatch.runningStartTimeTS = new Date().getTime();
 
         // if (this.stopWatch.shouldStop() == false){
             window.requestAnimationFrame(this.drawForStart.bind(this));

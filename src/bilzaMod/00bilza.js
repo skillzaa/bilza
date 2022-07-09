@@ -22,7 +22,7 @@ export default class Bilza {
         if (this.soundTrack !== null) {
             this.soundTrackElement = new Audio(this.soundTrack);
         }
-        if (this.set.loadDefaultBackground == true) {
+        if (this.set.loadSystemBackground == true) {
             this.insert.alwaysOn(this.background);
         }
         this.comps.init(this.pack);
@@ -51,6 +51,7 @@ export default class Bilza {
         if (this.set.clearCanvasBwFrames == true) {
             this.pack.clearCanvas();
         }
+        this.comps.drawByDrawLayer(msDelta, DrawLayer.SystemBackGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.BackGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.MiddleGround, this.pack);
         this.comps.drawByDrawLayer(msDelta, DrawLayer.ForeGround, this.pack);
@@ -76,7 +77,6 @@ export default class Bilza {
         this.stop();
         this.init();
         this.stopWatch.start();
-        this.stopWatch.runningStartTimeTS = new Date().getTime();
         window.requestAnimationFrame(this.drawForStart.bind(this));
         return true;
     }

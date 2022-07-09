@@ -41,7 +41,7 @@ this.showVerticalLines = true;
 this.lineWidthVertical = 1;
 this.lineWidthHorizontal = 1;
 this.lineDash = [];
-this.drawLayer = DrawLayer.MiddleGround;   
+this.drawLayer = DrawLayer.BackGround;   
 }    
 
 draw(p:Pack): boolean {

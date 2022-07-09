@@ -1,8 +1,6 @@
 export default class StopWatch {
     constructor() {
         this.runningStartTimeTS = null;
-        this.interval = null;
-        this.msPerFrame = 20;
         this._stopFlag = true;
     }
     isRunning() {
@@ -23,6 +21,7 @@ export default class StopWatch {
     }
     start() {
         this._stopFlag = false;
+        this.runningStartTimeTS = new Date().getTime();
         return true;
     }
     getMsDelta() {

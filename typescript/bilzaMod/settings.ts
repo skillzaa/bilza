@@ -3,10 +3,10 @@
 
 export default class Settings {
     clearCanvasBwFrames :boolean;
-    loadDefaultBackground :boolean;
+    loadSystemBackground :boolean;
 constructor(){
 this.clearCanvasBwFrames  = true;
-this.loadDefaultBackground  = true;
+this.loadSystemBackground  = true;
 }
 
 }//settings

@@ -49,7 +49,7 @@
 import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 let bil = new Bilza("bilza",70);
 // bil.resizeCanvas(800,300);
-bil.background.color = "#031363"
+bil.background.color.set("#031363");
 //-----------------------------------------
 //--Grid template redcross
 const g = cf.grid();
@@ -70,7 +70,6 @@ bil.insert.add(getAnimatedHdg("Fourth Heading",20,24),0,vidDuration);
 const ui = new Ui(bil);
 bil.draw();
 
-//////////////////////////////////////////////////////////
 function getAnimatedHdg(content="Demo Text",startTime=2,returnTime = 10,topY=5){
 const Ystart = 100;    
 const cmp = cf.text(content,"#ff0000");
@@ -100,7 +99,7 @@ return cmp;
 import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 let bil = new Bilza("bilza",70);
 // bil.resizeCanvas(800,300);
-bil.background.color = "#031363"
+bil.background.color.set("#031363");
 //-----------------------------------------
 //--Grid template redcross
 const g = cf.grid();
@@ -121,7 +120,6 @@ bil.insert.add(getAnimatedHdg("Fourth Heading",20,24),0,vidDuration);
 const ui = new Ui(bil);
 bil.draw();
 
-//////////////////////////////////////////////////////////
 function getAnimatedHdg(content="Demo Text",startTime=2,returnTime = 10,topY=5){
 const Ystart = 100;    
 const cmp = cf.text(content,"#ff0000");
@@ -143,7 +141,6 @@ cmp.y.animate(returnTime,returnTime + 1,topY,Ystart);
 cmp.width.animate(returnTime,returnTime + 1,50,0);
 return cmp; 
 }
-
 </code>
 </pre>
 

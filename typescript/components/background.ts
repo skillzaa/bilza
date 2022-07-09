@@ -7,12 +7,11 @@ import AniColor from "../animations/aniColor/aniColor.js";
 
 export default class Background extends BaseComponent {
   
-public color:AniColor;
 
 constructor (color :string="#efeee3"){ 
 super();
-this.drawLayer = DrawLayer.BackGround;
-this.color = new AniColor(color); 
+this.drawLayer = DrawLayer.SystemBackGround;
+this.color.set(color); 
 }
 init(p: Pack): boolean {
 super.init(p);

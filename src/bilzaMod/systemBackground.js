@@ -1,9 +1,7 @@
 import { DrawLayer } from "../design/drawLayer.js";
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
-export default class Background extends BaseComponent {
+export default class SystemBackground {
     constructor(color = "#efeee3") {
-        super();
-        this.drawLayer = DrawLayer.SystemBackGround;
+        this.drawLayer = DrawLayer.BackGround;
         this.color.set(color);
     }
     init(p) {

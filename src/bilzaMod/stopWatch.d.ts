@@ -1,8 +1,6 @@
 export default class StopWatch {
-    private interval;
     private _stopFlag;
-    private msPerFrame;
-    runningStartTimeTS: number | null;
+    private runningStartTimeTS;
     constructor();
     isRunning(): boolean;
     shouldStop(): boolean;

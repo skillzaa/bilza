@@ -30,7 +30,7 @@ this.lineWidthHorizontal = new AniNumber(1);
 
 this.colorHorizontalLines = color;
 this.colorVerticalLines = color;
-this.drawLayer = DrawLayer.MiddleGround;
+this.drawLayer = DrawLayer.BackGround;
 
 this.fontSize = 8;
 
