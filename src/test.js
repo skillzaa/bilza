@@ -2,7 +2,7 @@ import Bilza, { Ui, CompFactory as cf } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
 bil.resizeCanvas(800, 400);
 bil.background.color.set("#031363");
-const t = cf.text("Oscillate Demo", "#ffff00");
+const t = cf.text("Eid Mubarak", "#ffff00");
 t.width.set(30);
 t.paddingLeft.setInitValue(5);
 t.paddingRight.setInitValue(5);
