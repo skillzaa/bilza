@@ -4,6 +4,19 @@ export default class Insert {
         this.duration = duration;
         this.charsWidth = charsWidth;
     }
+    insertScene(scene) {
+        const comps = scene.getComps();
+        for (let i = 0; i < comps.length; i++) {
+            const comp = comps[i];
+            if (comp.getStartTime(false) < scene.startTime) {
+                throw new Error("The start time of a contained component in a scene can not be smaller than the start time of the scene");
+            }
+            if (comp.getEndTime(false) > (scene.getEndTime())) {
+                throw new Error("The end time of a contained component in a scene can not be larger than the end time of the scene");
+            }
+            this.add(comp, comp.getStartTime(false), comp.duration);
+        }
+    }
     append(comp, duration) {
         comp.charsWidth = this.charsWidth;
         if (duration < 1 || (typeof duration == "undefined")) {

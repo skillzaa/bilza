@@ -1,40 +1,21 @@
 import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
-let bil = new Bilza("bilza",70);
-bil.resizeCanvas(800,400);
-bil.background.color.set("#031363");
-//-----------------------------------------
-const bg = cf.circleParticles(10,"yellow",100);
-bg.width.set(100);
-bg.height.set(100);
-bg.size = 40;
-bg.opacity.set(50);
-bg.color.random(0,60,30);
-bil.insert.alwaysOn(bg);
-//-------------------------------------------
-const t = cf.text("Eid Mubarak", "#ffff00");
+import MsgSwingRndCircles from "./scene/msgSwingRndCircles.js";
 
-t.width.set(30);
-t.paddingLeft.setInitValue(5);
-t.paddingRight.setInitValue(5);
-t.paddingTop.setInitValue(10);
-t.paddingBottom.setInitValue(10);
-//..........................
-t.showBackground.set(true);
-t.colorBackground.set("#000000")
-t.border.set(20);
-t.colorBorder.set("red");
-//--------------------------------
-t.xAlign = t.XAlignOpt.Mid;
-t.yAlign = t.YAlignOpt.Mid;
-t.xRotate = t.XAlignOpt.Mid;
-t.yRotate = t.YAlignOpt.Top;
-t.goto(0,50,50);
-//--------------------------------
-//--------------------------------
-t.rotation.set(-25);
-t.rotation.oscillate(1,60,-25,25,0.25);
+let bil = new Bilza("bilza",70);
+// bil.set.loadSystemBackground = false;
+// bil.background.color.set("green");
+//-----------------------------------------
+const counter = cf.grid();
+// counter.goto(0,80,0);
+bil.insert.alwaysOn(counter);
+
+const txt01 = cf.text("Before Append");
+txt01.color.set("red");
+bil.insert.add(txt01,0,5);
+//-----------------------------------------
+const scene01 = new  MsgSwingRndCircles(bil.len(false),30);
+bil.insert.insertScene(scene01);
 //--------------------------------------------
-bil.insert.add(t,0,60);
 //--------------------------------------------
 const ui = new Ui(bil);
 bil.draw();

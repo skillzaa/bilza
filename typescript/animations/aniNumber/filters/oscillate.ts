@@ -39,7 +39,7 @@ if (this.filterState == FilterState.Running){
                 this._ret_val -= this.speed; 
             }
     }
-console.log("thos._ret_val" , this._ret_val)
+// console.log("thos._ret_val" , this._ret_val)
 return this.filterState;        
 }
 

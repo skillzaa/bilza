@@ -9,7 +9,7 @@ protected  insertTimeInVid:number;
 constructor(){
     super();
     this.duration = 0;
-    this.insertTimeInVid = 0; //final-ok    
+    this.insertTimeInVid = 0;    
 }
 
 getEndTime(inMilliSec :boolean = true) :number{

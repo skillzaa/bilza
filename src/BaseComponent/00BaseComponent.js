@@ -20,7 +20,4 @@ export default class BaseComponent extends RotateObj {
         this.height.update(msDelta);
         return true;
     }
-    removeOpacity() {
-        this.opacity.set(1);
-    }
 }

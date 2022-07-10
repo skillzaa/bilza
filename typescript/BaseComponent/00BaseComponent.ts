@@ -34,8 +34,8 @@ return true;
 
 
 
-removeOpacity(){
-this.opacity.set(1);    
-}
+// removeOpacity(){
+// this.opacity.set(1);    
+// }
 ////////////////////////////////////////////////////////
 }//component ends 

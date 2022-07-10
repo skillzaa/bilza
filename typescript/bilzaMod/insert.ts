@@ -1,6 +1,7 @@
 import {IComponent,Pack} from "../bilza.js";
 import Comps from "./comps.js";
 import Duration from "./duration.js";
+import IScene from "../scene/IScene.js";
 
 export default class Insert {
 private duration :Duration;     
@@ -12,9 +13,26 @@ this.comps = comps;
 this.duration = duration;  
 this.charsWidth =   charsWidth;
 }
+/**
+ * The scene must not have a component which runs before scene start time or after scene endTime
+ */
+public insertScene (scene :IScene){
+    const comps = scene.getComps();
+for (let i = 0; i < comps.length; i++) {
+    const comp = comps[i];
+        //--- The checking
+        if ( comp.getStartTime(false) < scene.startTime ){
+        throw new Error("The start time of a contained component in a scene can not be smaller than the start time of the scene");
+        }
+        if ( comp.getEndTime(false) > (scene.getEndTime()) ) {
+        throw new Error("The end time of a contained component in a scene can not be larger than the end time of the scene");
+        }
 
+    this.add(comp,comp.getStartTime(false),comp.duration);
+}
+}
 public append(comp :IComponent,duration :number){
-    //???????????????
+    //--This charsWidth is a function ref from Pack so that components can find the width of some chars with out Pack
     comp.charsWidth = this.charsWidth;
      //--1 : comp.duration cant be > 0 
     if (duration < 1 || (typeof duration == "undefined")) {
