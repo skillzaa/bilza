@@ -1,11 +1,10 @@
 import WidthHeight from "./71WidthHeight.js";
-import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
-import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
+import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 export default class Loc extends WidthHeight {
     constructor() {
         super();
-        this.x = new AniNoXPerc(0);
-        this.y = new AniNoYPerc(0);
+        this.x = new AniNoPerc(0);
+        this.y = new AniNoPerc(0);
         this.charsWidth = null;
     }
     draw(p) {

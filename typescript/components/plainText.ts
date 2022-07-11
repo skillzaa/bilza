@@ -1,15 +1,15 @@
 import { Pack ,AniNumber,AniColor,AniBoolean} from "../bilza.js";
 import RawText from "./rawText.js";
- import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
- import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
+ import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
+//  import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 
 export default class PlainText extends RawText {
 
-public paddingTop :AniNoYPerc;    //required by all comps--no     
-public paddingBottom :AniNoYPerc;    //required by all comps--no     
+public paddingTop :AniNoPerc;    //required by all comps--no     
+public paddingBottom :AniNoPerc;    //required by all comps--no     
 
-public paddingRight :AniNoXPerc;         
-public paddingLeft : AniNoXPerc;         
+public paddingRight :AniNoPerc;         
+public paddingLeft : AniNoPerc;         
 
 public border :AniNumber;         
 public maxHeight :number;    
@@ -22,11 +22,11 @@ public showBackground :AniBoolean;
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);
 
-this.paddingTop = new AniNoYPerc(0);
-this.paddingBottom = new AniNoYPerc(0); 
+this.paddingTop = new AniNoPerc(0);
+this.paddingBottom = new AniNoPerc(0); 
 
-this.paddingRight = new AniNoXPerc(0);
-this.paddingLeft  = new AniNoXPerc(0);
+this.paddingRight = new AniNoPerc(0);
+this.paddingLeft  = new AniNoPerc(0);
 
 this.border  = new AniNumber(0);
 

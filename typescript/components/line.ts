@@ -1,10 +1,10 @@
 import {Pack,BaseComponent,DrawLayer,AniNumber} from "../bilza.js";
-import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
-import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
+import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
+// import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 
 export default class Line extends BaseComponent {
-public x2 :AniNoXPerc; 
-public y2 :AniNoYPerc;
+public x2 :AniNoPerc; 
+public y2 :AniNoPerc;
 
 lineWidth :AniNumber;
     
@@ -16,8 +16,8 @@ super();
 this.x.setInitValue(x1); 
 this.y.setInitValue(y1);
 
-this.x2 = new AniNoXPerc(x2);
-this.y2 = new AniNoYPerc(y2);
+this.x2 = new AniNoPerc(x2);
+this.y2 = new AniNoPerc(y2);
 this.lineWidth = new AniNumber(2);
 this.color.set(color);
 this.drawLayer = DrawLayer.MiddleGround;
@@ -35,7 +35,7 @@ return true;
 }
     
 update(msDelta: number, p: Pack): boolean {
-    super.update(msDelta,p);
+   super.update(msDelta,p);
    this.x2.update(msDelta); 
    this.y2.update(msDelta); 
    this.lineWidth.update(msDelta); 

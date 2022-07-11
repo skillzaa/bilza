@@ -17,7 +17,12 @@ constructor (incommingTextArray :string[] = ["one", "two"]){
     for (let i = 0; i < incommingTextArray.length; i++) {
         const txt = new Text("Text");
         txt.width.set(10);
+        //--txt.usePercentages = false; // very importantay
+        txt.usePercentages = false;
         txt.fitTextToWidth = false;
+        txt.border.set(1);
+        txt.paddingLeft.setInitValue(2);
+        txt.paddingRight.setInitValue(2);
         txt.content.set(incommingTextArray[i]);
         this.textArray.push(txt);
     }
@@ -81,6 +86,7 @@ for (let i = 0; i < this.textArray.length ; i++) {
 //----------------------------
 this.removeRotation(p);
 this.style.opacity = 1;
+this.x_internal = 0;
 //----------------------------
 return true;
 }

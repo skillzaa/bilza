@@ -9,7 +9,11 @@ export default class Row extends BaseComponent {
         for (let i = 0; i < incommingTextArray.length; i++) {
             const txt = new Text("Text");
             txt.width.set(10);
+            txt.usePercentages = false;
             txt.fitTextToWidth = false;
+            txt.border.set(1);
+            txt.paddingLeft.setInitValue(2);
+            txt.paddingRight.setInitValue(2);
             txt.content.set(incommingTextArray[i]);
             this.textArray.push(txt);
         }
@@ -64,6 +68,7 @@ export default class Row extends BaseComponent {
         }
         this.removeRotation(p);
         this.style.opacity = 1;
+        this.x_internal = 0;
         return true;
     }
 }

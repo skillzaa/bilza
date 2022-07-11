@@ -1,9 +1,8 @@
 import { Pack, BaseComponent, AniNumber } from "../bilza.js";
-import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
-import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
+import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 export default class Line extends BaseComponent {
-    x2: AniNoXPerc;
-    y2: AniNoYPerc;
+    x2: AniNoPerc;
+    y2: AniNoPerc;
     lineWidth: AniNumber;
     constructor(x1?: number, y1?: number, x2?: number, y2?: number, color?: string);
     init(p: Pack): boolean;

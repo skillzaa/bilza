@@ -1,12 +1,11 @@
 import { Pack, AniNumber, AniColor, AniBoolean } from "../bilza.js";
 import RawText from "./rawText.js";
-import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
-import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
+import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 export default class PlainText extends RawText {
-    paddingTop: AniNoYPerc;
-    paddingBottom: AniNoYPerc;
-    paddingRight: AniNoXPerc;
-    paddingLeft: AniNoXPerc;
+    paddingTop: AniNoPerc;
+    paddingBottom: AniNoPerc;
+    paddingRight: AniNoPerc;
+    paddingLeft: AniNoPerc;
     border: AniNumber;
     maxHeight: number;
     colorBackground: AniColor;

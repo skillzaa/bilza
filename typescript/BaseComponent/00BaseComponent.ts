@@ -32,10 +32,5 @@ update(msDelta :number,p :Pack): boolean {
 return true;    
 }
 
-
-
-// removeOpacity(){
-// this.opacity.set(1);    
-// }
 ////////////////////////////////////////////////////////
 }//component ends 

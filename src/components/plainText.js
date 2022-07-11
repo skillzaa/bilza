@@ -1,14 +1,13 @@
 import { AniNumber, AniColor, AniBoolean } from "../bilza.js";
 import RawText from "./rawText.js";
-import AniNoXPerc from "../animations/aniNoPerc/AniNoXPerc.js";
-import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
+import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 export default class PlainText extends RawText {
     constructor(content = "", colorHax = "#000000") {
         super(content, colorHax);
-        this.paddingTop = new AniNoYPerc(0);
-        this.paddingBottom = new AniNoYPerc(0);
-        this.paddingRight = new AniNoXPerc(0);
-        this.paddingLeft = new AniNoXPerc(0);
+        this.paddingTop = new AniNoPerc(0);
+        this.paddingBottom = new AniNoPerc(0);
+        this.paddingRight = new AniNoPerc(0);
+        this.paddingLeft = new AniNoPerc(0);
         this.border = new AniNumber(0);
         this.maxHeight = 500;
         this.colorBackground = new AniColor("#ffffff");
