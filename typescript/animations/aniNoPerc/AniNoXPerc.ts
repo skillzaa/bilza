@@ -20,7 +20,7 @@ this.initAnimate();
 this.initRandom();
 this.initJumpBetween();
 
-}
+} 
 //---set method does a different task than other methods
 public set(n :number){
 if (this.canvasWidth == null){throw new Error("init error : set value can not be used at compile time for properties which need canvas width or height. For such values you should use setInitValue at compile time and use \"set\" only at run time when the protety has been initialized");}    

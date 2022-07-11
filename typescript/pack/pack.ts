@@ -239,6 +239,16 @@ public xPerc(perc :number):number{
 let checked = this.setBwZeroNhundred(perc);
 return Math.ceil(( this.canvas.width /100) * checked); 
 }
+public pixToXPerc(pix :number):number{
+// if (this.canvasWidth == null) { throw new Error("init error");}    
+const pixDiv = pix/this.canvasWidth();    
+return Math.ceil(( pixDiv  * 100) ); 
+}
+public pixToYPerc(pix :number):number{
+// if (this.canvasWidth == null) { throw new Error("init error");}    
+const pixDiv = pix/this.canvasHeight();    
+return Math.ceil(( pixDiv  * 100) ); 
+}
 public yPerc(perc :number):number{
 let checked = this.setBwZeroNhundred(perc);    
 return ((this.canvas.height /100) * checked); 

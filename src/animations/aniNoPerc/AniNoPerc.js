@@ -24,6 +24,10 @@ export default class AniNoPerc {
     value() {
         return this._XorY.value();
     }
+    override(n) {
+        this._XorY.set(n);
+        return this._XorY.value();
+    }
     jumpBetween(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, skipFrames = 0) {
         const c = new PreInitJumpBetween(startTimeSec, endTimeSec, pointOne, pointTwo, skipFrames);
         this.preInitJumpBetweens.push(c);

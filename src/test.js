@@ -1,10 +1,8 @@
-import Bilza, { Ui, CompFactory as cf } from "./bilza.js";
-import MsgSwingRndCircles from "./scene/msgSwingRndCircles.js";
+import Bilza, { Ui } from "./bilza.js";
+import Row from "./components/row/row.js";
 let bil = new Bilza("bilza", 70);
-const txt01 = cf.text("Before Append");
-txt01.color.set("red");
-bil.insert.add(txt01, 0, 5);
-const scene01 = new MsgSwingRndCircles(bil.len(false), 30);
-bil.insert.insertScene(scene01);
+const row = new Row(["An", "Apple", "a", "day"]);
+row.goto(0, 1, 50);
+bil.insert.add(row, 0, 50);
 const ui = new Ui(bil);
 bil.draw();

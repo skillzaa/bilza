@@ -3,7 +3,7 @@ import Scene from "./00scene.js";
 export default class MsgSwingRndCircles extends Scene {
     constructor(startTime = 0, duration = 60) {
         super(startTime, duration);
-        this.content = "Demo Content";
+        this.content = "Alam zeb khan";
     }
     init() {
         const t = cf.text(this.content, "#ffff00");

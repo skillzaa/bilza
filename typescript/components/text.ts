@@ -14,7 +14,9 @@ this.maxHeight = 500; // is this pix or percentage?
 }
 
 update(msDelta: number, p: Pack): boolean {
-this.dynamicFontSize(p);    
+if (this.fitTextToWidth == true){
+    this.dynamicFontSize(p);    
+}    
 super.update(msDelta,p);//
 return true;
 }

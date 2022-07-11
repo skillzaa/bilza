@@ -17,6 +17,7 @@ export default class AniNoPerc {
     setInitValue(n: number): void;
     update(msDelta: number): void;
     value(): number;
+    override(n: number): number;
     jumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, skipFrames?: number): void;
     baseJumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, skipFrames?: number): void;
     goto(atSecond: number, value: number): void;

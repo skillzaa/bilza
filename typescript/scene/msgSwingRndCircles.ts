@@ -7,7 +7,7 @@ content :string;
 constructor(startTime :number=0,duration :number=60){
 
 super(startTime,duration);
-this.content = "Demo Content";
+this.content = "Alam zeb khan";
 }
 
 init(){

@@ -194,6 +194,14 @@ export default class Pack {
         let checked = this.setBwZeroNhundred(perc);
         return Math.ceil((this.canvas.width / 100) * checked);
     }
+    pixToXPerc(pix) {
+        const pixDiv = pix / this.canvasWidth();
+        return Math.ceil((pixDiv * 100));
+    }
+    pixToYPerc(pix) {
+        const pixDiv = pix / this.canvasHeight();
+        return Math.ceil((pixDiv * 100));
+    }
     yPerc(perc) {
         let checked = this.setBwZeroNhundred(perc);
         return ((this.canvas.height / 100) * checked);

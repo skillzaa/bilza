@@ -63,14 +63,22 @@ this.preInitJumpBetweens = [];
 setInitValue(n :number){
 this._initValue = n;
 }
-
+ 
 update(msDelta :number){
 this._XorY.update(msDelta);
 }
 value():number{
     return this._XorY.value();
 }
-
+/**
+ * So set in AniNumber/AniPro is override here
+ * Override method can be used in AniXper and AniYper in which you can just override the value  
+ */
+public override(n :number):number{
+this._XorY.set(n);
+return this._XorY.value();
+}
+///////////////////////////////////////////////////////
 public jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,skipFrames :number=0){
 const c = new PreInitJumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,skipFrames);    
 this.preInitJumpBetweens.push(c);

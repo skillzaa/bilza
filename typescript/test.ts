@@ -1,6 +1,5 @@
 import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
-import Grid from "./components/grid.js";
-import MsgSwingRndCircles from "./scene/msgSwingRndCircles.js";
+import Row from "./components/row/row.js";
 
 let bil = new Bilza("bilza",70);
 // bil.set.loadSystemBackground = false;
@@ -8,13 +7,24 @@ let bil = new Bilza("bilza",70);
 //-----------------------------------------
 
 
-const txt01 = cf.text("Before Append");
-txt01.color.set("red");
-bil.insert.add(txt01,0,5);
-//-----------------------------------------
-const scene01 = new  MsgSwingRndCircles(bil.len(false),30);
-bil.insert.insertScene(scene01);
-//--------------------------------------------
+const row = new Row(["An","Apple","a","day"]);
+row.goto(0,1,50);
+bil.insert.add(row,0,50);
+
+
+// const cell01 = row.getCell(0);
+// cell01.border.set(1);
+// cell01.paddingLeft.setInitValue(8);
+// cell01.colorBorder.set("black");
+// // //--------------------------------------------
+// const cell02 = row.getCell(1);
+// // cell02.content.set("milk");
+// cell02.showBackground.set(true);
+// cell02.colorBackground.set("pink");
+// cell02.border.set(1);
+// cell02.paddingLeft.setInitValue(10);
+// cell02.paddingRight.setInitValue(10);
+// cell02.colorBorder.set("green");
 //--------------------------------------------
 const ui = new Ui(bil);
 bil.draw();

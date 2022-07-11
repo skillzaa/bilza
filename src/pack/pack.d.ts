@@ -35,6 +35,8 @@ export default class Pack {
     commitCtxData(incomCtx: Style): void;
     private setFont;
     xPerc(perc: number): number;
+    pixToXPerc(pix: number): number;
+    pixToYPerc(pix: number): number;
     yPerc(perc: number): number;
     private setBwZeroNhundred;
     dynCanvasWidth(widthInPercent?: number): number;

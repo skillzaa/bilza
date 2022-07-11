@@ -6,7 +6,9 @@ export default class Text extends PlainText {
         this.maxHeight = 500;
     }
     update(msDelta, p) {
-        this.dynamicFontSize(p);
+        if (this.fitTextToWidth == true) {
+            this.dynamicFontSize(p);
+        }
         super.update(msDelta, p);
         return true;
     }
