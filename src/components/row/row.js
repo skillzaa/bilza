@@ -71,10 +71,11 @@ export default class Row extends BaseComponent {
         this.style.fillStyle = this.color.value();
         this.style.opacity = this.opacity.value();
         this.style.strokeStyle = this.color.value();
+        const yAligned = this.yAligned();
         for (let i = 0; i < this.textArray.length; i++) {
             const txt = this.textArray[i];
             txt.x.override(this.xAligned() + this.x_internal);
-            txt.y.override(this.yAligned());
+            txt.y.override(yAligned);
             txt.draw(p);
             this.x_internal += txt.widthInPix();
         }
