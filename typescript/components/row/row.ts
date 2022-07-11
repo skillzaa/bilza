@@ -48,14 +48,26 @@ update(msDelta: number, p: Pack): boolean {
 }
 widthInPix(): number {
     if (this.canvasWidth !== null ){
-        return Math.ceil((this.canvasWidth/100) * this.width.value());
+    let wd=0;
+    for (let i = 0; i < this.textArray.length ; i++) {
+        const txt = this.textArray[i];
+        wd += txt.widthInPix();
+    }
+        return wd;
     }else {
         throw new Error("the component is not initialized yet");        
     }
 }
 heightInPix(): number {
-    if (this.canvasHeight !== null){
-    return Math.ceil((this.canvasHeight/100)*this.height.value());
+    if (this.canvasWidth !== null ){
+    let wd=0;
+    for (let i = 0; i < this.textArray.length ; i++) {
+        const txt = this.textArray[i];
+        if (wd < txt.heightInPix() ){
+            wd = txt.heightInPix();
+        }
+    }
+        return wd;
     }else {
         throw new Error("the component is not initialized yet");        
     }
