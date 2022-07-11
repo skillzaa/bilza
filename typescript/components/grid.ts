@@ -58,14 +58,17 @@ let height = p.canvasHeight();
 //end y remain the same
 let end_x = x + width;
     do {   
-        this.style.strokeStyle = this.colorHorizontalLines;        
+        this.style.strokeStyle = this.colorHorizontalLines; 
+        this.style.opacity = this.opacity.value();       
+        this.style.fillStyle = this.colorHorizontalLines;        
         this.style.lineDash = this.lineDash;        
         this.style.lineWidth = this.lineWidthHorizontal;        
     p.drawLine(x,y,end_x,y,this.style);
         if (this.showNumbers == true){
             this.style.strokeStyle = this.colorNumbers;
-            // p.drawText(y.toString(),x,y,this.style);
+
             this.drawText(p,Math.ceil(y) ,x+4,y+4);
+            // p.drawText("uuuuuuuu",100,100,this.style);
         }
     y += ((p.canvasHeight()/100) * this.cellHeightPerc);
     } while (height > y );
@@ -78,7 +81,9 @@ let height = p.canvasHeight();
 //end y remain the same
 let end_y = y + height;
     do {   
+    this.style.opacity = this.opacity.value();       
     this.style.strokeStyle = this.colorVerticalLines;
+    this.style.fillStyle = this.colorVerticalLines;        
     this.style.lineWidth = this.lineWidthVertical;        
     this.style.lineDash = this.lineDash;        
     p.drawLine(x,y,x,end_y,this.style);

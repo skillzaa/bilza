@@ -30,6 +30,8 @@ export default class Grid extends BaseComponent {
         let end_x = x + width;
         do {
             this.style.strokeStyle = this.colorHorizontalLines;
+            this.style.opacity = this.opacity.value();
+            this.style.fillStyle = this.colorHorizontalLines;
             this.style.lineDash = this.lineDash;
             this.style.lineWidth = this.lineWidthHorizontal;
             p.drawLine(x, y, end_x, y, this.style);
@@ -47,7 +49,9 @@ export default class Grid extends BaseComponent {
         let height = p.canvasHeight();
         let end_y = y + height;
         do {
+            this.style.opacity = this.opacity.value();
             this.style.strokeStyle = this.colorVerticalLines;
+            this.style.fillStyle = this.colorVerticalLines;
             this.style.lineWidth = this.lineWidthVertical;
             this.style.lineDash = this.lineDash;
             p.drawLine(x, y, x, end_y, this.style);

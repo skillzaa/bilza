@@ -8,7 +8,7 @@ export default class Insert {
         const comps = scene.getComps();
         for (let i = 0; i < comps.length; i++) {
             const comp = comps[i];
-            if (comp.getStartTime(false) < scene.startTime) {
+            if (comp.getStartTime(false) < scene.getStartTime()) {
                 throw new Error("The start time of a contained component in a scene can not be smaller than the start time of the scene");
             }
             if (comp.getEndTime(false) > (scene.getEndTime())) {

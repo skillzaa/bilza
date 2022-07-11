@@ -63,6 +63,8 @@ let height = p.canvasHeight();
 //end y remain the same
 let end_x = x + width;
     do {   
+        this.style.opacity = this.opacity.value();       
+
         this.style.strokeStyle = this.colorHorizontalLines;        
         this.style.lineDash = this.lineDash;        
         this.style.lineWidth = this.lineWidthHorizontal.value();        
@@ -82,7 +84,9 @@ let width = p.canvasWidth();
 let height = p.canvasHeight();
 //end y remain the same
 let end_y = y + height;
-    do {   
+    do {
+        this.style.opacity = this.opacity.value();       
+   
     this.style.strokeStyle = this.colorVerticalLines;
     this.style.lineWidth = this.lineWidthVertical.value();        
     this.style.lineDash = this.lineDash;        
@@ -98,6 +102,8 @@ let end_y = y + height;
 }
 
 drawText(p :Pack,content :number,x :number,y :number){
+    this.style.opacity = this.opacity.value();       
+
 this.style.fontSize = this.fontSize;    
 this.style.strokeStyle = this.colorNumbers;    
 this.style.fillStyle = this.colorNumbers;    

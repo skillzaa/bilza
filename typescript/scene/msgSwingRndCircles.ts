@@ -1,26 +1,22 @@
 import { IComponent,CompFactory as cf } from "../bilza.js";
 import IScene from "./IScene.js";
-
-export default class MsgSwingRndCircles implements IScene{
+import Scene from "./00scene.js";
+export default class MsgSwingRndCircles extends Scene{
 
 content :string;
-startTime :number;
-duration :number;    
-comps :IComponent[];
 constructor(startTime :number=0,duration :number=60){
+
+super(startTime,duration);
 this.content = "Demo Content";
-this.startTime = startTime;
-this.duration = duration;
-this.comps = [];
 }
 
-getComps():IComponent[]{
+init(){
 
 const t = cf.text( this.content, "#ffff00");
 //---All the contained comps must have startTime and duration in relation to this.starTime and this.duration
 //---- 
-t.setStartTime(this.startTime);
-t.duration = this.duration;
+t.setStartTime(this.getStartTime());
+t.duration = this.getDuration();
 
 t.width.set(40);
 t.paddingLeft.setInitValue(5);
@@ -41,31 +37,23 @@ t.goto(0,50,50);
 //--------------------------------
 t.rotation.set(-25);
 //--The second arg in oscillate is endTime and not duration
-t.rotation.oscillate( this.startTime ,this.startTime + this.duration ,-25,25,0.25);
+t.rotation.oscillate( this.getStartTime() ,this.getStartTime() + this.getDuration() ,-25,25,0.25);
 
-this.comps.push(t);
-
+this.push(t);
 ///////////////////////////////////////
-
-// const g = cf.grid();
 const g = cf.frameCounter();
-// bil.insert.alwaysOn(counter);
 
-g.setStartTime(this.startTime);
-g.duration = (this.duration);
-this.comps.push(g);
+g.setStartTime(this.getStartTime() );
+g.duration = (this.getDuration());
+this.push(g);
 
 
 const grid  = cf.staticGrid(100,100,"red");
-grid.setStartTime(this.startTime);
-grid.duration = (this.duration);
-
-this.comps.push(grid);
-
-return this.comps;
+grid.setStartTime(this.getStartTime() );
+grid.duration = (this.getDuration() );
+//----------from base class
+this.push(grid);
 }
-getEndTime():number{
-return this.startTime + this.duration;
-}        
+        
 }
 

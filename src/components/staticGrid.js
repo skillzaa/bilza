@@ -37,6 +37,7 @@ export default class StaticGrid extends BaseComponent {
         let height = p.canvasHeight();
         let end_x = x + width;
         do {
+            this.style.opacity = this.opacity.value();
             this.style.strokeStyle = this.colorHorizontalLines;
             this.style.lineDash = this.lineDash;
             this.style.lineWidth = this.lineWidthHorizontal.value();
@@ -55,6 +56,7 @@ export default class StaticGrid extends BaseComponent {
         let height = p.canvasHeight();
         let end_y = y + height;
         do {
+            this.style.opacity = this.opacity.value();
             this.style.strokeStyle = this.colorVerticalLines;
             this.style.lineWidth = this.lineWidthVertical.value();
             this.style.lineDash = this.lineDash;
@@ -67,6 +69,7 @@ export default class StaticGrid extends BaseComponent {
         } while (width > x);
     }
     drawText(p, content, x, y) {
+        this.style.opacity = this.opacity.value();
         this.style.fontSize = this.fontSize;
         this.style.strokeStyle = this.colorNumbers;
         this.style.fillStyle = this.colorNumbers;

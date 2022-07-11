@@ -1,15 +1,14 @@
 import { CompFactory as cf } from "../bilza.js";
-export default class MsgSwingRndCircles {
+import Scene from "./00scene.js";
+export default class MsgSwingRndCircles extends Scene {
     constructor(startTime = 0, duration = 60) {
+        super(startTime, duration);
         this.content = "Demo Content";
-        this.startTime = startTime;
-        this.duration = duration;
-        this.comps = [];
     }
-    getComps() {
+    init() {
         const t = cf.text(this.content, "#ffff00");
-        t.setStartTime(this.startTime);
-        t.duration = this.duration;
+        t.setStartTime(this.getStartTime());
+        t.duration = this.getDuration();
         t.width.set(40);
         t.paddingLeft.setInitValue(5);
         t.paddingRight.setInitValue(5);
@@ -25,19 +24,15 @@ export default class MsgSwingRndCircles {
         t.yRotate = t.YAlignOpt.Top;
         t.goto(0, 50, 50);
         t.rotation.set(-25);
-        t.rotation.oscillate(this.startTime, this.startTime + this.duration, -25, 25, 0.25);
-        this.comps.push(t);
+        t.rotation.oscillate(this.getStartTime(), this.getStartTime() + this.getDuration(), -25, 25, 0.25);
+        this.push(t);
         const g = cf.frameCounter();
-        g.setStartTime(this.startTime);
-        g.duration = (this.duration);
-        this.comps.push(g);
+        g.setStartTime(this.getStartTime());
+        g.duration = (this.getDuration());
+        this.push(g);
         const grid = cf.staticGrid(100, 100, "red");
-        grid.setStartTime(this.startTime);
-        grid.duration = (this.duration);
-        this.comps.push(grid);
-        return this.comps;
-    }
-    getEndTime() {
-        return this.startTime + this.duration;
+        grid.setStartTime(this.getStartTime());
+        grid.duration = (this.getDuration());
+        this.push(grid);
     }
 }

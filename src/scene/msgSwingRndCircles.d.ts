@@ -1,12 +1,7 @@
-import { IComponent } from "../bilza.js";
-import IScene from "./IScene.js";
-export default class MsgSwingRndCircles implements IScene {
+import Scene from "./00scene.js";
+export default class MsgSwingRndCircles extends Scene {
     content: string;
-    startTime: number;
-    duration: number;
-    comps: IComponent[];
     constructor(startTime?: number, duration?: number);
-    getComps(): IComponent[];
-    getEndTime(): number;
+    init(): void;
 }
 //# sourceMappingURL=msgSwingRndCircles.d.ts.map
