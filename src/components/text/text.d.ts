@@ -1,6 +1,6 @@
-import { Pack, AniNumber, AniColor, AniBoolean } from "../bilza.js";
-import RawText from "./rawText.js";
-import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
+import { Pack, AniNumber, AniColor, AniBoolean } from "../../bilza.js";
+import RawText from "../rawText.js";
+import AniNoPerc from "../../animations/aniNoPerc/AniNoPerc.js";
 export default class Text extends RawText {
     fitTextToWidth: boolean;
     maxHeight: number;

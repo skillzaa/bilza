@@ -1,17 +1,17 @@
-import Grid from "./grid.js";
-import Rect from "./rect.js";
-import FillRect from "./fillRect.js";
-import StaticGrid from "./staticGrid.js";
-import FrameCounter from "./frameCounter.js";
-import CircleParticles from "./circleParticles.js";
-import Text from "./text.js";
-import Pic from "./pic.js";
-import Line from "./line.js";
-import RawText from "./rawText.js";
-import PlainText from "./plainText.js";
-import Marker from "./marker.js";
-import Circle from "./circle.js";
-
+import Grid from "../components/grid.js";
+import Rect from "../components/rect.js";
+import FillRect from "../components/fillRect.js";
+import StaticGrid from "../components/staticGrid.js";
+import FrameCounter from "../components/frameCounter.js";
+import CircleParticles from "../components/circleParticles.js";
+import Text from "../components/text.js";
+import Pic from "../components/pic.js";
+import Line from "../components/line.js";
+import RawText from "../components/rawText.js";
+import Marker from "../components/marker.js";
+import Circle from "../components/circle.js";
+////////////////////////////////////////////////////
+import Row from "../container/row.js";
 
 export default class CompFactory {
 
@@ -52,10 +52,8 @@ let g = new CircleParticles(count,color,framesToSkip);
 return g;    
 }
 
-static plainText(content :string="",colorHax :string="#000000"){
-let g = new PlainText(content,colorHax);
-return g;    
-}
+
+
 static rawText(content :string="",colorHax :string="#000000"){
 let g = new RawText(content,colorHax);
 return g;    
@@ -68,6 +66,12 @@ static line(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string 
 let g = new Line(x1,y1,x2,y2,color);
 return g;    
 }
+////////////---container--------------///////
 
+static row(incommingTextArray :string = "one two"){
+let g = new Row(incommingTextArray);
+return g;    
+}
+    
 
 }

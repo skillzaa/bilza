@@ -1,6 +1,6 @@
-import Pack from "../../pack/pack.js";
-import BaseComponent from "../../BaseComponent/00BaseComponent.js";
-import Text from "../text.js";
+import Pack from "../pack/pack.js";
+import BaseComponent from "../BaseComponent/00BaseComponent.js";
+import Text from "../components/text.js";
 
 export default class Row extends BaseComponent {
 textArray : Text[];
@@ -8,22 +8,27 @@ incommingTextArray : string[];
 x_internal :number;
 // numberOfCells :number;
 
-constructor (incommingTextArray :string[] = ["one", "two"]){ 
+constructor (incommingTextArray :string = "one two"){ 
     super();
     this.x_internal = 0;
-    this.incommingTextArray = incommingTextArray;
+    //--save for later use
+    this.incommingTextArray = incommingTextArray.split(" ");;
+    console.log("this.incommingTextArray",this.incommingTextArray);
     this.textArray = [];
     //-----------create 
-    for (let i = 0; i < incommingTextArray.length; i++) {
-        const txt = new Text("Text");
+    //--this.incommingTextArray and not just incommingTextArray
+    for (let i = 0; i < this.incommingTextArray.length; i++) {
+        const item = this.incommingTextArray[i];
+        const txt = new Text(item);
         txt.width.set(10);
-        //--txt.usePercentages = false; // very importantay
+        //--txt.usePercentages = false; // very importantay-Not only will the x and y not use percentages the paddings (all 4) will also be not using percentages. This is genious
         txt.usePercentages = false;
+        //--fitTextToWidth = false; // very importantay -so now we can keep the size of text same by fontSize.
         txt.fitTextToWidth = false;
-        txt.border.set(1);
+        txt.border.set(0);
         txt.paddingLeft.setInitValue(2);
         txt.paddingRight.setInitValue(2);
-        txt.content.set(incommingTextArray[i]);
+        // txt.content.set(incommingTextArray[i]);
         this.textArray.push(txt);
     }
 }

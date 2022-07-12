@@ -1,7 +1,7 @@
-import { AniNumber, AniColor, AniBoolean } from "../bilza.js";
+import { AniNumber, AniColor, AniBoolean } from "../../bilza.js";
 import RawText from "./rawText.js";
-import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
-export default class Text extends RawText {
+import AniNoPerc from "../../animations/aniNoPerc/AniNoPerc.js";
+export default class PlainText extends RawText {
     constructor(content = "", colorHax = "#000000") {
         super(content, colorHax);
         this.fitTextToWidth = true;

@@ -1,7 +1,7 @@
-import { Pack, AniNumber, AniColor, AniBoolean } from "../bilza.js";
+import { Pack, AniNumber, AniColor, AniBoolean } from "../../bilza.js";
 import RawText from "./rawText.js";
-import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
-export default class Text extends RawText {
+import AniNoPerc from "../../animations/aniNoPerc/AniNoPerc.js";
+export default class PlainText extends RawText {
     fitTextToWidth: boolean;
     maxHeight: number;
     paddingTop: AniNoPerc;
@@ -24,4 +24,4 @@ export default class Text extends RawText {
     private dynamicFontSize;
     private shrinkToFitMaxHeight;
 }
-//# sourceMappingURL=text.d.ts.map
+//# sourceMappingURL=plainText.d.ts.map
