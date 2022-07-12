@@ -11,6 +11,7 @@ import RawText from "../components/rawText.js";
 import Marker from "../components/marker.js";
 import Circle from "../components/circle.js";
 import Row from "../container/row.js";
+import Paragraph from "../container/paragraph.js";
 export default class CompFactory {
     static circle(colorHax = "red") {
         let g = new Circle(colorHax);
@@ -62,6 +63,10 @@ export default class CompFactory {
     }
     static row(incommingTextArray = "one two") {
         let g = new Row(incommingTextArray);
+        return g;
+    }
+    static paragraph() {
+        let g = new Paragraph();
         return g;
     }
 }

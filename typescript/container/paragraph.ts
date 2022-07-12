@@ -2,16 +2,28 @@ import Pack from "../pack/pack.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import Row from "./row.js";
 import Text from "../components/text.js";
-import { AniNumber } from "../bilza.js";
+import { AniNumber,AniBoolean , AniColor } from "../bilza.js";
 
 export default class Paragraph extends BaseComponent {
 private rowArray : Row[];
 private y_internal :number;
-        rowGap :AniNumber;
+public rowGap :AniNumber;
+public border :AniNumber;
+public padding :AniNumber;
+public opacityBackground :AniNumber;
+public showBackground :AniBoolean;
+public colorBackground :AniColor;
+public colorBorder :AniColor;
 constructor (){ 
     super();
     this.y_internal = 0;
+    this.showBackground  = new AniBoolean(true);
+    this.padding = new AniNumber(0);
     this.rowGap = new AniNumber(5);
+    this.border = new AniNumber(0);
+    this.opacityBackground = new AniNumber(100);
+    this.colorBackground = new AniColor("grey");
+    this.colorBorder = new AniColor("black");
     this.rowArray = [];
 }
 
@@ -45,7 +57,7 @@ widthInPix(): number {
             wd = rw.widthInPix();
         }
     }
-        return wd;
+        return (wd + (this.padding.value() * 2) );
     }else {
         throw new Error("the component is not initialized yet");        
     }
@@ -57,6 +69,8 @@ heightInPix(): number {
         const rw = this.rowArray[i];
             ht += rw.heightInPix();
     }
+        ht += (this.rowGap.value() * (this.rowArray.length - 1))
+        ht += (this.padding.value() * 2);
         return ht;
     }else {
         throw new Error("the component is not initialized yet");        
@@ -68,11 +82,21 @@ getCell(row :number, column :number):Text{
     return rw.getCell(column);
 }
 draw(p:Pack):boolean{
-
+// this.opacity.set(100);
 this.applyRotation(p);
+//---why this needs to be done for all new comps?
+this.style.opacity = 100;
+//--------------
+if (this.border.value() > 0){
+    this.drawBorder(p);
+}
+if (this.showBackground.value() == true){
+    this.style.opacity = this.opacityBackground.value();
+    this.drawBackground(p);
+    this.style.opacity = 100;
+}
 //--------------
 this.style.fillStyle = this.color.value();    
-this.style.opacity = this.opacity.value();
 
 this.style.strokeStyle = this.color.value(); 
 
@@ -80,12 +104,10 @@ this.style.strokeStyle = this.color.value();
 const xAligned = this.xAligned();
 for (let i = 0; i < this.rowArray.length ; i++) {
     const rw = this.rowArray[i];
-    rw.x.override(xAligned);
-    rw.y.override(this.yAligned() + this.y_internal);
+    rw.x.override(xAligned + this.padding.value());
+    rw.y.override(this.yAligned() + this.padding.value() +this.y_internal);
     rw.draw(p);
     this.y_internal += rw.heightInPix() + this.rowGap.value();
-    // console.log("x",txt.x.value());
-    // this.x_internal += p.pixToXPerc(txt.widthInPix());
 }
 //----------------------------
 this.removeRotation(p);
@@ -94,7 +116,20 @@ this.y_internal = 0;
 //----------------------------
 return true;
 }
+drawBackground(p :Pack){
+this.style.fillStyle = this.colorBackground.value();
+this.style.strokeStyle = this.colorBackground.value();
 
+p.drawFillRect(this.xAligned(),this.yAligned(),this.widthInPix(),this.heightInPix(),this.style);
+
+}
+drawBorder(p :Pack){
+this.style.fillStyle = this.colorBorder.value();
+this.style.strokeStyle = this.colorBorder.value();
+this.style.lineWidth = this.border.value();
+p.drawRect(this.xAligned(),this.yAligned(),this.widthInPix(),this.heightInPix(),this.style);
+
+}
 addRow (txt :string = "one two"){  
 const r = new Row(txt);
 this.rowArray.push(r);

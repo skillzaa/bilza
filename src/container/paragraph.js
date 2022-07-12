@@ -1,11 +1,17 @@
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import Row from "./row.js";
-import { AniNumber } from "../bilza.js";
+import { AniNumber, AniBoolean, AniColor } from "../bilza.js";
 export default class Paragraph extends BaseComponent {
     constructor() {
         super();
         this.y_internal = 0;
+        this.showBackground = new AniBoolean(true);
+        this.padding = new AniNumber(0);
         this.rowGap = new AniNumber(5);
+        this.border = new AniNumber(0);
+        this.opacityBackground = new AniNumber(100);
+        this.colorBackground = new AniColor("grey");
+        this.colorBorder = new AniColor("black");
         this.rowArray = [];
     }
     init(p) {
@@ -35,7 +41,7 @@ export default class Paragraph extends BaseComponent {
                     wd = rw.widthInPix();
                 }
             }
-            return wd;
+            return (wd + (this.padding.value() * 2));
         }
         else {
             throw new Error("the component is not initialized yet");
@@ -48,6 +54,8 @@ export default class Paragraph extends BaseComponent {
                 const rw = this.rowArray[i];
                 ht += rw.heightInPix();
             }
+            ht += (this.rowGap.value() * (this.rowArray.length - 1));
+            ht += (this.padding.value() * 2);
             return ht;
         }
         else {
@@ -60,14 +68,22 @@ export default class Paragraph extends BaseComponent {
     }
     draw(p) {
         this.applyRotation(p);
+        this.style.opacity = 100;
+        if (this.border.value() > 0) {
+            this.drawBorder(p);
+        }
+        if (this.showBackground.value() == true) {
+            this.style.opacity = this.opacityBackground.value();
+            this.drawBackground(p);
+            this.style.opacity = 100;
+        }
         this.style.fillStyle = this.color.value();
-        this.style.opacity = this.opacity.value();
         this.style.strokeStyle = this.color.value();
         const xAligned = this.xAligned();
         for (let i = 0; i < this.rowArray.length; i++) {
             const rw = this.rowArray[i];
-            rw.x.override(xAligned);
-            rw.y.override(this.yAligned() + this.y_internal);
+            rw.x.override(xAligned + this.padding.value());
+            rw.y.override(this.yAligned() + this.padding.value() + this.y_internal);
             rw.draw(p);
             this.y_internal += rw.heightInPix() + this.rowGap.value();
         }
@@ -75,6 +91,17 @@ export default class Paragraph extends BaseComponent {
         this.style.opacity = 1;
         this.y_internal = 0;
         return true;
+    }
+    drawBackground(p) {
+        this.style.fillStyle = this.colorBackground.value();
+        this.style.strokeStyle = this.colorBackground.value();
+        p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
+    }
+    drawBorder(p) {
+        this.style.fillStyle = this.colorBorder.value();
+        this.style.strokeStyle = this.colorBorder.value();
+        this.style.lineWidth = this.border.value();
+        p.drawRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
     }
     addRow(txt = "one two") {
         const r = new Row(txt);
