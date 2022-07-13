@@ -4,9 +4,10 @@ import Text from "../components/text.js";
 
 export default class Row extends BaseComponent {
 textArray : Text[];
-incommingTextArray : string[];
+private incommingTextArray : string[];
 x_internal :number;
 colorBackground :AniColor;
+
 public paddingTop :AniNumber;    //required by all comps--no     
 public paddingBottom :AniNumber;    //required by all comps--no     
 
@@ -24,7 +25,6 @@ constructor (incommingTextArray :string = "one two"){
     this.paddingRight = new AniNumber(0);
     this.paddingLeft  = new AniNumber(0);
 
-    // conver tto false 
     this.colorBackground = new AniColor("grey");
     // console.log("this.incommingTextArray",this.incommingTextArray);
     this.textArray = [];

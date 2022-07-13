@@ -10,9 +10,11 @@ export default class Paragraph extends BaseComponent {
     border: AniNumber;
     padding: AniNumber;
     fontSize: AniNumber;
+    fontColor: AniColor;
     opacityBackground: AniNumber;
     showBackground: AniBoolean;
-    uniformFontSize: AniBoolean;
+    useParentFontSize: AniBoolean;
+    useParentFontColor: AniBoolean;
     colorBackground: AniColor;
     colorBorder: AniColor;
     constructor();
@@ -21,6 +23,7 @@ export default class Paragraph extends BaseComponent {
     widthInPix(): number;
     heightInPix(): number;
     private setFontSize;
+    private setFontColor;
     getCell(row: number, column: number): Text;
     getRow(row: number): Row;
     draw(p: Pack): boolean;

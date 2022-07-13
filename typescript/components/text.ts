@@ -96,7 +96,7 @@ return Math.floor(pl + txt + pr + borderX2);
 heightInPix(): number {
 if (this.canvasHeight == null){throw new Error("init error");}
 if (this.charsWidth == null){throw new Error("init error");}
-const canvasHtBy100 = Math.floor(this.canvasHeight/100);
+// const canvasHtBy100 = Math.floor(this.canvasHeight/100);
 const borderX2 = this.border.value() * 2;
 const pt = this.paddingTop.value();
 const pb = this.paddingBottom.value();

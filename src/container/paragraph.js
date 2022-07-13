@@ -6,12 +6,14 @@ export default class Paragraph extends BaseComponent {
         super();
         this.y_internal = 0;
         this.showBackground = new AniBoolean(true);
-        this.uniformFontSize = new AniBoolean(false);
+        this.useParentFontSize = new AniBoolean(false);
+        this.useParentFontColor = new AniBoolean(true);
         this.padding = new AniNumber(0);
         this.fontSize = new AniNumber(50);
         this.rowGap = new AniNumber(5);
         this.border = new AniNumber(0);
         this.opacityBackground = new AniNumber(100);
+        this.fontColor = new AniColor("black");
         this.colorBackground = new AniColor("grey");
         this.colorBorder = new AniColor("black");
         this.rowArray = [];
@@ -29,8 +31,11 @@ export default class Paragraph extends BaseComponent {
         super.update(msDelta, p);
         this.rowGap.update(msDelta);
         this.fontSize.update(msDelta);
-        if (this.uniformFontSize.value() == true) {
+        if (this.useParentFontSize.value() == true) {
             this.setFontSize(this.fontSize.value());
+        }
+        if (this.useParentFontColor.value() == true) {
+            this.setFontColor(this.fontColor.value());
         }
         for (let i = 0; i < this.rowArray.length; i++) {
             const rw = this.rowArray[i];
@@ -72,6 +77,12 @@ export default class Paragraph extends BaseComponent {
         for (let i = 0; i < this.rowArray.length; i++) {
             const item = this.rowArray[i];
             item.setFontSize(fontSize);
+        }
+    }
+    setFontColor(fontColor) {
+        for (let i = 0; i < this.rowArray.length; i++) {
+            const item = this.rowArray[i];
+            item.setFontColor(fontColor);
         }
     }
     getCell(row, column) {

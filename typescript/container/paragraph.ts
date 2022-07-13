@@ -12,21 +12,25 @@ public rowGap :AniNumber;
 public border :AniNumber;
 public padding :AniNumber;
 public fontSize :AniNumber;
+public fontColor :AniColor;
 public opacityBackground :AniNumber;
 public showBackground :AniBoolean;
-public uniformFontSize :AniBoolean;
+public useParentFontSize :AniBoolean;
+public useParentFontColor :AniBoolean;
 public colorBackground :AniColor;
 public colorBorder :AniColor;
 constructor (){ 
     super();
     this.y_internal = 0;
-    this.showBackground  = new AniBoolean(true);
-    this.uniformFontSize  = new AniBoolean(false);
+    this.showBackground  = new AniBoolean( true );
+    this.useParentFontSize  = new AniBoolean( false );
+    this.useParentFontColor  = new AniBoolean( true );
     this.padding = new AniNumber(0);
     this.fontSize = new AniNumber(50);
     this.rowGap = new AniNumber(5);
     this.border = new AniNumber(0);
     this.opacityBackground = new AniNumber(100);
+    this.fontColor = new AniColor("black");
     this.colorBackground = new AniColor("grey");
     this.colorBorder = new AniColor("black");
     this.rowArray = [];
@@ -46,11 +50,16 @@ init(p: Pack): boolean {
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
     this.rowGap.update(msDelta);
+
     this.fontSize.update(msDelta);
-    if (this.uniformFontSize.value() == true){
+
+    if (this.useParentFontSize.value() == true){
         this.setFontSize(this.fontSize.value());
     }
-    
+    if (this.useParentFontColor.value() == true){
+        this.setFontColor(this.fontColor.value());
+    }
+    //--Update all the rows which can further update Text
     for (let i = 0; i < this.rowArray.length ; i++) {
         const rw = this.rowArray[i];
         rw.update(msDelta,p);
@@ -89,6 +98,12 @@ private setFontSize(fontSize :number){
     for (let i = 0; i < this.rowArray.length ; i++) {
         const item = this.rowArray[i];
         item.setFontSize(fontSize);
+    }
+}
+private setFontColor(fontColor :string){
+    for (let i = 0; i < this.rowArray.length ; i++) {
+        const item = this.rowArray[i];
+        item.setFontColor(fontColor);
     }
 }
 getCell(row :number, column :number):Text{

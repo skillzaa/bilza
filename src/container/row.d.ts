@@ -3,7 +3,7 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import Text from "../components/text.js";
 export default class Row extends BaseComponent {
     textArray: Text[];
-    incommingTextArray: string[];
+    private incommingTextArray;
     x_internal: number;
     colorBackground: AniColor;
     paddingTop: AniNumber;
