@@ -27,14 +27,9 @@ para.yAlign = para.YAlignOpt.Mid;
 //---------------------------------
 // para.uniformFontSize.set(true);
 para.fontSize.set(30)
-// para.setFontSize(20);
-// para.fontSize.animate(2,6,60,20);
-// para.x.vibrate(0,30,50,1,40);
-// para.y.vibrate(0,30,50,1,40);
-para.x.oscillate(0,30,50,60,20);
-// para.rowGap.animate(3,5,2,30);
-// para.x.animate(0,2,0,50);
-// para.y.animate(0,2,0,50);
+
+para.x.vibrate(0,30,50,1,40);
+para.y.vibrate(0,30,50,1,40);
 //---------------------------------
 
 const firstRow = para.getRow(0);
@@ -53,7 +48,6 @@ thirdRow.paddingTop.set(20);
 thirdRow.paddingBottom.set(20);
 thirdRow.colorBackground.set("pink");
 
-
 const word_Seek = para.getCell(0,2);
 word_Seek.colorBackground.set("red");
 word_Seek.fontSize.set(70);
@@ -65,7 +59,6 @@ const word_come = para.getCell(1,5);
 word_come.colorBackground.set("yellow");
 word_come.color.set("blue");
 word_come.showBackground.set(true);
-
 
 const word_way = para.getCell(2,3);
 word_way.colorBackground.set("green");
