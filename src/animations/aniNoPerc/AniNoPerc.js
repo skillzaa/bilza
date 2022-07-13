@@ -38,6 +38,21 @@ export default class AniNoPerc extends AniNoPercBase {
             this._XorY.set(this._initValue);
         }
     }
+    initOscilate() {
+        if (this.canvasWidthHeight == null) {
+            throw new Error("init error");
+        }
+        for (let i = 0; i < this.preInitOscilate.length; i++) {
+            const elm = this.preInitOscilate[i];
+            let __startValue = elm.startValue;
+            let __endValue = elm.endValue;
+            if (this.usePercentages == true) {
+                __startValue = this.percToPix(elm.startValue);
+                __endValue = this.percToPix(elm.endValue);
+            }
+            this.baseOscilate(elm.startTimeSec, elm.endTimeSec, __startValue, __endValue, elm.speed);
+        }
+    }
     initVibrate() {
         if (this.canvasWidthHeight == null) {
             throw new Error("init error");

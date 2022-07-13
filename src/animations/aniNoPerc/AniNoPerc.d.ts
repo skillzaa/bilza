@@ -5,6 +5,7 @@ export default class AniNoPerc extends AniNoPercBase {
     init(usePercentages: boolean, canvasWidthHeight: number): void;
     set(n: number): void;
     initSetInitValue(): void;
+    initOscilate(): void;
     initVibrate(): void;
     initRandom(): void;
     initJumpBetween(): void;

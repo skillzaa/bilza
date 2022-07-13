@@ -1,8 +1,9 @@
 import Pack from "../pack/pack.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import Row from "./row.js";
+//--So that normal Text Element is not used by js
 import Text from "../components/text.js";
-import { AniNumber,AniBoolean , AniColor } from "../bilza.js";
+import {AniNumber,AniBoolean,AniColor } from "../bilza.js";
 
 export default class Paragraph extends BaseComponent {
 private rowArray : Row[];
@@ -10,15 +11,19 @@ private y_internal :number;
 public rowGap :AniNumber;
 public border :AniNumber;
 public padding :AniNumber;
+public fontSize :AniNumber;
 public opacityBackground :AniNumber;
 public showBackground :AniBoolean;
+public uniformFontSize :AniBoolean;
 public colorBackground :AniColor;
 public colorBorder :AniColor;
 constructor (){ 
     super();
     this.y_internal = 0;
     this.showBackground  = new AniBoolean(true);
+    this.uniformFontSize  = new AniBoolean(false);
     this.padding = new AniNumber(0);
+    this.fontSize = new AniNumber(50);
     this.rowGap = new AniNumber(5);
     this.border = new AniNumber(0);
     this.opacityBackground = new AniNumber(100);
@@ -41,6 +46,10 @@ init(p: Pack): boolean {
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
     this.rowGap.update(msDelta);
+    this.fontSize.update(msDelta);
+    if (this.uniformFontSize.value() == true){
+        this.setFontSize(this.fontSize.value());
+    }
     
     for (let i = 0; i < this.rowArray.length ; i++) {
         const rw = this.rowArray[i];
@@ -76,10 +85,18 @@ heightInPix(): number {
         throw new Error("the component is not initialized yet");        
     }
 }
-
+private setFontSize(fontSize :number){
+    for (let i = 0; i < this.rowArray.length ; i++) {
+        const item = this.rowArray[i];
+        item.setFontSize(fontSize);
+    }
+}
 getCell(row :number, column :number):Text{
     const rw =  this.rowArray[row];
     return rw.getCell(column);
+}
+getRow(row :number):Row{
+    return  this.rowArray[row];
 }
 draw(p:Pack):boolean{
 // this.opacity.set(100);

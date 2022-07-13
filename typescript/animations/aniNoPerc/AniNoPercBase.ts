@@ -6,7 +6,7 @@ import PreInitAnimate from "./designNoPerc/preInitAnimate.js";
 import PreInitVibrate from "./designNoPerc/preInitVibrate.js";
 import PreInitRandom from "./designNoPerc/preInitRandom.js";
 import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
-
+import PreInitOscilate from "./designNoPerc/preInitoscilate.js";
 /**
  * 4-july-2022 
  * So far we have 
@@ -30,13 +30,14 @@ import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
  * --- However this class doen not need to extends AniProp since thats already done in AniMumber extends AniProp <number>
  */
 
-export default class AniNoPerc { 
+export default class AniNoPercBase { 
 protected usePercentages :boolean | null; 
 protected preInitGotos:PreInitGoto[];
 protected preInitAnimates:PreInitAnimate[];
 protected preInitVibrates:PreInitVibrate[];
 protected preInitRandoms:PreInitRandom[];
 protected preInitJumpBetweens:PreInitJumpBetween[];
+protected preInitOscilate:PreInitOscilate[];
 protected _XorY :AniNumber; 
 protected _initValue :number; 
   
@@ -53,6 +54,7 @@ this.preInitGotos = [];
 this.preInitAnimates = []; 
 this.preInitVibrates = [];
 this.preInitJumpBetweens = [];
+this.preInitOscilate = [];
 
 }
 /**
@@ -116,6 +118,13 @@ public animate( startTime :number,endTime :number, startValue :number,endValue :
 }
 public baseAnimate( startTime :number,endTime :number, startValue :number,endValue :number){
 this._XorY.animate( startTime,endTime, startValue,endValue);
+}
+public oscillate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
+const c = new PreInitOscilate(startTimeSec,endTimeSec,startValue, endValue,speed);
+this.preInitOscilate.push(c);
+}
+public baseOscilate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
+    this._XorY.oscillate(startTimeSec,endTimeSec,startValue, endValue,speed);
 }
 ////////////////////////////////////////////////////
 }

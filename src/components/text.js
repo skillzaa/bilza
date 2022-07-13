@@ -31,7 +31,6 @@ export default class Text extends RawText {
             this.dynamicFontSize(p);
         }
         this.paddingLeft.update(msDelta);
-        this.paddingLeft.update(msDelta);
         this.paddingRight.update(msDelta);
         this.paddingTop.update(msDelta);
         this.paddingBottom.update(msDelta);

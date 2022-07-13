@@ -4,7 +4,8 @@ import PreInitAnimate from "./designNoPerc/preInitAnimate.js";
 import PreInitVibrate from "./designNoPerc/preInitVibrate.js";
 import PreInitRandom from "./designNoPerc/preInitRandom.js";
 import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
-export default class AniNoPerc {
+import PreInitOscilate from "./designNoPerc/preInitoscilate.js";
+export default class AniNoPercBase {
     constructor(defaultValue = 0) {
         this._XorY = new AniNumber(defaultValue);
         this.usePercentages = true;
@@ -14,6 +15,7 @@ export default class AniNoPerc {
         this.preInitAnimates = [];
         this.preInitVibrates = [];
         this.preInitJumpBetweens = [];
+        this.preInitOscilate = [];
     }
     setInitValue(n) {
         this._initValue = n;
@@ -62,5 +64,12 @@ export default class AniNoPerc {
     }
     baseAnimate(startTime, endTime, startValue, endValue) {
         this._XorY.animate(startTime, endTime, startValue, endValue);
+    }
+    oscillate(startTimeSec, endTimeSec, startValue = 1, endValue = 10, speed = 1) {
+        const c = new PreInitOscilate(startTimeSec, endTimeSec, startValue, endValue, speed);
+        this.preInitOscilate.push(c);
+    }
+    baseOscilate(startTimeSec, endTimeSec, startValue = 1, endValue = 10, speed = 1) {
+        this._XorY.oscillate(startTimeSec, endTimeSec, startValue, endValue, speed);
     }
 }

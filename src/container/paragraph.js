@@ -6,7 +6,9 @@ export default class Paragraph extends BaseComponent {
         super();
         this.y_internal = 0;
         this.showBackground = new AniBoolean(true);
+        this.uniformFontSize = new AniBoolean(false);
         this.padding = new AniNumber(0);
+        this.fontSize = new AniNumber(50);
         this.rowGap = new AniNumber(5);
         this.border = new AniNumber(0);
         this.opacityBackground = new AniNumber(100);
@@ -26,6 +28,10 @@ export default class Paragraph extends BaseComponent {
     update(msDelta, p) {
         super.update(msDelta, p);
         this.rowGap.update(msDelta);
+        this.fontSize.update(msDelta);
+        if (this.uniformFontSize.value() == true) {
+            this.setFontSize(this.fontSize.value());
+        }
         for (let i = 0; i < this.rowArray.length; i++) {
             const rw = this.rowArray[i];
             rw.update(msDelta, p);
@@ -62,9 +68,18 @@ export default class Paragraph extends BaseComponent {
             throw new Error("the component is not initialized yet");
         }
     }
+    setFontSize(fontSize) {
+        for (let i = 0; i < this.rowArray.length; i++) {
+            const item = this.rowArray[i];
+            item.setFontSize(fontSize);
+        }
+    }
     getCell(row, column) {
         const rw = this.rowArray[row];
         return rw.getCell(column);
+    }
+    getRow(row) {
+        return this.rowArray[row];
     }
     draw(p) {
         this.applyRotation(p);

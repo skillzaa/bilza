@@ -1,3 +1,4 @@
+import { AniNumber, AniColor } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import Text from "../components/text.js";
 export default class Row extends BaseComponent {
@@ -5,8 +6,11 @@ export default class Row extends BaseComponent {
         super();
         this.x_internal = 0;
         this.incommingTextArray = incommingTextArray.split(" ");
-        ;
-        console.log("this.incommingTextArray", this.incommingTextArray);
+        this.paddingTop = new AniNumber(0);
+        this.paddingBottom = new AniNumber(0);
+        this.paddingRight = new AniNumber(0);
+        this.paddingLeft = new AniNumber(0);
+        this.colorBackground = new AniColor("grey");
         this.textArray = [];
         for (let i = 0; i < this.incommingTextArray.length; i++) {
             const item = this.incommingTextArray[i];
@@ -30,6 +34,11 @@ export default class Row extends BaseComponent {
         return true;
     }
     update(msDelta, p) {
+        this.paddingLeft.update(msDelta);
+        this.paddingRight.update(msDelta);
+        this.paddingTop.update(msDelta);
+        this.paddingBottom.update(msDelta);
+        this.colorBackground.update(msDelta);
         super.update(msDelta, p);
         for (let i = 0; i < this.textArray.length; i++) {
             const txt = this.textArray[i];
@@ -44,7 +53,7 @@ export default class Row extends BaseComponent {
                 const txt = this.textArray[i];
                 wd += txt.widthInPix();
             }
-            return wd;
+            return (wd + this.paddingLeft.value() + this.paddingRight.value());
         }
         else {
             throw new Error("the component is not initialized yet");
@@ -59,10 +68,22 @@ export default class Row extends BaseComponent {
                     wd = txt.heightInPix();
                 }
             }
-            return wd;
+            return (wd + this.paddingTop.value() + this.paddingBottom.value());
         }
         else {
             throw new Error("the component is not initialized yet");
+        }
+    }
+    setFontSize(fontSize) {
+        for (let i = 0; i < this.textArray.length; i++) {
+            const item = this.textArray[i];
+            item.fontSize.set(fontSize);
+        }
+    }
+    setFontColor(fontColor) {
+        for (let i = 0; i < this.textArray.length; i++) {
+            const item = this.textArray[i];
+            item.color.set(fontColor);
         }
     }
     getCell(column) {
@@ -73,11 +94,12 @@ export default class Row extends BaseComponent {
         this.style.fillStyle = this.color.value();
         this.style.opacity = this.opacity.value();
         this.style.strokeStyle = this.color.value();
+        this.drawBackground(p);
         const yAligned = this.yAligned();
         for (let i = 0; i < this.textArray.length; i++) {
             const txt = this.textArray[i];
-            txt.x.override(this.xAligned() + this.x_internal);
-            txt.y.override(yAligned);
+            txt.x.override(this.xAligned() + this.x_internal + this.paddingLeft.value());
+            txt.y.override(yAligned + this.paddingTop.value());
             txt.draw(p);
             this.x_internal += txt.widthInPix();
         }
@@ -85,5 +107,10 @@ export default class Row extends BaseComponent {
         this.style.opacity = 1;
         this.x_internal = 0;
         return true;
+    }
+    drawBackground(p) {
+        this.style.fillStyle = this.colorBackground.value();
+        this.style.strokeStyle = this.colorBackground.value();
+        p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
     }
 }

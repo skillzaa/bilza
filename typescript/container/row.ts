@@ -1,4 +1,4 @@
-import Pack from "../pack/pack.js";
+import {Pack,AniBoolean,AniNumber,AniColor} from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import Text from "../components/text.js";
 
@@ -6,14 +6,27 @@ export default class Row extends BaseComponent {
 textArray : Text[];
 incommingTextArray : string[];
 x_internal :number;
-// numberOfCells :number;
+colorBackground :AniColor;
+public paddingTop :AniNumber;    //required by all comps--no     
+public paddingBottom :AniNumber;    //required by all comps--no     
+
+public paddingRight :AniNumber;         
+public paddingLeft : AniNumber;         
+
 
 constructor (incommingTextArray :string = "one two"){ 
     super();
     this.x_internal = 0;
     //--save for later use
-    this.incommingTextArray = incommingTextArray.split(" ");;
-    console.log("this.incommingTextArray",this.incommingTextArray);
+    this.incommingTextArray = incommingTextArray.split(" ");
+    this.paddingTop = new AniNumber(0);
+    this.paddingBottom = new AniNumber(0); 
+    this.paddingRight = new AniNumber(0);
+    this.paddingLeft  = new AniNumber(0);
+
+    // conver tto false 
+    this.colorBackground = new AniColor("grey");
+    // console.log("this.incommingTextArray",this.incommingTextArray);
     this.textArray = [];
     //-----------create 
     //--this.incommingTextArray and not just incommingTextArray
@@ -35,6 +48,7 @@ constructor (incommingTextArray :string = "one two"){
 
 init(p: Pack): boolean {
     super.init(p);
+
     for (let i = 0; i < this.textArray.length ; i++) {
         const txt = this.textArray[i];
         txt.charsWidth = this.charsWidth;
@@ -44,11 +58,19 @@ init(p: Pack): boolean {
 }
 
 update(msDelta: number, p: Pack): boolean {
+    this.paddingLeft.update(msDelta);
+    this.paddingRight.update(msDelta);
+    this.paddingTop.update(msDelta);
+    this.paddingBottom.update(msDelta);
+    this.colorBackground.update(msDelta);
     super.update(msDelta,p);
+
     for (let i = 0; i < this.textArray.length ; i++) {
         const txt = this.textArray[i];
+       
         txt.update(msDelta,p);
     }
+    //-------------------------------------------
     return true;
 }
 widthInPix(): number {
@@ -58,7 +80,7 @@ widthInPix(): number {
         const txt = this.textArray[i];
         wd += txt.widthInPix();
     }
-        return wd;
+    return (wd + this.paddingLeft.value() + this.paddingRight.value() );
     }else {
         throw new Error("the component is not initialized yet");        
     }
@@ -72,12 +94,23 @@ heightInPix(): number {
             wd = txt.heightInPix();
         }
     }
-        return wd;
+        return (wd +this.paddingTop.value() + this.paddingBottom.value()  );
     }else {
         throw new Error("the component is not initialized yet");        
     }
 }
-
+setFontSize(fontSize :number){
+    for (let i = 0; i < this.textArray.length ; i++) {
+        const item = this.textArray[i];
+        item.fontSize.set(fontSize);
+    }
+}
+setFontColor(fontColor :string){
+    for (let i = 0; i < this.textArray.length ; i++) {
+        const item = this.textArray[i];
+        item.color.set(fontColor);
+    }
+}
 getCell(column :number):Text{
     return this.textArray[column];
 }
@@ -91,11 +124,13 @@ this.style.opacity = this.opacity.value();
 this.style.strokeStyle = this.color.value(); 
 
 //---------------------------------------
+this.drawBackground(p);
+//---------------------------------------
 const yAligned = this.yAligned();
 for (let i = 0; i < this.textArray.length ; i++) {
     const txt = this.textArray[i];
-    txt.x.override(this.xAligned() + this.x_internal);
-    txt.y.override( yAligned );
+    txt.x.override(this.xAligned() + this.x_internal + this.paddingLeft.value());
+    txt.y.override( yAligned + this.paddingTop.value() );
     txt.draw(p);
     this.x_internal += txt.widthInPix();
     // console.log("x",txt.x.value());
@@ -108,5 +143,13 @@ this.x_internal = 0;
 //----------------------------
 return true;
 }
+drawBackground(p :Pack){
+
+this.style.fillStyle = this.colorBackground.value();    
+this.style.strokeStyle = this.colorBackground.value();  
+
+p.drawFillRect (this.xAligned(), this.yAligned(),
+this.widthInPix() , this.heightInPix(),this.style);
+} 
 
 }

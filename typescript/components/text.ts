@@ -63,7 +63,6 @@ update(msDelta: number, p: Pack): boolean {
     if (this.fitTextToWidth == true){
         this.dynamicFontSize(p);    
     }     
-    this.paddingLeft.update(msDelta);
     
     this.paddingLeft.update(msDelta);
     this.paddingRight.update(msDelta);
