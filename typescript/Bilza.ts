@@ -14,6 +14,8 @@ import BaseComponent from "./BaseComponent/00BaseComponent.js"
 import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
 import AniNumber from "./animations/aniNumber/aniNumber.js";
+import AniNoPerc from "./animations/aniNoPerc/AniNoPerc.js";
+
 import AniBoolean from "./animations/aniBoolean/aniBoolean.js";
 export default Bilza;
 import AniColor from "./animations/aniColor/aniColor.js";
@@ -24,6 +26,7 @@ Pack,
 DrawLayer,
 Experimental,
 AniNumber,
+AniNoPerc,
 AniString,
 AniBoolean,
 AniColor,

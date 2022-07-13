@@ -1,4 +1,4 @@
-import {DrawLayer,AniBoolean,AniNumber,AniColor} from "../bilza.js";
+import {DrawLayer,AniBoolean,AniNumber,AniNoPerc,AniColor} from "../bilza.js";
 import Style from "../design/style.js";
 
 import {XAlignOpt} from "./designBC/xAlignOpt.js";
@@ -35,6 +35,11 @@ public  selected :boolean; //dont complicate
 canvasWidth :number | null;    //required by all comps
 canvasHeight :number | null;    //required by all comps
 
+public paddingTop :AniNoPerc;    //required by all comps--no     
+public paddingBottom :AniNoPerc;    //required by all comps--no     
+
+public paddingRight :AniNoPerc;         
+public paddingLeft : AniNoPerc;         
 
 constructor(){
     //--insert the current version numebr into components
@@ -63,13 +68,19 @@ constructor(){
     this.id = Math.random().toString(36).slice(2);
     this.style = new Style(); 
 ///////////// 
-
+ 
 this.canvasWidth = null;    
 this.canvasHeight = null;    
 
 //---flags--//--\\ 
 this.selected = false;
 this.visible = new AniBoolean(true);
+//-----------padding
+this.paddingTop = new AniNoPerc(0);
+this.paddingBottom = new AniNoPerc(0); 
+
+this.paddingRight = new AniNoPerc(0);
+this.paddingLeft  = new AniNoPerc(0);
 
 }
 

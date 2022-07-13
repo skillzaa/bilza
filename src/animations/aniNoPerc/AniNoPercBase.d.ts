@@ -16,7 +16,7 @@ export default class AniNoPercBase {
     protected _XorY: AniNumber;
     protected _initValue: number;
     constructor(defaultValue?: number);
-    setInitValue(n: number): void;
+    protected setInitValue(n: number): void;
     update(msDelta: number): void;
     value(): number;
     override(n: number): number;

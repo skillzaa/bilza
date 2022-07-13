@@ -1,4 +1,4 @@
-import { Pack, AniNumber, AniColor } from "../bilza.js";
+import { Pack, AniColor } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import Text from "../components/text.js";
 export default class Row extends BaseComponent {
@@ -6,10 +6,6 @@ export default class Row extends BaseComponent {
     private incommingTextArray;
     x_internal: number;
     colorBackground: AniColor;
-    paddingTop: AniNumber;
-    paddingBottom: AniNumber;
-    paddingRight: AniNumber;
-    paddingLeft: AniNumber;
     constructor(incommingTextArray?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;

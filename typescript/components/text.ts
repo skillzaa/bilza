@@ -1,6 +1,6 @@
 import { Pack ,AniNumber,AniColor,AniBoolean} from "../bilza.js";
 import RawText from "./rawText.js";
- import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
+//  import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 
 /**
  * Text class has all the bells and whistles unlike RawText. 
@@ -12,11 +12,11 @@ export default class Text extends RawText {
 public fitTextToWidth :boolean;    
 public maxHeight :number;       
     
-public paddingTop :AniNoPerc;    //required by all comps--no     
-public paddingBottom :AniNoPerc;    //required by all comps--no     
+// public paddingTop :AniNoPerc;    //required by all comps--no     
+// public paddingBottom :AniNoPerc;    //required by all comps--no     
 
-public paddingRight :AniNoPerc;         
-public paddingLeft : AniNoPerc;         
+// public paddingRight :AniNoPerc;         
+// public paddingLeft : AniNoPerc;         
 
 public border :AniNumber;         
 
@@ -31,11 +31,11 @@ super(content,colorHax);
 this.fitTextToWidth = true;
 this.maxHeight = 500;
 
-this.paddingTop = new AniNoPerc(0);
-this.paddingBottom = new AniNoPerc(0); 
+// this.paddingTop = new AniNoPerc(0);
+// this.paddingBottom = new AniNoPerc(0); 
 
-this.paddingRight = new AniNoPerc(0);
-this.paddingLeft  = new AniNoPerc(0);
+// this.paddingRight = new AniNoPerc(0);
+// this.paddingLeft  = new AniNoPerc(0);
 
 this.border  = new AniNumber(0);
 
@@ -49,11 +49,11 @@ super.init(p);
 if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }
-this.paddingLeft.init(this.usePercentages,this.canvasWidth);
-this.paddingRight.init(this.usePercentages,this.canvasWidth);
-//--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
-this.paddingTop.init(this.usePercentages,this.canvasHeight);
-this.paddingBottom.init(this.usePercentages,this.canvasHeight);
+// this.paddingLeft.init(this.usePercentages,this.canvasWidth);
+// this.paddingRight.init(this.usePercentages,this.canvasWidth);
+// //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
+// this.paddingTop.init(this.usePercentages,this.canvasHeight);
+// this.paddingBottom.init(this.usePercentages,this.canvasHeight);
 
 
 // this.applyBoth(p);
@@ -64,10 +64,10 @@ update(msDelta: number, p: Pack): boolean {
         this.dynamicFontSize(p);    
     }     
     
-    this.paddingLeft.update(msDelta);
-    this.paddingRight.update(msDelta);
-    this.paddingTop.update(msDelta);
-    this.paddingBottom.update(msDelta);
+    // this.paddingLeft.update(msDelta);
+    // this.paddingRight.update(msDelta);
+    // this.paddingTop.update(msDelta);
+    // this.paddingBottom.update(msDelta);
 
     // this.applyBoth(p);
     super.update(msDelta,p);//--keep it down here so that Loc is updated late;

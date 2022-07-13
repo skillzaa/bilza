@@ -1,4 +1,4 @@
-import { DrawLayer, AniBoolean, AniNumber, AniColor } from "../bilza.js";
+import { DrawLayer, AniBoolean, AniNumber, AniNoPerc, AniColor } from "../bilza.js";
 import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
@@ -25,5 +25,9 @@ export default class BaseComponentBase {
         this.canvasHeight = null;
         this.selected = false;
         this.visible = new AniBoolean(true);
+        this.paddingTop = new AniNoPerc(0);
+        this.paddingBottom = new AniNoPerc(0);
+        this.paddingRight = new AniNoPerc(0);
+        this.paddingLeft = new AniNoPerc(0);
     }
 }

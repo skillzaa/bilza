@@ -62,7 +62,7 @@ this.preInitOscilate = [];
  * There is "set" method in AniProp and then in AniNumber but here in AniNoPerc we can not use "set" without init--so dont over-ride set here rather over-ride it in AniNoXPerc and AniNoYPerc.
  * Also  "setInitValue" is req since these props are deeply nested and providing a default value at creation may not be possible. 
  */
-setInitValue(n :number){
+protected setInitValue(n :number){
 this._initValue = n;
 }
  

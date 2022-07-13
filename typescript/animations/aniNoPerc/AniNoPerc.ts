@@ -23,14 +23,14 @@ this.initJumpBetween();
 } 
 //---set method does a different task than other methods
 public set(n :number){
-if (this.canvasWidthHeight == null){throw new Error("init error : set value can not be used at compile time for properties which need canvas width or height. For such values you should use setInitValue at compile time and use \"set\" only at run time when the protety has been initialized");}    
 if ( this.usePercentages == true){
-    const _v = this.percToPix( n);
-    //remember we are wrapping AniNumber and not inheret
-    this._XorY.set(_v); 
-    } else {
-        this._XorY.set(n);    
-    }
+    // if (this.canvasWidthHeight == null){throw new Error("init error : set value can not be used at compile time for properties which need canvas width or height. For such values you should use setInitValue at compile time and use \"set\" only at run time when the protety has been initialized");}    
+const _v = this.percToPix( n);
+//remember we are wrapping AniNumber and not inheret
+this._XorY.set(_v); 
+} else {
+    this._XorY.set(n);    
+}
 } 
    
 initSetInitValue(){

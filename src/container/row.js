@@ -1,4 +1,4 @@
-import { AniNumber, AniColor } from "../bilza.js";
+import { AniColor } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import Text from "../components/text.js";
 export default class Row extends BaseComponent {
@@ -6,10 +6,6 @@ export default class Row extends BaseComponent {
         super();
         this.x_internal = 0;
         this.incommingTextArray = incommingTextArray.split(" ");
-        this.paddingTop = new AniNumber(0);
-        this.paddingBottom = new AniNumber(0);
-        this.paddingRight = new AniNumber(0);
-        this.paddingLeft = new AniNumber(0);
         this.colorBackground = new AniColor("grey");
         this.textArray = [];
         for (let i = 0; i < this.incommingTextArray.length; i++) {
@@ -19,8 +15,8 @@ export default class Row extends BaseComponent {
             txt.usePercentages = false;
             txt.fitTextToWidth = false;
             txt.border.set(0);
-            txt.paddingLeft.setInitValue(2);
-            txt.paddingRight.setInitValue(2);
+            txt.paddingLeft.set(2);
+            txt.paddingRight.set(2);
             this.textArray.push(txt);
         }
     }
@@ -34,10 +30,6 @@ export default class Row extends BaseComponent {
         return true;
     }
     update(msDelta, p) {
-        this.paddingLeft.update(msDelta);
-        this.paddingRight.update(msDelta);
-        this.paddingTop.update(msDelta);
-        this.paddingBottom.update(msDelta);
         this.colorBackground.update(msDelta);
         super.update(msDelta, p);
         for (let i = 0; i < this.textArray.length; i++) {

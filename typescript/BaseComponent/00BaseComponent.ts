@@ -16,6 +16,14 @@ this.canvasHeight =  p.canvasHeight();
 //--The X and Y class needs to be init but The AniNumber wrapped insde does not need init
 this.x.init(this.usePercentages,this.canvasWidth);//canvasWidth
 this.y.init(this.usePercentages,this.canvasHeight);//canvasHeight
+////////////////////////////
+// this.paddingLeft.init()
+this.paddingLeft.init(this.usePercentages,this.canvasWidth);
+this.paddingRight.init(this.usePercentages,this.canvasWidth);
+//--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
+this.paddingTop.init(this.usePercentages,this.canvasHeight);
+this.paddingBottom.init(this.usePercentages,this.canvasHeight);
+
 return true;
 }
 
@@ -29,6 +37,11 @@ update(msDelta :number,p :Pack): boolean {
     this.opacity.update(msDelta);
     this.width.update(msDelta);
     this.height.update(msDelta);
+
+    this.paddingLeft.update(msDelta);
+    this.paddingRight.update(msDelta);
+    this.paddingTop.update(msDelta);
+    this.paddingBottom.update(msDelta);
 return true;    
 }
 

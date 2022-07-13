@@ -1,15 +1,10 @@
 import { AniNumber, AniColor, AniBoolean } from "../bilza.js";
 import RawText from "./rawText.js";
-import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 export default class Text extends RawText {
     constructor(content = "", colorHax = "#000000") {
         super(content, colorHax);
         this.fitTextToWidth = true;
         this.maxHeight = 500;
-        this.paddingTop = new AniNoPerc(0);
-        this.paddingBottom = new AniNoPerc(0);
-        this.paddingRight = new AniNoPerc(0);
-        this.paddingLeft = new AniNoPerc(0);
         this.border = new AniNumber(0);
         this.colorBackground = new AniColor("#ffffff");
         this.colorBorder = new AniColor("#000000");
@@ -20,20 +15,12 @@ export default class Text extends RawText {
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.paddingLeft.init(this.usePercentages, this.canvasWidth);
-        this.paddingRight.init(this.usePercentages, this.canvasWidth);
-        this.paddingTop.init(this.usePercentages, this.canvasHeight);
-        this.paddingBottom.init(this.usePercentages, this.canvasHeight);
         return true;
     }
     update(msDelta, p) {
         if (this.fitTextToWidth == true) {
             this.dynamicFontSize(p);
         }
-        this.paddingLeft.update(msDelta);
-        this.paddingRight.update(msDelta);
-        this.paddingTop.update(msDelta);
-        this.paddingBottom.update(msDelta);
         super.update(msDelta, p);
         this.border.update(msDelta);
         this.colorBackground.update(msDelta);

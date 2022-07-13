@@ -15,9 +15,6 @@ export default class AniNoPerc extends AniNoPercBase {
         this.initJumpBetween();
     }
     set(n) {
-        if (this.canvasWidthHeight == null) {
-            throw new Error("init error : set value can not be used at compile time for properties which need canvas width or height. For such values you should use setInitValue at compile time and use \"set\" only at run time when the protety has been initialized");
-        }
         if (this.usePercentages == true) {
             const _v = this.percToPix(n);
             this._XorY.set(_v);

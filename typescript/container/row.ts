@@ -8,22 +8,14 @@ private incommingTextArray : string[];
 x_internal :number;
 colorBackground :AniColor;
 
-public paddingTop :AniNumber;    //required by all comps--no     
-public paddingBottom :AniNumber;    //required by all comps--no     
-
-public paddingRight :AniNumber;         
-public paddingLeft : AniNumber;         
-
 
 constructor (incommingTextArray :string = "one two"){ 
     super();
     this.x_internal = 0;
     //--save for later use
     this.incommingTextArray = incommingTextArray.split(" ");
-    this.paddingTop = new AniNumber(0);
-    this.paddingBottom = new AniNumber(0); 
-    this.paddingRight = new AniNumber(0);
-    this.paddingLeft  = new AniNumber(0);
+   
+    
 
     this.colorBackground = new AniColor("grey");
     // console.log("this.incommingTextArray",this.incommingTextArray);
@@ -39,8 +31,8 @@ constructor (incommingTextArray :string = "one two"){
         //--fitTextToWidth = false; // very importantay -so now we can keep the size of text same by fontSize.
         txt.fitTextToWidth = false;
         txt.border.set(0);
-        txt.paddingLeft.setInitValue(2);
-        txt.paddingRight.setInitValue(2);
+        txt.paddingLeft.set(2);
+        txt.paddingRight.set(2);
         // txt.content.set(incommingTextArray[i]);
         this.textArray.push(txt);
     }
@@ -58,10 +50,7 @@ init(p: Pack): boolean {
 }
 
 update(msDelta: number, p: Pack): boolean {
-    this.paddingLeft.update(msDelta);
-    this.paddingRight.update(msDelta);
-    this.paddingTop.update(msDelta);
-    this.paddingBottom.update(msDelta);
+    
     this.colorBackground.update(msDelta);
     super.update(msDelta,p);
 
