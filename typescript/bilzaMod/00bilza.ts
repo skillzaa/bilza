@@ -32,7 +32,7 @@ this.soundTrackElement = null;
 this.soundTrack = null;
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
-this.set = new Settings(); ///EasyPeasyyyyyy...!!!
+this.set = new Settings(this.pack); ///EasyPeasyyyyyy...!!!
 //-----------Add Background
 this.background = new Background();
 // this.insert.alwaysOn(this.background);

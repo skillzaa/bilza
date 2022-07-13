@@ -4,6 +4,7 @@ export default class Pack {
     private canvas;
     private ctx;
     private canvasId;
+    disableOpacity: boolean;
     constructor(canvasId: string, screenWidthInPercent?: number);
     private getNewCtx;
     drawBackground(color?: string): string;

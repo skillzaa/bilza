@@ -11,7 +11,7 @@ public fontSize :AniNumber;
 //--- The only abstraction -- if is a problem even remove this
 public maxDisplayChars :AniNumber; 
 //--colors
-public color :AniColor;
+// public color :AniColor;
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
 super();  

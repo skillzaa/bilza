@@ -34,6 +34,7 @@ public  selected :boolean; //dont complicate
 //---these 2 variables will be set in init
 canvasWidth :number | null;    //required by all comps
 canvasHeight :number | null;    //required by all comps
+public border :AniNumber;         
 
 public paddingTop :AniNoPerc;    //required by all comps--no     
 public paddingBottom :AniNoPerc;    //required by all comps--no     
@@ -41,6 +42,11 @@ public paddingBottom :AniNoPerc;    //required by all comps--no
 public paddingRight :AniNoPerc;         
 public paddingLeft : AniNoPerc;         
 
+//---
+public colorBackground :AniColor;
+public colorBorder :AniColor;
+public showBackground :AniBoolean;
+//---
 constructor(){
     //--insert the current version numebr into components
     this.version = "0.0.1";
@@ -56,6 +62,7 @@ constructor(){
     
     // this.usePercentages = false;
     this.usePercentages = true;
+    this.border = new AniNumber(0);
     this.width = new AniNumber(10);
     this.rotation = new AniNumber(0);
     this.opacity = new AniNumber(100);
@@ -81,7 +88,15 @@ this.paddingBottom = new AniNoPerc(0);
 
 this.paddingRight = new AniNoPerc(0);
 this.paddingLeft  = new AniNoPerc(0);
+////////////
+this.border  = new AniNumber(0);
+
+
+this.colorBackground = new AniColor("#ffffff");
+this.colorBorder = new AniColor("#000000");
+this.showBackground = new AniBoolean(false);
 
 }
 
+ 
 }//claass

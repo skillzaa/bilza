@@ -24,10 +24,14 @@ export default class BaseComponentBase {
     selected: boolean;
     canvasWidth: number | null;
     canvasHeight: number | null;
+    border: AniNumber;
     paddingTop: AniNoPerc;
     paddingBottom: AniNoPerc;
     paddingRight: AniNoPerc;
     paddingLeft: AniNoPerc;
+    colorBackground: AniColor;
+    colorBorder: AniColor;
+    showBackground: AniBoolean;
     constructor();
 }
 //# sourceMappingURL=99BaseComponentBase.d.ts.map

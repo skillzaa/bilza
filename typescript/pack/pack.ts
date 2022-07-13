@@ -9,7 +9,7 @@ export default class Pack {
 private canvas :HTMLCanvasElement;
 private ctx :CanvasRenderingContext2D;
 private canvasId :string;
-
+public disableOpacity:boolean;
 constructor(canvasId :string,screenWidthInPercent=80){
     
 this.canvasId = canvasId;  
@@ -17,6 +17,7 @@ this.canvasId = canvasId;
 this.canvas = getCanvasElement(this.canvasId);
 this.dynamicCanvas(screenWidthInPercent,null);// new
 this.ctx  = this.getNewCtx();
+this.disableOpacity  = false;
     
 }//constructor
 private getNewCtx():CanvasRenderingContext2D{
@@ -197,7 +198,12 @@ public commitCtxData(incomCtx:Style){
         this.ctx.lineCap = "round";
     }
     if (incomCtx.opacity !== null){
-        this.ctx.globalAlpha = incomCtx.opacity/100;
+        if (this.disableOpacity == true){
+            //--full opacity all the time;
+            this.ctx.globalAlpha = 1;       
+        }else {
+            this.ctx.globalAlpha = incomCtx.opacity/100;
+        }
     }
     if (incomCtx.shadowBlur !== null){
         this.ctx.shadowBlur = incomCtx.shadowBlur;

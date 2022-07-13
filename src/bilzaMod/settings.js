@@ -1,6 +1,13 @@
 export default class Settings {
-    constructor() {
+    constructor(pack) {
         this.clearCanvasBwFrames = true;
         this.loadSystemBackground = true;
+        this.pack = pack;
+    }
+    disableOpacity() {
+        this.pack.disableOpacity = true;
+    }
+    enableOpacity() {
+        this.pack.disableOpacity = false;
     }
 }

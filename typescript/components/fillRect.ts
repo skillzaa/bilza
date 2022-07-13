@@ -32,11 +32,15 @@ heightInPix(): number {
     }
 }
 draw(p:Pack):boolean{
-
+this.preDraw();
 this.applyRotation(p);
 //--------------
-this.style.fillStyle = this.color.value();    
+//--why is this line needed at the top of every draw fn
 this.style.opacity = this.opacity.value();
+this.drawBackground(p);
+this.drawBorder(p);
+//--------------
+this.style.fillStyle = this.color.value();    
 // console.log("this.opacity.value()/100",this.opacity.value()/100);
 // p.applyOpacity(this.opacity.value());
 this.style.strokeStyle = this.color.value(); 
@@ -44,8 +48,8 @@ this.style.strokeStyle = this.color.value();
 // console.log("this.xAligned()",this.xAligned());
 //---------------------------------------
    p.drawFillRect(
-     this.xAligned(),
-     this.yAligned(),
+     this.xAlignedPadded(),
+     this.yAlignedPadded(),
 
     this.widthInPix(),
     this.heightInPix(),
@@ -53,7 +57,8 @@ this.style.strokeStyle = this.color.value();
     );
 //----------------------------
 this.removeRotation(p);
-this.style.opacity = 1;
+this.postDraw()
+// this.style.opacity = 100;
 //----------------------------
 return true;
 }

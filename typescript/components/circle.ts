@@ -5,7 +5,7 @@ import { AniBoolean,AniColor } from "../bilza.js";
 
 export default class Circle extends BaseComponent {
   
-color :AniColor;
+// color :AniColor;//already has in base comp
 filled :AniBoolean;
 constructor (color :string="#000000"){ 
 super();

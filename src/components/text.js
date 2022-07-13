@@ -1,14 +1,9 @@
-import { AniNumber, AniColor, AniBoolean } from "../bilza.js";
 import RawText from "./rawText.js";
 export default class Text extends RawText {
     constructor(content = "", colorHax = "#000000") {
         super(content, colorHax);
         this.fitTextToWidth = true;
         this.maxHeight = 500;
-        this.border = new AniNumber(0);
-        this.colorBackground = new AniColor("#ffffff");
-        this.colorBorder = new AniColor("#000000");
-        this.showBackground = new AniBoolean(false);
     }
     init(p) {
         super.init(p);
@@ -22,9 +17,6 @@ export default class Text extends RawText {
             this.dynamicFontSize(p);
         }
         super.update(msDelta, p);
-        this.border.update(msDelta);
-        this.colorBackground.update(msDelta);
-        this.colorBorder.update(msDelta);
         return true;
     }
     widthInPix() {
@@ -68,17 +60,6 @@ export default class Text extends RawText {
         this.drawContent(p);
         this.removeRotation(p);
         return true;
-    }
-    drawBackground(p) {
-        this.style.fillStyle = this.colorBackground.value();
-        this.style.strokeStyle = this.colorBackground.value();
-        p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
-    }
-    drawBorder(p) {
-        this.style.strokeStyle = this.colorBorder.value();
-        this.style.fillStyle = this.colorBorder.value();
-        this.style.lineWidth = this.border.value();
-        p.drawRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
     }
     drawContent(p) {
         this.style.strokeStyle = this.color.value();

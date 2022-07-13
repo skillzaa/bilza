@@ -7,6 +7,7 @@ export default class Pack {
         this.canvas = getCanvasElement(this.canvasId);
         this.dynamicCanvas(screenWidthInPercent, null);
         this.ctx = this.getNewCtx();
+        this.disableOpacity = false;
     }
     getNewCtx() {
         let ctx = this.canvas.getContext('2d');
@@ -158,7 +159,12 @@ export default class Pack {
             this.ctx.lineCap = "round";
         }
         if (incomCtx.opacity !== null) {
-            this.ctx.globalAlpha = incomCtx.opacity / 100;
+            if (this.disableOpacity == true) {
+                this.ctx.globalAlpha = 1;
+            }
+            else {
+                this.ctx.globalAlpha = incomCtx.opacity / 100;
+            }
         }
         if (incomCtx.shadowBlur !== null) {
             this.ctx.shadowBlur = incomCtx.shadowBlur;

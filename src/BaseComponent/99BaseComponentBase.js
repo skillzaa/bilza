@@ -13,6 +13,7 @@ export default class BaseComponentBase {
         this.xRotate = this.XAlignOpt.Left;
         this.yRotate = this.YAlignOpt.Top;
         this.usePercentages = true;
+        this.border = new AniNumber(0);
         this.width = new AniNumber(10);
         this.rotation = new AniNumber(0);
         this.opacity = new AniNumber(100);
@@ -29,5 +30,9 @@ export default class BaseComponentBase {
         this.paddingBottom = new AniNoPerc(0);
         this.paddingRight = new AniNoPerc(0);
         this.paddingLeft = new AniNoPerc(0);
+        this.border = new AniNumber(0);
+        this.colorBackground = new AniColor("#ffffff");
+        this.colorBorder = new AniColor("#000000");
+        this.showBackground = new AniBoolean(false);
     }
 }

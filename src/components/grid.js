@@ -18,6 +18,7 @@ export default class Grid extends BaseComponent {
         this.drawLayer = DrawLayer.BackGround;
     }
     draw(p) {
+        this.style.opacity = 100;
         this.draw_horizontal(p);
         this.draw_vertical(p);
         return true;

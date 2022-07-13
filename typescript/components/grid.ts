@@ -45,6 +45,9 @@ this.drawLayer = DrawLayer.BackGround;
 }    
 
 draw(p:Pack): boolean {
+    // this.style.opacity = this.opacity.value();
+    this.style.opacity = 100;
+
     this.draw_horizontal(p);    
     this.draw_vertical(p);    
 return true;

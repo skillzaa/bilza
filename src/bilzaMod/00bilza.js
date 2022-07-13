@@ -15,7 +15,7 @@ export default class Bilza {
         this.soundTrack = null;
         this.insert = new Insert(this.comps, this.duration, this.pack.charsWidth.bind(this.pack));
         this.stopWatch = new StopWatch();
-        this.set = new Settings();
+        this.set = new Settings(this.pack);
         this.background = new Background();
     }
     init() {

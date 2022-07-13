@@ -18,12 +18,6 @@ public maxHeight :number;
 // public paddingRight :AniNoPerc;         
 // public paddingLeft : AniNoPerc;         
 
-public border :AniNumber;         
-
-public colorBackground :AniColor;
-public colorBorder :AniColor;
-
-public showBackground :AniBoolean;
 ///////////////////////////////////////// 
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);
@@ -37,12 +31,7 @@ this.maxHeight = 500;
 // this.paddingRight = new AniNoPerc(0);
 // this.paddingLeft  = new AniNoPerc(0);
 
-this.border  = new AniNumber(0);
 
-
-this.colorBackground = new AniColor("#ffffff");
-this.colorBorder = new AniColor("#000000");
-this.showBackground = new AniBoolean(false);
 } 
 init(p: Pack): boolean {
 super.init(p);    
@@ -71,10 +60,7 @@ update(msDelta: number, p: Pack): boolean {
 
     // this.applyBoth(p);
     super.update(msDelta,p);//--keep it down here so that Loc is updated late;
-    this.border.update(msDelta);
-    this.colorBackground.update(msDelta);
-    this.colorBorder.update(msDelta);
-
+   
     return true;
 }
 
@@ -124,23 +110,7 @@ this.removeRotation(p);
 return true;
 } 
 
-drawBackground(p :Pack){
 
-this.style.fillStyle = this.colorBackground.value();    
-this.style.strokeStyle = this.colorBackground.value();  
-
-p.drawFillRect (this.xAligned(), this.yAligned(),
-this.widthInPix() , this.heightInPix(),this.style);
-} 
-
-drawBorder(p :Pack){
-this.style.strokeStyle = this.colorBorder.value();  
-this.style.fillStyle = this.colorBorder.value();  
-
-this.style.lineWidth = this.border.value();    
-p.drawRect(this.xAligned(), this.yAligned(),
-this.widthInPix() , this.heightInPix(),this.style);
-} 
 
 drawContent(p :Pack){
 this.style.strokeStyle = this.color.value();  
@@ -152,9 +122,6 @@ p.drawText(
     this.yAligned() + this.border.value() + this.paddingTop.value(),
     this.style);   
 } 
-///////////////////////////////////////////
-///////////////////////////////////////////
-///////////////////////////////////////////
 ///////////////////////////////////////////
 ///////////////////////////////////////////
 private dynamicFontSize(p :Pack):number | null{
