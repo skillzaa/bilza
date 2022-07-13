@@ -24,7 +24,9 @@ heightInPix(): number {
     return this.widthInPix();
 }
 draw(p:Pack):boolean{
-
+this.style.opacity = 100;    
+this.drawBackground(p);
+this.drawBorder(p);
 //--------------
 this.style.fillStyle = this.color.value();    
 this.style.opacity = (this.opacity.value());
@@ -33,8 +35,8 @@ this.style.strokeStyle = this.color.value();
 //---------------------------------------
 p.beginPath();
 p.drawCircle(
-    this.xAligned() + (this.widthInPix()/2)  ,
-    this.yAligned() + (this.widthInPix()/2),
+    this.xAlignedPadded() + (this.widthInPix()/2)  ,
+    this.yAlignedPadded() + (this.widthInPix()/2),
     (this.widthInPix()/2), //since radius is halp of width
     this.filled.value(),
     0,

@@ -18,11 +18,14 @@ export default class Circle extends BaseComponent {
         return this.widthInPix();
     }
     draw(p) {
+        this.style.opacity = 100;
+        this.drawBackground(p);
+        this.drawBorder(p);
         this.style.fillStyle = this.color.value();
         this.style.opacity = (this.opacity.value());
         this.style.strokeStyle = this.color.value();
         p.beginPath();
-        p.drawCircle(this.xAligned() + (this.widthInPix() / 2), this.yAligned() + (this.widthInPix() / 2), (this.widthInPix() / 2), this.filled.value(), 0, 2 * Math.PI, this.style);
+        p.drawCircle(this.xAlignedPadded() + (this.widthInPix() / 2), this.yAlignedPadded() + (this.widthInPix() / 2), (this.widthInPix() / 2), this.filled.value(), 0, 2 * Math.PI, this.style);
         p.stroke();
         return true;
     }
