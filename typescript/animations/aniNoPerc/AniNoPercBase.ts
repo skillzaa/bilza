@@ -30,25 +30,31 @@ import PreInitOscilate from "./designNoPerc/preInitoscilate.js";
  * --- However this class doen not need to extends AniProp since thats already done in AniMumber extends AniProp <number>
  */
 
-export default class AniNoPercBase { 
+export default class AniNoPercBase extends AniNumber { 
+
 protected usePercentages :boolean | null; 
+
 protected preInitGotos:PreInitGoto[];
 protected preInitAnimates:PreInitAnimate[];
 protected preInitVibrates:PreInitVibrate[];
 protected preInitRandoms:PreInitRandom[];
 protected preInitJumpBetweens:PreInitJumpBetween[];
 protected preInitOscilate:PreInitOscilate[];
-protected _XorY :AniNumber; 
+// protected _XorY :AniNumber; 
 protected _initValue :number; 
+public canvasWidthHeight :number | null;
   
 
 constructor(defaultValue=0){
+super(defaultValue);    
 // 4-july 2022 : i think we shd not give it defaultValue since that not in percentages we should give that to _initValue and during init translate it; ??? - but that is already happens    
-this._XorY = new AniNumber(defaultValue);
+// super = new AniNumber(defaultValue);
 
-//--user can use setInitValue if this prop is deeply nested
+//--user can use initValue /set if this prop is deeply nested
 this.usePercentages = true; 
 this._initValue = defaultValue;
+this.canvasWidthHeight =  null;
+
 this.preInitRandoms = []; 
 this.preInitGotos = []; 
 this.preInitAnimates = []; 
@@ -60,56 +66,74 @@ this.preInitOscilate = [];
 /**
  * 4-july-2022
  * There is "set" method in AniProp and then in AniNumber but here in AniNoPerc we can not use "set" without init--so dont over-ride set here rather over-ride it in AniNoXPerc and AniNoYPerc.
- * Also  "setInitValue" is req since these props are deeply nested and providing a default value at creation may not be possible. 
+ * Also  "set" is req since these props are deeply nested and providing a default value at creation may not be possible. 
  */
-protected setInitValue(n :number){
-this._initValue = n;
-}
+// protected set(n :number){
+// this._initValue = n;
+// }
  
-update(msDelta :number){
-this._XorY.update(msDelta);
+//--overwrite the super set here
+public set(n :number):number{
+if ( this.usePercentages == true ){
+    this._initValue = n;
+    return this._initValue;
+} else {
+    super.set(n);    
+    return n;
 }
-value():number{
-    return this._XorY.value();
+} 
+   
+initSetInitValue(){
+if ( this.usePercentages == true){
+    if (this.canvasWidthHeight == null){throw new Error("init       error");}    
+    //-no need to make init value number | null since it gets default value from start.
+    const _v = this.percToPix(this._initValue);
+      super.set(_v);
+    }else {
+        //--do nothing since its already directly set in "set"
+        // super.set(this._initValue)
+    } 
 }
+
 /**
  * So set in AniNumber/AniPro is override here
  * Override method can be used in AniXper and AniYper in which you can just override the value  
  */
-public override(n :number):number{
-this._XorY.set(n);
-return this._XorY.value();
-}
+// public override(n :number):number{
+// super.set(n);
+// return super.value();
+// }
 ///////////////////////////////////////////////////////
 public jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,skipFrames :number=0){
 const c = new PreInitJumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,skipFrames);    
 this.preInitJumpBetweens.push(c);
 }
+
 public baseJumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,skipFrames :number=0){
- this._XorY.jumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,skipFrames);    
+ super.jumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,skipFrames);    
 }
 
 public goto(atSecond  :number,value :number){
 const c = new PreInitGoto(atSecond,value);    
 this.preInitGotos.push(c);
 }
-//--between goto and baseGoto is initGoto
+// --between goto and baseGoto is initGoto
 public baseGoto(atSecond  :number,value :number){
-    this._XorY.goto(atSecond,value);
+    super.goto(atSecond,value);
 }
 public vibrate(from: number, to: number, seed: number, offset: number, delay: number): void {
     const c = new PreInitVibrate(from,to,seed,offset,delay);
     this.preInitVibrates.push(c);
 }
 public baseVibrate(from: number, to: number, xValue: number, offset: number, delay: number): void {
-    this._XorY.vibrate(from,to,xValue,offset,delay);
+    super.vibrate(from,to,xValue,offset,delay);
 }
 public random(startTimeSec :number,endTimeSec :number,min :number=1, max :number=10,skipXFrames :number=0): void {
 const c = new PreInitRandom (startTimeSec,endTimeSec,min, max,skipXFrames);
     this.preInitRandoms.push(c);
 }
 public baseRandom(startTimeSec :number,endTimeSec :number,min :number=1, max :number=10,skipXFrames :number=0): void {
-    this._XorY.random(startTimeSec,endTimeSec,min,max,skipXFrames);
+    super.random(startTimeSec,endTimeSec,min,max,skipXFrames);
 }
 
 public animate( startTime :number,endTime :number, startValue :number,endValue :number): void {
@@ -117,14 +141,21 @@ public animate( startTime :number,endTime :number, startValue :number,endValue :
     this.preInitAnimates.push(c);    
 }
 public baseAnimate( startTime :number,endTime :number, startValue :number,endValue :number){
-this._XorY.animate( startTime,endTime, startValue,endValue);
+super.animate( startTime,endTime, startValue,endValue);
 }
+
 public oscillate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
 const c = new PreInitOscilate(startTimeSec,endTimeSec,startValue, endValue,speed);
 this.preInitOscilate.push(c);
 }
-public baseOscilate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
-    this._XorY.oscillate(startTimeSec,endTimeSec,startValue, endValue,speed);
+public baseOscillate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
+    super.oscillate(startTimeSec,endTimeSec,startValue, endValue,speed);
 }
 ////////////////////////////////////////////////////
+protected percToPix(perc :number){
+    if (this.canvasWidthHeight == null){throw("init error");}
+    return ((this.canvasWidthHeight /100) * perc);
+}
+//----------------------------------------------------------
+
 }

@@ -5,7 +5,7 @@ import PreInitVibrate from "./designNoPerc/preInitVibrate.js";
 import PreInitRandom from "./designNoPerc/preInitRandom.js";
 import PreInitJumpBetween from "./designNoPerc/preInitJumpBetween.js";
 import PreInitOscilate from "./designNoPerc/preInitoscilate.js";
-export default class AniNoPercBase {
+export default class AniNoPercBase extends AniNumber {
     protected usePercentages: boolean | null;
     protected preInitGotos: PreInitGoto[];
     protected preInitAnimates: PreInitAnimate[];
@@ -13,13 +13,11 @@ export default class AniNoPercBase {
     protected preInitRandoms: PreInitRandom[];
     protected preInitJumpBetweens: PreInitJumpBetween[];
     protected preInitOscilate: PreInitOscilate[];
-    protected _XorY: AniNumber;
     protected _initValue: number;
+    canvasWidthHeight: number | null;
     constructor(defaultValue?: number);
-    protected setInitValue(n: number): void;
-    update(msDelta: number): void;
-    value(): number;
-    override(n: number): number;
+    set(n: number): number;
+    initSetInitValue(): void;
     jumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, skipFrames?: number): void;
     baseJumpBetween(startTimeSec: number, endTimeSec: number, pointOne?: number, pointTwo?: number, skipFrames?: number): void;
     goto(atSecond: number, value: number): void;
@@ -31,6 +29,7 @@ export default class AniNoPercBase {
     animate(startTime: number, endTime: number, startValue: number, endValue: number): void;
     baseAnimate(startTime: number, endTime: number, startValue: number, endValue: number): void;
     oscillate(startTimeSec: number, endTimeSec: number, startValue?: number, endValue?: number, speed?: number): void;
-    baseOscilate(startTimeSec: number, endTimeSec: number, startValue?: number, endValue?: number, speed?: number): void;
+    baseOscillate(startTimeSec: number, endTimeSec: number, startValue?: number, endValue?: number, speed?: number): void;
+    protected percToPix(perc: number): number;
 }
 //# sourceMappingURL=AniNoPercBase.d.ts.map

@@ -8,8 +8,8 @@ constructor (color :string="#ffff00"){
 super();
 this.xAlign = this.XAlignOpt.Mid;
 this.yAlign = this.YAlignOpt.Mid;
-this.x.setInitValue(50);
-this.y.setInitValue(50);
+this.x.set(50);
+this.y.set(50);
 this.color.set(color) ; 
 }
 // init(p: Pack): boolean {

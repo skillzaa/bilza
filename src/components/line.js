@@ -3,8 +3,8 @@ import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 export default class Line extends BaseComponent {
     constructor(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
         super();
-        this.x.setInitValue(x1);
-        this.y.setInitValue(y1);
+        this.x.set(x1);
+        this.y.set(y1);
         this.x2 = new AniNoPerc(x2);
         this.y2 = new AniNoPerc(y2);
         this.lineWidth = new AniNumber(2);

@@ -136,8 +136,8 @@ this.style.strokeStyle = this.color.value();
 const xAligned = this.xAligned();
 for (let i = 0; i < this.rowArray.length ; i++) {
     const rw = this.rowArray[i];
-    rw.x.override(xAligned + this.padding.value());
-    rw.y.override(this.yAligned() + this.padding.value() +this.y_internal);
+    rw.x.set(xAligned + this.padding.value());
+    rw.y.set(this.yAligned() + this.padding.value() +this.y_internal);
     rw.draw(p);
     this.y_internal += rw.heightInPix() + this.rowGap.value();
 }

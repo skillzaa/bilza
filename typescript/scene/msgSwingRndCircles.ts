@@ -19,10 +19,10 @@ t.setStartTime(this.getStartTime());
 t.duration = this.getDuration();
 
 t.width.set(40);
-t.paddingLeft.setInitValue(5);
-t.paddingRight.setInitValue(5);
-t.paddingTop.setInitValue(10);
-t.paddingBottom.setInitValue(10);
+t.paddingLeft.set(5);
+t.paddingRight.set(5);
+t.paddingTop.set(10);
+t.paddingBottom.set(10);
 //..........................
 t.showBackground.set(true);
 t.colorBackground.set("#000000")

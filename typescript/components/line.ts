@@ -13,8 +13,8 @@ constructor (x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string
 super();
 //--we can not use set directly for props which need init
 // this.x.set(x1); //wrong
-this.x.setInitValue(x1); 
-this.y.setInitValue(y1);
+this.x.set(x1); 
+this.y.set(y1);
 
 this.x2 = new AniNoPerc(x2);
 this.y2 = new AniNoPerc(y2);

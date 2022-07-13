@@ -7,10 +7,10 @@ static hdg(content :string="",colorHax :string="#008000",width :number=30 ,maxHe
 let g = new Text(content,colorHax);
 
 // g.useMaxHeight = true;
-g.paddingLeft.setInitValue (padding);
-g.paddingRight.setInitValue(padding);
-g.paddingTop.setInitValue(padding);
-g.paddingBottom.setInitValue(padding);
+g.paddingLeft.set (padding);
+g.paddingRight.set(padding);
+g.paddingTop.set(padding);
+g.paddingBottom.set(padding);
 g.maxHeight = maxHeight;
 g.width.set(width);
 g.showBackground.set(true);

@@ -2,6 +2,7 @@ import AniNoPercBase from "./AniNoPercBase.js";
 export default class AniNoPerc extends AniNoPercBase {
     constructor(defaultValue = 0) {
         super(defaultValue);
+        this.canvasWidthHeight = null;
     }
     init(usePercentages, canvasWidthHeight) {
         this.usePercentages = usePercentages;
@@ -13,7 +14,31 @@ export default class AniNoPerc extends AniNoPercBase {
         this.initRandom();
         this.initJumpBetween();
     }
+    set(n) {
+        if (this.usePercentages == true) {
+            const _v = this.percToPix(n);
+            this._XorY.set(_v);
+        }
+        else {
+            this._XorY.set(n);
+        }
+    }
+    initSetInitValue() {
+        if (this.canvasWidthHeight == null) {
+            throw new Error("init error");
+        }
+        if (this.usePercentages == true) {
+            const _v = this.percToPix(this._initValue);
+            this._XorY.set(_v);
+        }
+        else {
+            this._XorY.set(this._initValue);
+        }
+    }
     initOscilate() {
+        if (this.canvasWidthHeight == null) {
+            throw new Error("init error");
+        }
         for (let i = 0; i < this.preInitOscilate.length; i++) {
             const elm = this.preInitOscilate[i];
             let __startValue = elm.startValue;
@@ -22,10 +47,13 @@ export default class AniNoPerc extends AniNoPercBase {
                 __startValue = this.percToPix(elm.startValue);
                 __endValue = this.percToPix(elm.endValue);
             }
-            this.baseOscillate(elm.startTimeSec, elm.endTimeSec, __startValue, __endValue, elm.speed);
+            this.baseOscilate(elm.startTimeSec, elm.endTimeSec, __startValue, __endValue, elm.speed);
         }
     }
     initVibrate() {
+        if (this.canvasWidthHeight == null) {
+            throw new Error("init error");
+        }
         for (let i = 0; i < this.preInitVibrates.length; i++) {
             const elm = this.preInitVibrates[i];
             let __v = elm.seed;
@@ -36,6 +64,9 @@ export default class AniNoPerc extends AniNoPercBase {
         }
     }
     initRandom() {
+        if (this.canvasWidthHeight == null) {
+            throw new Error("init error");
+        }
         for (let i = 0; i < this.preInitRandoms.length; i++) {
             const elm = this.preInitRandoms[i];
             let __min = elm.min;
@@ -48,6 +79,9 @@ export default class AniNoPerc extends AniNoPercBase {
         }
     }
     initJumpBetween() {
+        if (this.canvasWidthHeight == null) {
+            throw new Error("init error");
+        }
         for (let i = 0; i < this.preInitJumpBetweens.length; i++) {
             const elm = this.preInitJumpBetweens[i];
             let __pointOne = elm.pointOne;
@@ -60,6 +94,9 @@ export default class AniNoPerc extends AniNoPercBase {
         }
     }
     initGoto() {
+        if (this.canvasWidthHeight == null) {
+            throw new Error("init error");
+        }
         for (let i = 0; i < this.preInitGotos.length; i++) {
             const elm = this.preInitGotos[i];
             let v = elm.theValue;
@@ -70,14 +107,23 @@ export default class AniNoPerc extends AniNoPercBase {
         }
     }
     initAnimate() {
+        if (this.canvasWidthHeight == null) {
+            throw new Error("init error");
+        }
         for (let i = 0; i < this.preInitAnimates.length; i++) {
             const e = this.preInitAnimates[i];
             if (this.usePercentages == true) {
-                super.animate(e.startTime, e.endTime, this.percToPix(e.startValue), this.percToPix(e.endValue));
+                this.baseAnimate(e.startTime, e.endTime, this.percToPix(e.startValue), this.percToPix(e.endValue));
             }
             else {
                 this.baseAnimate(e.startTime, e.endTime, e.startValue, e.endValue);
             }
         }
+    }
+    percToPix(perc) {
+        if (this.canvasWidthHeight == null) {
+            throw ("init error");
+        }
+        return ((this.canvasWidthHeight / 100) * perc);
     }
 }

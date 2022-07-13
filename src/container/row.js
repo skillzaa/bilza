@@ -90,8 +90,8 @@ export default class Row extends BaseComponent {
         const yAligned = this.yAligned();
         for (let i = 0; i < this.textArray.length; i++) {
             const txt = this.textArray[i];
-            txt.x.override(this.xAligned() + this.x_internal + this.paddingLeft.value());
-            txt.y.override(yAligned + this.paddingTop.value());
+            txt.x.set(this.xAligned() + this.x_internal + this.paddingLeft.value());
+            txt.y.set(yAligned + this.paddingTop.value());
             txt.draw(p);
             this.x_internal += txt.widthInPix();
         }
