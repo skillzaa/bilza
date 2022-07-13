@@ -80,7 +80,7 @@ initAnimate(){
 for (let i = 0; i < this.preInitAnimates.length; i++) {
     const e= this.preInitAnimates[i];
         if ( this.usePercentages == true){
-            super.animate(e.startTime,e.endTime,this.percToPix(e.startValue),this.percToPix(e.endValue));
+            this.baseAnimate(e.startTime,e.endTime,this.percToPix(e.startValue),this.percToPix(e.endValue));
         }else {
             this.baseAnimate(e.startTime,e.endTime, e.startValue, e.endValue);
         }
