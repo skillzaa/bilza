@@ -27,7 +27,7 @@ constructor (incommingTextArray :string = "one two"){
         const txt = new Text(item);
         txt.width.set(10);
         //--txt.usePercentages = false; // very importantay-Not only will the x and y not use percentages the paddings (all 4) will also be not using percentages. This is genious
-        txt.usePercentages = false;
+        txt.responsive = false;
         //--fitTextToWidth = false; // very importantay -so now we can keep the size of text same by fontSize.
         txt.fitTextToWidth = false;
         txt.border.set(0);

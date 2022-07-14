@@ -1,5 +1,3 @@
-//----this is just a dummy class so that the top level name does not change--we can just change what this extends and apply any new changes
-// import Loc from "./loc.js";
 import { IComponent,Pack } from "../bilza.js";
 import RotateObj from "./60rotateObj.js";
 
@@ -13,22 +11,23 @@ constructor (){
 init(p: Pack): boolean {
 this.canvasWidth =  p.canvasWidth();  
 this.canvasHeight =  p.canvasHeight();
-//--The X and Y class needs to be init but The AniNumber wrapped insde does not need init
-this.x.init(this.usePercentages,this.canvasWidth);//canvasWidth
-this.y.init(this.usePercentages,this.canvasHeight);//canvasHeight
-////////////////////////////
-// this.paddingLeft.init()
-this.paddingLeft.init(this.usePercentages,this.canvasWidth);
-this.paddingRight.init(this.usePercentages,this.canvasWidth);
+
+//--Only 6 classes need init x,y and 4 paddings
+this.x.init(this.responsive,this.canvasWidth);//canvasWidth
+this.y.init(this.responsive,this.canvasHeight);//canvasHeight
+//paddings
+this.paddingLeft.init(this.responsive,this.canvasWidth);
+this.paddingRight.init(this.responsive,this.canvasWidth);
 //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
-this.paddingTop.init(this.usePercentages,this.canvasHeight);
-this.paddingBottom.init(this.usePercentages,this.canvasHeight);
+this.paddingTop.init(this.responsive,this.canvasHeight);
+this.paddingBottom.init(this.responsive,this.canvasHeight);
 
 return true;
 }
 
 
 update(msDelta :number,p :Pack): boolean {
+    //--- 14-july-2022 : A total of 14 props need UPDATE
     this.x.update(msDelta);
     this.y.update(msDelta);
     //--6-july-2022 visible.update added
@@ -50,6 +49,7 @@ update(msDelta :number,p :Pack): boolean {
 return true;    
 }
 drawBackground(p :Pack){
+//--This is the only place where we need to check this.showBackground     
 if (this.showBackground.value() == false) {return;}    
 
 this.style.fillStyle = this.colorBackground.value();    

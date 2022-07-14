@@ -1,5 +1,5 @@
 
-import Style from "../../src/design/style.js";
+import Style from "../src/design/style.js";
 
 let style = new Style();
 //--style has total 18 prop

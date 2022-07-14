@@ -17,7 +17,7 @@ export default interface IComponent{
 //-----Public Properties
     readonly id :string;
     // usePercentages is used in xy module and entire system is built around it. It means that using percentages OR pixes both are possible in all components.
-    usePercentages : boolean; 
+     responsive : boolean; 
     drawLayer : DrawLayer; 
     duration :number;
     alwaysOn: boolean;

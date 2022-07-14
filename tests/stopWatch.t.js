@@ -1,6 +1,6 @@
 
 // import Bilza from "../src/bilza.js"
-import StopWatch from "../";
+import StopWatch from "../src/bilza";
 
 
 

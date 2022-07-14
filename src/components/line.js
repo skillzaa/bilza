@@ -16,8 +16,8 @@ export default class Line extends BaseComponent {
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.x2.init(this.usePercentages, this.canvasWidth);
-        this.y2.init(this.usePercentages, this.canvasHeight);
+        this.x2.init(this.responsive, this.canvasWidth);
+        this.y2.init(this.responsive, this.canvasHeight);
         return true;
     }
     update(msDelta, p) {

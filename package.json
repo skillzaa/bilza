@@ -14,7 +14,14 @@
     "type": "git",
     "url": "https://github.com/skillzaa/bilza"
   },
-  "keywords": ["animation", "javascipt animation", "canvas" , "html5 canvas","business presentation" , "slides"],
+  "keywords": [
+    "animation",
+    "javascipt animation",
+    "canvas",
+    "html5 canvas",
+    "business presentation",
+    "slides"
+  ],
   "author": "Bilal Tariq",
   "license": "MIT",
   "bugs": {

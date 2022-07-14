@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css'>
+    <script src="../misc/prism.js"></script>
+    <link rel="stylesheet" href="../misc/prism.css">   
+  
+    <link rel="stylesheet" href="../misc/custom.css">   
+
+    <title>Bilza Docs</title>
+</head>
+<body>
+<h6><a href="/">Home</a></h6>
+
+<h1>Base Component</h1>
+
+<p>BaseComponent is the Parent class for all components. It has following methods and public members:</p>
+
+<ol>
+<p>We have 2 values xAlign , yAlign. These 2 classes are used to align the X and Y coordingates of a component</p>
+    <li>public xAlign :XAlignOpt;</li>
+    <li>public yAlign : YAlignOpt;</li>
+    
+<p> We have 2 values xRotate and yRotate. These 2 classes are used to align the rotate X and rotate Y coordingates of a component</p>
+    <li>public xRotate :XAlignOpt;</li>
+    <li>public yRotate :YAlignOpt;</li>
+<p>Both of the above 2 groups of alignment classes uses the following 2 options.</p>
+    <li>public readonly XAlignOpt :typeof XAlignOpt;</li>
+    <li>public readonly YAlignOpt :typeof YAlignOpt;</li>
+
+<p>Every component has a random id</p>
+    <li>public readonly id :string;</li>
+    <li>public usePercentages : boolean; </li>
+     <p> The draw layer </p>
+    <li>public drawLayer : DrawLayer; </li>
+    <li>public style:Style; </li>
+    <p> This will be set by the engine so do not touch it. </p>
+    <li>public alwaysOn: boolean;</li>
+    <li>public version :string;</li>
+<p>IMPLEMENTED IN ENGINE-- visible = false will not be drawn</p>
+    <li>public visible :AniBoolean;</li>
+<p>implemented in Base Component but component creator has to implement it </p>
+    <li>public rotation :AniNumber;</li>
+    <p>implemented in Base Component but component creator has to implement it </p>
+    <li>public opacity :AniNumber;</li>
+    <p>The color prop points to the color of the main content </p>
+    <li>public color :AniColor;</li>
+    <p>This may or may not be implemented in some special cases like text which uses fontSize. However this will be used in 99% of the components </p>
+    <li>public width :AniNumber; </li>
+
+    <p>no need to convert it into AniNoPers </p>
+        <p>same as width </p>
+    <li>public height :AniNumber;</li>
+    <p>no need to convert it into AniNoPers </p>
+        <p>this will come in handy during using the lib with gui and while making interactive tools. </p>
+    <li>public  selected :boolean; //dont complicate.</li> 
+    
+    <p>Padding and Border </p>
+    <li>public border :AniNumber; </li>        
+    <li>public paddingTop :AniNoPerc;</li>        
+    <li>public paddingBottom :AniNoPerc;</li>         
+    <li>public paddingRight :AniNoPerc;</li>         
+    <li>public paddingLeft : AniNoPerc;</li>         
+    
+    <p>Basic colors </p>
+    <li>public colorBackground :AniColor; </li>
+    <li>public colorBorder :AniColor; </li>
+    <li>public showBackground :AniBoolean; </li>
+    
+</ol>
+
+
+</body>
+</html>

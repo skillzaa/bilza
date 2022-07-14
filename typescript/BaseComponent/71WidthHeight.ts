@@ -19,14 +19,6 @@ heightInPix(): number {
         throw new Error("the component is not initialized yet");        
     }
 }
-//--bad wrong
-// widthInPix(): number {
-// return 0;
-// }
-// //--width is actually /shd be dynWidth in pix
-// heightInPix(): number {   
-// return 0;
-// }
 
 
 }//component ends 

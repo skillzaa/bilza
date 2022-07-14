@@ -12,7 +12,7 @@ export default class BaseComponentBase {
         this.yAlign = this.YAlignOpt.Top;
         this.xRotate = this.XAlignOpt.Left;
         this.yRotate = this.YAlignOpt.Top;
-        this.usePercentages = true;
+        this.responsive = true;
         this.border = new AniNumber(0);
         this.width = new AniNumber(10);
         this.rotation = new AniNumber(0);

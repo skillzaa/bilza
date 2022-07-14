@@ -3,14 +3,14 @@ import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
 export default class BaseComponentBase {
+    xAlign: XAlignOpt;
+    yAlign: YAlignOpt;
+    xRotate: XAlignOpt;
+    yRotate: YAlignOpt;
     readonly XAlignOpt: typeof XAlignOpt;
     readonly YAlignOpt: typeof YAlignOpt;
-    xAlign: XAlignOpt;
-    xRotate: XAlignOpt;
-    yAlign: YAlignOpt;
-    yRotate: YAlignOpt;
     readonly id: string;
-    usePercentages: boolean;
+    responsive: boolean;
     drawLayer: DrawLayer;
     style: Style;
     alwaysOn: boolean;
@@ -22,8 +22,6 @@ export default class BaseComponentBase {
     width: AniNumber;
     height: AniNumber;
     selected: boolean;
-    canvasWidth: number | null;
-    canvasHeight: number | null;
     border: AniNumber;
     paddingTop: AniNoPerc;
     paddingBottom: AniNoPerc;
@@ -32,6 +30,8 @@ export default class BaseComponentBase {
     colorBackground: AniColor;
     colorBorder: AniColor;
     showBackground: AniBoolean;
+    canvasWidth: number | null;
+    canvasHeight: number | null;
     constructor();
 }
 //# sourceMappingURL=99BaseComponentBase.d.ts.map

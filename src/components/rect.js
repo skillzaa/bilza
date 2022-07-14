@@ -27,6 +27,9 @@ export default class Rect extends BaseComponent {
         }
     }
     draw(p) {
+        this.style.opacity = 100;
+        this.drawBorder(p);
+        this.drawBackground(p);
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
         this.style.lineWidth = this.lineWidth.value();

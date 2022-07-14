@@ -1,7 +1,7 @@
 import { DrawLayer, Pack, Style, AniNumber, AniBoolean } from "../../bilza.js";
 export default interface IComponent {
     readonly id: string;
-    usePercentages: boolean;
+    responsive: boolean;
     drawLayer: DrawLayer;
     duration: number;
     alwaysOn: boolean;

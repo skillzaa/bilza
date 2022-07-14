@@ -12,7 +12,7 @@ export default class Row extends BaseComponent {
             const item = this.incommingTextArray[i];
             const txt = new Text(item);
             txt.width.set(10);
-            txt.usePercentages = false;
+            txt.responsive = false;
             txt.fitTextToWidth = false;
             txt.border.set(0);
             txt.paddingLeft.set(2);
