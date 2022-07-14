@@ -135,6 +135,7 @@ this.ctx.arcTo(start.x,start.y,end.x,end.y,radius);
 }
 
 public drawCircle(x :number=0, y:number=0, radius:number=25,fill :boolean = false, startAngle=0 , endAngle:number = (2 * Math.PI),incomCtx:Style){
+    
 this.commitCtxData(incomCtx);
 this.ctx.beginPath();
 this.ctx.arc(x, y, radius, startAngle, endAngle, false);

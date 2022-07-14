@@ -10,7 +10,7 @@ export default class BaseComponent extends RotateObj implements IComponent {
     postDraw(): void;
     yAlignedPadded(): number;
     xAlignedPadded(): number;
-    lateralPaddingSum(): number;
-    verticalPaddingSum(): number;
+    contentWidth(): number;
+    contentHeight(): number;
 }
 //# sourceMappingURL=00BaseComponent.d.ts.map

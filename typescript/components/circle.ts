@@ -14,16 +14,31 @@ this.filled = new AniBoolean(true);
 }
 
 widthInPix(): number {
+return (this.contentWidth() + this.lateralPaddingSum()) ;
+}
+
+heightInPix(): number {
+return (this.contentHeight() + this.verticalPaddingSum()) ;
+}
+
+contentWidth():number{
     if (this.canvasWidth !== null ){
-        return Math.ceil((this.canvasWidth/100) * (this.width.value()));
+        return Math.ceil((this.canvasWidth/100) * (this.width.value())); 
     }else {
         throw new Error("the component is not initialized yet");        
     }
 }
-heightInPix(): number {
-    return this.widthInPix();
+
+contentHeight():number{
+    if (this.canvasWidth !== null ){
+        return Math.ceil((this.canvasWidth/100) * (this.width.value())); 
+    }else {
+        throw new Error("the component is not initialized yet");        
+    }
 }
+
 draw(p:Pack):boolean{
+
 this.style.opacity = 100;    
 this.drawBackground(p);
 this.drawBorder(p);
@@ -35,9 +50,9 @@ this.style.strokeStyle = this.color.value();
 //---------------------------------------
 p.beginPath();
 p.drawCircle(
-    this.xAlignedPadded() + (this.widthInPix()/2)  ,
-    this.yAlignedPadded() + (this.widthInPix()/2),
-    (this.widthInPix()/2), //since radius is halp of width
+    this.xAlignedPadded()  ,
+    this.yAlignedPadded(),
+    (this.contentWidth()/2), //since radius is halp of width
     this.filled.value(),
     0,
     2 * Math.PI,

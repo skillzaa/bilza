@@ -54,6 +54,10 @@ heightInPix():number;
 ///////////28-june-2022///////////
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 
+contentWidth() :number;
+contentHeight() :number;
+
+
 setStartTime(n :number) :number;
 
 getStartTime(inMilliSec ?:boolean) :number;

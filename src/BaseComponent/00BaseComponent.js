@@ -46,7 +46,7 @@ export default class BaseComponent extends RotateObj {
         this.style.strokeStyle = this.colorBorder.value();
         this.style.fillStyle = this.colorBorder.value();
         this.style.lineWidth = this.border.value();
-        p.drawRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
+        p.drawRect((this.xAligned() - Math.floor(this.border.value() / 2)), (this.yAligned() - Math.floor(this.border.value() / 2)), this.widthInPix() + this.border.value(), this.heightInPix() + (this.border.value()), this.style);
     }
     preDraw() {
         this.style.opacity = (this.opacity.value());
@@ -60,10 +60,10 @@ export default class BaseComponent extends RotateObj {
     xAlignedPadded() {
         return this.xAligned() + this.paddingLeft.value();
     }
-    lateralPaddingSum() {
-        return this.paddingLeft.value() + this.paddingRight.value();
+    contentWidth() {
+        return 0;
     }
-    verticalPaddingSum() {
-        return this.paddingTop.value() + this.paddingBottom.value();
+    contentHeight() {
+        return 0;
     }
 }

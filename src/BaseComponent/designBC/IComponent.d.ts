@@ -16,6 +16,8 @@ export default interface IComponent {
     widthInPix(): number;
     heightInPix(): number;
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
+    contentWidth(): number;
+    contentHeight(): number;
     setStartTime(n: number): number;
     getStartTime(inMilliSec?: boolean): number;
     getEndTime(inMilliSec?: boolean): number;

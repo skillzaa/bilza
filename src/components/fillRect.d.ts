@@ -5,7 +5,9 @@ export default class FillRect extends BaseComponent {
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     widthInPix(): number;
+    contentWidth(): number;
     heightInPix(): number;
+    contentHeight(): number;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=fillRect.d.ts.map

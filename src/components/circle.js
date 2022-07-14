@@ -7,6 +7,12 @@ export default class Circle extends BaseComponent {
         this.filled = new AniBoolean(true);
     }
     widthInPix() {
+        return (this.contentWidth() + this.lateralPaddingSum());
+    }
+    heightInPix() {
+        return (this.contentHeight() + this.verticalPaddingSum());
+    }
+    contentWidth() {
         if (this.canvasWidth !== null) {
             return Math.ceil((this.canvasWidth / 100) * (this.width.value()));
         }
@@ -14,8 +20,13 @@ export default class Circle extends BaseComponent {
             throw new Error("the component is not initialized yet");
         }
     }
-    heightInPix() {
-        return this.widthInPix();
+    contentHeight() {
+        if (this.canvasWidth !== null) {
+            return Math.ceil((this.canvasWidth / 100) * (this.width.value()));
+        }
+        else {
+            throw new Error("the component is not initialized yet");
+        }
     }
     draw(p) {
         this.style.opacity = 100;
@@ -25,7 +36,7 @@ export default class Circle extends BaseComponent {
         this.style.opacity = (this.opacity.value());
         this.style.strokeStyle = this.color.value();
         p.beginPath();
-        p.drawCircle(this.xAlignedPadded() + (this.widthInPix() / 2), this.yAlignedPadded() + (this.widthInPix() / 2), (this.widthInPix() / 2), this.filled.value(), 0, 2 * Math.PI, this.style);
+        p.drawCircle(this.xAlignedPadded(), this.yAlignedPadded(), (this.contentWidth() / 2), this.filled.value(), 0, 2 * Math.PI, this.style);
         p.stroke();
         return true;
     }

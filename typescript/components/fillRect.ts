@@ -17,14 +17,24 @@ update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
     return true;
 }
+
 widthInPix(): number {
+return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() ;
+}
+
+contentWidth(): number {
     if (this.canvasWidth !== null ){
         return Math.ceil((this.canvasWidth/100) * this.width.value());
     }else {
         throw new Error("the component is not initialized yet");        
     }
 }
+
 heightInPix(): number {
+return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+}
+
+contentHeight(): number {
     if (this.canvasHeight !== null){
     return Math.ceil((this.canvasHeight/100)*this.height.value());
     }else {
@@ -51,8 +61,8 @@ this.style.strokeStyle = this.color.value();
      this.xAlignedPadded(),
      this.yAlignedPadded(),
 
-    this.widthInPix(),
-    this.heightInPix(),
+    this.contentWidth(),
+    this.contentHeight(),
     this.style
     );
 //----------------------------

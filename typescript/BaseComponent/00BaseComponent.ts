@@ -64,8 +64,13 @@ this.style.strokeStyle = this.colorBorder.value();
 this.style.fillStyle = this.colorBorder.value();  
 
 this.style.lineWidth = this.border.value();    
-p.drawRect(this.xAligned(), this.yAligned(),
-this.widthInPix() , this.heightInPix(),this.style);
+
+    p.drawRect(
+        (this.xAligned() - Math.floor(this.border.value()/2)), 
+        ( this.yAligned() - Math.floor(this.border.value()/2) ),
+        this.widthInPix() + this.border.value() , 
+        this.heightInPix() + (this.border.value()),
+        this.style);
 } 
 preDraw(){
     this.style.opacity = (this.opacity.value());
@@ -79,11 +84,18 @@ return this.yAligned() + this.paddingTop.value();
 xAlignedPadded():number{
 return this.xAligned() + this.paddingLeft.value(); 
 }
-lateralPaddingSum():number{
-   return this.paddingLeft.value() + this.paddingRight.value(); 
+// lateralPaddingSum():number{
+//    return this.paddingLeft.value() + this.paddingRight.value(); 
+// }
+// verticalPaddingSum(){
+// return this.paddingTop.value() + this.paddingBottom.value(); 
+// }
+contentWidth() :number{
+    return 0;
 }
-verticalPaddingSum(){
-return this.paddingTop.value() + this.paddingBottom.value(); 
+contentHeight() :number{
+    return 0;    
 }
+
 ////////////////////////////////////////////////////////
 }//component ends 

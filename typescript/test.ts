@@ -8,14 +8,23 @@ let bil = new Bilza("bilza",70);
 
 bil.insert.alwaysOn(cf.grid("green"));
 // debugger;
-const rect = cf.circle("red");
-rect.goto(0,50,50);
+const rect = cf.fillRect("red");
+rect.goto(0,10,10);
 
+// rect.xAlign = rect.XAlignOpt.Mid;
+// rect.yAlign = rect.YAlignOpt.Mid;
+// rect.opacity.set(25);
+// rect.opacity.oscillate(1,30,0,100,1);
 rect.showBackground.set(true);
-rect.colorBackground.set("pink");
+rect.colorBackground.set("green");
 // rect.x.animate(0,3,0,90);
-rect.border.set(20);
-rect.paddingLeft.set(10);
+rect.border.set(10);
+// rect.width.set(10);
+// rect.paddingLeft.set(30);
+rect.paddingLeft.animate(0,5,0,30);
+rect.paddingRight.animate(6,10,0,30);
+rect.paddingTop.animate(11,15,0,30);
+rect.paddingBottom.animate(16,20,0,30);
 rect.colorBorder.set("blue");
 bil.insert.add(rect,0,60);
 

@@ -6,6 +6,8 @@ export default class Circle extends BaseComponent {
     constructor(color?: string);
     widthInPix(): number;
     heightInPix(): number;
+    contentWidth(): number;
+    contentHeight(): number;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=circle.d.ts.map
