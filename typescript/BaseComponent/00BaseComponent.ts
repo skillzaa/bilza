@@ -56,7 +56,7 @@ this.style.fillStyle = this.colorBackground.value();
 this.style.strokeStyle = this.colorBackground.value();  
 
 p.drawFillRect (this.xAligned(), this.yAligned(),
-this.widthInPix() , this.heightInPix(),this.style);
+this.compWidth() , this.compHeight(),this.style);
 }
 //Border is not added into the width and height of a component.
 drawBorder(p :Pack){
@@ -70,8 +70,8 @@ this.style.lineWidth = this.border.value();
         //--border/2 is required since drawRect also act like line
         (this.xAligned() - Math.floor(this.border.value()/2)), 
         ( this.yAligned() - Math.floor(this.border.value()/2) ),
-        this.widthInPix() + this.border.value() , 
-        this.heightInPix() + (this.border.value()),
+        this.compWidth() + this.border.value() , 
+        this.compHeight() + (this.border.value()),
         this.style);
 } 
 preDraw(){
@@ -98,6 +98,12 @@ contentWidth() :number{
 contentHeight() :number{
     return 0;    
 }
-
+compWidth(): number {
+    return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() ;
+}
+    
+compHeight(): number {
+return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+}
 ////////////////////////////////////////////////////////
 }//component ends 

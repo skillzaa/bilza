@@ -12,5 +12,7 @@ export default class BaseComponent extends RotateObj implements IComponent {
     xAlignedPadded(): number;
     contentWidth(): number;
     contentHeight(): number;
+    compWidth(): number;
+    compHeight(): number;
 }
 //# sourceMappingURL=00BaseComponent.d.ts.map

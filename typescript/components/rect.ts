@@ -20,34 +20,36 @@ update(msDelta: number, p: Pack): boolean {
     return true;
 }
 
-widthInPix(): number {
+
+contentWidth(): number {
     if (this.canvasWidth !== null ){
         return Math.ceil((this.canvasWidth/100) * this.width.value());
     }else {
-        throw new Error("the component is not initialized yet");        
+        throw new Error(" The component is not initialized yet");        
     }
 }
-heightInPix(): number {
+contentHeight(): number {
     if (this.canvasHeight !== null){
     return Math.ceil((this.canvasHeight/100)*this.height.value());
     }else {
-        throw new Error("the component is not initialized yet");        
+        throw new Error(" The component is not initialized yet");        
     }
 }
 draw(p:Pack):boolean{
 this.style.opacity = 100;    
 
-this.drawBorder(p);
 this.drawBackground(p);
+this.drawBorder(p);
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value();
-''
+
    p.drawRect(
-    this.xAligned(),
-    this.yAligned(),
-    this.widthInPix(),
-    this.heightInPix(),
+    this.xAlignedPadded(),
+     this.yAlignedPadded(),
+
+    this.contentWidth(),
+    this.contentHeight(),
     this.style
     );
 return true;

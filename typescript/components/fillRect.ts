@@ -13,41 +13,40 @@ this.color.set(color) ;
 
 }
 
-//---
+//--
 
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
     return true;
 }
 
-widthInPix(): number {
-return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() ;
-}
+// widthInPix(): number {
+// return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() ;
+// }
 
+// heightInPix(): number {
+// return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+// }
 contentWidth(): number {
     if (this.canvasWidth !== null ){
         return Math.ceil((this.canvasWidth/100) * this.width.value());
     }else {
-        throw new Error("the component is not initialized yet");        
+        throw new Error(" The component is not initialized yet");        
     }
 }
-
-heightInPix(): number {
-return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
-}
-
 contentHeight(): number {
     if (this.canvasHeight !== null){
     return Math.ceil((this.canvasHeight/100)*this.height.value());
     }else {
-        throw new Error("the component is not initialized yet");        
+        throw new Error(" The component is not initialized yet");        
     }
 }
+
 draw(p:Pack):boolean{
 this.preDraw();
 this.applyRotation(p);
 //--------------
-//--why is this line needed at the top of every draw fn
+//-- Why is this line needed at the top of every draw fn
 this.style.opacity = this.opacity.value();
 this.drawBackground(p);
 this.drawBorder(p);

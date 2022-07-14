@@ -7,6 +7,7 @@ rect.showBackground.set(true);
 rect.colorBackground.set("green");
 rect.border.set(10);
 rect.width.set(20);
+rect.paddingLeft.set(30);
 bil.insert.add(rect, 0, 60);
 const ui = new Ui(bil);
 bil.draw();

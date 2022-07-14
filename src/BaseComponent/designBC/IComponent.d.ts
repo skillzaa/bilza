@@ -13,8 +13,8 @@ export default interface IComponent {
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    widthInPix(): number;
-    heightInPix(): number;
+    compWidth(): number;
+    compHeight(): number;
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     contentWidth(): number;
     contentHeight(): number;

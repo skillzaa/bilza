@@ -37,7 +37,7 @@ export default class BaseComponent extends RotateObj {
         }
         this.style.fillStyle = this.colorBackground.value();
         this.style.strokeStyle = this.colorBackground.value();
-        p.drawFillRect(this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix(), this.style);
+        p.drawFillRect(this.xAligned(), this.yAligned(), this.compWidth(), this.compHeight(), this.style);
     }
     drawBorder(p) {
         if (this.border.value() < 1) {
@@ -46,7 +46,7 @@ export default class BaseComponent extends RotateObj {
         this.style.strokeStyle = this.colorBorder.value();
         this.style.fillStyle = this.colorBorder.value();
         this.style.lineWidth = this.border.value();
-        p.drawRect((this.xAligned() - Math.floor(this.border.value() / 2)), (this.yAligned() - Math.floor(this.border.value() / 2)), this.widthInPix() + this.border.value(), this.heightInPix() + (this.border.value()), this.style);
+        p.drawRect((this.xAligned() - Math.floor(this.border.value() / 2)), (this.yAligned() - Math.floor(this.border.value() / 2)), this.compWidth() + this.border.value(), this.compHeight() + (this.border.value()), this.style);
     }
     preDraw() {
         this.style.opacity = (this.opacity.value());
@@ -65,5 +65,11 @@ export default class BaseComponent extends RotateObj {
     }
     contentHeight() {
         return 0;
+    }
+    compWidth() {
+        return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
+    }
+    compHeight() {
+        return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
     }
 }

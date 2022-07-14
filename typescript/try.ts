@@ -20,7 +20,7 @@ rect.colorBackground.set("green");
 // rect.x.animate(0,3,0,90);
 rect.border.set(10);
 rect.width.set(20);
-// rect.paddingLeft.set(30);
+rect.paddingLeft.set(30);
 // rect.paddingLeft.animate(0,5,0,30);
 // rect.paddingRight.animate(6,10,0,30);
 // rect.paddingTop.animate(11,15,0,30);
