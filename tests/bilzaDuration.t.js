@@ -1,4 +1,4 @@
-import Duration from "../../../src/bilzaMod/duration.js"
+import Duration from "../../src/bilzaMod/duration.js"
 
 let dur = new Duration();
 

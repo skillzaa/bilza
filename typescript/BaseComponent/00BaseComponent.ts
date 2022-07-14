@@ -58,6 +58,7 @@ this.style.strokeStyle = this.colorBackground.value();
 p.drawFillRect (this.xAligned(), this.yAligned(),
 this.widthInPix() , this.heightInPix(),this.style);
 }
+//Border is not added into the width and height of a component.
 drawBorder(p :Pack){
 if (this.border.value() < 1) {return;}    
 this.style.strokeStyle = this.colorBorder.value();  
@@ -66,6 +67,7 @@ this.style.fillStyle = this.colorBorder.value();
 this.style.lineWidth = this.border.value();    
 
     p.drawRect(
+        //--border/2 is required since drawRect also act like line
         (this.xAligned() - Math.floor(this.border.value()/2)), 
         ( this.yAligned() - Math.floor(this.border.value()/2) ),
         this.widthInPix() + this.border.value() , 

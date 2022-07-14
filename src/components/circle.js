@@ -7,10 +7,10 @@ export default class Circle extends BaseComponent {
         this.filled = new AniBoolean(true);
     }
     widthInPix() {
-        return (this.contentWidth() + this.lateralPaddingSum());
+        return (this.contentWidth());
     }
     heightInPix() {
-        return (this.contentHeight() + this.verticalPaddingSum());
+        return (this.contentHeight());
     }
     contentWidth() {
         if (this.canvasWidth !== null) {

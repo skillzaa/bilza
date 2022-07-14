@@ -14,11 +14,11 @@ this.filled = new AniBoolean(true);
 }
 
 widthInPix(): number {
-return (this.contentWidth() + this.lateralPaddingSum()) ;
+return (this.contentWidth() ) ;
 }
 
 heightInPix(): number {
-return (this.contentHeight() + this.verticalPaddingSum()) ;
+return (this.contentHeight() ) ;
 }
 
 contentWidth():number{

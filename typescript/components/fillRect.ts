@@ -1,17 +1,19 @@
-import Pack from "../pack/pack.js";
+import {Pack} from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
+
+//-14-july-2022 : There is no need to add any public prop width height and color are all added    
+
 export default class FillRect extends BaseComponent {
-  
+
 constructor (color :string="#000000"){ 
+
     super();
-    this.color.set(color) ; 
+this.color.set(color) ; 
+
 }
 
-init(p: Pack): boolean {
-    super.init(p);
-    return true;
-}
+//---
 
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);

@@ -4,10 +4,6 @@ export default class FillRect extends BaseComponent {
         super();
         this.color.set(color);
     }
-    init(p) {
-        super.init(p);
-        return true;
-    }
     update(msDelta, p) {
         super.update(msDelta, p);
         return true;
