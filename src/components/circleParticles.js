@@ -37,7 +37,7 @@ export default class CircleParticles extends BaseComponent {
         }
         this.xyArray.length = 0;
         for (let i = 0; i < this.count; i++) {
-            const xy = new XY((Math.random() * this.widthInPix()) + this.x.value(), (Math.random() * this.heightInPix()) + this.y.value());
+            const xy = new XY((Math.random() * this.compWidth()) + this.x.value(), (Math.random() * this.compHeight()) + this.y.value());
             this.xyArray.push(xy);
         }
     }

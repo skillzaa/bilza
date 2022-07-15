@@ -2,25 +2,30 @@ import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 // import Paragraph from "./container/paragraph.js";
 
 let bil = new Bilza("bilza",70);
+bil.resizeCanvas(300,300);
 // bil.background.color.set("grey");
-
 // bil.set.disableOpacity();
 
-bil.insert.alwaysOn(cf.grid("green"));
+bil.insert.alwaysOn(cf.staticGrid(50,50,"green"));
 // debugger;
-const rect = cf.rect("red");
-rect.goto(0,10,10);
+const rect = cf.fillRect("red");
+rect.goto(0,50,50);
 
 // rect.xAlign = rect.XAlignOpt.Mid;
 // rect.yAlign = rect.YAlignOpt.Mid;
 // rect.opacity.set(25);
 // rect.opacity.oscillate(1,30,0,100,1);
 rect.showBackground.set(true);
-rect.colorBackground.set("green");
-// rect.x.animate(0,3,0,90);
-rect.border.set(10);
+rect.colorBackground.set("pink");
+rect.border.set(2);
+// rect.lineWidth.set(0);
+rect.border.animate(0,5,0,50);
+// rect.border.set(20);
+// rect.rotation.animate(0,10,0,2000);
+// rect.border.animate(0,5,0,30);
+// rect.lineWidth.animate(0,5,0,10);
 rect.width.set(20);
-rect.paddingLeft.set(30);
+// rect.paddingLeft.set(30);
 // rect.paddingLeft.animate(0,5,0,30);
 // rect.paddingRight.animate(6,10,0,30);
 // rect.paddingTop.animate(11,15,0,30);

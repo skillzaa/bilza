@@ -4,37 +4,12 @@ export default class FillRect extends BaseComponent {
         super();
         this.color.set(color);
     }
-    update(msDelta, p) {
-        super.update(msDelta, p);
-        return true;
-    }
-    contentWidth() {
-        if (this.canvasWidth !== null) {
-            return Math.ceil((this.canvasWidth / 100) * this.width.value());
-        }
-        else {
-            throw new Error(" The component is not initialized yet");
-        }
-    }
-    contentHeight() {
-        if (this.canvasHeight !== null) {
-            return Math.ceil((this.canvasHeight / 100) * this.height.value());
-        }
-        else {
-            throw new Error(" The component is not initialized yet");
-        }
-    }
     draw(p) {
-        this.preDraw();
-        this.applyRotation(p);
-        this.style.opacity = this.opacity.value();
-        this.drawBackground(p);
-        this.drawBorder(p);
+        this.preDraw(p);
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
-        p.drawFillRect(this.xAlignedPadded(), this.yAlignedPadded(), this.contentWidth(), this.contentHeight(), this.style);
-        this.removeRotation(p);
-        this.postDraw();
+        p.drawFillRect(this.contentX(), this.contentY(), this.contentWidth(), this.contentHeight(), this.style);
+        this.postDraw(p);
         return true;
     }
 }

@@ -50,8 +50,8 @@ this.style.strokeStyle = this.color.value();
 //---------------------------------------
 p.beginPath();
 p.drawCircle(
-    this.xAlignedPadded()  ,
-    this.yAlignedPadded(),
+    this.contentX()  ,
+    this.contentY(),
     (this.contentWidth()/2), //since radius is halp of width
     this.filled.value(),
     0,

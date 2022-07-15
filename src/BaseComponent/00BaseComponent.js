@@ -46,30 +46,22 @@ export default class BaseComponent extends RotateObj {
         this.style.strokeStyle = this.colorBorder.value();
         this.style.fillStyle = this.colorBorder.value();
         this.style.lineWidth = this.border.value();
-        p.drawRect((this.xAligned() - Math.floor(this.border.value() / 2)), (this.yAligned() - Math.floor(this.border.value() / 2)), this.compWidth() + this.border.value(), this.compHeight() + (this.border.value()), this.style);
+        p.drawRect((this.xAligned() - Math.floor(this.border.value() / 2)), (this.yAligned() - Math.floor(this.border.value() / 2)), this.compWidth() + (this.border.value() - 1), this.compHeight() + (this.border.value() - 1), this.style);
     }
-    preDraw() {
+    preDraw(p) {
         this.style.opacity = (this.opacity.value());
+        this.applyRotation(p);
+        this.drawBackground(p);
+        this.drawBorder(p);
     }
-    postDraw() {
+    postDraw(p) {
         this.style.opacity = 100;
+        this.removeRotation(p);
     }
-    yAlignedPadded() {
+    contentY() {
         return this.yAligned() + this.paddingTop.value();
     }
-    xAlignedPadded() {
+    contentX() {
         return this.xAligned() + this.paddingLeft.value();
-    }
-    contentWidth() {
-        return 0;
-    }
-    contentHeight() {
-        return 0;
-    }
-    compWidth() {
-        return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
-    }
-    compHeight() {
-        return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
     }
 }

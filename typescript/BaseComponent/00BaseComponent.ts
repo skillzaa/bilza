@@ -63,47 +63,36 @@ drawBorder(p :Pack){
 if (this.border.value() < 1) {return;}    
 this.style.strokeStyle = this.colorBorder.value();  
 this.style.fillStyle = this.colorBorder.value();  
-
 this.style.lineWidth = this.border.value();    
-
     p.drawRect(
         //--border/2 is required since drawRect also act like line
         (this.xAligned() - Math.floor(this.border.value()/2)), 
         ( this.yAligned() - Math.floor(this.border.value()/2) ),
-        this.compWidth() + this.border.value() , 
-        this.compHeight() + (this.border.value()),
+        //--- -1 is some error
+        this.compWidth() + (this.border.value() -1 ) , 
+        this.compHeight() + (this.border.value() -1 ),
         this.style);
 } 
-preDraw(){
-    this.style.opacity = (this.opacity.value());
+preDraw(p :Pack){
+this.style.opacity = (this.opacity.value());
+// this.style.opacity = 100;    
+this.applyRotation(p);
+this.drawBackground(p);
+this.drawBorder(p);
 }
-postDraw(){
-    this.style.opacity = 100;
+postDraw(p :Pack){
+this.style.opacity = 100;
+this.removeRotation(p);
 }
-yAlignedPadded():number{
+contentY():number{
+//previous yAlignedPadded    
 return this.yAligned() + this.paddingTop.value(); 
 }
-xAlignedPadded():number{
+contentX():number{
+//previous xAlignedPadded    
 return this.xAligned() + this.paddingLeft.value(); 
 }
-// lateralPaddingSum():number{
-//    return this.paddingLeft.value() + this.paddingRight.value(); 
-// }
-// verticalPaddingSum(){
-// return this.paddingTop.value() + this.paddingBottom.value(); 
-// }
-contentWidth() :number{
-    return 0;
-}
-contentHeight() :number{
-    return 0;    
-}
-compWidth(): number {
-    return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() ;
-}
-    
-compHeight(): number {
-return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
-}
+
+
 ////////////////////////////////////////////////////////
 }//component ends 

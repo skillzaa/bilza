@@ -36,23 +36,22 @@ contentHeight(): number {
     }
 }
 draw(p:Pack):boolean{
-this.style.opacity = 100;    
 
-this.drawBackground(p);
-this.drawBorder(p);
+this.preDraw(p)
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value();
 
    p.drawRect(
-    this.xAlignedPadded(),
-     this.yAlignedPadded(),
+    this.contentX(),
+     this.contentY(),
 
     this.contentWidth(),
     this.contentHeight(),
     this.style
     );
+
+this.postDraw(p);
 return true;
 }
-
 }

@@ -54,10 +54,10 @@ switch (this.xAlign) {
     //--nothing        
     break;
     case this.XAlignOpt.Mid:
-    x = x - (this.widthInPix()/2);    
+    x = x - (this.compWidth()/2);    
     break;
     case this.XAlignOpt.Right:
-    x = x - this.widthInPix();    
+    x = x - this.compWidth();    
     break;
 }
 return x;    
@@ -69,10 +69,10 @@ switch (this.yAlign) {
     //--nothing        
     break;
     case this.YAlignOpt.Mid:
-    y = y - (this.heightInPix()/2);    
+    y = y - (this.compHeight()/2);    
     break;
     case this.YAlignOpt.Bot:
-    y = y - this.heightInPix();    
+    y = y - this.compHeight();    
     break;
 }
 return y;    
@@ -85,10 +85,10 @@ switch (this.xRotate) {
     //--nothing        
     break;
     case this.XAlignOpt.Mid:
-    x = x + (this.widthInPix()/2);    
+    x = x + (this.compWidth()/2);    
     break;
     case this.XAlignOpt.Right:
-    x = x + this.widthInPix();    
+    x = x + this.compWidth();    
     break;
 }
 return x;    
@@ -100,10 +100,10 @@ switch (this.yRotate) {
     //--nothing        
     break;
     case this.YAlignOpt.Mid:
-    y = y + (this.heightInPix()/2);    
+    y = y + (this.compHeight()/2);    
     break;
     case this.YAlignOpt.Bot:
-    y = y + this.heightInPix();    
+    y = y + this.compHeight();    
     break;
 }
 return y;    

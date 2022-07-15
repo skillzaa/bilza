@@ -36,7 +36,7 @@ export default class Circle extends BaseComponent {
         this.style.opacity = (this.opacity.value());
         this.style.strokeStyle = this.color.value();
         p.beginPath();
-        p.drawCircle(this.xAlignedPadded(), this.yAlignedPadded(), (this.contentWidth() / 2), this.filled.value(), 0, 2 * Math.PI, this.style);
+        p.drawCircle(this.contentX(), this.contentY(), (this.contentWidth() / 2), this.filled.value(), 0, 2 * Math.PI, this.style);
         p.stroke();
         return true;
     }
