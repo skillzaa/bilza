@@ -40,7 +40,7 @@ public rotation :AniNumber;
 public opacity :AniNumber;
 //--The color prop points to the color of the main content
 public color :AniColor;
-//-- This may or may not be implemented in some special cases like text which uses fontSize. However this will be used in 99% of the components
+//-- This will always be implemented in some special cases like text which uses fontSize this will represent fontSize. However this will be used in 100% of the components
 public width :AniNumber; // no need to convert it into AniNoPers
 //--same as width
 public height :AniNumber;// no need to convert it into AniNoPers

@@ -7,7 +7,7 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class FillRect extends BaseComponent {
 
 constructor (color :string="#000000"){ 
-    super();
+super();
 this.color.set(color) ; 
 }
 

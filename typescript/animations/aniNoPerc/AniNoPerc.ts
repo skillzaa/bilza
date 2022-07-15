@@ -5,7 +5,7 @@ export default class AniNoPerc extends AniNoPercBase {
 constructor(defaultValue :number=0){
 super(defaultValue); 
 }    
-
+ 
 
 init(usePercentages :boolean,canvasWidthHeight :number){
 this.usePercentages = usePercentages;

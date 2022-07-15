@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        * {
+    padding:0;
+    margin:0;
+}
+#parnetDiv {width:100%;padding :15px;background-color:aqua;}
+
+#canvasContainer {
+    text-align: center;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    margin-top:5px;
+    background-color: rgb(1, 1, 45);
+}
+</style>
+    <!-- <script src="./00misc/custom.css"></script> -->
+    <script src="../00misc/prism.js"></script>
+    <link rel="stylesheet" href="../00misc/prism.css">   
+
+    <title>Bilza Core Samples</title>
+</head>
+<body>
+
+<div id="canvasContainer">
+<canvas id="bilza"></canvas>
+<!--controls table-->
+<table id="controls" style="width:100%">
+<tr>    
+    <td style="width:10%"><button style="width:100%" id="start">Play</button></td>
+    <td style="width:10%"><button style="width:100%" id="stop">Stop</button></td>
+
+    <td style="width:70%">
+        <input type="range" id="slider" style="width:100%" value="0" max="20">
+    </td>
+    <td style="width:10%"></td>
+</tr>
+</table>
+
+</div>
+
+<script  type="module" >
+    import Bilza, { Ui,CompFactory as cf } from "../../src/bilza.js";
+let bil = new Bilza("bilza",70);
+// bil.resizeCanvas(800,300);
+//-----------------------------------------
+const grid = cf.grid("grey");
+grid.goto(0,90,0);
+bil.insert.alwaysOn(grid);
+//-----------------------------------------
+const fillRect = cf.fillRect("red");
+fillRect.xAlign = fillRect.XAlignOpt.Mid;
+fillRect.yAlign = fillRect.YAlignOpt.Mid;
+fillRect.goto(0,50,50);
+//--
+fillRect.width.set(100);
+fillRect.height.set(100);
+//--
+fillRect.colorBorder.set("green");
+fillRect.border.animate(2,5,0,500);
+fillRect.width.animate(2,5,100,0);
+fillRect.height.animate(2,5,100,0);
+
+bil.insert.add(fillRect,0,10);
+
+const ui = new Ui(bil);
+bil.draw();
+
+</script>
+
+<pre class="language-javascript">
+<code>
+import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+let bil = new Bilza("bilza",70);
+// bil.resizeCanvas(800,300);
+//-----------------------------------------
+const counter = cf.frameCounter("#ff0000");
+counter.goto(0,90,0);
+bil.insert.add(counter,0,20);
+
+const txt = cf.rawText("Component Visible Prop");
+txt.goto(0,50,50);
+txt.xAlign = txt.XAlignOpt.Mid;
+txt.yAlign = txt.YAlignOpt.Mid;
+txt.fontSize.set(70);
+bil.insert.add(txt,0,20);
+
+const ui = new Ui(bil);
+bil.draw();
+
+setInterval(function(){
+txt.visible.set(!txt.visible.value());
+},1000);
+</code>
+</pre>
+
+</body>
+</html>

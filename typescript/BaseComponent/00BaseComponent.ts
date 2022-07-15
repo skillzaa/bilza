@@ -48,6 +48,7 @@ update(msDelta :number,p :Pack): boolean {
 
 return true;    
 }
+//15-july-2022. drawBackground completed do not change
 drawBackground(p :Pack){
 //--This is the only place where we need to check this.showBackground     
 if (this.showBackground.value() == false) {return;}    
@@ -58,6 +59,7 @@ this.style.strokeStyle = this.colorBackground.value();
 p.drawFillRect (this.xAligned(), this.yAligned(),
 this.compWidth() , this.compHeight(),this.style);
 }
+//15-july-2022. drawBorder completed do not change
 //Border is not added into the width and height of a component.
 drawBorder(p :Pack){
 if (this.border.value() < 1) {return;}    
@@ -73,6 +75,7 @@ this.style.lineWidth = this.border.value();
         this.compHeight() + (this.border.value() -1 ),
         this.style);
 } 
+//---15-july-2022 : seems final
 preDraw(p :Pack){
 this.style.opacity = (this.opacity.value());
 // this.style.opacity = 100;    
@@ -80,19 +83,19 @@ this.applyRotation(p);
 this.drawBackground(p);
 this.drawBorder(p);
 }
+//---15-july-2022 : seems final
 postDraw(p :Pack){
 this.style.opacity = 100;
 this.removeRotation(p);
 }
+//---15-july-2022 : seems final
 contentY():number{
-//previous yAlignedPadded    
 return this.yAligned() + this.paddingTop.value(); 
 }
+//---15-july-2022 : seems final
 contentX():number{
 //previous xAlignedPadded    
 return this.xAligned() + this.paddingLeft.value(); 
 }
-
-
 ////////////////////////////////////////////////////////
 }//component ends 
