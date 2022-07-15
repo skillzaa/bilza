@@ -37,6 +37,7 @@ export default class AniNoPercBase extends AniNumber {
             super.set(_v);
         }
         else {
+            super.set(this._initValue);
         }
     }
     jumpBetween(startTimeSec, endTimeSec, pointOne = 1, pointTwo = 10, skipFrames = 0) {

@@ -29,8 +29,8 @@ if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }
 //--The X and Y class needs to be init but The AniNumber wrapped insde does not need init
-this.x2.init(this.responsive,this.canvasWidth);//canvasWidth
-this.y2.init(this.responsive,this.canvasHeight);//canvasHeight
+this.x2.init(this.responsiveCoordinates,this.canvasWidth);//canvasWidth
+this.y2.init(this.responsiveCoordinates,this.canvasHeight);//canvasHeight
 return true;
 }
     

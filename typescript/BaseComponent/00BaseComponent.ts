@@ -13,14 +13,14 @@ this.canvasWidth =  p.canvasWidth();
 this.canvasHeight =  p.canvasHeight();
 
 //--Only 6 classes need init x,y and 4 paddings
-this.x.init(this.responsive,this.canvasWidth);//canvasWidth
-this.y.init(this.responsive,this.canvasHeight);//canvasHeight
+this.x.init(this.responsiveCoordinates,this.canvasWidth);//canvasWidth
+this.y.init(this.responsiveCoordinates,this.canvasHeight);//canvasHeight
 //paddings
-this.paddingLeft.init(this.responsive,this.canvasWidth);
-this.paddingRight.init(this.responsive,this.canvasWidth);
+this.paddingLeft.init(this.responsivePadding,this.canvasWidth);
+this.paddingRight.init(this.responsivePadding,this.canvasWidth);
 //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
-this.paddingTop.init(this.responsive,this.canvasHeight);
-this.paddingBottom.init(this.responsive,this.canvasHeight);
+this.paddingTop.init(this.responsivePadding,this.canvasHeight);
+this.paddingBottom.init(this.responsivePadding,this.canvasHeight);
 
 return true;
 }

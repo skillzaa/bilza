@@ -10,8 +10,6 @@ import Line from "../components/line.js";
 import RawText from "../components/rawText.js";
 import Marker from "../components/marker.js";
 import Circle from "../components/circle.js";
-import Row from "../container/row.js";
-import Paragraph from "../container/paragraph.js";
 export default class CompFactory {
     static circle(colorHax?: string): Circle;
     static marker(colorHax?: string): Marker;
@@ -25,7 +23,5 @@ export default class CompFactory {
     static rawText(content?: string, colorHax?: string): RawText;
     static text(content?: string, colorHax?: string): Text;
     static line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string): Line;
-    static row(incommingTextArray?: string): Row;
-    static paragraph(): Paragraph;
 }
 //# sourceMappingURL=compFactory.d.ts.map

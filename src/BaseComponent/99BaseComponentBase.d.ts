@@ -10,7 +10,9 @@ export default class BaseComponentBase {
     readonly XAlignOpt: typeof XAlignOpt;
     readonly YAlignOpt: typeof YAlignOpt;
     readonly id: string;
-    responsive: boolean;
+    responsiveCoordinates: boolean;
+    responsivePadding: boolean;
+    interactive: boolean;
     drawLayer: DrawLayer;
     style: Style;
     alwaysOn: boolean;

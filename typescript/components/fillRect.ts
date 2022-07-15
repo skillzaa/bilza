@@ -3,6 +3,7 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 
 //-14-july-2022 : There is no need to add any public prop width height and color are all added    
+//--16-jul-2022 : This is the first completed comp.
 
 export default class FillRect extends BaseComponent {
 

@@ -5,7 +5,7 @@ export default class FrameCounter extends Text {
 constructor (color :string="#008000"){ 
     super("",color);
     this.border.set(0);
-    this.maxHeight = 10;
+    this.height.set(10);
 }
 init(p: Pack): boolean {
     super.init(p);

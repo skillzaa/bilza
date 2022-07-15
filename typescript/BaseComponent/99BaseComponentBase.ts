@@ -24,8 +24,13 @@ public readonly XAlignOpt :typeof XAlignOpt;
 public readonly YAlignOpt :typeof YAlignOpt;
 //---Every component has a random id
 public readonly id :string;
-//---More on this later
-public responsive : boolean; 
+
+//---the coordinates may use raw pixels
+public responsiveCoordinates : boolean;
+//---the paddings may use raw pixels
+public responsivePadding : boolean; 
+
+public interactive : boolean; //for mouse click etc 
 //--The draw layer
 public drawLayer : DrawLayer; 
 public style:Style; 
@@ -78,7 +83,9 @@ constructor(){
     this.yRotate = this.YAlignOpt.Top;
     
     // this.usePercentages = false;
-    this.responsive = true;
+    this.responsiveCoordinates = true;
+    this.responsivePadding = true;
+    this.interactive = false; // this is for mouse click etc
     this.border = new AniNumber(0);
     this.width = new AniNumber(10);
     this.rotation = new AniNumber(0);

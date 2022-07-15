@@ -1,7 +1,6 @@
 import { DrawLayer, Pack, Style, AniNumber, AniBoolean } from "../../bilza.js";
 export default interface IComponent {
     readonly id: string;
-    responsive: boolean;
     drawLayer: DrawLayer;
     duration: number;
     alwaysOn: boolean;
@@ -10,6 +9,8 @@ export default interface IComponent {
     width: AniNumber;
     height: AniNumber;
     style: Style;
+    responsiveCoordinates: boolean;
+    responsivePadding: boolean;
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;

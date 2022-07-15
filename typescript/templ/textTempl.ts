@@ -11,7 +11,7 @@ g.paddingLeft.set (padding);
 g.paddingRight.set(padding);
 g.paddingTop.set(padding);
 g.paddingBottom.set(padding);
-g.maxHeight = maxHeight;
+g.height.set(maxHeight);
 g.width.set(width);
 g.showBackground.set(true);
 g.border.set(2);

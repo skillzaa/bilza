@@ -3,7 +3,7 @@ export default class FrameCounter extends Text {
     constructor(color = "#008000") {
         super("", color);
         this.border.set(0);
-        this.maxHeight = 10;
+        this.height.set(10);
     }
     init(p) {
         super.init(p);

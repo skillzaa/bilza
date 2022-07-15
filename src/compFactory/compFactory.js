@@ -10,8 +10,6 @@ import Line from "../components/line.js";
 import RawText from "../components/rawText.js";
 import Marker from "../components/marker.js";
 import Circle from "../components/circle.js";
-import Row from "../container/row.js";
-import Paragraph from "../container/paragraph.js";
 export default class CompFactory {
     static circle(colorHax = "red") {
         let g = new Circle(colorHax);
@@ -59,14 +57,6 @@ export default class CompFactory {
     }
     static line(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
         let g = new Line(x1, y1, x2, y2, color);
-        return g;
-    }
-    static row(incommingTextArray = "one two") {
-        let g = new Row(incommingTextArray);
-        return g;
-    }
-    static paragraph() {
-        let g = new Paragraph();
         return g;
     }
 }

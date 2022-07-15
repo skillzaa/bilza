@@ -91,7 +91,7 @@ if ( this.usePercentages == true){
       super.set(_v);
     }else {
         //--do nothing since its already directly set in "set"
-        // super.set(this._initValue)
+        super.set(this._initValue)
     } 
 }
 

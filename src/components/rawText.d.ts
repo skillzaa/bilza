@@ -6,8 +6,8 @@ export default class RawText extends BaseComponent {
     maxDisplayChars: AniNumber;
     constructor(content?: string, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
-    heightInPix(): number;
-    widthInPix(): number;
+    contentHeight(): number;
+    contentWidth(): number;
     draw(p: Pack): boolean;
     drawContent(p: Pack): void;
 }

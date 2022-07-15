@@ -7,14 +7,17 @@ const grid = cf.grid("grey");
 grid.goto(0,90,0);
 bil.insert.alwaysOn(grid);
 
-const txt = cf.text("Raw Text");
+const txt = cf.fillRect("green");
+
+// txt.showBackground.set(true);
+// txt.colorBackground.set("green");
+txt.width.set(20);
+txt.height.set(20);
 // txt.responsiveCoordinates = false;
+// txt.responsivePadding = false;
+txt.paddingLeft.set(50);
 txt.showBackground.set(true);
 txt.colorBackground.set("pink");
-txt.fontSize.set(50);
-txt.fitTextToWidth = false;
-txt.height.set(8);
-txt.shrinkTextToHeight = true;
 txt.goto(0,10,50);
 
 
