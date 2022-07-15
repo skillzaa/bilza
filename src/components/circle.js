@@ -1,16 +1,9 @@
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
-import { AniBoolean, AniColor } from "../bilza.js";
+import { AniBoolean, BaseComponent } from "../bilza.js";
 export default class Circle extends BaseComponent {
     constructor(color = "#000000") {
         super();
-        this.color = new AniColor(color);
+        this.color.set(color);
         this.filled = new AniBoolean(true);
-    }
-    widthInPix() {
-        return (this.contentWidth());
-    }
-    heightInPix() {
-        return (this.contentHeight());
     }
     contentWidth() {
         if (this.canvasWidth !== null) {
@@ -29,15 +22,13 @@ export default class Circle extends BaseComponent {
         }
     }
     draw(p) {
-        this.style.opacity = 100;
-        this.drawBackground(p);
-        this.drawBorder(p);
+        this.preDraw(p);
         this.style.fillStyle = this.color.value();
-        this.style.opacity = (this.opacity.value());
         this.style.strokeStyle = this.color.value();
         p.beginPath();
-        p.drawCircle(this.contentX(), this.contentY(), (this.contentWidth() / 2), this.filled.value(), 0, 2 * Math.PI, this.style);
+        p.drawCircle(this.contentX() + (this.contentWidth() / 2), this.contentY() + (this.contentWidth() / 2), (this.contentWidth() / 2), this.filled.value(), 0, 2 * Math.PI, this.style);
         p.stroke();
+        this.postDraw(p);
         return true;
     }
 }

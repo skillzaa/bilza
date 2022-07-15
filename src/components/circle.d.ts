@@ -1,11 +1,7 @@
-import Pack from "../pack/pack.js";
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
-import { AniBoolean } from "../bilza.js";
+import { Pack, AniBoolean, BaseComponent } from "../bilza.js";
 export default class Circle extends BaseComponent {
     filled: AniBoolean;
     constructor(color?: string);
-    widthInPix(): number;
-    heightInPix(): number;
     contentWidth(): number;
     contentHeight(): number;
     draw(p: Pack): boolean;
