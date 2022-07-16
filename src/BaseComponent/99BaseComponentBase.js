@@ -14,6 +14,7 @@ export default class BaseComponentBase {
         this.yRotate = this.YAlignOpt.Top;
         this.responsiveCoordinates = true;
         this.responsivePadding = true;
+        this.responsiveDims = true;
         this.interactive = false;
         this.border = new AniNumber(0);
         this.width = new AniNumber(10);

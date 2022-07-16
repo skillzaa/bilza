@@ -12,6 +12,7 @@ export default class BaseComponentBase {
     readonly id: string;
     responsiveCoordinates: boolean;
     responsivePadding: boolean;
+    responsiveDims: boolean;
     interactive: boolean;
     drawLayer: DrawLayer;
     style: Style;

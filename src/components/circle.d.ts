@@ -1,9 +1,10 @@
-import { Pack, AniBoolean, BaseComponent } from "../bilza.js";
+import { Pack, AniBoolean, AniNumber, BaseComponent } from "../bilza.js";
 export default class Circle extends BaseComponent {
+    startAngle: AniNumber;
+    endAngle: AniNumber;
     filled: AniBoolean;
     constructor(color?: string);
-    contentWidth(): number;
-    contentHeight(): number;
+    update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=circle.d.ts.map

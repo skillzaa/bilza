@@ -29,6 +29,7 @@ public readonly id :string;
 public responsiveCoordinates : boolean;
 //---the paddings may use raw pixels
 public responsivePadding : boolean; 
+public responsiveDims : boolean; 
 
 public interactive : boolean; //for mouse click etc 
 //--The draw layer
@@ -85,6 +86,7 @@ constructor(){
     // this.usePercentages = false;
     this.responsiveCoordinates = true;
     this.responsivePadding = true;
+    this.responsiveDims = true;
     this.interactive = false; // this is for mouse click etc
     this.border = new AniNumber(0);
     this.width = new AniNumber(10);

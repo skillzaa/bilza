@@ -1,34 +1,46 @@
 import { BaseComponent, DrawLayer } from "../bilza.js";
 import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
 import XY from "../BaseComponent/designBC/xy.js";
+import Circle from "./circle.js";
 export default class CircleParticles extends BaseComponent {
-    constructor(count = 10, color = "#008000", framesToSkip = 50) {
+    constructor(count = 8, color = "#008000", framesToSkip = 50) {
         super();
+        this.circle = new Circle(this.color.value());
+        this.circle.responsiveCoordinates = false;
+        this.circle.responsivePadding = false;
+        this.circle.responsiveDims = false;
+        this.circle.width.set(12);
         this.skipXFrames = new SkipXFrames(framesToSkip);
         this.xyArray = [];
         this.drawLayer = DrawLayer.MiddleGround;
         this.count = count;
-        this.color.set(color);
-        this.size = 10;
+        this.circle.color.set(color);
     }
     init(p) {
         super.init(p);
+        this.circle.init(p);
         this.getRandomXY();
+        return true;
+    }
+    update(msDelta, p) {
+        this.circle.update(msDelta, p);
+        super.update(msDelta, p);
         return true;
     }
     draw(p) {
         if (this.skipXFrames.skipped() == true) {
             this.getRandomXY();
         }
+        this.preDraw(p);
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.style.fillStyle = this.color.value();
-        this.style.opacity = (this.opacity.value());
-        this.style.strokeStyle = this.color.value();
         for (let i = 0; i < this.count; i++) {
-            p.drawCircle(this.xyArray[i].x, this.xyArray[i].y, this.size, true, 0, (2 * Math.PI), this.style);
+            this.circle.x.set(this.xyArray[i].x);
+            this.circle.y.set(this.xyArray[i].y);
+            this.circle.draw(p);
         }
+        this.postDraw(p);
         return true;
     }
     getRandomXY() {
@@ -37,7 +49,11 @@ export default class CircleParticles extends BaseComponent {
         }
         this.xyArray.length = 0;
         for (let i = 0; i < this.count; i++) {
-            const xy = new XY((Math.random() * this.compWidth()) + this.x.value(), (Math.random() * this.compHeight()) + this.y.value());
+            const maxX = this.contentX() + (this.contentWidth() - this.circle.contentWidth());
+            const maxY = this.contentY() + (this.contentHeight() - this.circle.contentHeight());
+            const minX = this.contentX();
+            const minY = this.contentY();
+            const xy = new XY((Math.floor(Math.random() * (maxX - minX + 1) + minX)), (Math.floor(Math.random() * (maxY - minY + 1) + minY)));
             this.xyArray.push(xy);
         }
     }

@@ -4,6 +4,9 @@ export default class WidthHeight extends Shadow {
         super();
     }
     contentWidth() {
+        if (this.responsiveDims == false) {
+            return this.width.value();
+        }
         if (this.canvasWidth !== null) {
             return Math.ceil((this.canvasWidth / 100) * this.width.value());
         }
@@ -12,6 +15,9 @@ export default class WidthHeight extends Shadow {
         }
     }
     contentHeight() {
+        if (this.responsiveDims == false) {
+            return this.width.value();
+        }
         if (this.canvasHeight !== null) {
             return Math.ceil((this.canvasHeight / 100) * this.height.value());
         }
