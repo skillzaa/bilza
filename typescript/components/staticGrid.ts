@@ -18,7 +18,7 @@ export default class StaticGrid extends BaseComponent {
     fontSize :number;
     lineDash :number[];
       
-    
+     
 constructor (cellWidth :number=100,cellHeight :number=100, color :string="#efe1e1"){
 super();
 

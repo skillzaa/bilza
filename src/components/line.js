@@ -31,7 +31,9 @@ export default class Line extends BaseComponent {
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
         this.style.lineWidth = this.lineWidth.value();
+        this.preDraw(p);
         p.drawLine(this.x.value(), this.y.value(), this.x2.value(), this.y2.value(), this.style);
+        this.postDraw(p);
         return true;
     }
 }

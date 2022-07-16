@@ -1,39 +1,39 @@
 import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 
-let bil = new Bilza("bilza", 70);
-// bil.resizeCanvas(800,400);
+
+
+let bil = new Bilza("bilza",70);
+// bil.resizeCanvas(800,300);
+bil.background.color.set("#330505");
+//-----------------------------------------
 const g = cf.grid();
-// g.width.set(100);
-// g.height.set(100);
-// g.x.set(50);
-// g.y.set(50);
-// g.showBackground.set(true);
-// g.colorBackground.set("pink");
-// g.xRotate = g.XAlignOpt.Mid;
-// g.yRotate = g.YAlignOpt.Mid;
-// g.xAlign = g.XAlignOpt.Mid;
-// g.yAlign = g.YAlignOpt.Mid;
-// g.goto(0,50,50);
-// g.paddingLeft.set(0);
-// g.paddingTop.set(1);
-// g.paddingRight.set(1);
-// g.paddingBottom.set(1);
+bil.insert.alwaysOn(g);
 
-// g.y.set(10);
-g.showNumbers = false;
-// g.width.set(25);
-// g.height.set(25);
-// g.border.set(2);
-g.colorHorizontalLines = "red";
-g.colorVerticalLines = "blue";
+const counter = cf.frameCounter("#ff0000");
+counter.xAlign = counter.XAlignOpt.Right;
+counter.goto(0,100,0);
+bil.insert.alwaysOn(counter);
 
-// g.rotation.animate(2,10,0,2000);
-// g.width.animate(0,5,10,80);
-// g.height.animate(0,5,10,80);
-bil.insert.add(g,0,60);
-
+getDancingLine();
+getDancingLine();
+getDancingLine();
+getDancingLine();
+getDancingLine();
 const ui = new Ui(bil);
 bil.draw();
+//----------------------
+function getDancingLine(){
+const plain = cf.line(50,50,100,50);
+
+plain.color.set("#96a4f2");
+plain.lineWidth.set(5);
+
+plain.x.random(0,20,0,100,10);
+plain.y.random(0,20,0,100,10);
+plain.x2.random(0,20,0,100,10);
+plain.y2.random(0,20,0,100,10);
+bil.insert.add(plain,0,20);
+}
 
 // let count = 0;
 // const inter = setInterval(function(){

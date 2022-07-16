@@ -1,6 +1,5 @@
 import {Pack,BaseComponent,DrawLayer,AniNumber} from "../bilza.js";
 import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
-// import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
 
 export default class Line extends BaseComponent {
 public x2 :AniNoPerc; 
@@ -11,8 +10,7 @@ lineWidth :AniNumber;
 
 constructor (x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
 super();
-//--we can not use set directly for props which need init
-// this.x.set(x1); //wrong
+
 this.x.set(x1); 
 this.y.set(y1);
 
@@ -41,17 +39,22 @@ update(msDelta: number, p: Pack): boolean {
    this.lineWidth.update(msDelta); 
    return true;
 }
+
 draw(p:Pack):boolean{
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value(); 
+
+this.preDraw(p);
+
 p.drawLine(
     this.x.value(),
     this.y.value(),
     this.x2.value(),
     this.y2.value(),
     this.style
-)
+);
+this.postDraw(p);
 return true;
 }
 

@@ -46,54 +46,25 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
-let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
-//-----------------------------------------
-const g = cf.grid();
-bil.insert.alwaysOn(g);
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 
-const counter = cf.frameCounter("#ff0000");
-counter.goto(0,90,0);
-bil.insert.alwaysOn(counter);
+let bil = new Bilza("bilza", 70);
+bil.background.color.set("#0c1a6d");
 
-const plain = cf.line(50,50,100,50);
+const g = cf.line(50,50,60,60);
+g.x2.random(0,20,0,100,30);
+g.y2.random(0,20,0,100,30);
+g.lineWidth.set(10);
+g.color.set("yellow");
+bil.insert.add(g,0,60);
 
-plain.color = "#008000";
-plain.lineWidth.set(15);
-
-plain.x2.random(0,20,10,90,10);
-plain.y2.random(0,20,10,90,10);
-
-bil.insert.add(plain,0,20);
 const ui = new Ui(bil);
 bil.draw();
+
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
-let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
-//-----------------------------------------
-const g = cf.grid();
-bil.insert.alwaysOn(g);
-
-const counter = cf.frameCounter("#ff0000");
-counter.goto(0,90,0);
-bil.insert.alwaysOn(counter);
-
-const plain = cf.line(50,50,100,50);
-
-plain.color = "#008000";
-plain.lineWidth.set(15);
-
-plain.x2.random(0,20,10,90,10);
-plain.y2.random(0,20,10,90,10);
-
-bil.insert.add(plain,0,20);
-const ui = new Ui(bil);
-bil.draw();
    
 </code>
 </pre>
