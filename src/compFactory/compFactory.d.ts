@@ -3,7 +3,7 @@ import Rect from "../components/rect.js";
 import FillRect from "../components/fillRect.js";
 import StaticGrid from "../components/staticGrid.js";
 import FrameCounter from "../components/frameCounter.js";
-import CircleParticles from "../components/circleParticles.js";
+import CircleParticles from "../container/circleParticles.js";
 import Text from "../components/text.js";
 import Pic from "../components/pic.js";
 import Line from "../components/line.js";
