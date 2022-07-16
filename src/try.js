@@ -1,26 +1,14 @@
 import Bilza, { Ui, CompFactory as cf } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
-bil.background.color.set("#330505");
+bil.background.color.set("#000000");
 const g = cf.grid();
 bil.insert.alwaysOn(g);
 const counter = cf.frameCounter("#ff0000");
-counter.xAlign = counter.XAlignOpt.Right;
-counter.goto(0, 100, 0);
 bil.insert.alwaysOn(counter);
-getDancingLine();
-getDancingLine();
-getDancingLine();
-getDancingLine();
-getDancingLine();
+const plain = cf.pic("./house.jpg", 80, 80);
+plain.y.set(10);
+plain.xAlign = plain.XAlignOpt.Right;
+plain.x.animate(0, 10, 0, 100);
+bil.insert.add(plain, 0, 15);
 const ui = new Ui(bil);
 bil.draw();
-function getDancingLine() {
-    const plain = cf.line(50, 50, 100, 50);
-    plain.color.set("#96a4f2");
-    plain.lineWidth.set(5);
-    plain.x.random(0, 20, 0, 100, 10);
-    plain.y.random(0, 20, 0, 100, 10);
-    plain.x2.random(0, 20, 0, 100, 10);
-    plain.y2.random(0, 20, 0, 100, 10);
-    bil.insert.add(plain, 0, 20);
-}

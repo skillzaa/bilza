@@ -5,8 +5,6 @@ export default class Pic extends BaseComponent {
     protected orignalHeight: number;
     constructor(imgUrl: string, width?: number, height?: number);
     init(p: Pack): boolean;
-    widthInPix(): number;
-    heightInPix(): number;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=pic.d.ts.map

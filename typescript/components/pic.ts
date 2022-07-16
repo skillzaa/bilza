@@ -6,9 +6,9 @@ img :HTMLImageElement;
 protected orignalWidth :number;
 protected orignalHeight :number;
 
-constructor(imgUrl :string, width:number=10, height :number=10){
+constructor(imgUrl :string, width:number=25, height :number=25){
 super();
-//--Remember width and height are percentages
+
 this.width.set(width); 
 this.height.set(height); 
 
@@ -26,8 +26,8 @@ this.img.src = imgUrl;
         this.img.style.display = "none";
     }
 
-    //--Draw Layer
-    this.drawLayer = DrawLayer.MiddleGround;
+//--Draw Layer
+this.drawLayer = DrawLayer.MiddleGround;
 }
 
 init(p: Pack): boolean {
@@ -36,32 +36,23 @@ init(p: Pack): boolean {
 if(this.canvasWidth==null){throw new Error("init error");}
 if(this.canvasHeight==null){throw new Error("init error");}
 //--importantay 
-this.img.setAttribute("width", this.widthInPix().toString());    
-this.img.setAttribute("height", this.heightInPix().toString());    
+this.img.setAttribute("width", this.contentWidth().toString());    
+this.img.setAttribute("height", this.contentHeight().toString());    
 return true;    
 }
 
-// update(msDelta: number, p: Pack): boolean {
-//     super.update(msDelta,p);
-//     return true;
-// }
-
-widthInPix():number {
-if(this.canvasWidth==null){throw new Error("init error");}    
-return  this.canvasWidth /100 * this.width.value();
-}
-heightInPix():number {
-if(this.canvasHeight==null){throw new Error("init error");}    
-return  this.canvasHeight /100 * this.height.value();
-}
 
 draw(p:Pack):boolean{
+this.preDraw(p);
+
     p.drawImage(this.img,
                 this.xAligned(),
                 this.yAligned(),
-                this.widthInPix(),
-                this.heightInPix()
-            );    
+                this.contentWidth(),
+                this.contentHeight()
+    );   
+
+this.postDraw(p);            
 return true;
 }
 

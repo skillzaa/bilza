@@ -1,6 +1,6 @@
 import { DrawLayer, BaseComponent } from "../bilza.js";
 export default class Pic extends BaseComponent {
-    constructor(imgUrl, width = 10, height = 10) {
+    constructor(imgUrl, width = 25, height = 25) {
         super();
         this.width.set(width);
         this.height.set(height);
@@ -25,24 +25,14 @@ export default class Pic extends BaseComponent {
         if (this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.img.setAttribute("width", this.widthInPix().toString());
-        this.img.setAttribute("height", this.heightInPix().toString());
+        this.img.setAttribute("width", this.contentWidth().toString());
+        this.img.setAttribute("height", this.contentHeight().toString());
         return true;
     }
-    widthInPix() {
-        if (this.canvasWidth == null) {
-            throw new Error("init error");
-        }
-        return this.canvasWidth / 100 * this.width.value();
-    }
-    heightInPix() {
-        if (this.canvasHeight == null) {
-            throw new Error("init error");
-        }
-        return this.canvasHeight / 100 * this.height.value();
-    }
     draw(p) {
-        p.drawImage(this.img, this.xAligned(), this.yAligned(), this.widthInPix(), this.heightInPix());
+        this.preDraw(p);
+        p.drawImage(this.img, this.xAligned(), this.yAligned(), this.contentWidth(), this.contentHeight());
+        this.postDraw(p);
         return true;
     }
 }
