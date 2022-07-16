@@ -38,34 +38,31 @@ if (this.charsWidth == null){throw new Error("init error");}
 if (this.maxDisplayChars.value() < 1) {return 0;}
 return this.charsWidth("W",this.fontSize.value(),this.fontFamily);
 }
-
+//--contentWidth has to return the actual width of the content area. If we use fitTextToWidth in text this method does not need to change it stil is correct just the fontSize change.
 contentWidth():number {
 if (this.charsWidth == null){throw new Error("init error");}        
 return this.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this.fontSize.value(),this.fontFamily)
 }
    
-
+//-ideal draw function
 draw(p:Pack):boolean{
 this.preDraw(p);
-//--------------
+this.drawContent(p);
+this.postDraw(p);
+return true;
+} 
+
+drawContent(p :Pack){
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value();     
 
 this.style.fontSize = this.fontSize.value();
 this.style.fontFamily = this.fontFamily;
-
-this.drawContent(p);
-
-this.postDraw(p);
-
-return true;
-} 
-
-drawContent(p :Pack){
+    
  p.drawText(
      this.content.value().substring(0,this.maxDisplayChars.value()),
-     this.xAligned(),
-     this.yAligned(),
+     this.contentX(),
+     this.contentY(),
      this.style);   
  } 
 //---------------------------------- 

@@ -11,7 +11,7 @@ import RawText from "../components/rawText.js";
 import Marker from "../components/marker.js";
 import Circle from "../components/circle.js";
 ////////////////////////////////////////////////////
-// import Row from "../container/row.js";
+import Row from "../container/row.js";
 // import Paragraph from "../container/paragraph.js";
 
 export default class CompFactory {
@@ -69,10 +69,10 @@ return g;
 }
 ////////////---container--------------///////
 
-// static row(incommingTextArray :string = "one two"){
-// let g = new Row(incommingTextArray);
-// return g;    
-// }
+static row(incommingTextArray :string = "one two"){
+let g = new Row(incommingTextArray);
+return g;    
+}
 // static paragraph(){
 // let g = new Paragraph();
 // return g;    

@@ -1,13 +1,13 @@
-import { IComponent,CompFactory as cf } from "../bilza.js";
-import IScene from "./IScene.js";
+import { CompFactory as cf } from "../bilza.js";
 import Scene from "./00scene.js";
+
 export default class MsgSwingRndCircles extends Scene{
 
 content :string;
 constructor(startTime :number=0,duration :number=60){
 
 super(startTime,duration);
-this.content = "Alam zeb khan";
+this.content = "Welcome";
 }
 
 init(){

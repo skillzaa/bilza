@@ -1,12 +1,11 @@
 import { Pack ,AniNumber,AniColor,AniBoolean} from "../bilza.js";
 import RawText from "./rawText.js";
-//  import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 
 /**
- * Text class has all the bells and whistles unlike RawText. 
- * We can remove or apply "fitTextToWidth" and increase "maxHeight" to a large number and this will work just like raw text (i.e the fontSize is not changed to fit width).
- * The paddings are  using percentages but we can disable them (by usePercentages = false in init) when ever we want and then the padding can be set in pix and not perc.
+ * Text class can remove or apply "fitTextToWidth" and increase "height" to a large number and this will work just like raw text (i.e the fontSize is not changed to fit width).
+ * The paddings are  using percentages but we can disable them  when ever we want and then the padding can be set in pix and not perc.
  * Also the X and Y of text component just like padding can be made to use pixels and not perc. This will come in handy when we want to use the text in container components.
+ * In order to convert Width from percentage to raw we use the 
  */ 
 export default class Text extends RawText {
  public fitTextToWidth :boolean;    

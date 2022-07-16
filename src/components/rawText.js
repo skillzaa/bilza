@@ -33,15 +33,15 @@ export default class RawText extends BaseComponent {
     }
     draw(p) {
         this.preDraw(p);
-        this.style.fillStyle = this.color.value();
-        this.style.strokeStyle = this.color.value();
-        this.style.fontSize = this.fontSize.value();
-        this.style.fontFamily = this.fontFamily;
         this.drawContent(p);
         this.postDraw(p);
         return true;
     }
     drawContent(p) {
-        p.drawText(this.content.value().substring(0, this.maxDisplayChars.value()), this.xAligned(), this.yAligned(), this.style);
+        this.style.fillStyle = this.color.value();
+        this.style.strokeStyle = this.color.value();
+        this.style.fontSize = this.fontSize.value();
+        this.style.fontFamily = this.fontFamily;
+        p.drawText(this.content.value().substring(0, this.maxDisplayChars.value()), this.contentX(), this.contentY(), this.style);
     }
 }
