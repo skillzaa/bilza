@@ -7,11 +7,15 @@ import CircleParticles from "../components/circleParticles.js";
 import Text from "../components/text.js";
 import Pic from "../components/pic.js";
 import Line from "../components/line.js";
-import RawText from "../components/rawText.js";
 import Marker from "../components/marker.js";
 import Circle from "../components/circle.js";
+import Icon from "../components/icon.js";
 import Row from "../container/row.js";
 export default class CompFactory {
+    static icon(code = 9876, colorHax = "#008000") {
+        let g = new Icon(code, colorHax);
+        return g;
+    }
     static circle(colorHax = "red") {
         let g = new Circle(colorHax);
         return g;
@@ -46,10 +50,6 @@ export default class CompFactory {
     }
     static circleParticles(count = 10, color = "#008000", framesToSkip = 50) {
         let g = new CircleParticles(count, color, framesToSkip);
-        return g;
-    }
-    static rawText(content = "", colorHax = "#000000") {
-        let g = new RawText(content, colorHax);
         return g;
     }
     static text(content = "", colorHax = "#000000") {

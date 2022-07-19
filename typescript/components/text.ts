@@ -1,37 +1,83 @@
-import { Pack ,AniNumber,AniColor,AniBoolean} from "../bilza.js";
-import RawText from "./rawText.js";
-
+import {Pack,BaseComponent,DrawLayer,FontFamily,AniNumber,AniColor,AniString } from "../bilza.js";
+ 
 /**
- * Text class can remove or apply "fitTextToWidth" and increase "height" to a large number and this will work just like raw text (i.e the fontSize is not changed to fit width).
- * The paddings are  using percentages but we can disable them  when ever we want and then the padding can be set in pix and not perc.
- * Also the X and Y of text component just like padding can be made to use pixels and not perc. This will come in handy when we want to use the text in container components.
- * In order to convert Width from percentage to raw we use the 
- */ 
-export default class Text extends RawText {
- public fitTextToWidth :boolean;    
+ * A totally Non-Openionated Text Class for others to inheret from.
+ *  
+ */
+export default class RawText extends BaseComponent {
+public content :AniString;
+public fontFamily :FontFamily;
+//--15-july-2022 : no need for this use width as fontSize
+public fontSize :AniNumber;
+//--- The only abstraction -- if is a problem even remove this
+public maxDisplayChars :AniNumber; 
+public fitTextToWidth :boolean;    
  public shrinkTextToHeight :boolean;    
 
-///////////////////////////////////////// 
+/////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
-super(content,colorHax);
-
+super();  
+this.content = new AniString(content); 
+this.fontSize = new AniNumber(50);
+this.maxDisplayChars = new AniNumber(200);
+this.fontFamily = FontFamily.Calibri;
+this.color.set(colorHax); 
+//-----------------------------
 this.fitTextToWidth = true;
 this.shrinkTextToHeight = true;
-this.height.set(500);
-
-} 
-
+//-----------------------------
+this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
+//-----------------------------
+}
+ 
 update(msDelta: number, p: Pack): boolean {
 if (this.fitTextToWidth == true){
     this.dynamicFontSize(p);    
 }     
 if (this.shrinkTextToHeight == true){
     this.shrinkToFitMaxHeight(p);    
-}     
-super.update(msDelta,p);//--keep it down here so that Loc is updated late;
+}         
+super.update(msDelta,p);
+this.fontSize.update(msDelta); 
+this.content.update(msDelta); 
+this.maxDisplayChars.update(msDelta);
 return true;
 }
+ 
+contentHeight():number {
+if (this.charsWidth == null){throw new Error("init error");}    
+//--Abstraction
+if (this.maxDisplayChars.value() < 1) {return 0;}
+return this.charsWidth("W",this.fontSize.value(),this.fontFamily);
+}
+//--contentWidth has to return the actual width of the content area. If we use fitTextToWidth in text this method does not need to change it stil is correct just the fontSize change.
+contentWidth():number {
+if (this.charsWidth == null){throw new Error("init error");}        
+return this.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this.fontSize.value(),this.fontFamily)
+}
+   
+//-ideal draw function
+draw(p:Pack):boolean{
+this.preDraw(p);
+this.drawContent(p);
+this.postDraw(p);
+return true;
+} 
 
+drawContent(p :Pack){
+this.style.fillStyle = this.color.value();    
+this.style.strokeStyle = this.color.value();     
+
+this.style.fontSize = this.fontSize.value();
+this.style.fontFamily = this.fontFamily;
+    
+ p.drawText(
+     this.content.value().substring(0,this.maxDisplayChars.value()),
+     this.contentX(),
+     this.contentY(),
+     this.style);   
+ } 
+//---------------------------------- 
 ///////////////////////////////////////////
 ///////////////////////////////////////////
 private dynamicFontSize(p :Pack):number | null{
@@ -77,5 +123,3 @@ if ( contentHeight < reqHtInPix){return true;}
 return true;
 }  
 }//class
-
- 

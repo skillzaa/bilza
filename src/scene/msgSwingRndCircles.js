@@ -15,7 +15,7 @@ export default class MsgSwingRndCircles extends Scene {
         t.paddingTop.set(10);
         t.paddingBottom.set(10);
         t.showBackground.set(true);
-        t.colorBackground.set("#000000");
+        t.colorBackground.set("hsl(240,100%,20%)");
         t.border.set(20);
         t.colorBorder.set("red");
         t.xAlign = t.XAlignOpt.Mid;
@@ -30,7 +30,7 @@ export default class MsgSwingRndCircles extends Scene {
         g.setStartTime(this.getStartTime());
         g.duration = (this.getDuration());
         this.push(g);
-        const grid = cf.staticGrid(100, 100, "red");
+        const grid = cf.staticGrid(100, 100, "hsl(60,100%,100%)");
         grid.setStartTime(this.getStartTime());
         grid.duration = (this.getDuration());
         this.push(grid);

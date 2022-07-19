@@ -7,7 +7,8 @@ export default class ConstantNo extends BaseFilter {
         this._ret_val = null;
     }
     update(msDelta) {
-        if (this.update(msDelta) == FilterState.Running) {
+        super.update(msDelta);
+        if (this.filterState == FilterState.Running) {
             this._ret_val = this.constantValue;
         }
         else {

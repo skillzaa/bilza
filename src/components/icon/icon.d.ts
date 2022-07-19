@@ -4,8 +4,6 @@ export default class Icon extends BaseComponent {
     fontSize: AniNumber;
     constructor(code?: number, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
-    widthInPix(): number;
-    heightInPix(): number;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=icon.d.ts.map

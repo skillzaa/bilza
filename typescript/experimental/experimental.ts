@@ -1,4 +1,4 @@
-import Icon from "../components/icon/icon.js";
+import Icon from "../components/icon.js";
 
 
 export default class Experimental {

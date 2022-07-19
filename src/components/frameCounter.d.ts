@@ -1,5 +1,5 @@
 import { Pack } from "../bilza.js";
-import RawText from "./rawText.js";
+import RawText from "./text.js";
 export default class FrameCounter extends RawText {
     convertToSec: boolean;
     constructor(color?: string);

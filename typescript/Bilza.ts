@@ -21,9 +21,11 @@ export default Bilza;
 import AniColor from "./animations/aniColor/aniColor.js";
 import AniString from "./animations/aniString/aniString.js";
 import Experimental from "./experimental/experimental.js";
+import { UTFIcons } from "./design/utfIcons.js";
 export {
 Pack,
 DrawLayer,
+UTFIcons,
 Experimental,
 AniNumber,
 AniNoPerc,

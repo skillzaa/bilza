@@ -1,5 +1,5 @@
 import {Pack} from "../bilza.js";
-import RawText from "./rawText.js";
+import RawText from "./text.js";
 //--16-july-2022 completed frame counter for last time inshallah
 export default class FrameCounter extends RawText {
 convertToSec :boolean;

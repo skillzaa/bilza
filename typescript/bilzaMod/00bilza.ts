@@ -56,9 +56,17 @@ if (this.set.loadSystemBackground == true){
 // --27-june-2022 converted to private
 private drawForStart():boolean{
  let msDelta = this.stopWatch.getMsDelta();
- if (this.stopWatch.shouldStop() == false){
+ if (this.len(true) <= msDelta){
+    // console.log("should stop",msDelta);
+    //         if (this.soundTrackElement !== null){
+    //         this.soundTrackElement.pause();
+    //         this.soundTrackElement.currentTime = 0;
+    //         }
+    this.stop();
+ }else {
     window.requestAnimationFrame(this.drawForStart.bind(this));
-}
+ }
+
 //-------------------------------------------------------- 
 //--we need to save this msDelta as lastMsDelta
 this.lastMsDelta = msDelta;
@@ -105,13 +113,13 @@ return true;
 } 
 start():boolean{
 //-06-june-2022 the init is moved inside start ..may create problems    
-    
-    if (this.soundTrackElement !== null){
-        this.soundTrackElement.play();
-    }
+if (this.stopWatch.isRunning() == true){return false;}
+this.stop();
+    //--remove for now
+    // if (this.soundTrackElement !== null){
+    //     this.soundTrackElement.play();
+    // }
  
-    if (this.stopWatch.isRunning() == true){return false;}
-        this.stop();
         this.init();
         // this.pack.clearCanvas(); 
         this.stopWatch.start();

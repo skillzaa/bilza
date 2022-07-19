@@ -13,7 +13,7 @@ this.content = "Welcome";
 init(){
 
 const t = cf.text( this.content, "#ffff00");
-//---All the contained comps must have startTime and duration in relation to this.starTime and this.duration
+//---All the contained comps must have startTime and duration inside the bounds of scene
 //---- 
 t.setStartTime(this.getStartTime());
 t.duration = this.getDuration();
@@ -25,7 +25,7 @@ t.paddingTop.set(10);
 t.paddingBottom.set(10);
 //..........................
 t.showBackground.set(true);
-t.colorBackground.set("#000000")
+t.colorBackground.set("hsl(240,100%,20%)")
 t.border.set(20);
 t.colorBorder.set("red");
 //--------------------------------
@@ -48,7 +48,7 @@ g.duration = (this.getDuration());
 this.push(g);
 
 
-const grid  = cf.staticGrid(100,100,"red");
+const grid  = cf.staticGrid(100,100,"hsl(60,100%,100%)");
 grid.setStartTime(this.getStartTime() );
 grid.duration = (this.getDuration() );
 //----------from base class

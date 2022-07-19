@@ -1,4 +1,4 @@
-import RawText from "./rawText.js";
+import RawText from "./text.js";
 export default class FrameCounter extends RawText {
     constructor(color = "#008000") {
         super("", color);

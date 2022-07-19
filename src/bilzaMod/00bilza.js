@@ -30,7 +30,10 @@ export default class Bilza {
     }
     drawForStart() {
         let msDelta = this.stopWatch.getMsDelta();
-        if (this.stopWatch.shouldStop() == false) {
+        if (this.len(true) <= msDelta) {
+            this.stop();
+        }
+        else {
             window.requestAnimationFrame(this.drawForStart.bind(this));
         }
         this.lastMsDelta = msDelta;
@@ -68,9 +71,6 @@ export default class Bilza {
         return true;
     }
     start() {
-        if (this.soundTrackElement !== null) {
-            this.soundTrackElement.play();
-        }
         if (this.stopWatch.isRunning() == true) {
             return false;
         }
