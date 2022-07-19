@@ -1,27 +1,22 @@
-import { BaseComponent, DrawLayer, FontFamily, AniNumber, AniString } from "../bilza.js";
-export default class RawText extends BaseComponent {
+import { DrawLayer, AniString, BaseComponent, AniNumber, FontFamily } from "../bilza.js";
+export default class Text extends BaseComponent {
     constructor(content = "", colorHax = "#000000") {
         super();
         this.content = new AniString(content);
-        this.fontSize = new AniNumber(50);
         this.maxDisplayChars = new AniNumber(200);
         this.fontFamily = FontFamily.Calibri;
         this.color.set(colorHax);
-        this.fitTextToWidth = true;
-        this.shrinkTextToHeight = true;
         this.drawLayer = DrawLayer.MiddleGround;
+        this.fontSize = 50;
+        this.height.set(500);
     }
     update(msDelta, p) {
-        if (this.fitTextToWidth == true) {
-            this.dynamicFontSize(p);
-        }
-        if (this.shrinkTextToHeight == true) {
-            this.shrinkToFitMaxHeight(p);
-        }
         super.update(msDelta, p);
-        this.fontSize.update(msDelta);
         this.content.update(msDelta);
         this.maxDisplayChars.update(msDelta);
+        this.dynamicFontSize(p);
+        this.shrinkToFitMaxHeight(p);
+        super.update(msDelta, p);
         return true;
     }
     contentHeight() {
@@ -31,13 +26,13 @@ export default class RawText extends BaseComponent {
         if (this.maxDisplayChars.value() < 1) {
             return 0;
         }
-        return this.charsWidth("W", this.fontSize.value(), this.fontFamily);
+        return this.charsWidth("W", this.fontSize, this.fontFamily);
     }
     contentWidth() {
         if (this.charsWidth == null) {
             throw new Error("init error");
         }
-        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.fontSize.value(), this.fontFamily);
+        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.fontSize, this.fontFamily);
     }
     draw(p) {
         this.preDraw(p);
@@ -48,20 +43,20 @@ export default class RawText extends BaseComponent {
     drawContent(p) {
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
-        this.style.fontSize = this.fontSize.value();
+        this.style.fontSize = this.fontSize;
         this.style.fontFamily = this.fontFamily;
         p.drawText(this.content.value().substring(0, this.maxDisplayChars.value()), this.contentX(), this.contentY(), this.style);
     }
     dynamicFontSize(p) {
         const reqWdInPix = (p.canvasWidth() / 100 * this.width.value());
         ;
-        this.style.fontSize = this.fontSize.value();
+        this.style.fontSize = this.fontSize;
         for (let i = 1; i < 900; i++) {
             const newWidthInPix = p.charsWidth(this.content.value(), i, this.style.fontFamily);
             if (newWidthInPix >= (reqWdInPix)) {
-                this.fontSize.set(i);
+                this.fontSize = i;
                 this.style.fontSize = i;
-                return this.fontSize.value();
+                return this.fontSize;
             }
         }
         return null;
@@ -78,7 +73,7 @@ export default class RawText extends BaseComponent {
         for (let i = 300; i > 0; i--) {
             const newHeightInPix = p.charsWidth("W", i, this.style.fontFamily);
             if (newHeightInPix <= reqHtInPix) {
-                this.fontSize.set(i);
+                this.fontSize = i;
                 this.style.fontSize = i;
                 return true;
             }

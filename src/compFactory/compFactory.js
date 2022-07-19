@@ -5,6 +5,7 @@ import StaticGrid from "../components/staticGrid.js";
 import FrameCounter from "../components/frameCounter.js";
 import CircleParticles from "../components/circleParticles.js";
 import Text from "../components/text.js";
+import RawText from "../components/rawText.js";
 import Pic from "../components/pic.js";
 import Line from "../components/line.js";
 import Marker from "../components/marker.js";
@@ -54,6 +55,10 @@ export default class CompFactory {
     }
     static text(content = "", colorHax = "#000000") {
         let g = new Text(content, colorHax);
+        return g;
+    }
+    static rawText(content = "", colorHax = "#000000") {
+        let g = new RawText(content, colorHax);
         return g;
     }
     static line(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {

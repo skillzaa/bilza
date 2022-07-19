@@ -1,11 +1,9 @@
-import { Pack, BaseComponent, FontFamily, AniNumber, AniString } from "../bilza.js";
-export default class RawText extends BaseComponent {
+import { Pack, AniString, BaseComponent, AniNumber, FontFamily } from "../bilza.js";
+export default class Text extends BaseComponent {
     content: AniString;
-    fontFamily: FontFamily;
-    fontSize: AniNumber;
     maxDisplayChars: AniNumber;
-    fitTextToWidth: boolean;
-    shrinkTextToHeight: boolean;
+    fontFamily: FontFamily;
+    private fontSize;
     constructor(content?: string, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
     contentHeight(): number;

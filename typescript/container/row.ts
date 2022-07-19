@@ -1,9 +1,9 @@
 import {Pack,AniBoolean,AniNumber,AniColor} from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
-import Text from "../components/text.js";
+import RawText from "../components/rawText.js";
 
 export default class Row extends BaseComponent {
-textArray : Text[];
+textArray : RawText[];
 private incommingTextArray : string[];
 x_internal :number;
 colorBackground :AniColor;
@@ -22,15 +22,15 @@ constructor (incommingTextArray :string = "one two"){
     //--this.incommingTextArray and not just incommingTextArray
     for (let i = 0; i < this.incommingTextArray.length; i++) {
         const item = this.incommingTextArray[i];
-        const txt = new Text(item);
-        txt.width.set(10);
+        const txt = new RawText(item);
+        // txt.width.set(10);---its raw text now
 
         //--Now the text will use raw pix for width, height ,padding and corrdinates.
         txt.responsiveCoordinates = false;
         txt.responsiveDims = false;
         txt.responsivePadding = false;
         //--fitTextToWidth = false; // very importantay -so now we can keep the size of text same by fontSize.
-        txt.fitTextToWidth = false;
+        // txt.fitTextToWidth = false;
         txt.border.set(0);
         txt.paddingLeft.set(2);
         txt.paddingRight.set(2);
@@ -101,7 +101,7 @@ setFontColor(fontColor :string){
         item.color.set(fontColor);
     }
 }
-getCell(column :number):Text{
+getCell(column :number):RawText{
     return this.textArray[column];
 }
 draw(p:Pack):boolean{

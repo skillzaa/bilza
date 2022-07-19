@@ -1,6 +1,6 @@
 import { AniColor } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
-import Text from "../components/text.js";
+import RawText from "../components/rawText.js";
 export default class Row extends BaseComponent {
     constructor(incommingTextArray = "one two") {
         super();
@@ -10,12 +10,10 @@ export default class Row extends BaseComponent {
         this.textArray = [];
         for (let i = 0; i < this.incommingTextArray.length; i++) {
             const item = this.incommingTextArray[i];
-            const txt = new Text(item);
-            txt.width.set(10);
+            const txt = new RawText(item);
             txt.responsiveCoordinates = false;
             txt.responsiveDims = false;
             txt.responsivePadding = false;
-            txt.fitTextToWidth = false;
             txt.border.set(0);
             txt.paddingLeft.set(2);
             txt.paddingRight.set(2);

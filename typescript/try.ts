@@ -1,5 +1,5 @@
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 
+import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 
 let bil = new Bilza("bilza",70);
 bil.background.color.set("#031363");
@@ -10,11 +10,14 @@ g.showNumbers = false;
 g.colorVerticalLines = "#29346b";
 bil.insert.alwaysOn(g);
 
-bil.insert.alwaysOn(cf.frameCounter("#ff0000"));
+const counter = cf.frameCounter("#ff0000");
+bil.insert.alwaysOn(counter);
 
-const raw = cf.text("Raw Text","#ff0000");
-raw.paddingLeft.animate(0,5,0,30);
-// raw.fontSize.animate(2,10,50,500);
-bil.insert.add(raw,0,15);
+const comp = cf.text("Raw Text","#ff0000");
+// comp.fitTextToWidth = false;
+comp.goto(0,20,20);
+// comp.fontSize.set(50);
+comp.width.animate(2,10,5,80);
+bil.insert.add(comp,0,20);
 const ui = new Ui(bil);
 bil.draw();

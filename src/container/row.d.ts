@@ -1,8 +1,8 @@
 import { Pack, AniColor } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
-import Text from "../components/text.js";
+import RawText from "../components/rawText.js";
 export default class Row extends BaseComponent {
-    textArray: Text[];
+    textArray: RawText[];
     private incommingTextArray;
     x_internal: number;
     colorBackground: AniColor;
@@ -13,7 +13,7 @@ export default class Row extends BaseComponent {
     contentHeight(): number;
     setFontSize(fontSize: number): void;
     setFontColor(fontColor: string): void;
-    getCell(column: number): Text;
+    getCell(column: number): RawText;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=row.d.ts.map
