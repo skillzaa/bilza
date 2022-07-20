@@ -7,7 +7,7 @@ import { Pack,DrawLayer ,AniString,BaseComponent,AniNumber,AniColor,AniBoolean,F
  * Further:
  * -- To aviod confusion let there be no fontSize in Text component.
  * -- In Text remove fitTextToWidth and shrinkTextToHeight since if that is the main task of "Text" component then why to keep it optional.
- * -- To remove fontSize use rawText as "Adaptor" OR create a new class.
+ * -- To remove fontSize use rawText as "Adaptor" OR create a NEW CLASS.
  */ 
 
 export default class Text extends BaseComponent {

@@ -46,7 +46,8 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf ,hsl} from "../src/bilza.js";
+
 let bil = new Bilza("bilza",70);
 // bil.resizeCanvas(800,300);
 bil.background.color.set("#031363");
@@ -74,7 +75,7 @@ function getAnimatedHdg(content="Demo Text",startTime=2,returnTime = 10,topY=5){
 const Ystart = 100;    
 const cmp = cf.text(content,"#ff0000");
 cmp.yAlign = cmp.YAlignOpt.Top;
-cmp.maxHeight = 20;
+cmp.height.set(20);
 cmp.xAlign = cmp.XAlignOpt.Mid;
 cmp.border.set(1);
 
@@ -96,7 +97,8 @@ return cmp;
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf ,hsl} from "../src/bilza.js";
+
 let bil = new Bilza("bilza",70);
 // bil.resizeCanvas(800,300);
 bil.background.color.set("#031363");
@@ -124,7 +126,7 @@ function getAnimatedHdg(content="Demo Text",startTime=2,returnTime = 10,topY=5){
 const Ystart = 100;    
 const cmp = cf.text(content,"#ff0000");
 cmp.yAlign = cmp.YAlignOpt.Top;
-cmp.maxHeight = 20;
+cmp.height.set(20);
 cmp.xAlign = cmp.XAlignOpt.Mid;
 cmp.border.set(1);
 

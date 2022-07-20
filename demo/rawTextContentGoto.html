@@ -46,10 +46,11 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf ,hsl} from "../src/bilza.js";
+
 
 let bil = new Bilza("bilza",70);
-bil.background.color = "#031363"
+// bil.background.color = "#031363"
 //-----------------------------------------
 const g = cf.grid();
 g.colorHorizontalLines = "#29346b";
@@ -62,7 +63,7 @@ counter.goto(0,90,0);
 bil.insert.alwaysOn(counter);
 
 const comp = cf.rawText("Raw Text","#ff0000");
-comp.fontSize.set(80);
+comp.fontSize.set(60);
 comp.x.goto(0,10);
 comp.y.goto(0,10);
 
@@ -79,10 +80,11 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf ,hsl} from "../src/bilza.js";
+
 
 let bil = new Bilza("bilza",70);
-bil.background.color = "#031363"
+// bil.background.color = "#031363"
 //-----------------------------------------
 const g = cf.grid();
 g.colorHorizontalLines = "#29346b";
@@ -95,7 +97,7 @@ counter.goto(0,90,0);
 bil.insert.alwaysOn(counter);
 
 const comp = cf.rawText("Raw Text","#ff0000");
-comp.fontSize.set(80);
+comp.fontSize.set(60);
 comp.x.goto(0,10);
 comp.y.goto(0,10);
 
