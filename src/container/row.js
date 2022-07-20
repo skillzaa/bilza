@@ -4,7 +4,7 @@ import RawText from "../components/rawText.js";
 export default class Row extends BaseComponent {
     constructor(incommingTextArray = "one two") {
         super();
-        this.x_internal = 0;
+        this.x_local = 0;
         this.incommingTextArray = incommingTextArray.split(" ");
         this.colorBackground = new AniColor("grey");
         this.textArray = [];
@@ -14,9 +14,13 @@ export default class Row extends BaseComponent {
             txt.responsiveCoordinates = false;
             txt.responsiveDims = false;
             txt.responsivePadding = false;
-            txt.border.set(0);
-            txt.paddingLeft.set(2);
-            txt.paddingRight.set(2);
+            txt.border.set(1);
+            txt.fontSize.set(30);
+            txt.colorBorder.set("hsl(200,100%,50%)");
+            txt.paddingLeft.set(10);
+            txt.paddingRight.set(10);
+            txt.paddingTop.set(10);
+            txt.paddingBottom.set(10);
             this.textArray.push(txt);
         }
     }
@@ -43,7 +47,7 @@ export default class Row extends BaseComponent {
             let wd = 0;
             for (let i = 0; i < this.textArray.length; i++) {
                 const txt = this.textArray[i];
-                wd += txt.contentWidth();
+                wd += txt.compWidth();
             }
             return wd;
         }
@@ -53,14 +57,14 @@ export default class Row extends BaseComponent {
     }
     contentHeight() {
         if (this.canvasWidth !== null) {
-            let wd = 0;
+            let ht = 0;
             for (let i = 0; i < this.textArray.length; i++) {
                 const txt = this.textArray[i];
-                if (wd < txt.contentHeight()) {
-                    wd = txt.contentHeight();
+                if (ht < txt.compHeight()) {
+                    ht = txt.compHeight();
                 }
             }
-            return (wd + this.paddingTop.value() + this.paddingBottom.value());
+            return (ht + this.paddingTop.value() + this.paddingBottom.value());
         }
         else {
             throw new Error("the component is not initialized yet");
@@ -89,12 +93,14 @@ export default class Row extends BaseComponent {
         const yAligned = this.yAligned();
         for (let i = 0; i < this.textArray.length; i++) {
             const txt = this.textArray[i];
-            txt.x.set(this.xAligned() + this.x_internal + this.paddingLeft.value());
-            txt.y.set(yAligned + this.paddingTop.value());
+            const _x = this.xAligned() + this.x_local + this.paddingLeft.value();
+            const _y = yAligned + this.paddingTop.value();
+            txt.x.set(_x);
+            txt.y.set(_y);
             txt.draw(p);
-            this.x_internal += txt.contentWidth();
+            this.x_local += txt.compWidth();
         }
-        this.x_internal = 0;
+        this.x_local = 0;
         this.postDraw(p);
         return true;
     }

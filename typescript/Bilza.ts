@@ -22,8 +22,10 @@ import AniColor from "./animations/aniColor/aniColor.js";
 import AniString from "./animations/aniString/aniString.js";
 import Experimental from "./experimental/experimental.js";
 import { UTFIcons } from "./design/utfIcons.js";
+import hsl from "./functions/hsl.js";
 export {
 Pack,
+hsl,
 DrawLayer,
 UTFIcons,
 Experimental,

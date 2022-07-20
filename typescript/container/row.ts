@@ -5,13 +5,13 @@ import RawText from "../components/rawText.js";
 export default class Row extends BaseComponent {
 textArray : RawText[];
 private incommingTextArray : string[];
-x_internal :number;
+x_local :number;
 colorBackground :AniColor;
 
 
 constructor (incommingTextArray :string = "one two"){ 
     super();
-    this.x_internal = 0;
+    this.x_local = 0;
     //--save for later use
     this.incommingTextArray = incommingTextArray.split(" ");
    
@@ -29,16 +29,18 @@ constructor (incommingTextArray :string = "one two"){
         txt.responsiveCoordinates = false;
         txt.responsiveDims = false;
         txt.responsivePadding = false;
-        //--fitTextToWidth = false; // very importantay -so now we can keep the size of text same by fontSize.
-        // txt.fitTextToWidth = false;
-        txt.border.set(0);
-        txt.paddingLeft.set(2);
-        txt.paddingRight.set(2);
+
+        txt.border.set(1);
+        txt.fontSize.set(30);
+        txt.colorBorder.set("hsl(200,100%,50%)");
+        txt.paddingLeft.set(10);
+        txt.paddingRight.set(10);
+        txt.paddingTop.set(10);
+        txt.paddingBottom.set(10);
         // txt.content.set(incommingTextArray[i]);
         this.textArray.push(txt);
     }
 }
-
 init(p: Pack): boolean {
     super.init(p);
 //--?? not req since text does not need it.
@@ -47,17 +49,17 @@ init(p: Pack): boolean {
         txt.charsWidth = this.charsWidth;
         txt.init(p);
     }
+    // console.log(this.textArray);
     return true;
 }
 
 update(msDelta: number, p: Pack): boolean {
-    
+
     this.colorBackground.update(msDelta);
     super.update(msDelta,p);
 
     for (let i = 0; i < this.textArray.length ; i++) {
         const txt = this.textArray[i];
-       
         txt.update(msDelta,p);
     }
     //-------------------------------------------
@@ -68,7 +70,7 @@ contentWidth(): number {
     let wd=0;
     for (let i = 0; i < this.textArray.length ; i++) {
         const txt = this.textArray[i];
-        wd += txt.contentWidth();
+        wd += txt.compWidth();
     }
     return wd;
     }else {
@@ -77,14 +79,14 @@ contentWidth(): number {
 }
 contentHeight(): number {
     if (this.canvasWidth !== null ){
-    let wd=0;
+    let ht=0;
     for (let i = 0; i < this.textArray.length ; i++) {
         const txt = this.textArray[i];
-        if (wd < txt.contentHeight() ){
-            wd = txt.contentHeight();
+        if (ht < txt.compHeight() ){
+            ht = txt.compHeight();
         }
     }
-        return (wd +this.paddingTop.value() + this.paddingBottom.value()  );
+        return (ht +this.paddingTop.value() + this.paddingBottom.value()  );
     }else {
         throw new Error("the component is not initialized yet");        
     }
@@ -116,15 +118,20 @@ this.style.strokeStyle = this.color.value();
 const yAligned = this.yAligned();
 for (let i = 0; i < this.textArray.length ; i++) {
     const txt = this.textArray[i];
-    txt.x.set(this.xAligned() + this.x_internal + this.paddingLeft.value());
-    txt.y.set( yAligned + this.paddingTop.value() );
+const _x = this.xAligned() + this.x_local + this.paddingLeft.value(); 
+const _y =  yAligned + this.paddingTop.value(); 
+
+    txt.x.set( _x);
+    txt.y.set( _y);
+    
+    
     txt.draw(p);
-    this.x_internal += txt.contentWidth();
+    this.x_local += txt.compWidth();
     // console.log("x",txt.x.value());
-    // this.x_internal += p.pixToXPerc(txt.widthInPix());
+    // this.x_local += p.pixToXPerc(txt.widthInPix());
 }
 //----------------------------
-this.x_internal = 0;//??
+this.x_local = 0;//??
 //----------------------------
 this.postDraw(p);    
 return true;

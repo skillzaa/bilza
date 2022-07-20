@@ -86,6 +86,7 @@ constructor(){
     // this.usePercentages = false;
     this.responsiveCoordinates = true;
     this.responsivePadding = true;
+    //---what is this
     this.responsiveDims = true;
     this.interactive = false; // this is for mouse click etc
     this.border = new AniNumber(0);

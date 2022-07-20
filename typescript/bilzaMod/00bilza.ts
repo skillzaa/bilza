@@ -147,4 +147,17 @@ getLastMsDelta():number{
 isRunning():boolean{
 return this.stopWatch.isRunning();    
 }
+
+// drawRepeat():boolean{
+// // this.stop();
+//         this.init();
+//         // this.pack.clearCanvas(); 
+//         // this.stopWatch.start();
+//         // this.stopWatch.runningStartTimeTS = new Date().getTime();
+
+//         // if (this.stopWatch.shouldStop() == false){
+//             window.requestAnimationFrame(this.drawForStart.bind(this));
+//         // }
+//     return true;
+// }
 }//ends

@@ -26,8 +26,7 @@ To be an easy to use library for creating
 
 ---
 # Docs and Samples 
- Following is link to Docs / sample / examples:.
-<h3><a href="https://skillzaa.github.io/bilza/index.html" target="_blank">Docs and Samples</a></h3>
+Being written please...
 ---
 
 ### How Bilza Works
@@ -48,6 +47,7 @@ To be an easy to use library for creating
 If you want to be in touch or send me a bug report please use github issues.
 
 -----
+###### 20-july-2022   (version 0.0.24) 
 ###### 13-july-2022   (version 0.0.23) 
 ###### 9-july-2022   (version 0.0.22) //Getting close to 0.1.0
 ###### 7-july-2022   (version 0.0.21) //also ver 0.0.20

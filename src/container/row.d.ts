@@ -4,7 +4,7 @@ import RawText from "../components/rawText.js";
 export default class Row extends BaseComponent {
     textArray: RawText[];
     private incommingTextArray;
-    x_internal: number;
+    x_local: number;
     colorBackground: AniColor;
     constructor(incommingTextArray?: string);
     init(p: Pack): boolean;

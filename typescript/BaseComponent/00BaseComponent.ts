@@ -4,8 +4,7 @@ import RotateObj from "./60rotateObj.js";
 export default class BaseComponent extends RotateObj implements IComponent{
  
 constructor (){
-    super();
-
+super();
 }
 
 init(p: Pack): boolean {
