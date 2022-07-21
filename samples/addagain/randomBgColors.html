@@ -47,12 +47,12 @@
 
 <script  type="module" >
 //Background color can not be seen since there is rect ahead
-import Bilza, { Ui,CompFactory as cf } from "../../src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 let bil = new Bilza("bilza",70);
 // bil.resizeCanvas(800,300);
 //-----------------------------------------
 const grid = cf.grid("grey");
-grid.goto(0,90,0);
+
 bil.insert.alwaysOn(grid);
 
 const fillRect = cf.fillRect("red");

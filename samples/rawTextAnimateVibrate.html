@@ -86,7 +86,7 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";    
 let bil = new Bilza("bilza",70);
 // bil.resizeCanvas(1000,350);
 //-----------------------------------------
@@ -99,7 +99,7 @@ bil.insert.alwaysOn(counter);
 
 const title = cf.rawText("Raw Text:Demo animate and vibrate" , "#0429f7");
 title.goto(0,10,50);
-title.fontSize.set(30);
+title.width.set(30);
 bil.insert.add(title,0,50);
 
 const plain = cf.rawText("Raw Text","#008000");
@@ -121,7 +121,7 @@ plain.x.vibrate(31,40,0,1,2);
 bil.insert.add(plain,0,50);
 const ui = new Ui(bil);
 bil.draw();
-   
+
 </code>
 </pre>
 

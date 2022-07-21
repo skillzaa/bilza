@@ -56,13 +56,14 @@ let grid = cf.grid();
 bil.insert.alwaysOn(grid);
 //----frameCounter
 let c = cf.frameCounter();
-c.goto(0, 90, 0);
+c.goto(0, 10, 0);
 bil.insert.alwaysOn(c);
 
 //----fillRect
 let mt = cf.fillRect("red");
+mt.goto(0,0,50);
 mt.animate(1, 10, 0, 100, 50, 50);
-bil.insert.append(mt, 12);
+bil.insert.add(mt,0, 12);
 //----Draw
 const ui = new Ui(bil);
 bil.draw();
@@ -71,7 +72,7 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+import Bilza, { Ui, CompFactory as cf } from "../src/bilza.js";
 
 let bil = new Bilza("bilza",70);
 bil.background.color.set("hsl(240,100%,15%)");
@@ -81,17 +82,17 @@ let grid = cf.grid();
 bil.insert.alwaysOn(grid);
 //----frameCounter
 let c = cf.frameCounter();
-c.goto(0, 90, 0);
+c.goto(0, 10, 0);
 bil.insert.alwaysOn(c);
 
 //----fillRect
 let mt = cf.fillRect("red");
+mt.goto(0,0,50);
 mt.animate(1, 10, 0, 100, 50, 50);
-bil.insert.append(mt, 12);
+bil.insert.add(mt,0, 12);
 //----Draw
 const ui = new Ui(bil);
 bil.draw();
-
 </code>
 </pre>
 
