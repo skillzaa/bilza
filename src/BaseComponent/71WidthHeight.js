@@ -8,10 +8,10 @@ export default class WidthHeight extends Shadow {
             return this.width.value();
         }
         if (this.canvasWidth !== null) {
-            return Math.ceil((this.canvasWidth / 100) * this.width.value());
+            return ((this.canvasWidth / 100) * this.width.value());
         }
         else {
-            throw new Error(" The component is not initialized yet");
+            throw new Error("The component is not initialized yet");
         }
     }
     contentHeight() {
@@ -19,16 +19,16 @@ export default class WidthHeight extends Shadow {
             return this.width.value();
         }
         if (this.canvasHeight !== null) {
-            return Math.ceil((this.canvasHeight / 100) * this.height.value());
+            return ((this.canvasHeight / 100) * this.height.value());
         }
         else {
-            throw new Error(" The component is not initialized yet");
+            throw new Error("The component is not initialized yet");
         }
     }
     compWidth() {
-        return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
+        return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() + (this.border.value() * 2);
     }
     compHeight() {
-        return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+        return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value() + (this.border.value() * 2);
     }
 }

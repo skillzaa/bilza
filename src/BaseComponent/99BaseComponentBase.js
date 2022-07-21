@@ -29,6 +29,8 @@ export default class BaseComponentBase {
         this.canvasHeight = null;
         this.selected = false;
         this.visible = new AniBoolean(true);
+        this.x = new AniNoPerc(0);
+        this.y = new AniNoPerc(0);
         this.paddingTop = new AniNoPerc(0);
         this.paddingBottom = new AniNoPerc(0);
         this.paddingRight = new AniNoPerc(0);

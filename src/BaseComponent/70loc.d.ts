@@ -1,10 +1,7 @@
 import { Pack } from "../bilza.js";
 import WidthHeight from "./71WidthHeight.js";
-import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
 export default class Loc extends WidthHeight {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
-    x: AniNoPerc;
-    y: AniNoPerc;
     constructor();
     draw(p: Pack): boolean;
     random(startTimeSec: number, endTimeSec: number, Xmin?: number, Xmax?: number, Ymin?: number, Ymax?: number, skipXFrames?: number): void;

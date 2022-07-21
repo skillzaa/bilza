@@ -52,8 +52,6 @@ toThrow(theFn :Function,message :string):boolean{
     catch(err  ){
         if (err instanceof Error){
             if (err.message === message){
-                // console.log( "err.message",err.message);
-                // console.log("message", message);
                 isError = true;
             }
         }
@@ -63,7 +61,27 @@ toThrow(theFn :Function,message :string):boolean{
             console.info("error thrown CORRECT");
             return false;
         }else {
-            console.error( `failed to thrown.`);
+            console.error( "failed to throw.");
+            return true;
+        }
+    }
+}
+toNotThrow(theFn :Function):boolean{
+    let isError = false;
+    try {
+        theFn();
+    }
+    catch(err  ){
+        if (err instanceof Error){
+                isError = true;
+        }
+    }
+    finally{
+        if (isError == true){
+            console.error( "error thrown.");
+            return false;
+        }else {
+            console.info("didnt throw error : CORRECT");
             return true;
         }
     }

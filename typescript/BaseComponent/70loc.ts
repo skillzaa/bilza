@@ -1,24 +1,16 @@
 import {Pack} from "../bilza.js";
 import WidthHeight from "./71WidthHeight.js";
 
-import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
-// import AniNoYPerc from "../animations/aniNoPerc/AniNoYPerc.js";
-
-
 export default class Loc extends WidthHeight {
 // XX-------------||||||||||||||||||||||---------------XX 
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 //--24-june 2022 removed loc for indl x and y using new AniNumber class
-public x :AniNoPerc; 
-public y :AniNoPerc;
 
 
 // aniPreset :AniPreset;
 
 constructor (){
     super();
-this.x = new AniNoPerc(0);
-this.y = new AniNoPerc(0);
 this.charsWidth = null;  
 // this.aniPreset = new AniPreset(this);
 

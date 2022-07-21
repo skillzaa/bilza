@@ -5,5 +5,6 @@ export default class BaseTest {
     toBeTrue(incomming: boolean): boolean;
     toBeFalse(incomming: boolean): boolean;
     toThrow(theFn: Function, message: string): boolean;
+    toNotThrow(theFn: Function): boolean;
 }
 //# sourceMappingURL=baseTest.d.ts.map

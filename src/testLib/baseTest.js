@@ -60,7 +60,28 @@ export default class BaseTest {
                 return false;
             }
             else {
-                console.error(`failed to thrown.`);
+                console.error("failed to throw.");
+                return true;
+            }
+        }
+    }
+    toNotThrow(theFn) {
+        let isError = false;
+        try {
+            theFn();
+        }
+        catch (err) {
+            if (err instanceof Error) {
+                isError = true;
+            }
+        }
+        finally {
+            if (isError == true) {
+                console.error("error thrown.");
+                return false;
+            }
+            else {
+                console.info("didnt throw error : CORRECT");
                 return true;
             }
         }

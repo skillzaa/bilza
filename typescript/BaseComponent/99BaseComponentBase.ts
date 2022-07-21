@@ -51,6 +51,7 @@ public width :AniNumber; // no need to convert it into AniNoPers
 //--same as width
 public height :AniNumber;// no need to convert it into AniNoPers
 //--this will come in handy during using the lib with gui and while making interactive tools.
+
 public  selected :boolean; //dont complicate
 
 //---PAdding and Border
@@ -59,6 +60,8 @@ public paddingTop :AniNoPerc;
 public paddingBottom :AniNoPerc;         
 public paddingRight :AniNoPerc;         
 public paddingLeft : AniNoPerc;         
+public x :AniNoPerc; 
+public y :AniNoPerc;
 
 //---Basic colors
 public colorBackground :AniColor;
@@ -86,7 +89,7 @@ constructor(){
     // this.usePercentages = false;
     this.responsiveCoordinates = true;
     this.responsivePadding = true;
-    //---what is this
+    //---This is width and height according to canvas or not
     this.responsiveDims = true;
     this.interactive = false; // this is for mouse click etc
     this.border = new AniNumber(0);
@@ -109,6 +112,10 @@ this.canvasHeight = null;
 //---flags--//--\\ 
 this.selected = false;
 this.visible = new AniBoolean(true);
+
+//-----------Location x and y
+this.x = new AniNoPerc(0);
+this.y = new AniNoPerc(0);
 //-----------padding
 this.paddingTop = new AniNoPerc(0);
 this.paddingBottom = new AniNoPerc(0); 

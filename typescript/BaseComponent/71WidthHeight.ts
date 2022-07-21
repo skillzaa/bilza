@@ -8,9 +8,9 @@ constructor (){
 contentWidth(): number {
     if (this.responsiveDims == false){return this.width.value()}
     if (this.canvasWidth !== null ){
-        return Math.ceil((this.canvasWidth/100) * this.width.value());
+        return ((this.canvasWidth/100) * this.width.value());
     }else {
-        throw new Error(" The component is not initialized yet");        
+        throw new Error("The component is not initialized yet");        
     }
 }
 /**
@@ -23,18 +23,18 @@ contentWidth(): number {
 contentHeight(): number {
     if (this.responsiveDims == false){return this.width.value()}
     if (this.canvasHeight !== null){
-    return Math.ceil((this.canvasHeight/100)*this.height.value());
+    return ((this.canvasHeight/100)*this.height.value());
     }else {
-        throw new Error(" The component is not initialized yet");        
+        throw new Error("The component is not initialized yet");        
     }
 }
 //---------------------
 compWidth(): number {
     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
-    return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() ;
+    return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() + (this.border.value() * 2);
 }   
 compHeight(): number {
 //--Border is not included    
-return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value() + (this.border.value() * 2);
 }
 } 
