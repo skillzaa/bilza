@@ -26,7 +26,9 @@ fill.paddingTop.set(10);
 fill.paddingBottom.set(10);
 
 bil.insert.add(fill,0,60);
-//--we need init before width
+//--we do not need init before width but need before x,y and padding
+//--even for non-responsive we neet init since the AniNoPerc class decided its mode during init.
+//--
 bil.init();
 
 //-21-july-2022-Learning -- The contentWidth is correct even without init since width and height are AniNumber AND NOT AniNoPerc class. Also width and height are decided on every call (to default impl of contentWidth and contentHeight inside BaseComponent) using bil.responsiveDims flag

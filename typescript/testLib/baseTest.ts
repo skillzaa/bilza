@@ -4,47 +4,47 @@ constructor(testSuiteName :string = "Unknow"){
 console.warn("Starting Suite : ", testSuiteName);
 }
 
-toEqual(incomming :number, check :number):boolean{
+toEqual(incomming :number, check :number,title :string=""):boolean{
     if (incomming === check){
-        console.info(`incomming == ${incomming}, expected ${check} : CORRECT `);
+        console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);
         return true;
     }else {
-        console.error(`incomming == ${incomming}, expected ${check} : CORRECT : WRONG `);
+        console.error(title,`incomming == ${incomming}, expected ${check} : CORRECT : WRONG `);
         return false;
     }
 }
 
-toBe(incomming :string, check :string):boolean{
+toBe(incomming :string, check :string,title :string=""):boolean{
     if (incomming === check){
-        console.info(`incomming == ${incomming}, expected ${check} : CORRECT `);
+        console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);
         return true;
     }else {
-        console.error(`incomming == ${incomming}, expected ${check} : CORRECT : WRONG `);
+        console.error(title,`incomming == ${incomming}, expected ${check} : CORRECT : WRONG `);
             return false;
     }
 }
 
-toBeTrue(incomming :boolean):boolean{
+toBeTrue(incomming :boolean,title :string=""):boolean{
     if (incomming === true){
-        console.info(`incomming == ${incomming}: CORRECT `);
+        console.info(title,`incomming == ${incomming}: CORRECT `);
         return true;
     }else {
-        console.error(`incomming == ${incomming}, expected "true": WRONG `);
+        console.error(title,`incomming == ${incomming}, expected "true": WRONG `);
         return false;
     }
 }
 
-toBeFalse(incomming :boolean):boolean{
+toBeFalse(incomming :boolean,title :string=""):boolean{
     // false will return true here
     if (incomming === false){
-        console.info(`incomming == ${incomming},expected "false" : CORRECT `);
+        console.info(title,`incomming == ${incomming},expected "false" : CORRECT `);
         return true;
     }else {
-        console.error(`incomming == ${incomming},expected "false": WRONG `);
+        console.error(title,`incomming == ${incomming},expected "false": WRONG `);
         return false;
     }
 }
-toThrow(theFn :Function,message :string):boolean{
+toThrow(theFn :Function,message :string,title :string=""):boolean{
     let isError = false;
     try {
         theFn();
@@ -66,7 +66,7 @@ toThrow(theFn :Function,message :string):boolean{
         }
     }
 }
-toNotThrow(theFn :Function):boolean{
+toNotThrow(theFn :Function,title :string=""):boolean{
     let isError = false;
     try {
         theFn();
@@ -78,10 +78,10 @@ toNotThrow(theFn :Function):boolean{
     }
     finally{
         if (isError == true){
-            console.error( "error thrown.");
+            console.error(title, "error thrown.");
             return false;
         }else {
-            console.info("didnt throw error : CORRECT");
+            console.info(title,"didnt throw error : CORRECT");
             return true;
         }
     }
