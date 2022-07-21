@@ -1,11 +1,10 @@
-import { Pack, AniColor } from "../bilza.js";
+import { Pack } from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import RawText from "../components/rawText.js";
 export default class Row extends BaseComponent {
     textArray: RawText[];
     private incommingTextArray;
-    x_local: number;
-    colorBackground: AniColor;
+    private x_local;
     constructor(incommingTextArray?: string);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;

@@ -5,9 +5,7 @@ import RawText from "../components/rawText.js";
 export default class Row extends BaseComponent {
 textArray : RawText[];
 private incommingTextArray : string[];
-x_local :number;
-colorBackground :AniColor;
-
+private x_local :number;
 
 constructor (incommingTextArray :string = "one two"){ 
     super();
@@ -23,15 +21,13 @@ constructor (incommingTextArray :string = "one two"){
     for (let i = 0; i < this.incommingTextArray.length; i++) {
         const item = this.incommingTextArray[i];
         const txt = new RawText(item);
-        // txt.width.set(10);---its raw text now
-
-        //--Now the text will use raw pix for width, height ,padding and corrdinates.
+        //--will use raw pix for width, height ,padding and corrdinates.
         txt.responsiveCoordinates = false;
         txt.responsiveDims = false;
         txt.responsivePadding = false;
 
         txt.border.set(1);
-        txt.fontSize.set(30);
+        txt.width.set(30);
         txt.colorBorder.set("hsl(200,100%,50%)");
         txt.paddingLeft.set(10);
         txt.paddingRight.set(10);
@@ -94,7 +90,8 @@ contentHeight(): number {
 setFontSize(fontSize :number){
     for (let i = 0; i < this.textArray.length ; i++) {
         const item = this.textArray[i];
-        item.fontSize.set(fontSize);
+        //--in raw text there is no font size just width
+        item.width.set(fontSize);
     }
 }
 setFontColor(fontColor :string){

@@ -6,7 +6,7 @@ convertToSec :boolean;
 constructor (color :string="#008000"){ 
     super("",color);
     this.convertToSec = true;
-    this.fontSize.set(35);
+    this.width.set(35);
     this.showBackground.set(true);
     this.colorBackground.set("blue");
     this.colorBorder.set("#101963");

@@ -15,7 +15,7 @@ export default class Row extends BaseComponent {
             txt.responsiveDims = false;
             txt.responsivePadding = false;
             txt.border.set(1);
-            txt.fontSize.set(30);
+            txt.width.set(30);
             txt.colorBorder.set("hsl(200,100%,50%)");
             txt.paddingLeft.set(10);
             txt.paddingRight.set(10);
@@ -73,7 +73,7 @@ export default class Row extends BaseComponent {
     setFontSize(fontSize) {
         for (let i = 0; i < this.textArray.length; i++) {
             const item = this.textArray[i];
-            item.fontSize.set(fontSize);
+            item.width.set(fontSize);
         }
     }
     setFontColor(fontColor) {
