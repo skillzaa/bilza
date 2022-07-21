@@ -11,6 +11,9 @@
 > Bilza is a javascript framework/library specially designed for creating business and educational Visualizations / Presentations / Slides <strong>using HTML5 canvas</strong>.
 ---
 
+<a href="https://skillzaa.github.io/bilza/">Sample</a>
+
+---
 ## Mission
 To be an easy to use library for creating 
 - Presentations.
@@ -26,7 +29,8 @@ To be an easy to use library for creating
 
 ---
 # Docs and Samples 
-Being written please...
+<a href="https://skillzaa.github.io/bilza/">Sample</a>
+
 ---
 
 ### How Bilza Works
