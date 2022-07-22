@@ -46,7 +46,7 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui, CompFactory as cf } from "./bilza.js";
+import Bilza, { Ui, CompFactory as cf } from "../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set("#151f59");
 bil.insert.alwaysOn(cf.frameCounter());
@@ -59,6 +59,7 @@ rect.goto(0, 50, 50);
 rect.opacity.set(0);
 rect.opacity.animate(0, 5, 0, 100);
 bil.insert.add(rect, 0, 15);
+
 const txt = cf.text("Opacity Demo");
 txt.width.set(50);
 txt.goto(0, 50, 50);
@@ -74,7 +75,7 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf } from "./bilza.js";
+import Bilza, { Ui, CompFactory as cf } from "../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set("#151f59");
 bil.insert.alwaysOn(cf.frameCounter());
@@ -87,6 +88,7 @@ rect.goto(0, 50, 50);
 rect.opacity.set(0);
 rect.opacity.animate(0, 5, 0, 100);
 bil.insert.add(rect, 0, 15);
+
 const txt = cf.text("Opacity Demo");
 txt.width.set(50);
 txt.goto(0, 50, 50);
@@ -96,7 +98,7 @@ txt.opacity.set(0);
 txt.opacity.animate(5, 10, 0, 100);
 bil.insert.alwaysOn(txt);
 const ui = new Ui(bil);
-bil.draw();    
+bil.draw();
 </code>
 </pre>
 

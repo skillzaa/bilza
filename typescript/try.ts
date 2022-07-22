@@ -1,29 +1,34 @@
 import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 
+let bil = new Bilza("bilza", 70);
+// bil.resizeCanvas(800, 400);
+bil.background.color.set("#031363");
 
-let bil = new Bilza("bilza",70);
-//-----------------------------------------
-const row = cf.row("This is a miracle");
 
-// row.xAlign = row.XAlignOpt.Right;
-// row.yAlign = row.YAlignOpt.Bot;
+const t = cf.text("===><===", "#ffff00");
+t.width.set(30);
 
-bil.insert.alwaysOn(cf.grid());
+t.paddingLeft.set(10);
+t.paddingRight.set(10);
+t.paddingTop.set(10);
+t.paddingBottom.set(10);
 
-row.goto(0,20,20);
-bil.insert.add(row,0,50);
-// // //--------------------------------------------
-const cell02 = row.getCell(1);
-// // cell02.content.set("milk");
-cell02.showBackground.set(true);
-cell02.colorBackground.set("pink");
-// cell02.colorBackground.random(2,10,20);
-cell02.color.random(2,10,20);
-//--------------------------------------------
-row.x.animate(2,10,50,100);
-// row.y.animate(2,10,20,100);
+t.showBackground.set(true);
+t.colorBackground.set("#000000");
+
+t.border.set(20);
+t.colorBorder.set("red");
+
+// t.xAlign = t.XAlignOpt.Mid;
+// t.yAlign = t.YAlignOpt.Mid;
+// t.xRotate = t.XAlignOpt.Mid;
+// t.yRotate = t.YAlignOpt.Top;
+
+t.goto(0, 10, 10);
+
+// t.rotation.set(-25);
+// t.rotation.oscillate(1, 60, -25, 25, 0.25);
+
+bil.insert.add(t, 0, 60);
 const ui = new Ui(bil);
 bil.draw();
-
-// // console.log(bil.comps);
-
