@@ -8,7 +8,8 @@ export default class CircleParticles extends BaseComponent {
 private skipXFrames :SkipXFrames;
 private xyArray :XY[];
 //---Other than count and skipXFrames use the circle obj
-    count :number;
+    count :AniNumber;
+    particleSize :AniNumber;
     public circle :Circle;
 constructor (count :number= 8,color :string="#008000",framesToSkip :number=50) { 
     super();
@@ -17,15 +18,16 @@ constructor (count :number= 8,color :string="#008000",framesToSkip :number=50) {
     this.circle.responsiveCoordinates = false;
     this.circle.responsivePadding = false;
     this.circle.responsiveDims = false;
-
-    this.circle.width.set(12);
+    this.particleSize = new AniNumber(12);
+    this.circle.width.set(this.particleSize.value());
     // this.circle.xAlign = this.circle.XAlignOpt.Mid;
     // this.circle.yAlign = this.circle.YAlignOpt.Mid;
     
     this.skipXFrames = new SkipXFrames(framesToSkip);
     this.xyArray = [];
     this.drawLayer = DrawLayer.MiddleGround;
-    this.count = count ;   
+    this.count = new AniNumber(count) ;  
+    this.color.set(color); // we will animate this 
     this.circle.color.set(color) ;  
 }
 init(p: Pack): boolean {
@@ -35,6 +37,12 @@ init(p: Pack): boolean {
  return true;   
 }
 update(msDelta: number, p: Pack): boolean {
+    this.count.update(msDelta);
+    this.particleSize.update(msDelta);
+    //---this could be in draw as well
+    this.circle.width.set(this.particleSize.value());    
+    this.circle.color.set(this.color.value());    
+    
     this.circle.update(msDelta,p);
     super.update(msDelta,p);
     return true;
@@ -50,7 +58,7 @@ if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }    
 
-        for (let i = 0; i < this.count ; i++) {
+        for (let i = 0; i < this.count.value() ; i++) {
             this.circle.x.set(this.xyArray[i].x);
             this.circle.y.set(this.xyArray[i].y);
             this.circle.draw(p);
@@ -65,7 +73,7 @@ if (this.canvasWidth == null || this.canvasHeight == null){
 }    
 this.xyArray.length = 0;
 
-    for (let i = 0; i < this.count ; i++) {
+    for (let i = 0; i < this.count.value() ; i++) {
 //--this.contentWidth() of particle obj
 const maxX = this.contentX() + (this.contentWidth() - this.circle.contentWidth());
 const maxY = this.contentY() + ( this.contentHeight() - this.circle.contentHeight());
