@@ -5,6 +5,7 @@ export default class Circle extends BaseComponent {
     filled: AniBoolean;
     constructor(color?: string);
     update(msDelta: number, p: Pack): boolean;
+    contentHeight(): number;
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=circle.d.ts.map

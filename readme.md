@@ -51,6 +51,7 @@ To be an easy to use library for creating
 If you want to be in touch or send me a bug report please use github issues.
 
 -----
+###### 23-july-2022   (version 0.0.26) //4 ver short of 0.1.0 
 ###### 22-july-2022   (version 0.0.25) 
 ###### 20-july-2022   (version 0.0.24) 
 ###### 13-july-2022   (version 0.0.23) 

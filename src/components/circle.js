@@ -13,6 +13,17 @@ export default class Circle extends BaseComponent {
         super.update(msDelta, p);
         return true;
     }
+    contentHeight() {
+        if (this.responsiveDims == false) {
+            return this.width.value();
+        }
+        if (this.canvasWidth !== null) {
+            return ((this.canvasWidth / 100) * this.width.value());
+        }
+        else {
+            throw new Error("The component is not initialized yet");
+        }
+    }
     draw(p) {
         this.preDraw(p);
         this.style.fillStyle = this.color.value();
