@@ -4,7 +4,7 @@ import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
 import XY from "../BaseComponent/designBC/xy.js";
 import Circle from "./circle.js";
 
-export default class CircleParticles extends BaseComponent {
+export default class ParticleSystem extends BaseComponent {
 private skipXFrames :SkipXFrames;
 private xyArray :XY[];
 //---Other than count and skipXFrames use the circle obj

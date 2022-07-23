@@ -1,4 +1,4 @@
-import {Pack,DrawLayer,AniNumber} from "../bilza.js";
+import {Pack,DrawLayer,AniNumber,AniColor} from "../bilza.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 
@@ -8,9 +8,9 @@ export default class StaticGrid extends BaseComponent {
     lineWidthVertical :AniNumber;
     lineWidthHorizontal :AniNumber;
     
-    colorHorizontalLines :string ;   
-    colorVerticalLines :string ;    
-    colorNumbers :string ;   
+    colorHorizontalLines :AniColor ;   
+    colorVerticalLines :AniColor ;    
+    colorNumbers :AniColor ;   
     
     flagDrawNumbers :boolean ;   
     flagDrawHorizontal :boolean ;   
@@ -28,13 +28,13 @@ this.cellHeight = new AniNumber(cellHeight);
 this.lineWidthVertical = new AniNumber(1);
 this.lineWidthHorizontal = new AniNumber(1);
 
-this.colorHorizontalLines = color;
-this.colorVerticalLines = color;
+this.colorHorizontalLines = new AniColor(color);
+this.colorVerticalLines = new AniColor(color);
 this.drawLayer = DrawLayer.BackGround;
 
 this.fontSize = 8;
 
-this.colorNumbers = "grey"; 
+this.colorNumbers = new AniColor("grey"); 
 
 this.flagDrawNumbers = false;   
 this.flagDrawHorizontal = false;   
@@ -65,12 +65,12 @@ let end_x = x + width;
     do {   
         this.style.opacity = this.opacity.value();       
 
-        this.style.strokeStyle = this.colorHorizontalLines;        
+        this.style.strokeStyle = this.colorHorizontalLines.value();        
         this.style.lineDash = this.lineDash;        
         this.style.lineWidth = this.lineWidthHorizontal.value();        
     p.drawLine(x,y,end_x,y,this.style);
         if (this.flagDrawNumbers == true){
-            this.style.strokeStyle = this.colorNumbers;
+            this.style.strokeStyle = this.colorNumbers.value();
             // p.drawText(y.toString(),x,y,this.style);
             this.drawText(p,y,x,y);
         }
@@ -87,13 +87,13 @@ let end_y = y + height;
     do {
         this.style.opacity = this.opacity.value();       
    
-    this.style.strokeStyle = this.colorVerticalLines;
+    this.style.strokeStyle = this.colorVerticalLines.value();
     this.style.lineWidth = this.lineWidthVertical.value();        
     this.style.lineDash = this.lineDash;        
     p.drawLine(x,y,x,end_y,this.style);
 
             if (this.flagDrawNumbers == true){
-                this.style.strokeStyle = this.colorNumbers;
+                this.style.strokeStyle = this.colorNumbers.value();
                 this.drawText(p,x,x,y);//2nd x = content
                 // p.drawText(x.toString(),x,y,this.style);
             }
@@ -105,8 +105,8 @@ drawText(p :Pack,content :number,x :number,y :number){
     this.style.opacity = this.opacity.value();       
 
 this.style.fontSize = this.fontSize;    
-this.style.strokeStyle = this.colorNumbers;    
-this.style.fillStyle = this.colorNumbers;    
+this.style.strokeStyle = this.colorNumbers.value();    
+this.style.fillStyle = this.colorNumbers.value();    
 p.drawText(
     content.toString(),
     x + this.lineWidthVertical.value() -2, //why -2 error

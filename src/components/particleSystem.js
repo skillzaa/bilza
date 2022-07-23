@@ -1,19 +1,21 @@
-import { BaseComponent, DrawLayer } from "../bilza.js";
+import { BaseComponent, DrawLayer, AniNumber } from "../bilza.js";
 import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
 import XY from "../BaseComponent/designBC/xy.js";
 import Circle from "./circle.js";
-export default class CircleParticles extends BaseComponent {
+export default class ParticleSystem extends BaseComponent {
     constructor(count = 8, color = "#008000", framesToSkip = 50) {
         super();
         this.circle = new Circle(this.color.value());
         this.circle.responsiveCoordinates = false;
         this.circle.responsivePadding = false;
         this.circle.responsiveDims = false;
-        this.circle.width.set(12);
+        this.particleSize = new AniNumber(12);
+        this.circle.width.set(this.particleSize.value());
         this.skipXFrames = new SkipXFrames(framesToSkip);
         this.xyArray = [];
         this.drawLayer = DrawLayer.MiddleGround;
-        this.count = count;
+        this.count = new AniNumber(count);
+        this.color.set(color);
         this.circle.color.set(color);
     }
     init(p) {
@@ -23,6 +25,10 @@ export default class CircleParticles extends BaseComponent {
         return true;
     }
     update(msDelta, p) {
+        this.count.update(msDelta);
+        this.particleSize.update(msDelta);
+        this.circle.width.set(this.particleSize.value());
+        this.circle.color.set(this.color.value());
         this.circle.update(msDelta, p);
         super.update(msDelta, p);
         return true;
@@ -35,7 +41,7 @@ export default class CircleParticles extends BaseComponent {
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
-        for (let i = 0; i < this.count; i++) {
+        for (let i = 0; i < this.count.value(); i++) {
             this.circle.x.set(this.xyArray[i].x);
             this.circle.y.set(this.xyArray[i].y);
             this.circle.draw(p);
@@ -48,7 +54,7 @@ export default class CircleParticles extends BaseComponent {
             throw new Error("init error");
         }
         this.xyArray.length = 0;
-        for (let i = 0; i < this.count; i++) {
+        for (let i = 0; i < this.count.value(); i++) {
             const maxX = this.contentX() + (this.contentWidth() - this.circle.contentWidth());
             const maxY = this.contentY() + (this.contentHeight() - this.circle.contentHeight());
             const minX = this.contentX();

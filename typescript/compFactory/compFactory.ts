@@ -3,7 +3,7 @@ import Rect from "../components/rect.js";
 import FillRect from "../components/fillRect.js";
 import StaticGrid from "../components/staticGrid.js";
 import FrameCounter from "../components/frameCounter.js";
-import CircleParticles from "../components/circleParticles.js";
+import ParticleSystem from "../components/particleSystem.js";
 import Text from "../components/text.js";
 import RawText from "../components/rawText.js";
 import Pic from "../components/pic.js";
@@ -53,8 +53,8 @@ static frameCounter(color :string="#000000"){
 let g = new FrameCounter(color);
 return g;    
 }
-static circleParticles(count :number= 10,color :string="#008000",framesToSkip :number=50){
-let g = new CircleParticles(count,color,framesToSkip);
+static particleSystem(count :number= 10,color :string="#008000",framesToSkip :number=50){
+let g = new ParticleSystem(count,color,framesToSkip);
 return g;    
 }
 

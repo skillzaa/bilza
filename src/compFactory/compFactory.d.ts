@@ -3,7 +3,7 @@ import Rect from "../components/rect.js";
 import FillRect from "../components/fillRect.js";
 import StaticGrid from "../components/staticGrid.js";
 import FrameCounter from "../components/frameCounter.js";
-import CircleParticles from "../components/circleParticles.js";
+import ParticleSystem from "../components/particleSystem.js";
 import Text from "../components/text.js";
 import RawText from "../components/rawText.js";
 import Pic from "../components/pic.js";
@@ -22,7 +22,7 @@ export default class CompFactory {
     static rect(color?: string): Rect;
     static fillRect(color?: string): FillRect;
     static frameCounter(color?: string): FrameCounter;
-    static circleParticles(count?: number, color?: string, framesToSkip?: number): CircleParticles;
+    static particleSystem(count?: number, color?: string, framesToSkip?: number): ParticleSystem;
     static text(content?: string, colorHax?: string): Text;
     static rawText(content?: string, colorHax?: string): RawText;
     static line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string): Line;

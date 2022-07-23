@@ -1,9 +1,10 @@
-import { Pack, BaseComponent } from "../bilza.js";
+import { Pack, BaseComponent, AniNumber } from "../bilza.js";
 import Circle from "./circle.js";
-export default class CircleParticles extends BaseComponent {
+export default class ParticleSystem extends BaseComponent {
     private skipXFrames;
     private xyArray;
-    count: number;
+    count: AniNumber;
+    particleSize: AniNumber;
     circle: Circle;
     constructor(count?: number, color?: string, framesToSkip?: number);
     init(p: Pack): boolean;
@@ -11,4 +12,4 @@ export default class CircleParticles extends BaseComponent {
     draw(p: Pack): boolean;
     private getRandomXY;
 }
-//# sourceMappingURL=circleParticles.d.ts.map
+//# sourceMappingURL=particleSystem.d.ts.map
