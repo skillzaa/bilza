@@ -3,7 +3,7 @@ import Bilza, { CompFactory as cf } from "../bilza.js";
 const bil = new Bilza("bilza");
 const tst = new BaseTest("fillRect Test");
 const fill = cf.fillRect("green");
-tst.toBe(fill.color.value(), "green");
+tst.toMatch(fill.color.value(), "green");
 tst.toThrow(() => { fill.contentWidth(); }, "The component is not initialized yet");
 bil.insert.alwaysOn(fill);
 bil.init();

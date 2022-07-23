@@ -8,17 +8,47 @@ export default class BaseTest {
             return true;
         }
         else {
-            console.error(title, `incomming == ${incomming}, expected ${check} : CORRECT : WRONG `);
+            console.error(title, `incomming == ${incomming}, expected ${check}  : WRONG `);
             return false;
         }
     }
-    toBe(incomming, check, title = "") {
+    isLessThan(incomming, check, title = "") {
+        if (incomming < check) {
+            console.info(title, `incomming == ${incomming}, expected ${check} : CORRECT `);
+            return true;
+        }
+        else {
+            console.error(title, `incomming == ${incomming}, expected ${check}  : WRONG `);
+            return false;
+        }
+    }
+    isGreaterThan(incomming, check, title = "") {
+        if (incomming > check) {
+            console.info(title, `incomming == ${incomming}, expected ${check} : CORRECT `);
+            return true;
+        }
+        else {
+            console.error(title, `incomming == ${incomming}, expected ${check}  : WRONG `);
+            return false;
+        }
+    }
+    approxEqual(incomming, check, errorMargin, title = "") {
+        if (incomming <= (check + errorMargin) && incomming >= (check - errorMargin)) {
+            console.info(title, `incomming == ${incomming}, expected ${check} : approx-CORRECT `);
+            return true;
+        }
+        else {
+            console.error(title, `incomming == ${incomming}, expected ${check}  : WRONG `);
+            return false;
+        }
+    }
+    toMatch(incomming, check, title = "") {
         if (incomming === check) {
             console.info(title, `incomming == ${incomming}, expected ${check} : CORRECT `);
             return true;
         }
         else {
-            console.error(title, `incomming == ${incomming}, expected ${check} : CORRECT : WRONG `);
+            console.error(title, `incomming == ${incomming}, expected ${check}  : WRONG `);
             return false;
         }
     }

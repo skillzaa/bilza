@@ -6,7 +6,7 @@ const tst = new BaseTest("fillRect Test");
 
 const fill = cf.fillRect("green");
 //-------------------Basics
-tst.toBe(fill.color.value() , "green");
+tst.toMatch(fill.color.value() , "green");
 
 //-------------------Init
 tst.toThrow(()=>{ fill.contentWidth() },"The component is not initialized yet");

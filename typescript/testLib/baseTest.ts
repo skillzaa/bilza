@@ -9,17 +9,44 @@ toEqual(incomming :number, check :number,title :string=""):boolean{
         console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);
         return true;
     }else {
-        console.error(title,`incomming == ${incomming}, expected ${check} : CORRECT : WRONG `);
+        console.error(title,`incomming == ${incomming}, expected ${check}  : WRONG `);
+        return false;
+    }
+}
+isLessThan(incomming :number, check :number,title :string=""):boolean{
+    if (incomming < check){
+        console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);
+        return true;
+    }else {
+        console.error(title,`incomming == ${incomming}, expected ${check}  : WRONG `);
+        return false;
+    }
+}
+isGreaterThan(incomming :number, check :number,title :string=""):boolean{
+    if (incomming > check){
+        console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);
+        return true;
+    }else {
+        console.error(title,`incomming == ${incomming}, expected ${check}  : WRONG `);
+        return false;
+    }
+}
+approxEqual(incomming :number, check :number,errorMargin :number, title :string=""):boolean{
+    if (incomming <= (check + errorMargin) && incomming >= (check - errorMargin)  ){
+        console.info(title,`incomming == ${incomming}, expected ${check} : approx-CORRECT `);
+        return true;
+    }else {
+        console.error(title,`incomming == ${incomming}, expected ${check}  : WRONG `);
         return false;
     }
 }
 
-toBe(incomming :string, check :string,title :string=""):boolean{
+toMatch(incomming :string, check :string,title :string=""):boolean{
     if (incomming === check){
         console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);
         return true;
     }else {
-        console.error(title,`incomming == ${incomming}, expected ${check} : CORRECT : WRONG `);
+        console.error(title,`incomming == ${incomming}, expected ${check}  : WRONG `);
             return false;
     }
 }
@@ -44,7 +71,8 @@ toBeFalse(incomming :boolean,title :string=""):boolean{
         return false;
     }
 }
-toThrow(theFn :Function,message :string,title :string=""):boolean{
+
+toThrow(theFn :Function, message :string, title :string=""):boolean{
     let isError = false;
     try {
         theFn();
