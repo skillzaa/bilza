@@ -23,8 +23,10 @@ import AniString from "./animations/aniString/aniString.js";
 import Experimental from "./experimental/experimental.js";
 import { UTFIcons } from "./design/utfIcons.js";
 import hsl from "./functions/hsl.js";
+import TextTempl from "./compFactory/textTempl.js";
 export {
 Pack,
+TextTempl,
 hsl,
 DrawLayer,
 UTFIcons,

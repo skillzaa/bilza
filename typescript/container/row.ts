@@ -8,16 +8,16 @@ private incommingTextArray : string[];
 private x_local :number;
 
 constructor (incommingTextArray :string = "one two"){ 
-    super();
-    this.x_local = 0;
-    //--save for later use
-    this.incommingTextArray = incommingTextArray.split(" ");
-   
-    this.colorBackground = new AniColor("grey");
-    // console.log("this.incommingTextArray",this.incommingTextArray);
-    this.textArray = [];
-    //-----------create 
-    //--this.incommingTextArray and not just incommingTextArray
+super();
+this.x_local = 0;
+//--save for later use
+this.incommingTextArray = incommingTextArray.split(" ");
+
+this.colorBackground = new AniColor("grey");
+// console.log("this.incommingTextArray",this.incommingTextArray);
+this.textArray = [];
+//-----------create 
+//--this.incommingTextArray and not just incommingTextArray
     for (let i = 0; i < this.incommingTextArray.length; i++) {
         const item = this.incommingTextArray[i];
         const txt = new RawText(item);
