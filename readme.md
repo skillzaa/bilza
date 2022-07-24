@@ -36,10 +36,10 @@ To be an easy to use library for creating
 import Bilza, { Ui,CompFactory as cf,hsl,TextTempl } from "./bilza.js";
 //--Create Bilza engine
 let bil = new Bilza("bilza", 70);
-//--Create and add grid it to engine
+//--Create and add grid to engine
 const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
-//--create text, edit props and add animation and finally add it to engine
+//--create text, edit props, add animation and finally add text to engine
 const txt = cf.rawText("Hellow World",hsl(240));
 txt.x.set(30);
 txt.y.set(30);
@@ -50,7 +50,9 @@ const ui = new Ui(bil);
 bil.draw(); 
 </code>
 </pre>
+
 ---
+
 # Docs and Samples 
 <a href="https://skillzaa.github.io/bilzaDocs/">Bilza Sample</a>
 

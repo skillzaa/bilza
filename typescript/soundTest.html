@@ -46,10 +46,23 @@
 </div>
 <hr/>
 <audio id="soundTrackElement">
-<source src="../sounds/ding.mp3" type="audio/mpeg">
-  </audio>
+<source src="../sounds/mix.mp3" type="audio/mpeg">
+</audio>
 
-<script  type="module" src="../src/try.js" ></script>
+<script  type="module" >
+const x = document.getElementById("soundTrackElement");
+const playBtn = document.getElementById("start");
+const stopBtn = document.getElementById("stop");
+
+playBtn.addEventListener("click",function () {
+  x.play();
+});
+stopBtn.addEventListener("click",function () {
+  x.pause();
+  x.currentTime = 0;
+});
+
+</script>
 
 <pre class="language-javascript">
 <code>
