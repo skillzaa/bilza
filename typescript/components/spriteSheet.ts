@@ -1,6 +1,6 @@
 import {Pack,DrawLayer,BaseComponent,AniNumber } from "../bilza.js";
 
-export default class Emotions extends BaseComponent {
+export default class SpriteSheet extends BaseComponent {
 img :HTMLImageElement;
 //--There is no use for them for now
 protected orignalWidth :number;
@@ -9,10 +9,14 @@ public row :AniNumber;
 public column :AniNumber;
 private sourceWidth :number;
 private sourceHeight :number;
+private totalColumns :number;
+private totalRows :number;
 
-constructor(imgUrl :string, IconWidth:number=70, IconHeight :number= 70){
+constructor(imgUrl :string, IconWidth:number, IconHeight :number, totalColumns :number ,totalRows :number){
 super();
 
+this.totalColumns = totalColumns;
+this.totalRows = totalRows;
 this.sourceWidth = IconWidth;
 this.sourceHeight = IconHeight;
 this.width.set(this.sourceWidth); 
@@ -73,12 +77,15 @@ this.preDraw(p);
         this.contentWidth(),
         this.contentWidth() //dont use contentHeight or the image is taller
     );   
-
 this.postDraw(p);            
 return true;
 }
 
 gotoImage(atFrame :number, row :number , column :number){
+if (row > this.totalRows || column > this.totalColumns){
+    console.info(`the value of row (${row}) or column (${column}) exceeds total rows (${this.totalRows}) or total columns (${this.totalColumns})`);
+    return;
+}    
     this.row.goto(atFrame,row);
     this.column.goto(atFrame , column);
 }

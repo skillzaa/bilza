@@ -18,4 +18,5 @@ import Experimental from "./experimental/experimental.js";
 import { UTFIcons } from "./design/utfIcons.js";
 import hsl from "./functions/hsl.js";
 import TextTempl from "./compFactory/textTempl.js";
-export { Pack, TextTempl, hsl, DrawLayer, UTFIcons, Experimental, AniNumber, AniNoPerc, AniString, AniBoolean, AniColor, Ui, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, };
+import SpriteSheets from "./compFactory/spriteSheets.js";
+export { Pack, TextTempl, SpriteSheets, hsl, DrawLayer, UTFIcons, Experimental, AniNumber, AniNoPerc, AniString, AniBoolean, AniColor, Ui, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, };

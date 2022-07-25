@@ -14,9 +14,15 @@ import Icon from "../components/icon.js";
 ////////////////////////////////////////////////////
 import Row from "../container/row.js";
 // import Paragraph from "../container/paragraph.js";
+import SpriteSheet from "../components/spriteSheet.js";
 
 export default class CompFactory {
 
+
+static spriteSheet(imgUrl :string, IconWidth:number, IconHeight :number, totalColumns :number ,totalRows :number):SpriteSheet{
+let g = new SpriteSheet(imgUrl, IconWidth, IconHeight, totalColumns,totalRows);
+return g;
+}
 static icon(code:number = 9876,colorHax :string="#008000"){
 let g = new Icon(code,colorHax);
 return g;    
