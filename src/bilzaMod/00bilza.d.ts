@@ -5,7 +5,7 @@ export default class Bilza {
     background: Background;
     insert: Insert;
     set: Settings;
-    soundTrackElement: HTMLAudioElement | null;
+    private soundTrackElement;
     soundTrack: string | null;
     private duration;
     private comps;

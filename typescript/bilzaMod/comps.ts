@@ -19,6 +19,7 @@ public init(pack :Pack):boolean{
 return true;
 }
 public drawByDrawLayer(msDelta :number,drawLayer :DrawLayer,pack :Pack):boolean{ 
+console.log("drawByDrawLayer");    
 for (let i = 0; i < this.compArray.length; i++) {
 let comp = this.compArray[i];       
         //--save ctx

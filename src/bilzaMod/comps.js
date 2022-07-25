@@ -13,6 +13,7 @@ export default class Comps {
         return true;
     }
     drawByDrawLayer(msDelta, drawLayer, pack) {
+        console.log("drawByDrawLayer");
         for (let i = 0; i < this.compArray.length; i++) {
             let comp = this.compArray[i];
             if (comp.drawLayer == drawLayer) {

@@ -13,7 +13,7 @@ export default class Bilza {
 public background :Background;
 public insert:Insert; 
 public set :Settings; 
-public  soundTrackElement :HTMLAudioElement | null;
+private  soundTrackElement :HTMLAudioElement | null;
 public soundTrack :string | null;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 private duration : Duration; 
@@ -28,8 +28,9 @@ this.pack = new Pack(canvasId,screenWidthInPercent);
 this.comps = new Comps();
 this.duration = new Duration();
 this.lastMsDelta =0;
-this.soundTrackElement = null;
+this.soundTrackElement = document.getElementById("soundTrackElement") as HTMLAudioElement;
 this.soundTrack = null;
+
 this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
 this.set = new Settings(this.pack); ///EasyPeasyyyyyy...!!!
@@ -41,9 +42,10 @@ this.background = new Background();
 //--30-june-2022 back to puiblic lets see
 public init():boolean{
 //---sound
-if (this.soundTrack !== null){
-    this.soundTrackElement = new Audio(this.soundTrack);
-}
+// if (this.soundTrack !== null && this.soundTrackElement !== null){
+//     // this.soundTrackElement = new Audio(this.soundTrack);
+//     this.soundTrackElement.src = "../sounds/ding.mp3";
+// }
 //---Background
 if (this.set.loadSystemBackground == true){
     this.insert.alwaysOn(this.background);
@@ -56,13 +58,10 @@ if (this.set.loadSystemBackground == true){
 // --27-june-2022 converted to private
 private drawForStart():boolean{
  let msDelta = this.stopWatch.getMsDelta();
- if (this.len(true) <= msDelta){
-    // console.log("should stop",msDelta);
-    //         if (this.soundTrackElement !== null){
-    //         this.soundTrackElement.pause();
-    //         this.soundTrackElement.currentTime = 0;
-    //         }
-    this.stop();
+
+ if ( this.stopWatch.shouldStop() == true){
+            this.stop();
+            return false;
  }else {
     window.requestAnimationFrame(this.drawForStart.bind(this));
  }
@@ -116,9 +115,9 @@ start():boolean{
 if (this.stopWatch.isRunning() == true){return false;}
 this.stop();
     //--remove for now
-    // if (this.soundTrackElement !== null){
-    //     this.soundTrackElement.play();
-    // }
+    if (this.soundTrackElement !== null){
+        this.soundTrackElement.play();
+    }
  
         this.init();
         // this.pack.clearCanvas(); 

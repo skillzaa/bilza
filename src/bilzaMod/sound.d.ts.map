@@ -1,1 +1,1 @@
-{"version":3,"file":"sound.d.ts","sourceRoot":"","sources":["../../typescript/bilzaMod/sound.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,OAAO,KAAK;IAC1B,OAAO,CAAC,SAAS,CAAU;IAG3B,OAAO,CAAC,kBAAkB,CAAgB;;IAO1C,SAAS,IAAG,OAAO;IAQnB,UAAU,IAAG,OAAO;IAGpB,IAAI,IAAG,OAAO;IAKd,KAAK,IAAG,OAAO;IAKR,UAAU,IAAI,MAAM;CAU1B"}
+{"version":3,"file":"sound.d.ts","sourceRoot":"","sources":["../../typescript/bilzaMod/sound.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,OAAO,KAAK;;CASzB"}
