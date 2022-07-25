@@ -14,6 +14,7 @@ export default class Pack {
     restore(): void;
     save(): void;
     drawImage(image: HTMLImageElement, x: number, y: number, width: number, height: number): void;
+    drawImageSrcDest(image: HTMLImageElement, sourceX: number, sourceY: number, sourceWidth: number, sourceHeight: number, destX: number, destY: number, destWidth: number, destHeight: number): void;
     clearCanvas(): void;
     charsWidth(chars: string, fontSize: number, fontName: string): number;
     textWidth(chars: string, incomTempl: Style): number;

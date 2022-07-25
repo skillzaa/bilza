@@ -45,6 +45,9 @@ export default class Pack {
     drawImage(image, x, y, width, height) {
         this.ctx.drawImage(image, x, y, width, height);
     }
+    drawImageSrcDest(image, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight) {
+        this.ctx.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+    }
     clearCanvas() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }

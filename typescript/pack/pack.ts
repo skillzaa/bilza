@@ -63,6 +63,21 @@ public drawImage(image :HTMLImageElement,
         ){
 this.ctx.drawImage(image,x,y,width,height);
 }//drawImage ends
+//drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+public drawImageSrcDest(image :HTMLImageElement,
+            sourceX :number, 
+            sourceY:number, 
+            sourceWidth:number,
+            sourceHeight :number,
+            destX :number,
+            destY :number,
+            destWidth :number,
+            destHeight :number
+        ){
+this.ctx.drawImage(image,sourceX,sourceY,sourceWidth,sourceHeight,
+destX, destY, destWidth, destHeight);
+
+}//drawImage ends
 public clearCanvas(){
 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);    
 }
