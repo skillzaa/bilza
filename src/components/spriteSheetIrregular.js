@@ -1,19 +1,9 @@
-import { DrawLayer, BaseComponent, AniNumber } from "../bilza.js";
+import { DrawLayer, BaseComponent } from "../bilza.js";
 export default class SpriteSheet extends BaseComponent {
-    constructor(imgUrl, IconWidth, IconHeight, totalColumns, totalRows) {
+    constructor(imgUrl) {
         super();
-        this.leftExtraPix = 0;
-        this.topExtraPix = 0;
-        this.totalColumns = totalColumns;
-        this.totalRows = totalRows;
-        this.sourceWidth = IconWidth;
-        this.sourceHeight = IconHeight;
-        this.width.set(this.sourceWidth);
-        this.height.set(this.sourceHeight);
         this.responsiveDims = false;
         this.responsivePadding = false;
-        this.row = new AniNumber(0);
-        this.column = new AniNumber(0);
         this.img = new Image();
         this.img.src = imgUrl;
         if (this.img == null) {
@@ -40,8 +30,6 @@ export default class SpriteSheet extends BaseComponent {
         return true;
     }
     update(msDelta, p) {
-        this.row.update(msDelta);
-        this.column.update(msDelta);
         super.update(msDelta, p);
         return true;
     }

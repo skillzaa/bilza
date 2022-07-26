@@ -7,8 +7,10 @@ export default class SpriteSheet extends BaseComponent {
     column: AniNumber;
     private sourceWidth;
     private sourceHeight;
-    private totalColumns;
-    private totalRows;
+    totalColumns: number;
+    totalRows: number;
+    leftExtraPix: number;
+    topExtraPix: number;
     constructor(imgUrl: string, IconWidth: number, IconHeight: number, totalColumns: number, totalRows: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;

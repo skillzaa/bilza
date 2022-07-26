@@ -9,12 +9,15 @@ public row :AniNumber;
 public column :AniNumber;
 private sourceWidth :number;
 private sourceHeight :number;
-private totalColumns :number;
-private totalRows :number;
+public totalColumns :number;
+public totalRows :number;
+public leftExtraPix :number;
+public topExtraPix :number;
 
 constructor(imgUrl :string, IconWidth:number, IconHeight :number, totalColumns :number ,totalRows :number){
 super();
-
+this.leftExtraPix = 0;
+this.topExtraPix = 0;
 this.totalColumns = totalColumns;
 this.totalRows = totalRows;
 this.sourceWidth = IconWidth;
@@ -68,14 +71,14 @@ this.preDraw(p);
  * drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
  */
     p.drawImageSrcDest(this.img,
-        (this.column.value() * this.sourceWidth),
-        (this.row.value() * this.sourceWidth),
-        this.sourceWidth, //
+        ( this.leftExtraPix + (this.column.value() * this.sourceWidth)),
+        (this.topExtraPix + (this.row.value() * this.sourceHeight)),
+        this.sourceWidth, 
         this.sourceHeight,
         this.xAligned(),
         this.yAligned(),
         this.contentWidth(),
-        this.contentWidth() //dont use contentHeight or the image is taller
+        this.contentHeight() 
     );   
 this.postDraw(p);            
 return true;

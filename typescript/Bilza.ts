@@ -24,7 +24,7 @@ import Experimental from "./experimental/experimental.js";
 import { UTFIcons } from "./design/utfIcons.js";
 import hsl from "./functions/hsl.js";
 import TextTempl from "./compFactory/textTempl.js";
-import SpriteSheets from "./compFactory/spriteSheets.js";
+import SpriteSheets from "./premadeSpriteSheets/spriteSheets.js";
 export {
 Pack,
 TextTempl,
