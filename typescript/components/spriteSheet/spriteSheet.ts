@@ -1,8 +1,13 @@
-import {Pack,DrawLayer,AniNumber } from "../../bilza.js";
+import {Pack,AniNumber } from "../../bilza.js";
 import BaseSpriteSheet from "./BaseSpriteSheet.js";
-import ImageData from "./imageData.js";
-export default class SpriteSheet extends BaseSpriteSheet {
 
+import ImageData from "./imageData.js";
+
+//--We have togoImage and gotoImageName both in this class where as in SpriteSheetAlt we just have gotoImageName.
+//--And we can define images in both BUT incase of SpriteSheetAlt we must define some image before we can use it.
+
+export default class SpriteSheet extends BaseSpriteSheet {
+public imagesList :ImageData[];
 public row :AniNumber;
 public column :AniNumber;
 //---input from user
@@ -13,6 +18,7 @@ public totalRows :number;
 
 constructor(imgUrl :string, iconWidth:number, iconHeight :number, totalColumns :number ,totalRows :number){
 super(imgUrl);
+this.imagesList = [];
 // this.leftExtraPix = 0;
 // this.topExtraPix = 0;
 this.totalColumns = totalColumns;
@@ -27,22 +33,6 @@ this.height.set(this.iconHeight);
 this.row = new AniNumber(0);
 this.column = new AniNumber(0);
 
-// this.img = document.getElementById(imgId) as HTMLImageElement;
-this.img = new Image();
-this.img.src = imgUrl;
-    if (this.img == null){
-        throw new Error("image could not be found");
-    }else {
-        //--before clientHeight we need appendChild
-        //--we need to save these since once display == none then they are 0
-        document.body.appendChild(this.img);
-        this.orignalWidth = this.img.clientWidth;
-        this.orignalHeight = this.img.clientHeight;
-        this.img.style.display = "none";
-    }
-
-//--Draw Layer
-this.drawLayer = DrawLayer.MiddleGround;
 }
 
 init(p: Pack): boolean {
@@ -63,6 +53,10 @@ update(msDelta: number, p: Pack): boolean {
     return true;
 }
 
+defineImage(name :string, column :number, row:number){
+    const a = new ImageData (name,column,row);
+    this.imagesList.push(a);
+}
 draw(p:Pack):boolean{
 this.preDraw(p);
 /**
@@ -90,5 +84,16 @@ if (row > this.totalRows || column > this.totalColumns){
     this.row.goto(atFrame,row);
     this.column.goto(atFrame , column);
 }
-
+ 
+gotoImageName(atFrame :number, imageName :string):boolean{
+    for (let i = 0; i < this.imagesList.length; i++) {
+        if (this.imagesList[i].name == imageName){
+            this.column.goto(atFrame, this.imagesList[i].column );
+            this.row.goto(atFrame, this.imagesList[i].row );
+            return true;
+        }
+    }
+return false;
+}
+    
 }//comp ends

@@ -1,5 +1,5 @@
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
-import SpriteSheetIrregular from "../components/spriteSheet/spriteSheetOpt.js";
+import SpriteSheetIrregular from "../components/spriteSheet/spriteSheetAlt.js";
 export default class SpriteSheets {
     static emoji() {
         const g = new SpriteSheet("../images/emoji.png", 72, 72, 16, 10);

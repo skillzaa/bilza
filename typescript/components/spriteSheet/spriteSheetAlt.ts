@@ -2,7 +2,7 @@ import {Pack,AniNumber } from "../../bilza.js";
 import ImageDataOpt from "./imageDataOpt.js";
 import BaseSpriteSheet from "./BaseSpriteSheet.js";
 
-export default class SpriteSheetOpt extends BaseSpriteSheet {
+export default class SpriteSheetAlt extends BaseSpriteSheet {
 
 public imagesList :ImageDataOpt[];
 public currentImage :AniNumber;
@@ -11,7 +11,6 @@ constructor(imgUrl :string){
 super(imgUrl);
 this.imagesList = [];
 this.currentImage = new AniNumber(0);
-
 }
 
 init(p: Pack): boolean {
@@ -61,7 +60,7 @@ defineImage(name :string,x :number,y:number,width:number,height:number){
     this.imagesList.push(a);
 }
 
-gotoImage(atFrame :number, imageName :string):boolean{
+gotoImageName(atFrame :number, imageName :string):boolean{
 for (let i = 0; i < this.imagesList.length; i++) {
     if (this.imagesList[i].name == imageName){
         this.currentImage.goto(atFrame,i);

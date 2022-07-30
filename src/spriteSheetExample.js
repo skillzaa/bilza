@@ -1,11 +1,11 @@
-import Bilza, { Ui, CompFactory as cf, hsl, SpriteSheets } from "./bilza.js";
+import Bilza, { Ui, CompFactory as cf, hsl, PremadeSpriteSheets } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
 const fc = cf.frameCounter();
 fc.goto(0, 70, 0);
 bil.insert.alwaysOn(fc);
 const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
-const emoji = SpriteSheets.emoji();
+const emoji = PremadeSpriteSheets.emoji();
 emoji.border.set(2);
 emoji.colorBorder.set("red");
 emoji.xAlign = emoji.XAlignOpt.Mid;

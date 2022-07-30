@@ -1,4 +1,4 @@
-import SpriteSheetOpt from "../components/spriteSheet/spriteSheetOpt.js";
+import SpriteSheetOpt from "../components/spriteSheet/spriteSheetAlt.js";
 export default function ghosts(imgUrl) {
     const ss = new SpriteSheetOpt(imgUrl);
     ss.defineImage("blue", 27, 21, 113, 112);
@@ -15,7 +15,7 @@ export default function ghosts(imgUrl) {
     ss.defineImage("wall", 653, 140, 123, 130);
     ss.defineImage("cat", 27, 272, 121, 130);
     ss.defineImage("chinese", 146, 260, 118, 130);
-    ss.defineImage("japnese", 257, 279, 139, 121);
+    ss.defineImage("japanese", 257, 279, 139, 121);
     ss.defineImage("kid", 398, 273, 121, 121);
     ss.defineImage("ninja", 523, 269, 121, 123);
     ss.defineImage("pirate", 640, 281, 123, 111);

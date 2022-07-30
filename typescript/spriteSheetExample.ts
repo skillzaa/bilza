@@ -1,4 +1,4 @@
-import Bilza, { Ui,CompFactory as cf,hsl,SpriteSheets } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf,hsl,PremadeSpriteSheets } from "./bilza.js";
 // import SpriteSheet from "./components/spriteSheet.js";
 
 let bil = new Bilza("bilza", 70);
@@ -11,7 +11,7 @@ const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 /////////////////////////////////////////////////////
 // const emoji = new SpriteSheet("../images/emotions.png",72,72,16,10);
-const emoji = SpriteSheets.emoji();
+const emoji = PremadeSpriteSheets.emoji();
 // emoji.x.animate(2,20,0,100);
 emoji.border.set(2);
 emoji.colorBorder.set("red");
