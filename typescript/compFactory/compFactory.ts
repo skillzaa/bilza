@@ -14,7 +14,7 @@ import Icon from "../components/icon.js";
 ////////////////////////////////////////////////////
 import Row from "../container/row.js";
 // import Paragraph from "../container/paragraph.js";
-import SpriteSheet from "../components/spriteSheet.js";
+import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
 
 export default class CompFactory {
 

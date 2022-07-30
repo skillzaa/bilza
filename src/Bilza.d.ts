@@ -19,6 +19,6 @@ import Experimental from "./experimental/experimental.js";
 import { UTFIcons } from "./design/utfIcons.js";
 import hsl from "./functions/hsl.js";
 import TextTempl from "./compFactory/textTempl.js";
-import SpriteSheets from "./premadeSpriteSheets/spriteSheets.js";
+import SpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 export { Pack, TextTempl, SpriteSheets, hsl, DrawLayer, UTFIcons, Experimental, AniNumber, AniNoPerc, AniString, AniBoolean, AniColor, IComponent, Ui, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, };
 //# sourceMappingURL=bilza.d.ts.map

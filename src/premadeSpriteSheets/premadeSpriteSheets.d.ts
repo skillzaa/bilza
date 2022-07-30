@@ -4,4 +4,4 @@ export default class PremadeSpriteSheets {
     static emoji(): SpriteSheet;
     static ghosts(imgUrl: string): SpriteSheetOpt;
 }
-//# sourceMappingURL=spriteSheets.d.ts.map
+//# sourceMappingURL=premadeSpriteSheets.d.ts.map

@@ -12,7 +12,7 @@ import Marker from "../components/marker.js";
 import Circle from "../components/circle.js";
 import Icon from "../components/icon.js";
 import Row from "../container/row.js";
-import SpriteSheet from "../components/spriteSheet.js";
+import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
 export default class CompFactory {
     static spriteSheet(imgUrl, IconWidth, IconHeight, totalColumns, totalRows) {
         let g = new SpriteSheet(imgUrl, IconWidth, IconHeight, totalColumns, totalRows);

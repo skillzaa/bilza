@@ -1,11 +1,11 @@
 import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
-import SpriteSheetIrregular from "./components/spriteSheetIrregular/spriteSheetIrregular.js";
+import PremadeSpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(240, 100, 85));
 const fc = cf.frameCounter();
 fc.goto(0, 70, 0);
 bil.insert.alwaysOn(fc);
-const ss = new SpriteSheetIrregular("../images/ghosts.png");
+const ss = PremadeSpriteSheets.ghosts("../images/ghosts.png");
 ss.xAlign = ss.XAlignOpt.Mid;
 ss.yAlign = ss.YAlignOpt.Mid;
 ss.x.set(50);

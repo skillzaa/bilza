@@ -1,5 +1,7 @@
 import Bilza, { Ui,CompFactory as cf,hsl,SpriteSheets } from "./bilza.js";
-import SpriteSheetIrregular from "./components/spriteSheetIrregular/spriteSheetIrregular.js";
+// import SpriteSheetOptimized from "./components/spriteSheet/spriteSheetOpt.js";
+import PremadeSpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
+
 
 let bil = new Bilza("bilza", 70);
 
@@ -11,7 +13,7 @@ bil.insert.alwaysOn(fc);
 // const grid = cf.grid(hsl(240,100,20));
 // bil.insert.alwaysOn(grid);
 
-const ss = new SpriteSheetIrregular("../images/ghosts.png");
+const ss = PremadeSpriteSheets.ghosts("../images/ghosts.png");
 ss.xAlign = ss.XAlignOpt.Mid;
 ss.yAlign = ss.YAlignOpt.Mid;
 
