@@ -15,16 +15,10 @@ this.currentImage = new AniNumber(0);
 
 init(p: Pack): boolean {
     super.init(p);    
-//---do i need them ?????? isnt it covered in super.init?    
-if(this.imagesList.length < 1){console.error("Sprite Sheet Optimized :no images added");}
+
+if(this.imagesList.length < 1){console.error("Sprite Sheet Optimized :no images added");} 
 
 this.currentImage.set(0);
-
-if(this.canvasWidth==null){throw new Error("init error");}
-if(this.canvasHeight==null){throw new Error("init error");}
-//--importantay 
-this.img.setAttribute("width", this.contentWidth().toString());    
-this.img.setAttribute("height", this.contentHeight().toString());    
 return true;    
 }
 

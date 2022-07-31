@@ -14,18 +14,6 @@ export default class SpriteSheet extends BaseSpriteSheet {
         this.row = new AniNumber(0);
         this.column = new AniNumber(0);
     }
-    init(p) {
-        super.init(p);
-        if (this.canvasWidth == null) {
-            throw new Error("init error");
-        }
-        if (this.canvasHeight == null) {
-            throw new Error("init error");
-        }
-        this.img.setAttribute("width", this.contentWidth().toString());
-        this.img.setAttribute("height", this.contentHeight().toString());
-        return true;
-    }
     update(msDelta, p) {
         this.row.update(msDelta);
         this.column.update(msDelta);

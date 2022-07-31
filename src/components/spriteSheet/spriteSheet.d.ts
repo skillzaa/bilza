@@ -10,7 +10,6 @@ export default class SpriteSheet extends BaseSpriteSheet {
     totalColumns: number;
     totalRows: number;
     constructor(imgUrl: string, iconWidth: number, iconHeight: number, totalColumns: number, totalRows: number);
-    init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     defineImage(name: string, column: number, row: number): void;
     draw(p: Pack): boolean;

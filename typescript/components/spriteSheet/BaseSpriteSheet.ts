@@ -13,7 +13,7 @@ super();
 this.leftExtraPix = 0;
 this.topExtraPix = 0;
 
-this.responsiveDims = false;
+this.responsiveDims = false; 
 this.responsivePadding = false;
 
 this.img = new Image();
@@ -38,9 +38,9 @@ init(p: Pack): boolean {
 //---do i need them ?????? isnt it covered in super.init?    
 if(this.canvasWidth==null){throw new Error("init error");}
 if(this.canvasHeight==null){throw new Error("init error");}
-//--importantay 
-this.img.setAttribute("width", this.contentWidth().toString());    
-this.img.setAttribute("height", this.contentHeight().toString());    
+//--importantay ---????
+// this.img.setAttribute("width", this.contentWidth().toString());    
+// this.img.setAttribute("height", this.contentHeight().toString());    
 return true;    
 }
 

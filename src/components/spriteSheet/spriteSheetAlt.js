@@ -13,14 +13,6 @@ export default class SpriteSheetAlt extends BaseSpriteSheet {
             console.error("Sprite Sheet Optimized :no images added");
         }
         this.currentImage.set(0);
-        if (this.canvasWidth == null) {
-            throw new Error("init error");
-        }
-        if (this.canvasHeight == null) {
-            throw new Error("init error");
-        }
-        this.img.setAttribute("width", this.contentWidth().toString());
-        this.img.setAttribute("height", this.contentHeight().toString());
         return true;
     }
     update(msDelta, p) {

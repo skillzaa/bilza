@@ -27,8 +27,6 @@ export default class BaseSpriteSheet extends BaseComponent {
         if (this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.img.setAttribute("width", this.contentWidth().toString());
-        this.img.setAttribute("height", this.contentHeight().toString());
         return true;
     }
     draw(p) { return true; }
