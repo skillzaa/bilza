@@ -9,37 +9,42 @@ bil.insert.alwaysOn(fc);
 
 const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
+
 /////////////////////////////////////////////////////
 // const emoji = new SpriteSheet("../images/emotions.png",72,72,16,10);
+
 const emoji = PremadeSpriteSheets.emoji();
-// emoji.x.animate(2,20,0,100);
+
 emoji.border.set(2);
 emoji.colorBorder.set("red");
 emoji.xAlign = emoji.XAlignOpt.Mid;
 emoji.yAlign = emoji.YAlignOpt.Mid;
 emoji.xRotate = emoji.XAlignOpt.Mid;
 emoji.yRotate = emoji.YAlignOpt.Mid;
-// emoji.showBackground.set(true);
-emoji.colorBackground.set(hsl(240,100,95));
-//--keep in mind rows and columns are zero based like arrays
-emoji.defineImage("ghost",4,6);
 
-emoji.gotoImageName(3,"ghost");
-// emoji.gotoImage(0,0,0);
-// emoji.gotoImage(1,1,1);
-// emoji.gotoImage(2,2,2);
-// emoji.gotoImage(3,3,3);
-// emoji.gotoImage(4,4,4);
-// emoji.gotoImage(5,5,5);
-// emoji.gotoImage(6,6,6);
-// emoji.gotoImage(7,7,7);
-// emoji.gotoImage(8,8,8);
-// emoji.gotoImage(9,6,2);
-//--important dont delete -- this triggers a compile time error.
-// emoji.gotoImage(11,11,11);
+emoji.colorBackground.set(hsl(240,100,95));
 
 bil.insert.add(emoji,0,60);
+//-------------------------------------
+emoji.defineImage("ghost",4,6);
+emoji.gotoImageName(0,"ghost");
 
+//--keep in mind rows and columns are zero based like arrays
+emoji.gotoImage(0,0,0);
+emoji.gotoImage(1,1,1);
+emoji.gotoImage(2,2,2);
+emoji.gotoImage(3,3,3);
+emoji.gotoImage(4,4,4);
+emoji.gotoImage(5,5,5);
+emoji.gotoImage(6,6,6);
+emoji.gotoImage(7,7,7);
+emoji.gotoImage(8,8,8);
+emoji.gotoImage(9,6,2);
+// --important  -- this triggers a compile time error.
+emoji.gotoImage(11,11,11);
+
+
+///=============================================
 emoji.x.animate(0,10,0,50);
 emoji.x.vibrate(12,20,50,4,5);
 

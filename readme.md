@@ -2,12 +2,12 @@
 # What is Bilza
 
 ---
-> Bilza is an easy to use Javascript framework/library for creating responsive animations and drawings (on HTML5 canvas) such that animations can be stitched together like lego pieces.
+> Bilza is an easy to use Javascript framework/library for creating responsive animations on HTML5 canvas.
 ---
 # Mission
-- <strong>Easy of use</strong> : This library has no installations, built systems etc. Is usable with any project. Even primitive JavaScript knowledge is enough to start using it.(wait till I complete docs and tutorial videos).
+- <strong>Ease of use</strong> : This library has no installations, built systems etc. Is usable with any project. Even primitive JavaScript knowledge is enough to start using it.
 - <strong>Responsiveness</strong> : The drawings and animations will resize its self according to the host screen size. (The most difficult part of this library).
-- <strong>Composable Animations</strong> : The library will try to provide more and more tools to enable the creator to compose animations using smaller animation like LEGO pieces.(I know it sounds like a tall order, but I have plans :) ) 
+- <strong>Composable Animations</strong> : The library will try to provide more and more tools to enable the creator to compose larger animations using smaller animation like LEGO pieces. 
 ---
 
 # Docs and Samples 
