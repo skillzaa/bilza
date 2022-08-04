@@ -42,8 +42,6 @@ emoji.gotoImage(8,8,8);
 emoji.gotoImage(9,6,2);
 // --important  -- this triggers a compile time error.
 emoji.gotoImage(11,11,11);
-
-
 ///=============================================
 emoji.x.animate(0,10,0,50);
 emoji.x.vibrate(12,20,50,4,5);
