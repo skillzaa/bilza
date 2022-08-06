@@ -13,7 +13,9 @@ import Circle from "../components/circle.js";
 import Icon from "../components/icon.js";
 import Row from "../container/row.js";
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
+import SpriteSheetAlt from "../components/spriteSheet/spriteSheetAlt.js";
 export default class CompFactory {
+    static spriteSheetAlt(imgUrl: string): SpriteSheetAlt;
     static spriteSheet(imgUrl: string, IconWidth: number, IconHeight: number, totalColumns: number, totalRows: number): SpriteSheet;
     static icon(code?: number, colorHax?: string): Icon;
     static circle(colorHax?: string): Circle;

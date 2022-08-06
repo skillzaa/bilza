@@ -13,7 +13,12 @@ import Circle from "../components/circle.js";
 import Icon from "../components/icon.js";
 import Row from "../container/row.js";
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
+import SpriteSheetAlt from "../components/spriteSheet/spriteSheetAlt.js";
 export default class CompFactory {
+    static spriteSheetAlt(imgUrl) {
+        let g = new SpriteSheetAlt(imgUrl);
+        return g;
+    }
     static spriteSheet(imgUrl, IconWidth, IconHeight, totalColumns, totalRows) {
         let g = new SpriteSheet(imgUrl, IconWidth, IconHeight, totalColumns, totalRows);
         return g;

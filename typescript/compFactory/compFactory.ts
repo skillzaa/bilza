@@ -15,10 +15,15 @@ import Icon from "../components/icon.js";
 import Row from "../container/row.js";
 // import Paragraph from "../container/paragraph.js";
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
+import SpriteSheetAlt from "../components/spriteSheet/spriteSheetAlt.js";
 
 export default class CompFactory {
 
 
+static spriteSheetAlt(imgUrl :string):SpriteSheetAlt{
+let g = new SpriteSheetAlt(imgUrl);
+return g;
+}
 static spriteSheet(imgUrl :string, IconWidth:number, IconHeight :number, totalColumns :number ,totalRows :number):SpriteSheet{
 let g = new SpriteSheet(imgUrl, IconWidth, IconHeight, totalColumns,totalRows);
 return g;
