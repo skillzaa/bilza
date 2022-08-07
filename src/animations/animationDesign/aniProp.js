@@ -1,5 +1,7 @@
 export default class AniProp {
     constructor(defaultValue) {
+        this.defaultValue = defaultValue;
+        this.lastGotoValue = defaultValue;
         this._value = defaultValue;
         this.filters = [];
     }

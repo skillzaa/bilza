@@ -97,10 +97,10 @@ for (let i = 0; i < (this._x_iteration + 1); i++) {
     this.style.fillStyle = this.colorVerticalLines.value();        
     this.style.lineWidth = this.lineWidthVertical.value();        
     this.style.lineDash = this.lineDash;        
-
+    //---Draw grid line
         p.drawLine(this.contentX() +  x,this.contentY(),
         this.contentX() +  x, end_y , this.style);
-    
+    //---Draw Numbers
                 if (this.showNumbers.value() == true && i < (this._x_iteration) ){
                     this.style.strokeStyle = this.colorNumbers.value();
                     this.drawText(p, Math.ceil(x), this.contentX()+x ,this.contentY() + 2);
@@ -115,7 +115,7 @@ this.style.strokeStyle = this.colorNumbers.value();
 this.style.fillStyle = this.colorNumbers.value();    
 p.drawText(
     theNumber.toString(),
-    x  + this.lineWidthVertical.value() -2, //why -2 error
+    x  + this.lineWidthVertical.value(),
     y  + this.lineWidthHorizontal.value(),
     this.style);    
 }

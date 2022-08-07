@@ -24,6 +24,7 @@ export default class AniNumber extends AniProp {
             let c = new ConstantNo(from, to, startValue);
             this.filters.push(c);
         }
+        this.goto(to, endValue);
     }
     vibrate(from, to, seed = 10, offset = 10, delay = 0) {
         const v = new Vibrate(from, to, seed, offset, delay);

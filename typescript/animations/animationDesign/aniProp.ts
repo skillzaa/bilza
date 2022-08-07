@@ -9,15 +9,23 @@ import IFilter from "./IFilter.js";
  * There is no need for init in this class but later child classes which needs canvasWidth and canvasHeight will require init. in init they will convert the percentages etc into concentrete variables and then load in the Filters.
  * The child classes that uses init have to change the behaviour of this.set and use set and over-write this.set;
  * The Filter also do not need init with or without AniProp that uses percentages.
+ * --8-8-2022 : The filters may return a value or return null but aniProp will never return null.
  */ 
 
 export default class AniProp <T> {
 //--this cant be null its not _ret_val of filter its aniProp    
 private _value :T;                 
 protected filters :IFilter<T>[];
-    
+public readonly defaultValue :T;    
+public  lastGotoValue :T;    
+
 constructor(defaultValue :T){
+//----readonly
+this.defaultValue = defaultValue;
+this.lastGotoValue = defaultValue;
 this._value  = defaultValue; 
+
+//--Filters array
 this.filters = [];
 }
 

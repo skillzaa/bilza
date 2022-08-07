@@ -68,6 +68,6 @@ export default class Grid extends BaseComponent {
         this.style.fontSize = this.fontSize.value();
         this.style.strokeStyle = this.colorNumbers.value();
         this.style.fillStyle = this.colorNumbers.value();
-        p.drawText(theNumber.toString(), x + this.lineWidthVertical.value() - 2, y + this.lineWidthHorizontal.value(), this.style);
+        p.drawText(theNumber.toString(), x + this.lineWidthVertical.value(), y + this.lineWidthHorizontal.value(), this.style);
     }
 }

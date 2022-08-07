@@ -28,7 +28,10 @@ public animate(from :number,to :number,startValue :number,endValue :number){
         let c = new ConstantNo(from,to,startValue);
         this.filters.push(c);
     }
+//--- This goto is to ensure that the last frame is met
+this.goto(to , endValue );    
 }
+
 public vibrate(from :number,to :number,seed :number=10,offset :number=10,delay :number=0){
     const v = new Vibrate(from,to,seed,offset,delay);
     this.filters.push(v);
