@@ -20,12 +20,12 @@ const g = cf.grid();
 // g.paddingBottom.set(1);
 
 // g.y.set(10);
-g.showNumbers = false;
+g.showNumbers.set(false);
 // g.width.set(25);
 // g.height.set(25);
 // g.border.set(2);
-g.colorHorizontalLines = "red";
-g.colorVerticalLines = "blue";
+g.colorHorizontalLines.set("red");
+g.colorVerticalLines.set("blue");
 
 // g.rotation.animate(2,10,0,2000);
 // g.width.animate(0,5,10,80);

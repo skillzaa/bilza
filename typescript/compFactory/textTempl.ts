@@ -4,6 +4,7 @@ import Text from "../components/text.js";
 export default class TextTempl {
 
 constructor(){
+    
 }
 
 static megatron(content :string="",colorHax :string="#000000"):Text{

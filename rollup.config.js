@@ -12,7 +12,7 @@ export default [
     // input: './standalone/standalone.js',
 
     output: {
-      file: './dist/bilza.0.0.29.js',
+      file: './dist/bilza.0.0.30.js',
       format: 'es',
       sourcemap: devMode ? 'inline' : false,
       plugins: [
