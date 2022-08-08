@@ -1,5 +1,5 @@
 // import AniProp from "../animationDesign/aniProp.js";
-// import Increment from "./filters/increment.js";
+import Increment from "./increment.js";
 // import Decrement from "./filters/decrement.js";
 // import Vibrate from "./filters/vibrate.js";
 // import JumpBetween from "./filters/jumpBetween.js";
@@ -9,10 +9,13 @@
 // import Oscillate from "./filters/oscillate.js"; 
 
 import GotoData from "./gotoData.js";
+import IFilter from "./IFilter.js";
 
 export default class AniNumber  {
+
 private _value :number; 
 private gotoArray :GotoData[];                
+private filters :IFilter[];                
 public readonly defaultValue :number;
 public readonly minValue :number;
 public readonly maxValue :number;
@@ -24,6 +27,7 @@ this.defaultValue = 0;
 this.minValue  = minValue; 
 this.maxValue  = maxValue; 
 this.gotoArray  = []; 
+this.filters  = []; 
 }
 // update(msDelta :number):boolean{
 // this.runFilters(msDelta);
@@ -37,6 +41,12 @@ this._value = this.defaultValue;
 const baseGotoValue = this.getBaseGotoValue(msDelta);
 if (typeof baseGotoValue == "number"){
     this._value = baseGotoValue;
+    
+    const runFilters = this.runFilters(msDelta , baseGotoValue);
+
+    if (typeof runFilters == "number"){
+        this._value = runFilters;
+    }
 }
 
 //------------------------------------------
@@ -71,32 +81,34 @@ public goto(msDelta :number,value :number=0){
     const v = new GotoData(msDelta,value);
     this.gotoArray.push(v);
 }
-// private runFilters(msDelta :number){
-//     for (let i = 0; i < this.filters.length; i++) {
-//         const ani = this.filters[i];
+private runFilters(msDelta :number , baseGotoValue :number){
+    for (let i = 0; i < this.filters.length; i++) {
+        const ani = this.filters[i];
 
-//         ani.update(msDelta);
-//         let v  = ani.value(); 
-//             if ( v != null){
-//                 this._value = v;
-//             }
-// } 
-// }
+        let v  = ani.value(msDelta,baseGotoValue); 
+            if ( v != null){
+                this._value = v;
+            }
+} 
+}
 
-// public animate(from :number,to :number,startValue :number,endValue :number){
-//     if (startValue < endValue ){
-//         let c = new Increment(from,to,startValue,endValue);
-//         this.filters.push(c);
-//     }else if (startValue > endValue){
-//         let c = new Decrement(from,to,startValue,endValue);
-//         this.filters.push(c);
-//     }else if (startValue == endValue){
-//         let c = new ConstantNo(from,to,startValue);
-//         this.filters.push(c);
-//     }
-// //--- This goto is to ensure that the last frame is met
+public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endValue :number){
+    if (startValue < endValue ){
+        this.goto(msDeltaStart,startValue);
+        this.goto(msDeltaEnd,endValue);
+        let c = new Increment(msDeltaStart + 1,msDeltaEnd -1,startValue,endValue);
+        this.filters.push(c);
+    }else if (startValue > endValue){
+        // let c = new Decrement(from,to,startValue,endValue);
+        // this.filters.push(c);
+    }
+    // else if (startValue == endValue){
+    //     let c = new ConstantNo(from,to,startValue);
+    //     this.filters.push(c);
+    // }
+//--- This goto is to ensure that the last frame is met
 // this.goto(to , endValue );    
-// }
+}
 
 // public vibrate(from :number,to :number,seed :number=10,offset :number=10,delay :number=0){
 //     const v = new Vibrate(from,to,seed,offset,delay);

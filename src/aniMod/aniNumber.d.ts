@@ -1,6 +1,7 @@
 export default class AniNumber {
     private _value;
     private gotoArray;
+    private filters;
     readonly defaultValue: number;
     readonly minValue: number;
     readonly maxValue: number;
@@ -9,5 +10,7 @@ export default class AniNumber {
     private getBaseGotoValue;
     set(n: number): number;
     goto(msDelta: number, value?: number): void;
+    private runFilters;
+    animate(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number): void;
 }
 //# sourceMappingURL=aniNumber.d.ts.map
