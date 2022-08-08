@@ -1,4 +1,4 @@
-import GotoData from "./gotoData";
+import GotoData from "./gotoData.js";
 export default class AniNumber {
     constructor(initialValue = 0, minValue = 0, maxValue = 100) {
         this._value = initialValue;

@@ -8,7 +8,7 @@
 // import ConstantNo from "./filters/constantNo.js";
 // import Oscillate from "./filters/oscillate.js"; 
 
-import GotoData from "./gotoData";
+import GotoData from "./gotoData.js";
 
 export default class AniNumber  {
 private _value :number; 
