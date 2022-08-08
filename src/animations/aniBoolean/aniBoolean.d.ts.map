@@ -1,1 +1,1 @@
-{"version":3,"file":"aniBoolean.d.ts","sourceRoot":"","sources":["../../../typescript/animations/aniBoolean/aniBoolean.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,+BAA+B,CAAC;AAIpD,MAAM,CAAC,OAAO,OAAO,UAAW,SAAQ,OAAO,CAAE,OAAO,CAAC;CAOxD"}
+{"version":3,"file":"aniBoolean.d.ts","sourceRoot":"","sources":["../../../typescript/animations/aniBoolean/aniBoolean.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,uBAAuB,CAAC;AAI5C,MAAM,CAAC,OAAO,OAAO,UAAW,SAAQ,OAAO,CAAE,OAAO,CAAC;CAOxD"}

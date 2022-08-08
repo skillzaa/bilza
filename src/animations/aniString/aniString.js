@@ -1,4 +1,4 @@
-import AniProp from "../animationDesign/aniProp.js";
+import AniProp from "../aniProp/aniProp.js";
 import SetOnce from "./filters/setOnce_goto.js";
 export default class AniString extends AniProp {
     goto(startTimeSec, theValue) {

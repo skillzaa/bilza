@@ -1,4 +1,5 @@
-import IFilter from "./IFilter.js";
+import IFilter from "../animationDesign/IFilter.js";
+import GotoData from "./gotoData.js";
 /**
  * 4-july-2022 :  AniProp and all its child classes all just hold one value (of concrete type number , string, boolean etc).
  * It can collect any number of filters in a this.filters array
@@ -16,6 +17,7 @@ export default class AniProp <T> {
 //--this cant be null its not _ret_val of filter its aniProp    
 private _value :T;                 
 protected filters :IFilter<T>[];
+protected GotoDataArray :GotoData<T>[];
 public readonly defaultValue :T;    
 public  lastGotoValue :T;    
 
@@ -27,11 +29,23 @@ this._value  = defaultValue;
 
 //--Filters array
 this.filters = [];
+//--GotoDataArray
+this.GotoDataArray = [];
 }
 
 update(msDelta :number):boolean{
-this.runFilters(msDelta);
-return true;    
+
+if (this.runFilters(msDelta) ==true) {return true;}
+
+ this.runLastGoto(msDelta);
+    // return true;
+// }else {
+//     this.runDefaultValue();
+// }
+
+//--this will return false
+
+return false;
 }
 
 public value():T{
@@ -52,18 +66,48 @@ return this._value;
 public set(n :T):T{
  this._value = n;
  return this._value;
-} 
+}
 
-private runFilters(msDelta :number){
+public goto(startTimeSec :number,theValue :T ){
+    //--converting frame into milli second
+    const v = new GotoData(startTimeSec * 1000,theValue);
+    this.GotoDataArray.push(v);
+}
+private runDefaultValue(){
+    this._value = this.defaultValue;
+}
+private runLastGoto(msDelta :number):number | boolean{
+if (this.GotoDataArray.length < 1){return false;}    
+let found = false;
+let frame = 0;
+// const inter = null;
+    for (let i = 0; i < this.GotoDataArray.length; i++) {
+        const elm = this.GotoDataArray[i];
+        if ( msDelta >= (elm.frame )  ){
+            if ( (elm.frame ) >= frame ) {
+                    frame = (elm.frame);
+                    this._value = elm.value;
+                    found = true;
+            }
+        }   
+    }
+return found;
+}
+
+
+private runFilters(msDelta :number):boolean{
+let filterWasRun = false;    
     for (let i = 0; i < this.filters.length; i++) {
         const ani = this.filters[i];
 
         ani.update(msDelta);
         let v  = ani.value(); 
             if ( v != null){
+                filterWasRun = true;
                 this._value = v;
             }
 } 
+return filterWasRun;
 }
 
 } 

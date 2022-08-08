@@ -1,4 +1,4 @@
-import AniProp from "../animationDesign/aniProp.js";
+import AniProp from "../aniProp/aniProp.js";
 import Increment from "./filters/increment.js";
 import Decrement from "./filters/decrement.js";
 import Vibrate from "./filters/vibrate.js";
@@ -44,10 +44,10 @@ public random(startTimeSec :number,endTimeSec :number,min :number=0, max :number
 const v = new RandomNo(startTimeSec,endTimeSec,min, max,everyXFrame);
 this.filters.push(v);
 }
-public goto(startTimeSec :number,theValue :number=0){
-const v = new SetOnce(startTimeSec,theValue);
-this.filters.push(v);
-}
+// public goto(startTimeSec :number,theValue :number=0){
+// const v = new SetOnce(startTimeSec,theValue);
+// this.filters.push(v);
+// }
 public oscillate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
 const v = new Oscillate(startTimeSec,endTimeSec,startValue, endValue,speed);
 this.filters.push(v);

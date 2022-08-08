@@ -1,4 +1,4 @@
-import AniProp from "../animationDesign/aniProp.js";
+import AniProp from "../aniProp/aniProp.js";
 export default class AniString extends AniProp<string> {
     goto(startTimeSec: number, theValue: string): void;
 }

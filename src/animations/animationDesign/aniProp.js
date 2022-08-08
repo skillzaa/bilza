@@ -17,13 +17,16 @@ export default class AniProp {
         return this._value;
     }
     runFilters(msDelta) {
+        let filterWasRun = false;
         for (let i = 0; i < this.filters.length; i++) {
             const ani = this.filters[i];
             ani.update(msDelta);
             let v = ani.value();
             if (v != null) {
+                filterWasRun = true;
                 this._value = v;
             }
         }
+        return filterWasRun;
     }
 }

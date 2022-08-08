@@ -1,4 +1,4 @@
-import AniProp from "../animationDesign/aniProp.js";
+import AniProp from "../aniProp/aniProp.js";
 // import Toogle from "./filters/toogle.js";
  
 
