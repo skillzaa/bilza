@@ -7,8 +7,6 @@ bil.insert.add(rect, 0, 60);
 rect.x.goto(0, 10);
 rect.x.goto(2, 20);
 rect.x.goto(4, 40);
-rect.x.goto(6, 60);
-rect.x.goto(8, 80);
 rect.x.goto(10, 0);
 rect.x.animate(5, 9, 40, 90);
 const ui = new Ui(bil);
