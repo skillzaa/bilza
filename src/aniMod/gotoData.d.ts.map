@@ -1,1 +1,1 @@
-{"version":3,"file":"gotoData.d.ts","sourceRoot":"","sources":["../../typescript/aniMod/gotoData.ts"],"names":[],"mappings":"AAGA,MAAM,CAAC,OAAO,OAAO,QAAQ;IAEtB,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,MAAM,CAAC;gBAET,KAAK,EAAE,MAAM,EAAG,KAAK,EAAE,MAAM;CAKxC"}
+{"version":3,"file":"gotoData.d.ts","sourceRoot":"","sources":["../../typescript/aniMod/gotoData.ts"],"names":[],"mappings":"AAGA,MAAM,CAAC,OAAO,OAAO,QAAQ;IAEtB,OAAO,EAAE,MAAM,CAAC;IAChB,KAAK,EAAE,MAAM,CAAC;gBAER,OAAO,EAAE,MAAM,EAAG,KAAK,EAAE,MAAM;CAK3C"}

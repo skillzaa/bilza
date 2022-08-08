@@ -8,6 +8,6 @@ export default class AniNumber {
     value(msDelta: number): number;
     private getBaseGotoValue;
     set(n: number): number;
-    goto(frame: number, value?: number): void;
+    goto(msDelta: number, value?: number): void;
 }
 //# sourceMappingURL=aniNumber.d.ts.map

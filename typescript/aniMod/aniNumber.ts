@@ -51,10 +51,10 @@ let rez :number | null = null;
 
     for (let i = 0; i < this.gotoArray.length; i++) {
         const elm = this.gotoArray[i];
-        if ( msDelta >= (elm.frame )  ){
-            if ( (elm.frame ) >= frame ) {
+        if ( msDelta >= (elm.msDelta )  ){
+            if ( (elm.msDelta ) >= frame ) {
                 //--for next iteration
-                    frame = (elm.frame);
+                    frame = (elm.msDelta);
                 //--the value                    
                     rez = elm.value;
             }
@@ -67,8 +67,8 @@ public set(n :number):number{
  this._value = n;
  return this._value;
 } 
-public goto(frame :number,value :number=0){
-    const v = new GotoData(frame,value);
+public goto(msDelta :number,value :number=0){
+    const v = new GotoData(msDelta,value);
     this.gotoArray.push(v);
 }
 // private runFilters(msDelta :number){

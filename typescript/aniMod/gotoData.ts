@@ -3,11 +3,11 @@
 
 export default class GotoData {
 
-public frame :number;
+public msDelta :number;
 public value :number;
 
-constructor(frame :number , value :number){
-    this.frame = frame;
+constructor( msDelta :number , value :number){
+    this.msDelta = msDelta;
     this.value = value;    
 }
 

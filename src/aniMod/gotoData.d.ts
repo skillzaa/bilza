@@ -1,6 +1,6 @@
 export default class GotoData {
-    frame: number;
+    msDelta: number;
     value: number;
-    constructor(frame: number, value: number);
+    constructor(msDelta: number, value: number);
 }
 //# sourceMappingURL=gotoData.d.ts.map

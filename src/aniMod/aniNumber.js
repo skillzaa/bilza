@@ -23,9 +23,9 @@ export default class AniNumber {
         let rez = null;
         for (let i = 0; i < this.gotoArray.length; i++) {
             const elm = this.gotoArray[i];
-            if (msDelta >= (elm.frame)) {
-                if ((elm.frame) >= frame) {
-                    frame = (elm.frame);
+            if (msDelta >= (elm.msDelta)) {
+                if ((elm.msDelta) >= frame) {
+                    frame = (elm.msDelta);
                     rez = elm.value;
                 }
             }
@@ -36,8 +36,8 @@ export default class AniNumber {
         this._value = n;
         return this._value;
     }
-    goto(frame, value = 0) {
-        const v = new GotoData(frame, value);
+    goto(msDelta, value = 0) {
+        const v = new GotoData(msDelta, value);
         this.gotoArray.push(v);
     }
 }
