@@ -18,9 +18,9 @@ export default class BaseComponentBase {
         this.interactive = false;
         this.border = new AniNumber(0);
         this.width = new AniNumber(10);
+        this.height = new AniNumber(10);
         this.rotation = new AniNumber(0);
         this.opacity = new AniNumber(100);
-        this.height = new AniNumber(10);
         this.color = new AniColor("#000000");
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);

@@ -96,10 +96,13 @@ constructor(){
     this.responsiveDims = true;
     this.interactive = false; // this is for mouse click etc
     this.border = new AniNumber(0);
+
     this.width = new AniNumber(10);
+    this.height = new AniNumber(10);
+    
     this.rotation = new AniNumber(0);
     this.opacity = new AniNumber(100);
-    this.height = new AniNumber(10);
+    
     this.color = new AniColor("#000000");
     //--there is no this.endTime --since has this.endTime()
     //--must

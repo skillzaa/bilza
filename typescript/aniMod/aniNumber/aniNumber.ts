@@ -1,3 +1,4 @@
+import AniProp from "../aniProp/aniProp.js";
 import Increment from "./increment.js";
 import Decrement from "./decrement.js";
 import Vibrate from "./vibrate.js";
@@ -5,45 +6,39 @@ import RandomNo from "./randomNo.js";
 import JumpBetween from "./jumpBetween.js";
 import Oscillate from "./oscillate.js"; 
 
-import GotoData from "./gotoData.js";
+import GotoData from "../aniProp/gotoData.js";
 import IFilter from "../IFilter.js";
 
-export default class AniNumber  {
+export default class AniNumber extends AniProp<number>  {
 
-private _value :number; 
-private gotoArray :GotoData[];                
-private filters :IFilter[];                
-public readonly defaultValue :number;
+
 public readonly minValue :number;
 public readonly maxValue :number;
 
 //--no need for default value-the number-0 is default value
 constructor(initialValue :number=0,minValue :number=0,maxValue :number=100){
-this._value  = initialValue; 
-this.defaultValue = 0;
+ super(initialValue);
+
 this.minValue  = minValue; 
 this.maxValue  = maxValue; 
-this.gotoArray  = []; 
-this.filters  = []; 
 }
 
-public update(msDelta :number):boolean{
-//---STEP-ONE -Every time value is calc from default value    
-this._value = this.defaultValue; 
+// public update(msDelta :number):boolean{
+// //---STEP-ONE -Every time value is calc from default value    
+// this._value = this.defaultValue; 
 
-//---STEP-TWO-if has base goto apply that
-const baseGotoValue = this.getBaseGotoValue(msDelta);
-if (typeof baseGotoValue == "number"){
-    this._value = baseGotoValue;   
-}
+// //---STEP-TWO-if has base goto apply that
+// const baseGotoValue = this.getBaseGotoValue(msDelta);
+// if (typeof baseGotoValue == "number"){
+//     this._value = baseGotoValue;   
+// }
 
-//---step-three - runFilters will alwys return number either change it or not
-this._value = this.runFilters(msDelta , this._value);
-//------------------------------------------
-return true;
-}
-//---value
-value():number {return this._value;}
+// //---step-three - runFilters will alwys return number either change it or not
+// this._value = this.runFilters(msDelta , this._value);
+// //------------------------------------------
+// return true;
+// }
+
 /**
  * 9-aug-2022
  * runFilters will take in baseGotoValue and return (always) a number either the same baseGotoValue or change it depending upon what the filters do.
@@ -52,49 +47,49 @@ value():number {return this._value;}
  * The IFilter value() return number | null;--> When a filter qualify to run but do not want its result to be counted in (for some reason). In that case the filter value() can return null which will not be included at aniNumber.runFilters().
  * Why returning a null is better:: We can also make the filter return the oldValue (since ever filter gets the previous value which it can either take into considereation or not) BUT in that case the return value may get changed unintentionally so returning a null is better.
  */
-private runFilters(msDelta :number , baseGotoValue :number):number{
-let rez  =  baseGotoValue;
+// private runFilters(msDelta :number , baseGotoValue :number):number{
+// let rez  =  baseGotoValue;
 
-    for (let i = 0; i < this.filters.length; i++) {
-        const ani = this.filters[i];
-        if (ani.qualifyToRun(msDelta) == false) {continue;}
-        ani.update(msDelta,rez); 
-        let v  = ani.value(); 
-            if ( v != null){
-                rez = v;
-            }
-} 
-return rez;
-}
+//     for (let i = 0; i < this.filters.length; i++) {
+//         const ani = this.filters[i];
+//         if (ani.qualifyToRun(msDelta) == false) {continue;}
+//         ani.update(msDelta,rez); 
+//         let v  = ani.value(); 
+//             if ( v != null){
+//                 rez = v;
+//             }
+// } 
+// return rez;
+// }
 
-private getBaseGotoValue(msDelta :number):number | null{
-if (this.gotoArray.length < 1){return null;}    
+// private getBaseGotoValue(msDelta :number):number | null{
+// if (this.gotoArray.length < 1){return null;}    
 
-let frame = 0;
-let rez :number | null = null;
+// let frame = 0;
+// let rez :number | null = null;
 
-    for (let i = 0; i < this.gotoArray.length; i++) {
-        const elm = this.gotoArray[i];
-        if ( msDelta >= (elm.msDelta )  ){
-            if ( (elm.msDelta ) >= frame ) {
-                //--for next iteration
-                    frame = (elm.msDelta);
-                //--the value                    
-                    rez = elm.value;
-            }
-        }   
-    }
-return rez;    
-}
-//--when deeply nested we use set to set the initial value. This vaue will be over-written after start();
-public set(n :number):number{
- this._value = n;
- return this._value;
-} 
-public goto(msDelta :number,value :number=0){
-    const v = new GotoData(msDelta,value);
-    this.gotoArray.push(v);
-}
+//     for (let i = 0; i < this.gotoArray.length; i++) {
+//         const elm = this.gotoArray[i];
+//         if ( msDelta >= (elm.msDelta )  ){
+//             if ( (elm.msDelta ) >= frame ) {
+//                 //--for next iteration
+//                     frame = (elm.msDelta);
+//                 //--the value                    
+//                     rez = elm.value;
+//             }
+//         }   
+//     }
+// return rez;    
+// }
+// //--when deeply nested we use set to set the initial value. This vaue will be over-written after start();
+// public set(n :number):number{
+//  this._value = n;
+//  return this._value;
+// } 
+// public goto(msDelta :number,value :number){
+//     const v = new GotoData(msDelta,value);
+//     this.gotoArray.push(v);
+// }
 
 public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endValue :number){
     if (startValue < endValue ){

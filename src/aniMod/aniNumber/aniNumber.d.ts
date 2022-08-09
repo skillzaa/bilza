@@ -1,17 +1,8 @@
-export default class AniNumber {
-    private _value;
-    private gotoArray;
-    private filters;
-    readonly defaultValue: number;
+import AniProp from "../aniProp/aniProp.js";
+export default class AniNumber extends AniProp<number> {
     readonly minValue: number;
     readonly maxValue: number;
     constructor(initialValue?: number, minValue?: number, maxValue?: number);
-    update(msDelta: number): boolean;
-    value(): number;
-    private runFilters;
-    private getBaseGotoValue;
-    set(n: number): number;
-    goto(msDelta: number, value?: number): void;
     animate(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number): void;
     vibrate(msDeltaStart: number, msDeltaEnd: number, offset?: number, delayInMilliSec?: number): void;
     random(msDeltaStart: number, msDeltaEnd: number, min?: number, max?: number, delayInMilliSec?: number): void;

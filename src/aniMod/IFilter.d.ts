@@ -1,6 +1,6 @@
-export default interface IFilter {
-    value(): null | number;
-    update(msDelta: number, oldValue: number): boolean;
+export default interface IFilter<T> {
+    value(): null | T;
+    update(msDelta: number, oldValue: T): boolean;
     qualifyToRun(msDelta: number): boolean;
 }
 //# sourceMappingURL=IFilter.d.ts.map
