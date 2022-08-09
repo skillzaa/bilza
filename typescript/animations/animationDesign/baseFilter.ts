@@ -1,6 +1,6 @@
 import { FilterState } from "./filterState.js";
 import IFilter from "./IFilter.js";
-
+ 
 export default class BaseFilter <T> implements IFilter <T> {
 //-- This is the only output from this class
 protected _ret_val : T | null;  

@@ -1,6 +1,6 @@
 import BaseTest from "../baseTest.js";
 
-import AniNumber from "../../aniMod/aniNumber.js";
+import AniNumber from "../../aniMod/aniNumber/aniNumber.js";
 
 const tst = new BaseTest("AniNumber");
 

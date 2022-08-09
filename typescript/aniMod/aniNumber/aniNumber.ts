@@ -1,16 +1,12 @@
-// import AniProp from "../animationDesign/aniProp.js";
 import Increment from "./increment.js";
 import Decrement from "./decrement.js";
-// import Decrement from "./filters/decrement.js";
-// import Vibrate from "./filters/vibrate.js";
-// import JumpBetween from "./filters/jumpBetween.js";
-// import SetOnce from "./filters/setOnce_goto.js";
-// import RandomNo from "./filters/randomNo.js";
-// import ConstantNo from "./filters/constantNo.js";
-// import Oscillate from "./filters/oscillate.js"; 
+import Vibrate from "./vibrate.js";
+import RandomNo from "./randomNo.js";
+import JumpBetween from "./jumpBetween.js";
+import Oscillate from "./oscillate.js"; 
 
 import GotoData from "./gotoData.js";
-import IFilter from "./IFilter.js";
+import IFilter from "../IFilter.js";
 
 export default class AniNumber  {
 
@@ -30,7 +26,6 @@ this.maxValue  = maxValue;
 this.gotoArray  = []; 
 this.filters  = []; 
 }
-
 
 public value(msDelta :number):number{
 //---STEP-ONE -Every time value is calc from default value    
@@ -116,23 +111,22 @@ public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endVal
 // this.goto(to , endValue );    
 }
 
-// public vibrate(from :number,to :number,seed :number=10,offset :number=10,delay :number=0){
-//     const v = new Vibrate(from,to,seed,offset,delay);
-//     this.filters.push(v);
-// }
+public vibrate(msDeltaStart :number,msDeltaEnd :number,offset :number=10,delayInMilliSec :number= 100){
+    const v = new Vibrate(msDeltaStart,msDeltaEnd,offset,delayInMilliSec);
+    this.filters.push(v);
+}
+public random(msDeltaStart :number,msDeltaEnd :number,min :number=0, max :number=100,delayInMilliSec :number=0){
+const v = new RandomNo(msDeltaStart,msDeltaEnd,min,max,delayInMilliSec);
+this.filters.push(v);
+}
+public jumpBetween(msDeltaStart :number,msDeltaEnd :number,pointOne :number=1, pointTwo :number=10,delayInMilliSec :number=0){
+    const v = new JumpBetween(msDeltaStart,msDeltaEnd,pointOne, pointTwo,delayInMilliSec);
+    this.filters.push(v);
+}
 
-// public jumpBetween(startTimeSec :number,endTimeSec :number,pointOne :number=1, pointTwo :number=10,everyXFrame :number=0){
-//     const v = new JumpBetween(startTimeSec,endTimeSec,pointOne, pointTwo,everyXFrame);
-//     this.filters.push(v);
-// }
-
-// public random(startTimeSec :number,endTimeSec :number,min :number=0, max :number=100,everyXFrame :number=0){
-// const v = new RandomNo(startTimeSec,endTimeSec,min, max,everyXFrame);
-// this.filters.push(v);
-// }
-// public oscillate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
-// const v = new Oscillate(startTimeSec,endTimeSec,startValue, endValue,speed);
-// this.filters.push(v);
-// }
+public oscillate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
+const v = new Oscillate(startTimeSec,endTimeSec,startValue, endValue,speed);
+this.filters.push(v);
+}
 
 } 

@@ -13,5 +13,6 @@ export default class AniNumber {
     goto(msDelta: number, value?: number): void;
     animate(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number): void;
     vibrate(msDeltaStart: number, msDeltaEnd: number, offset?: number, delayInMilliSec?: number): void;
+    random(msDeltaStart: number, msDeltaEnd: number, min?: number, max?: number, delayInMilliSec?: number): void;
 }
 //# sourceMappingURL=aniNumber.d.ts.map

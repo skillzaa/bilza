@@ -1,32 +1,20 @@
-import IFilter from "./IFilter.js";
+import BaseFilter from "../baseFilter";
 
-export default class Decrement implements IFilter{
-    
-protected  _ret_val :number | null;
-
-protected  msDeltaStart :number;
-protected  msDeltaEnd :number;
+export default class Decrement extends BaseFilter{
 
 protected  startValue :number;
 protected  endValue :number;
 
 protected Xdiff :number;
 protected  timeDiff :number;
-//msDeltaStart wil be +1 than actual and msDeltaend will be -1 from actual--???? am not usre if thisis good design.
+
 constructor(msDeltaStart :number,msDeltaEnd :number,startValue :number,endValue :number){
-
-if (msDeltaStart < 0 || msDeltaEnd < 0 ){throw new Error("time can not be negative");}
-
-if (msDeltaEnd <= msDeltaStart ){throw new Error("end Time can not be equal or smaller than start time");}    
-
+super(msDeltaStart,msDeltaEnd);
 
 if ( startValue  <= endValue  ){throw new Error("end value can not be equal to or larger than start value in an decrement operation");}    
 
 //--it can be in decrement op but not in increment op.
 if ( startValue < 0 ){throw new Error("start value can not be less than zero in decrement operation");}    
-
-this.msDeltaStart = msDeltaStart ; 
-this.msDeltaEnd = msDeltaEnd; 
 
 //------------------------------------
 this.startValue = startValue; 
@@ -36,8 +24,6 @@ this.timeDiff = Math.abs(this.msDeltaStart - this.msDeltaEnd) ;
 this.Xdiff = Math.abs( this.startValue - this.endValue );
 //------------------------------------
 
-this._ret_val = null;
-//--------------------------------
 }
 
 

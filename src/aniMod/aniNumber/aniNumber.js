@@ -1,5 +1,7 @@
 import Increment from "./increment.js";
 import Decrement from "./decrement.js";
+import Vibrate from "./vibrate.js";
+import RandomNo from "./randomNo.js";
 import GotoData from "./gotoData.js";
 export default class AniNumber {
     constructor(initialValue = 0, minValue = 0, maxValue = 100) {
@@ -72,6 +74,10 @@ export default class AniNumber {
     }
     vibrate(msDeltaStart, msDeltaEnd, offset = 10, delayInMilliSec = 100) {
         const v = new Vibrate(msDeltaStart, msDeltaEnd, offset, delayInMilliSec);
+        this.filters.push(v);
+    }
+    random(msDeltaStart, msDeltaEnd, min = 0, max = 100, delayInMilliSec = 0) {
+        const v = new RandomNo(msDeltaStart, msDeltaEnd, min, max, delayInMilliSec);
         this.filters.push(v);
     }
 }
