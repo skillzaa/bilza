@@ -1,6 +1,6 @@
 // import AniProp from "../animationDesign/aniProp.js";
 import AniNumber from "../aniNumber/aniNumber.js";
- 
+  
 import PreInitGoto from "./designNoPerc/preInitGoto.js";
 import PreInitAnimate from "./designNoPerc/preInitAnimate.js";
 import PreInitVibrate from "./designNoPerc/preInitVibrate.js";

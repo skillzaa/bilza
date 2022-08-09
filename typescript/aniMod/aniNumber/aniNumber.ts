@@ -124,8 +124,8 @@ public jumpBetween(msDeltaStart :number,msDeltaEnd :number,pointOne :number=1, p
     this.filters.push(v);
 }
 
-public oscillate(startTimeSec :number,endTimeSec :number,startValue :number=1, endValue :number=10,speed :number= 1){
-const v = new Oscillate(startTimeSec,endTimeSec,startValue, endValue,speed);
+public oscillate(msDeltaStart :number,msDeltaEnd :number,startValue :number=1, endValue :number=10,speed :number= 1){
+const v = new Oscillate(msDeltaStart,msDeltaEnd,startValue, endValue,speed);
 this.filters.push(v);
 }
 
