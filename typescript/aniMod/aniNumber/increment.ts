@@ -1,4 +1,4 @@
-import BaseFilter from "../baseFilter";
+import BaseFilter from "../baseFilter.js";
 
 export default class Increment extends BaseFilter{
     

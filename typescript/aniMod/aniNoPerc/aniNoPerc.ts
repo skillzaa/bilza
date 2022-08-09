@@ -151,11 +151,11 @@ for (let i = 0; i < this.preInitGotos.length; i++) {
 initAnimate(){
 for (let i = 0; i < this.preInitAnimates.length; i++) {
     const e= this.preInitAnimates[i];
-        if ( this.usePercentages == true){
-            super.animate(e.msDeltaStart,e.msDeltaEnd,this.percToPix(e.startValue),this.percToPix(e.endValue));
-        }else {
-            super.animate(e.msDeltaStart,e.msDeltaEnd, e.startValue, e.endValue);
-        }
+    if ( this.usePercentages == true){
+        super.animate(e.msDeltaStart,e.msDeltaEnd,this.percToPix(e.startValue),this.percToPix(e.endValue));
+    }else {
+        super.animate(e.msDeltaStart,e.msDeltaEnd, e.startValue, e.endValue);
+    }
 }      
 }
 //----------------------------------------------------------

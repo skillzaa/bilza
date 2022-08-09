@@ -14,5 +14,7 @@ export default class AniNumber {
     animate(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number): void;
     vibrate(msDeltaStart: number, msDeltaEnd: number, offset?: number, delayInMilliSec?: number): void;
     random(msDeltaStart: number, msDeltaEnd: number, min?: number, max?: number, delayInMilliSec?: number): void;
+    jumpBetween(msDeltaStart: number, msDeltaEnd: number, pointOne?: number, pointTwo?: number, delayInMilliSec?: number): void;
+    oscillate(msDeltaStart: number, msDeltaEnd: number, startValue?: number, endValue?: number, speed?: number): void;
 }
 //# sourceMappingURL=aniNumber.d.ts.map

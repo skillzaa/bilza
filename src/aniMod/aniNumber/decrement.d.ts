@@ -1,4 +1,4 @@
-import BaseFilter from "../baseFilter";
+import BaseFilter from "../baseFilter.js";
 export default class Decrement extends BaseFilter {
     protected startValue: number;
     protected endValue: number;

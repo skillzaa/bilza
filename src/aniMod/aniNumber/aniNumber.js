@@ -2,6 +2,8 @@ import Increment from "./increment.js";
 import Decrement from "./decrement.js";
 import Vibrate from "./vibrate.js";
 import RandomNo from "./randomNo.js";
+import JumpBetween from "./jumpBetween.js";
+import Oscillate from "./oscillate.js";
 import GotoData from "./gotoData.js";
 export default class AniNumber {
     constructor(initialValue = 0, minValue = 0, maxValue = 100) {
@@ -78,6 +80,14 @@ export default class AniNumber {
     }
     random(msDeltaStart, msDeltaEnd, min = 0, max = 100, delayInMilliSec = 0) {
         const v = new RandomNo(msDeltaStart, msDeltaEnd, min, max, delayInMilliSec);
+        this.filters.push(v);
+    }
+    jumpBetween(msDeltaStart, msDeltaEnd, pointOne = 1, pointTwo = 10, delayInMilliSec = 0) {
+        const v = new JumpBetween(msDeltaStart, msDeltaEnd, pointOne, pointTwo, delayInMilliSec);
+        this.filters.push(v);
+    }
+    oscillate(msDeltaStart, msDeltaEnd, startValue = 1, endValue = 10, speed = 1) {
+        const v = new Oscillate(msDeltaStart, msDeltaEnd, startValue, endValue, speed);
         this.filters.push(v);
     }
 }
