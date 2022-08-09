@@ -7,7 +7,7 @@ export default class Oscillate extends BaseFilter {
         this.addSub = true;
         this.speed = speed;
     }
-    value(msDelta, baseGotoValue) {
+    update(msDelta, baseGotoValue) {
         if (this._ret_val == null) {
             this._ret_val = this.startValue;
         }
@@ -23,6 +23,6 @@ export default class Oscillate extends BaseFilter {
         else {
             this._ret_val -= this.speed;
         }
-        return this._ret_val;
+        return true;
     }
 }

@@ -5,7 +5,8 @@ export default class RandomNo extends BaseFilter {
         this.min = min;
         this.max = max;
     }
-    value(msDelta, baseGotoValue) {
-        return Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+    update(msDelta, baseGotoValue) {
+        this._ret_val = Math.floor(Math.random() * (this.max - this.min + 1) + this.min);
+        return true;
     }
 }

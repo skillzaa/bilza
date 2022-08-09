@@ -14,15 +14,16 @@ export default class AniNumber {
         this.gotoArray = [];
         this.filters = [];
     }
-    value(msDelta) {
+    update(msDelta) {
         this._value = this.defaultValue;
         const baseGotoValue = this.getBaseGotoValue(msDelta);
         if (typeof baseGotoValue == "number") {
             this._value = baseGotoValue;
         }
         this._value = this.runFilters(msDelta, this._value);
-        return this._value;
+        return true;
     }
+    value() { return this._value; }
     runFilters(msDelta, baseGotoValue) {
         let rez = baseGotoValue;
         for (let i = 0; i < this.filters.length; i++) {
@@ -30,7 +31,8 @@ export default class AniNumber {
             if (ani.qualifyToRun(msDelta) == false) {
                 continue;
             }
-            let v = ani.value(msDelta, rez);
+            ani.update(msDelta, rez);
+            let v = ani.value();
             if (v != null) {
                 rez = v;
             }

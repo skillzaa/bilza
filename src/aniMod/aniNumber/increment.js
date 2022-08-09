@@ -10,12 +10,12 @@ export default class Increment extends BaseFilter {
         this.timeDiff = Math.abs(this.msDeltaEnd - this.msDeltaStart);
         this.Xdiff = Math.abs(this.startValue - this.endValue);
     }
-    value(msDelta, baseGotoValue = 0) {
+    update(msDelta, baseGotoValue = 0) {
         const timeLapsed = Math.ceil(msDelta - this.msDeltaStart);
         const timeLapPercent = (timeLapsed / (this.timeDiff)) * 100;
         const distanceLapsed = (this.Xdiff / 100) * timeLapPercent;
         this._ret_val = baseGotoValue + parseFloat(distanceLapsed.toFixed(2));
-        return this._ret_val;
+        return true;
     }
     qualifyToRun(msDelta) {
         if (msDelta < this.msDeltaStart || msDelta > this.msDeltaEnd) {

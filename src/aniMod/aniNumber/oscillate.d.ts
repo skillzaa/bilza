@@ -5,6 +5,6 @@ export default class Oscillate extends BaseFilter {
     private speed;
     private addSub;
     constructor(msDeltaStart: number, msDeltaEnd: number, startValue?: number, endValue?: number, speed?: number, delayInMS?: number);
-    value(msDelta: number, baseGotoValue?: number): number | null;
+    update(msDelta: number, baseGotoValue?: number): boolean;
 }
 //# sourceMappingURL=oscillate.d.ts.map

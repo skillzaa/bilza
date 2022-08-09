@@ -27,7 +27,7 @@ this.Xdiff = Math.abs( this.startValue - this.endValue );
 }
 
 
-public value(msDelta :number,baseGotoValue :number=0):number | null{
+public update(msDelta :number,baseGotoValue :number=0):boolean{
     
 const timeLapsed = Math.ceil(msDelta - this.msDeltaStart);
 const timeLapPercent = (timeLapsed/(this.timeDiff)) * 100;
@@ -37,7 +37,7 @@ const distanceLapsed =  (this.Xdiff/100) * timeLapPercDecrement;
 
 // this._ret_val = this.startValue + distanceLapsed;
 this._ret_val = Math.ceil(this.endValue + distanceLapsed);
-return this._ret_val;
+return true;
 }
 public qualifyToRun(msDelta :number):boolean{
 if (msDelta < this.msDeltaStart || msDelta > this.msDeltaEnd ) {

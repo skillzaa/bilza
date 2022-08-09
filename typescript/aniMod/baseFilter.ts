@@ -23,8 +23,12 @@ this._ret_val = null;
 }
 
 //--why return number | null??;
-public value(msDelta :number,baseGotoValue :number=0):number | null{
+public update(msDelta :number,baseGotoValue :number=0):boolean{
 
+return  true;
+}
+
+public value():number | null{
 return  this._ret_val;
 }
 public qualifyToRun(msDelta :number):boolean{

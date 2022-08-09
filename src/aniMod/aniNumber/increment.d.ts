@@ -5,7 +5,7 @@ export default class Increment extends BaseFilter {
     protected Xdiff: number;
     protected timeDiff: number;
     constructor(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number);
-    value(msDelta: number, baseGotoValue?: number): number | null;
+    update(msDelta: number, baseGotoValue?: number): boolean;
     qualifyToRun(msDelta: number): boolean;
 }
 //# sourceMappingURL=increment.d.ts.map

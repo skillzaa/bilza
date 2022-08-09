@@ -13,13 +13,13 @@ export default class Decrement extends BaseFilter {
         this.timeDiff = Math.abs(this.msDeltaStart - this.msDeltaEnd);
         this.Xdiff = Math.abs(this.startValue - this.endValue);
     }
-    value(msDelta, baseGotoValue = 0) {
+    update(msDelta, baseGotoValue = 0) {
         const timeLapsed = Math.ceil(msDelta - this.msDeltaStart);
         const timeLapPercent = (timeLapsed / (this.timeDiff)) * 100;
         const timeLapPercDecrement = Math.abs(100 - timeLapPercent);
         const distanceLapsed = (this.Xdiff / 100) * timeLapPercDecrement;
         this._ret_val = Math.ceil(this.endValue + distanceLapsed);
-        return this._ret_val;
+        return true;
     }
     qualifyToRun(msDelta) {
         if (msDelta < this.msDeltaStart || msDelta > this.msDeltaEnd) {

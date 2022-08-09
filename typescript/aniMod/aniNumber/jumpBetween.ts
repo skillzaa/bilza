@@ -13,13 +13,14 @@ this.pointOne = pointOne;
 this.pointTwo = pointTwo;
 }
 
-public value(msDelta: number, baseGotoValue: number): number | null {
+public update(msDelta: number, baseGotoValue: number): boolean {
     
     if (baseGotoValue !== this.pointOne){
-        return this.pointOne;
+        this._ret_val =  this.pointOne;
     }else {
-        return this.pointTwo;
-    }    
+        this._ret_val =  this.pointTwo;
+    }  
+return true;      
 }
 
 }

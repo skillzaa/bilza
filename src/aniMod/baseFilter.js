@@ -12,7 +12,10 @@ export default class BaseFilter {
         this.msDeltaEnd = msDeltaEnd;
         this._ret_val = null;
     }
-    value(msDelta, baseGotoValue = 0) {
+    update(msDelta, baseGotoValue = 0) {
+        return true;
+    }
+    value() {
         return this._ret_val;
     }
     qualifyToRun(msDelta) {

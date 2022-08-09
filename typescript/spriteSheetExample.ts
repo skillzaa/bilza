@@ -39,8 +39,8 @@ bil.insert.add(emoji,0,60);
 
 emoji.x.animate(0,10,0,50);
 emoji.y.animate(0,10,0,50);
-emoji.y.vibrate(12,20,50,4,5);
-emoji.x.vibrate(12,20,50,4,5);
+emoji.y.vibrate(12,20,4,5);
+emoji.x.vibrate(12,20,4,5);
 
 emoji.rotation.animate(22,30,0,1000);
 emoji.rotation.goto(30,0);

@@ -6,7 +6,8 @@ export default class BaseFilter implements IFilter {
     private delayInMS;
     private delayInMSCounter;
     constructor(msDeltaStart: number, msDeltaEnd: number, delayInMS?: number);
-    value(msDelta: number, baseGotoValue?: number): number | null;
+    update(msDelta: number, baseGotoValue?: number): boolean;
+    value(): number | null;
     qualifyToRun(msDelta: number): boolean;
     protected xFramesSkipped(msDelta: number): boolean;
 }

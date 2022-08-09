@@ -27,7 +27,7 @@ this.gotoArray  = [];
 this.filters  = []; 
 }
 
-public value(msDelta :number):number{
+public update(msDelta :number):boolean{
 //---STEP-ONE -Every time value is calc from default value    
 this._value = this.defaultValue; 
 
@@ -40,8 +40,10 @@ if (typeof baseGotoValue == "number"){
 //---step-three - runFilters will alwys return number either change it or not
 this._value = this.runFilters(msDelta , this._value);
 //------------------------------------------
-return this._value;
+return true;
 }
+//---value
+value():number {return this._value;}
 /**
  * 9-aug-2022
  * runFilters will take in baseGotoValue and return (always) a number either the same baseGotoValue or change it depending upon what the filters do.
@@ -56,7 +58,8 @@ let rez  =  baseGotoValue;
     for (let i = 0; i < this.filters.length; i++) {
         const ani = this.filters[i];
         if (ani.qualifyToRun(msDelta) == false) {continue;}
-        let v  = ani.value(msDelta,rez); 
+        ani.update(msDelta,rez); 
+        let v  = ani.value(); 
             if ( v != null){
                 rez = v;
             }

@@ -11,8 +11,9 @@ this.min = min;
 this.max = max;
 }
 
-public value(msDelta: number, baseGotoValue?: number): number | null {
-return  Math.floor(Math.random()*(this.max - this.min + 1) + this.min);
+public update(msDelta: number, baseGotoValue?: number): boolean {
+this._ret_val =   Math.floor(Math.random()*(this.max - this.min + 1) + this.min);
+return true;
 }
 
 }

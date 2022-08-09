@@ -10,13 +10,13 @@ super(msDeltaStart,msDeltaEnd,delayInMS);
 this.offset = offset;
 }
 
-public value(msDelta: number, baseGotoValue: number): number | null {
+public update(msDelta: number, baseGotoValue: number): boolean {
     if (Math.random() > 0.5){
         this._ret_val =    baseGotoValue + this.offset; 
     }else {
         this._ret_val =    baseGotoValue - this.offset;        
     }    
-    return this._ret_val;    
+    return true;    
 }
 
 }

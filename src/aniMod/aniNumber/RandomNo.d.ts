@@ -3,6 +3,6 @@ export default class RandomNo extends BaseFilter {
     private min;
     private max;
     constructor(msDeltaStart: number, msDeltaEnd: number, min?: number, max?: number, delayInMS?: number);
-    value(msDelta: number, baseGotoValue?: number): number | null;
+    update(msDelta: number, baseGotoValue?: number): boolean;
 }
 //# sourceMappingURL=randomNo.d.ts.map

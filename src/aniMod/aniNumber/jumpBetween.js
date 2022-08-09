@@ -5,12 +5,13 @@ export default class JumpBetween extends BaseFilter {
         this.pointOne = pointOne;
         this.pointTwo = pointTwo;
     }
-    value(msDelta, baseGotoValue) {
+    update(msDelta, baseGotoValue) {
         if (baseGotoValue !== this.pointOne) {
-            return this.pointOne;
+            this._ret_val = this.pointOne;
         }
         else {
-            return this.pointTwo;
+            this._ret_val = this.pointTwo;
         }
+        return true;
     }
 }

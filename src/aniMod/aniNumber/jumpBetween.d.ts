@@ -3,6 +3,6 @@ export default class JumpBetween extends BaseFilter {
     private pointOne;
     private pointTwo;
     constructor(msDeltaStart: number, msDeltaEnd: number, pointOne?: number, pointTwo?: number, delayInMS?: number);
-    value(msDelta: number, baseGotoValue: number): number | null;
+    update(msDelta: number, baseGotoValue: number): boolean;
 }
 //# sourceMappingURL=jumpBetween.d.ts.map

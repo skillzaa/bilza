@@ -4,13 +4,13 @@ export default class Vibrate extends BaseFilter {
         super(msDeltaStart, msDeltaEnd, delayInMS);
         this.offset = offset;
     }
-    value(msDelta, baseGotoValue) {
+    update(msDelta, baseGotoValue) {
         if (Math.random() > 0.5) {
             this._ret_val = baseGotoValue + this.offset;
         }
         else {
             this._ret_val = baseGotoValue - this.offset;
         }
-        return this._ret_val;
+        return true;
     }
 }

@@ -25,8 +25,8 @@ this.x.random(startTimeSec,endTimeSec,Xmin,Xmax,skipXFrames);
 this.y.random(startTimeSec,endTimeSec,Ymin,Ymax,skipXFrames);
 }
 public vibrate(from: number, to: number, x: number,y: number, offset: number, delay: number): void {
-    this.x.vibrate(from,to,x,offset,delay);
-    this.y.vibrate(from,to,y,offset,delay);
+    this.x.vibrate(from,to,offset,delay);
+    this.y.vibrate(from,to,offset,delay);
 }
 goto(atFrame: number, x: number, y: number): boolean {
 this.x.goto(atFrame,x);

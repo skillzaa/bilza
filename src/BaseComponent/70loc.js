@@ -12,8 +12,8 @@ export default class Loc extends WidthHeight {
         this.y.random(startTimeSec, endTimeSec, Ymin, Ymax, skipXFrames);
     }
     vibrate(from, to, x, y, offset, delay) {
-        this.x.vibrate(from, to, x, offset, delay);
-        this.y.vibrate(from, to, y, offset, delay);
+        this.x.vibrate(from, to, offset, delay);
+        this.y.vibrate(from, to, offset, delay);
     }
     goto(atFrame, x, y) {
         this.x.goto(atFrame, x);

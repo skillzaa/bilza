@@ -1,6 +1,7 @@
 
 
 export default interface IFilter {
-    value(msDelta :number,oldValue :number): null | number; 
+    value(): null | number; 
+    update(msDelta :number,oldValue :number): boolean; 
     qualifyToRun(msDelta :number):boolean; 
 }

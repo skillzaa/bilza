@@ -16,7 +16,7 @@ this.addSub = true;
 this.speed = speed;
 }
 
-public value(msDelta: number, baseGotoValue?: number): number | null {
+public update(msDelta: number, baseGotoValue?: number): boolean {
      //--should happen just once
      if (this._ret_val == null){
         this._ret_val = this.startValue;
@@ -34,7 +34,7 @@ public value(msDelta: number, baseGotoValue?: number): number | null {
     }else {
         this._ret_val -= this.speed; 
     }
-return this._ret_val;    
+return true;    
 }
 
 }
