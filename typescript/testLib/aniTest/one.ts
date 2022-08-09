@@ -19,9 +19,25 @@ tst.toEqual(aniNo.value(7000) , 100, "aniNo.value(7000)-goto(6500,100)");
 
 ///////////////////////////////////////////
 const aniNo02 = new AniNumber(0);
+aniNo02.animate(0,10000,0, 1000);//increment
 
-aniNo02.goto(2000,10);
-aniNo02.animate(3000,6000,20,220);
+tst.toEqual(aniNo02.value(0) , 0, "aniNo02");
+tst.approxEqual(aniNo02.value(2500) , 250,1, "aniNo02");
 
-tst.toEqual(aniNo02.value(3000) , 20, "aniNo02.value(3000) , 20");
-tst.isGreaterThan(aniNo02.value(3001) , 20, "aniNo02.value(3000) , 20");
+tst.toEqual(aniNo02.value(5000) , 500, "aniNo02");
+
+tst.approxEqual(aniNo02.value(7500) , 750,1, "aniNo02");
+tst.toEqual(aniNo02.value(10000) , 1000, "aniNo02");
+
+//-----------------------------------------decrement
+const aniNo03 = new AniNumber(0);
+aniNo03.animate(0,10000,1000,0);//decrement
+
+tst.toEqual(aniNo03.value(0) , 1000, "aniNo03");
+tst.toEqual(aniNo03.value(2500) , 750, "aniNo03");
+
+tst.toEqual(aniNo03.value(5000) , 500, "aniNo03");
+
+tst.toEqual(aniNo03.value(7500) , 250, "aniNo03");
+tst.toEqual(aniNo03.value(10000) , 0, "aniNo03");
+//--------------------------------------------------

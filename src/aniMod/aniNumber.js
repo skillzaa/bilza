@@ -1,4 +1,5 @@
 import Increment from "./increment.js";
+import Decrement from "./decrement.js";
 import GotoData from "./gotoData.js";
 export default class AniNumber {
     constructor(initialValue = 0, minValue = 0, maxValue = 100) {
@@ -14,12 +15,23 @@ export default class AniNumber {
         const baseGotoValue = this.getBaseGotoValue(msDelta);
         if (typeof baseGotoValue == "number") {
             this._value = baseGotoValue;
-            const runFilters = this.runFilters(msDelta, baseGotoValue);
-            if (typeof runFilters == "number") {
-                this._value = runFilters;
+        }
+        this._value = this.runFilters(msDelta, this._value);
+        return this._value;
+    }
+    runFilters(msDelta, baseGotoValue) {
+        let rez = baseGotoValue;
+        for (let i = 0; i < this.filters.length; i++) {
+            const ani = this.filters[i];
+            if (ani.qualifyToRun(msDelta) == false) {
+                continue;
+            }
+            let v = ani.value(msDelta, rez);
+            if (v != null) {
+                rez = v;
             }
         }
-        return this._value;
+        return rez;
     }
     getBaseGotoValue(msDelta) {
         if (this.gotoArray.length < 1) {
@@ -46,15 +58,6 @@ export default class AniNumber {
         const v = new GotoData(msDelta, value);
         this.gotoArray.push(v);
     }
-    runFilters(msDelta, baseGotoValue) {
-        for (let i = 0; i < this.filters.length; i++) {
-            const ani = this.filters[i];
-            let v = ani.value(msDelta, baseGotoValue);
-            if (v != null) {
-                this._value = v;
-            }
-        }
-    }
     animate(msDeltaStart, msDeltaEnd, startValue, endValue) {
         if (startValue < endValue) {
             this.goto(msDeltaStart, startValue);
@@ -63,6 +66,8 @@ export default class AniNumber {
             this.filters.push(c);
         }
         else if (startValue > endValue) {
+            let c = new Decrement(msDeltaStart, msDeltaEnd, startValue, endValue);
+            this.filters.push(c);
         }
     }
 }

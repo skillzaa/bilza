@@ -1,5 +1,6 @@
 // import AniProp from "../animationDesign/aniProp.js";
 import Increment from "./increment.js";
+import Decrement from "./decrement.js";
 // import Decrement from "./filters/decrement.js";
 // import Vibrate from "./filters/vibrate.js";
 // import JumpBetween from "./filters/jumpBetween.js";
@@ -29,28 +30,43 @@ this.maxValue  = maxValue;
 this.gotoArray  = []; 
 this.filters  = []; 
 }
-// update(msDelta :number):boolean{
-// this.runFilters(msDelta);
-// return true;    
-// }
+
+
 public value(msDelta :number):number{
-//---Every time value is calc from default value    
-this._value = this.defaultValue;    
-//--------This is where the animation happen
-//---STEP-ONE-if has base goto apply that
+//---STEP-ONE -Every time value is calc from default value    
+this._value = this.defaultValue; 
+
+//---STEP-TWO-if has base goto apply that
 const baseGotoValue = this.getBaseGotoValue(msDelta);
 if (typeof baseGotoValue == "number"){
-    this._value = baseGotoValue;
-    
-    const runFilters = this.runFilters(msDelta , baseGotoValue);
-
-    if (typeof runFilters == "number"){
-        this._value = runFilters;
-    }
+    this._value = baseGotoValue;   
 }
 
+//---step-three - runFilters will alwys return number either change it or not
+this._value = this.runFilters(msDelta , this._value);
 //------------------------------------------
 return this._value;
+}
+/**
+ * 9-aug-2022
+ * runFilters will take in baseGotoValue and return (always) a number either the same baseGotoValue or change it depending upon what the filters do.
+ * It will run all the filters which qualifyToRun() feeding the first one baseGotoValue and the next one what ever is the outcome of the prev iteration. 
+ * The last and final result is returned.
+ * The IFilter value() return number | null;--> When a filter qualify to run but do not want its result to be counted in (for some reason). In that case the filter value() can return null which will not be included at aniNumber.runFilters().
+ * Why returning a null is better:: We can also make the filter return the oldValue (since ever filter gets the previous value which it can either take into considereation or not) BUT in that case the return value may get changed unintentionally so returning a null is better.
+ */
+private runFilters(msDelta :number , baseGotoValue :number):number{
+let rez  =  baseGotoValue;
+
+    for (let i = 0; i < this.filters.length; i++) {
+        const ani = this.filters[i];
+        if (ani.qualifyToRun(msDelta) == false) {continue;}
+        let v  = ani.value(msDelta,rez); 
+            if ( v != null){
+                rez = v;
+            }
+} 
+return rez;
 }
 
 private getBaseGotoValue(msDelta :number):number | null{
@@ -81,16 +97,6 @@ public goto(msDelta :number,value :number=0){
     const v = new GotoData(msDelta,value);
     this.gotoArray.push(v);
 }
-private runFilters(msDelta :number , baseGotoValue :number){
-    for (let i = 0; i < this.filters.length; i++) {
-        const ani = this.filters[i];
-
-        let v  = ani.value(msDelta,baseGotoValue); 
-            if ( v != null){
-                this._value = v;
-            }
-} 
-}
 
 public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endValue :number){
     if (startValue < endValue ){
@@ -99,8 +105,8 @@ public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endVal
         let c = new Increment(msDeltaStart + 1,msDeltaEnd -1,startValue,endValue);
         this.filters.push(c);
     }else if (startValue > endValue){
-        // let c = new Decrement(from,to,startValue,endValue);
-        // this.filters.push(c);
+        let c = new Decrement(msDeltaStart,msDeltaEnd,startValue,endValue);
+        this.filters.push(c);
     }
     // else if (startValue == endValue){
     //     let c = new ConstantNo(from,to,startValue);

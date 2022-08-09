@@ -1,1 +1,1 @@
-{"version":3,"file":"IFilter.d.ts","sourceRoot":"","sources":["../../typescript/aniMod/IFilter.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,WAAW,OAAO;IAC5B,KAAK,CAAC,OAAO,EAAE,MAAM,EAAC,QAAQ,EAAE,MAAM,GAAG,IAAI,GAAG,MAAM,CAAC;CAC1D"}
+{"version":3,"file":"IFilter.d.ts","sourceRoot":"","sources":["../../typescript/aniMod/IFilter.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,WAAW,OAAO;IAC5B,KAAK,CAAC,OAAO,EAAE,MAAM,EAAC,QAAQ,EAAE,MAAM,GAAG,IAAI,GAAG,MAAM,CAAC;IACvD,YAAY,CAAC,OAAO,EAAE,MAAM,GAAE,OAAO,CAAC;CACzC"}

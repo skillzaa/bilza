@@ -1,5 +1,5 @@
 import IFilter from "./IFilter.js";
-export default class Increment implements IFilter {
+export default class Decrement implements IFilter {
     protected _ret_val: number | null;
     protected msDeltaStart: number;
     protected msDeltaEnd: number;
@@ -11,4 +11,4 @@ export default class Increment implements IFilter {
     value(msDelta: number, baseGotoValue?: number): number | null;
     qualifyToRun(msDelta: number): boolean;
 }
-//# sourceMappingURL=increment.d.ts.map
+//# sourceMappingURL=decrement.d.ts.map

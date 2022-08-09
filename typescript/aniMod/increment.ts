@@ -41,19 +41,24 @@ this._ret_val = null;
 //--------------------------------
 }
 
-
+//--why return number | null??;
 public value(msDelta :number,baseGotoValue :number=0):number | null{
 //----safety    
-if (msDelta < this.msDeltaStart || msDelta > this.msDeltaEnd ) {
-return null;
-}
 
 const timeLapsed = Math.ceil(msDelta - this.msDeltaStart);
 const timeLapPercent = (timeLapsed/(this.timeDiff)) * 100;
-const distanceLapsed =  (this.Xdiff/100) * timeLapPercent;
-this._ret_val = baseGotoValue + distanceLapsed;
+const distanceLapsed = (this.Xdiff/100) * timeLapPercent;
+this._ret_val = baseGotoValue + parseFloat(distanceLapsed.toFixed(2));
 
 return  this._ret_val;
 }
+public qualifyToRun(msDelta :number):boolean{
+if (msDelta < this.msDeltaStart || msDelta > this.msDeltaEnd ) {
+            return false;
+        }else { 
+            return true;
+        }    
+}
+
 
 }

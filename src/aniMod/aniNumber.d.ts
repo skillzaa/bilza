@@ -7,10 +7,10 @@ export default class AniNumber {
     readonly maxValue: number;
     constructor(initialValue?: number, minValue?: number, maxValue?: number);
     value(msDelta: number): number;
+    private runFilters;
     private getBaseGotoValue;
     set(n: number): number;
     goto(msDelta: number, value?: number): void;
-    private runFilters;
     animate(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number): void;
 }
 //# sourceMappingURL=aniNumber.d.ts.map
