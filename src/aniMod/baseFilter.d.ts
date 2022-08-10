@@ -10,5 +10,7 @@ export default class BaseFilter implements IFilter<number> {
     value(): number | null;
     qualifyToRun(msDelta: number): boolean;
     protected xFramesSkipped(msDelta: number): boolean;
+    init(canvasWidthHeight: number): boolean;
+    protected percToPix(canvasWidthHeight: number, perc: number): number;
 }
 //# sourceMappingURL=baseFilter.d.ts.map

@@ -99,7 +99,7 @@ constructor(){
     
     this.rotation = new AniNumber(0);
     this.opacity = new AniNumber(100);
-    
+
     this.color = new AniColor("#000000");
     //--there is no this.endTime --since has this.endTime()
     //--must
@@ -138,17 +138,23 @@ this.showBackground = new AniBoolean(false);
 //////////////////////////////////////////
 //////////////////////////////////////////
 //////////////////////////////////////////
-setResponsivePadding(tf :boolean=false){
+setResponsivePadding(tf :boolean=false):boolean{
 this.paddingTop = new AniNumber(0,tf);
 this.paddingBottom = new AniNumber(0,tf); 
 this.paddingRight = new AniNumber(0,tf);;
 this.paddingLeft  = new AniNumber(0,tf);
+return tf;
 }
-setResponsiveCoordinates(tf :boolean=true){
+setResponsiveCoordinates(tf :boolean=true):boolean{
 this.x = new AniNumber(0,tf);
 this.y = new AniNumber(0,tf);
+return tf;
 }
-setResponsiveDims(tf :boolean=true){
+setResponsiveDims(tf :boolean=true):boolean{
 this.responsiveDims = tf;
+return tf;
 }
+//setResponsivePadding
+//setResponsiveDims
+//setResponsiveCoordinates
 }//claass

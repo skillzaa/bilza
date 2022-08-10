@@ -10,6 +10,6 @@ export default class AniProp<T> {
     set(n: T): T;
     private runFilters;
     private getBaseGotoValue;
-    goto(msDelta: number, value: T): void;
+    goto(msDelta: number, value: T): boolean;
 }
 //# sourceMappingURL=aniProp.d.ts.map

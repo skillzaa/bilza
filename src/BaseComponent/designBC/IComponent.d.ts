@@ -9,8 +9,9 @@ export default interface IComponent {
     width: AniNumber;
     height: AniNumber;
     style: Style;
-    responsiveCoordinates: boolean;
-    responsivePadding: boolean;
+    setResponsivePadding(tf: boolean): boolean;
+    setResponsiveDims(tf: boolean): boolean;
+    setResponsiveCoordinates(tf: boolean): boolean;
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;

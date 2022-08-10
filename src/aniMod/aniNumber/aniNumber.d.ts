@@ -2,7 +2,14 @@ import AniProp from "../aniProp/aniProp.js";
 export default class AniNumber extends AniProp<number> {
     readonly minValue: number;
     readonly maxValue: number;
-    constructor(initialValue?: number, minValue?: number, maxValue?: number);
+    protected canvasWidthHeight: null | number;
+    protected responsive: boolean;
+    constructor(initialValue?: number, responsive?: boolean, minValue?: number, maxValue?: number);
+    setResponsive(r: boolean): boolean;
+    init(canvasWidthHeight: number): void;
+    private initGoto;
+    private initSet;
+    private percToPix;
     animate(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number): void;
     vibrate(msDeltaStart: number, msDeltaEnd: number, offset?: number, delayInMilliSec?: number): void;
     random(msDeltaStart: number, msDeltaEnd: number, min?: number, max?: number, delayInMilliSec?: number): void;

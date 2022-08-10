@@ -14,4 +14,9 @@ export default class JumpBetween extends BaseFilter {
         }
         return true;
     }
+    init(canvasWidthHeight) {
+        this.pointOne = this.percToPix(canvasWidthHeight, this.pointOne);
+        this.pointTwo = this.percToPix(canvasWidthHeight, this.pointTwo);
+        return true;
+    }
 }

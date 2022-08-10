@@ -29,4 +29,10 @@ export default class BaseFilter {
     xFramesSkipped(msDelta) {
         return true;
     }
+    init(canvasWidthHeight) {
+        return true;
+    }
+    percToPix(canvasWidthHeight, perc) {
+        return ((canvasWidthHeight / 100) * perc);
+    }
 }

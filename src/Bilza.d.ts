@@ -10,7 +10,6 @@ import BaseComponent from "./BaseComponent/00BaseComponent.js";
 import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
 import AniNumber from "./aniMod/aniNumber/aniNumber.js";
-import AniNoPerc from "./aniMod/aniNoPerc/aniNoPerc.js";
 import AniBoolean from "./animations/aniBoolean/aniBoolean.js";
 export default Bilza;
 import AniColor from "./animations/aniColor/aniColor.js";
@@ -22,5 +21,5 @@ import TextTempl from "./compFactory/textTempl.js";
 import PremadeSpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 import SpriteSheet from "./components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "./components/spriteSheet/spriteSheetAlt.js";
-export { Pack, TextTempl, PremadeSpriteSheets, SpriteSheet, SpriteSheetAlt, hsl, DrawLayer, UTFIcons, Experimental, AniNumber, AniNoPerc, AniString, AniBoolean, AniColor, IComponent, Ui, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, };
+export { Pack, TextTempl, PremadeSpriteSheets, SpriteSheet, SpriteSheetAlt, hsl, DrawLayer, UTFIcons, Experimental, AniNumber, AniString, AniBoolean, AniColor, IComponent, Ui, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, };
 //# sourceMappingURL=bilza.d.ts.map

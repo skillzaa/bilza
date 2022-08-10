@@ -7,5 +7,6 @@ export default class Decrement extends BaseFilter {
     constructor(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number);
     update(msDelta: number, baseGotoValue?: number): boolean;
     qualifyToRun(msDelta: number): boolean;
+    init(canvasWidthHeight: number): boolean;
 }
 //# sourceMappingURL=decrement.d.ts.map

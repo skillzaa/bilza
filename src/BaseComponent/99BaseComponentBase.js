@@ -1,4 +1,4 @@
-import { DrawLayer, AniBoolean, AniNumber, AniNoPerc, AniColor } from "../bilza.js";
+import { DrawLayer, AniBoolean, AniNumber, AniColor } from "../bilza.js";
 import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
@@ -12,8 +12,6 @@ export default class BaseComponentBase {
         this.yAlign = this.YAlignOpt.Top;
         this.xRotate = this.XAlignOpt.Left;
         this.yRotate = this.YAlignOpt.Top;
-        this.responsiveCoordinates = true;
-        this.responsivePadding = true;
         this.responsiveDims = true;
         this.interactive = false;
         this.border = new AniNumber(0);
@@ -29,15 +27,34 @@ export default class BaseComponentBase {
         this.canvasHeight = null;
         this.selected = false;
         this.visible = new AniBoolean(true);
-        this.x = new AniNoPerc(0);
-        this.y = new AniNoPerc(0);
-        this.paddingTop = new AniNoPerc(0);
-        this.paddingBottom = new AniNoPerc(0);
-        this.paddingRight = new AniNoPerc(0);
-        this.paddingLeft = new AniNoPerc(0);
+        this.x = new AniNumber(0, true);
+        this.y = new AniNumber(0, true);
+        this.paddingTop = new AniNumber(0, false);
+        ;
+        this.paddingBottom = new AniNumber(0, false);
+        this.paddingRight = new AniNumber(0, false);
+        ;
+        this.paddingLeft = new AniNumber(0, false);
         this.border = new AniNumber(0);
         this.colorBackground = new AniColor("#ffffff");
         this.colorBorder = new AniColor("#000000");
         this.showBackground = new AniBoolean(false);
+    }
+    setResponsivePadding(tf = false) {
+        this.paddingTop = new AniNumber(0, tf);
+        this.paddingBottom = new AniNumber(0, tf);
+        this.paddingRight = new AniNumber(0, tf);
+        ;
+        this.paddingLeft = new AniNumber(0, tf);
+        return tf;
+    }
+    setResponsiveCoordinates(tf = true) {
+        this.x = new AniNumber(0, tf);
+        this.y = new AniNumber(0, tf);
+        return tf;
+    }
+    setResponsiveDims(tf = true) {
+        this.responsiveDims = tf;
+        return tf;
     }
 }

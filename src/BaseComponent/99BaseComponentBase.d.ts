@@ -1,4 +1,4 @@
-import { DrawLayer, AniBoolean, AniNumber, AniNoPerc, AniColor } from "../bilza.js";
+import { DrawLayer, AniBoolean, AniNumber, AniColor } from "../bilza.js";
 import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
@@ -10,9 +10,7 @@ export default class BaseComponentBase {
     readonly XAlignOpt: typeof XAlignOpt;
     readonly YAlignOpt: typeof YAlignOpt;
     readonly id: string;
-    responsiveCoordinates: boolean;
-    responsivePadding: boolean;
-    responsiveDims: boolean;
+    private responsiveDims;
     interactive: boolean;
     drawLayer: DrawLayer;
     style: Style;
@@ -26,17 +24,20 @@ export default class BaseComponentBase {
     height: AniNumber;
     selected: boolean;
     border: AniNumber;
-    paddingTop: AniNoPerc;
-    paddingBottom: AniNoPerc;
-    paddingRight: AniNoPerc;
-    paddingLeft: AniNoPerc;
-    x: AniNoPerc;
-    y: AniNoPerc;
+    paddingTop: AniNumber;
+    paddingBottom: AniNumber;
+    paddingRight: AniNumber;
+    paddingLeft: AniNumber;
+    x: AniNumber;
+    y: AniNumber;
     colorBackground: AniColor;
     colorBorder: AniColor;
     showBackground: AniBoolean;
     canvasWidth: number | null;
     canvasHeight: number | null;
     constructor();
+    setResponsivePadding(tf?: boolean): boolean;
+    setResponsiveCoordinates(tf?: boolean): boolean;
+    setResponsiveDims(tf?: boolean): boolean;
 }
 //# sourceMappingURL=99BaseComponentBase.d.ts.map
