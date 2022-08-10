@@ -93,9 +93,11 @@ this.maxValue  = maxValue;
 
 public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endValue :number){
     if (startValue < endValue ){
-        this.goto(msDeltaStart,startValue);
-        this.goto(msDeltaEnd,endValue);
-        let c = new Increment(msDeltaStart + 1,msDeltaEnd -1,startValue,endValue);
+        // This wasted my 2 hours there is no goto in aniNumber but there is one in its child class AniNoProp..so when AniNoProp run initAnimate and call this animate the this.goto again sends it back to AniNoProp where as i required super.goto. 
+        // this.goto(msDeltaStart,startValue);
+        super.goto(msDeltaStart,startValue);
+        super.goto(msDeltaEnd,endValue);
+        let c = new Increment(msDeltaStart,msDeltaEnd,startValue,endValue);
         this.filters.push(c);
     }else if (startValue > endValue){
         let c = new Decrement(msDeltaStart,msDeltaEnd,startValue,endValue);

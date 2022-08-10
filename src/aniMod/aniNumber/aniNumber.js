@@ -13,9 +13,9 @@ export default class AniNumber extends AniProp {
     }
     animate(msDeltaStart, msDeltaEnd, startValue, endValue) {
         if (startValue < endValue) {
-            this.goto(msDeltaStart, startValue);
-            this.goto(msDeltaEnd, endValue);
-            let c = new Increment(msDeltaStart + 1, msDeltaEnd - 1, startValue, endValue);
+            super.goto(msDeltaStart, startValue);
+            super.goto(msDeltaEnd, endValue);
+            let c = new Increment(msDeltaStart, msDeltaEnd, startValue, endValue);
             this.filters.push(c);
         }
         else if (startValue > endValue) {
