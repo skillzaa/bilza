@@ -32,11 +32,12 @@ public update(msDelta :number):boolean{
 //---STEP-1
 const baseGoto = this.getBaseGoto(msDelta);
 //---step-2:get value from AniFilter inside gotoObj
-const ans = baseGoto.applyAniFilter(msDelta);
-// if (ans)
-const gotoAnimated = baseGoto.value + ans; 
+const animatedValue = baseGoto.getAnimatedValue(msDelta);
+
 //---step 3 Apply Filters
 // this._value = this.runFilters(msDelta , this._value);
+//---step 4 Assign the value
+this._value = animatedValue;
 //------------------------------------------
 return true;
 }
@@ -90,20 +91,20 @@ return rez;
 }
 
 
-public goto(msDelta :number,value :T):boolean{
+public goto(msDelta :number,value :T):GotoObj<T>{
 //--first search if the frame already exists or not if it do then dont duplicate
 //--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY
     for (let i = 0; i < this.gotoArray.length; i++) {
         const gotoItem = this.gotoArray[i];
         if (gotoItem.msDelta == msDelta){
             gotoItem.value = value;
-            return false; // goto frame edited and not added
+            return gotoItem; // goto frame edited and not added
         }
     }
     //---write code here.......
     const v = new GotoObj<T>(msDelta,value);
     this.gotoArray.push(v);
-    return true;//// new goto frame ADDED 
+    return v;//// new goto frame ADDED 
 }
 
 

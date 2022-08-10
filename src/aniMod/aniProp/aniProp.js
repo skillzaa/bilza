@@ -8,8 +8,8 @@ export default class AniProp {
     }
     update(msDelta) {
         const baseGoto = this.getBaseGoto(msDelta);
-        const ans = baseGoto.applyAniFilter(msDelta);
-        const gotoAnimated = baseGoto.value + ans;
+        const animatedValue = baseGoto.getAnimatedValue(msDelta);
+        this._value = animatedValue;
         return true;
     }
     value() {
@@ -45,11 +45,11 @@ export default class AniProp {
             const gotoItem = this.gotoArray[i];
             if (gotoItem.msDelta == msDelta) {
                 gotoItem.value = value;
-                return false;
+                return gotoItem;
             }
         }
         const v = new GotoObj(msDelta, value);
         this.gotoArray.push(v);
-        return true;
+        return v;
     }
 }

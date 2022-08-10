@@ -71,13 +71,16 @@ public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endVal
     if (startValue < endValue ){
         // This wasted my 2 hours there is no goto in aniNumber but there is one in its child class AniNoProp..so when AniNoProp run initAnimate and call this animate the this.goto again sends it back to AniNoProp where as i required super.goto. 
         // this.goto(msDeltaStart,startValue);
-        super.goto(msDeltaStart,startValue);
-        super.goto(msDeltaEnd,endValue);
+        const stGoto = super.goto(msDeltaStart,startValue);
+        const endGoto = super.goto(msDeltaEnd,endValue);
         let c = new Increment(msDeltaStart,msDeltaEnd,startValue,endValue);
-        this.filters.push(c);
+        stGoto.aniFilters.push(c);
+
     }else if (startValue > endValue){
+        const stGoto = super.goto(msDeltaStart,startValue);
+        const endGoto = super.goto(msDeltaEnd,endValue);
         let c = new Decrement(msDeltaStart,msDeltaEnd,startValue,endValue);
-        this.filters.push(c);
+        stGoto.aniFilters.push(c);
     }
     // else if (startValue == endValue){
     //     let c = new ConstantNo(from,to,startValue);
@@ -87,22 +90,23 @@ public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endVal
 // this.goto(to , endValue );    
 }
 
-public vibrate(msDeltaStart :number,msDeltaEnd :number,offset :number=10,delayInMilliSec :number= 100){
-    const v = new Vibrate(msDeltaStart,msDeltaEnd,offset,delayInMilliSec);
-    this.filters.push(v);
-}
 public random(msDeltaStart :number,msDeltaEnd :number,min :number=0, max :number=100,delayInMilliSec :number=0){
 const v = new RandomNo(msDeltaStart,msDeltaEnd,min,max,delayInMilliSec);
-this.filters.push(v);
+// this.filters.push(v);
 }
 public jumpBetween(msDeltaStart :number,msDeltaEnd :number,pointOne :number=1, pointTwo :number=10,delayInMilliSec :number=0){
     const v = new JumpBetween(msDeltaStart,msDeltaEnd,pointOne, pointTwo,delayInMilliSec);
-    this.filters.push(v);
+    // this.filters.push(v);
 }
 
 public oscillate(msDeltaStart :number,msDeltaEnd :number,startValue :number=1, endValue :number=10,speed :number= 1){
 const v = new Oscillate(msDeltaStart,msDeltaEnd,startValue, endValue,speed);
-this.filters.push(v);
+// this.filters.push(v);
 }
 
+//---effects
+// public vibrate(msDeltaStart :number,msDeltaEnd :number,offset :number=10,delayInMilliSec :number= 100){
+//     const v = new Vibrate(msDeltaStart,msDeltaEnd,offset,delayInMilliSec);
+//     this.filters.push(v);
+// }
 } 

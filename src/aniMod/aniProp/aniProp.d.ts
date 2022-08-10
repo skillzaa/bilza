@@ -9,6 +9,6 @@ export default class AniProp<T> {
     value(): T;
     set(n: T): T;
     private getBaseGoto;
-    goto(msDelta: number, value: T): boolean;
+    goto(msDelta: number, value: T): GotoObj<T>;
 }
 //# sourceMappingURL=aniProp.d.ts.map

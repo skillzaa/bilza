@@ -13,8 +13,8 @@ constructor(msDeltaStart :number,msDeltaEnd :number,startValue :number,endValue 
 super(msDeltaStart,msDeltaEnd);
 if (startValue >= endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");}    
 
-this.startValue = startValue; 
-this.endValue = endValue; 
+this.startValue = startValue;  // this is start gotoValue
+this.endValue = endValue; // this is start gotoValue
 
 this.timeDiff = Math.abs(this.msDeltaEnd - this.msDeltaStart) ;
 this.Xdiff = Math.abs(this.startValue - this.endValue);
@@ -22,13 +22,13 @@ this.Xdiff = Math.abs(this.startValue - this.endValue);
 }
 
 //--why return number | null??;
-public update(msDelta :number,baseGotoValue :number=0):boolean{
+public update(msDelta :number):boolean{
 //----safety    
 
 const timeLapsed = Math.ceil(msDelta - this.msDeltaStart);
 const timeLapPercent = (timeLapsed/(this.timeDiff)) * 100;
 const distanceLapsed = (this.Xdiff/100) * timeLapPercent;
-this._ret_val = baseGotoValue + parseFloat(distanceLapsed.toFixed(2));
+this._ret_val = this.startValue + parseFloat(distanceLapsed.toFixed(2));
 
 return  true;
 }

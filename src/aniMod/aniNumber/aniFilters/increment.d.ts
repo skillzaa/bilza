@@ -5,7 +5,7 @@ export default class Increment extends BaseFilter {
     protected Xdiff: number;
     protected timeDiff: number;
     constructor(msDeltaStart: number, msDeltaEnd: number, startValue: number, endValue: number);
-    update(msDelta: number, baseGotoValue?: number): boolean;
+    update(msDelta: number): boolean;
     qualifyToRun(msDelta: number): boolean;
     init(canvasWidthHeight: number): boolean;
 }
