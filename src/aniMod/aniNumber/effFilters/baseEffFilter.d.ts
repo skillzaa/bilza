@@ -1,5 +1,5 @@
-import IFilter from "./aniNumber/aniFilters/IAniFilter.js";
-export default class BaseFilter implements IFilter<number> {
+import IEffFilter from "./IEffFilter.js";
+export default class BaseFilter implements IEffFilter<number> {
     protected _ret_val: number | null;
     protected msDeltaStart: number;
     protected msDeltaEnd: number;
@@ -13,4 +13,4 @@ export default class BaseFilter implements IFilter<number> {
     init(canvasWidthHeight: number): boolean;
     protected percToPix(canvasWidthHeight: number, perc: number): number;
 }
-//# sourceMappingURL=baseFilter.d.ts.map
+//# sourceMappingURL=baseEffFilter.d.ts.map

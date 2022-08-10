@@ -1,6 +1,6 @@
-import IFilter from "./IFilter.js";
+import IEffFilter from "./IEffFilter.js";
 
-export default class BaseFilter implements IFilter<number>{
+export default class BaseFilter implements IEffFilter<number>{
     
 protected  _ret_val :number | null;
 

@@ -1,0 +1,1 @@
+{"version":3,"file":"gotoObj.d.ts","sourceRoot":"","sources":["../../../typescript/aniMod/aniProp/gotoObj.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,MAAM,oCAAoC,CAAC;AAG5D,MAAM,CAAC,OAAO,OAAO,OAAO,CAAE,CAAC;IAC/B,SAAS,CAAC,UAAU,EAAE,UAAU,CAAC,CAAC,CAAC,EAAE,CAAC;IAC/B,OAAO,EAAE,MAAM,CAAC;IAChB,KAAK,EAAE,CAAC,CAAC;gBAEH,OAAO,EAAE,MAAM,EAAG,KAAK,EAAE,CAAC;CAkBtC"}

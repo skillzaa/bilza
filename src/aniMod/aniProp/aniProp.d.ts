@@ -1,15 +1,14 @@
-import IFilter from "../IFilter.js";
-import GotoData from "./gotoData.js";
+import IEffFilter from "../aniNumber/effFilters/IEffFilter.js";
+import GotoObj from "./gotoObj.js";
 export default class AniProp<T> {
     protected _value: T;
-    protected filters: IFilter<T>[];
-    protected gotoArray: GotoData<T>[];
+    protected effFilters: IEffFilter<T>[];
+    protected gotoArray: GotoObj<T>[];
     constructor(defaultValue: T);
     update(msDelta: number): boolean;
     value(): T;
     set(n: T): T;
-    private runFilters;
-    private getBaseGotoValue;
+    private getBaseGoto;
     goto(msDelta: number, value: T): boolean;
 }
 //# sourceMappingURL=aniProp.d.ts.map

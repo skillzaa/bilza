@@ -1,6 +1,6 @@
 
 
-export default interface IFilter <T> {
+export default interface IEffFilter <T> {
     init(canvasWidthHeight :number):boolean; 
     value(): null | T; 
     update(msDelta :number,oldValue :T): boolean; 

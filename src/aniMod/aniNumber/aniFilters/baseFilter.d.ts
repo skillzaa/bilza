@@ -1,5 +1,5 @@
-import IFilter from "./aniNumber/aniFilters/IAniFilter.js";
-export default class BaseFilter implements IFilter<number> {
+import IAniFilter from "./IAniFilter.js";
+export default class BaseFilter implements IAniFilter<number> {
     protected _ret_val: number | null;
     protected msDeltaStart: number;
     protected msDeltaEnd: number;

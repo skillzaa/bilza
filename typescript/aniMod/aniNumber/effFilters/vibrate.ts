@@ -1,4 +1,4 @@
-import BaseFilter from "../baseFilter.js";
+import BaseFilter from "../aniFilters/baseFilter.js";
 
 export default class Vibrate extends BaseFilter{
 

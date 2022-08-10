@@ -1,14 +1,15 @@
-import GotoData from "./gotoData.js";
+import GotoObj from "./gotoObj.js";
 export default class AniProp {
     constructor(defaultValue) {
         this.gotoArray = [];
-        this.filters = [];
+        this.effFilters = [];
         this.goto(0, defaultValue);
         this._value = defaultValue;
     }
     update(msDelta) {
-        this.getBaseGotoValue(msDelta);
-        this._value = this.runFilters(msDelta, this._value);
+        const baseGoto = this.getBaseGoto(msDelta);
+        const ans = baseGoto.applyAniFilter(msDelta);
+        const gotoAnimated = baseGoto.value + ans;
         return true;
     }
     value() {
@@ -19,24 +20,9 @@ export default class AniProp {
         this.goto(0, n);
         return n;
     }
-    runFilters(msDelta, baseGotoValue) {
-        let rez = baseGotoValue;
-        for (let i = 0; i < this.filters.length; i++) {
-            const ani = this.filters[i];
-            if (ani.qualifyToRun(msDelta) == false) {
-                continue;
-            }
-            ani.update(msDelta, rez);
-            let v = ani.value();
-            if (v != null) {
-                rez = v;
-            }
-        }
-        return rez;
-    }
-    getBaseGotoValue(msDelta) {
+    getBaseGoto(msDelta) {
         if (this.gotoArray.length < 1) {
-            return false;
+            throw new Error("BaseGoto not found");
         }
         let lastFrameChecked = 0;
         let rez = null;
@@ -45,17 +31,14 @@ export default class AniProp {
             if (msDelta >= (elm.msDelta)) {
                 if ((elm.msDelta) >= lastFrameChecked) {
                     lastFrameChecked = (elm.msDelta);
-                    rez = elm.value;
+                    rez = elm;
                 }
             }
         }
-        if (rez !== null) {
-            this._value = rez;
-            return true;
+        if (rez == null) {
+            throw new Error("BaseGoto not found");
         }
-        else {
-            return false;
-        }
+        return rez;
     }
     goto(msDelta, value) {
         for (let i = 0; i < this.gotoArray.length; i++) {
@@ -65,7 +48,7 @@ export default class AniProp {
                 return false;
             }
         }
-        const v = new GotoData(msDelta, value);
+        const v = new GotoObj(msDelta, value);
         this.gotoArray.push(v);
         return true;
     }

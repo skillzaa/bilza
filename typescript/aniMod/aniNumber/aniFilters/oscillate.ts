@@ -1,4 +1,4 @@
-import BaseFilter from "../baseFilter.js";
+import BaseFilter from "./baseFilter.js";
 
 export default class Oscillate extends BaseFilter  {
 private    startValue: number;

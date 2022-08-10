@@ -1,8 +1,8 @@
-import IFilter from "../IFilter.js";
-import GotoData from "./gotoData.js";
-/**
+import IEffFilter from "../aniNumber/effFilters/IEffFilter.js";
+import GotoObj from "./gotoObj.js";
+/**WRONGGGG
  * 4-july-2022 :  AniProp and all its child classes all just hold one value (of concrete type number , string, boolean etc).
- * It can collect any number of filters in a this.filters array
+ * It can collect any number of filters in a this.effFilters array
  * Just like IFilter this too has an update method and a value mathod
  * the update runs alll the filters in its filters array
  * ANIPROP IS SUM OF ALL FILTER AT ANY GIVEN MSDELTA  
@@ -17,21 +17,26 @@ export default class AniProp <T> {
 //--this cant be null its not _ret_val of filter its aniProp    
 protected _value :T;                 
 
-protected filters :IFilter<T>[];
-protected gotoArray :GotoData<T>[];                
+
+protected effFilters :IEffFilter<T>[];                
+protected gotoArray :GotoObj<T>[];                
  
 
 constructor(defaultValue :T){
     this.gotoArray  = []; 
-    this.filters  = []; 
+    this.effFilters  = []; 
     this.goto(0,defaultValue);
     this._value  = defaultValue; 
 }
 public update(msDelta :number):boolean{
 //---STEP-1
-this.getBaseGotoValue(msDelta);
-//---step-2:runFilters will alwys return number either change this._value  or not
-this._value = this.runFilters(msDelta , this._value);
+const baseGoto = this.getBaseGoto(msDelta);
+//---step-2:get value from AniFilter inside gotoObj
+const ans = baseGoto.applyAniFilter(msDelta);
+// if (ans)
+const gotoAnimated = baseGoto.value + ans; 
+//---step 3 Apply Filters
+// this._value = this.runFilters(msDelta , this._value);
 //------------------------------------------
 return true;
 }
@@ -46,26 +51,26 @@ this._value  = n;// just to keep it in sync with goto
  return n;
 } 
 
-private runFilters(msDelta :number , baseGotoValue :T):T{
-let rez  =  baseGotoValue;
+// private runFilters(msDelta :number , baseGotoValue :T):T{
+// let rez  =  baseGotoValue;
 
-    for (let i = 0; i < this.filters.length; i++) {
-        const ani = this.filters[i];
-        if (ani.qualifyToRun(msDelta) == false) {continue;}
-        ani.update(msDelta,rez); 
-        let v  = ani.value(); 
-            if ( v != null){
-                rez = v;
-            }
-} 
-return rez;
-}
+//     for (let i = 0; i < this.effFilters.length; i++) {
+//         const ani = this.effFilters[i];
+//         if (ani.qualifyToRun(msDelta) == false) {continue;}
+//         ani.update(msDelta,rez); 
+//         let v  = ani.value(); 
+//             if ( v != null){
+//                 rez = v;
+//             }
+// } 
+// return rez;
+// }
 
-private getBaseGotoValue(msDelta :number):boolean{
-if (this.gotoArray.length < 1){return false;}    
+private getBaseGoto(msDelta :number):GotoObj<T>{
+if (this.gotoArray.length < 1){throw new Error("BaseGoto not found");}    
 
 let lastFrameChecked = 0;
-let rez :T | null = null;
+let rez : GotoObj<T> | null = null;
 
     for (let i = 0; i < this.gotoArray.length; i++) {
         const elm = this.gotoArray[i];
@@ -75,15 +80,13 @@ let rez :T | null = null;
                 //--for next iteration
                 lastFrameChecked = (elm.msDelta);
                 //--the value                    
-                    rez = elm.value;
+                    rez = elm;
             }
         }   
     }
 //-------------
-        if (rez !== null){ 
-            this._value = rez;
-            return true;
-        }    else { return false; }
+if (rez ==null){ throw new Error("BaseGoto not found");}
+return rez;
 }
 
 
@@ -98,7 +101,7 @@ public goto(msDelta :number,value :T):boolean{
         }
     }
     //---write code here.......
-    const v = new GotoData<T>(msDelta,value);
+    const v = new GotoObj<T>(msDelta,value);
     this.gotoArray.push(v);
     return true;//// new goto frame ADDED 
 }

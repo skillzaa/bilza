@@ -1,0 +1,1 @@
+{"version":3,"file":"IAniFilter.d.ts","sourceRoot":"","sources":["../../../../typescript/aniMod/aniNumber/aniFilters/IAniFilter.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,WAAW,UAAU,CAAE,CAAC;IAClC,IAAI,CAAC,iBAAiB,EAAE,MAAM,GAAE,OAAO,CAAC;IACxC,KAAK,IAAI,IAAI,GAAG,CAAC,CAAC;IAClB,MAAM,CAAC,OAAO,EAAE,MAAM,GAAG,OAAO,CAAC;IACjC,YAAY,CAAC,OAAO,EAAE,MAAM,GAAE,OAAO,CAAC;CACzC"}

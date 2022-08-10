@@ -1,10 +1,10 @@
 import AniProp from "../aniProp/aniProp.js";
-import Increment from "./increment.js";
-import Decrement from "./decrement.js";
-import Vibrate from "./vibrate.js";
-import RandomNo from "./randomNo.js";
-import JumpBetween from "./jumpBetween.js";
-import Oscillate from "./oscillate.js";
+import Increment from "./aniFilters/increment.js";
+import Decrement from "./aniFilters/decrement.js";
+import Vibrate from "./effFilters/vibrate.js";
+import RandomNo from "./aniFilters/randomNo.js";
+import JumpBetween from "./aniFilters/jumpBetween.js";
+import Oscillate from "./aniFilters/oscillate.js";
 export default class AniNumber extends AniProp {
     constructor(initialValue = 0, responsive = false, minValue = -3000, maxValue = 3000) {
         super(initialValue);
