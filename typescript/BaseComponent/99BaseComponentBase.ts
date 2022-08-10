@@ -28,7 +28,7 @@ public readonly YAlignOpt :typeof YAlignOpt;
 //---Every component has a random id
 public readonly id :string;
 
-public responsiveDims : boolean; 
+private responsiveDims : boolean; 
 
 public interactive : boolean; //for mouse click etc 
 //--The draw layer
@@ -87,7 +87,7 @@ constructor(){
     
     // this.responsiveCoordinates = true;
     
-    //---This is width and height according to canvas or not
+    //---This is private use -- setResponsiveDims();
     this.responsiveDims = true;
 
     this.interactive = false; // this is for mouse click etc
@@ -134,6 +134,10 @@ this.colorBorder = new AniColor("#000000");
 this.showBackground = new AniBoolean(false);
 
 }
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
 setResponsivePadding(tf :boolean=false){
 this.paddingTop = new AniNumber(0,tf);
 this.paddingBottom = new AniNumber(0,tf); 
@@ -143,5 +147,8 @@ this.paddingLeft  = new AniNumber(0,tf);
 setResponsiveCoordinates(tf :boolean=true){
 this.x = new AniNumber(0,tf);
 this.y = new AniNumber(0,tf);
+}
+setResponsiveDims(tf :boolean=true){
+this.responsiveDims = tf;
 }
 }//claass
