@@ -5,10 +5,6 @@ import Vibrate from "./vibrate.js";
 import RandomNo from "./randomNo.js";
 import JumpBetween from "./jumpBetween.js";
 import Oscillate from "./oscillate.js"; 
-
-import GotoData from "../aniProp/gotoData.js";
-import IFilter from "../IFilter.js";
-
 export default class AniNumber extends AniProp<number>  {
 
 
@@ -16,17 +12,29 @@ public readonly minValue :number;
 public readonly maxValue :number;
 protected canvasWidthHeight : null | number;
 protected responsive :boolean;
-//--no need for default value-the number-0 is default value
-constructor(initialValue :number=0,minValue :number=0,maxValue :number=100){
-super(initialValue);
+
+constructor(initialValue :number=0,responsive = false, minValue :number=-3000,maxValue :number=3000){
+
+    super(initialValue);
+    this.responsive = responsive; 
 this.canvasWidthHeight = null; 
-this.responsive = false; 
+
 this.minValue  = minValue; 
 this.maxValue  = maxValue; 
+
 }
 //----------------------------------
-init(responsive :boolean, canvasWidthHeight :number){
-this.responsive = responsive;    
+setResponsive(r :boolean):boolean{
+    this.responsive = r;
+    return this.responsive;
+}
+//----------------------------------
+init(canvasWidthHeight :number){
+    if (this.responsive == false){
+        console.error("this.responsive == false");
+        return;
+    }    
+//----------------------------------
 this.canvasWidthHeight = canvasWidthHeight;
 //----------------------------------
 this.initSet();    
@@ -35,29 +43,21 @@ this.initGoto();
     for (let i = 0; i < this.filters.length; i++) {
         const fil = this.filters[i];
         fil.init(this.canvasWidthHeight);
-    }
-    
-    // this.initAnimate();
-    // this.initRandom();
-    // this.initJumpBetween();
-    
+    }    
 }
 
-initGoto(){
+private initGoto(){
 if (this.responsive == false){return;} //safety    
 for (let i = 0; i < this.gotoArray.length; i++) {
     const elm = this.gotoArray[i];
-    let v = elm.value;
-    // if ( this.usePercentages == true){
-        elm.value = this.percToPix(elm.value);
-    // }
+    elm.value = this.percToPix(elm.value);
 }      
 }
-initSet(){
+private initSet(){
 if (this.responsive == false){return;} //safety    
     this._value = this.percToPix(this._value);
 } 
-protected percToPix(perc :number){
+private percToPix(perc :number){
     if (this.canvasWidthHeight == null){throw("init error");}
     return ((this.canvasWidthHeight /100) * perc);
 }

@@ -22,20 +22,15 @@ protected gotoArray :GotoData<T>[];
  
 
 constructor(defaultValue :T){
-this._value  = defaultValue; 
-
-//--
-this.gotoArray  = []; 
-this.filters  = []; 
-this.goto(0,defaultValue);
+    this.gotoArray  = []; 
+    this.filters  = []; 
+    this.goto(0,defaultValue);
+    this._value  = defaultValue; 
 }
 public update(msDelta :number):boolean{
-//---STEP-ONE -Every time value is calc from default value    
-// this._value = this.defaultValue; 
-
-//---STEP-TWO-if has base goto apply that
+//---STEP-1
 this.getBaseGotoValue(msDelta);
-//---step-three - runFilters will alwys return number either change it or not
+//---step-2:runFilters will alwys return number either change this._value  or not
 this._value = this.runFilters(msDelta , this._value);
 //------------------------------------------
 return true;
@@ -69,15 +64,16 @@ return rez;
 private getBaseGotoValue(msDelta :number):boolean{
 if (this.gotoArray.length < 1){return false;}    
 
-let frame = 0;
+let lastFrameChecked = 0;
 let rez :T | null = null;
 
     for (let i = 0; i < this.gotoArray.length; i++) {
         const elm = this.gotoArray[i];
         if ( msDelta >= (elm.msDelta )  ){
-            if ( (elm.msDelta ) >= frame ) {
+            // why >= there hsd be no equal since a frame once checked shd not be present in gotoArray
+            if ( (elm.msDelta ) >= lastFrameChecked ) {
                 //--for next iteration
-                    frame = (elm.msDelta);
+                lastFrameChecked = (elm.msDelta);
                 //--the value                    
                     rez = elm.value;
             }
@@ -92,7 +88,8 @@ let rez :T | null = null;
 
 
 public goto(msDelta :number,value :T):boolean{
-    //--first search if the frame already exists or not if it do then dont duplicate
+//--first search if the frame already exists or not if it do then dont duplicate
+//--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY
     for (let i = 0; i < this.gotoArray.length; i++) {
         const gotoItem = this.gotoArray[i];
         if (gotoItem.msDelta == msDelta){

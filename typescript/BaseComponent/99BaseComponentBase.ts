@@ -1,4 +1,4 @@
-import {DrawLayer,AniBoolean,AniNumber,AniNoPerc,AniColor} from "../bilza.js";
+import {DrawLayer,AniBoolean,AniNumber,AniColor} from "../bilza.js";
 
 // import AniNumber from "../aniMod/aniNumber/aniNumber.js";
 // import AniNoPerc from "../aniMod/aniNoPerc/aniNoPerc.js";
@@ -28,10 +28,6 @@ public readonly YAlignOpt :typeof YAlignOpt;
 //---Every component has a random id
 public readonly id :string;
 
-//---the coordinates may use raw pixels
-public responsiveCoordinates : boolean;
-//---the paddings may use raw pixels
-public responsivePadding : boolean; 
 public responsiveDims : boolean; 
 
 public interactive : boolean; //for mouse click etc 
@@ -59,12 +55,12 @@ public  selected :boolean; //dont complicate
 
 //---PAdding and Border
 public border :AniNumber;         
-public paddingTop :AniNoPerc;        
-public paddingBottom :AniNoPerc;         
-public paddingRight :AniNoPerc;         
-public paddingLeft : AniNoPerc;         
-public x :AniNoPerc; 
-public y :AniNoPerc;
+public paddingTop :AniNumber;        
+public paddingBottom :AniNumber;         
+public paddingRight :AniNumber;         
+public paddingLeft : AniNumber;         
+public x :AniNumber; 
+public y :AniNumber;
 
 //---Basic colors
 public colorBackground :AniColor;
@@ -89,12 +85,13 @@ constructor(){
     this.xRotate = this.XAlignOpt.Left;
     this.yRotate = this.YAlignOpt.Top;
     
-    // this.usePercentages = false;
-    this.responsiveCoordinates = true;
-    this.responsivePadding = true;
+    // this.responsiveCoordinates = true;
+    
     //---This is width and height according to canvas or not
     this.responsiveDims = true;
+
     this.interactive = false; // this is for mouse click etc
+    
     this.border = new AniNumber(0);
 
     this.width = new AniNumber(10);
@@ -120,14 +117,14 @@ this.selected = false;
 this.visible = new AniBoolean(true);
 
 //-----------Location x and y
-this.x = new AniNoPerc(0);
-this.y = new AniNoPerc(0);
+this.x = new AniNumber(0,true);
+this.y = new AniNumber(0,true);
 //-----------padding
-this.paddingTop = new AniNoPerc(0);
-this.paddingBottom = new AniNoPerc(0); 
-
-this.paddingRight = new AniNoPerc(0);
-this.paddingLeft  = new AniNoPerc(0);
+// this.responsivePadding = true;
+this.paddingTop = new AniNumber(0,false);;
+this.paddingBottom = new AniNumber(0,false); 
+this.paddingRight = new AniNumber(0,false);;
+this.paddingLeft  = new AniNumber(0,false);
 ////////////
 this.border  = new AniNumber(0);
 
@@ -136,5 +133,15 @@ this.colorBackground = new AniColor("#ffffff");
 this.colorBorder = new AniColor("#000000");
 this.showBackground = new AniBoolean(false);
 
+}
+setResponsivePadding(tf :boolean=false){
+this.paddingTop = new AniNumber(0,tf);
+this.paddingBottom = new AniNumber(0,tf); 
+this.paddingRight = new AniNumber(0,tf);;
+this.paddingLeft  = new AniNumber(0,tf);
+}
+setResponsiveCoordinates(tf :boolean=true){
+this.x = new AniNumber(0,tf);
+this.y = new AniNumber(0,tf);
 }
 }//claass

@@ -16,7 +16,7 @@ import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
 // import AniNumber from "./animations/aniNumber/aniNumber.js";
 // import AniNoPerc from "./animations/aniNoPerc/AniNoPerc.js";
 import AniNumber from "./aniMod/aniNumber/aniNumber.js";
-import AniNoPerc from "./aniMod/aniNoPerc/aniNoPerc.js";
+// import AniNoPerc from "./aniMod/aniNoPerc/aniNoPerc.js";
 
 import AniBoolean from "./animations/aniBoolean/aniBoolean.js";
 export default Bilza;
@@ -42,7 +42,6 @@ DrawLayer,
 UTFIcons,
 Experimental,
 AniNumber,
-AniNoPerc,
 AniString,
 AniBoolean,
 AniColor,
