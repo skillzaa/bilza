@@ -24,8 +24,8 @@ this.maxValue  = maxValue;
 
 }
 //----------------------------------
-setResponsive(r :boolean):boolean{
-    this.responsive = r;
+setResponsive(tf :boolean):boolean{
+    this.responsive = tf;
     return this.responsive;
 }
 //----------------------------------

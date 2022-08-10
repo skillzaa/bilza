@@ -13,8 +13,8 @@ export default class AniNumber extends AniProp {
         this.minValue = minValue;
         this.maxValue = maxValue;
     }
-    setResponsive(r) {
-        this.responsive = r;
+    setResponsive(tf) {
+        this.responsive = tf;
         return this.responsive;
     }
     init(canvasWidthHeight) {

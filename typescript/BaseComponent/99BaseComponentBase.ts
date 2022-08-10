@@ -28,7 +28,7 @@ public readonly YAlignOpt :typeof YAlignOpt;
 //---Every component has a random id
 public readonly id :string;
 
-private responsiveDims : boolean; 
+protected responsiveDims : boolean; 
 
 public interactive : boolean; //for mouse click etc 
 //--The draw layer

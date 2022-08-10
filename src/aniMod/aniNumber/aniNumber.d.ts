@@ -5,7 +5,7 @@ export default class AniNumber extends AniProp<number> {
     protected canvasWidthHeight: null | number;
     protected responsive: boolean;
     constructor(initialValue?: number, responsive?: boolean, minValue?: number, maxValue?: number);
-    setResponsive(r: boolean): boolean;
+    setResponsive(tf: boolean): boolean;
     init(canvasWidthHeight: number): void;
     private initGoto;
     private initSet;

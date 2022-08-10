@@ -13,6 +13,24 @@ toEqual(incomming :number, check :number,title :string=""):boolean{
         return false;
     }
 }
+isEqual(incomming :number, check :number,title :string=""):boolean{
+    if (incomming === check){
+        console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);
+        return true;
+    }else {
+        console.error(title,`incomming == ${incomming}, expected ${check}  : WRONG `);
+        return false;
+    }
+}
+isNotEqual(incomming :number, check :number,title :string=""):boolean{
+    if (incomming === check){
+        console.error(title,`incomming == ${incomming}, expected ${check}  : WRONG `);
+        return false;
+    }else {
+        console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);
+        return true;
+    }
+}
 isLessThan(incomming :number, check :number,title :string=""):boolean{
     if (incomming < check){
         console.info(title,`incomming == ${incomming}, expected ${check} : CORRECT `);

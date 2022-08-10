@@ -1,6 +1,8 @@
 export default class BaseTest {
     constructor(testSuiteName?: string);
     toEqual(incomming: number, check: number, title?: string): boolean;
+    isEqual(incomming: number, check: number, title?: string): boolean;
+    isNotEqual(incomming: number, check: number, title?: string): boolean;
     isLessThan(incomming: number, check: number, title?: string): boolean;
     isGreaterThan(incomming: number, check: number, title?: string): boolean;
     approxEqual(incomming: number, check: number, errorMargin: number, title?: string): boolean;

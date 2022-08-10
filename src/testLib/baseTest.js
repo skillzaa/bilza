@@ -12,6 +12,26 @@ export default class BaseTest {
             return false;
         }
     }
+    isEqual(incomming, check, title = "") {
+        if (incomming === check) {
+            console.info(title, `incomming == ${incomming}, expected ${check} : CORRECT `);
+            return true;
+        }
+        else {
+            console.error(title, `incomming == ${incomming}, expected ${check}  : WRONG `);
+            return false;
+        }
+    }
+    isNotEqual(incomming, check, title = "") {
+        if (incomming === check) {
+            console.error(title, `incomming == ${incomming}, expected ${check}  : WRONG `);
+            return false;
+        }
+        else {
+            console.info(title, `incomming == ${incomming}, expected ${check} : CORRECT `);
+            return true;
+        }
+    }
     isLessThan(incomming, check, title = "") {
         if (incomming < check) {
             console.info(title, `incomming == ${incomming}, expected ${check} : CORRECT `);
