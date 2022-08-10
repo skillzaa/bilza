@@ -14,83 +14,59 @@ export default class AniNumber extends AniProp<number>  {
 
 public readonly minValue :number;
 public readonly maxValue :number;
-
+protected canvasWidthHeight : null | number;
+protected responsive :boolean;
 //--no need for default value-the number-0 is default value
 constructor(initialValue :number=0,minValue :number=0,maxValue :number=100){
- super(initialValue);
-
+super(initialValue);
+this.canvasWidthHeight = null; 
+this.responsive = false; 
 this.minValue  = minValue; 
 this.maxValue  = maxValue; 
 }
+//----------------------------------
+init(responsive :boolean, canvasWidthHeight :number){
+this.responsive = responsive;    
+this.canvasWidthHeight = canvasWidthHeight;
+//----------------------------------
+this.initSet();    
+this.initGoto();
+//----------------------------------
+    for (let i = 0; i < this.filters.length; i++) {
+        const fil = this.filters[i];
+        fil.init(this.canvasWidthHeight);
+    }
+    
+    // this.initAnimate();
+    // this.initRandom();
+    // this.initJumpBetween();
+    
+}
 
-// public update(msDelta :number):boolean{
-// //---STEP-ONE -Every time value is calc from default value    
-// this._value = this.defaultValue; 
+initGoto(){
+if (this.responsive == false){return;} //safety    
+for (let i = 0; i < this.gotoArray.length; i++) {
+    const elm = this.gotoArray[i];
+    let v = elm.value;
+    // if ( this.usePercentages == true){
+        elm.value = this.percToPix(elm.value);
+    // }
+}      
+}
+initSet(){
+if (this.responsive == false){return;} //safety    
+    this._value = this.percToPix(this._value);
+} 
+protected percToPix(perc :number){
+    if (this.canvasWidthHeight == null){throw("init error");}
+    return ((this.canvasWidthHeight /100) * perc);
+}
 
-// //---STEP-TWO-if has base goto apply that
-// const baseGotoValue = this.getBaseGotoValue(msDelta);
-// if (typeof baseGotoValue == "number"){
-//     this._value = baseGotoValue;   
-// }
-
-// //---step-three - runFilters will alwys return number either change it or not
-// this._value = this.runFilters(msDelta , this._value);
-// //------------------------------------------
-// return true;
-// }
-
-/**
- * 9-aug-2022
- * runFilters will take in baseGotoValue and return (always) a number either the same baseGotoValue or change it depending upon what the filters do.
- * It will run all the filters which qualifyToRun() feeding the first one baseGotoValue and the next one what ever is the outcome of the prev iteration. 
- * The last and final result is returned.
- * The IFilter value() return number | null;--> When a filter qualify to run but do not want its result to be counted in (for some reason). In that case the filter value() can return null which will not be included at aniNumber.runFilters().
- * Why returning a null is better:: We can also make the filter return the oldValue (since ever filter gets the previous value which it can either take into considereation or not) BUT in that case the return value may get changed unintentionally so returning a null is better.
- */
-// private runFilters(msDelta :number , baseGotoValue :number):number{
-// let rez  =  baseGotoValue;
-
-//     for (let i = 0; i < this.filters.length; i++) {
-//         const ani = this.filters[i];
-//         if (ani.qualifyToRun(msDelta) == false) {continue;}
-//         ani.update(msDelta,rez); 
-//         let v  = ani.value(); 
-//             if ( v != null){
-//                 rez = v;
-//             }
-// } 
-// return rez;
-// }
-
-// private getBaseGotoValue(msDelta :number):number | null{
-// if (this.gotoArray.length < 1){return null;}    
-
-// let frame = 0;
-// let rez :number | null = null;
-
-//     for (let i = 0; i < this.gotoArray.length; i++) {
-//         const elm = this.gotoArray[i];
-//         if ( msDelta >= (elm.msDelta )  ){
-//             if ( (elm.msDelta ) >= frame ) {
-//                 //--for next iteration
-//                     frame = (elm.msDelta);
-//                 //--the value                    
-//                     rez = elm.value;
-//             }
-//         }   
-//     }
-// return rez;    
-// }
-// //--when deeply nested we use set to set the initial value. This vaue will be over-written after start();
-// public set(n :number):number{
-//  this._value = n;
-//  return this._value;
-// } 
-// public goto(msDelta :number,value :number){
-//     const v = new GotoData(msDelta,value);
-//     this.gotoArray.push(v);
-// }
-
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
 public animate(msDeltaStart :number,msDeltaEnd :number,startValue :number,endValue :number){
     if (startValue < endValue ){
         // This wasted my 2 hours there is no goto in aniNumber but there is one in its child class AniNoProp..so when AniNoProp run initAnimate and call this animate the this.goto again sends it back to AniNoProp where as i required super.goto. 

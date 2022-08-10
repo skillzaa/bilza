@@ -16,23 +16,22 @@ import GotoData from "./gotoData.js";
 export default class AniProp <T> {
 //--this cant be null its not _ret_val of filter its aniProp    
 protected _value :T;                 
-protected defaultValue :T;    
 
 protected filters :IFilter<T>[];
 protected gotoArray :GotoData<T>[];                
-
+ 
 
 constructor(defaultValue :T){
-//----readonly
-this.defaultValue = defaultValue;
 this._value  = defaultValue; 
+
 //--
 this.gotoArray  = []; 
 this.filters  = []; 
+this.goto(0,defaultValue);
 }
 public update(msDelta :number):boolean{
 //---STEP-ONE -Every time value is calc from default value    
-this._value = this.defaultValue; 
+// this._value = this.defaultValue; 
 
 //---STEP-TWO-if has base goto apply that
 this.getBaseGotoValue(msDelta);
@@ -47,8 +46,9 @@ return this._value;
 }
 
 public set(n :T):T{
- this.defaultValue = n;
- return this.defaultValue;
+this._value  = n;// just to keep it in sync with goto    
+ this.goto(0,n);
+ return n;
 } 
 
 private runFilters(msDelta :number , baseGotoValue :T):T{
@@ -91,10 +91,21 @@ let rez :T | null = null;
 }
 
 
-public goto(msDelta :number,value :T){
+public goto(msDelta :number,value :T):boolean{
+    //--first search if the frame already exists or not if it do then dont duplicate
+    for (let i = 0; i < this.gotoArray.length; i++) {
+        const gotoItem = this.gotoArray[i];
+        if (gotoItem.msDelta == msDelta){
+            gotoItem.value = value;
+            return false; // goto frame edited and not added
+        }
+    }
+    //---write code here.......
     const v = new GotoData<T>(msDelta,value);
     this.gotoArray.push(v);
+    return true;//// new goto frame ADDED 
 }
 
 
-} 
+
+}

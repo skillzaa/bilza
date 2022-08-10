@@ -36,5 +36,9 @@ public update(msDelta: number, baseGotoValue?: number): boolean {
     }
 return true;    
 }
-
+init(canvasWidthHeight: number): boolean {
+this.startValue = this.percToPix(canvasWidthHeight,this.startValue);
+this.endValue = this.percToPix(canvasWidthHeight,this.endValue);
+return true;
+}       
 }

@@ -46,18 +46,18 @@
 // // tst.toEqual( fill.compHeight() ,170, "compHeight");
 
 
-// // fill.xAlign = fill.XAlignOpt.Mid; 
-// // fill.yAlign = fill.YAlignOpt.Mid; 
+// // // fill.xAlign = fill.XAlignOpt.Mid; 
+// // // fill.yAlign = fill.YAlignOpt.Mid; 
 
-// // // //since fill.compWidth() = 320/2 -x = 340
-// // tst.toEqual(fill.xAligned() ,340,"xAligned.Mid");
-// // //--since fill.compHeight() = 170/2 - y= 165
-// // tst.toEqual(fill.yAligned() , 165 , "yAligned.Mid");
+// // // // //since fill.compWidth() = 320/2 -x = 340
+// // // tst.toEqual(fill.xAligned() ,340,"xAligned.Mid");
+// // // //--since fill.compHeight() = 170/2 - y= 165
+// // // tst.toEqual(fill.yAligned() , 165 , "yAligned.Mid");
 
 
-// // fill.xAlign = fill.XAlignOpt.Right; 
-// // fill.yAlign = fill.YAlignOpt.Bot; 
+// // // fill.xAlign = fill.XAlignOpt.Right; 
+// // // fill.yAlign = fill.YAlignOpt.Bot; 
 
-// // // //learning : you have to subtract with width and height of the comp from x and y
-// // tst.toEqual(fill.xAligned() ,180,"XAlignOpt.Right");
-// // tst.toEqual(fill.yAligned() ,80 , "YAlignOpt.Bot");
+// // // // //learning : you have to subtract with width and height of the comp from x and y
+// // // tst.toEqual(fill.xAligned() ,180,"XAlignOpt.Right");
+// // // tst.toEqual(fill.yAligned() ,80 , "YAlignOpt.Bot");

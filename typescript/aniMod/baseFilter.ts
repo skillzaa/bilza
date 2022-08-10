@@ -9,7 +9,6 @@ protected  msDeltaEnd :number;
 private delayInMS :number;
 private delayInMSCounter :number;
 
-
 constructor(msDeltaStart :number,msDeltaEnd :number,delayInMS :number=0){
 this.delayInMS = delayInMS;
 this.delayInMSCounter = 0;
@@ -48,5 +47,10 @@ protected xFramesSkipped(msDelta :number):boolean{
     // }
     return true;
 }
-
+init(canvasWidthHeight: number): boolean {
+    return true;
+}
+protected percToPix(canvasWidthHeight:number, perc :number){
+    return ((canvasWidthHeight /100) * perc);
+}
 }

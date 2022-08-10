@@ -2,7 +2,6 @@ import IFilter from "../IFilter.js";
 import GotoData from "./gotoData.js";
 export default class AniProp<T> {
     protected _value: T;
-    protected defaultValue: T;
     protected filters: IFilter<T>[];
     protected gotoArray: GotoData<T>[];
     constructor(defaultValue: T);

@@ -11,11 +11,9 @@ export default class AniNoPercBase extends AniNumber {
     protected preInitRandoms: PreInitRandom[];
     protected preInitJumpBetweens: PreInitJumpBetween[];
     protected preInitOscilate: PreInitOscilate[];
-    protected _initValue: number;
     canvasWidthHeight: number | null;
     constructor(defaultValue?: number);
     init(usePercentages: boolean, canvasWidthHeight: number): void;
-    set(n: number): number;
     initSet(): void;
     jumpBetween(msDeltaStart: number, msDeltaEnd: number, pointOne?: number, pointTwo?: number, delayInMS?: number): void;
     goto(msDelta: number, value: number): void;

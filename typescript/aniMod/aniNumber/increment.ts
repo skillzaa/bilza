@@ -11,7 +11,6 @@ protected  timeDiff :number;
 //msDeltaStart wil be +1 than actual and msDeltaend will be -1 from actual
 constructor(msDeltaStart :number,msDeltaEnd :number,startValue :number,endValue :number){
 super(msDeltaStart,msDeltaEnd);
-
 if (startValue >= endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");}    
 
 this.startValue = startValue; 
@@ -41,5 +40,9 @@ if (msDelta < this.msDeltaStart || msDelta > this.msDeltaEnd ) {
         }    
 }
 
-
+init(canvasWidthHeight: number): boolean {
+this.startValue = this.percToPix(canvasWidthHeight,this.startValue);
+this.endValue = this.percToPix(canvasWidthHeight,this.endValue);
+return true;
+}       
 }

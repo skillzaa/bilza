@@ -15,5 +15,9 @@ public update(msDelta: number, baseGotoValue?: number): boolean {
 this._ret_val =   Math.floor(Math.random()*(this.max - this.min + 1) + this.min);
 return true;
 }
-
+init(canvasWidthHeight: number): boolean {
+this.min = this.percToPix(canvasWidthHeight,this.min);
+this.max = this.percToPix(canvasWidthHeight,this.max);
+return true;
+}       
 }

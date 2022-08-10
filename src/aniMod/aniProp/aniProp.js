@@ -1,7 +1,6 @@
 import GotoData from "./gotoData.js";
 export default class AniProp {
     constructor(defaultValue) {
-        this.defaultValue = defaultValue;
         this._value = defaultValue;
         this.gotoArray = [];
         this.filters = [];

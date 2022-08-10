@@ -8,7 +8,6 @@ export default class AniNoPercBase extends AniNumber {
     constructor(defaultValue = 0) {
         super(defaultValue);
         this.usePercentages = true;
-        this._initValue = defaultValue;
         this.canvasWidthHeight = null;
         this.preInitRandoms = [];
         this.preInitGotos = [];
@@ -25,26 +24,12 @@ export default class AniNoPercBase extends AniNumber {
         this.initRandom();
         this.initJumpBetween();
     }
-    set(n) {
-        if (this.usePercentages == true) {
-            this._initValue = n;
-            return this._initValue;
-        }
-        else {
-            super.set(n);
-            return n;
-        }
-    }
     initSet() {
         if (this.usePercentages == true) {
             if (this.canvasWidthHeight == null) {
                 throw new Error("init       error");
             }
-            const _v = this.percToPix(this._initValue);
-            super.set(_v);
-        }
-        else {
-            super.set(this._initValue);
+            this.defaultValue = this.percToPix(this.defaultValue);
         }
     }
     jumpBetween(msDeltaStart, msDeltaEnd, pointOne = 1, pointTwo = 10, delayInMS = 0) {
