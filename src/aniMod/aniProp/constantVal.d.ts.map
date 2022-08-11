@@ -1,0 +1,1 @@
+{"version":3,"file":"constantVal.d.ts","sourceRoot":"","sources":["../../../typescript/aniMod/aniProp/constantVal.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,OAAO,UAAU;IAC3B,aAAa,EAAC,MAAM,CAAC;gBACb,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EAAE,aAAa,EAAE,MAAM;IAWnE,KAAK,IAAI,MAAM,GAAG,IAAI;CAI5B"}

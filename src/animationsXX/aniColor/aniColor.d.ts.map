@@ -1,0 +1,1 @@
+{"version":3,"file":"aniColor.d.ts","sourceRoot":"","sources":["../../../typescript/animationsXX/aniColor/aniColor.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,+BAA+B,CAAC;AAKpD,MAAM,CAAC,OAAO,OAAO,QAAS,SAAQ,OAAO,CAAE,MAAM,CAAC;IAE/C,IAAI,CAAC,YAAY,EAAE,MAAM,EAAC,QAAQ,EAAE,MAAM;IAI1C,MAAM,CAAC,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EAAC,WAAW,GAAE,MAAQ;CAK1E"}

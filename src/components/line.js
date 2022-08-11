@@ -1,5 +1,5 @@
 import { BaseComponent, DrawLayer, AniNumber } from "../bilza.js";
-import AniNoPerc from "../animations/aniNoPerc/AniNoPerc.js";
+import AniNoPerc from "../animationsXXXX/aniNoPerc/AniNoPerc.js";
 export default class Line extends BaseComponent {
     constructor(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
         super();

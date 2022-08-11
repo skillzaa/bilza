@@ -1,0 +1,1 @@
+{"version":3,"file":"fillRect.d.ts","sourceRoot":"","sources":["fillRect.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,IAAI,EAAC,MAAM,aAAa,CAAC;AACjC,OAAO,aAAa,MAAM,qCAAqC,CAAC;AAKhE,MAAM,CAAC,OAAO,OAAO,QAAS,SAAQ,aAAa;gBAEtC,KAAK,GAAE,MAAgB;IAKpC,IAAI,CAAC,CAAC,EAAC,IAAI,GAAE,OAAO;CAkBnB"}
