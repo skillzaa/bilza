@@ -17,21 +17,24 @@ this._value  = this.defaultValue;
 // this.goto(0,defaultValue); 
 }
 public update(rTimeMs :number):boolean{
-//---STEP-1
+//---STEP-1--find current filter or return defaultValue
 const baseGoto = this.getBaseFilter(rTimeMs);
-//--importantay-- VVVVVVV
-baseGoto.update(rTimeMs);
-//---step-2:get value from AniFilter inside gotoObj
-const animatedValue = baseGoto.animatedValue();
-
-//---step 3 Apply Filters
-// this._value = this.runFilters(rTimeMs , this._value);
-//---step 4 Assign the value
-if (animatedValue !== null){
-    this._value = animatedValue;
-}else {
+if (baseGoto == null ){
     this._value = this.defaultValue;
+    return false;
+}else {
+    //--Step-2 --importantay-- VVVVVVV
+    baseGoto.update(rTimeMs);
+    //---step-3:get value from AniFilter inside gotoObj
+    const animatedValue = baseGoto.animatedValue();
+            //..................................
+            if (animatedValue !== null){
+                this._value = animatedValue;
+            }else {
+                this._value = this.defaultValue;
+            }
 }
+
 //------------------------------------------
 return true;
 }
@@ -48,7 +51,7 @@ this._value  = n;// just to keep it in sync with goto
  return n;
 } 
 
-protected getBaseFilter(rTimeMs :number):IFilter<T>{
+protected getBaseFilter(rTimeMs :number):IFilter<T> | null{
 if (this.filtersArr.length < 1){throw new Error("BaseGoto not found");}    
 
 let lastFrameChecked = 0;
@@ -67,7 +70,6 @@ let rez : IFilter<T> | null = null;
         }   
     }
 //-------------
-if (rez ==null){ throw new Error("BaseGoto not found");}
 return rez;
 }
 

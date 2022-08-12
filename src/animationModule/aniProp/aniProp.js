@@ -6,13 +6,19 @@ export default class AniProp {
     }
     update(rTimeMs) {
         const baseGoto = this.getBaseFilter(rTimeMs);
-        baseGoto.update(rTimeMs);
-        const animatedValue = baseGoto.animatedValue();
-        if (animatedValue !== null) {
-            this._value = animatedValue;
+        if (baseGoto == null) {
+            this._value = this.defaultValue;
+            return false;
         }
         else {
-            this._value = this.defaultValue;
+            baseGoto.update(rTimeMs);
+            const animatedValue = baseGoto.animatedValue();
+            if (animatedValue !== null) {
+                this._value = animatedValue;
+            }
+            else {
+                this._value = this.defaultValue;
+            }
         }
         return true;
     }
@@ -38,9 +44,6 @@ export default class AniProp {
                     rez = fil;
                 }
             }
-        }
-        if (rez == null) {
-            throw new Error("BaseGoto not found");
         }
         return rez;
     }

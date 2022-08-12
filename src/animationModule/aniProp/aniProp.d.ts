@@ -7,7 +7,7 @@ export default class AniProp<T> {
     update(rTimeMs: number): boolean;
     value(): T;
     set(n: T): T;
-    protected getBaseFilter(rTimeMs: number): IFilter<T>;
+    protected getBaseFilter(rTimeMs: number): IFilter<T> | null;
     protected addFilter(bfil: IFilter<T>): void;
 }
 //# sourceMappingURL=aniProp.d.ts.map
