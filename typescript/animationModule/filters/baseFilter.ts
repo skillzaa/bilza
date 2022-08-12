@@ -8,7 +8,7 @@ public baseValue :T;
 
 private    delayInMS :number;
 private    delayInMSCounter :number;
-protected  _animatedValue :T;
+protected  _animatedValue :T | null;
 // protected data :T[];
 constructor(
     rTimeMsStart :number,rTimeMsEnd :number,
@@ -35,11 +35,10 @@ public update(rTimeMs :number):boolean{
 }
 //--This impl will work for all if baseValue and animatedvalue r same then send any if not send _animatedValue
 public animatedValue():T{
-    if (this._animatedValue == this.baseValue){
+    if (this._animatedValue == null){
         return this.baseValue; 
     }else {
         return this._animatedValue;
-
     }
         // let v  = this.applyFilter(); 
         //     if ( v != null){
@@ -60,5 +59,10 @@ public animatedValue():T{
 //     // }
 //     return true;
 // }
-
+init(canvasWidthHeight: number): boolean {
+    return true;
+}
+percToPix(perc: number, canvasWidthHeight: number): number {
+    return 0;
+}
 }

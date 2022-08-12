@@ -1,7 +1,7 @@
 import AniProp from "../aniProp/aniProp.js";
-import Increment from "./numberFilters/increment.js";
-import ConstantVal from "./numberFilters/constantVal.js";
-import Decrement from "./numberFilters/decrement.js";
+import Increment from "./filters/increment.js";
+import ConstantVal from "./filters/constantVal.js";
+import Decrement from "./filters/decrement.js";
 export default class AniNumber extends AniProp {
     constructor(initialValue = 0, minValue = -3000, maxValue = 3000) {
         super(initialValue);

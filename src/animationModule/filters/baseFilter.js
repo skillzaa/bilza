@@ -17,11 +17,17 @@ export default class BaseFilter {
         return true;
     }
     animatedValue() {
-        if (this._animatedValue == this.baseValue) {
+        if (this._animatedValue == null) {
             return this.baseValue;
         }
         else {
             return this._animatedValue;
         }
+    }
+    init(canvasWidthHeight) {
+        return true;
+    }
+    percToPix(perc, canvasWidthHeight) {
+        return 0;
     }
 }

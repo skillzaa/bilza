@@ -1,7 +1,7 @@
 import AniProp from "../aniProp/aniProp.js";
-import Increment from "./numberFilters/increment.js";
-import ConstantVal from "./numberFilters/constantVal.js";
-import Decrement from "./numberFilters/decrement.js";
+import Increment from "./filters/increment.js";
+import ConstantVal from "./filters/constantVal.js";
+import Decrement from "./filters/decrement.js";
 // import Vibrate from "./effFilters/vibrate.js";
 // import RandomNo from "./aniFilters/randomNo.js";
 // import JumpBetween from "./aniFilters/jumpBetween.js";
