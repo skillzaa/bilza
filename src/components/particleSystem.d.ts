@@ -1,4 +1,5 @@
-import { Pack, BaseComponent, AniNumber } from "../bilza.js";
+import { Pack, BaseComponent } from "../bilza.js";
+import { AniNumber } from "../animationModule/animations.js";
 import Circle from "./circle.js";
 export default class ParticleSystem extends BaseComponent {
     private skipXFrames;

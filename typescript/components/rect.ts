@@ -1,5 +1,6 @@
-import {Pack,BaseComponent,AniNumber,AniColor} from "../bilza.js";
+import {Pack,BaseComponent} from "../bilza.js";
 
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 /**
  * The rect a very interesting component. All it need it a border and a background , which every component has by default. But still it has another rectangle inside it. Thus it has border ==> inside which there is background ==> inside which is padding ==> and inside which is the contentArea where the actual rect is drawn.
  * Actually it is just the box system of bilza library. 

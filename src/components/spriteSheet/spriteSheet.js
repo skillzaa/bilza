@@ -1,4 +1,4 @@
-import { AniNumber } from "../../bilza.js";
+import { AniNumber, } from "../../animationModule/animations.js";
 import BaseSpriteSheet from "./BaseSpriteSheet.js";
 import ImageData from "./imageData.js";
 export default class SpriteSheet extends BaseSpriteSheet {

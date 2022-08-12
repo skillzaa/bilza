@@ -24,10 +24,22 @@ export default class AniNumber extends AniProp {
         if (startValue < endValue) {
             let inc = new Increment(rTimeMsStart, rTimeMsEnd, startValue, 0, endValue);
             this.addFilter(inc);
+            const stop = new ConstantVal(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
+            this.addFilter(stop);
         }
         else if (startValue > endValue) {
             let dec = new Decrement(rTimeMsStart, rTimeMsEnd, startValue, 0, endValue);
             this.addFilter(dec);
+            const stop = new ConstantVal(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
+            this.addFilter(stop);
         }
+    }
+    random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delayInMilliSec = 0) {
+    }
+    jumpBetween(rTimeMsStart, rTimeMsEnd, pointOne = 1, pointTwo = 10, delayInMilliSec = 0) {
+    }
+    oscillate(rTimeMsStart, rTimeMsEnd, startValue = 1, endValue = 10, speed = 1) {
+    }
+    vibrate(rTimeMsStart, rTimeMsEnd, offset = 10, delayInMilliSec = 100) {
     }
 }

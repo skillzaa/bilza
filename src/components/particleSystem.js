@@ -1,4 +1,5 @@
-import { BaseComponent, DrawLayer, AniNumber } from "../bilza.js";
+import { BaseComponent, DrawLayer } from "../bilza.js";
+import { AniNumber, } from "../animationModule/animations.js";
 import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
 import XY from "../BaseComponent/designBC/xy.js";
 import Circle from "./circle.js";
@@ -6,9 +7,6 @@ export default class ParticleSystem extends BaseComponent {
     constructor(count = 8, color = "#008000", framesToSkip = 50) {
         super();
         this.circle = new Circle(this.color.value());
-        this.circle.responsiveCoordinates = false;
-        this.circle.responsivePadding = false;
-        this.circle.responsiveDims = false;
         this.particleSize = new AniNumber(12);
         this.circle.width.set(this.particleSize.value());
         this.skipXFrames = new SkipXFrames(framesToSkip);

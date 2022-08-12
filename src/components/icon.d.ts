@@ -1,4 +1,5 @@
-import { Pack, BaseComponent, AniNumber, FontFamily } from "../bilza.js";
+import { Pack, BaseComponent, FontFamily } from "../bilza.js";
+import { AniNumber } from "../animationModule/animations.js";
 export default class Icon extends BaseComponent {
     code: number;
     fontFamily: FontFamily;

@@ -2,7 +2,7 @@ import {DrawLayer} from "../design/drawLayer.js";
 import Pack from "../pack/pack.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
-import AniColor from "../animationsXXXX/aniColor/aniColor.js";
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 ////////////////////////////////////////////////////////
 
 export default class Background extends BaseComponent {

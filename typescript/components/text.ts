@@ -1,4 +1,7 @@
-import { Pack,DrawLayer ,AniString,BaseComponent,AniNumber,AniColor,AniBoolean,FontFamily} from "../bilza.js";
+import { Pack,DrawLayer,BaseComponent,FontFamily} from "../bilza.js";
+
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+
 /**
  * 19-july-2022 : There is a lot fo confusion between "rawText" and "text". Here is a clear position:
  * RawText will set text size as per fontSize and will not care for width and height (they are not implemented- however contentWidth and contentHeight both work as same).

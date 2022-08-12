@@ -1,7 +1,7 @@
-import {DrawLayer,AniBoolean,AniNumber,AniColor} from "../bilza.js";
+import {DrawLayer} from "../bilza.js";
 
-// import AniNumber from "../aniMod/aniNumber/aniNumber.js";
-// import AniNoPerc from "../aniMod/aniNoPerc/aniNoPerc.js";
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+
 /**
  * Reviewed on 14-july-2022 == > In future I may need to break base component class into 2. one facing the engine and other facing the child classes.
  */
@@ -55,10 +55,10 @@ public  selected :boolean; //dont complicate
 
 //---PAdding and Border
 public border :AniNumber;         
-public paddingTop :AniNumber;        
-public paddingBottom :AniNumber;         
-public paddingRight :AniNumber;         
-public paddingLeft : AniNumber;         
+public paddingTop       :AniPerc;        
+public paddingBottom    :AniPerc;         
+public paddingRight     :AniPerc;         
+public paddingLeft      :AniPerc;         
 public x :AniNumber; 
 public y :AniNumber;
 
@@ -117,14 +117,14 @@ this.selected = false;
 this.visible = new AniBoolean(true);
 
 //-----------Location x and y
-this.x = new AniNumber(0,true);
-this.y = new AniNumber(0,true);
+this.x = new AniNumber(0);
+this.y = new AniNumber(0);
 //-----------padding
 // this.responsivePadding = true;
-this.paddingTop = new AniNumber(0,false);;
-this.paddingBottom = new AniNumber(0,false); 
-this.paddingRight = new AniNumber(0,false);;
-this.paddingLeft  = new AniNumber(0,false);
+this.paddingTop =    new AniPerc(0,false);
+this.paddingBottom = new AniPerc(0,false); 
+this.paddingRight =  new AniPerc(0,false);
+this.paddingLeft  =  new AniPerc(0,false);
 ////////////
 this.border  = new AniNumber(0);
 
@@ -139,15 +139,15 @@ this.showBackground = new AniBoolean(false);
 //////////////////////////////////////////
 //////////////////////////////////////////
 setResponsivePadding(tf :boolean=false):boolean{
-this.paddingTop = new AniNumber(0,tf);
-this.paddingBottom = new AniNumber(0,tf); 
-this.paddingRight = new AniNumber(0,tf);;
-this.paddingLeft  = new AniNumber(0,tf);
+this.paddingTop = new AniPerc(0,tf);
+this.paddingBottom = new AniPerc(0,tf); 
+this.paddingRight = new AniPerc(0,tf);;
+this.paddingLeft  = new AniPerc(0,tf);
 return tf;
 }
 setResponsiveCoordinates(tf :boolean=true):boolean{
-this.x = new AniNumber(0,tf);
-this.y = new AniNumber(0,tf);
+this.x = new AniPerc(0,tf);
+this.y = new AniPerc(0,tf);
 return tf;
 }
 setResponsiveDims(tf :boolean=true):boolean{

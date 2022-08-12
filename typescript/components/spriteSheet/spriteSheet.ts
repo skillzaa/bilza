@@ -1,4 +1,6 @@
-import {Pack,AniNumber } from "../../bilza.js";
+import {Pack } from "../../bilza.js";
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
+
 import BaseSpriteSheet from "./BaseSpriteSheet.js";
 
 import ImageData from "./imageData.js";

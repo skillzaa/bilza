@@ -1,5 +1,6 @@
-import {DrawLayer,Pack,Style,AniNumber,AniBoolean} from "../../bilza.js";
+import {DrawLayer,Pack,Style} from "../../bilza.js";
 
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business logic etc inside. That will come when we build systems.
  * The components needs to be like lego pieces exposing just this.xyz and reacting to that.

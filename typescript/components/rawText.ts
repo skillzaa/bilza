@@ -1,5 +1,6 @@
-import {Pack,BaseComponent,DrawLayer,FontFamily,AniNumber,AniColor,AniString } from "../bilza.js";
- 
+import {Pack,BaseComponent,DrawLayer,FontFamily } from "../bilza.js";
+
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js"; 
 /**
  * A totally Non-Openionated Text Class for others to inheret from.
  *  

@@ -1,4 +1,5 @@
-import { Pack, AniNumber } from "../../bilza.js";
+import { Pack } from "../../bilza.js";
+import { AniNumber } from "../../animationModule/animations.js";
 import ImageDataOpt from "./imageDataOpt.js";
 import BaseSpriteSheet from "./BaseSpriteSheet.js";
 export default class SpriteSheetAlt extends BaseSpriteSheet {

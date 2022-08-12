@@ -1,9 +1,10 @@
-import {Pack,BaseComponent,DrawLayer,AniNumber} from "../bilza.js";
-import AniNoPerc from "../animationsXXXX/aniNoPerc/AniNoPerc.js";
+import {Pack,BaseComponent,DrawLayer} from "../bilza.js";
+
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 
 export default class Line extends BaseComponent {
-public x2 :AniNoPerc; 
-public y2 :AniNoPerc;
+public x2 :AniPerc; 
+public y2 :AniPerc;
 
 lineWidth :AniNumber;
     
@@ -14,8 +15,8 @@ super();
 this.x.set(x1); 
 this.y.set(y1);
 
-this.x2 = new AniNoPerc(x2);
-this.y2 = new AniNoPerc(y2);
+this.x2 = new AniPerc(x2);
+this.y2 = new AniPerc(y2);
 this.lineWidth = new AniNumber(2);
 this.color.set(color);
 this.drawLayer = DrawLayer.MiddleGround;
@@ -27,8 +28,8 @@ if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }
 //--The X and Y class needs to be init but The AniNumber wrapped insde does not need init
-this.x2.init(this.responsiveCoordinates,this.canvasWidth);//canvasWidth
-this.y2.init(this.responsiveCoordinates,this.canvasHeight);//canvasHeight
+this.x2.init(this.canvasWidth);//canvasWidth
+this.y2.init(this.canvasHeight);//canvasHeight
 return true;
 }
     

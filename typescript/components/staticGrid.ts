@@ -1,4 +1,7 @@
-import {Pack,DrawLayer,AniNumber,AniColor} from "../bilza.js";
+import {Pack,DrawLayer} from "../bilza.js";
+
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 

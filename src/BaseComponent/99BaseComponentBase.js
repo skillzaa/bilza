@@ -1,4 +1,5 @@
-import { DrawLayer, AniBoolean, AniNumber, AniColor } from "../bilza.js";
+import { DrawLayer } from "../bilza.js";
+import { AniNumber, AniPerc, AniBoolean, AniColor, } from "../animationModule/animations.js";
 import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
@@ -27,30 +28,28 @@ export default class BaseComponentBase {
         this.canvasHeight = null;
         this.selected = false;
         this.visible = new AniBoolean(true);
-        this.x = new AniNumber(0, true);
-        this.y = new AniNumber(0, true);
-        this.paddingTop = new AniNumber(0, false);
-        ;
-        this.paddingBottom = new AniNumber(0, false);
-        this.paddingRight = new AniNumber(0, false);
-        ;
-        this.paddingLeft = new AniNumber(0, false);
+        this.x = new AniNumber(0);
+        this.y = new AniNumber(0);
+        this.paddingTop = new AniPerc(0, false);
+        this.paddingBottom = new AniPerc(0, false);
+        this.paddingRight = new AniPerc(0, false);
+        this.paddingLeft = new AniPerc(0, false);
         this.border = new AniNumber(0);
         this.colorBackground = new AniColor("#ffffff");
         this.colorBorder = new AniColor("#000000");
         this.showBackground = new AniBoolean(false);
     }
     setResponsivePadding(tf = false) {
-        this.paddingTop = new AniNumber(0, tf);
-        this.paddingBottom = new AniNumber(0, tf);
-        this.paddingRight = new AniNumber(0, tf);
+        this.paddingTop = new AniPerc(0, tf);
+        this.paddingBottom = new AniPerc(0, tf);
+        this.paddingRight = new AniPerc(0, tf);
         ;
-        this.paddingLeft = new AniNumber(0, tf);
+        this.paddingLeft = new AniPerc(0, tf);
         return tf;
     }
     setResponsiveCoordinates(tf = true) {
-        this.x = new AniNumber(0, tf);
-        this.y = new AniNumber(0, tf);
+        this.x = new AniPerc(0, tf);
+        this.y = new AniPerc(0, tf);
         return tf;
     }
     setResponsiveDims(tf = true) {

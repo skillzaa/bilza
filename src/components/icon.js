@@ -1,4 +1,5 @@
-import { BaseComponent, AniNumber, FontFamily } from "../bilza.js";
+import { BaseComponent, FontFamily } from "../bilza.js";
+import { AniNumber, } from "../animationModule/animations.js";
 export default class Icon extends BaseComponent {
     constructor(code = 9876, colorHax = "#008000") {
         super();

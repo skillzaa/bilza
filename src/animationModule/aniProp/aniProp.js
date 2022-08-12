@@ -32,7 +32,7 @@ export default class AniProp {
     }
     getBaseFilter(rTimeMs) {
         if (this.filtersArr.length < 1) {
-            throw new Error("BaseGoto not found");
+            return null;
         }
         let lastFrameChecked = 0;
         let rez = null;

@@ -20,9 +20,9 @@ draw(p: Pack): boolean {
     return true;
 }
 
-public random(startTimeSec :number,endTimeSec :number,Xmin :number=1, Xmax :number=100,Ymin :number=1, Ymax :number=100,skipXFrames :number=60){
-this.x.random(startTimeSec,endTimeSec,Xmin,Xmax,skipXFrames);
-this.y.random(startTimeSec,endTimeSec,Ymin,Ymax,skipXFrames);
+public random(startTimeSec :number,endTimeSec :number,Xmin :number=1, Xmax :number=100,Ymin :number=1, Ymax :number=100,delay :number=60){
+this.x.random(startTimeSec,endTimeSec,Xmin,Xmax,delay);
+this.y.random(startTimeSec,endTimeSec,Ymin,Ymax,delay);
 }
 public vibrate(from: number, to: number, x: number,y: number, offset: number, delay: number): void {
     this.x.vibrate(from,to,offset,delay);

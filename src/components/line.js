@@ -1,12 +1,12 @@
-import { BaseComponent, DrawLayer, AniNumber } from "../bilza.js";
-import AniNoPerc from "../animationsXXXX/aniNoPerc/AniNoPerc.js";
+import { BaseComponent, DrawLayer } from "../bilza.js";
+import { AniNumber, AniPerc, } from "../animationModule/animations.js";
 export default class Line extends BaseComponent {
     constructor(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
         super();
         this.x.set(x1);
         this.y.set(y1);
-        this.x2 = new AniNoPerc(x2);
-        this.y2 = new AniNoPerc(y2);
+        this.x2 = new AniPerc(x2);
+        this.y2 = new AniPerc(y2);
         this.lineWidth = new AniNumber(2);
         this.color.set(color);
         this.drawLayer = DrawLayer.MiddleGround;
@@ -16,8 +16,8 @@ export default class Line extends BaseComponent {
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.x2.init(this.responsiveCoordinates, this.canvasWidth);
-        this.y2.init(this.responsiveCoordinates, this.canvasHeight);
+        this.x2.init(this.canvasWidth);
+        this.y2.init(this.canvasHeight);
         return true;
     }
     update(msDelta, p) {

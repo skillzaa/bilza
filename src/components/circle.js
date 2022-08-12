@@ -1,4 +1,5 @@
-import { AniBoolean, AniNumber, BaseComponent } from "../bilza.js";
+import { BaseComponent } from "../bilza.js";
+import { AniNumber, AniBoolean, } from "../animationModule/animations.js";
 export default class Circle extends BaseComponent {
     constructor(color = "#ff0000") {
         super();

@@ -1,4 +1,5 @@
-import { DrawLayer, AniBoolean, AniNumber, AniColor } from "../bilza.js";
+import { DrawLayer } from "../bilza.js";
+import { AniNumber, AniPerc, AniBoolean, AniColor } from "../animationModule/animations.js";
 import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
@@ -24,10 +25,10 @@ export default class BaseComponentBase {
     height: AniNumber;
     selected: boolean;
     border: AniNumber;
-    paddingTop: AniNumber;
-    paddingBottom: AniNumber;
-    paddingRight: AniNumber;
-    paddingLeft: AniNumber;
+    paddingTop: AniPerc;
+    paddingBottom: AniPerc;
+    paddingRight: AniPerc;
+    paddingLeft: AniPerc;
     x: AniNumber;
     y: AniNumber;
     colorBackground: AniColor;

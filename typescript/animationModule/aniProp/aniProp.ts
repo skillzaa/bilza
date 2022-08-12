@@ -52,7 +52,7 @@ this._value  = n;// just to keep it in sync with goto
 } 
 
 protected getBaseFilter(rTimeMs :number):IFilter<T> | null{
-if (this.filtersArr.length < 1){throw new Error("BaseGoto not found");}    
+if (this.filtersArr.length < 1){return null;}    
 
 let lastFrameChecked = 0;
 let rez : IFilter<T> | null = null;

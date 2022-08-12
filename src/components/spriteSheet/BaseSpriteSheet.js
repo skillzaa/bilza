@@ -5,7 +5,6 @@ export default class BaseSpriteSheet extends BaseComponent {
         this.leftExtraPix = 0;
         this.topExtraPix = 0;
         this.responsiveDims = false;
-        this.responsivePadding = false;
         this.img = new Image();
         this.img.src = imgUrl;
         if (this.img == null) {

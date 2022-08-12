@@ -1,4 +1,5 @@
-import { BaseComponent, AniNumber } from "../bilza.js";
+import { BaseComponent } from "../bilza.js";
+import { AniNumber, } from "../animationModule/animations.js";
 export default class Rect extends BaseComponent {
     constructor(color = "#000000") {
         super();

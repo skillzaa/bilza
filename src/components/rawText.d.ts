@@ -1,4 +1,5 @@
-import { Pack, BaseComponent, FontFamily, AniNumber, AniString } from "../bilza.js";
+import { Pack, BaseComponent, FontFamily } from "../bilza.js";
+import { AniNumber, AniString } from "../animationModule/animations.js";
 export default class RawText extends BaseComponent {
     content: AniString;
     fontFamily: FontFamily;

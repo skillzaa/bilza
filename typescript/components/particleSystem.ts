@@ -1,5 +1,6 @@
-import {Pack,BaseComponent,DrawLayer,AniNumber} from "../bilza.js";
+import {Pack,BaseComponent,DrawLayer} from "../bilza.js";
 
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
 import XY from "../BaseComponent/designBC/xy.js";
 import Circle from "./circle.js";
@@ -15,9 +16,9 @@ constructor (count :number= 8,color :string="#008000",framesToSkip :number=50) {
     super();
     this.circle = new Circle(this.color.value());
     
-    this.circle.responsiveCoordinates = false;
-    this.circle.responsivePadding = false;
-    this.circle.responsiveDims = false;
+    // this.circle.responsiveCoordinates = false;
+    // this.circle.responsivePadding = false;
+    // this.circle.responsiveDims = false;
     this.particleSize = new AniNumber(12);
     this.circle.width.set(this.particleSize.value());
     // this.circle.xAlign = this.circle.XAlignOpt.Mid;

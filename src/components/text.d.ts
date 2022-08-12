@@ -1,4 +1,5 @@
-import { Pack, AniString, BaseComponent, AniNumber, FontFamily } from "../bilza.js";
+import { Pack, BaseComponent, FontFamily } from "../bilza.js";
+import { AniNumber, AniString } from "../animationModule/animations.js";
 export default class Text extends BaseComponent {
     content: AniString;
     maxDisplayChars: AniNumber;

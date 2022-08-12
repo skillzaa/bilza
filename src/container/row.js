@@ -1,4 +1,4 @@
-import { AniColor } from "../bilza.js";
+import { AniColor, } from "../animationModule/animations.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import RawText from "../components/rawText.js";
 export default class Row extends BaseComponent {
@@ -11,9 +11,6 @@ export default class Row extends BaseComponent {
         for (let i = 0; i < this.incommingTextArray.length; i++) {
             const item = this.incommingTextArray[i];
             const txt = new RawText(item);
-            txt.responsiveCoordinates = false;
-            txt.responsiveDims = false;
-            txt.responsivePadding = false;
             txt.border.set(1);
             txt.width.set(30);
             txt.colorBorder.set("hsl(200,100%,50%)");

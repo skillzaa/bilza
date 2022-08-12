@@ -1,4 +1,7 @@
-import {Pack,AniBoolean,AniNumber,AniColor} from "../bilza.js";
+import {Pack} from "../bilza.js";
+
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import RawText from "../components/rawText.js";
 
@@ -22,9 +25,9 @@ this.textArray = [];
         const item = this.incommingTextArray[i];
         const txt = new RawText(item);
         //--will use raw pix for width, height ,padding and corrdinates.
-        txt.responsiveCoordinates = false;
-        txt.responsiveDims = false;
-        txt.responsivePadding = false;
+        // txt.responsiveCoordinates = false;
+        // txt.responsiveDims = false;
+        // txt.responsivePadding = false;
 
         txt.border.set(1);
         txt.width.set(30);

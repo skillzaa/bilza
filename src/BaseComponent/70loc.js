@@ -7,9 +7,9 @@ export default class Loc extends WidthHeight {
     draw(p) {
         return true;
     }
-    random(startTimeSec, endTimeSec, Xmin = 1, Xmax = 100, Ymin = 1, Ymax = 100, skipXFrames = 60) {
-        this.x.random(startTimeSec, endTimeSec, Xmin, Xmax, skipXFrames);
-        this.y.random(startTimeSec, endTimeSec, Ymin, Ymax, skipXFrames);
+    random(startTimeSec, endTimeSec, Xmin = 1, Xmax = 100, Ymin = 1, Ymax = 100, delay = 60) {
+        this.x.random(startTimeSec, endTimeSec, Xmin, Xmax, delay);
+        this.y.random(startTimeSec, endTimeSec, Ymin, Ymax, delay);
     }
     vibrate(from, to, x, y, offset, delay) {
         this.x.vibrate(from, to, offset, delay);

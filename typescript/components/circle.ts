@@ -1,5 +1,6 @@
-import { Pack,AniBoolean,AniNumber,BaseComponent } from "../bilza.js";
+import { Pack,BaseComponent } from "../bilza.js";
 
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 export default class Circle extends BaseComponent {
 startAngle :AniNumber;  
 endAngle :AniNumber;  

@@ -45,10 +45,15 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
     if (startValue < endValue ){
         let inc = new Increment(rTimeMsStart,rTimeMsEnd,startValue,0,endValue);
         this.addFilter(inc);
-
+        //--- The stop filter
+        const stop = new ConstantVal(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
+            this.addFilter(stop);
     }else if (startValue > endValue){
         let dec = new Decrement(rTimeMsStart,rTimeMsEnd,startValue,0,endValue);
         this.addFilter(dec);
+        //--- The stop filter
+        const stop = new ConstantVal(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
+            this.addFilter(stop);
     }
     // else if (startValue == endValue){
     //     let c = new ConstantNo(from,to,startValue);
@@ -58,23 +63,23 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
 // this.goto(to , endValue );    
 }
 
-// public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number=100,delayInMilliSec :number=0){
+public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number=100,delayInMilliSec :number=0){
 // const v = new RandomNo(rTimeMsStart,rTimeMsEnd,min,max,delayInMilliSec);
-// // this.filters.push(v);
-// }
-// public jumpBetween(rTimeMsStart :number,rTimeMsEnd :number,pointOne :number=1, pointTwo :number=10,delayInMilliSec :number=0){
-//     const v = new JumpBetween(rTimeMsStart,rTimeMsEnd,pointOne, pointTwo,delayInMilliSec);
-//     // this.filters.push(v);
-// }
+// this.filters.push(v);
+}
+public jumpBetween(rTimeMsStart :number,rTimeMsEnd :number,pointOne :number=1, pointTwo :number=10,delayInMilliSec :number=0){
+    // const v = new JumpBetween(rTimeMsStart,rTimeMsEnd,pointOne, pointTwo,delayInMilliSec);
+    // this.filters.push(v);
+}
 
-// public oscillate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number=1, endValue :number=10,speed :number= 1){
+public oscillate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number=1, endValue :number=10,speed :number= 1){
 // const v = new Oscillate(rTimeMsStart,rTimeMsEnd,startValue, endValue,speed);
-// // this.filters.push(v);
-// }
+// this.filters.push(v);
+}
 
 //---effects
-// public vibrate(rTimeMsStart :number,rTimeMsEnd :number,offset :number=10,delayInMilliSec :number= 100){
-//     const v = new Vibrate(rTimeMsStart,rTimeMsEnd,offset,delayInMilliSec);
-//     this.filters.push(v);
-// }
+public vibrate(rTimeMsStart :number,rTimeMsEnd :number,offset :number=10,delayInMilliSec :number= 100){
+    // const v = new Vibrate(rTimeMsStart,rTimeMsEnd,offset,delayInMilliSec);
+    // this.filters.push(v);
+}
 } 

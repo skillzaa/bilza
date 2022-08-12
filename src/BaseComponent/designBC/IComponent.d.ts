@@ -1,4 +1,5 @@
-import { DrawLayer, Pack, Style, AniNumber, AniBoolean } from "../../bilza.js";
+import { DrawLayer, Pack, Style } from "../../bilza.js";
+import { AniNumber, AniBoolean } from "../../animationModule/animations.js";
 export default interface IComponent {
     readonly id: string;
     drawLayer: DrawLayer;
