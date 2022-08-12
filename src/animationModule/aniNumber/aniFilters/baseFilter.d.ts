@@ -1,15 +1,15 @@
 import IAniFilter from "./IAniFilter.js";
 export default class BaseFilter implements IAniFilter<number> {
     protected _ret_val: number | null;
-    protected msDeltaStart: number;
-    protected msDeltaEnd: number;
+    protected rTimeMsStart: number;
+    protected rTimeMsEnd: number;
     private delayInMS;
     private delayInMSCounter;
-    constructor(msDeltaStart: number, msDeltaEnd: number, delayInMS?: number);
-    update(msDelta: number, baseGotoValue?: number): boolean;
+    constructor(rTimeMsStart: number, rTimeMsEnd: number, delayInMS?: number);
+    update(rTimeMs: number, baseGotoValue?: number): boolean;
     value(): number | null;
-    qualifyToRun(msDelta: number): boolean;
-    protected xFramesSkipped(msDelta: number): boolean;
+    qualifyToRun(rTimeMs: number): boolean;
+    protected xFramesSkipped(rTimeMs: number): boolean;
     init(canvasWidthHeight: number): boolean;
     protected percToPix(canvasWidthHeight: number, perc: number): number;
 }

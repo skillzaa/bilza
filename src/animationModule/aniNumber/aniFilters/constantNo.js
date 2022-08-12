@@ -1,7 +1,7 @@
 import BaseFilter from "../baseNumberFilter.js";
 export default class ConstantNo extends BaseFilter {
-    constructor(msDeltaStart, msDeltaEnd, constantValue) {
-        super(msDeltaStart, msDeltaEnd);
+    constructor(rTimeMsStart, rTimeMsEnd, constantValue) {
+        super(rTimeMsStart, rTimeMsEnd);
         this.constantValue = constantValue;
     }
     value() {

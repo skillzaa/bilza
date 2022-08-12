@@ -1,4 +1,4 @@
-import BaseFilter from "./baseFilter.js";
+import BaseFilter from "./baseFilter.js.js";
 export default class Oscillate extends BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, startValue = 1, endValue = 10, speed = 1, delayInMS = 0) {
         super(rTimeMsStart, rTimeMsEnd, delayInMS);

@@ -12,14 +12,16 @@ this._value  = defaultValue;
 // once inserted can not be deleted just altered.
 this.goto(0,defaultValue); 
 }
-public update(msDelta :number):boolean{
+public update(rTimeMs :number):boolean{
 //---STEP-1
-const baseGoto = this.getBaseFilter(msDelta);
+const baseGoto = this.getBaseFilter(rTimeMs);
+//--importantay-- VVVVVVV
+baseGoto.update(rTimeMs);
 //---step-2:get value from AniFilter inside gotoObj
-const animatedValue = baseGoto.animatedValue(msDelta);
+const animatedValue = baseGoto.animatedValue(rTimeMs);
 
 //---step 3 Apply Filters
-// this._value = this.runFilters(msDelta , this._value);
+// this._value = this.runFilters(rTimeMs , this._value);
 //---step 4 Assign the value
 this._value = animatedValue;
 //------------------------------------------

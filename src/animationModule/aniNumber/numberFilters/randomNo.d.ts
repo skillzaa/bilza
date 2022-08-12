@@ -1,4 +1,4 @@
-import BaseFilter from "./baseFilter.js";
+import BaseFilter from "./baseFilter.js.js";
 export default class RandomNo extends BaseFilter {
     private min;
     private max;

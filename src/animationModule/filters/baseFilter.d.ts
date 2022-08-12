@@ -1,12 +1,12 @@
 export default class BaseFilter<T> {
-    msDeltaStart: number;
-    msDeltaEnd: number;
+    rTimeMsStart: number;
+    rTimeMsEnd: number;
     baseValue: T;
     private delayInMS;
     private delayInMSCounter;
-    protected _animatedValue: T | null;
-    constructor(msDeltaStart: number, msDeltaEnd: number, baseValue: T, delayInMS?: number);
-    update(msDelta: number): boolean;
-    animatedValue(msDelta: number): T;
+    protected _animatedValue: T;
+    constructor(rTimeMsStart: number, rTimeMsEnd: number, baseValue: T, delayInMS?: number);
+    update(rTimeMs: number): boolean;
+    animatedValue(rTimeMs: number): T;
 }
 //# sourceMappingURL=baseFilter.d.ts.map

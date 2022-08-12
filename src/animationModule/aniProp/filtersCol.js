@@ -3,7 +3,7 @@ export default class FiltersCol {
     constructor() {
         this.filtersArr = [];
     }
-    getBaseFilter(msDelta) {
+    getBaseFilter(rTimeMs) {
         if (this.filtersArr.length < 1) {
             throw new Error("BaseGoto not found");
         }
@@ -11,9 +11,9 @@ export default class FiltersCol {
         let rez = null;
         for (let i = 0; i < this.filtersArr.length; i++) {
             const fil = this.filtersArr[i];
-            if (msDelta >= (fil.msDeltaStart)) {
-                if ((fil.msDeltaStart) >= lastFrameChecked) {
-                    lastFrameChecked = (fil.msDeltaStart);
+            if (rTimeMs >= (fil.rTimeMsStart)) {
+                if ((fil.rTimeMsStart) >= lastFrameChecked) {
+                    lastFrameChecked = (fil.rTimeMsStart);
                     rez = fil;
                 }
             }
@@ -23,16 +23,19 @@ export default class FiltersCol {
         }
         return rez;
     }
-    goto(msDelta, value) {
+    goto(rTimeMs, value) {
         for (let i = 0; i < this.filtersArr.length; i++) {
             const fil = this.filtersArr[i];
-            if (fil.msDeltaStart == msDelta) {
+            if (fil.rTimeMsStart == rTimeMs) {
                 fil.baseValue = value;
                 return fil;
             }
         }
-        const v = new BaseFilter(msDelta, msDelta + 1000, value, 0);
-        this.filtersArr.push(v);
+        const v = new BaseFilter(rTimeMs, rTimeMs + 1000, value, 0);
+        this.addFilter(v);
         return v;
+    }
+    addFilter(bfil) {
+        this.filtersArr.push(bfil);
     }
 }

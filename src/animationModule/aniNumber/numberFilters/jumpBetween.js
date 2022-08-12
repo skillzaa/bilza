@@ -1,4 +1,4 @@
-import BaseFilter from "./baseFilter.js";
+import BaseFilter from "./baseFilter.js.js";
 export default class JumpBetween extends BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, pointOne = 1, pointTwo = 10, delayInMS = 0) {
         super(rTimeMsStart, rTimeMsEnd, delayInMS);

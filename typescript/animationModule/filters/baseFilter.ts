@@ -1,35 +1,47 @@
 
 export default class BaseFilter <T> {
     
-public  msDeltaStart :number;
-public  msDeltaEnd :number;
+public  rTimeMsStart :number;
+public  rTimeMsEnd :number;
 public baseValue :T;
 
 private    delayInMS :number;
 private    delayInMSCounter :number;
-protected  _animatedValue :T | null;
+protected  _animatedValue :T;
+// protected data :T[];
+constructor(
+    rTimeMsStart :number,rTimeMsEnd :number,
+    baseValue :T,
+    // data :T[]=[],
+    delayInMS :number=0)
+{
 
-constructor(msDeltaStart :number,msDeltaEnd :number,baseValue :T,delayInMS :number=0){
-this._animatedValue = null;
+// this.data = [];        
+this.baseValue = baseValue;    
+this._animatedValue = baseValue;
 this.delayInMS = delayInMS;
 this.delayInMSCounter = 0;
-this.baseValue = baseValue;    
 //-----NO need to insert the goto(0) - since if not inserted we still have base value stored.
 
-if (msDeltaStart < 0 || msDeltaEnd < 0 ){throw new Error("time can not be negative");}
+if (rTimeMsStart < 0 || rTimeMsEnd < 0 ){throw new Error("time can not be negative");}
 
-if (msDeltaEnd <= msDeltaStart ){throw new Error("end Time can not be equal or smaller than start time");}    
+if (rTimeMsEnd <= rTimeMsStart ){throw new Error("end Time can not be equal or smaller than start time");}    
 
-this.msDeltaStart = msDeltaStart ; 
-this.msDeltaEnd = msDeltaEnd; 
+this.rTimeMsStart = rTimeMsStart ; 
+this.rTimeMsEnd = rTimeMsEnd; 
 }
 //--this is baseValue and not old value --we do not want to send oldValue since then we loose the ability to calculate every frame at its own
-public update(msDelta :number):boolean{
+public update(rTimeMs :number):boolean{
     return  true;
 }
+//--This impl will work for all if baseValue and animatedvalue r same then send any if not send _animatedValue
+public animatedValue(rTimeMs :number):T{
+    if (this._animatedValue == this.baseValue){
+        return this.baseValue; 
+    }else {
+        return this._animatedValue;
 
-public animatedValue(msDelta :number):T{
-return this.baseValue;
+    }
         // let v  = this.applyFilter(); 
         //     if ( v != null){
         //         //--internally the filter will add this.value to the value--or what ever the filter does with the baseGotoValue is its own business just return a T
@@ -39,7 +51,7 @@ return this.baseValue;
         //     }
 }
 
-// protected xFramesSkipped(msDelta :number):boolean{
+// protected xFramesSkipped(rTimeMs :number):boolean{
 //     // if (this.delayInMSCounter < this.skipXframes) {
 //     //         this.skipframesCounter += 1 ;
 //     //         return false;

@@ -5,9 +5,10 @@ export default class AniProp extends FiltersCol {
         this._value = defaultValue;
         this.goto(0, defaultValue);
     }
-    update(msDelta) {
-        const baseGoto = this.getBaseFilter(msDelta);
-        const animatedValue = baseGoto.animatedValue(msDelta);
+    update(rTimeMs) {
+        const baseGoto = this.getBaseFilter(rTimeMs);
+        baseGoto.update(rTimeMs);
+        const animatedValue = baseGoto.animatedValue(rTimeMs);
         this._value = animatedValue;
         return true;
     }

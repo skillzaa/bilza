@@ -1,4 +1,4 @@
-import BaseFilter from "./baseFilter.js";
+import BaseFilter from "./baseFilter.js.js";
 export default class Decrement extends BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue) {
         super(rTimeMsStart, rTimeMsEnd);

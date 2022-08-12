@@ -1,5 +1,5 @@
 export default interface IFilter<T> {
-    update(msDelta: number): boolean;
+    update(rTimeMs: number): boolean;
     value(): T | null;
 }
 //# sourceMappingURL=IFilter.d.ts.map

@@ -1,4 +1,4 @@
-import BaseFilter from "./baseFilter.js";
+import BaseFilter from "./baseFilter.js.js";
 export default class RandomNo extends BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, min = 1, max = 10, delayInMS = 0) {
         super(rTimeMsStart, rTimeMsEnd, delayInMS);

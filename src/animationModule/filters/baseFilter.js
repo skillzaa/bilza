@@ -1,22 +1,27 @@
 export default class BaseFilter {
-    constructor(msDeltaStart, msDeltaEnd, baseValue, delayInMS = 0) {
-        this._animatedValue = null;
+    constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0) {
+        this.baseValue = baseValue;
+        this._animatedValue = baseValue;
         this.delayInMS = delayInMS;
         this.delayInMSCounter = 0;
-        this.baseValue = baseValue;
-        if (msDeltaStart < 0 || msDeltaEnd < 0) {
+        if (rTimeMsStart < 0 || rTimeMsEnd < 0) {
             throw new Error("time can not be negative");
         }
-        if (msDeltaEnd <= msDeltaStart) {
+        if (rTimeMsEnd <= rTimeMsStart) {
             throw new Error("end Time can not be equal or smaller than start time");
         }
-        this.msDeltaStart = msDeltaStart;
-        this.msDeltaEnd = msDeltaEnd;
+        this.rTimeMsStart = rTimeMsStart;
+        this.rTimeMsEnd = rTimeMsEnd;
     }
-    update(msDelta) {
+    update(rTimeMs) {
         return true;
     }
-    animatedValue(msDelta) {
-        return this.baseValue;
+    animatedValue(rTimeMs) {
+        if (this._animatedValue == this.baseValue) {
+            return this.baseValue;
+        }
+        else {
+            return this._animatedValue;
+        }
     }
 }

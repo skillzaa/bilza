@@ -1,4 +1,4 @@
-import BaseFilter from "./baseFilter.js";
+import BaseFilter from "./baseFilter.js.js";
 export default class JumpBetween extends BaseFilter {
     private pointOne;
     private pointTwo;

@@ -1,19 +1,19 @@
-import BaseFilter from "./baseFilter.js";
+import BaseFilter from "./baseFilter.js.js";
 
 export default class JumpBetween extends BaseFilter  {
 
 private    pointOne:number;
 private    pointTwo:number;
 
-constructor(msDeltaStart :number,msDeltaEnd :number,pointOne :number=1, pointTwo :number=10,delayInMS :number=0){
+constructor(rTimeMsStart :number,rTimeMsEnd :number,pointOne :number=1, pointTwo :number=10,delayInMS :number=0){
 
-super(msDeltaStart,msDeltaEnd,delayInMS);    
+super(rTimeMsStart,rTimeMsEnd,delayInMS);    
     
 this.pointOne = pointOne;
 this.pointTwo = pointTwo;
 }
 
-public update(msDelta: number, baseGotoValue: number): boolean {
+public update(rTimeMs: number, baseGotoValue: number): boolean {
     
     if (baseGotoValue !== this.pointOne){
         this._ret_val =  this.pointOne;
