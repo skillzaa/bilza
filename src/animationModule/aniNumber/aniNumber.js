@@ -1,6 +1,7 @@
 import AniProp from "../aniProp/aniProp.js";
 import Increment from "./numberFilters/increment.js";
 import ConstantVal from "./numberFilters/constantVal.js";
+import Decrement from "./numberFilters/decrement.js";
 export default class AniNumber extends AniProp {
     constructor(initialValue = 0, minValue = -3000, maxValue = 3000) {
         super(initialValue);
@@ -25,6 +26,8 @@ export default class AniNumber extends AniProp {
             this.addFilter(inc);
         }
         else if (startValue > endValue) {
+            let dec = new Decrement(rTimeMsStart, rTimeMsEnd, startValue, 0, endValue);
+            this.addFilter(dec);
         }
     }
 }

@@ -1,5 +1,5 @@
 import BaseNumberFilter from "./baseNumberFilter.js";  
-
+ 
 //NOTE : this.startValue = this.baseValue
 export default class Increment extends BaseNumberFilter{
     

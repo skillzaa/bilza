@@ -15,13 +15,13 @@ import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
 // import AniNumber from "./animations/aniNumber/aniNumber.js";
 // import AniNoPerc from "./animations/aniNoPerc/AniNoPerc.js";
-import AniNumber from "./aniMod/aniNumber/aniNumber.js";
+// import AniNumber from "./aniMod/aniNumber/aniNumber.js";
 // import AniNoPerc from "./aniMod/aniNoPerc/aniNoPerc.js";
 
-import AniBoolean from "./animationsXXXX/aniBoolean/aniBoolean.js";
+// import AniBoolean from "./animationsXXXX/aniBoolean/aniBoolean.js";
 export default Bilza;
-import AniColor from "./animationsXXXX/aniColor/aniColor.js";
-import AniString from "./animationsXXXX/aniString/aniString.js";
+// import AniColor from "./animationsXXXX/aniColor/aniColor.js";
+// import AniString from "./animationsXXXX/aniString/aniString.js";
 import Experimental from "./experimental/experimental.js";
 import { UTFIcons } from "./design/utfIcons.js";
 import hsl from "./functions/hsl.js";
@@ -41,10 +41,10 @@ hsl,
 DrawLayer,
 UTFIcons,
 Experimental,
-AniNumber,
-AniString,
-AniBoolean,
-AniColor,
+// AniNumber,
+// AniString,
+// AniBoolean,
+// AniColor,
 IComponent,
 Ui,
 Bilza,

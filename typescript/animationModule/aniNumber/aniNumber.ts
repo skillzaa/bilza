@@ -1,7 +1,7 @@
 import AniProp from "../aniProp/aniProp.js";
 import Increment from "./numberFilters/increment.js";
 import ConstantVal from "./numberFilters/constantVal.js";
-// import Decrement from "./aniFilters/decrement.js";
+import Decrement from "./numberFilters/decrement.js";
 // import Vibrate from "./effFilters/vibrate.js";
 // import RandomNo from "./aniFilters/randomNo.js";
 // import JumpBetween from "./aniFilters/jumpBetween.js";
@@ -47,10 +47,8 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
         this.addFilter(inc);
 
     }else if (startValue > endValue){
-        // const stGoto = super.goto(rTimeMsStart,startValue);
-        // const endGoto = super.goto(rTimeMsEnd,endValue);
-        // let c = new Decrement(rTimeMsStart,rTimeMsEnd,startValue,endValue);
-        // stGoto.aniFilters.push(c);
+        let dec = new Decrement(rTimeMsStart,rTimeMsEnd,startValue,0,endValue);
+        this.addFilter(dec);
     }
     // else if (startValue == endValue){
     //     let c = new ConstantNo(from,to,startValue);

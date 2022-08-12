@@ -1,12 +1,10 @@
-import BaseFilter from "./baseFilter.js.js";
-export default class Decrement extends BaseFilter {
-    protected startValue: number;
+import BaseNumberFilter from "./baseNumberFilter.js";
+export default class Decrement extends BaseNumberFilter {
     protected endValue: number;
     protected Xdiff: number;
     protected timeDiff: number;
-    constructor(rTimeMsStart: number, rTimeMsEnd: number, startValue: number, endValue: number);
+    constructor(rTimeMsStart: number, rTimeMsEnd: number, baseValue: number, delayInMS: number | undefined, endValue: number);
     update(rTimeMs: number, baseGotoValue?: number): boolean;
-    qualifyToRun(rTimeMs: number): boolean;
     init(canvasWidthHeight: number): boolean;
 }
 //# sourceMappingURL=decrement.d.ts.map
