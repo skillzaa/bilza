@@ -7,7 +7,7 @@ export default interface IFilter <T> {
     update(rTimeMs: number): boolean; 
     animatedValue(): T;//a filter can never send null 
     //--??
-    // init(canvasWidthHeight: number): boolean;
-    // percToPix(perc :number ,canvasWidthHeight :number ):number;
+    init(canvasWidthHeight: number): boolean;
+    percToPix(perc :number ,canvasWidthHeight :number ):number;
     
 }
