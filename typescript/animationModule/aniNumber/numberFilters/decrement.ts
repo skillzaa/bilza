@@ -3,7 +3,7 @@ import BaseNumberFilter from "./baseNumberFilter.js";
 //NOTE : this.startValue = this.baseValue
 export default class  Decrement extends BaseNumberFilter{
 protected  endValue :number;
-protected Xdiff :number;
+// protected Xdiff :number;
 protected  timeDiff :number;
 
 constructor(rTimeMsStart :number,rTimeMsEnd :number,baseValue :number,delayInMS :number=0,endValue :number){
@@ -17,7 +17,8 @@ if (this.baseValue <= this.endValue ){throw new Error("end value can not be equa
 if ( this.baseValue < 0 ){throw new Error("start value can not be less than zero in decrement operation");}    
 
 this.timeDiff = Math.abs(this.rTimeMsStart - this.rTimeMsEnd) ;
-this.Xdiff = Math.abs( this.baseValue - this.endValue );
+
+
 //------------------------------------
 
 }
@@ -25,11 +26,12 @@ this.Xdiff = Math.abs( this.baseValue - this.endValue );
 
 public update(rTimeMs :number,baseGotoValue :number=0):boolean{
     
+const Xdiff = Math.abs( this.baseValue - this.endValue );    
 const timeLapsed = Math.ceil(rTimeMs - this.rTimeMsStart);
 const timeLapPercent = (timeLapsed/(this.timeDiff)) * 100;
 //--we have to flip the perc for decrement
 const timeLapPercDecrement = Math.abs(100-timeLapPercent); 
-const distanceLapsed =  (this.Xdiff/100) * timeLapPercDecrement;
+const distanceLapsed =  (Xdiff/100) * timeLapPercDecrement;
 
 this._animatedValue = Math.ceil(this.endValue + distanceLapsed);
 return true;
