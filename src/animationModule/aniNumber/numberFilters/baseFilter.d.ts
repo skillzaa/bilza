@@ -1,5 +1,4 @@
-import IFilter from "./IFilter.js";
-export default class BaseFilter<T> implements IFilter<T> {
+export default class BaseFilter<T> {
     rTimeMsStart: number;
     rTimeMsEnd: number;
     baseValue: T;
@@ -8,6 +7,7 @@ export default class BaseFilter<T> implements IFilter<T> {
     protected _animatedValue: T;
     constructor(rTimeMsStart: number, rTimeMsEnd: number, baseValue: T, delayInMS?: number);
     update(rTimeMs: number): boolean;
-    animatedValue(): T;
+    animatedValue(rTimeMs: number): T;
+    init(canvasWidthHeight: number): boolean;
 }
 //# sourceMappingURL=baseFilter.d.ts.map

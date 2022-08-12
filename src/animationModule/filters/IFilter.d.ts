@@ -1,5 +1,8 @@
 export default interface IFilter<T> {
+    rTimeMsStart: number;
+    rTimeMsEnd: number;
+    baseValue: T;
     update(rTimeMs: number): boolean;
-    value(): T | null;
+    animatedValue(): T;
 }
 //# sourceMappingURL=IFilter.d.ts.map

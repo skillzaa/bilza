@@ -1,6 +1,6 @@
 import BaseFilter from "../filters/baseFilter.js";
 export default class FiltersCol<T> {
-    private filtersArr;
+    protected filtersArr: BaseFilter<T>[];
     constructor();
     protected getBaseFilter(rTimeMs: number): BaseFilter<T>;
     goto(rTimeMs: number, value: T): BaseFilter<T>;

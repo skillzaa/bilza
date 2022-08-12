@@ -22,4 +22,4 @@ import PremadeSpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 import SpriteSheet from "./components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "./components/spriteSheet/spriteSheetAlt.js";
 export { Pack, TextTempl, PremadeSpriteSheets, SpriteSheet, SpriteSheetAlt, hsl, DrawLayer, UTFIcons, Experimental, AniNumber, AniString, AniBoolean, AniColor, IComponent, Ui, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, };
-//# sourceMappingURL=Bilza.d.ts.map
+//# sourceMappingURL=bilza.d.ts.map

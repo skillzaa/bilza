@@ -1,8 +1,13 @@
 
-/**
- * A filter is a code that act on a number only if its with in its running range, incase of waiting and exhaused it returns null.
- */
+
 export default interface IFilter <T> {
-    update(rTimeMs: number): boolean;
-    value(): T | null; 
+    rTimeMsStart :number;
+    rTimeMsEnd :number;
+    baseValue :T;
+    update(rTimeMs: number): boolean; 
+    animatedValue(): T;//a filter can never send null 
+    //--??
+    // init(canvasWidthHeight: number): boolean;
+    // percToPix(perc :number ,canvasWidthHeight :number ):number;
+    
 }

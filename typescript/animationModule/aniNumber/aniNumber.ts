@@ -1,11 +1,11 @@
 import AniProp from "../aniProp/aniProp.js";
 import Increment from "./numberFilters/increment.js";
+import ConstantVal from "./numberFilters/constantVal.js";
 // import Decrement from "./aniFilters/decrement.js";
 // import Vibrate from "./effFilters/vibrate.js";
 // import RandomNo from "./aniFilters/randomNo.js";
 // import JumpBetween from "./aniFilters/jumpBetween.js";
 // import Oscillate from "./aniFilters/oscillate.js"; 
-
 
 
 export default class AniNumber extends AniProp<number>  {
@@ -25,7 +25,22 @@ this.maxValue  = maxValue;
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////
+public goto(rTimeMs :number,value :number):boolean{
+//--first search if the frame already exists or not if it do then dont duplicate
+//--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY 
+    for (let i = 0; i < this.filtersArr.length; i++) {
+        const fil = this.filtersArr[i];
+        if (fil.rTimeMsStart == rTimeMs){
+            fil.baseValue = value;
+            return true; // goto frame edited and not added
+        }
+    }
+    //---The value is base value for filter
+    const v = new ConstantVal(rTimeMs,rTimeMs + 1000,value,0);
+    this.addFilter(v);
+    return false;//// new goto frame ADDED 
+}
+
 public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endValue :number){
     if (startValue < endValue ){
         let inc = new Increment(rTimeMsStart,rTimeMsEnd,startValue,0,endValue);

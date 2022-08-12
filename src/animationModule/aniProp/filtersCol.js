@@ -1,4 +1,3 @@
-import BaseFilter from "../filters/baseFilter.js";
 export default class FiltersCol {
     constructor() {
         this.filtersArr = [];

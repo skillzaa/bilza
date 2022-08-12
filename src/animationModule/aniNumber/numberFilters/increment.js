@@ -1,5 +1,5 @@
-import BaseFilter from "../../filters/baseFilter.js";
-export default class Increment extends BaseFilter {
+import BaseNumberFilter from "./baseNumberFilter.js";
+export default class Increment extends BaseNumberFilter {
     constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0, endValue) {
         super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
         this.endValue = endValue;
@@ -14,6 +14,11 @@ export default class Increment extends BaseFilter {
         const timeLapPercent = (timeLapsed / (this.timeDiff)) * 100;
         const distanceLapsed = (this.Xdiff / 100) * timeLapPercent;
         this._animatedValue = this.baseValue + parseFloat(distanceLapsed.toFixed(2));
+        return true;
+    }
+    init(canvasWidthHeight) {
+        this.baseValue = this.percToPix(canvasWidthHeight, this.baseValue);
+        this.endValue = this.percToPix(canvasWidthHeight, this.endValue);
         return true;
     }
 }

@@ -1,5 +1,6 @@
+import IFilter from "./IFilter.js";
 
-export default class BaseFilter <T> {
+export default class BaseFilter <T> implements IFilter<T> {
     
 public  rTimeMsStart :number;
 public  rTimeMsEnd :number;
@@ -12,11 +13,9 @@ protected  _animatedValue :T;
 constructor(
     rTimeMsStart :number,rTimeMsEnd :number,
     baseValue :T,
-    // data :T[]=[],
     delayInMS :number=0)
 {
-
-// this.data = [];        
+ 
 this.baseValue = baseValue;    
 this._animatedValue = baseValue;
 this.delayInMS = delayInMS;
@@ -35,7 +34,7 @@ public update(rTimeMs :number):boolean{
     return  true;
 }
 //--This impl will work for all if baseValue and animatedvalue r same then send any if not send _animatedValue
-public animatedValue(rTimeMs :number):T{
+public animatedValue():T{
     if (this._animatedValue == this.baseValue){
         return this.baseValue; 
     }else {

@@ -1,7 +1,7 @@
-import BaseFilter from "../../filters/baseFilter.js";
+import BaseNumberFilter from "./baseNumberFilter.js";  
 
 //NOTE : this.startValue = this.baseValue
-export default class Increment extends BaseFilter<number>{
+export default class Increment extends BaseNumberFilter{
     
 // protected  startValue :number;
 protected  endValue :number;
@@ -35,9 +35,9 @@ this._animatedValue = this.baseValue + parseFloat(distanceLapsed.toFixed(2));
 return  true;
 }
 
-// init(canvasWidthHeight: number): boolean {
-// this.baseValue = this.percToPix(canvasWidthHeight,this.startValue);
-// this.endValue = this.percToPix(canvasWidthHeight,this.endValue);
-// return true;
-// }       
+init(canvasWidthHeight: number): boolean {
+this.baseValue = this.percToPix(canvasWidthHeight,this.baseValue);
+this.endValue = this.percToPix(canvasWidthHeight,this.endValue);
+return true;
+}       
 }

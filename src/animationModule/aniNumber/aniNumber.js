@@ -1,10 +1,23 @@
 import AniProp from "../aniProp/aniProp.js";
 import Increment from "./numberFilters/increment.js";
+import ConstantVal from "./numberFilters/constantVal.js";
 export default class AniNumber extends AniProp {
     constructor(initialValue = 0, minValue = -3000, maxValue = 3000) {
         super(initialValue);
         this.minValue = minValue;
         this.maxValue = maxValue;
+    }
+    goto(rTimeMs, value) {
+        for (let i = 0; i < this.filtersArr.length; i++) {
+            const fil = this.filtersArr[i];
+            if (fil.rTimeMsStart == rTimeMs) {
+                fil.baseValue = value;
+                return true;
+            }
+        }
+        const v = new ConstantVal(rTimeMs, rTimeMs + 1000, value, 0);
+        this.addFilter(v);
+        return false;
     }
     animate(rTimeMsStart, rTimeMsEnd, startValue, endValue) {
         if (startValue < endValue) {

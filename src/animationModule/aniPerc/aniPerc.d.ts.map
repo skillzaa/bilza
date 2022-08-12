@@ -1,1 +1,1 @@
-{"version":3,"file":"aniPerc.d.ts","sourceRoot":"","sources":["../../../typescript/animationModule/aniPerc/aniPerc.ts"],"names":[],"mappings":""}
+{"version":3,"file":"aniPerc.d.ts","sourceRoot":"","sources":["../../../typescript/animationModule/aniPerc/aniPerc.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,2BAA2B,CAAC;AASlD,MAAM,CAAC,OAAO,OAAO,OAAQ,SAAQ,SAAS;gBAElC,YAAY,GAAE,MAAQ,EAAE,QAAQ,GAAE,MAAY,EAAC,QAAQ,GAAE,MAAW;IAGhF,IAAI,CAAC,iBAAiB,EAAE,MAAM;CAO7B"}

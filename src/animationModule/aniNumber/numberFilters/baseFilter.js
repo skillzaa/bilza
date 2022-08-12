@@ -16,12 +16,15 @@ export default class BaseFilter {
     update(rTimeMs) {
         return true;
     }
-    animatedValue() {
+    animatedValue(rTimeMs) {
         if (this._animatedValue == this.baseValue) {
             return this.baseValue;
         }
         else {
             return this._animatedValue;
         }
+    }
+    init(canvasWidthHeight) {
+        return true;
     }
 }
