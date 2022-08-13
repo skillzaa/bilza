@@ -23,7 +23,7 @@ public goto(rTimeMs :number,value :string):boolean{
         if (fil.rTimeMsStart == rTimeMs){
             fil.setBaseValue(value);
             return true; // goto frame edited and not added
-        }
+        } 
     }
     //---The value is base value for filter
     const v = new ConstantVal(rTimeMs,rTimeMs + 1000,value,0);

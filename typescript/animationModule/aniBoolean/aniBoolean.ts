@@ -1,7 +1,6 @@
 import AniProp from "../aniProp/aniProp.js";
 import ConstantVal from "./filters/constantVal.js";
 // import JumpBetween from "./aniFilters/jumpBetween.js";
-// import Oscillate from "./aniFilters/oscillate.js"; 
 
 
 export default class AniBoolean extends AniProp<boolean>  {

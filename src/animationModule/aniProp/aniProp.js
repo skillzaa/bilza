@@ -28,6 +28,7 @@ export default class AniProp {
     }
     set(n) {
         this.defaultFilter.setBaseValue(n);
+        this._value = this.defaultFilter.animatedValue();
         return n;
     }
     getBaseFilter(rTimeMs) {

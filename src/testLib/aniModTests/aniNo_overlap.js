@@ -15,4 +15,4 @@ no.goto(7500, 5555);
 no.update(8000);
 tst.isEqual(no.value(), 5555, "no.update(5000)");
 no.update(10000);
-tst.isEqual(no.value(), 5555, "no.update(10000)");
+tst.isEqual(no.value(), 100, "This is very important--at update 10_000 we are back to 100 and not 555 since at 10_000 a constant filter was placed by the begining animate command, so that filter took over here");

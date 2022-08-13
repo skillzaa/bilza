@@ -50,6 +50,7 @@ return this._value;
  
 public set(n :T):T{
 this.defaultFilter.setBaseValue(n);
+this._value = this.defaultFilter.animatedValue();
  return n;
 } 
 
