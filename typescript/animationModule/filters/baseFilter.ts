@@ -17,7 +17,7 @@ constructor(
     baseValue :T,
     delayInMS :number=0)
 {
- 
+  
 this.responsive = false;    
 this.heightWidth = null; // this is canvasHeightWidth    
 
@@ -37,6 +37,10 @@ this.rTimeMsEnd = rTimeMsEnd;
 //--this is baseValue and not old value --we do not want to send oldValue since then we loose the ability to calculate every frame at its own
 public update(rTimeMs :number):boolean{
     return  true;
+}
+setBaseValue(bv :T):T{
+this.baseValue = bv;
+return this.baseValue;
 }
 //--This impl will work for all if baseValue and animatedvalue r same then send any if not send _animatedValue
 //--it must not send out null since the defaultValue of AniProp is for time when there is no filter. a filter must always atleast return its default value.

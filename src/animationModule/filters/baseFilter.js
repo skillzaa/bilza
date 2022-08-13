@@ -18,6 +18,10 @@ export default class BaseFilter {
     update(rTimeMs) {
         return true;
     }
+    setBaseValue(bv) {
+        this.baseValue = bv;
+        return this.baseValue;
+    }
     animatedValue() {
         if (this._animatedValue == null) {
             return this.baseValue;

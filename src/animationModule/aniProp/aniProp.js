@@ -1,13 +1,14 @@
+import ConstantVal from "../filters/constantVal.js";
 export default class AniProp {
     constructor(defaultValue) {
         this.filtersArr = [];
-        this.defaultValue = defaultValue;
-        this._value = this.defaultValue;
+        this.defaultFilter = new ConstantVal(0, 100, defaultValue);
+        this._value = defaultValue;
     }
     update(rTimeMs) {
         const baseGoto = this.getBaseFilter(rTimeMs);
         if (baseGoto == null) {
-            this._value = this.defaultValue;
+            this._value = this.defaultFilter.animatedValue();
             return false;
         }
         else {
@@ -17,7 +18,7 @@ export default class AniProp {
                 this._value = animatedValue;
             }
             else {
-                this._value = this.defaultValue;
+                this._value = this.defaultFilter.animatedValue();
             }
         }
         return true;
@@ -26,8 +27,7 @@ export default class AniProp {
         return this._value;
     }
     set(n) {
-        this.defaultValue = n;
-        this._value = n;
+        this.defaultFilter.setBaseValue(n);
         return n;
     }
     getBaseFilter(rTimeMs) {

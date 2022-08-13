@@ -3,6 +3,7 @@ export default interface IFilter<T> {
     rTimeMsEnd: number;
     responsive: boolean;
     baseValue: T;
+    setBaseValue(bv: T): T;
     update(rTimeMs: number): boolean;
     animatedValue(): T;
     init(canvasWidthHeight: number): boolean;

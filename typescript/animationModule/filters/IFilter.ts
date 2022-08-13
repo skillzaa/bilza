@@ -5,6 +5,7 @@ export default interface IFilter <T> {
     
     responsive :boolean;
     baseValue :T;
+    setBaseValue(bv :T):T;
     update(rTimeMs: number): boolean; 
     animatedValue(): T;//a filter can never send null-- internally even if _ANIMATEDVALUE is null the baseValue should never be null 
     //--??

@@ -3,7 +3,7 @@ export default class ConstantVal extends BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0) {
         super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
     }
-    animatedValue(rTimeMs) {
+    animatedValue() {
         return this.baseValue;
     }
 }

@@ -10,6 +10,7 @@ export default class BaseFilter<T> implements IFilter<T> {
     protected _animatedValue: T | null;
     constructor(rTimeMsStart: number, rTimeMsEnd: number, baseValue: T, delayInMS?: number);
     update(rTimeMs: number): boolean;
+    setBaseValue(bv: T): T;
     animatedValue(): T;
     init(canvasWidthHeight: number): boolean;
     percToPix(perc: number): number;
