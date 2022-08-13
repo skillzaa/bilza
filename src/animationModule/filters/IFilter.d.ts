@@ -1,7 +1,7 @@
 export default interface IFilter<T> {
-    responsive: boolean;
     rTimeMsStart: number;
     rTimeMsEnd: number;
+    responsive: boolean;
     baseValue: T;
     update(rTimeMs: number): boolean;
     animatedValue(): T;

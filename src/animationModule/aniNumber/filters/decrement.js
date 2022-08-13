@@ -20,10 +20,4 @@ export default class Decrement extends BaseNumberFilter {
         this._animatedValue = Math.ceil(this.endValue + distanceLapsed);
         return true;
     }
-    init(canvasWidthHeight) {
-        this.heightWidth = canvasWidthHeight;
-        this.baseValue = this.percToPix(this.baseValue);
-        this.endValue = this.percToPix(this.endValue);
-        return true;
-    }
 }

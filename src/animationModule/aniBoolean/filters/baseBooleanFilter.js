@@ -3,7 +3,4 @@ export default class BaseBooleanFilter extends BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0) {
         super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
     }
-    init(canvasWidthHeight) {
-        return true;
-    }
 }

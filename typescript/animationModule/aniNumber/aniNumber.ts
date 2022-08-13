@@ -26,7 +26,6 @@ this.maxValue  = maxValue;
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 public goto(rTimeMs :number,value :number):boolean{
-//--first search if the frame already exists or not if it do then dont duplicate
 //--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY 
     for (let i = 0; i < this.filtersArr.length; i++) {
         const fil = this.filtersArr[i];

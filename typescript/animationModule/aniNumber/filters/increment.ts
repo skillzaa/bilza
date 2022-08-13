@@ -36,11 +36,11 @@ this._animatedValue = this.baseValue + parseFloat(distanceLapsed.toFixed(2));
 return  true;
 }
 
-init(canvasWidthHeight: number): boolean {
-this.heightWidth = canvasWidthHeight;
+// init(canvasWidthHeight: number): boolean {
+// this.heightWidth = canvasWidthHeight;
     
-this.baseValue = this.percToPix(this.baseValue);
-this.endValue = this.percToPix(this.endValue);
-return true;
-}       
+// this.baseValue = this.percToPix(this.baseValue);
+// this.endValue = this.percToPix(this.endValue);
+// return true;
+// }       
 }

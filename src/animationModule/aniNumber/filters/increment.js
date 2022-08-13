@@ -16,10 +16,4 @@ export default class Increment extends BaseNumberFilter {
         this._animatedValue = this.baseValue + parseFloat(distanceLapsed.toFixed(2));
         return true;
     }
-    init(canvasWidthHeight) {
-        this.heightWidth = canvasWidthHeight;
-        this.baseValue = this.percToPix(this.baseValue);
-        this.endValue = this.percToPix(this.endValue);
-        return true;
-    }
 }

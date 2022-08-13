@@ -20,6 +20,7 @@ constructor(
  
 this.responsive = false;    
 this.heightWidth = null; // this is canvasHeightWidth    
+
 this.baseValue = baseValue;    
 this._animatedValue = baseValue;
 this.delayInMS = delayInMS;
@@ -69,7 +70,7 @@ this.heightWidth = canvasWidthHeight;
     return true;
 }
 percToPix(perc :number) {
-    if (this.heightWidth == null) {throw new Error("heightWidth is null");
+if (this.heightWidth == null) {throw new Error("heightWidth is null");
      }
     return ((this.heightWidth / 100) * perc);
 }

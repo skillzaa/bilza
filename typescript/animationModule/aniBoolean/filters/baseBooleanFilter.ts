@@ -11,9 +11,4 @@ super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
 
 }
 
-
-init(canvasWidthHeight: number): boolean {
-    return true;
-}
-
 }

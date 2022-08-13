@@ -80,8 +80,4 @@ protected addFilter(bfil :IFilter<T>){
     this.filtersArr.push(bfil);
 }
 
-
-
-
-
 }

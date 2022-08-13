@@ -36,7 +36,5 @@ this.canvasWidthHeight = canvasWidthHeight;
     // this.responsive = false;    
 }
 
-percToPix(perc :number ,canvasWidthHeight :number ) {
-    return ((canvasWidthHeight / 100) * perc);
-}
+
 } 

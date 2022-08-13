@@ -19,7 +19,4 @@ export default class AniPerc extends AniNumber {
             fil.init(canvasWidthHeight);
         }
     }
-    percToPix(perc, canvasWidthHeight) {
-        return ((canvasWidthHeight / 100) * perc);
-    }
 }
