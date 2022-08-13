@@ -4,14 +4,6 @@ export default class ConstantPercVal extends BasePercFilter {
         super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
     }
     animatedValue() {
-        if (this.responsive == true) {
-            if (this.heightWidth == null) {
-                throw new Error("heightWidth is null");
-            }
-            return this.percToPix(this.baseValue);
-        }
-        else {
-            return this.baseValue;
-        }
+        return this.responsiveValue(this.baseValue);
     }
 }

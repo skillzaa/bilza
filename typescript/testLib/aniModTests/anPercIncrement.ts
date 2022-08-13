@@ -5,7 +5,7 @@ const tst = new BaseTest(" AniPerc Increment ");
 const no = new AniPerc(0,true);
 
 //----------------------------------------
-no.animate(0,10000,0,100);
+no.animate(0,10_000,0,100);
 
 //----------------------------------------
 //--this is where magic happens

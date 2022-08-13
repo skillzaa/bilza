@@ -1,6 +1,6 @@
 import IFilter from "../filters/IFilter";
 export default class AniProp<T> {
-    protected _value: T;
+    protected _value: T | null;
     protected filtersArr: IFilter<T>[];
     protected defaultFilter: IFilter<T>;
     constructor(defaultValue: T);

@@ -10,8 +10,10 @@ export default class AniPerc extends AniProp {
         this.filtersArr = [];
         this.minValue = minValue;
         this.maxValue = maxValue;
+        this.setResponsive(responsive);
     }
     setResponsive(tf) {
+        this.defaultFilter.responsive = tf;
         for (let i = 0; i < this.filtersArr.length; i++) {
             const fil = this.filtersArr[i];
             fil.responsive = tf;
@@ -19,6 +21,7 @@ export default class AniPerc extends AniProp {
     }
     init(canvasWidthHeight) {
         this.canvasWidthHeight = canvasWidthHeight;
+        this.defaultFilter.init(canvasWidthHeight);
         for (let i = 0; i < this.filtersArr.length; i++) {
             const fil = this.filtersArr[i];
             fil.init(canvasWidthHeight);

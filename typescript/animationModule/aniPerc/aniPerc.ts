@@ -13,7 +13,7 @@ export default class AniPerc extends AniProp<number>  {
     public readonly minValue :number;
     public readonly maxValue :number;
     
-public defaultFilter :IFilter<number>;    
+public defaultFilter :IPercFilter<number>;    
 private canvasWidthHeight :number | null;
 protected filtersArr :IPercFilter<number>[];   
 /**
@@ -23,17 +23,19 @@ constructor(initialValue :number=0,responsive:boolean=true, minValue :number=-30
 
 super(initialValue);
 this.defaultFilter = new ConstantPercVal(0,100,initialValue);
-// this.responsive = responsive;
 this.canvasWidthHeight = null;
 this.filtersArr  = [];
 
 
 this.minValue  = minValue; 
 this.maxValue  = maxValue; 
+this.setResponsive(responsive);
 
 }
 //..
 public setResponsive(tf :boolean){
+    this.defaultFilter.responsive = tf;
+    //--
     for (let i = 0; i < this.filtersArr.length; i++) {
         const fil = this.filtersArr[i];
         fil.responsive = tf;
@@ -45,7 +47,7 @@ init(canvasWidthHeight :number){
 this.canvasWidthHeight = canvasWidthHeight;    
 
 //----------------init defaullt value 
-// this.defaultValue = this.percToPix(this.defaultValue,canvasWidthHeight);
+this.defaultFilter.init(canvasWidthHeight);
 //----------------init all
     for (let i = 0; i < this.filtersArr.length; i++) {
         const fil = this.filtersArr[i];

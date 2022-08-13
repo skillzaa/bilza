@@ -29,7 +29,7 @@ constructor(
 {
 super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
 
-this.responsive = false;    
+this.responsive = true;    
 this.heightWidth = null; // this is canvasHeightWidth    
 
 }
@@ -37,9 +37,22 @@ init(canvasWidthHeight: number): boolean {
 this.heightWidth = canvasWidthHeight;    
     return true;
 }
-percToPix(perc :number) {
-if (this.heightWidth == null) {throw new Error("heightWidth is null");
-     }
+//---must over write in sub-filter
+// public animatedValue():number{
+    
+// }
+
+responsiveValue(perc :number):number {
+if (this.responsive == true){
+    if (this.heightWidth == null){throw new Error("heightWidth is null");}
+    return ((this.heightWidth / 100) * perc);
+} else {
+    return perc;
+}   
+}
+
+percToPix(perc :number):number {
+if (this.heightWidth == null){throw new Error("heightWidth is null");}
     return ((this.heightWidth / 100) * perc);
 }
 

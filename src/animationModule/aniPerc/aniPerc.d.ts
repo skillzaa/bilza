@@ -1,10 +1,9 @@
 import AniProp from "../aniProp/aniProp.js";
-import IFilter from "../filters/IFilter.js";
 import IPercFilter from "./filters/IPercFilter.js";
 export default class AniPerc extends AniProp<number> {
     readonly minValue: number;
     readonly maxValue: number;
-    defaultFilter: IFilter<number>;
+    defaultFilter: IPercFilter<number>;
     private canvasWidthHeight;
     protected filtersArr: IPercFilter<number>[];
     constructor(initialValue?: number, responsive?: boolean, minValue?: number, maxValue?: number);

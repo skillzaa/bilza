@@ -12,7 +12,8 @@ export default class Decrement extends BasePercFilter {
         this.timeDiff = Math.abs(this.rTimeMsStart - this.rTimeMsEnd);
     }
     update(rTimeMs, baseGotoValue = 0) {
-        const Xdiff = Math.abs(this.baseValue - this.endValue);
+        const Xdiff = Math.abs(this.responsiveValue(this.baseValue) -
+            this.responsiveValue(this.endValue));
         const timeLapsed = Math.ceil(rTimeMs - this.rTimeMsStart);
         const timeLapPercent = (timeLapsed / (this.timeDiff)) * 100;
         const timeLapPercDecrement = Math.abs(100 - timeLapPercent);

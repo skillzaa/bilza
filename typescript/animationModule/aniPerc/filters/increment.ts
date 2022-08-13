@@ -25,7 +25,9 @@ this.timeDiff = Math.abs(this.rTimeMsEnd - this.rTimeMsStart) ;
 //--why return number | null??;
 public update(rTimeMs :number):boolean{
 
-const Xdiff = Math.abs(this.baseValue - this.endValue);
+const Xdiff = Math.abs(
+    this.responsiveValue(this.baseValue) - 
+    this.responsiveValue(this.endValue) );
 
 const timeLapsed = Math.ceil(rTimeMs - this.rTimeMsStart);
 const timeLapPercent = (timeLapsed/(this.timeDiff)) * 100;

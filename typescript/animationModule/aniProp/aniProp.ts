@@ -3,7 +3,7 @@ import ConstantVal from "../filters/constantVal.js";
 
 export default class AniProp <T>  {
 //--this cant be null its not _ret_val of filter its aniProp    
-protected _value :T;                 
+protected _value :T | null;                 
 // protected defaultValue :T;                 
 protected filtersArr :IFilter<T>[];       
 protected defaultFilter :IFilter<T>;       
@@ -13,7 +13,7 @@ constructor(defaultValue :T){
 this.filtersArr  = []; 
 
 this.defaultFilter  = new ConstantVal(0,100,defaultValue); 
-this._value  = defaultValue; 
+this._value  = null; 
 //--What if not filter is applied--? then what ? --Then always have 1 filter at frame 0; 
 // once inserted can not be deleted just altered.
 // this.goto(0,defaultValue); 
@@ -44,13 +44,18 @@ return true;
 }
 
 public value():T{
-return this._value;
+//--do not return value that is null-- this will give a correct result even without an update  
+if (this._value == null){
+    return this.defaultFilter.animatedValue();
+} else {
+    return this._value;
+} 
 }
 //--relationship between goto(0) and base value?
  
 public set(n :T):T{
 this.defaultFilter.setBaseValue(n);
-this._value = this.defaultFilter.animatedValue();
+// this._value = this.defaultFilter.animatedValue();
  return n;
 } 
 

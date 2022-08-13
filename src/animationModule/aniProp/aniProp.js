@@ -3,7 +3,7 @@ export default class AniProp {
     constructor(defaultValue) {
         this.filtersArr = [];
         this.defaultFilter = new ConstantVal(0, 100, defaultValue);
-        this._value = defaultValue;
+        this._value = null;
     }
     update(rTimeMs) {
         const baseGoto = this.getBaseFilter(rTimeMs);
@@ -24,11 +24,15 @@ export default class AniProp {
         return true;
     }
     value() {
-        return this._value;
+        if (this._value == null) {
+            return this.defaultFilter.animatedValue();
+        }
+        else {
+            return this._value;
+        }
     }
     set(n) {
         this.defaultFilter.setBaseValue(n);
-        this._value = this.defaultFilter.animatedValue();
         return n;
     }
     getBaseFilter(rTimeMs) {
