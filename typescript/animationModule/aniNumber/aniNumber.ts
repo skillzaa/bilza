@@ -30,7 +30,7 @@ public goto(rTimeMs :number,value :number):boolean{
     for (let i = 0; i < this.filtersArr.length; i++) {
         const fil = this.filtersArr[i];
         if (fil.rTimeMsStart == rTimeMs){
-            fil.baseValue = value;
+            fil.setBaseValue(value);
             return true; // goto frame edited and not added
         }
     }

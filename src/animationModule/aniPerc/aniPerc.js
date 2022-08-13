@@ -5,6 +5,7 @@ export default class AniPerc extends AniNumber {
         super(initialValue, minValue, maxValue);
         this.defaultFilter = new ConstantPercVal(0, 100, initialValue);
         this.canvasWidthHeight = null;
+        this.filtersArr = [];
     }
     setResponsive(tf) {
         for (let i = 0; i < this.filtersArr.length; i++) {

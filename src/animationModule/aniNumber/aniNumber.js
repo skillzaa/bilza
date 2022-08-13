@@ -12,7 +12,7 @@ export default class AniNumber extends AniProp {
         for (let i = 0; i < this.filtersArr.length; i++) {
             const fil = this.filtersArr[i];
             if (fil.rTimeMsStart == rTimeMs) {
-                fil.baseValue = value;
+                fil.setBaseValue(value);
                 return true;
             }
         }
