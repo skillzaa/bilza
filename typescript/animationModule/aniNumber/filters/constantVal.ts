@@ -7,7 +7,17 @@ super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
 }
 
 init(canvasWidthHeight: number): boolean {
-    this.baseValue = this.percToPix(canvasWidthHeight,this.baseValue);
+this.heightWidth =  canvasWidthHeight;   
+    // this.baseValue = this.percToPix(canvasWidthHeight,this.baseValue);
     return true;
-    }       
+} 
+
+public animatedValue(): number {
+    if (this.responsive == true){
+        if (this.heightWidth == null) { throw new Error("heightWidth is null");}
+        return  this.percToPix(this.baseValue);
+    }else {
+        return  this.baseValue;
+    }
+}
 }

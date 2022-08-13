@@ -59,8 +59,8 @@ public paddingTop       :AniPerc;
 public paddingBottom    :AniPerc;         
 public paddingRight     :AniPerc;         
 public paddingLeft      :AniPerc;         
-public x :AniNumber; 
-public y :AniNumber;
+public x :AniPerc; 
+public y :AniPerc;
 
 //---Basic colors
 public colorBackground :AniColor;
@@ -117,8 +117,8 @@ this.selected = false;
 this.visible = new AniBoolean(true);
 
 //-----------Location x and y
-this.x = new AniNumber(0);
-this.y = new AniNumber(0);
+this.x = new AniPerc(0,false);
+this.y = new AniPerc(0,false);
 //-----------padding
 // this.responsivePadding = true;
 this.paddingTop =    new AniPerc(0,false);
@@ -146,8 +146,10 @@ this.paddingLeft  = new AniPerc(0,tf);
 return tf;
 }
 setResponsiveCoordinates(tf :boolean=true):boolean{
-this.x = new AniPerc(0,tf);
-this.y = new AniPerc(0,tf);
+// this.x = new AniPerc(0,tf);
+this.x.setResponsive(true);
+this.y.setResponsive(true);
+// this.y = new AniPerc(0,tf);
 return tf;
 }
 setResponsiveDims(tf :boolean=true):boolean{

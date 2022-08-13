@@ -5,6 +5,8 @@ export default class BaseFilter <T> implements IFilter<T> {
 public  rTimeMsStart :number;
 public  rTimeMsEnd :number;
 public baseValue :T;
+public responsive :boolean;
+protected heightWidth :number | null;
 
 private    delayInMS :number;
 private    delayInMSCounter :number;
@@ -16,6 +18,8 @@ constructor(
     delayInMS :number=0)
 {
  
+this.responsive = false;    
+this.heightWidth = null; // this is canvasHeightWidth    
 this.baseValue = baseValue;    
 this._animatedValue = baseValue;
 this.delayInMS = delayInMS;
@@ -34,6 +38,7 @@ public update(rTimeMs :number):boolean{
     return  true;
 }
 //--This impl will work for all if baseValue and animatedvalue r same then send any if not send _animatedValue
+//--it must not send out null since the defaultValue of AniProp is for time when there is no filter. a filter must always atleast return its default value.
 public animatedValue():T{
     if (this._animatedValue == null){
         return this.baseValue; 
@@ -60,9 +65,13 @@ public animatedValue():T{
 //     return true;
 // }
 init(canvasWidthHeight: number): boolean {
+this.heightWidth = canvasWidthHeight;    
     return true;
 }
-percToPix(perc: number, canvasWidthHeight: number): number {
-    return 0;
+percToPix(perc :number) {
+    if (this.heightWidth == null) {throw new Error("heightWidth is null");
+     }
+    return ((this.heightWidth / 100) * perc);
 }
+
 }

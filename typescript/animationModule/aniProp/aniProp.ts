@@ -5,6 +5,7 @@ export default class AniProp <T>  {
 protected _value :T;                 
 protected defaultValue :T;                 
 protected filtersArr :IFilter<T>[];       
+// public defaultFilter :IFilter<T>;
 //--now that we have default value there is no need for goto at zero in any case the aniProp will have a value it can never be null. However the animated value (from filter) can be null thus _value keep track between default value and animatedValue
 
 constructor(defaultValue :T){

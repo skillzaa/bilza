@@ -1,21 +1,28 @@
 import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
+
 let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
-bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
-const txt = cf.rawText("Hellow World", hsl(240));
-txt.x.set(400);
-txt.y.set(30);
-txt.x.animate(0,6000, 400,0);
 
-txt.x.goto(10000,100);
-txt.x.goto(15000,200);
-txt.x.goto(20000,300);
-txt.x.goto(25000,400);
-txt.x.goto(30000,500);
-txt.x.goto(40000,600);
 
-// txt.width.oscillate(0, 120, 20, 100, .15);
-bil.insert.add(txt, 0, 120);
+bil.insert.alwaysOn(cf.grid(hsl(60, 50, 30)));
+bil.insert.alwaysOn(cf.frameCounter(hsl(60, 50, 30)));
+
+const fill = cf.fillRect(hsl(30));
+// fill.xAlign = fill.XAlignOpt.Mid;
+// fill.yAlign = fill.YAlignOpt.Mid;
+
+fill.x.set(50);
+fill.y.set(50);
+// fill.y.set(50);
+
+fill.width.set(10);
+fill.height.set(10);
+
+fill.x.animate(1000,5000,50,0);
+fill.x.goto(6000,50);
+fill.setResponsiveCoordinates(true);
+bil.insert.add(fill, 0, 700);
+
+
 const ui = new Ui(bil);
+// bil.init();
 bil.draw();

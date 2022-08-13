@@ -1,17 +1,19 @@
 import AniNumber from "../aniNumber/aniNumber.js";
+import ConstantVal from "../aniNumber/filters/constantVal.js";
 export default class AniPerc extends AniNumber {
     constructor(initialValue = 0, responsive = true, minValue = -3000, maxValue = 3000) {
         super(initialValue, minValue, maxValue);
-        this.responsive = responsive;
+        this.defaultFilter = new ConstantVal(0, 100, initialValue);
+        this.canvasWidthHeight = null;
     }
     setResponsive(tf) {
-        this.responsive = tf;
+        for (let i = 0; i < this.filtersArr.length; i++) {
+            const fil = this.filtersArr[i];
+            fil.responsive = tf;
+        }
     }
     init(canvasWidthHeight) {
-        if (this.responsive == false) {
-            return false;
-        }
-        this.defaultValue = this.percToPix(this.defaultValue, canvasWidthHeight);
+        this.canvasWidthHeight = canvasWidthHeight;
         for (let i = 0; i < this.filtersArr.length; i++) {
             const fil = this.filtersArr[i];
             fil.init(canvasWidthHeight);

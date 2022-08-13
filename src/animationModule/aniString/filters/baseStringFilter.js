@@ -6,7 +6,4 @@ export default class BaseStringFilter extends BaseFilter {
     init(canvasWidthHeight) {
         return true;
     }
-    percToPix(perc, canvasWidthHeight) {
-        return ((canvasWidthHeight / 100) * perc);
-    }
 }

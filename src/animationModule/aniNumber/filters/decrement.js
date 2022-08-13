@@ -21,8 +21,9 @@ export default class Decrement extends BaseNumberFilter {
         return true;
     }
     init(canvasWidthHeight) {
-        this.baseValue = this.percToPix(canvasWidthHeight, this.baseValue);
-        this.endValue = this.percToPix(canvasWidthHeight, this.endValue);
+        this.heightWidth = canvasWidthHeight;
+        this.baseValue = this.percToPix(this.baseValue);
+        this.endValue = this.percToPix(this.endValue);
         return true;
     }
 }

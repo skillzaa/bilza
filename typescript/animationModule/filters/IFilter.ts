@@ -1,6 +1,7 @@
 
 
 export default interface IFilter <T> {
+    responsive :boolean;
     rTimeMsStart :number;
     rTimeMsEnd :number;
     baseValue :T;
@@ -8,6 +9,6 @@ export default interface IFilter <T> {
     animatedValue(): T;//a filter can never send null-- internally even if _ANIMATEDVALUE is null the baseValue should never be null 
     //--??
     init(canvasWidthHeight: number): boolean;
-    percToPix(perc :number ,canvasWidthHeight :number ):number;
+    percToPix(perc :number ):number;
     
 }

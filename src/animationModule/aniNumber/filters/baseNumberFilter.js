@@ -6,7 +6,10 @@ export default class BaseNumberFilter extends BaseFilter {
     init(canvasWidthHeight) {
         return true;
     }
-    percToPix(perc, canvasWidthHeight) {
-        return ((canvasWidthHeight / 100) * perc);
+    percToPix(perc) {
+        if (this.heightWidth == null) {
+            throw new Error("init error!");
+        }
+        return ((this.heightWidth / 100) * perc);
     }
 }

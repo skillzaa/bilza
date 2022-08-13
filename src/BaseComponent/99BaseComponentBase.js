@@ -28,8 +28,8 @@ export default class BaseComponentBase {
         this.canvasHeight = null;
         this.selected = false;
         this.visible = new AniBoolean(true);
-        this.x = new AniNumber(0);
-        this.y = new AniNumber(0);
+        this.x = new AniPerc(0, false);
+        this.y = new AniPerc(0, false);
         this.paddingTop = new AniPerc(0, false);
         this.paddingBottom = new AniPerc(0, false);
         this.paddingRight = new AniPerc(0, false);
@@ -48,8 +48,8 @@ export default class BaseComponentBase {
         return tf;
     }
     setResponsiveCoordinates(tf = true) {
-        this.x = new AniPerc(0, tf);
-        this.y = new AniPerc(0, tf);
+        this.x.setResponsive(true);
+        this.y.setResponsive(true);
         return tf;
     }
     setResponsiveDims(tf = true) {

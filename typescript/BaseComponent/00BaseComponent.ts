@@ -13,8 +13,8 @@ this.canvasHeight =  p.canvasHeight();
 
 //--Only 6 classes need init x,y and 4 paddings
 //--no need for init
-// this.x.init(this.canvasWidth);//canvasWidth
-// this.y.init(this.canvasHeight);//canvasHeight
+this.x.init(this.canvasWidth);//canvasWidth
+this.y.init(this.canvasHeight);//canvasHeight
 //paddings
 this.paddingLeft.init(this.canvasWidth);
 this.paddingRight.init(this.canvasWidth);

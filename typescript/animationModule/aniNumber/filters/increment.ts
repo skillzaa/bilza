@@ -37,8 +37,10 @@ return  true;
 }
 
 init(canvasWidthHeight: number): boolean {
-this.baseValue = this.percToPix(canvasWidthHeight,this.baseValue);
-this.endValue = this.percToPix(canvasWidthHeight,this.endValue);
+this.heightWidth = canvasWidthHeight;
+    
+this.baseValue = this.percToPix(this.baseValue);
+this.endValue = this.percToPix(this.endValue);
 return true;
 }       
 }

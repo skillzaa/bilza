@@ -15,7 +15,7 @@ super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
 init(canvasWidthHeight: number): boolean {
     return true;
 }
-percToPix(perc :number ,canvasWidthHeight :number ) {
-    return ((canvasWidthHeight / 100) * perc);
-}
+// percToPix(perc :number ,canvasWidthHeight :number ) {
+//     return ((canvasWidthHeight / 100) * perc);
+// }
 }

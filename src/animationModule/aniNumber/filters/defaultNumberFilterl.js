@@ -1,9 +1,10 @@
-import BaseFilter from "../../filters/baseFilter.js";
-export default class BaseBooleanFilter extends BaseFilter {
+import BaseNumberFilter from "./baseNumberFilter.js";
+export default class DefaultNumberFilter extends BaseNumberFilter {
     constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0) {
         super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
     }
     init(canvasWidthHeight) {
+        this.baseValue = this.percToPix(canvasWidthHeight, this.baseValue);
         return true;
     }
 }
