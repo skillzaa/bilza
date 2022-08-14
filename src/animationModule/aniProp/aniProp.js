@@ -1,8 +1,8 @@
-import ConstantVal from "../filters/constantVal.js";
+import IdentityFil from "../filters/identityFil.js";
 export default class AniProp {
     constructor(defaultValue) {
         this.filtersArr = [];
-        this.defaultFilter = new ConstantVal(0, 100, defaultValue);
+        this.defaultFilter = new IdentityFil(0, 100, defaultValue);
         this._value = null;
     }
     update(rTimeMs) {
@@ -54,5 +54,17 @@ export default class AniProp {
     }
     addFilter(bfil) {
         this.filtersArr.push(bfil);
+    }
+    goto(rTimeMs, value) {
+        for (let i = 0; i < this.filtersArr.length; i++) {
+            const fil = this.filtersArr[i];
+            if (fil.rTimeMsStart == rTimeMs) {
+                fil.setBaseValue(value);
+                return true;
+            }
+        }
+        const v = new IdentityFil(rTimeMs, rTimeMs + 1000, value, 0);
+        this.addFilter(v);
+        return false;
     }
 }

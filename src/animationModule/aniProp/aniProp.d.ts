@@ -9,5 +9,6 @@ export default class AniProp<T> {
     set(n: T): T;
     protected getBaseFilter(rTimeMs: number): IFilter<T> | null;
     protected addFilter(bfil: IFilter<T>): void;
+    goto(rTimeMs: number, value: T): boolean;
 }
 //# sourceMappingURL=aniProp.d.ts.map
