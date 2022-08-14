@@ -24,8 +24,6 @@ export default class AniNumber extends AniProp {
     }
     random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delayInMilliSec = 0) {
     }
-    jumpBetween(rTimeMsStart, rTimeMsEnd, pointOne = 1, pointTwo = 10, delayInMilliSec = 0) {
-    }
     oscillate(rTimeMsStart, rTimeMsEnd, startValue = 1, endValue = 10, speed = 1) {
     }
     vibrate(rTimeMsStart, rTimeMsEnd, offset = 10, delayInMilliSec = 100) {

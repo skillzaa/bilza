@@ -19,8 +19,10 @@ constructor(
 {
   
 
-this.baseValue = baseValue;    
-this._animatedValue = baseValue;
+this.baseValue = baseValue;
+//--wrong    
+// this._animatedValue = baseValue;
+this._animatedValue = null;
 this.delayInMS = delayInMS;
 //--no more counter since i am not counting frames any more
 // this.delayInMSCounter = 0;

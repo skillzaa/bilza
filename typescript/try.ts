@@ -3,25 +3,12 @@ let bil = new Bilza("bilza", 70);
 const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
-const txt = cf.rawText("Hellow World", hsl(240));
-txt.x.set(40); // will be over written
-txt.y.set(20);
-txt.x.animate(0,6000, 80,0);
 
-txt.x.goto( k(10) ,10);
-txt.x.goto( k(15) ,20);
-txt.x.goto( k(20) ,30);
-txt.x.goto( k(25) ,40);
-txt.x.goto( k(30) ,50);
-txt.x.goto( k(35) ,60);
-/////////////////////////
-txt.y.goto( k(40), 20 );
-txt.y.goto( k(45), 30 );
-txt.y.goto( k(50), 40 );
-txt.y.goto( k(55), 50 );
-txt.y.goto( k(60), 60 );
-txt.y.goto( k(65), 70 );
+const txt = cf.fillRect(hsl(240));
+txt.x.set(0); // will be over written
+txt.y.set(50);
 
+txt.width.jumpBetween(5000,50_000,80,10,5000);
 // txt.width.oscillate(0, 120, 20, 100, .15);
 bil.insert.add(txt, 0, 120);
 const ui = new Ui(bil);

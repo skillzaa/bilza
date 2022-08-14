@@ -99,5 +99,39 @@ public goto(rTimeMs :number,value :T):boolean{
     this.addFilter(v);
     return false;//// new goto frame ADDED 
 }
+public jumpBetween(rTimeMsStart :number,rTimeMsEnd :number,pointOne :T, pointTwo :T,delaySec :number=1000){
+    //--convert delay in sec
+    const timeDiff = rTimeMsEnd - rTimeMsStart;
+    //---starting fil will be added in the main loop
+    //-----check modulus if not zero add ending filter since it will be skipped in the loop
+    if (timeDiff % delaySec !== 0 ){
+        //--The end time does not matter a filter does not end on its and time rather when a new filter appear BUT end time is required for internal working...maybe
+        const endFil = new IdentityFil(rTimeMsEnd,rTimeMsEnd + 1000,pointTwo,0);
+        this.addFilter(endFil);
+    }
+    //--now the loop to insert intermiediate filters--math . floor is imp since if its not modulus = 0 then leave the last bit we took care of it above
+    const noOfIter = Math.floor( timeDiff / delaySec);
+    for (let i = 0; i < noOfIter ; i ++) {
+        // i = 0 will insert the starting filter delaySec * 0 = 0
+        if ( (i % 2) == 0 ){
+        const filEven = new IdentityFil(
+            rTimeMsStart + (i * delaySec) ,
+            rTimeMsEnd + 1000,
+            pointOne,0);
+            this.addFilter(filEven);
+        }else {
+            const filOdd = new IdentityFil(
+                rTimeMsStart + (i * delaySec) ,
+                rTimeMsEnd + 1000,
+                pointTwo,0);
+                this.addFilter(filOdd);
+        }
+    }
+
+}
+
+
+
+
 
 }

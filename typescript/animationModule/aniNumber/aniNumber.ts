@@ -53,10 +53,6 @@ public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number
 // const v = new RandomNo(rTimeMsStart,rTimeMsEnd,min,max,delayInMilliSec);
 // this.filters.push(v);
 }
-public jumpBetween(rTimeMsStart :number,rTimeMsEnd :number,pointOne :number=1, pointTwo :number=10,delayInMilliSec :number=0){
-    // const v = new JumpBetween(rTimeMsStart,rTimeMsEnd,pointOne, pointTwo,delayInMilliSec);
-    // this.filters.push(v);
-}
 
 public oscillate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number=1, endValue :number=10,speed :number= 1){
 // const v = new Oscillate(rTimeMsStart,rTimeMsEnd,startValue, endValue,speed);
