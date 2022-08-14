@@ -1,11 +1,11 @@
 import AniProp from "../aniProp/aniProp.js";
 import Increment from "./filters/increment.js";
 import Decrement from "./filters/decrement.js";
-import ConstantPercVal from "./filters/constantPercVal.js";
+import IdentityFilPerc from "./filters/identityFilPerc.js";
 export default class AniPerc extends AniProp {
     constructor(initialValue = 0, responsive = true, minValue = -3000, maxValue = 3000) {
         super(initialValue);
-        this.defaultFilter = new ConstantPercVal(0, 100, initialValue);
+        this.defaultFilter = new IdentityFilPerc(0, 100, initialValue);
         this.canvasWidthHeight = null;
         this.filtersArr = [];
         this.minValue = minValue;
@@ -35,7 +35,7 @@ export default class AniPerc extends AniProp {
                 return true;
             }
         }
-        const v = new ConstantPercVal(rTimeMs, rTimeMs + 1000, value, 0);
+        const v = new IdentityFilPerc(rTimeMs, rTimeMs + 1000, value, 0);
         this.addFilter(v);
         return false;
     }
@@ -43,13 +43,13 @@ export default class AniPerc extends AniProp {
         if (startValue < endValue) {
             let inc = new Increment(rTimeMsStart, rTimeMsEnd, startValue, 0, endValue);
             this.addFilter(inc);
-            const stop = new ConstantPercVal(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
+            const stop = new IdentityFilPerc(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
             this.addFilter(stop);
         }
         else if (startValue > endValue) {
             let dec = new Decrement(rTimeMsStart, rTimeMsEnd, startValue, 0, endValue);
             this.addFilter(dec);
-            const stop = new ConstantPercVal(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
+            const stop = new IdentityFilPerc(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
             this.addFilter(stop);
         }
     }

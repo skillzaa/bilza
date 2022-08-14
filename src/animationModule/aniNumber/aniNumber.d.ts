@@ -3,7 +3,6 @@ export default class AniNumber extends AniProp<number> {
     readonly minValue: number;
     readonly maxValue: number;
     constructor(initialValue?: number, minValue?: number, maxValue?: number);
-    goto(rTimeMs: number, value: number): boolean;
     animate(rTimeMsStart: number, rTimeMsEnd: number, startValue: number, endValue: number): void;
     random(rTimeMsStart: number, rTimeMsEnd: number, min?: number, max?: number, delayInMilliSec?: number): void;
     jumpBetween(rTimeMsStart: number, rTimeMsEnd: number, pointOne?: number, pointTwo?: number, delayInMilliSec?: number): void;

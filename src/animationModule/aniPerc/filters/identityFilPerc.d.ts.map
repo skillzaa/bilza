@@ -1,0 +1,1 @@
+{"version":3,"file":"identityFilPerc.d.ts","sourceRoot":"","sources":["../../../../typescript/animationModule/aniPerc/filters/identityFilPerc.ts"],"names":[],"mappings":"AAAA,OAAO,cAAc,MAAM,qBAAqB,CAAC;AAEjD,MAAM,CAAC,OAAO,OAAO,eAAgB,SAAQ,cAAc;gBAE/C,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EAAC,SAAS,EAAE,MAAM,EAAC,SAAS,GAAE,MAAQ;IAIlF,aAAa,IAAI,MAAM;CAI7B"}

@@ -2,8 +2,8 @@
 import AniProp from "../aniProp/aniProp.js";
 import Increment from "./filters/increment.js";
 import Decrement from "./filters/decrement.js";
-import ConstantPercVal from "./filters/constantPercVal.js";
-import IFilter from "../filters/IFilter.js";
+import IdentityFilPerc from "./filters/identityFilPerc.js";
+// import IFilter from "../filters/IFilter.js";
 import IPercFilter from "./filters/IPercFilter.js";
 
 
@@ -22,7 +22,7 @@ protected filtersArr :IPercFilter<number>[];
 constructor(initialValue :number=0,responsive:boolean=true, minValue :number=-3000,maxValue :number=3000){
 
 super(initialValue);
-this.defaultFilter = new ConstantPercVal(0,100,initialValue);
+this.defaultFilter = new IdentityFilPerc(0,100,initialValue);
 this.canvasWidthHeight = null;
 this.filtersArr  = [];
 
@@ -70,7 +70,7 @@ public goto(rTimeMs :number,value :number):boolean{
         }
     }
     //---The value is base value for filter
-    const v = new ConstantPercVal(rTimeMs,rTimeMs + 1000,value,0);
+    const v = new IdentityFilPerc(rTimeMs,rTimeMs + 1000,value,0);
     this.addFilter(v);
     return false;//// new goto frame ADDED 
 }
@@ -80,13 +80,13 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
         let inc = new Increment(rTimeMsStart,rTimeMsEnd,startValue,0,endValue);
         this.addFilter(inc);
         //--- The stop filter
-        const stop = new ConstantPercVal(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
+        const stop = new IdentityFilPerc(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
             this.addFilter(stop);
     }else if (startValue > endValue){
         let dec = new Decrement(rTimeMsStart,rTimeMsEnd,startValue,0,endValue);
         this.addFilter(dec);
         //--- The stop filter
-        const stop = new ConstantPercVal(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
+        const stop = new IdentityFilPerc(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
             this.addFilter(stop);
     }
     // else if (startValue == endValue){

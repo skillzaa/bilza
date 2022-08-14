@@ -1,5 +1,5 @@
 import BaseFilter from "../../filters/baseFilter.js";
- 
+ //--keep dont delete will come in handy
 export default class BaseBooleanFilter  extends BaseFilter <boolean> {
     
 constructor(

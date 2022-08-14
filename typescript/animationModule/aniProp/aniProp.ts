@@ -39,12 +39,11 @@ if (baseGoto == null ){
                 this._value = this.defaultFilter.animatedValue();
             }
 }
-//------------------------------------------
 return true;
 }
 
 public value():T{
-//--do not return value that is null-- this will give a correct result even without an update  
+//--do not return this._value that is null in start-- this will give a correct result even without an update  
 if (this._value == null){
     return this.defaultFilter.animatedValue();
 } else {

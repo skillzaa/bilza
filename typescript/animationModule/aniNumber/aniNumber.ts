@@ -1,6 +1,7 @@
 import AniProp from "../aniProp/aniProp.js";
 import Increment from "./filters/increment.js";
-import ConstantVal from "./filters/constantVal.js";
+// import ConstantVal from "./filters/constantVal.js";
+import IdentityFil from "../filters/identityFil.js";
 import Decrement from "./filters/decrement.js";
 // import Vibrate from "./effFilters/vibrate.js";
 // import RandomNo from "./aniFilters/randomNo.js";
@@ -25,33 +26,19 @@ this.maxValue  = maxValue;
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////
-public goto(rTimeMs :number,value :number):boolean{
-//--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY 
-    for (let i = 0; i < this.filtersArr.length; i++) {
-        const fil = this.filtersArr[i];
-        if (fil.rTimeMsStart == rTimeMs){
-            fil.setBaseValue(value);
-            return true; // goto frame edited and not added
-        }
-    }
-    //---The value is base value for filter
-    const v = new ConstantVal(rTimeMs,rTimeMs + 1000,value,0);
-    this.addFilter(v);
-    return false;//// new goto frame ADDED 
-}
-
 public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endValue :number){
     if (startValue < endValue ){
         let inc = new Increment(rTimeMsStart,rTimeMsEnd,startValue,0,endValue);
         this.addFilter(inc);
         //--- The stop filter
-        const stop = new ConstantVal(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
+        //- the generic IdentityFil works without <number> as well
+        const stop = new IdentityFil <number>(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
             this.addFilter(stop);
     }else if (startValue > endValue){
         let dec = new Decrement(rTimeMsStart,rTimeMsEnd,startValue,0,endValue);
         this.addFilter(dec);
         //--- The stop filter
-        const stop = new ConstantVal(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
+        const stop = new IdentityFil <number>(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
             this.addFilter(stop);
     }
     // else if (startValue == endValue){

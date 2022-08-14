@@ -1,6 +1,7 @@
-import Bilza, { Ui,CompFactory as cf,hsl } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf,hsl } from "../bilza.js";
 
 let bil = new Bilza("bilza", 70);
+
 bil.background.color.set(hsl(240,100,18));
 bil.insert.alwaysOn(cf.grid(hsl(60,50,30)));
 
@@ -18,11 +19,13 @@ line.color.set(hsl(120));
 line.lineWidth.set(10);
 bil.insert.alwaysOn(line);
 /////////////////////////////////////////////////////
-line.x2.animate(1,5,25,75);
-line.y2.animate(6,10,25,75);
-line.x2.animate(11,15,75,25);
-line.y2.animate(16,20,75,25);
+line.x2.animate(1_000,5000,25,75);
+line.y2.animate(6_000,10_000,25,75);
+
+line.x2.animate(11_000,15_000,75,25);
+line.y2.animate(16_000,20_000,75,25);
 /////////////////////////////////////////////////////
 const ui = new Ui(bil);
 bil.draw(); //-------------------------------------//
 /////////////////////////////////////////////////////
+console.log("line",line);

@@ -1,6 +1,6 @@
 import BasePercFilter from "./basePercFilter.js";  
 
-export default class ConstantPercVal extends BasePercFilter {
+export default class IdentityFilPerc extends BasePercFilter {
   
 constructor(rTimeMsStart :number,rTimeMsEnd :number,baseValue :number,delayInMS :number=0){
 super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);  
