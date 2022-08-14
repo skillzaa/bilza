@@ -1,30 +1,29 @@
-import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf,hsl } from "./bilza.js";
+
 let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
-bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
-const txt = cf.rawText("Hellow World", hsl(240));
-txt.x.set(40); // will be over written
-txt.y.set(20);
-txt.x.animate(0,6000, 80,0);
 
-txt.x.goto(10000,10);
-txt.x.goto(15000,20);
-txt.x.goto(20000,30);
-txt.x.goto(25000,40);
-txt.x.goto(30000,50);
-txt.x.goto(35_000,60);
-/////////////////////////
-txt.y.goto(40000,20);
-txt.y.goto(45_000,30);
-txt.y.goto(50_000,40);
-txt.y.goto(55_000,50);
-txt.y.goto(60_000,60);
-txt.y.goto(65_000,70);
+bil.background.color.set(hsl(240,100,18));
+bil.insert.alwaysOn(cf.grid(hsl(60,50,30)));
 
-// txt.width.oscillate(0, 120, 20, 100, .15);
-bil.insert.add(txt, 0, 120);
+const fill = cf.fillRect(hsl(30));
+fill.xAlign = fill.XAlignOpt.Mid;
+fill.yAlign = fill.YAlignOpt.Mid;
+fill.x.set(50);
+fill.y.set(50);
+fill.width.set(50);
+fill.height.set(50);
+bil.insert.add(fill,0,30);
+///////////////////////////////////////
+const line = cf.line(50,50,25,25);
+line.color.set(hsl(120));
+line.lineWidth.set(10);
+bil.insert.alwaysOn(line);
+/////////////////////////////////////////////////////
+line.x2.animate(1_000,5000,25,75);
+line.y2.animate(6_000,10_000,25,75);
+line.x2.animate(11_000,15_000,75,25);
+line.y2.animate(16_000,20_000,75,25);
+/////////////////////////////////////////////////////
 const ui = new Ui(bil);
-bil.draw();
-
-console.log("txt",txt);
+bil.draw(); //-------------------------------------//
+/////////////////////////////////////////////////////
