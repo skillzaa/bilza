@@ -20,3 +20,4 @@ line.x2.animate(11000, 15000, 75, 25);
 line.y2.animate(16000, 20000, 75, 25);
 const ui = new Ui(bil);
 bil.draw();
+console.log("line", line);

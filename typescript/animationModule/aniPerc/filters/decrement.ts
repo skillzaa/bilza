@@ -37,7 +37,7 @@ const timeLapPercent = (timeLapsed/(this.timeDiff)) * 100;
 const timeLapPercDecrement = Math.abs(100-timeLapPercent); 
 const distanceLapsed =  (Xdiff/100) * timeLapPercDecrement;
 
-this._animatedValue = Math.ceil(this.endValue + distanceLapsed);
+this._animatedValue = Math.ceil( this.responsiveValue(this.endValue) + distanceLapsed);
 return true;
 }
 
