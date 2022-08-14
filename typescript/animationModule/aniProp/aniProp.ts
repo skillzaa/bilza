@@ -80,21 +80,21 @@ return rez;
 }
 protected addFilter(bfil :IFilter<T>){
     //----?? check if there is a filt;er at that frame
+    //--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY 
+    for (let i = 0; i < this.filtersArr.length; i++) {
+        const fil = this.filtersArr[i];
+        if (fil.rTimeMsStart == bfil.rTimeMsStart ){
+            throw new Error( `There is another animation inserted at exectly this frame (number ${fil.rTimeMsStart}), please either remove the previous animation or change time for your new animation`);
+            
+        }
+    }
+
     this.filtersArr.push(bfil);
 }
 ////////////////////////////////////////
 ////////////////////////////////////////
 ////////////////////////////////////////
 public goto(rTimeMs :number,value :T):boolean{
-//--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY 
-    for (let i = 0; i < this.filtersArr.length; i++) {
-        const fil = this.filtersArr[i];
-        if (fil.rTimeMsStart == rTimeMs){
-            fil.setBaseValue(value);
-            return true; // goto frame edited and not added
-        }
-    }
-    //---The value is base value for filter
     const v = new IdentityFil(rTimeMs,rTimeMs + 1000,value,0);
     this.addFilter(v);
     return false;//// new goto frame ADDED 

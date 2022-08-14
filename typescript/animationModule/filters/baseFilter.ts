@@ -8,8 +8,7 @@ public  rTimeMsEnd :number;
 protected  _animatedValue :T | null;
 protected baseValue :T;
 
-private    delayInMS :number;
-private    delayInMSCounter :number;
+private    readonly delayInMS :number;
 
 //-- It takes 4 values
 constructor(
@@ -23,7 +22,8 @@ constructor(
 this.baseValue = baseValue;    
 this._animatedValue = baseValue;
 this.delayInMS = delayInMS;
-this.delayInMSCounter = 0;
+//--no more counter since i am not counting frames any more
+// this.delayInMSCounter = 0;
 
 if (rTimeMsStart < 0 || rTimeMsEnd < 0 ){throw new Error("time can not be negative");}
 
@@ -50,15 +50,5 @@ public animatedValue():T{
     }
 }
 
-// protected xFramesSkipped(rTimeMs :number):boolean{
-//     // if (this.delayInMSCounter < this.skipXframes) {
-//     //         this.skipframesCounter += 1 ;
-//     //         return false;
-//     // }else {
-//     //     this.skipframesCounter = 0;
-//     //     return true;
-//     // }
-//     return true;
-// }
 
 }

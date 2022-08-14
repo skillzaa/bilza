@@ -1,4 +1,4 @@
-import Bilza, { Ui, CompFactory as cf, hsl,kilo } from "./bilza.js";
+import Bilza, { Ui, CompFactory as cf, hsl, k } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
 const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
@@ -8,19 +8,19 @@ txt.x.set(40); // will be over written
 txt.y.set(20);
 txt.x.animate(0,6000, 80,0);
 
-txt.x.goto(kilo(10) ,10);
-txt.x.goto(kilo(15) ,20);
-txt.x.goto(kilo(20) ,30);
-txt.x.goto(kilo(25) ,40);
-txt.x.goto(kilo(30) ,50);
-txt.x.goto(kilo(35) ,60);
+txt.x.goto( k(10) ,10);
+txt.x.goto( k(15) ,20);
+txt.x.goto( k(20) ,30);
+txt.x.goto( k(25) ,40);
+txt.x.goto( k(30) ,50);
+txt.x.goto( k(35) ,60);
 /////////////////////////
-txt.y.goto(kilo(40), 20 );
-txt.y.goto(kilo(45), 30 );
-txt.y.goto(kilo(50), 40 );
-txt.y.goto(kilo(55), 50 );
-txt.y.goto(kilo(60), 60 );
-txt.y.goto(kilo(65), 70 );
+txt.y.goto( k(40), 20 );
+txt.y.goto( k(45), 30 );
+txt.y.goto( k(50), 40 );
+txt.y.goto( k(55), 50 );
+txt.y.goto( k(60), 60 );
+txt.y.goto( k(65), 70 );
 
 // txt.width.oscillate(0, 120, 20, 100, .15);
 bil.insert.add(txt, 0, 120);

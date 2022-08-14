@@ -89,12 +89,9 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
         const stop = new IdentityFilPerc(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
             this.addFilter(stop);
     }
-    // else if (startValue == endValue){
-    //     let c = new ConstantNo(from,to,startValue);
-    //     this.filters.push(c);
-    // }
-//--- This goto is to ensure that the last frame is met
-// this.goto(to , endValue );    
+    else if (startValue == endValue){
+        console.debug(`The start value : ${startValue} == end value ${endValue} henace no animation added`);
+    }
 }
 
 public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number=100,delayInMilliSec :number=0){

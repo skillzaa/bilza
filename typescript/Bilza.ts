@@ -13,7 +13,7 @@ import Style from "./design/style.js";
 import BaseComponent from "./BaseComponent/00BaseComponent.js"
 import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
-import kilo from "./functions/kilo.js";
+import k from "./functions/k.js";
 // import AniBoolean from "./animationsXXXX/aniBoolean/aniBoolean.js";
 export default Bilza;
 // import AniColor from "./animationsXXXX/aniColor/aniColor.js";
@@ -48,5 +48,5 @@ YAlignOpt,
 FontFamily,
 Style,
 // TextTempl
-kilo
+k
 }

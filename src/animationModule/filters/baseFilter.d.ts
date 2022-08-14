@@ -4,8 +4,7 @@ export default class BaseFilter<T> implements IFilter<T> {
     rTimeMsEnd: number;
     protected _animatedValue: T | null;
     protected baseValue: T;
-    private delayInMS;
-    private delayInMSCounter;
+    private readonly delayInMS;
     constructor(rTimeMsStart: number, rTimeMsEnd: number, baseValue: T, delayInMS?: number);
     update(rTimeMs: number): boolean;
     setBaseValue(bv: T): T;

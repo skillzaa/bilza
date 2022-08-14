@@ -53,16 +53,15 @@ export default class AniProp {
         return rez;
     }
     addFilter(bfil) {
+        for (let i = 0; i < this.filtersArr.length; i++) {
+            const fil = this.filtersArr[i];
+            if (fil.rTimeMsStart == bfil.rTimeMsStart) {
+                throw new Error(`There is another animation inserted at exectly this frame (number ${fil.rTimeMsStart}), please either remove the previous animation or change time for your new animation`);
+            }
+        }
         this.filtersArr.push(bfil);
     }
     goto(rTimeMs, value) {
-        for (let i = 0; i < this.filtersArr.length; i++) {
-            const fil = this.filtersArr[i];
-            if (fil.rTimeMsStart == rTimeMs) {
-                fil.setBaseValue(value);
-                return true;
-            }
-        }
         const v = new IdentityFil(rTimeMs, rTimeMs + 1000, value, 0);
         this.addFilter(v);
         return false;

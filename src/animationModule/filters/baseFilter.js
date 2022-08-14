@@ -3,7 +3,6 @@ export default class BaseFilter {
         this.baseValue = baseValue;
         this._animatedValue = baseValue;
         this.delayInMS = delayInMS;
-        this.delayInMSCounter = 0;
         if (rTimeMsStart < 0 || rTimeMsEnd < 0) {
             throw new Error("time can not be negative");
         }

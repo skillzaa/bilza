@@ -52,6 +52,9 @@ export default class AniPerc extends AniProp {
             const stop = new IdentityFilPerc(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
             this.addFilter(stop);
         }
+        else if (startValue == endValue) {
+            console.debug(`The start value : ${startValue} == end value ${endValue} henace no animation added`);
+        }
     }
     random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delayInMilliSec = 0) {
     }
