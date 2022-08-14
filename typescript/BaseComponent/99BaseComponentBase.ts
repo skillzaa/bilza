@@ -117,14 +117,14 @@ this.selected = false;
 this.visible = new AniBoolean(true);
 
 //-----------Location x and y
-this.x = new AniPerc(0,false);
-this.y = new AniPerc(0,false);
+this.x = new AniPerc(0);
+this.y = new AniPerc(0);
 //-----------padding
 // this.responsivePadding = true;
-this.paddingTop =    new AniPerc(0,false);
-this.paddingBottom = new AniPerc(0,false); 
-this.paddingRight =  new AniPerc(0,false);
-this.paddingLeft  =  new AniPerc(0,false);
+this.paddingTop =    new AniPerc(0,true);
+this.paddingBottom = new AniPerc(0,true); 
+this.paddingRight =  new AniPerc(0,true);
+this.paddingLeft  =  new AniPerc(0,true);
 ////////////
 this.border  = new AniNumber(0);
 

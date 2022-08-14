@@ -29,7 +29,8 @@ this.filtersArr  = [];
 
 this.minValue  = minValue; 
 this.maxValue  = maxValue; 
-this.setResponsive(responsive);
+// this.setResponsive(responsive);
+this.setResponsive(true);
 
 }
 //..

@@ -10,7 +10,7 @@ export default class AniPerc extends AniProp {
         this.filtersArr = [];
         this.minValue = minValue;
         this.maxValue = maxValue;
-        this.setResponsive(responsive);
+        this.setResponsive(true);
     }
     setResponsive(tf) {
         this.defaultFilter.responsive = tf;
