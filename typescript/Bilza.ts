@@ -13,11 +13,7 @@ import Style from "./design/style.js";
 import BaseComponent from "./BaseComponent/00BaseComponent.js"
 import { XAlignOpt } from "./BaseComponent/designBC/xAlignOpt.js";
 import { YAlignOpt } from "./BaseComponent/designBC/yAlignOpt.js";
-// import AniNumber from "./animations/aniNumber/aniNumber.js";
-// import AniNoPerc from "./animations/aniNoPerc/AniNoPerc.js";
-// import AniNumber from "./aniMod/aniNumber/aniNumber.js";
-// import AniNoPerc from "./aniMod/aniNoPerc/aniNoPerc.js";
-
+import kilo from "./functions/kilo.js";
 // import AniBoolean from "./animationsXXXX/aniBoolean/aniBoolean.js";
 export default Bilza;
 // import AniColor from "./animationsXXXX/aniColor/aniColor.js";
@@ -41,10 +37,6 @@ hsl,
 DrawLayer,
 UTFIcons,
 Experimental,
-// AniNumber,
-// AniString,
-// AniBoolean,
-// AniColor,
 IComponent,
 Ui,
 Bilza,
@@ -56,4 +48,5 @@ YAlignOpt,
 FontFamily,
 Style,
 // TextTempl
+kilo
 }
