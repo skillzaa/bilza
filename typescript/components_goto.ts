@@ -31,16 +31,17 @@ bil.insert.add(txtRaw,30,20);//start time and duration (not end time)'
 const ui = new Ui(bil);
 bil.draw(); //-------------------------------------//
 /////////////////////////////////////////////////////
-function attachGotoTest(comp :IComponent,startingTime :number=0){
+
+function attachGotoTest(comp :IComponent,startingTime :number=1000){
 comp.goto(startingTime + 0,0,0);
-comp.goto(startingTime + 2,10,10);
-comp.goto(startingTime + 4,20,20);
-comp.goto(startingTime + 6,30,30);
-comp.goto(startingTime + 8,40,40);
-comp.goto(startingTime + 10,50,50);
-comp.goto(startingTime + 12,60,60);
-comp.goto(startingTime + 14,70,70);
-comp.goto(startingTime + 16,80,80);
-comp.goto(startingTime + 18,90,90);
-comp.goto(startingTime + 20,100,100);
+comp.goto(startingTime + 2000,10,10);
+comp.goto(startingTime + 4000,20,20);
+comp.goto(startingTime + 6000,30,30);
+comp.goto(startingTime + 8000,40,40);
+comp.goto(startingTime + 10_000,50,50);
+comp.goto(startingTime + 12000,60,60);
+comp.goto(startingTime + 14000,70,70);
+comp.goto(startingTime + 16000,80,80);
+comp.goto(startingTime + 18000,90,90);
+comp.goto(startingTime + 20000,100,100);
 }
