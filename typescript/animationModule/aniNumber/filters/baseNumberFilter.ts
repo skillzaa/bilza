@@ -4,10 +4,11 @@ export default class BaseNumberFilter  extends BaseFilter <number> {
     
 constructor(
     rTimeMsStart :number,rTimeMsEnd :number,
-    baseValue :number,
-    delayInMS :number=0)
+    startValue :number,
+    endValue :number,
+    delaySec :number=0)
 {
-super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
+super(rTimeMsStart,rTimeMsEnd,startValue,endValue,delaySec);
 
 }
 

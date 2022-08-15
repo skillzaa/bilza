@@ -1,18 +1,20 @@
 import BaseNumberFilter from "./baseNumberFilter.js";
 export default class Decrement extends BaseNumberFilter {
-    constructor(rTimeMsStart, rTimeMsEnd, baseValue, endValue, delayInMS = 0) {
-        super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
-        this.endValue = endValue;
-        if (this.baseValue <= this.endValue) {
+    constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, delaySec = 0) {
+        super(rTimeMsStart, rTimeMsEnd, startValue, endValue, (delaySec * 1000));
+        if (this.startValue <= this.endValue) {
             throw new Error("end value can not be equal to or larger than start value in an decrement operation");
         }
-        if (this.baseValue < 0) {
+        if (this.startValue < 0) {
             throw new Error("start value can not be less than zero in decrement operation");
         }
         this.timeDiff = Math.abs(this.rTimeMsStart - this.rTimeMsEnd);
     }
     update(rTimeMs, baseGotoValue = 0) {
-        const Xdiff = Math.abs(this.baseValue - this.endValue);
+        if (this.isBeyond(rTimeMs) == true) {
+            return false;
+        }
+        const Xdiff = Math.abs(this.startValue - this.endValue);
         const timeLapsed = Math.ceil(rTimeMs - this.rTimeMsStart);
         const timeLapPercent = (timeLapsed / (this.timeDiff)) * 100;
         const timeLapPercDecrement = Math.abs(100 - timeLapPercent);

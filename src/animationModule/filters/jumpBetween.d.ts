@@ -1,6 +1,6 @@
 import BaseFilter from "./baseFilter.js";
 export default class IdentityFil<T> extends BaseFilter<T> {
-    constructor(rTimeMsStart: number, rTimeMsEnd: number, baseValue: T, delayInMS?: number);
+    constructor(rTimeMsStart: number, rTimeMsEnd: number, startValue: T, endValue: T, delaySec?: number);
     animatedValue(): T;
 }
 //# sourceMappingURL=jumpBetween.d.ts.map

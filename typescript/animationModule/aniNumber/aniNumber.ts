@@ -32,14 +32,14 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
         this.addFilter(inc);
         //--- The stop filter
         //- the generic IdentityFil works without <number> as well
-        const stop = new IdentityFil <number>(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
-            this.addFilter(stop);
+        // const stop = new IdentityFil <number>(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
+        //     this.addFilter(stop);
     }else if (startValue > endValue){
         let dec = new Decrement(rTimeMsStart,rTimeMsEnd,startValue,endValue);
         this.addFilter(dec);
         //--- The stop filter
-        const stop = new IdentityFil <number>(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
-            this.addFilter(stop);
+        // const stop = new IdentityFil <number>(rTimeMsEnd,rTimeMsEnd + 100000,endValue,0);
+        //     this.addFilter(stop);
     }
     // else if (startValue == endValue){
     //     let c = new ConstantNo(from,to,startValue);
@@ -52,9 +52,9 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
 public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number=100,delaySec :number=0){
 const v = new Random(rTimeMsStart,rTimeMsEnd,min,max,delaySec);
 this.addFilter(v);
-const mid = (max-min)/2;
-const last = new IdentityFil<number>(rTimeMsEnd,rTimeMsEnd + 1000,mid,delaySec);
-this.addFilter(last);
+// const mid = (max-min)/2;
+// const last = new IdentityFil<number>(rTimeMsEnd,rTimeMsEnd + 1000,mid,delaySec);
+// this.addFilter(last);
 }
 
 public oscillate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number=1, endValue :number=10,secPerIter :number= 5000){

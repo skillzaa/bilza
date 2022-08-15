@@ -4,6 +4,6 @@ export default class IdentityFilPerc extends BasePercFilter {
         super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
     }
     animatedValue() {
-        return this.responsiveValue(this.baseValue);
+        return this.responsiveValue(this.startValue);
     }
 }

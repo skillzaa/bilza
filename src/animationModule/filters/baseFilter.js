@@ -1,9 +1,11 @@
+import Delay from "./delay.js";
 export default class BaseFilter {
-    constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0) {
-        this.beyondValue = beyondValue;
-        this.baseValue = baseValue;
+    constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, delaySec = 0) {
+        this.delay = new Delay(delaySec);
+        this.startValue = startValue;
+        this.endValue = endValue;
         this._animatedValue = null;
-        this.delayInMS = delayInMS;
+        this.delaySec = delaySec;
         if (rTimeMsStart < 0 || rTimeMsEnd < 0) {
             throw new Error("time can not be negative");
         }
@@ -14,18 +16,31 @@ export default class BaseFilter {
         this.rTimeMsEnd = rTimeMsEnd;
     }
     update(rTimeMs) {
+        false;
         return true;
     }
+    isBeyond(rTimeMs) {
+        if (rTimeMs > this.rTimeMsEnd) {
+            this._animatedValue = this.endValue;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     setBaseValue(bv) {
-        this.baseValue = bv;
-        return this.baseValue;
+        this.startValue = bv;
+        return this.startValue;
     }
     animatedValue() {
         if (this._animatedValue == null) {
-            return this.baseValue;
+            return this.startValue;
         }
         else {
             return this._animatedValue;
         }
+    }
+    getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
     }
 }

@@ -1,4 +1,4 @@
-import Bilza, { Ui,CompFactory as cf,hsl,TextTempl } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf,hsl,TextTempl } from "../bilza.js";
 
 let bil = new Bilza("bilza", 70);
 

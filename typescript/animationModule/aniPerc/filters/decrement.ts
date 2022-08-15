@@ -11,10 +11,10 @@ constructor(rTimeMsStart :number,rTimeMsEnd :number,baseValue :number,delayInMS 
     super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);    
     this.endValue = endValue;
 
-if (this.baseValue <= this.endValue ){throw new Error("end value can not be equal to or larger than start value in an decrement operation");}    
+if (this.startValue <= this.endValue ){throw new Error("end value can not be equal to or larger than start value in an decrement operation");}    
 
 //--it can be in decrement op but not in increment op.
-if ( this.baseValue < 0 ){throw new Error("start value can not be less than zero in decrement operation");}    
+if ( this.startValue < 0 ){throw new Error("start value can not be less than zero in decrement operation");}    
 
 this.timeDiff = Math.abs(this.rTimeMsStart - this.rTimeMsEnd) ;
 
@@ -25,10 +25,12 @@ this.timeDiff = Math.abs(this.rTimeMsStart - this.rTimeMsEnd) ;
 
 
 public update(rTimeMs :number,baseGotoValue :number=0):boolean{
+//--importanttay    
+if(this.isBeyond(rTimeMs) == true){return false;}
     
 // const Xdiff = Math.abs( this.baseValue - this.endValue );   
 const Xdiff = Math.abs(
-    this.responsiveValue(this.baseValue) - 
+    this.responsiveValue(this.startValue) - 
     this.responsiveValue(this.endValue) );
 
 const timeLapsed = Math.ceil(rTimeMs - this.rTimeMsStart);
@@ -40,14 +42,4 @@ const distanceLapsed =  (Xdiff/100) * timeLapPercDecrement;
 this._animatedValue = Math.ceil( this.responsiveValue(this.endValue) + distanceLapsed);
 return true;
 }
-
-
-// init(canvasWidthHeight: number): boolean {
-// this.heightWidth = canvasWidthHeight;
-        
-// this.baseValue = this.percToPix(this.baseValue);
-// this.endValue = this.percToPix(this.endValue);
-// return true;
-// }       
-
 }

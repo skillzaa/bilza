@@ -1,4 +1,4 @@
-import Bilza, {IComponent, Ui,CompFactory as cf,hsl } from "./bilza.js";
+import Bilza, {IComponent, Ui,CompFactory as cf,hsl } from "../bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(240,100,18));

@@ -8,6 +8,6 @@ super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
 
 public animatedValue(): number {
 // console.log( "animatedValue of ConstantPercVal") ;   
-return this.responsiveValue(this.baseValue);
+return this.responsiveValue(this.startValue);
 }
 }

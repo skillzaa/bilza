@@ -1,4 +1,4 @@
-import Bilza, { Ui,CompFactory as cf,hsl,PremadeSpriteSheets } from "./bilza.js";
+import Bilza, { Ui,CompFactory as cf,hsl,PremadeSpriteSheets } from "../bilza.js";
 // import SpriteSheet from "./components/spriteSheet.js";
 
 let bil = new Bilza("bilza", 70);

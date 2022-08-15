@@ -14,7 +14,7 @@ super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
 
 this.endValue = endValue;
 
-if (this.baseValue >= this.endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");}    
+if (this.startValue >= this.endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");}    
 
 
 this.timeDiff = Math.abs(this.rTimeMsEnd - this.rTimeMsStart) ;
@@ -24,24 +24,20 @@ this.timeDiff = Math.abs(this.rTimeMsEnd - this.rTimeMsStart) ;
 
 //--why return number | null??;
 public update(rTimeMs :number):boolean{
+// if (rTimeMs >= 6000){debugger;}    
+//--importanttay    
+if(this.isBeyond(rTimeMs) == true){return false;}
 
 const Xdiff = Math.abs(
-    this.responsiveValue(this.baseValue) - 
+    this.responsiveValue(this.startValue) - 
     this.responsiveValue(this.endValue) );
  
 const timeLapsed = Math.ceil(rTimeMs - this.rTimeMsStart);
 const timeLapPercent = (timeLapsed/(this.timeDiff)) * 100;
 const distanceLapsed = ( Xdiff/100) * timeLapPercent;
-this._animatedValue = this.responsiveValue(this.baseValue) + parseFloat(distanceLapsed.toFixed(2));
+this._animatedValue = this.responsiveValue(this.startValue) + parseFloat(distanceLapsed.toFixed(2));
 
 return  true;
 }
-
-// init(canvasWidthHeight: number): boolean {
-// this.heightWidth = canvasWidthHeight;
-    
-// this.baseValue = this.percToPix(this.baseValue);
-// this.endValue = this.percToPix(this.endValue);
-// return true;
-// }       
+       
 }

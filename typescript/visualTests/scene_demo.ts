@@ -1,5 +1,5 @@
-import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
-import MsgSwingRndCircles from "./scene/msgSwingRndCircles.js";
+import Bilza, { Ui,CompFactory as cf } from "../bilza.js";
+import MsgSwingRndCircles from "../scene/msgSwingRndCircles.js";
 
 let bil = new Bilza("bilza",70);
 // bil.set.loadSystemBackground = false;

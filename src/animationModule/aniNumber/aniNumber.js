@@ -13,22 +13,15 @@ export default class AniNumber extends AniProp {
         if (startValue < endValue) {
             let inc = new Increment(rTimeMsStart, rTimeMsEnd, startValue, endValue, 0);
             this.addFilter(inc);
-            const stop = new IdentityFil(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
-            this.addFilter(stop);
         }
         else if (startValue > endValue) {
             let dec = new Decrement(rTimeMsStart, rTimeMsEnd, startValue, endValue);
             this.addFilter(dec);
-            const stop = new IdentityFil(rTimeMsEnd, rTimeMsEnd + 100000, endValue, 0);
-            this.addFilter(stop);
         }
     }
     random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delaySec = 0) {
         const v = new Random(rTimeMsStart, rTimeMsEnd, min, max, delaySec);
         this.addFilter(v);
-        const mid = (max - min) / 2;
-        const last = new IdentityFil(rTimeMsEnd, rTimeMsEnd + 1000, mid, delaySec);
-        this.addFilter(last);
     }
     oscillate(rTimeMsStart, rTimeMsEnd, startValue = 1, endValue = 10, secPerIter = 5000) {
         const timeDiff = rTimeMsEnd - rTimeMsStart;

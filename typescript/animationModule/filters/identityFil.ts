@@ -7,13 +7,13 @@ import BaseFilter from "./baseFilter.js";
  */  
 export default class IdentityFil <T> extends BaseFilter <T>  {
 
-constructor(rTimeMsStart :number,rTimeMsEnd :number,baseValue :T,delayInMS :number=0){
-super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);  
+constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :T,endValue :T, delaySec :number=0){
+super(rTimeMsStart,rTimeMsEnd,startValue,endValue,delaySec);  
 }
 
 //--over written
 public animatedValue(): T {
-    return this.baseValue;
+    return this.startValue;
 }
 
 }

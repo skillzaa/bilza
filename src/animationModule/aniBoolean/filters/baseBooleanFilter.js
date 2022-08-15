@@ -1,6 +1,6 @@
 import BaseFilter from "../../filters/baseFilter.js";
 export default class BaseBooleanFilter extends BaseFilter {
-    constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0) {
-        super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
+    constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, delaySec = 0) {
+        super(rTimeMsStart, rTimeMsEnd, startValue, endValue, delaySec);
     }
 }

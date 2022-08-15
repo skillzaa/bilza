@@ -2,7 +2,7 @@ import IdentityFil from "../filters/identityFil.js";
 export default class AniProp {
     constructor(defaultValue) {
         this.filtersArr = [];
-        this.defaultFilter = new IdentityFil(0, 100, defaultValue);
+        this.defaultFilter = new IdentityFil(0, 100, defaultValue, defaultValue);
         this._value = null;
     }
     update(rTimeMs) {
@@ -62,26 +62,10 @@ export default class AniProp {
         this.filtersArr.push(bfil);
     }
     goto(rTimeMs, value) {
-        const v = new IdentityFil(rTimeMs, rTimeMs + 1000, value, 0);
+        const v = new IdentityFil(rTimeMs, rTimeMs + 1000, value, value, 0);
         this.addFilter(v);
         return false;
     }
     jumpBetween(rTimeMsStart, rTimeMsEnd, pointOne, pointTwo, delaySec = 1000) {
-        const timeDiff = rTimeMsEnd - rTimeMsStart;
-        if (timeDiff % delaySec !== 0) {
-            const endFil = new IdentityFil(rTimeMsEnd, rTimeMsEnd + 1000, pointTwo, 0);
-            this.addFilter(endFil);
-        }
-        const noOfIter = Math.floor(timeDiff / delaySec);
-        for (let i = 0; i < noOfIter; i++) {
-            if ((i % 2) == 0) {
-                const filEven = new IdentityFil(rTimeMsStart + (i * delaySec), rTimeMsEnd + 1000, pointOne, 0);
-                this.addFilter(filEven);
-            }
-            else {
-                const filOdd = new IdentityFil(rTimeMsStart + (i * delaySec), rTimeMsEnd + 1000, pointTwo, 0);
-                this.addFilter(filOdd);
-            }
-        }
     }
 }
