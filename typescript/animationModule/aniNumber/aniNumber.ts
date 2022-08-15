@@ -4,7 +4,7 @@ import Increment from "./filters/increment.js";
 import IdentityFil from "../filters/identityFil.js";
 import Decrement from "./filters/decrement.js";
 // import Vibrate from "./effFilters/vibrate.js";
-// import RandomNo from "./aniFilters/randomNo.js";
+import Random from "./filters/random.js";
 // import JumpBetween from "./aniFilters/jumpBetween.js";
 // import Oscillate from "./aniFilters/oscillate.js"; 
 
@@ -49,9 +49,12 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
 // this.goto(to , endValue );    
 }
 
-public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number=100,delayInMilliSec :number=0){
-// const v = new RandomNo(rTimeMsStart,rTimeMsEnd,min,max,delayInMilliSec);
-// this.filters.push(v);
+public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number=100,delaySec :number=0){
+const v = new Random(rTimeMsStart,rTimeMsEnd,min,max,delaySec);
+this.addFilter(v);
+const mid = (max-min)/2;
+const last = new IdentityFil<number>(rTimeMsEnd,rTimeMsEnd + 1000,mid,delaySec);
+this.addFilter(last);
 }
 
 public oscillate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number=1, endValue :number=10,secPerIter :number= 5000){

@@ -7,6 +7,8 @@ public  rTimeMsEnd :number;
 
 protected  _animatedValue :T | null;
 protected baseValue :T;
+//--This is the value that will be dispatched after rSecEnd. It has to be a constant value cant change since the filter time has ended and this is just the replacement of external end filter that i am required to place after each animation
+protected beyondValue :T;
 
 private    readonly delayInMS :number;
 
@@ -14,11 +16,11 @@ private    readonly delayInMS :number;
 constructor(
     rTimeMsStart :number, //--start time
     rTimeMsEnd :number, //--end time
-    baseValue :T,       //--base vlue
+    baseValue :T,       //--base value
     delayInMS :number=0) // delay
 {
   
-
+this.beyondValue = beyondValue;
 this.baseValue = baseValue;
 //--wrong    
 // this._animatedValue = baseValue;

@@ -9,7 +9,8 @@ txt.x.set(0); // will be over written
 txt.y.set(50);
 
 // txt.width.jumpBetween(5000,50_000,80,10,5000);
-txt.width.oscillate(5000,120_000,20,80,5000);
+// txt.width.oscillate(5000,120_000,20,80,10000);
+txt.width.random(5000,10_000,20,80,10000);
 // txt.width.oscillate(0, 120, 20, 100, .15);
 bil.insert.add(txt, 0, 120);
 const ui = new Ui(bil);

@@ -2,6 +2,7 @@ import AniProp from "../aniProp/aniProp.js";
 import Increment from "./filters/increment.js";
 import IdentityFil from "../filters/identityFil.js";
 import Decrement from "./filters/decrement.js";
+import Random from "./filters/random.js";
 export default class AniNumber extends AniProp {
     constructor(initialValue = 0, minValue = -3000, maxValue = 3000) {
         super(initialValue);
@@ -22,7 +23,12 @@ export default class AniNumber extends AniProp {
             this.addFilter(stop);
         }
     }
-    random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delayInMilliSec = 0) {
+    random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delaySec = 0) {
+        const v = new Random(rTimeMsStart, rTimeMsEnd, min, max, delaySec);
+        this.addFilter(v);
+        const mid = (max - min) / 2;
+        const last = new IdentityFil(rTimeMsEnd, rTimeMsEnd + 1000, mid, delaySec);
+        this.addFilter(last);
     }
     oscillate(rTimeMsStart, rTimeMsEnd, startValue = 1, endValue = 10, secPerIter = 5000) {
         const timeDiff = rTimeMsEnd - rTimeMsStart;

@@ -1,5 +1,6 @@
 export default class BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0) {
+        this.beyondValue = beyondValue;
         this.baseValue = baseValue;
         this._animatedValue = null;
         this.delayInMS = delayInMS;
