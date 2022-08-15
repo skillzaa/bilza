@@ -1,19 +1,34 @@
 import BaseFilter from "./baseFilter.js";
-/**
- * 14-aug-2022
- * When we extend a generic base class we do 2 things
- * -- First we create a copy-paste version of the class with the desired type :T etc. This is the Generic part.
- * -- Second : We can over-ride any methods of the base class and this is the OO part.
- */  
-export default class IdentityFil <T> extends BaseFilter <T>  {
 
-constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :T,endValue :T,delaySec :number=0){
+
+export default class JumpBetween <T> extends BaseFilter <T>  {
+
+//baseValue has been replaced by min    
+constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :T,endValue :T , delaySec :number=0){
+
 super(rTimeMsStart,rTimeMsEnd,startValue,endValue,delaySec);  
-}
 
-//--over written
-public animatedValue(): T {
-    return this.startValue;
 }
+public update(rTimeMs :number):boolean{
+//--importanttay    
+if(this.isBeyond(rTimeMs) == true){return false;}
+
+    if (this.delay.isSegChanged(rTimeMs) == true){
+        if (this._animatedValue == null){
+            this._animatedValue = this.startValue;
+            return true;
+        }
+        //--------
+        if (this._animatedValue == this.startValue ){ 
+            this._animatedValue = this.endValue;
+            return true;
+        }else {
+            this._animatedValue = this.startValue;
+            return false;
+        }
+    }else {
+        return false;
+    }
+}    
 
 }

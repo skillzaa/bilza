@@ -1,6 +1,6 @@
 import BaseFilter from "./baseFilter.js";
-export default class JumpBetween<T> extends BaseFilter<T> {
+export default class IdentityFil<T> extends BaseFilter<T> {
     constructor(rTimeMsStart: number, rTimeMsEnd: number, startValue: T, endValue: T, delaySec?: number);
-    update(rTimeMs: number): boolean;
+    animatedValue(): T;
 }
-//# sourceMappingURL=jumpBetween.d.ts.map
+//# sourceMappingURL=jumpBetween-old.d.ts.map

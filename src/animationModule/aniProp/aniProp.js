@@ -1,4 +1,5 @@
 import IdentityFil from "../filters/identityFil.js";
+import JumpBetween from "../filters/jumpBetween.js";
 export default class AniProp {
     constructor(defaultValue) {
         this.filtersArr = [];
@@ -66,6 +67,8 @@ export default class AniProp {
         this.addFilter(v);
         return false;
     }
-    jumpBetween(rTimeMsStart, rTimeMsEnd, pointOne, pointTwo, delaySec = 1000) {
+    jumpBetween(rTimeMsStart, rTimeMsEnd, firstValue, secondValue, delaySec = 1000) {
+        const jb = new JumpBetween(rTimeMsStart, rTimeMsEnd, firstValue, secondValue, delaySec);
+        this.addFilter(jb);
     }
 }
