@@ -9,7 +9,7 @@ protected  endValue :number;
 // protected Xdiff :number;
 protected  timeDiff :number;
 //rTimeMsStart wil be +1 than actual and msDeltaend will be -1 from actual
-constructor(rTimeMsStart :number,rTimeMsEnd :number,baseValue :number,delayInMS :number=0,endValue :number){
+constructor(rTimeMsStart :number,rTimeMsEnd :number,baseValue :number,endValue :number,delayInMS :number=0){
 
 super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
 

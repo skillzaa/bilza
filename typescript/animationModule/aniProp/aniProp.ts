@@ -127,7 +127,6 @@ public jumpBetween(rTimeMsStart :number,rTimeMsEnd :number,pointOne :T, pointTwo
                 this.addFilter(filOdd);
         }
     }
-
 }
 
 

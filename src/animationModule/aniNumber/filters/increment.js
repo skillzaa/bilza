@@ -1,6 +1,6 @@
 import BaseNumberFilter from "./baseNumberFilter.js";
 export default class Increment extends BaseNumberFilter {
-    constructor(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS = 0, endValue) {
+    constructor(rTimeMsStart, rTimeMsEnd, baseValue, endValue, delayInMS = 0) {
         super(rTimeMsStart, rTimeMsEnd, baseValue, delayInMS);
         this.endValue = endValue;
         if (this.baseValue >= this.endValue) {

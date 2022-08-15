@@ -6,7 +6,7 @@ protected  endValue :number;
 // protected Xdiff :number;
 protected  timeDiff :number;
 
-constructor(rTimeMsStart :number,rTimeMsEnd :number,baseValue :number,delayInMS :number=0,endValue :number){
+constructor(rTimeMsStart :number,rTimeMsEnd :number,baseValue :number,endValue :number,delayInMS :number=0){
 
     super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);    
     this.endValue = endValue;

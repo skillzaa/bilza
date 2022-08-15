@@ -6,7 +6,7 @@ bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
 const txt = cf.fillRect(hsl(240));
 txt.x.set(0);
 txt.y.set(50);
-txt.width.jumpBetween(5000, 50000, 80, 10, 5000);
+txt.width.oscillate(5000, 120000, 20, 80, 5000);
 bil.insert.add(txt, 0, 120);
 const ui = new Ui(bil);
 bil.draw();
