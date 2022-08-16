@@ -14,19 +14,22 @@ this.canvasHeight =  p.canvasHeight();
 
 //--Only 6 classes need init x,y and 4 paddings
 //--no need for init
-if (this.x instanceof AniPerc){
+if (this.x instanceof AniPerc && this.y instanceof AniPerc){
+    this.y.init(this.canvasHeight);//canvasHeight
     this.x.init(this.canvasWidth);//canvasWidth
 }
-if (this.y instanceof AniPerc){
-    this.y.init(this.canvasHeight);//canvasHeight
-}
 //paddings
-this.paddingLeft.init(this.canvasWidth);
-this.paddingRight.init(this.canvasWidth);
-//--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
-this.paddingTop.init(this.canvasHeight);
-this.paddingBottom.init(this.canvasHeight);
-
+if (this.paddingLeft instanceof AniPerc &&
+    this.paddingRight instanceof AniPerc &&
+    this.paddingTop instanceof AniPerc &&
+    this.paddingBottom instanceof AniPerc ){
+    
+    this.paddingLeft.init(this.canvasWidth);
+    this.paddingRight.init(this.canvasWidth);
+    //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
+    this.paddingTop.init(this.canvasHeight);
+    this.paddingBottom.init(this.canvasHeight);
+    }
 return true;
 }
 

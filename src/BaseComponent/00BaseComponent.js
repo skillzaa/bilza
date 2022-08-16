@@ -7,16 +7,19 @@ export default class BaseComponent extends RotateObj {
     init(p) {
         this.canvasWidth = p.canvasWidth();
         this.canvasHeight = p.canvasHeight();
-        if (this.x instanceof AniPerc) {
+        if (this.x instanceof AniPerc && this.y instanceof AniPerc) {
+            this.y.init(this.canvasHeight);
             this.x.init(this.canvasWidth);
         }
-        if (this.y instanceof AniPerc) {
-            this.y.init(this.canvasHeight);
+        if (this.paddingLeft instanceof AniPerc &&
+            this.paddingRight instanceof AniPerc &&
+            this.paddingTop instanceof AniPerc &&
+            this.paddingBottom instanceof AniPerc) {
+            this.paddingLeft.init(this.canvasWidth);
+            this.paddingRight.init(this.canvasWidth);
+            this.paddingTop.init(this.canvasHeight);
+            this.paddingBottom.init(this.canvasHeight);
         }
-        this.paddingLeft.init(this.canvasWidth);
-        this.paddingRight.init(this.canvasWidth);
-        this.paddingTop.init(this.canvasHeight);
-        this.paddingBottom.init(this.canvasHeight);
         return true;
     }
     update(msDelta, p) {
