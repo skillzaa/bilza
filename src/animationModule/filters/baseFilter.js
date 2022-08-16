@@ -35,6 +35,13 @@ export default class BaseFilter {
     getBaseValue() {
         return this.startValue;
     }
+    setEndValue(ev) {
+        this.endValue = ev;
+        return this.endValue;
+    }
+    getEndValue() {
+        return this.endValue;
+    }
     animatedValue() {
         if (this._animatedValue == null) {
             return this.startValue;

@@ -9,7 +9,7 @@ export default class AniProp<T> {
     set(n: T): T;
     protected getBaseFilter(rTimeMs: number): IFilter<T> | null;
     protected addFilter(bfil: IFilter<T>): void;
-    goto(rTimeMs: number, value: T): boolean;
-    jumpBetween(rTimeMsStart: number, rTimeMsEnd: number, firstValue: T, secondValue: T, delaySec?: number): void;
+    goto(rSec: number, value: T): boolean;
+    jumpBetween(rSecStart: number, rSecEnd: number, firstValue: T, secondValue: T, delaySec?: number): void;
 }
 //# sourceMappingURL=aniProp.d.ts.map

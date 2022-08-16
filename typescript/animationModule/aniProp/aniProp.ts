@@ -95,13 +95,13 @@ protected addFilter(bfil :IFilter<T>){
 ////////////////////////////////////////
 ////////////////////////////////////////
 ////////////////////////////////////////
-public goto(rTimeMs :number,value :T):boolean{
-    const v = new IdentityFil(rTimeMs,rTimeMs + 1000,value,value,0);
+public goto(rSec :number,value :T):boolean{
+    const v = new IdentityFil(rSec * 1000,(rSec * 1000) + 1000,value,value,0);
     this.addFilter(v);
     return false;//// new goto frame ADDED 
 }
-public jumpBetween(rTimeMsStart :number,rTimeMsEnd :number,firstValue :T, secondValue :T,delaySec :number=1000){
-  const jb = new JumpBetween(rTimeMsStart,rTimeMsEnd,firstValue,secondValue,delaySec);
+public jumpBetween(rSecStart :number,rSecEnd :number,firstValue :T, secondValue :T,delaySec :number=1000){
+  const jb = new JumpBetween(rSecStart * 1000,rSecEnd * 1000,firstValue,secondValue,delaySec * 1000);
   this.addFilter(jb);
 }
 

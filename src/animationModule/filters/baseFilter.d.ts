@@ -13,6 +13,8 @@ export default class BaseFilter<T> implements IFilter<T> {
     protected isBeyond(rTimeMs: number): boolean;
     setBaseValue(bv: T): T;
     getBaseValue(): T;
+    setEndValue(ev: T): T;
+    getEndValue(): T;
     animatedValue(): T;
     getRandom(min: number, max: number): number;
 }

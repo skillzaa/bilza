@@ -11,11 +11,11 @@ export default class AniNumber extends AniProp {
     }
     animate(rTimeMsStart, rTimeMsEnd, startValue, endValue) {
         if (startValue < endValue) {
-            let inc = new Increment(rTimeMsStart, rTimeMsEnd, startValue, endValue, 0);
+            let inc = new Increment(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, 0);
             this.addFilter(inc);
         }
         else if (startValue > endValue) {
-            let dec = new Decrement(rTimeMsStart, rTimeMsEnd, startValue, endValue);
+            let dec = new Decrement(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue);
             this.addFilter(dec);
         }
     }

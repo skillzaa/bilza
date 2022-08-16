@@ -56,6 +56,13 @@ return this.startValue;
 public getBaseValue():T{
 return this.startValue;
 }
+public  setEndValue(ev :T):T{
+this.endValue = ev;
+return this.endValue;
+}
+public getEndValue():T{
+return this.endValue;
+}
 
 //--This impl will work for all if baseValue and animatedvalue r same then send any if not send _animatedValue
 //--it must not send out null since the defaultValue of AniProp is for time when there is no filter. a filter must always atleast return its default value.
