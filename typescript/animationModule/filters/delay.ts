@@ -3,7 +3,7 @@
 
 export default class Delay {
 
-private readonly delayValue:number;
+public readonly delayValue:number;
 private lastFrameRun :number | null;
 
 constructor(delaySec :number){

@@ -2,7 +2,6 @@ import IFilter from "../filters/IFilter";
 import IdentityFil from "../filters/identityFil.js";
 import JumpBetween from "../filters/jumpBetween.js";
 
-
 export default class AniProp <T>  {
 //--this cant be null its not _ret_val of filter its aniProp    
 protected _value :T | null;                 

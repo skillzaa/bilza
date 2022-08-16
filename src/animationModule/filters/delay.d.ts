@@ -1,5 +1,5 @@
 export default class Delay {
-    private readonly delayValue;
+    readonly delayValue: number;
     private lastFrameRun;
     constructor(delaySec: number);
     isSegChanged(rTimeMs: number): boolean;
