@@ -1,8 +1,7 @@
 import BaseNumberFilter from "./baseNumberFilter.js";
 export default class Increment extends BaseNumberFilter {
     constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, delayInMS = 0) {
-        super(rTimeMsStart, rTimeMsEnd, startValue, delayInMS);
-        this.endValue = endValue;
+        super(rTimeMsStart, rTimeMsEnd, startValue, endValue, delayInMS);
         if (this.startValue >= this.endValue) {
             throw new Error("start value can not be equal to or larger than end value in an increment operation");
         }

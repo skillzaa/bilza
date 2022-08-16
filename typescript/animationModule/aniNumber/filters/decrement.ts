@@ -1,6 +1,5 @@
 import BaseNumberFilter from "./baseNumberFilter.js";  
  
-//NOTE : this.startValue = this.baseValue
 export default class  Decrement extends BaseNumberFilter{
 protected  timeDiff :number;
 

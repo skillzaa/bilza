@@ -25,9 +25,10 @@ export default class BasePercFilter  extends BaseFilter <number> implements IPer
 constructor(
     rTimeMsStart :number,rTimeMsEnd :number,
     baseValue :number,
+    endValue :number,
     delayInMS :number=0)
 {
-super(rTimeMsStart,rTimeMsEnd,baseValue,delayInMS);
+super(rTimeMsStart,rTimeMsEnd,baseValue,endValue,delayInMS);
 
 this.responsive = true;    
 this.heightWidth = null; // this is canvasHeightWidth    

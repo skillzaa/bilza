@@ -5,7 +5,7 @@ import IFilter from "../../filters/IFilter.js";
 
 export default class Oscillate extends BaseFilter<number> {
 
-    incDecArray :IFilter<number>[];
+public  incDecArray :IFilter<number>[];
 
 constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :number=1, endValue :number=10,secPerIter :number= 1){
 

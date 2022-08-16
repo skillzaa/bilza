@@ -15,7 +15,7 @@ export default class AniNumber extends AniProp {
             this.addFilter(inc);
         }
         else if (startValue > endValue) {
-            let dec = new Decrement(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue);
+            let dec = new Decrement(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, 0);
             this.addFilter(dec);
         }
     }

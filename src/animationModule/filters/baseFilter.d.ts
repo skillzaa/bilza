@@ -3,7 +3,7 @@ import Delay from "./delay.js";
 export default class BaseFilter<T> implements IFilter<T> {
     rTimeMsStart: number;
     rTimeMsEnd: number;
-    protected delay: Delay;
+    delay: Delay;
     protected _animatedValue: T | null;
     protected startValue: T;
     protected endValue: T;

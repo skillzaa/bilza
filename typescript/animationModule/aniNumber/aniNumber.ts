@@ -27,7 +27,7 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
         let inc = new Increment(rTimeMsStart * 1000,rTimeMsEnd * 1000,startValue,endValue,0);
         this.addFilter(inc);
     }else if (startValue > endValue){
-        let dec = new Decrement(rTimeMsStart * 1000,rTimeMsEnd * 1000,startValue,endValue);
+        let dec = new Decrement(rTimeMsStart * 1000,rTimeMsEnd * 1000,startValue,endValue,0);
         this.addFilter(dec);
     }
     // else if (startValue == endValue){

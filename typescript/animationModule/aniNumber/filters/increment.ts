@@ -3,17 +3,14 @@ import BaseNumberFilter from "./baseNumberFilter.js";
 //NOTE : this.startValue = this.baseValue
 export default class Increment extends BaseNumberFilter{
     
-// protected  startValue :number;
-protected  endValue :number;
 
 // protected Xdiff :number;
 protected  timeDiff :number;
 //rTimeMsStart wil be +1 than actual and msDeltaend will be -1 from actual
 constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endValue :number,delayInMS :number=0){
 
-super(rTimeMsStart,rTimeMsEnd,startValue,delayInMS);
+super(rTimeMsStart,rTimeMsEnd,startValue,endValue,delayInMS);
 
-this.endValue = endValue;
 
 if (this.startValue >= this.endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");}    
 

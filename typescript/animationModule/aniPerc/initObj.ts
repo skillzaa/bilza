@@ -11,41 +11,36 @@ private filtersArr :IFilter<number>[];
 constructor(filtersArr:IFilter<number>[]){
 this.filtersArr = filtersArr;
 }
-init(canvasWidthHeight :number){
+init(canvasWidthHeight :number){ 
+    // if (this.filtersArr.length > 0){
+    //     debugger;
+    // }
     for (let i = 0; i < this.filtersArr.length; i++) {
-        const fil = this.filtersArr[i];
-        //---Goto Taken care of
-        if (fil instanceof IdentityFil){
-            fil.setBaseValue(
+        let fil = this.filtersArr[i];
+        
+        // ---Goto Taken care of
+        if ( fil instanceof IdentityFil ||
+             fil instanceof Increment ||
+             fil instanceof Decrement ){
+             fil.setBaseValue(
                 this.responsiveValue(canvasWidthHeight,
                     fil.getBaseValue())
             );
         }
-        //----------------increment
-        if (fil instanceof Increment){
-            fil.setBaseValue(
-                this.responsiveValue(canvasWidthHeight,
-                    fil.getBaseValue())
-            );
-            fil.setEndValue(
-                this.responsiveValue(canvasWidthHeight,
-                    fil.getEndValue())
-            );
+        //----- Now the oscillate it need to be created again
+        if (fil instanceof Oscillate){
+           const osc = new Oscillate(
+            fil.rTimeMsStart,
+            fil.rTimeMsEnd,
+            this.responsiveValue(canvasWidthHeight,
+                fil.getBaseValue()),
+            this.responsiveValue(canvasWidthHeight,
+                fil.getEndValue()),
+                fil.delay.delayValue
+            ); 
+            //--assign --importantay--fil is not const just for this assignment
+            fil = osc;
         }
-        //--------------------
-        //----------------increment
-        if (fil instanceof Decrement){
-            fil.setBaseValue(
-                this.responsiveValue(canvasWidthHeight,
-                    fil.getBaseValue())
-            );
-            fil.setEndValue(
-                this.responsiveValue(canvasWidthHeight,
-                    fil.getEndValue())
-            );
-        }
-        //--------------------
-
     }////for loop ends
 }
 
