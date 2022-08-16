@@ -5,6 +5,7 @@ export default interface IFilter <T> {
     rTimeMsEnd :number;
     
     setBaseValue(bv :T):T;
+    getBaseValue():T;
     update(rTimeMs: number): boolean; 
     animatedValue(): T;
     

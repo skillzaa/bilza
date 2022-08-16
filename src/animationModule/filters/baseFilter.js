@@ -32,6 +32,9 @@ export default class BaseFilter {
         this.startValue = bv;
         return this.startValue;
     }
+    getBaseValue() {
+        return this.startValue;
+    }
     animatedValue() {
         if (this._animatedValue == null) {
             return this.startValue;

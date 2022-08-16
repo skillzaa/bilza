@@ -5,7 +5,7 @@ bil.insert.alwaysOn(grid);
 bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
 
 const txt = cf.fillRect(hsl(240));
-txt.setResponsiveCoordinates(false);
+txt.setResponsiveCoordinates(true);
 txt.x.set(50); // will be over written
 txt.y.set(50);
 // txt.width.animate(3000,6000,70,10);

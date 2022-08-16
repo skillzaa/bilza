@@ -1,5 +1,5 @@
 import AniNumber from "../aniNumber/aniNumber.js";
-
+import IdentityFil from "../filters/identityFil.js";
 import IPercFilter from "./filters/IPercFilter.js";
 
 
@@ -22,14 +22,24 @@ init(canvasWidthHeight :number){
 this.canvasWidthHeight = canvasWidthHeight;    
 
 //----------------init defaullt value 
-// this.defaultFilter.init(canvasWidthHeight);
+const defFil  = new IdentityFil<number>(0,100,
+    this.responsiveValue(this.canvasWidthHeight,this.defaultFilter.getBaseValue()),
+    this.responsiveValue(this.canvasWidthHeight,this.defaultFilter.getBaseValue()),
+    );
+//--now replace the orignal
+this.defaultFilter  = defFil;
 //----------------init all
-    // for (let i = 0; i < this.filtersArr.length; i++) {
-    //     const fil = this.filtersArr[i];
-    //     fil.init(canvasWidthHeight);
-    // }     
+    for (let i = 0; i < this.filtersArr.length; i++) {
+        const fil = this.filtersArr[i];
+        // fil.init(canvasWidthHeight);
+    }     
 //---Every time the init is run we multiply some values but during running of the programme we shd init it once and then stop it.    
     // this.responsive = false;    
+}
+
+
+responsiveValue(heightWidth :number,perc :number):number {
+        return ((heightWidth / 100) * perc);
 }
 
 }  

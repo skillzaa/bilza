@@ -4,7 +4,7 @@ const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
 const txt = cf.fillRect(hsl(240));
-txt.setResponsiveCoordinates(false);
+txt.setResponsiveCoordinates(true);
 txt.x.set(50);
 txt.y.set(50);
 bil.insert.add(txt, 0, 120);

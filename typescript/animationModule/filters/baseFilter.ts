@@ -49,8 +49,11 @@ protected isBeyond(rTimeMs :number):boolean{
         return  false;
     }    
 }
-setBaseValue(bv :T):T{
+public  setBaseValue(bv :T):T{
 this.startValue = bv;
+return this.startValue;
+}
+public getBaseValue():T{
 return this.startValue;
 }
 
