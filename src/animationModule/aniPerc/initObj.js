@@ -1,5 +1,6 @@
 import Increment from "../aniNumber/filters/increment.js";
 import Decrement from "../aniNumber/filters/decrement.js";
+import Random from "../aniNumber/filters/random.js";
 import Oscillate from "../aniNumber/filters/oscillatets.js";
 import IdentityFil from "../filters/identityFil.js";
 export default class InitObj {
@@ -11,7 +12,8 @@ export default class InitObj {
             let fil = this.filtersArr[i];
             if (fil instanceof IdentityFil ||
                 fil instanceof Increment ||
-                fil instanceof Decrement) {
+                fil instanceof Decrement ||
+                fil instanceof Random) {
                 fil.setBaseValue(this.responsiveValue(canvasWidthHeight, fil.getBaseValue()));
             }
             if (fil instanceof Oscillate) {

@@ -21,7 +21,9 @@ init(canvasWidthHeight :number){
         // ---Goto Taken care of
         if ( fil instanceof IdentityFil ||
              fil instanceof Increment ||
-             fil instanceof Decrement ){
+             fil instanceof Decrement ||
+             fil instanceof Random 
+             ){
              fil.setBaseValue(
                 this.responsiveValue(canvasWidthHeight,
                     fil.getBaseValue())
