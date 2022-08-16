@@ -1,4 +1,5 @@
 import RotateObj from "./60rotateObj.js";
+import { AniPerc } from "../animationModule/animations.js";
 export default class BaseComponent extends RotateObj {
     constructor() {
         super();
@@ -6,8 +7,12 @@ export default class BaseComponent extends RotateObj {
     init(p) {
         this.canvasWidth = p.canvasWidth();
         this.canvasHeight = p.canvasHeight();
-        this.x.init(this.canvasWidth);
-        this.y.init(this.canvasHeight);
+        if (this.x instanceof AniPerc) {
+            this.x.init(this.canvasWidth);
+        }
+        if (this.y instanceof AniPerc) {
+            this.y.init(this.canvasHeight);
+        }
         this.paddingLeft.init(this.canvasWidth);
         this.paddingRight.init(this.canvasWidth);
         this.paddingTop.init(this.canvasHeight);

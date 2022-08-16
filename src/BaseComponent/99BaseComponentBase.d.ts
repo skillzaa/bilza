@@ -29,8 +29,8 @@ export default class BaseComponentBase {
     paddingBottom: AniPerc;
     paddingRight: AniPerc;
     paddingLeft: AniPerc;
-    x: AniPerc;
-    y: AniPerc;
+    x: AniPerc | AniNumber;
+    y: AniPerc | AniNumber;
     colorBackground: AniColor;
     colorBorder: AniColor;
     showBackground: AniBoolean;

@@ -48,8 +48,16 @@ export default class BaseComponentBase {
         return tf;
     }
     setResponsiveCoordinates(tf = true) {
-        this.x.setResponsive(true);
-        this.y.setResponsive(true);
+        if (tf == true) {
+            this.x = new AniPerc(0);
+            this.y = new AniPerc(0);
+            return true;
+        }
+        else {
+            this.x = new AniNumber(0);
+            this.y = new AniNumber(0);
+            return false;
+        }
         return tf;
     }
     setResponsiveDims(tf = true) {

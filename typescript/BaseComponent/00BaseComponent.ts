@@ -1,5 +1,6 @@
 import { IComponent,Pack } from "../bilza.js";
 import RotateObj from "./60rotateObj.js";
+import { AniPerc } from "../animationModule/animations.js";
 
 export default class BaseComponent extends RotateObj implements IComponent{
  
@@ -13,8 +14,12 @@ this.canvasHeight =  p.canvasHeight();
 
 //--Only 6 classes need init x,y and 4 paddings
 //--no need for init
-this.x.init(this.canvasWidth);//canvasWidth
-this.y.init(this.canvasHeight);//canvasHeight
+if (this.x instanceof AniPerc){
+    this.x.init(this.canvasWidth);//canvasWidth
+}
+if (this.y instanceof AniPerc){
+    this.y.init(this.canvasHeight);//canvasHeight
+}
 //paddings
 this.paddingLeft.init(this.canvasWidth);
 this.paddingRight.init(this.canvasWidth);
