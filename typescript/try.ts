@@ -15,7 +15,7 @@ txt.y.set(50);
 txt.width.set(10); // will be over written
 // txt.width.animate(3,9,90,10);
 // txt.width.jumpBetween(2000,50_000,80,10,2000);
-txt.x.oscillate(0,20,10,90,5);
+txt.x.oscillate(0,10,10,90,5,10);
 // txt.width.random(2,10,20,80,1);
 // txt.width.oscillate(0, 120, 20, 100, .15);
 bil.insert.add(txt, 0, 120);

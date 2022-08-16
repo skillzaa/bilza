@@ -23,8 +23,8 @@ export default class AniNumber extends AniProp {
         const v = new Random(rTimeMsStart * 1000, rTimeMsEnd * 1000, min, max, delaySec * 1000);
         this.addFilter(v);
     }
-    oscillate(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter = 1) {
-        const v = new Oscillate(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, secPerIter * 1000);
+    oscillate(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter = 1, stopAt = endValue) {
+        const v = new Oscillate(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, secPerIter * 1000, stopAt);
         this.addFilter(v);
     }
     vibrate(rTimeMsStart, rTimeMsEnd, offset = 10, delayInMilliSec = 100) {

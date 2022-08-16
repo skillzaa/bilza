@@ -41,8 +41,8 @@ const v = new Random(rTimeMsStart * 1000,rTimeMsEnd * 1000,min,max,delaySec * 10
 this.addFilter(v);
 }
 
-public oscillate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number, endValue :number,secPerIter :number= 1){
-const v = new Oscillate(rTimeMsStart * 1000,rTimeMsEnd * 1000,startValue,endValue,secPerIter * 1000);
+public oscillate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number, endValue :number,secPerIter :number= 1,stopAt=endValue){
+const v = new Oscillate(rTimeMsStart * 1000,rTimeMsEnd * 1000,startValue,endValue,secPerIter * 1000,stopAt);
 this.addFilter(v);  
 }//oscialte
 

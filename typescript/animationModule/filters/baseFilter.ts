@@ -9,6 +9,7 @@ protected  _animatedValue :T | null;
 protected startValue :T;
 //--This is the value that will be dispatched after rSecEnd. It has to be a constant value cant change since the filter time has ended and this is just the replacement of external end filter that i am required to place after each animation
 protected endValue :T;
+protected beyondValue :T;
 
 protected  readonly delaySec :number;
 
@@ -23,6 +24,7 @@ constructor(
 this.delay = new Delay(delaySec);  
 this.startValue = startValue;
 this.endValue = endValue;
+this.beyondValue = endValue; //we can change it if we want
 //--wrong    
 // this._animatedValue = baseValue;
 this._animatedValue = null;
@@ -43,7 +45,7 @@ public update(rTimeMs :number):boolean{false
 }
 protected isBeyond(rTimeMs :number):boolean{
     if (rTimeMs > this.rTimeMsEnd){
-        this._animatedValue = this.endValue; 
+        this._animatedValue = this.beyondValue; //newValue 
         return true;        
     }else {
         return  false;
@@ -55,6 +57,13 @@ return this.startValue;
 }
 public getBaseValue():T{
 return this.startValue;
+}
+public  setBeyondValue(bv :T):T{
+this.beyondValue = bv;
+return this.startValue;
+}
+public getBeyondValue():T{
+return this.beyondValue;
 }
 public  setEndValue(ev :T):T{
 this.endValue = ev;

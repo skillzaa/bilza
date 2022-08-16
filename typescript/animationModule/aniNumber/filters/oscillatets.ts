@@ -7,10 +7,11 @@ export default class Oscillate extends BaseFilter<number> {
 
 public  incDecArray :IFilter<number>[];
 
-constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :number=1, endValue :number=10,secPerIter :number= 1){
+constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :number, endValue :number,secPerIter :number= 1,stopAt:number=endValue){
 
 super(rTimeMsStart,rTimeMsEnd,startValue, endValue,secPerIter);  
 this.incDecArray = [];
+this.beyondValue = stopAt;
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 //--convert delay in sec
 const timeDiff = this.rTimeMsEnd - this.rTimeMsStart;

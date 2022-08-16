@@ -4,6 +4,7 @@ export default class BaseFilter {
         this.delay = new Delay(delaySec);
         this.startValue = startValue;
         this.endValue = endValue;
+        this.beyondValue = endValue;
         this._animatedValue = null;
         this.delaySec = delaySec;
         if (rTimeMsStart < 0 || rTimeMsEnd < 0) {
@@ -21,7 +22,7 @@ export default class BaseFilter {
     }
     isBeyond(rTimeMs) {
         if (rTimeMs > this.rTimeMsEnd) {
-            this._animatedValue = this.endValue;
+            this._animatedValue = this.beyondValue;
             return true;
         }
         else {
@@ -34,6 +35,13 @@ export default class BaseFilter {
     }
     getBaseValue() {
         return this.startValue;
+    }
+    setBeyondValue(bv) {
+        this.beyondValue = bv;
+        return this.startValue;
+    }
+    getBeyondValue() {
+        return this.beyondValue;
     }
     setEndValue(ev) {
         this.endValue = ev;

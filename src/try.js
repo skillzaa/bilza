@@ -8,7 +8,7 @@ txt.setResponsiveCoordinates(true);
 txt.x.set(10);
 txt.y.set(50);
 txt.width.set(10);
-txt.x.oscillate(0, 20, 10, 90, 5);
+txt.x.oscillate(0, 10, 10, 90, 5, 10);
 bil.insert.add(txt, 0, 120);
 const ui = new Ui(bil);
 bil.draw();

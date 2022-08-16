@@ -2,9 +2,10 @@ import BaseFilter from "../../filters/baseFilter.js";
 import Increment from "./increment.js";
 import Decrement from "./decrement.js";
 export default class Oscillate extends BaseFilter {
-    constructor(rTimeMsStart, rTimeMsEnd, startValue = 1, endValue = 10, secPerIter = 1) {
+    constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter = 1, stopAt = endValue) {
         super(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter);
         this.incDecArray = [];
+        this.beyondValue = stopAt;
         const timeDiff = this.rTimeMsEnd - this.rTimeMsStart;
         const noOfIter = Math.floor(timeDiff / this.delay.delayValue);
         let stratWithInc = (startValue < endValue) ? true : false;

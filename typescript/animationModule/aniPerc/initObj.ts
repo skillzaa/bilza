@@ -32,11 +32,17 @@ init(canvasWidthHeight :number){
            const osc = new Oscillate(
             fil.rTimeMsStart,
             fil.rTimeMsEnd,
+            
             this.responsiveValue(canvasWidthHeight,
                 fil.getBaseValue()),
+
             this.responsiveValue(canvasWidthHeight,
                 fil.getEndValue()),
-                fil.delay.delayValue
+
+                fil.delay.delayValue,
+
+                this.responsiveValue(canvasWidthHeight,
+                    fil.getBeyondValue()),
             ); 
             //--assign --importantay--fil is not const just for this assignment
             this.filtersArr[i] = osc;
