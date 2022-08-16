@@ -4,17 +4,18 @@ import Decrement from "../aniNumber/filters/decrement.js";
 import Random from "../aniNumber/filters/random.js";
 import Oscillate from "../aniNumber/filters/oscillatets.js";
 import IdentityFil from "../filters/identityFil.js";
-
+//--reviewed at 16-aug-2022
 
 export default class InitObj {
-private filtersArr :IFilter<number>[];       
+
+    private filtersArr :IFilter<number>[];       
+
 constructor(filtersArr:IFilter<number>[]){
-this.filtersArr = filtersArr;
+    this.filtersArr = filtersArr;
 }
+
 init(canvasWidthHeight :number){ 
-    // if (this.filtersArr.length > 0){
-    //     debugger;
-    // }
+
     for (let i = 0; i < this.filtersArr.length; i++) {
         let fil = this.filtersArr[i];
         

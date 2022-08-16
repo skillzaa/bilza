@@ -1,6 +1,5 @@
 import AniNumber from "../aniNumber/aniNumber.js";
 import IdentityFil from "../filters/identityFil.js";
-// import IPercFilter from "./filters/IPercFilter.js";
 import InitObj from "./initObj.js";
 
 export default class AniPerc extends AniNumber  {
@@ -21,8 +20,8 @@ this.initObj = new InitObj(this.filtersArr);
 }
 
 init(canvasWidthHeight :number){
-if (this.initialized == true){return;}
-this.initialized = true;    
+if (this.initialized == true){return;}//--dont remove from here
+this.initialized = true; //--so that init run just once in life time
 this.canvasWidthHeight = canvasWidthHeight;    
 //----------------init defaullt value 
 const defFil  = new IdentityFil<number>(0,100,

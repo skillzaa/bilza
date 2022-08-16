@@ -7,7 +7,7 @@ public  rTimeMsEnd :number;
 public delay :Delay;
 protected  _animatedValue :T | null;
 protected startValue :T;
-//--This is the value that will be dispatched after rSecEnd. It has to be a constant value cant change since the filter time has ended and this is just the replacement of external end filter that i am required to place after each animation
+///--most often the beyondValue is the end value but if it is not the we have beyondValue seperately also
 protected endValue :T;
 protected beyondValue :T;
 
