@@ -39,7 +39,8 @@ init(canvasWidthHeight :number){
                 fil.delay.delayValue
             ); 
             //--assign --importantay--fil is not const just for this assignment
-            fil = osc;
+            this.filtersArr[i] = osc;
+            // console.log("fil",fil);
         }
     }////for loop ends
 }

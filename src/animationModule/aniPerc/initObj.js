@@ -16,7 +16,7 @@ export default class InitObj {
             }
             if (fil instanceof Oscillate) {
                 const osc = new Oscillate(fil.rTimeMsStart, fil.rTimeMsEnd, this.responsiveValue(canvasWidthHeight, fil.getBaseValue()), this.responsiveValue(canvasWidthHeight, fil.getEndValue()), fil.delay.delayValue);
-                fil = osc;
+                this.filtersArr[i] = osc;
             }
         }
     }

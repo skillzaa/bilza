@@ -42,6 +42,7 @@ if (stratWithInc == true){
     let inc = new Decrement(thisStartTime,thisEndTime,endValue,startValue);
     this.incDecArray.push(inc);
 }
+// this.incDecArray[this.incDecArray.length -1].
 }
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 }
