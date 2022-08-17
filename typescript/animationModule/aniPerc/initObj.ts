@@ -29,6 +29,14 @@ init(canvasWidthHeight :number){
                 this.responsiveValue(canvasWidthHeight,
                     fil.getBaseValue())
             );
+            fil.setEndValue(
+            this.responsiveValue(canvasWidthHeight,
+                fil.getEndValue())
+            );
+            fil.setBeyondValue (    
+            this.responsiveValue(canvasWidthHeight,
+                    fil.getBeyondValue())
+            );
         }
         //----- Now the oscillate it need to be created again
         if (fil instanceof Oscillate){

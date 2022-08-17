@@ -92,8 +92,8 @@ constructor(){
     
     this.border = new AniNumber(0);
 
-    this.width = new AniNumber(10);
-    this.height = new AniNumber(10);
+    this.width = new AniPerc(10);
+    this.height = new AniPerc(10);
     
     this.rotation = new AniNumber(0);
     this.opacity = new AniNumber(100);
@@ -119,10 +119,10 @@ this.x = new AniPerc(0);
 this.y = new AniPerc(0);
 //-----------padding
 // this.responsivePadding = true;
-this.paddingTop =    new AniPerc(0,true);
-this.paddingBottom = new AniPerc(0,true); 
-this.paddingRight =  new AniPerc(0,true);
-this.paddingLeft  =  new AniPerc(0,true);
+this.paddingTop =    new AniNumber(0);
+this.paddingBottom = new AniNumber(0); 
+this.paddingRight =  new AniNumber(0);
+this.paddingLeft  =  new AniNumber(0);
 ////////////
 this.border  = new AniNumber(0);
 

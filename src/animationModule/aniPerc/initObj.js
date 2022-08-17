@@ -15,6 +15,8 @@ export default class InitObj {
                 fil instanceof Decrement ||
                 fil instanceof Random) {
                 fil.setBaseValue(this.responsiveValue(canvasWidthHeight, fil.getBaseValue()));
+                fil.setEndValue(this.responsiveValue(canvasWidthHeight, fil.getEndValue()));
+                fil.setBeyondValue(this.responsiveValue(canvasWidthHeight, fil.getBeyondValue()));
             }
             if (fil instanceof Oscillate) {
                 const osc = new Oscillate(fil.rTimeMsStart, fil.rTimeMsEnd, this.responsiveValue(canvasWidthHeight, fil.getBaseValue()), this.responsiveValue(canvasWidthHeight, fil.getEndValue()), fil.delay.delayValue, this.responsiveValue(canvasWidthHeight, fil.getBeyondValue()));
