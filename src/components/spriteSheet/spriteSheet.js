@@ -26,7 +26,7 @@ export default class SpriteSheet extends BaseSpriteSheet {
     }
     draw(p) {
         this.preDraw(p);
-        p.drawImageSrcDest(this.img, (this.leftExtraPix + (this.column.value() * this.iconWidth)), (this.topExtraPix + (this.row.value() * this.iconHeight)), this.iconWidth, this.iconHeight, this.xAligned(), this.yAligned(), this.contentWidth(), this.contentHeight());
+        p.drawImageSrcDest(this.img, (this.leftExtraPix + (this.column.value() * this.iconWidth)), (this.topExtraPix + (this.row.value() * this.iconHeight)), this.iconWidth, this.iconHeight, this.xAligned(), this.yAligned(), this.width.value(), this.height.value());
         this.postDraw(p);
         return true;
     }

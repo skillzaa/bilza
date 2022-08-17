@@ -45,8 +45,8 @@ this.preDraw(p);
         this.imagesList[this.currentImage.value()].height ,
         this.xAligned(),
         this.yAligned(),
-        this.contentWidth(),
-        this.contentHeight() 
+        this.width.value(),
+        this.height.value() 
     );   
 this.postDraw(p);            
 return true;

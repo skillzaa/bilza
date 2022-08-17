@@ -25,13 +25,13 @@ export default class Pic extends BaseComponent {
         if (this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.img.setAttribute("width", this.contentWidth().toString());
-        this.img.setAttribute("height", this.contentHeight().toString());
+        this.img.setAttribute("width", this.width.value().toString());
+        this.img.setAttribute("height", this.height.value().toString());
         return true;
     }
     draw(p) {
         this.preDraw(p);
-        p.drawImage(this.img, this.xAligned(), this.yAligned(), this.contentWidth(), this.contentHeight());
+        p.drawImage(this.img, this.xAligned(), this.yAligned(), this.width.value(), this.height.value());
         this.postDraw(p);
         return true;
     }

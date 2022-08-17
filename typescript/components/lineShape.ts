@@ -17,8 +17,8 @@ this.style.strokeStyle = this.color.value();
      this.contentX(),
      this.contentY(),
 
-    this.contentWidth(),
-    this.contentHeight(),
+    this.width.value(),
+    this.height.value(),
     this.style
     );
 //----------------------------

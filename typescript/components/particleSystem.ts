@@ -75,9 +75,9 @@ if (this.canvasWidth == null || this.canvasHeight == null){
 this.xyArray.length = 0;
 
     for (let i = 0; i < this.count.value() ; i++) {
-//--this.contentWidth() of particle obj
-const maxX = this.contentX() + (this.contentWidth() - this.circle.contentWidth());
-const maxY = this.contentY() + ( this.contentHeight() - this.circle.contentHeight());
+//--this.width.value() of particle obj
+const maxX = this.contentX() + (this.width.value() - this.circle.width.value());
+const maxY = this.contentY() + ( this.height.value() - this.circle.height.value());
 const minX = this.contentX();
 const minY = this.contentY();
 

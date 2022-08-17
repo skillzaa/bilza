@@ -47,8 +47,8 @@ this.style.lineWidth = this.lineWidth.value();
     this.contentX(),
      this.contentY(),
 
-    this.contentWidth(),
-    this.contentHeight(),
+    this.width.value(),
+    this.height.value(),
     this.style
     );
 

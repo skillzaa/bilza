@@ -7,9 +7,13 @@ export default class BaseComponent extends RotateObj {
     init(p) {
         this.canvasWidth = p.canvasWidth();
         this.canvasHeight = p.canvasHeight();
+        if (this.width instanceof AniPerc && this.height instanceof AniPerc) {
+            this.width.init(this.canvasWidth);
+            this.height.init(this.canvasHeight);
+        }
         if (this.x instanceof AniPerc && this.y instanceof AniPerc) {
-            this.y.init(this.canvasHeight);
             this.x.init(this.canvasWidth);
+            this.y.init(this.canvasHeight);
         }
         if (this.paddingLeft instanceof AniPerc &&
             this.paddingRight instanceof AniPerc &&

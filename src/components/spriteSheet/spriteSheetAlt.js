@@ -24,7 +24,7 @@ export default class SpriteSheetAlt extends BaseSpriteSheet {
     }
     draw(p) {
         this.preDraw(p);
-        p.drawImageSrcDest(this.img, this.imagesList[this.currentImage.value()].x, this.imagesList[this.currentImage.value()].y, this.imagesList[this.currentImage.value()].width, this.imagesList[this.currentImage.value()].height, this.xAligned(), this.yAligned(), this.contentWidth(), this.contentHeight());
+        p.drawImageSrcDest(this.img, this.imagesList[this.currentImage.value()].x, this.imagesList[this.currentImage.value()].y, this.imagesList[this.currentImage.value()].width, this.imagesList[this.currentImage.value()].height, this.xAligned(), this.yAligned(), this.width.value(), this.height.value());
         this.postDraw(p);
         return true;
     }

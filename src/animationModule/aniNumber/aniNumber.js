@@ -27,6 +27,6 @@ export default class AniNumber extends AniProp {
         const v = new Oscillate(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, secPerIter * 1000, stopAt);
         this.addFilter(v);
     }
-    vibrate(rTimeMsStart, rTimeMsEnd, offset = 10, delayInMilliSec = 100) {
+    vibrate(rTimeMsStart, rTimeMsEnd, offset = 10, delaySec = 100) {
     }
 }

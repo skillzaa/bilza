@@ -12,11 +12,14 @@ init(p: Pack): boolean {
 this.canvasWidth =  p.canvasWidth();  
 this.canvasHeight =  p.canvasHeight();
 
-//--Only 6 classes need init x,y and 4 paddings
-//--no need for init
+if (this.width instanceof AniPerc && this.height instanceof AniPerc){
+    this.width.init(this.canvasWidth);//canvasWidth
+    this.height.init(this.canvasHeight);//canvasHeight
+}
+
 if (this.x instanceof AniPerc && this.y instanceof AniPerc){
-    this.y.init(this.canvasHeight);//canvasHeight
     this.x.init(this.canvasWidth);//canvasWidth
+    this.y.init(this.canvasHeight);//canvasHeight
 }
 //paddings
 if (this.paddingLeft instanceof AniPerc &&

@@ -15,7 +15,7 @@ super();
 this.leftExtraPix = 0;
 this.topExtraPix = 0;
 
-this.responsiveDims = false; 
+// this.responsiveDims = false; 
 // this.responsivePadding = false;
 
 this.img = new Image();
@@ -41,8 +41,8 @@ init(p: Pack): boolean {
 if(this.canvasWidth==null){throw new Error("init error");}
 if(this.canvasHeight==null){throw new Error("init error");}
 //--importantay ---????
-// this.img.setAttribute("width", this.contentWidth().toString());    
-// this.img.setAttribute("height", this.contentHeight().toString());    
+// this.img.setAttribute("width", this.width.value().toString());    
+// this.img.setAttribute("height", this.height.value().toString());    
 return true;    
 }
 

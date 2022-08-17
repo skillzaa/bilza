@@ -11,7 +11,6 @@ export default class BaseComponentBase {
     readonly XAlignOpt: typeof XAlignOpt;
     readonly YAlignOpt: typeof YAlignOpt;
     readonly id: string;
-    protected responsiveDims: boolean;
     interactive: boolean;
     drawLayer: DrawLayer;
     style: Style;
@@ -21,14 +20,14 @@ export default class BaseComponentBase {
     rotation: AniNumber;
     opacity: AniNumber;
     color: AniColor;
-    width: AniNumber;
-    height: AniNumber;
+    width: AniPerc | AniNumber;
+    height: AniPerc | AniNumber;
     selected: boolean;
     border: AniNumber;
-    paddingTop: AniPerc;
-    paddingBottom: AniPerc;
-    paddingRight: AniPerc;
-    paddingLeft: AniPerc;
+    paddingTop: AniPerc | AniNumber;
+    paddingBottom: AniPerc | AniNumber;
+    paddingRight: AniPerc | AniNumber;
+    paddingLeft: AniPerc | AniNumber;
     x: AniPerc | AniNumber;
     y: AniPerc | AniNumber;
     colorBackground: AniColor;
@@ -37,8 +36,8 @@ export default class BaseComponentBase {
     canvasWidth: number | null;
     canvasHeight: number | null;
     constructor();
-    setResponsivePadding(tf?: boolean): boolean;
-    setResponsiveCoordinates(tf?: boolean): boolean;
-    setResponsiveDims(tf?: boolean): boolean;
+    setRespPadding(tf?: boolean): boolean;
+    setRespLoc(tf?: boolean): boolean;
+    setRespDims(tf?: boolean): boolean;
 }
 //# sourceMappingURL=99BaseComponentBase.d.ts.map

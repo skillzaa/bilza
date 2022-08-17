@@ -64,9 +64,9 @@ return true;
 
 draw_horizontal(p:Pack){
 let y = 0;
-const yFactor = ( (this.contentHeight()/100) * this.cellWidthPerc.value());
+const yFactor = ( (this.height.value()/100) * this.cellWidthPerc.value());
 
-let end_x = this.contentX() + this.contentWidth();
+let end_x = this.contentX() + this.width.value();
 
 for (let i = 0; i < (this._y_iteration + 1); i++) {
     this.style.strokeStyle = this.colorHorizontalLines.value(); 
@@ -88,8 +88,8 @@ y += yFactor;
 
 draw_vertical(p:Pack){
 let x = 0;
-let end_y = this.contentY() + this.contentHeight();
-const Xfactor = ( (this.contentWidth()/100) * this.cellWidthPerc.value());
+let end_y = this.contentY() + this.height.value();
+const Xfactor = ( (this.width.value()/100) * this.cellWidthPerc.value());
 this.style.opacity = this.opacity.value();       
     
 

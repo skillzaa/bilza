@@ -61,8 +61,8 @@ this.preDraw(p);
         this.iconHeight,
         this.xAligned(),
         this.yAligned(),
-        this.contentWidth(),
-        this.contentHeight() 
+        this.width.value(),
+        this.height.value() 
     );   
 this.postDraw(p);            
 return true;

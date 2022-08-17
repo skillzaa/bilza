@@ -53,8 +53,8 @@ export default class ParticleSystem extends BaseComponent {
         }
         this.xyArray.length = 0;
         for (let i = 0; i < this.count.value(); i++) {
-            const maxX = this.contentX() + (this.contentWidth() - this.circle.contentWidth());
-            const maxY = this.contentY() + (this.contentHeight() - this.circle.contentHeight());
+            const maxX = this.contentX() + (this.width.value() - this.circle.width.value());
+            const maxY = this.contentY() + (this.height.value() - this.circle.height.value());
             const minX = this.contentX();
             const minY = this.contentY();
             const xy = new XY((Math.floor(Math.random() * (maxX - minX + 1) + minX)), (Math.floor(Math.random() * (maxY - minY + 1) + minY)));

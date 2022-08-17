@@ -9,8 +9,7 @@ constructor(initialValue :string=""){
 super(initialValue);
 }
 ///////////////////////////////////////////////////////////
-
 random(rTimeMsStart :number,rTimeMsEnd :number,delay :number){
-
+//----not implemented yet
 }
 } 

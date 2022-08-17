@@ -1,5 +1,8 @@
 import IFilter from "./IFilter.js";
 import Delay from "./delay.js";
+
+
+
 export default class BaseFilter <T> implements IFilter<T> {
     
 public  rTimeMsStart :number;

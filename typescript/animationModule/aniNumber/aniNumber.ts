@@ -47,7 +47,7 @@ this.addFilter(v);
 }//oscialte
 
 //---effects
-public vibrate(rTimeMsStart :number,rTimeMsEnd :number,offset :number=10,delayInMilliSec :number= 100){
+public vibrate(rTimeMsStart :number,rTimeMsEnd :number,offset :number=10,delaySec :number= 100){
     // const v = new Vibrate(rTimeMsStart,rTimeMsEnd,offset,delayInMilliSec);
     // this.filters.push(v);
 }

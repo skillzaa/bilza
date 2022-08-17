@@ -7,7 +7,7 @@ export default class LineShape extends BaseComponent {
         this.preDraw(p);
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
-        p.drawFillRect(this.contentX(), this.contentY(), this.contentWidth(), this.contentHeight(), this.style);
+        p.drawFillRect(this.contentX(), this.contentY(), this.width.value(), this.height.value(), this.style);
         this.postDraw(p);
         return true;
     }

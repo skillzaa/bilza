@@ -5,7 +5,7 @@ import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
 export default class BaseComponentBase {
     constructor() {
-        this.version = "0.0.1";
+        this.version = "0.0.30";
         this.alwaysOn = false;
         this.XAlignOpt = XAlignOpt;
         this.YAlignOpt = YAlignOpt;
@@ -13,7 +13,6 @@ export default class BaseComponentBase {
         this.yAlign = this.YAlignOpt.Top;
         this.xRotate = this.XAlignOpt.Left;
         this.yRotate = this.YAlignOpt.Top;
-        this.responsiveDims = true;
         this.interactive = false;
         this.border = new AniNumber(0);
         this.width = new AniNumber(10);
@@ -39,15 +38,23 @@ export default class BaseComponentBase {
         this.colorBorder = new AniColor("#000000");
         this.showBackground = new AniBoolean(false);
     }
-    setResponsivePadding(tf = false) {
-        this.paddingTop = new AniPerc(0, tf);
-        this.paddingBottom = new AniPerc(0, tf);
-        this.paddingRight = new AniPerc(0, tf);
-        ;
-        this.paddingLeft = new AniPerc(0, tf);
-        return tf;
+    setRespPadding(tf = false) {
+        if (tf == true) {
+            this.paddingTop = new AniPerc(0);
+            this.paddingBottom = new AniPerc(0);
+            this.paddingRight = new AniPerc(0);
+            this.paddingLeft = new AniPerc(0);
+            return true;
+        }
+        else {
+            this.paddingTop = new AniNumber(0);
+            this.paddingBottom = new AniNumber(0);
+            this.paddingRight = new AniNumber(0);
+            this.paddingLeft = new AniNumber(0);
+            return false;
+        }
     }
-    setResponsiveCoordinates(tf = true) {
+    setRespLoc(tf = true) {
         if (tf == true) {
             this.x = new AniPerc(0);
             this.y = new AniPerc(0);
@@ -58,10 +65,17 @@ export default class BaseComponentBase {
             this.y = new AniNumber(0);
             return false;
         }
-        return tf;
     }
-    setResponsiveDims(tf = true) {
-        this.responsiveDims = tf;
-        return tf;
+    setRespDims(tf = true) {
+        if (tf == true) {
+            this.width = new AniPerc(0);
+            this.height = new AniPerc(0);
+            return true;
+        }
+        else {
+            this.width = new AniNumber(0);
+            this.height = new AniNumber(0);
+            return false;
+        }
     }
 }

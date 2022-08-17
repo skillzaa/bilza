@@ -28,7 +28,7 @@ public readonly YAlignOpt :typeof YAlignOpt;
 //---Every component has a random id
 public readonly id :string;
 
-protected responsiveDims : boolean; 
+// protected responsiveDims : boolean; 
 
 public interactive : boolean; //for mouse click etc 
 //--The draw layer
@@ -45,20 +45,23 @@ public rotation :AniNumber;
 public opacity :AniNumber;
 //--The color prop points to the color of the main content
 public color :AniColor;
-//-- This will always be implemented in some special cases like text which uses fontSize this will represent fontSize. However this will be used in 100% of the components
-public width :AniNumber; // no need to convert it into AniNoPers
-//--same as width
-public height :AniNumber;// no need to convert it into AniNoPers
-//--this will come in handy during using the lib with gui and while making interactive tools.
 
+
+public width :AniPerc | AniNumber;
+public height :AniPerc | AniNumber;
+
+
+//--this will come in handy during using the lib with gui and while making interactive tools.
 public  selected :boolean; //dont complicate
 
-//---PAdding and Border
-public border :AniNumber;         
-public paddingTop       :AniPerc;        
-public paddingBottom    :AniPerc;         
-public paddingRight     :AniPerc;         
-public paddingLeft      :AniPerc;         
+//--- Border
+public border :AniNumber;        
+//---Padding
+public paddingTop       :AniPerc | AniNumber;        
+public paddingBottom    :AniPerc | AniNumber;         
+public paddingRight     :AniPerc | AniNumber;         
+public paddingLeft      :AniPerc | AniNumber;         
+//---Loc
 public x :AniPerc | AniNumber; 
 public y :AniPerc | AniNumber;
 
@@ -69,12 +72,12 @@ public showBackground :AniBoolean;
 
 /////////////////----PRIVATE----/////////////////// 
 //---these 2 variables will be set in init
-canvasWidth :number | null;    //required by all comps
-canvasHeight :number | null;    //required by all comps
+canvasWidth :number | null;    
+canvasHeight :number | null;   
 //---
 constructor(){
     //--insert the current version numebr into components
-    this.version = "0.0.1";
+    this.version = "0.0.30";
     this.alwaysOn = false;
     this.XAlignOpt = XAlignOpt; //final-ok
     this.YAlignOpt = YAlignOpt; //final-ok
@@ -85,11 +88,6 @@ constructor(){
     this.xRotate = this.XAlignOpt.Left;
     this.yRotate = this.YAlignOpt.Top;
     
-    // this.responsiveCoordinates = true;
-    
-    //---This is private use -- setResponsiveDims();
-    this.responsiveDims = true;
-
     this.interactive = false; // this is for mouse click etc
     
     this.border = new AniNumber(0);
@@ -101,7 +99,7 @@ constructor(){
     this.opacity = new AniNumber(100);
 
     this.color = new AniColor("#000000");
-    //--there is no this.endTime --since has this.endTime()
+    
     //--must
     this.drawLayer = DrawLayer.MiddleGround;
     //--must
@@ -112,7 +110,7 @@ constructor(){
 this.canvasWidth = null;    
 this.canvasHeight = null;    
 
-//---flags--//--\\ 
+//---flags-- 
 this.selected = false;
 this.visible = new AniBoolean(true);
 
@@ -128,24 +126,29 @@ this.paddingLeft  =  new AniPerc(0,true);
 ////////////
 this.border  = new AniNumber(0);
 
-
 this.colorBackground = new AniColor("#ffffff");
 this.colorBorder = new AniColor("#000000");
 this.showBackground = new AniBoolean(false);
+}
 
+//////////////////////////////////////////
+//////////////////////////////////////////
+setRespPadding(tf :boolean=false):boolean{
+    if (tf == true){
+        this.paddingTop = new AniPerc(0);
+        this.paddingBottom = new AniPerc(0); 
+        this.paddingRight = new AniPerc(0);
+        this.paddingLeft  = new AniPerc(0);
+        return true;
+    } else {
+        this.paddingTop = new    AniNumber(0);
+        this.paddingBottom = new AniNumber(0); 
+        this.paddingRight = new  AniNumber(0);
+        this.paddingLeft  = new  AniNumber(0);
+        return false;
+    }       
 }
-//////////////////////////////////////////
-//////////////////////////////////////////
-//////////////////////////////////////////
-//////////////////////////////////////////
-setResponsivePadding(tf :boolean=false):boolean{
-this.paddingTop = new AniPerc(0,tf);
-this.paddingBottom = new AniPerc(0,tf); 
-this.paddingRight = new AniPerc(0,tf);;
-this.paddingLeft  = new AniPerc(0,tf);
-return tf;
-}
-setResponsiveCoordinates(tf :boolean=true):boolean{
+setRespLoc(tf :boolean=true):boolean{
 if (tf == true){
     this.x = new AniPerc(0);
     this.y = new AniPerc(0);
@@ -155,17 +158,18 @@ if (tf == true){
     this.y = new AniNumber(0);
     return false;
 }   
-// this.x = new AniPerc(0,tf);
-// this.x.setResponsive(true);
-// this.y.setResponsive(true);
-// this.y = new AniPerc(0,tf);
-return tf;
 }
-setResponsiveDims(tf :boolean=true):boolean{
-this.responsiveDims = tf;
-return tf;
+
+setRespDims(tf :boolean=true):boolean{
+    if (tf == true){
+        this.width = new AniPerc(0);
+        this.height = new AniPerc(0);
+        return true;
+    } else {
+        this.width = new AniNumber(0);
+        this.height = new AniNumber(0);
+        return false;
+    }   
 }
-//setResponsivePadding
-//setResponsiveDims
-//setResponsiveCoordinates
+
 }//claass

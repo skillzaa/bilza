@@ -33,11 +33,9 @@ export default interface IComponent{
     style:Style; 
 ////////////////////////////////////////
 // usePercentages is used in xy module and entire system is built around it. It means that using percentages OR pixes both are possible in all components.
-// responsiveCoordinates : boolean;
-// responsivePadding : boolean; 
-setResponsivePadding(tf :boolean):boolean;
-setResponsiveDims(tf :boolean):boolean;
-setResponsiveCoordinates(tf :boolean):boolean;    
+setRespPadding(tf :boolean):boolean;
+setRespDims(tf :boolean):boolean;
+setRespLoc(tf :boolean):boolean;    
 //=============--- METHODS--------    
 //---28-june-2022 --Basic methods
 //--30-june-2022 the user should not see init. This is just for the engine and for component creator --??? what to do aboit it? i may need 2 interfaces
@@ -60,8 +58,8 @@ compHeight():number;
 ///////////28-june-2022///////////
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 
-contentWidth() :number;
-contentHeight() :number;
+// contentWidth() :number;
+// contentHeight() :number;
 
 
 setStartTime(n :number) :number;
@@ -76,6 +74,4 @@ animate(timeFrom :number,timeTo :number,
     xFrom :number,xTo :number, 
     yFrom :number,yTo :number,
     ):boolean;
-
-
 }
