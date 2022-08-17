@@ -4,10 +4,10 @@ export default class Loc extends WidthHeight {
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     constructor();
     draw(p: Pack): boolean;
-    random(startTimeSec: number, endTimeSec: number, Xmin?: number, Xmax?: number, Ymin?: number, Ymax?: number, delay?: number): void;
-    vibrate(from: number, to: number, x: number, y: number, offset: number, delay: number): void;
     goto(atFrame: number, x: number, y: number): boolean;
     animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
+    align(x?: number | null, y?: number | null): void;
+    alignRotate(x?: number | null, y?: number | null): void;
     xAligned(): number;
     yAligned(): number;
     xRotateAligned(): number;

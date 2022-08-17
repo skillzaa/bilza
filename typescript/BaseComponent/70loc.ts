@@ -1,6 +1,9 @@
 import {Pack} from "../bilza.js";
 import WidthHeight from "./71WidthHeight.js";
 
+import {XAlignOpt} from "./designBC/xAlignOpt.js";
+import {YAlignOpt} from "./designBC/yAlignOpt.js";
+
 export default class Loc extends WidthHeight {
 // XX-------------||||||||||||||||||||||---------------XX 
 charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
@@ -20,14 +23,14 @@ draw(p: Pack): boolean {
     return true;
 }
 
-public random(startTimeSec :number,endTimeSec :number,Xmin :number=1, Xmax :number=100,Ymin :number=1, Ymax :number=100,delay :number=60){
-this.x.random(startTimeSec,endTimeSec,Xmin,Xmax,delay);
-this.y.random(startTimeSec,endTimeSec,Ymin,Ymax,delay);
-}
-public vibrate(from: number, to: number, x: number,y: number, offset: number, delay: number): void {
-    this.x.vibrate(from,to,offset,delay);
-    this.y.vibrate(from,to,offset,delay);
-}
+// public random(startTimeSec :number,endTimeSec :number,Xmin :number=1, Xmax :number=100,Ymin :number=1, Ymax :number=100,delay :number=60){
+// this.x.random(startTimeSec,endTimeSec,Xmin,Xmax,delay);
+// this.y.random(startTimeSec,endTimeSec,Ymin,Ymax,delay);
+// }
+// public vibrate(from: number, to: number, x: number,y: number, offset: number, delay: number): void {
+//     this.x.vibrate(from,to,offset,delay);
+//     this.y.vibrate(from,to,offset,delay);
+// }
 goto(atFrame: number, x: number, y: number): boolean {
 this.x.goto(atFrame,x);
 this.y.goto(atFrame,y);
@@ -37,6 +40,54 @@ animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: num
 this.x.animate(timeFrom,timeTo,xFrom,xTo);    
 this.y.animate(timeFrom,timeTo,yFrom,yTo);    
 return true;    
+}
+public align(x :number | null=null, y :number| null=null){
+        switch (x) {
+            case 0:
+            this.xAlign = XAlignOpt.Left;                   
+                break;
+            case 1:
+            this.xAlign = XAlignOpt.Mid;                
+                break;
+            case 2:
+            this.xAlign = XAlignOpt.Right;                
+                break;
+        }
+        switch (y) {
+            case 0:
+            this.yAlign = YAlignOpt.Top;                   
+                break;
+            case 1:
+            this.yAlign = YAlignOpt.Mid;                
+                break;
+            case 2:
+            this.yAlign = YAlignOpt.Bot;                
+                break;
+        }
+}
+public alignRotate(x :number | null=null, y :number| null=null){
+    switch (x) {
+        case 0:
+        this.xRotate = XAlignOpt.Left;                   
+            break;
+        case 1:
+        this.xRotate = XAlignOpt.Mid;                
+            break;
+        case 2:
+        this.xRotate = XAlignOpt.Right;                
+            break;
+    }
+    switch (y) {
+        case 0:
+        this.yRotate = YAlignOpt.Top;                   
+            break;
+        case 1:
+        this.yRotate = YAlignOpt.Mid;                
+            break;
+        case 2:
+        this.yRotate = YAlignOpt.Bot;                
+            break;
+    }
 }
 xAligned():number{   
 let x = this.x.value();     

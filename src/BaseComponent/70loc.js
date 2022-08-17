@@ -1,4 +1,6 @@
 import WidthHeight from "./71WidthHeight.js";
+import { XAlignOpt } from "./designBC/xAlignOpt.js";
+import { YAlignOpt } from "./designBC/yAlignOpt.js";
 export default class Loc extends WidthHeight {
     constructor() {
         super();
@@ -6,14 +8,6 @@ export default class Loc extends WidthHeight {
     }
     draw(p) {
         return true;
-    }
-    random(startTimeSec, endTimeSec, Xmin = 1, Xmax = 100, Ymin = 1, Ymax = 100, delay = 60) {
-        this.x.random(startTimeSec, endTimeSec, Xmin, Xmax, delay);
-        this.y.random(startTimeSec, endTimeSec, Ymin, Ymax, delay);
-    }
-    vibrate(from, to, x, y, offset, delay) {
-        this.x.vibrate(from, to, offset, delay);
-        this.y.vibrate(from, to, offset, delay);
     }
     goto(atFrame, x, y) {
         this.x.goto(atFrame, x);
@@ -24,6 +18,54 @@ export default class Loc extends WidthHeight {
         this.x.animate(timeFrom, timeTo, xFrom, xTo);
         this.y.animate(timeFrom, timeTo, yFrom, yTo);
         return true;
+    }
+    align(x = null, y = null) {
+        switch (x) {
+            case 0:
+                this.xAlign = XAlignOpt.Left;
+                break;
+            case 1:
+                this.xAlign = XAlignOpt.Mid;
+                break;
+            case 2:
+                this.xAlign = XAlignOpt.Right;
+                break;
+        }
+        switch (y) {
+            case 0:
+                this.yAlign = YAlignOpt.Top;
+                break;
+            case 1:
+                this.yAlign = YAlignOpt.Mid;
+                break;
+            case 2:
+                this.yAlign = YAlignOpt.Bot;
+                break;
+        }
+    }
+    alignRotate(x = null, y = null) {
+        switch (x) {
+            case 0:
+                this.xRotate = XAlignOpt.Left;
+                break;
+            case 1:
+                this.xRotate = XAlignOpt.Mid;
+                break;
+            case 2:
+                this.xRotate = XAlignOpt.Right;
+                break;
+        }
+        switch (y) {
+            case 0:
+                this.yRotate = YAlignOpt.Top;
+                break;
+            case 1:
+                this.yRotate = YAlignOpt.Mid;
+                break;
+            case 2:
+                this.yRotate = YAlignOpt.Bot;
+                break;
+        }
     }
     xAligned() {
         let x = this.x.value();
