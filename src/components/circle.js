@@ -11,6 +11,7 @@ export default class Circle extends BaseComponent {
     update(msDelta, p) {
         this.startAngle.update(msDelta);
         this.endAngle.update(msDelta);
+        this.height.set(this.width.value());
         super.update(msDelta, p);
         return true;
     }

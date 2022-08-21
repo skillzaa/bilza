@@ -5,14 +5,6 @@ import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../../animationM
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business logic etc inside. That will come when we build systems.
  * The components needs to be like lego pieces exposing just this.xyz and reacting to that.
  */
-/**
- * 30-june-2022 I have decided NOT to make width() and height() part of this interface since all components does not need it.
- * Also i am removing dynWidth and dynHeight since they too are not used by all
- * Also if i declare dynWidth or dynHeight here in later components some may need dynWidth as number and some comps may need it as AniNumber
- * Keep minimum requirements here of the system will collapse. 
- * Also in future comps I will keep "width" and "height" as dynWidth and dynHeight where as width() and height() will be widthInPix() and heightInPix()
- * 
- */
 export default interface IComponent{
 
 //-----Public Properties
@@ -26,8 +18,13 @@ export default interface IComponent{
 /**
  * 30-july-2022 : added since now all those component which implement this can be widened and shortened (scaled) using width.animate height.animate.
  */
-    width :AniNumber;
-    height :AniNumber;
+    width :AniNumber | AniPerc;
+    height :AniNumber | AniPerc;
+    x :AniNumber | AniPerc;
+    y :AniNumber | AniPerc;
+    border :AniNumber;
+    showBackground :AniBoolean;
+    colorBackground :AniColor;
 
 //-----Public Objects
     style:Style; 
@@ -46,7 +43,7 @@ update(msDelta :number,p :Pack):boolean; //second not frame
 draw(p :Pack):boolean;
 /**
  *--30-june-2022 : widthInPix and heightInPix added.
- From now on there is not confusion. "width" and "height" (IF APPLIED BY YHE COMPONENT) are both aniNumber where as the fol methods will just return the size of comp in pix
+ From now on there is not confusion. "width" and "height" (IF APPLIED BY THE COMPONENT) are both aniNumber| AniPerc where as the fol methods will just return the size of comp in pix
  */
 compWidth():number;
 compHeight():number;
