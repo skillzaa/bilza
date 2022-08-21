@@ -3,10 +3,16 @@ export default class WidthHeight extends Shadow {
     constructor() {
         super();
     }
+    contentWidth() {
+        return this.width.value();
+    }
+    contentHeight() {
+        return this.height.value();
+    }
     compWidth() {
-        return this.width.value() + this.paddingLeft.value() + this.paddingRight.value() + (this.border.value() * 2);
+        return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() + (this.border.value() * 2);
     }
     compHeight() {
-        return this.height.value() + this.paddingTop.value() + this.paddingBottom.value() + (this.border.value() * 2);
+        return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value() + (this.border.value() * 2);
     }
 }

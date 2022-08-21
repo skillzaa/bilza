@@ -1,15 +1,20 @@
 import Bilza, {IComponent, Ui, CompFactory as cf, hsl} from "./bilza.js";
 
 let bil = new Bilza("bilza", 70);
-
+bil.resizeCanvas(500,300);
 const grid = cf.grid("grey");
 
 bil.insert.alwaysOn(grid);
 
-const fill = cf.circle(hsl(240));
+const fill = cf.text("Text Demo",hsl(240));
 
 fill.opacity.set(50);
-fill.width.set(10);
+fill.fontSize.set(100);
+//!!!!!!!!!!!!!!!!!!!!!!!!
+fill.fitTextToWidth.set(true);
+// fill.fitTextToHeight.set(true);
+fill.width.set(50);
+fill.height.set(20);
 
 fill.border.set(1);
 fill.colorBackground.set(hsl(60));

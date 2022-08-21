@@ -1,16 +1,11 @@
-import { Pack, BaseComponent, FontFamily } from "../bilza.js";
-import { AniNumber, AniString } from "../animationModule/animations.js";
-export default class Text extends BaseComponent {
-    content: AniString;
-    maxDisplayChars: AniNumber;
-    fontFamily: FontFamily;
-    private fontSize;
+import { Pack } from "../bilza.js";
+import { AniBoolean } from "../animationModule/animations.js";
+import RawText from "./rawText.js";
+export default class Text extends RawText {
+    fitTextToWidth: AniBoolean;
+    fitTextToHeight: AniBoolean;
     constructor(content?: string, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
-    contentHeight(): number;
-    contentWidth(): number;
-    draw(p: Pack): boolean;
-    drawContent(p: Pack): void;
     private dynamicFontSize;
     private shrinkToFitMaxHeight;
 }
