@@ -7,6 +7,9 @@ bil.insert.alwaysOn(grid);
 
 const fill = cf.fillRect(hsl(240));
 fill.align(1,1);
+//--By default responsive padding is off
+fill.setRespPadding(true);
+
 fill.x.set(50);
 fill.y.set(50);
 fill.showBackground.set(true);
@@ -15,17 +18,17 @@ fill.width.set(50);
 fill.height.set(50);
 fill.border.set(15);
 
-fill.paddingLeft.animate(1,5,0,200);
-fill.paddingLeft.animate(6,10,200,0);
+fill.paddingLeft.animate(1,5,0,20);
+fill.paddingLeft.animate(6,10,20,0);
 //------------
-fill.paddingRight.animate(11,15,0,200);
-fill.paddingRight.animate(16,20,200,0);
+fill.paddingRight.animate(11,15,0,20);
+fill.paddingRight.animate(16,20,20,0);
 //------------
-fill.paddingTop.animate(21,25,0,200);
-fill.paddingTop.animate(26,30,200,0);
+fill.paddingTop.animate(21,25,0,20);
+fill.paddingTop.animate(26,30,20,0);
 //------------
-fill.paddingBottom.animate(31,35,0,200);
-fill.paddingBottom.animate(36,40,200,0);
+fill.paddingBottom.animate(31,35,0,20);
+fill.paddingBottom.animate(36,40,20,0);
 //------------
 
 bil.insert.add(fill, 0, 60);
