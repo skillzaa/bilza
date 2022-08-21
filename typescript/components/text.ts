@@ -9,8 +9,9 @@ fitTextToHeight :AniBoolean;
     ///////////////////////////////////////// 
 constructor (content :string="",colorHax :string="#000000"){
 super(content,colorHax);
-this.fitTextToWidth = new AniBoolean(false);
-this.fitTextToHeight = new AniBoolean(false);
+//---Should be true by default
+this.fitTextToWidth = new AniBoolean(true);
+this.fitTextToHeight = new AniBoolean(true);
 
 } 
 

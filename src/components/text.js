@@ -3,8 +3,8 @@ import RawText from "./rawText.js";
 export default class Text extends RawText {
     constructor(content = "", colorHax = "#000000") {
         super(content, colorHax);
-        this.fitTextToWidth = new AniBoolean(false);
-        this.fitTextToHeight = new AniBoolean(false);
+        this.fitTextToWidth = new AniBoolean(true);
+        this.fitTextToHeight = new AniBoolean(true);
     }
     update(msDelta, p) {
         if (this.fitTextToWidth.value() == true) {
