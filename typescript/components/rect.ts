@@ -21,23 +21,7 @@ update(msDelta: number, p: Pack): boolean {
     return true;
 }
 
-
-// contentWidth(): number {
-//     if (this.canvasWidth !== null ){
-//         return Math.ceil((this.canvasWidth/100) * this.width.value());
-//     }else {
-//         throw new Error(" The component is not initialized yet");        
-//     }
-// }
-// contentHeight(): number {
-//     if (this.canvasHeight !== null){
-//     return Math.ceil((this.canvasHeight/100)*this.height.value());
-//     }else {
-//         throw new Error(" The component is not initialized yet");        
-//     }
-// }
 draw(p:Pack):boolean{
-
 this.preDraw(p)
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value(); 

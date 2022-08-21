@@ -1,7 +1,8 @@
 import { Pack } from "../bilza.js";
-import RawText from "./rawText.js";
-export default class FrameCounter extends RawText {
-    convertToSec: boolean;
+import Text from "./text.js";
+import { AniBoolean } from "../animationModule/animations.js";
+export default class FrameCounter extends Text {
+    convertToSec: AniBoolean;
     constructor(color?: string);
     update(msDelta: number, p: Pack): boolean;
 }

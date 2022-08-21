@@ -55,14 +55,20 @@ export default class BaseComponentBase {
         }
     }
     setRespLoc(tf = true) {
+        const xOldVal = this.x.value();
+        const yOldVal = this.y.value();
         if (tf == true) {
             this.x = new AniPerc(0);
             this.y = new AniPerc(0);
+            this.x.set(xOldVal);
+            this.y.set(yOldVal);
             return true;
         }
         else {
             this.x = new AniNumber(0);
             this.y = new AniNumber(0);
+            this.x.set(xOldVal);
+            this.y.set(yOldVal);
             return false;
         }
     }
