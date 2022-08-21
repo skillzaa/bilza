@@ -38,7 +38,9 @@ return true;
 
 
 update(msDelta :number,p :Pack): boolean {
-    //--- 14-july-2022 : A total of 14 props need UPDATE
+    //--- 15-july-2022 : A total of 15 props need UPDATE
+    //--19-Aug-2022-color added to make it 15 total
+    this.color.update(msDelta);
     this.x.update(msDelta);
     this.y.update(msDelta);
     //--6-july-2022 visible.update added
@@ -60,7 +62,7 @@ update(msDelta :number,p :Pack): boolean {
 return true;    
 }
 //15-july-2022. drawBackground completed do not change
-drawBackground(p :Pack){
+protected drawBackground(p :Pack){
 //--This is the only place where we need to check this.showBackground     
 if (this.showBackground.value() == false) {return;}    
 
@@ -68,11 +70,13 @@ this.style.fillStyle = this.colorBackground.value();
 this.style.strokeStyle = this.colorBackground.value();  
 
 p.drawFillRect (this.xAligned(), this.yAligned(),
-this.compWidth() , this.compHeight(),this.style);
+this.compWidth() - Math.floor(this.border.value()+1), 
+this.compHeight() - Math.floor(this.border.value()+1),
+this.style);
 }
 //15-july-2022. drawBorder completed do not change
 //Border is not added into the width and height of a component.
-drawBorder(p :Pack){
+protected drawBorder(p :Pack){
 if (this.border.value() < 1) {return;}    
 this.style.strokeStyle = this.colorBorder.value();  
 this.style.fillStyle = this.colorBorder.value();  
@@ -82,12 +86,12 @@ this.style.lineWidth = this.border.value();
         (this.xAligned() - Math.floor(this.border.value()/2)), 
         ( this.yAligned() - Math.floor(this.border.value()/2) ),
         //--- -1 is some error
-        this.compWidth() + (this.border.value() -1 ) , 
-        this.compHeight() + (this.border.value() -1 ),
+        this.compWidth() - Math.floor(this.border.value()+1) , 
+        this.compHeight() - Math.floor(this.border.value()+1) ,
         this.style);
 } 
 //---15-july-2022 : seems final
-preDraw(p :Pack){
+protected preDraw(p :Pack){
 this.style.opacity = (this.opacity.value());
 // this.style.opacity = 100;    
 this.applyRotation(p);
@@ -95,16 +99,16 @@ this.drawBackground(p);
 this.drawBorder(p);
 }
 //---15-july-2022 : seems final
-postDraw(p :Pack){
+protected postDraw(p :Pack){
 this.style.opacity = 100;
 this.removeRotation(p);
 }
 //---15-july-2022 : seems final
-contentY():number{
+protected contentY():number{
 return this.yAligned() + this.paddingTop.value(); 
 }
 //---15-july-2022 : seems final
-contentX():number{
+protected contentX():number{
 //previous xAlignedPadded    
 return this.xAligned() + this.paddingLeft.value(); 
 }

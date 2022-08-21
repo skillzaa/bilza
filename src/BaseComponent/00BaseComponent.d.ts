@@ -4,11 +4,11 @@ export default class BaseComponent extends RotateObj implements IComponent {
     constructor();
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
-    drawBackground(p: Pack): void;
-    drawBorder(p: Pack): void;
-    preDraw(p: Pack): void;
-    postDraw(p: Pack): void;
-    contentY(): number;
-    contentX(): number;
+    protected drawBackground(p: Pack): void;
+    protected drawBorder(p: Pack): void;
+    protected preDraw(p: Pack): void;
+    protected postDraw(p: Pack): void;
+    protected contentY(): number;
+    protected contentX(): number;
 }
 //# sourceMappingURL=00BaseComponent.d.ts.map

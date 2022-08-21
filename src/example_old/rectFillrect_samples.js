@@ -1,0 +1,17 @@
+import Bilza, { Ui, CompFactory as cf } from "../bilza.js";
+let bil = new Bilza("bilza", 70);
+const g = cf.grid();
+bil.insert.alwaysOn(g);
+const counter = cf.frameCounter("#ff0000");
+counter.goto(0, 90, 0);
+bil.insert.alwaysOn(counter);
+const plain = cf.rect("#008000");
+plain.xAlign = plain.XAlignOpt.Left;
+plain.goto(0, 10, 10);
+plain.width.goto(0, 60);
+plain.width.animate(1, 8, 10, 90);
+plain.height.animate(1, 8, 10, 90);
+plain.lineWidth.animate(0, 10, 1, 20);
+bil.insert.add(plain, 0, 15);
+const ui = new Ui(bil);
+bil.draw();

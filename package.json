@@ -19,6 +19,7 @@
     "javascipt animation",
     "canvas",
     "html5 canvas",
+    "html5 canvas animation",
     "business presentation",
     "slides"
   ],
@@ -37,5 +38,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.5.5",
     "vitest": "^0.15.2"
+  },
+  "dependencies": {
   }
 }
