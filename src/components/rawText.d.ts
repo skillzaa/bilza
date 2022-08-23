@@ -11,5 +11,6 @@ export default class RawText extends BaseComponent {
     contentWidth(): number;
     draw(p: Pack): boolean;
     drawContent(p: Pack): void;
+    protected adjestFontSize(n: number): number;
 }
 //# sourceMappingURL=rawText.d.ts.map

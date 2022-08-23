@@ -1,13 +1,11 @@
 import {Pack,DrawLayer} from "../bilza.js";
-
 import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
-
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
-
 
 export default class StaticGrid extends BaseComponent {
     cellWidth :AniNumber;    
     cellHeight :AniNumber;
+
     lineWidthVertical :AniNumber;
     lineWidthHorizontal :AniNumber;
     
@@ -15,10 +13,10 @@ export default class StaticGrid extends BaseComponent {
     colorVerticalLines :AniColor ;    
     colorNumbers :AniColor ;   
     
-    flagDrawNumbers :boolean ;   
-    flagDrawHorizontal :boolean ;   
-    flagDrawVertical :boolean ;   
-    fontSize :number;
+    showNumbers : AniBoolean ;   
+    drawHorizontal : AniBoolean ;   
+    drawVertical : AniBoolean;   
+    fontSize :AniNumber;
     lineDash :number[];
       
      
@@ -35,79 +33,127 @@ this.colorHorizontalLines = new AniColor(color);
 this.colorVerticalLines = new AniColor(color);
 this.drawLayer = DrawLayer.BackGround;
 
-this.fontSize = 8;
+this.fontSize = new AniNumber(25);
 
 this.colorNumbers = new AniColor("grey"); 
 
-this.flagDrawNumbers = false;   
-this.flagDrawHorizontal = false;   
-this.flagDrawVertical = false;   
+this.showNumbers = new AniBoolean(false); //keep it false   
+this.drawHorizontal = new AniBoolean(true);   
+this.drawVertical = new AniBoolean(true);   
 this.lineDash = [];
+// this.numbers = new Text("0","grey");
 }    
-
+init(p: Pack): boolean {
+    // this.numbers.init(p);
+    super.init(p);
+    return true
+}
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
     this.cellWidth.update(msDelta);
     this.cellHeight.update(msDelta);
     this.lineWidthHorizontal.update(msDelta);
     this.lineWidthVertical.update(msDelta);
+    this.fontSize.update(msDelta);
+    this.colorNumbers.update(msDelta);
+    //--This is a comp
+    // this.numbers.update(msDelta,p);
     return true;
 }
 draw(p:Pack): boolean {
-    this.draw_horizontal(p);    
-    this.draw_vertical(p);    
+this.preDraw(p);
+
+    if (this.drawHorizontal.value() == true){
+        this.draw_horizontal(p);    
+    }
+    if (this.drawVertical.value() == true){
+        this.draw_vertical(p);    
+    }
+
+this.postDraw(p);
 return true;
 }    
 draw_horizontal(p:Pack){
 let x = 0;
 let y = 0;
-let width = p.canvasWidth();
-let height = p.canvasHeight();
+let width = this.contentWidth();
+let height = this.contentHeight();
 //end y remain the same
-let end_x = x + width;
+let end_x = this.contentX() + width;
     do {   
         this.style.opacity = this.opacity.value();       
 
         this.style.strokeStyle = this.colorHorizontalLines.value();        
         this.style.lineDash = this.lineDash;        
-        this.style.lineWidth = this.lineWidthHorizontal.value();        
-    p.drawLine(x,y,end_x,y,this.style);
-        if (this.flagDrawNumbers == true){
+        this.style.lineWidth = this.lineWidthHorizontal.value();  
+
+    p.drawLine(this.contentX() +  x, this.contentY() + y,end_x,  this.contentY() + y,this.style);
+
+        if (this.showNumbers.value() == true){
             this.style.strokeStyle = this.colorNumbers.value();
-            // p.drawText(y.toString(),x,y,this.style);
-            this.drawText(p,y,x,y);
+            this.drawText(p,y,this.contentX() + x,this.contentY()+ y);
         }
     y += this.cellHeight.value();
-    } while (height > y );
+    } while ((height) > y );
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+this.style.opacity = this.opacity.value();       
+this.style.strokeStyle = this.colorVerticalLines.value();
+// this.style.strokeStyle = "red";
+this.style.lineWidth = this.lineWidthVertical.value();        
+this.style.lineDash = this.lineDash;    
+//---draw last line at end
+p.drawLine(this.contentX() ,
+this.contentY() + this.contentHeight(),
+this.contentX() +  + this.contentWidth(), 
+this.contentY()+ this.contentHeight(),
+this.style);        
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!        
 }
 draw_vertical(p:Pack){
 let x = 0;
 let y = 0;
-let width = p.canvasWidth();
-let height = p.canvasHeight();
+let width = this.contentWidth();
+let height = this.contentHeight();
 //end y remain the same
-let end_y = y + height;
+let end_y = this.contentY() + height;
     do {
-        this.style.opacity = this.opacity.value();       
-   
+    this.style.opacity = this.opacity.value();       
     this.style.strokeStyle = this.colorVerticalLines.value();
     this.style.lineWidth = this.lineWidthVertical.value();        
-    this.style.lineDash = this.lineDash;        
-    p.drawLine(x,y,x,end_y,this.style);
+    this.style.lineDash = this.lineDash;    
+    
+    p.drawLine(this.contentX() +  x,this.contentY() + y,this.contentX() + x,end_y,this.style);
 
-            if (this.flagDrawNumbers == true){
+            if (this.showNumbers.value() == true ){
                 this.style.strokeStyle = this.colorNumbers.value();
-                this.drawText(p,x,x,y);//2nd x = content
+                this.drawText(p,x,this.contentX() + x,this.contentY() + y);//2nd x = content
                 // p.drawText(x.toString(),x,y,this.style);
             }
     x += this.cellWidth.value();
     } while (width > x );
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+this.style.opacity = this.opacity.value();       
+this.style.strokeStyle = this.colorVerticalLines.value();
+// this.style.strokeStyle = "red";
+this.style.lineWidth = this.lineWidthVertical.value();        
+this.style.lineDash = this.lineDash;    
+//---draw last line at end
+const xnow = this.contentX() +  this.contentWidth();
+const ynow = this.yAligned() +  this.compHeight() - this.paddingTop.value();
+p.drawLine(xnow,
+        this.contentY(),
+        xnow,
+        this.contentY() + this.contentHeight(),
+// this.contentY()+ this.compHeight(),
+this.style);        
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    
+
 }
 
 drawText(p :Pack,content :number,x :number,y :number){
-    this.style.opacity = this.opacity.value();       
+this.style.opacity = this.opacity.value();       
 
-this.style.fontSize = this.fontSize;    
+this.style.fontSize = this.fontSize.value();    
 this.style.strokeStyle = this.colorNumbers.value();    
 this.style.fillStyle = this.colorNumbers.value();    
 p.drawText(
@@ -116,5 +162,8 @@ p.drawText(
     y + this.lineWidthHorizontal.value(),
     this.style);    
 }
+//=============================
+//=============================
+//=============================
 }
 //=============================

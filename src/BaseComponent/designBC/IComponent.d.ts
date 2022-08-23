@@ -12,6 +12,8 @@ export default interface IComponent {
     x: AniNumber | AniPerc;
     y: AniNumber | AniPerc;
     border: AniNumber;
+    rotation: AniNumber;
+    opacity: AniNumber;
     showBackground: AniBoolean;
     colorBackground: AniColor;
     style: Style;
@@ -19,6 +21,8 @@ export default interface IComponent {
     setRespDims(tf: boolean): boolean;
     setRespLoc(tf: boolean): boolean;
     init(p: Pack): boolean;
+    align(x: number, y: number): void;
+    alignRotate(x: number, y: number): void;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     compWidth(): number;

@@ -24,13 +24,13 @@ export default class RawText extends BaseComponent {
         if (this.maxDisplayChars.value() < 1) {
             return 0;
         }
-        return this.charsWidth("W", this.fontSize.value(), this.fontFamily);
+        return this.charsWidth("W", this.adjestFontSize(this.fontSize.value()), this.fontFamily);
     }
     contentWidth() {
         if (this.charsWidth == null) {
             throw new Error("init error");
         }
-        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.fontSize.value(), this.fontFamily);
+        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.adjestFontSize(this.fontSize.value()), this.fontFamily);
     }
     draw(p) {
         this.preDraw(p);
@@ -41,8 +41,14 @@ export default class RawText extends BaseComponent {
     drawContent(p) {
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
-        this.style.fontSize = this.fontSize.value();
+        this.style.fontSize = this.adjestFontSize(this.fontSize.value());
         this.style.fontFamily = this.fontFamily;
         p.drawText(this.content.value().substring(0, this.maxDisplayChars.value()), this.contentX(), this.contentY(), this.style);
+    }
+    adjestFontSize(n) {
+        if (this.canvasWidth == null) {
+            throw new Error("init error");
+        }
+        return (n / 1000) * this.canvasWidth;
     }
 }

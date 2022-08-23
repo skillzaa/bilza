@@ -20,12 +20,21 @@ contentHeight(): number {
     return this.height.value();
 }
 //---------------------
+// compWidth(): number {
+//     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
+//     return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() + (this.border.value() * 2);
+// }   
 compWidth(): number {
     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
-    return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value() + (this.border.value() * 2);
+    return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
 }   
+// compHeight(): number {
+// //--Border is not included    
+// return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value() + (this.border.value() * 2);
+// }
+//---border is excluded from height
 compHeight(): number {
 //--Border is not included    
-return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value() + (this.border.value() * 2);
+return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
 }
 } 

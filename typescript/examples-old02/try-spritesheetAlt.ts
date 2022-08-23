@@ -46,7 +46,7 @@ ss.gotoImageName(50,"glasses");
 
 bil.insert.add(ss,0,60);
 //-------------------------------
-const txt = cf.rawText("Sprite sheet", hsl(0));
+const txt = cf.text("Sprite sheet", hsl(0));
 txt.xAlign = txt.XAlignOpt.Mid;
 txt.x.set(50);
 txt.y.set(80);

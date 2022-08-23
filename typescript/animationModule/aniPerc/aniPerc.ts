@@ -21,7 +21,7 @@ this.initObj = new InitObj(this.filtersArr);
 
 init(canvasWidthHeight :number){
 if (this.initialized == true){return;}//--dont remove from here
-this.initialized = true; //--so that init run just once in life time
+this.initialized = true; //--so that init run just once in life time 
 this.canvasWidthHeight = canvasWidthHeight;    
 //----------------init defaullt value 
 const defFil  = new IdentityFil<number>(0,100,

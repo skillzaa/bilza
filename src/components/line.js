@@ -33,6 +33,7 @@ export default class Line extends BaseComponent {
         }
     }
     init(p) {
+        super.init(p);
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
@@ -40,7 +41,6 @@ export default class Line extends BaseComponent {
             this.x2.init(this.canvasWidth);
             this.y2.init(this.canvasHeight);
         }
-        super.init(p);
         return true;
     }
     update(msDelta, p) {

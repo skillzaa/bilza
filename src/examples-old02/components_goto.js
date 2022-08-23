@@ -16,7 +16,7 @@ bil.insert.add(circle, 10, 20);
 const txt = cf.text("Text Demo", hsl(30));
 attachGotoTest(txt, 20);
 bil.insert.add(txt, 20, 20);
-const txtRaw = cf.rawText("Raw Text Demo", hsl(30));
+const txtRaw = cf.text("Raw Text Demo", hsl(30));
 attachGotoTest(txtRaw, 30);
 bil.insert.add(txtRaw, 30, 20);
 const ui = new Ui(bil);

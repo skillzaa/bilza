@@ -5,7 +5,7 @@ import StaticGrid from "../components/staticGrid.js";
 import FrameCounter from "../components/frameCounter.js";
 import ParticleSystem from "../components/particleSystem.js";
 import Text from "../components/text.js";
-import RawText from "../components/rawText.js";
+// import RawText from "../components/text.js";
 import Pic from "../components/pic.js";
 import Line from "../components/line.js";
 import Marker from "../components/marker.js";
@@ -74,10 +74,10 @@ static text(content :string="",colorHax :string="#000000"){
 let g = new Text(content,colorHax);
 return g;    
 }
-static rawText(content :string="",colorHax :string="#000000"){
-let g = new RawText(content,colorHax);
-return g;    
-}
+// static rawText(content :string="",colorHax :string="#000000"){
+// let g = new RawText(content,colorHax);
+// return g;    
+// }
 static line(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
 let g = new Line(x1,y1,x2,y2,color);
 return g;    

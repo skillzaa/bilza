@@ -1,4 +1,4 @@
-import Text from "./text.js";
+import Text from "./text-dynamicFontSize.js";
 import { AniBoolean } from "../animationModule/animations.js";
 export default class FrameCounter extends Text {
     constructor(color = "#008000") {

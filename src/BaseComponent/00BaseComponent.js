@@ -50,7 +50,7 @@ export default class BaseComponent extends RotateObj {
         }
         this.style.fillStyle = this.colorBackground.value();
         this.style.strokeStyle = this.colorBackground.value();
-        p.drawFillRect(this.xAligned(), this.yAligned(), this.compWidth() - Math.floor(this.border.value() + 1), this.compHeight() - Math.floor(this.border.value() + 1), this.style);
+        p.drawFillRect(this.xAligned(), this.yAligned(), this.compWidth(), this.compHeight(), this.style);
     }
     drawBorder(p) {
         if (this.border.value() < 1) {
@@ -59,7 +59,7 @@ export default class BaseComponent extends RotateObj {
         this.style.strokeStyle = this.colorBorder.value();
         this.style.fillStyle = this.colorBorder.value();
         this.style.lineWidth = this.border.value();
-        p.drawRect((this.xAligned() - Math.floor(this.border.value() / 2)), (this.yAligned() - Math.floor(this.border.value() / 2)), this.compWidth() - Math.floor(this.border.value() + 1), this.compHeight() - Math.floor(this.border.value() + 1), this.style);
+        p.drawRect((this.xAligned() - Math.floor(this.border.value() / 2)), (this.yAligned() - Math.floor(this.border.value() / 2)), this.compWidth() + Math.floor(this.border.value() - 1), this.compHeight() + Math.floor(this.border.value() - 1), this.style);
     }
     preDraw(p) {
         this.style.opacity = (this.opacity.value());
@@ -76,5 +76,24 @@ export default class BaseComponent extends RotateObj {
     }
     contentX() {
         return this.xAligned() + this.paddingLeft.value();
+    }
+    adjestFontSize(n) {
+        if (this.canvasWidth == null) {
+            throw new Error("init error");
+        }
+        return (n / 1000) * this.canvasWidth;
+    }
+    setPaddings(n) {
+        this.paddingLeft.set(n);
+        this.paddingRight.set(n);
+        this.paddingTop.set(n);
+        this.paddingBottom.set(n);
+    }
+    setxy(x, y = null) {
+        if (y == null) {
+            y = x;
+        }
+        this.x.set(x);
+        this.y.set(y);
     }
 }

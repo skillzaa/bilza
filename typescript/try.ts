@@ -1,20 +1,17 @@
-
 import Bilza, {IComponent, Ui, CompFactory as cf, hsl} from "./bilza.js";
-
+import heightWidthGrowShrink from "./aniPresets/heightWidthGrowShrink.js";
 let bil = new Bilza("bilza", 70);
 
 const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 
-const line = cf.line(10,10,90,90);
-line.setRespLoc(false);
+const comp = cf.staticGrid(60,60,hsl(240));
 
-line.lineWidth.set(5);
-line.color.goto(2,hsl(0));
+comp.showNumbers.set(true);
+comp.colorNumbers.set(hsl(0));
+//---------------
+heightWidthGrowShrink(comp);
 
-bil.insert.add(line,0,60);
-
+bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
-
-

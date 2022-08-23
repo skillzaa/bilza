@@ -1,5 +1,5 @@
 import {Pack} from "../bilza.js";
-import Text from "./text.js";
+import Text from "./text-dynamicFontSize.js";
 import { AniBoolean } from "../animationModule/animations.js";
 
 //--16-july-2022 completed frame counter for last time inshallah

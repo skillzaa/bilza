@@ -3,7 +3,7 @@ let bil = new Bilza("bilza", 70);
 const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
-const txt = cf.rawText("Hellow World", hsl(240));
+const txt = cf.text("Hellow World", hsl(240));
 txt.x.set(40);
 txt.y.set(20);
 txt.x.animate(0, 6000, 80, 0);

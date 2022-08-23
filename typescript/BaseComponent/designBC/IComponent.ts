@@ -23,6 +23,8 @@ export default interface IComponent{
     x :AniNumber | AniPerc;
     y :AniNumber | AniPerc;
     border :AniNumber;
+    rotation :AniNumber;
+    opacity :AniNumber;
     showBackground :AniBoolean;
     colorBackground :AniColor;
 
@@ -37,7 +39,8 @@ setRespLoc(tf :boolean):boolean;
 //---28-june-2022 --Basic methods
 //--30-june-2022 the user should not see init. This is just for the engine and for component creator --??? what to do aboit it? i may need 2 interfaces
 init(p :Pack):boolean; 
-
+align(x:number,y:number):void;
+alignRotate(x:number,y:number):void;
 update(msDelta :number,p :Pack):boolean; //second not frame 
 
 draw(p :Pack):boolean;

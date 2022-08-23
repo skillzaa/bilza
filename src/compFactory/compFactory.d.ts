@@ -5,7 +5,6 @@ import StaticGrid from "../components/staticGrid.js";
 import FrameCounter from "../components/frameCounter.js";
 import ParticleSystem from "../components/particleSystem.js";
 import Text from "../components/text.js";
-import RawText from "../components/rawText.js";
 import Pic from "../components/pic.js";
 import Line from "../components/line.js";
 import Marker from "../components/marker.js";
@@ -28,7 +27,6 @@ export default class CompFactory {
     static frameCounter(color?: string): FrameCounter;
     static particleSystem(count?: number, color?: string, framesToSkip?: number): ParticleSystem;
     static text(content?: string, colorHax?: string): Text;
-    static rawText(content?: string, colorHax?: string): RawText;
     static line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string): Line;
     static row(incommingTextArray?: string): Row;
 }

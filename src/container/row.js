@@ -1,6 +1,6 @@
 import { AniColor, } from "../animationModule/animations.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
-import RawText from "../components/rawText.js";
+import RawText from "../components/text.js";
 export default class Row extends BaseComponent {
     constructor(incommingTextArray = "one two") {
         super();

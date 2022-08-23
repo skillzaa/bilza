@@ -70,8 +70,8 @@ this.style.fillStyle = this.colorBackground.value();
 this.style.strokeStyle = this.colorBackground.value();  
 
 p.drawFillRect (this.xAligned(), this.yAligned(),
-this.compWidth() - Math.floor(this.border.value()+1), 
-this.compHeight() - Math.floor(this.border.value()+1),
+this.compWidth(), 
+this.compHeight(),
 this.style);
 }
 //15-july-2022. drawBorder completed do not change
@@ -86,8 +86,8 @@ this.style.lineWidth = this.border.value();
         (this.xAligned() - Math.floor(this.border.value()/2)), 
         ( this.yAligned() - Math.floor(this.border.value()/2) ),
         //--- -1 is some error
-        this.compWidth() - Math.floor(this.border.value()+1) , 
-        this.compHeight() - Math.floor(this.border.value()+1) ,
+        this.compWidth() + Math.floor(this.border.value()-1) , 
+        this.compHeight() + Math.floor(this.border.value()-1) ,
         this.style);
 } 
 //---15-july-2022 : seems final
@@ -112,5 +112,23 @@ protected contentX():number{
 //previous xAlignedPadded    
 return this.xAligned() + this.paddingLeft.value(); 
 }
+////////////////////////////////////////////////////////
+protected adjestFontSize(n :number):number{
+    if (this.canvasWidth == null){
+        throw new Error("init error");}    
+    return (n/1000) * this.canvasWidth;
+} 
+public setPaddings(n :number){
+this.paddingLeft.set(n);
+this.paddingRight.set(n);
+this.paddingTop.set(n);
+this.paddingBottom.set(n);
+}
+public setxy(x :number, y :number | null=null){
+    if (y ==null){y=x;}
+this.x.set(x);
+this.y.set(y);
+}
+////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 }//component ends 
