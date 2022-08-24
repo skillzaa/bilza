@@ -24,6 +24,9 @@ export default class BaseComponentBase {
     height: AniPerc | AniNumber;
     selected: boolean;
     border: AniNumber;
+    colorBorder: AniColor;
+    borderContentArea: AniNumber;
+    colorContentAreaBorder: AniColor;
     paddingTop: AniPerc | AniNumber;
     paddingBottom: AniPerc | AniNumber;
     paddingRight: AniPerc | AniNumber;
@@ -31,7 +34,6 @@ export default class BaseComponentBase {
     x: AniPerc | AniNumber;
     y: AniPerc | AniNumber;
     colorBackground: AniColor;
-    colorBorder: AniColor;
     showBackground: AniBoolean;
     canvasWidth: number | null;
     canvasHeight: number | null;

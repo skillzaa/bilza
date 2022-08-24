@@ -5,6 +5,7 @@ export default function padding(comp) {
     comp.y.set(50);
     comp.showBackground.set(true);
     comp.colorBackground.set(hsl(60));
+    comp.colorBorder.set(hsl(10));
     comp.width.set(50);
     comp.height.set(50);
     comp.border.set(15);

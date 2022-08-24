@@ -31,7 +31,7 @@ export default class Pic extends BaseComponent {
     }
     draw(p) {
         this.preDraw(p);
-        p.drawImage(this.img, this.xAligned(), this.yAligned(), this.width.value(), this.height.value());
+        p.drawImage(this.img, this.contentX(), this.contentY(), this.width.value(), this.height.value());
         this.postDraw(p);
         return true;
     }

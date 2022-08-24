@@ -46,8 +46,8 @@ draw(p:Pack):boolean{
 this.preDraw(p);
 
     p.drawImage(this.img,
-                this.xAligned(),
-                this.yAligned(),
+                this.contentX(),
+                this.contentY(),
                 this.width.value(),
                 this.height.value()
     );   

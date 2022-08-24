@@ -61,6 +61,15 @@ export default class BaseComponent extends RotateObj {
         this.style.lineWidth = this.border.value();
         p.drawRect((this.xAligned() - Math.floor(this.border.value() / 2)), (this.yAligned() - Math.floor(this.border.value() / 2)), this.compWidth() + Math.floor(this.border.value() - 1), this.compHeight() + Math.floor(this.border.value() - 1), this.style);
     }
+    drawContentAreaBorder(p) {
+        if (this.borderContentArea.value() < 1) {
+            return;
+        }
+        this.style.strokeStyle = this.colorContentAreaBorder.value();
+        this.style.fillStyle = this.colorContentAreaBorder.value();
+        this.style.lineWidth = this.borderContentArea.value();
+        p.drawRect((this.contentX() - Math.floor(this.borderContentArea.value() / 2)), (this.contentY() - Math.floor(this.borderContentArea.value() / 2)), this.contentWidth() + Math.floor(this.borderContentArea.value() - 1), this.contentHeight() + Math.floor(this.borderContentArea.value() - 1), this.style);
+    }
     preDraw(p) {
         this.style.opacity = (this.opacity.value());
         this.applyRotation(p);

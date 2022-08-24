@@ -69,8 +69,13 @@ this.style.fillStyle = this.color.value();
 this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value(); 
 
-this.preDraw(p);
-
+// this.preDraw(p);
+this.style.opacity = (this.opacity.value());
+// this.style.opacity = 100;    
+this.applyRotation(p);
+// this.drawBackground(p);
+// this.drawBorder(p);
+//-----------------------------preDrawEnds
 p.drawLine(
     this.x.value(),
     this.y.value(),
@@ -78,7 +83,7 @@ p.drawLine(
     this.y2.value(),
     this.style
 );
-this.postDraw(p);
+this.postDraw(p); //its ok to keep
 return true;
 }
 

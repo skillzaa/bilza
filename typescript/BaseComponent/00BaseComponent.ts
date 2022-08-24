@@ -90,6 +90,20 @@ this.style.lineWidth = this.border.value();
         this.compHeight() + Math.floor(this.border.value()-1) ,
         this.style);
 } 
+protected drawContentAreaBorder(p :Pack){
+if (this.borderContentArea.value() < 1) {return;}    
+this.style.strokeStyle = this.colorContentAreaBorder.value();  
+this.style.fillStyle = this.colorContentAreaBorder.value();  
+this.style.lineWidth = this.borderContentArea.value();    
+    p.drawRect(
+        //--border/2 is required since drawRect also act like line
+        (this.contentX() - Math.floor(this.borderContentArea.value()/2)), 
+        ( this.contentY() - Math.floor(this.borderContentArea.value()/2) ),
+        //--- -1 is some error
+        this.contentWidth() + Math.floor(this.borderContentArea.value()-1) , 
+        this.contentHeight() + Math.floor(this.borderContentArea.value()-1) ,
+        this.style);
+} 
 //---15-july-2022 : seems final
 protected preDraw(p :Pack){
 this.style.opacity = (this.opacity.value());

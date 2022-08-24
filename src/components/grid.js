@@ -31,8 +31,8 @@ export default class Grid extends BaseComponent {
     }
     draw_horizontal(p) {
         let y = 0;
-        const yFactor = ((this.height.value() / 100) * this.cellWidthPerc.value());
-        let end_x = this.contentX() + this.width.value();
+        const yFactor = ((this.contentHeight() / 100) * this.cellWidthPerc.value());
+        let end_x = this.contentX() + this.contentWidth();
         for (let i = 0; i < (this._y_iteration + 1); i++) {
             this.style.strokeStyle = this.colorHorizontalLines.value();
             this.style.opacity = this.opacity.value();
@@ -49,7 +49,7 @@ export default class Grid extends BaseComponent {
     }
     draw_vertical(p) {
         let x = 0;
-        let end_y = this.contentY() + this.height.value();
+        let end_y = this.contentY() + this.contentHeight();
         const Xfactor = ((this.width.value() / 100) * this.cellWidthPerc.value());
         this.style.opacity = this.opacity.value();
         for (let i = 0; i < (this._x_iteration + 1); i++) {

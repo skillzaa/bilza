@@ -56,6 +56,10 @@ public  selected :boolean; //dont complicate
 
 //--- Border
 public border :AniNumber;        
+public colorBorder :AniColor;
+public borderContentArea :AniNumber;        
+public colorContentAreaBorder :AniColor;
+
 //---Padding
 public paddingTop       :AniPerc | AniNumber;        
 public paddingBottom    :AniPerc | AniNumber;         
@@ -67,7 +71,6 @@ public y :AniPerc | AniNumber;
 
 //---Basic colors
 public colorBackground :AniColor;
-public colorBorder :AniColor;
 public showBackground :AniBoolean;
 
 /////////////////----PRIVATE----/////////////////// 
@@ -90,8 +93,6 @@ constructor(){
     
     this.interactive = false; // this is for mouse click etc
     
-    this.border = new AniNumber(0);
-
     this.width = new AniPerc(10);
     this.height = new AniPerc(10);
     
@@ -125,9 +126,12 @@ this.paddingRight =  new AniNumber(0);
 this.paddingLeft  =  new AniNumber(0);
 ////////////
 this.border  = new AniNumber(0);
+this.colorBorder = new AniColor("#000000");
+
+this.borderContentArea = new AniNumber(2);
+this.colorContentAreaBorder = new AniColor("black");
 
 this.colorBackground = new AniColor("#ffffff");
-this.colorBorder = new AniColor("#000000");
 this.showBackground = new AniBoolean(false);
 }
 

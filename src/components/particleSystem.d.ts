@@ -1,13 +1,14 @@
 import { Pack, BaseComponent } from "../bilza.js";
-import { AniNumber } from "../animationModule/animations.js";
-import Circle from "./circle.js";
+import { AniNumber, AniBoolean, AniColor } from "../animationModule/animations.js";
 export default class ParticleSystem extends BaseComponent {
     private skipXFrames;
     private xyArray;
-    quantity: AniNumber;
+    count: AniNumber;
     particleSize: AniNumber;
-    circle: Circle;
-    constructor(quantity?: number, color?: string, framesToSkip?: number);
+    lineWidth: AniNumber;
+    filled: AniBoolean;
+    lineColor: AniColor;
+    constructor(count?: number, color?: string, framesToSkip?: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;

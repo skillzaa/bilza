@@ -14,7 +14,6 @@ export default class BaseComponentBase {
         this.xRotate = this.XAlignOpt.Left;
         this.yRotate = this.YAlignOpt.Top;
         this.interactive = false;
-        this.border = new AniNumber(0);
         this.width = new AniPerc(10);
         this.height = new AniPerc(10);
         this.rotation = new AniNumber(0);
@@ -34,8 +33,10 @@ export default class BaseComponentBase {
         this.paddingRight = new AniNumber(0);
         this.paddingLeft = new AniNumber(0);
         this.border = new AniNumber(0);
-        this.colorBackground = new AniColor("#ffffff");
         this.colorBorder = new AniColor("#000000");
+        this.borderContentArea = new AniNumber(2);
+        this.colorContentAreaBorder = new AniColor("black");
+        this.colorBackground = new AniColor("#ffffff");
         this.showBackground = new AniBoolean(false);
     }
     setRespPadding(tf = false) {
