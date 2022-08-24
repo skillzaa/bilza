@@ -1,4 +1,4 @@
-import Text from "../components/text-dynamicFontSize.js";
+import Text from "../components/text.js";
 
 
 export default class TextTempl {

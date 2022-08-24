@@ -1,5 +1,5 @@
 import {Pack} from "../bilza.js";
-import Text from "./text-dynamicFontSize.js";
+import Text from "./text.js";
 import { AniBoolean } from "../animationModule/animations.js";
 
 //--16-july-2022 completed frame counter for last time inshallah
@@ -8,7 +8,7 @@ convertToSec :AniBoolean;
 constructor (color :string="#008000"){ 
     super("",color);
     this.convertToSec = new AniBoolean(true);
-    // this.width.set(20);
+    this.fontSize.set(26);
     this.showBackground.set(true);
     this.colorBackground.set("blue");
     this.colorBorder.set("#101963");
@@ -23,6 +23,7 @@ update(msDelta: number, p: Pack): boolean {
     }else {
         this.content.set("sec:" +(Math.ceil(msDelta)).toString());
     }
+    this.convertToSec.update(msDelta);
     super.update(msDelta,p);
     return true;
 }

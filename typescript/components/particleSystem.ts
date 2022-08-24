@@ -5,14 +5,16 @@ import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
 import XY from "../BaseComponent/designBC/xy.js";
 import Circle from "./circle.js";
 
+
 export default class ParticleSystem extends BaseComponent {
 private skipXFrames :SkipXFrames;
 private xyArray :XY[];
-//---Other than count and skipXFrames use the circle obj
-    count :AniNumber;
+//---Other than quantity and skipXFrames use the circle obj
+    quantity :AniNumber;
     particleSize :AniNumber;
     public circle :Circle;
-constructor (count :number= 8,color :string="#008000",framesToSkip :number=50) { 
+    
+constructor (quantity :number= 8,color :string="#008000",framesToSkip :number=50) { 
     super();
     this.circle = new Circle(this.color.value());
     
@@ -27,7 +29,7 @@ constructor (count :number= 8,color :string="#008000",framesToSkip :number=50) {
     this.skipXFrames = new SkipXFrames(framesToSkip);
     this.xyArray = [];
     this.drawLayer = DrawLayer.MiddleGround;
-    this.count = new AniNumber(count) ;  
+    this.quantity = new AniNumber(quantity) ;  
     this.color.set(color); // we will animate this 
     this.circle.color.set(color) ;  
 }
@@ -38,7 +40,7 @@ init(p: Pack): boolean {
  return true;   
 }
 update(msDelta: number, p: Pack): boolean {
-    this.count.update(msDelta);
+    this.quantity.update(msDelta);
     this.particleSize.update(msDelta);
     //---this could be in draw as well
     this.circle.width.set(this.particleSize.value());    
@@ -59,7 +61,7 @@ if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }    
 
-        for (let i = 0; i < this.count.value() ; i++) {
+        for (let i = 0; i < this.quantity.value() ; i++) {
             this.circle.x.set(this.xyArray[i].x);
             this.circle.y.set(this.xyArray[i].y);
             this.circle.draw(p);
@@ -74,12 +76,12 @@ if (this.canvasWidth == null || this.canvasHeight == null){
 }    
 this.xyArray.length = 0;
 
-    for (let i = 0; i < this.count.value() ; i++) {
-//--this.width.value() of particle obj
-const maxX = this.contentX() + (this.width.value() - this.circle.width.value());
-const maxY = this.contentY() + ( this.height.value() - this.circle.height.value());
-const minX = this.contentX();
-const minY = this.contentY();
+for (let i = 0; i < this.quantity.value() ; i++) {
+    //--this.width.value() of particle obj
+    const maxX = this.contentX() + (this.width.value() - this.circle.width.value());
+    const maxY = this.contentY() + ( this.height.value() - this.circle.height.value());
+    const minX = this.contentX();
+    const minY = this.contentY();
 
      const xy = new XY(
         (Math.floor(Math.random() * (maxX - minX + 1) + minX) ),

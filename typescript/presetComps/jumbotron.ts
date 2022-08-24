@@ -1,6 +1,6 @@
 import {IComponent } from "../bilza.js";
 
-import Text from "../components/text-dynamicFontSize.js";
+import Text from "../components/text.js";
 
 export default function jumbotron(startFrame :number=1,endFrame :number=2, content :string="Jumbotron",colorHax :string = "#000000"):IComponent{
     const jt = new Text(content,colorHax);

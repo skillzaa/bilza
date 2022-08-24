@@ -4,10 +4,10 @@ import Circle from "./circle.js";
 export default class ParticleSystem extends BaseComponent {
     private skipXFrames;
     private xyArray;
-    count: AniNumber;
+    quantity: AniNumber;
     particleSize: AniNumber;
     circle: Circle;
-    constructor(count?: number, color?: string, framesToSkip?: number);
+    constructor(quantity?: number, color?: string, framesToSkip?: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;

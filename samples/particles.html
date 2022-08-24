@@ -72,7 +72,7 @@ bil.draw(); //-------------------------------------//
 /////////////////////////////////////////////////////
 
 function getParticles(x = 0, y = 0, count = 20, color = "red", delay = 20) {
-    const particleSystem = cf.circleParticles(count, color, delay);
+    const particleSystem = cf.particleSystem(count, color, delay);
     particleSystem.size = 5;
     particleSystem.count = count;
     particleSystem.width.set(30);

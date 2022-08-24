@@ -71,3 +71,51 @@ console.log("adjested", this.adjestFontSize(this.fontSize.value()));
 //---------------------------------- 
 //---------------------------------- 
 }//class
+
+///////////////////////////////////////////
+// private dynamicFontSize(p :Pack):number | null{
+// //----required with should exclude padding     
+//  const reqWdInPix = (this.width.value());;
+ 
+//  //if not already in sync
+//  this.style.fontSize = this.fontSize.value(); 
+//  //-------------check if ok the no need to process
+//  const alreadyWidth = p.charsWidth(this.content.value(),this.fontSize.value(),this.style.fontFamily);
+//  if (alreadyWidth >= (reqWdInPix) ){
+// return null;
+//  }
+//  //--------------------The Process
+//      for (let i = 1; i < 900; i++) {
+//      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
+
+//      const newWidthInPix = p.charsWidth(this.content.value(),i,this.style.fontFamily);
+//  //----------------------------
+//      if (newWidthInPix >= (reqWdInPix) ){
+//          this.fontSize.set(i); 
+//          this.style.fontSize = i; //important
+//          return this.fontSize.value();
+//      } 
+//  }//for end  
+//  return null; 
+// }//dynamic font size
+//--this creats a tug of war between height and width
+// private shrinkToFitMaxHeight(p :Pack):boolean{
+// if (this.charsWidth==null){throw new Error("init error");
+// }    
+// const reqHtInPix =  (this.height.value());
+// const contentHeight = this.charsWidth("W",this.fontSize.value(),this.style.fontFamily);
+// if ( contentHeight < reqHtInPix){return true;}
+// //-----------------------------------------
+//     for (let i = 300; i > 0; i--) {
+//     // this.style.fontSize = i; 
+//     const newHeightInPix = p.charsWidth("W",i,this.style.fontFamily);
+// //----------------------------
+// // if (i < 100){debugger;}
+//     if (newHeightInPix <= reqHtInPix ){
+//         this.fontSize.set(i); 
+//         this.style.fontSize = i;//may not be required
+//         return true;
+//     }
+// }
+// return true;
+// }  

@@ -1,9 +1,10 @@
-import Text from "./text-dynamicFontSize.js";
+import Text from "./text.js";
 import { AniBoolean } from "../animationModule/animations.js";
 export default class FrameCounter extends Text {
     constructor(color = "#008000") {
         super("", color);
         this.convertToSec = new AniBoolean(true);
+        this.fontSize.set(26);
         this.showBackground.set(true);
         this.colorBackground.set("blue");
         this.colorBorder.set("#101963");
@@ -17,6 +18,7 @@ export default class FrameCounter extends Text {
         else {
             this.content.set("sec:" + (Math.ceil(msDelta)).toString());
         }
+        this.convertToSec.update(msDelta);
         super.update(msDelta, p);
         return true;
     }
