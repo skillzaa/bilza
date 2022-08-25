@@ -52,12 +52,12 @@ this.postDraw(p);
 return true;
 }
 
-defineImage(name :string,x :number,y:number,width:number,height:number){
+defineSprite(name :string,x :number,y:number,width:number,height:number){
     const a = new ImageDataOpt(name,x,y,width,height);
     this.imagesList.push(a);
 }
 
-gotoImageName(atFrame :number, imageName :string):boolean{
+gotoSpriteName(atFrame :number, imageName :string):boolean{
 for (let i = 0; i < this.imagesList.length; i++) {
     if (this.imagesList[i].name == imageName){
         this.currentImage.goto(atFrame,i);

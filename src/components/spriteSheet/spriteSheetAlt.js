@@ -28,11 +28,11 @@ export default class SpriteSheetAlt extends BaseSpriteSheet {
         this.postDraw(p);
         return true;
     }
-    defineImage(name, x, y, width, height) {
+    defineSprite(name, x, y, width, height) {
         const a = new ImageDataOpt(name, x, y, width, height);
         this.imagesList.push(a);
     }
-    gotoImageName(atFrame, imageName) {
+    gotoSpriteName(atFrame, imageName) {
         for (let i = 0; i < this.imagesList.length; i++) {
             if (this.imagesList[i].name == imageName) {
                 this.currentImage.goto(atFrame, i);

@@ -9,7 +9,7 @@ export default class SpriteSheetAlt extends BaseSpriteSheet {
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    defineImage(name: string, x: number, y: number, width: number, height: number): void;
-    gotoImageName(atFrame: number, imageName: string): boolean;
+    defineSprite(name: string, x: number, y: number, width: number, height: number): void;
+    gotoSpriteName(atFrame: number, imageName: string): boolean;
 }
 //# sourceMappingURL=spriteSheetAlt.d.ts.map
