@@ -1,6 +1,7 @@
 import { Pack,BaseComponent } from "../bilza.js";
 
 import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+
 export default class Circle extends BaseComponent {
 
 startAngle :AniNumber;  
@@ -16,6 +17,10 @@ this.endAngle = new AniNumber(360);
 //---existing prop
 this.color.set(color) ; 
 this.width.set(Math.floor(radius * 2)) ; 
+}
+//-------------------------over ride
+contentHeight(): number {
+return this.width.value();//since its circle and height = width     
 }
 update(msDelta: number, p: Pack): boolean {
     this.startAngle.update(msDelta);

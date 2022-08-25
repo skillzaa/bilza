@@ -24,7 +24,7 @@
     <script src="../00misc/prism.js"></script>
     <link rel="stylesheet" href="../00misc/prism.css">   
 
-    <title>Bilza Core Samples</title>
+    <title>Component Core Samples</title>
 </head>
 <body>
 
@@ -49,64 +49,73 @@
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
 
+const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 
-const txt = cf.fillRect(hsl(240));
-txt.x.set(40);
-txt.y.set(20);
-//--if we start animation from frame 0 it will overwrite x.set and y.set
-txt.x.animate(2, 6, 80, 0);
-txt.x.goto(10, 10);
-txt.x.goto(15, 20);
-txt.x.goto(20, 30);
-txt.x.goto(25, 40);
-txt.x.goto(30, 50);
-txt.x.goto(35, 60);
-txt.y.goto(40, 20);
-txt.y.goto(45, 30);
-txt.y.goto(50, 40);
-txt.y.goto(55, 50);
-txt.y.goto(60, 60);
-txt.y.goto(65, 70);
-bil.insert.add(txt, 0, 80);
+const comp = cf.staticGrid(60,60,hsl(0));
+comp.align(1,1);
+comp.alignRotate(1,1);
+
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(240,100,15));
+
+comp.showNumbers.set(true);
+comp.colorNumbers.set(hsl(60));
+comp.setPaddings(10);
+
+comp.border.set(4);
+comp.colorBorder.set(hsl(0));
+
+comp.x.set(50);
+comp.y.set(50);
+
+comp.width.set(10);
+comp.height.set(10);
+
+comp.width.oscillate(1,60,10,90,5);
+comp.height.oscillate(1,60,10,90,5);
+
+bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
-// console.log("txt", txt);
-
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl } from "../../src/bilza.js";
+import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-bil.background.color.set(hsl(240, 100, 18));
-bil.insert.alwaysOn(cf.grid(hsl(60, 50, 30)));
+const grid = cf.grid("grey");
+bil.insert.alwaysOn(grid);
 
-const fill = cf.fillRect(hsl(30));
-fill.xAlign = fill.XAlignOpt.Mid;
-fill.yAlign = fill.YAlignOpt.Mid;
+const comp = cf.staticGrid(60,60,hsl(0));
+comp.align(1,1);
+comp.alignRotate(1,1);
 
-fill.x.set(50);
-fill.y.set(50);
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(240,100,15));
 
-fill.width.set(50);
-fill.height.set(50);
-bil.insert.add(fill, 0, 30);
-const line = cf.line(50, 50, 25, 25);
-line.color.set(hsl(120));
-line.lineWidth.set(10);
-bil.insert.alwaysOn(line);
-line.x2.animate(1, 5, 25, 75);
-line.y2.animate(6, 10, 25, 75);
-line.x2.animate(11, 15, 75, 25);
-line.y2.animate(16, 20, 75, 25);
+comp.showNumbers.set(true);
+comp.colorNumbers.set(hsl(60));
+comp.setPaddings(10);
+
+comp.border.set(4);
+comp.colorBorder.set(hsl(0));
+
+comp.x.set(50);
+comp.y.set(50);
+
+comp.width.set(10);
+comp.height.set(10);
+
+comp.width.oscillate(1,60,10,90,5);
+comp.height.oscillate(1,60,10,90,5);
+
+bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
-
 </code>
 </pre>
 

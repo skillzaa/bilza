@@ -9,6 +9,9 @@ export default class Circle extends BaseComponent {
         this.color.set(color);
         this.width.set(Math.floor(radius * 2));
     }
+    contentHeight() {
+        return this.width.value();
+    }
     update(msDelta, p) {
         this.startAngle.update(msDelta);
         this.endAngle.update(msDelta);
