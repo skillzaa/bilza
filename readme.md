@@ -2,24 +2,26 @@
 # What is Bilza
 
 ---
-> Bilza is an easy to use Javascript framework/library for creating responsive animations on HTML5 canvas.
+> A Javascript Animation Engine for creating responsive animations on HTML5 Canvas.
 ---
 # Mission
-- <strong>Ease of use</strong> : This library has no installations, built systems etc. Is usable with any project. Even primitive JavaScript knowledge is enough to start using it.
+- <strong>Ease of use</strong> : <b>This library has no dependencies.</b>. It also has no installations, built systems etc. Is usable with any project. Even primitive JavaScript knowledge is enough to start using it.
 - <strong>Responsiveness</strong> : The drawings and animations will resize its self according to the host screen size. (The most difficult part of this library).
 - <strong>Composable Animations</strong> : The library will try to provide more and more tools to enable the creator to compose larger animations using smaller animation like LEGO pieces. 
+- <strong>Behave like a Video</strong> : This library is written with an intention that the animation should behave more like a normal video. 
 ---
-<h1><a href="https://skillzaa.github.io/bilzaDocs/">Documentation</a></h1>
-<h1><a href="https://skillzaa.github.io/bilzaDocs/samples.html">Samples</a></h1>
+<h2><a href="https://skillzaa.github.io/bilzaDocs/">Documentation</a></h2>
+<h2><a href="https://skillzaa.github.io/bilzaDocs/samples.html">Samples</a></h2>
 
 <h2><a href="https://skillzaa.github.io/bilzaDocs/docs/detailedIntroduction.html">Detailed Introduction Bilza.js</a></h2>
 
-## Installation
-
-> npm install bilza
-
 ---
 
+## Installation
+
+<code> npm install bilza </code>
+
+---
 ## Getting Started
 ![helloWorld](./images/helloWorld.png "helloWorld")
 <pre>
