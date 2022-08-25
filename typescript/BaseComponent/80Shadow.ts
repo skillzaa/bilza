@@ -1,6 +1,6 @@
-import TimeObj from "./90TimeObj.js";
+import Time from "./90Time.js";
 
-export default class Shadow extends TimeObj {
+export default class Shadow extends Time {
 shadowColor :string;
 shadowOffsetX :number;
 shadowOffsetY :number;

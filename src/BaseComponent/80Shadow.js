@@ -1,5 +1,5 @@
-import TimeObj from "./90TimeObj.js";
-export default class Shadow extends TimeObj {
+import Time from "./90Time.js";
+export default class Shadow extends Time {
     constructor() {
         super();
         this.shadowColor = "grey";

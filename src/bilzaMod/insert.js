@@ -14,38 +14,26 @@ export default class Insert {
             if (comp.getEndTime(false) > (scene.getEndTime())) {
                 throw new Error("The end time of a contained component in a scene can not be larger than the end time of the scene");
             }
-            this.add(comp, comp.getStartTime(false), comp.duration);
+            this.add(comp, comp.getStartTime(false), comp.getEndTime());
         }
     }
     append(comp, duration) {
         comp.charsWidth = this.charsWidth;
-        if (duration < 1 || (typeof duration == "undefined")) {
-            throw new Error("for Insert operation to succeed you need component duration greater than 0");
-        }
-        else {
-            comp.duration = duration;
-        }
-        comp.setStartTime(this.duration.len(false));
-        this.duration.extend(comp.duration);
+        const startingFrame = this.duration.len(false);
+        const endFrame = startingFrame + duration;
+        comp.setDuration(startingFrame, endFrame);
+        this.duration.extend(comp.getDuration());
         return this.comps.push(comp);
     }
-    add(comp, startTime, duration) {
+    add(comp, startTime, endFrame) {
         comp.charsWidth = this.charsWidth;
-        if ((duration < 1) || (typeof duration == "undefined")) {
-            throw new Error("for Add operation to succeed you need component duration greater than 0");
-        }
-        else {
-            comp.duration = duration;
-        }
-        comp.setStartTime(startTime);
+        comp.setDuration(startTime, endFrame);
         if (comp.getStartTime(false) > this.duration.len(false)) {
             this.duration.set(comp.getStartTime(false));
         }
         if (comp.getEndTime(false) > this.duration.len(false)) {
             let overlap = comp.getEndTime(false) - this.duration.len(false);
             this.duration.extend(overlap);
-        }
-        else {
         }
         return this.comps.push(comp);
     }

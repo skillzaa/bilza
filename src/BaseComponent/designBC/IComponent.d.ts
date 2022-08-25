@@ -3,7 +3,6 @@ import { AniNumber, AniPerc, AniBoolean, AniColor } from "../../animationModule/
 export default interface IComponent {
     readonly id: string;
     drawLayer: DrawLayer;
-    duration: number;
     alwaysOn: boolean;
     visible: AniBoolean;
     version: string;
@@ -28,7 +27,8 @@ export default interface IComponent {
     compWidth(): number;
     compHeight(): number;
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
-    setStartTime(n: number): number;
+    setDuration(startFrame: number, endFrame: number): number;
+    getDuration(): number;
     getStartTime(inMilliSec?: boolean): number;
     getEndTime(inMilliSec?: boolean): number;
     goto(atFrame: number, x: number, y: number): boolean;

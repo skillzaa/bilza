@@ -77,11 +77,9 @@ comp.colorBackground.set(hsl(240));
     comp.y.animate(6, 10, 0, 90);
     comp.x.animate(11, 15, 90, 0);
     comp.y.animate(16, 20, 90, 0);
-    comp.setStartTime(0);
-    comp.duration = 25;
 //---------------------------------
 
-bil.insert.add(comp, comp.getStartTime(), comp.duration);
+bil.insert.add(comp,0,25);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -119,11 +117,9 @@ comp.colorBackground.set(hsl(240));
     comp.y.animate(6, 10, 0, 90);
     comp.x.animate(11, 15, 90, 0);
     comp.y.animate(16, 20, 90, 0);
-    comp.setStartTime(0);
-    comp.duration = 25;
 //---------------------------------
 
-bil.insert.add(comp, comp.getStartTime(), comp.duration);
+bil.insert.add(comp,0,25);
 const ui = new Ui(bil);
 bil.draw();
 </code>

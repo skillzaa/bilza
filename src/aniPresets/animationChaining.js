@@ -7,7 +7,5 @@ export default function animationChaining(comp) {
     comp.y.animate(6, 10, 0, 90);
     comp.x.animate(11, 15, 90, 0);
     comp.y.animate(16, 20, 90, 0);
-    comp.setStartTime(0);
-    comp.duration = 25;
     return comp;
 }
