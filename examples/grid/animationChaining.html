@@ -20,7 +20,7 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
+    <!-- <script src="../00misc/custom.css"></script> -->
     <script src="../00misc/prism.js"></script>
     <link rel="stylesheet" href="../00misc/prism.css">   
 
@@ -44,26 +44,39 @@
 </table>
 
 </div>
-<!-- <a href="../src/bilza.js"></a> -->
+<!-- <a href="../../src/aniPresets/animationChaining.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-import rotateMid from "../../src/aniPresets/rotateMid.js";
 
 let bil = new Bilza("bilza", 70);
-// bil.resizeCanvas(500,300);
 
-const grid = cf.grid("grey");
-grid.showNumbers.set(false);
-bil.insert.alwaysOn(grid);
+const fc = cf.frameCounter(hsl(0));
+fc.align(1,1);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
+bil.insert.add(fc,0,20);
 
-const fill = cf.staticGrid(60,60,hsl(240));
+const comp = cf.grid(hsl(60));
+comp.setPaddings(10);
+comp.showBackground.set(true);
+comp.border.set(3);
+comp.colorNumbers.set(hsl(60));
+comp.colorBorder.set(hsl(0));
+comp.colorBackground.set(hsl(240));
 
-fill.showBackground.set(true);
-fill.colorBackground.set(hsl(120));
-fill.showNumbers.set(true);
+//===---Animation Settings
+comp.x.set(0);
+    comp.y.set(0);
+    comp.width.set(30);
+    comp.height.set(20);
+    comp.x.animate(1, 5, 0, 90);
+    comp.y.animate(6, 10, 0, 90);
+    comp.x.animate(11, 15, 90, 0);
+    comp.y.animate(16, 20, 90, 0);
+//---------------------------------
 
-rotateMid(fill);
-bil.insert.add(fill, 0, 15);
+bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -72,23 +85,35 @@ bil.draw();
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
-import rotateMid from "../../src/aniPresets/rotateMid.js";
-
 let bil = new Bilza("bilza", 70);
-// bil.resizeCanvas(500,300);
 
-const grid = cf.grid("grey");
-grid.showNumbers.set(false);
-bil.insert.alwaysOn(grid);
+const fc = cf.frameCounter(hsl(0));
+fc.align(1,1);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
+bil.insert.add(fc,0,20);
 
-const fill = cf.staticGrid(60,60,hsl(240));
+const comp = cf.grid(hsl(60));
+comp.setPaddings(10);
+comp.showBackground.set(true);
+comp.border.set(3);
+comp.colorNumbers.set(hsl(60));
+comp.colorBorder.set(hsl(0));
+comp.colorBackground.set(hsl(240));
 
-fill.showBackground.set(true);
-fill.colorBackground.set(hsl(120));
-fill.showNumbers.set(true);
+//===---Animation Settings
+comp.x.set(0);
+    comp.y.set(0);
+    comp.width.set(30);
+    comp.height.set(20);
+    comp.x.animate(1, 5, 0, 90);
+    comp.y.animate(6, 10, 0, 90);
+    comp.x.animate(11, 15, 90, 0);
+    comp.y.animate(16, 20, 90, 0);
+//---------------------------------
 
-rotateMid(fill);
-bil.insert.add(fill, 0, 15);
+bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </code>

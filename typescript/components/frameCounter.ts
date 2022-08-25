@@ -4,15 +4,16 @@ import { AniBoolean } from "../animationModule/animations.js";
 
 //--16-july-2022 completed frame counter for last time inshallah
 export default class FrameCounter extends Text {
-convertToSec :AniBoolean;
+    convertToSec :AniBoolean;
+
 constructor (color :string="#008000"){ 
     super("",color);
     this.convertToSec = new AniBoolean(true);
     this.fontSize.set(26);
     this.showBackground.set(true);
     this.colorBackground.set("blue");
-    this.colorBorder.set("#101963");
-    this.color.set("yellow");
+    this.colorBorder.set(color);
+    this.color.set(color);
     this.border.set(1);
 }
 

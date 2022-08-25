@@ -20,7 +20,7 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
+    <!-- <script src="../00misc/custom.css"></script> -->
     <script src="../00misc/prism.js"></script>
     <link rel="stylesheet" href="../00misc/prism.css">   
 
@@ -44,18 +44,37 @@
 </table>
 
 </div>
-<!-- <a href="../src/bilza.js"></a> -->
+<!-- <a href="../../src/aniPresets/animationChaining.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-
-import heightWidthGrowShrink from "../../src/aniPresets/heightWidthGrowShrink.js";
 let bil = new Bilza("bilza", 70);
 
-bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
-const comp = cf.grid("grey");
-heightWidthGrowShrink(comp);
-bil.insert.add(comp,0,60);
+const fc = cf.frameCounter(hsl(0));
+fc.align(1,1);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
+bil.insert.add(fc,0,20);
 
+const comp = cf.particleSystem(10,hsl(0),1);
+comp.particleSize.set(5);
+comp.setPaddings(10);
+comp.showBackground.set(true);
+comp.border.set(3);
+comp.colorBorder.set(hsl(0));
+comp.colorBackground.set(hsl(240));
+//===---Animation Settings
+comp.x.set(0);
+    comp.y.set(0);
+    comp.width.set(20);
+    comp.height.set(30);
+    comp.x.animate(1, 5, 0, 90);
+    comp.y.animate(6, 10, 0, 90);
+    comp.x.animate(11, 15, 90, 0);
+    comp.y.animate(16, 20, 90, 0);
+//---------------------------------
+
+bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -63,15 +82,34 @@ bil.draw();
 <pre class="language-javascript">
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-
-import heightWidthGrowShrink from "../../src/aniPresets/heightWidthGrowShrink.js";
 let bil = new Bilza("bilza", 70);
 
-bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
-const comp = cf.grid("grey");
-heightWidthGrowShrink(comp);
-bil.insert.add(comp,0,60);
+const fc = cf.frameCounter(hsl(0));
+fc.align(1,1);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
+bil.insert.add(fc,0,20);
 
+const comp = cf.particleSystem(10,hsl(0),1);
+comp.particleSize.set(5);
+comp.setPaddings(10);
+comp.showBackground.set(true);
+comp.border.set(3);
+comp.colorBorder.set(hsl(0));
+comp.colorBackground.set(hsl(240));
+//===---Animation Settings
+comp.x.set(0);
+    comp.y.set(0);
+    comp.width.set(20);
+    comp.height.set(30);
+    comp.x.animate(1, 5, 0, 90);
+    comp.y.animate(6, 10, 0, 90);
+    comp.x.animate(11, 15, 90, 0);
+    comp.y.animate(16, 20, 90, 0);
+//---------------------------------
+
+bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </code>

@@ -20,9 +20,9 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
-    <script src="./00misc/prism.js"></script>
-    <link rel="stylesheet" href="./00misc/prism.css">   
+    <!-- <script src="../00misc/custom.css"></script> -->
+    <script src="../00misc/prism.js"></script>
+    <link rel="stylesheet" href="../00misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -47,42 +47,56 @@
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-
 let bil = new Bilza("bilza", 70);
 const grid = cf.grid("grey");
 
 bil.insert.alwaysOn(grid);
 
-const txt = cf.fillRect(hsl(240));
-txt.x.set(0);
-txt.y.set(30);
-txt.x.oscillate(0, 50, 0, 90,5);
+const fill = cf.fillRect(hsl(240));
+fill.x.set(0);
+fill.y.set(50);
 
-bil.insert.add(txt, 0, 80);
+fill.width.set(10);
+fill.height.set(10);
+
+fill.align(1,1);
+fill.alignRotate(1,1);
+
+fill.x.animate(1, 10, 0, 90);
+fill.rotation.animate(1, 10, 0, 360 * 5);
+
+
+bil.insert.add(fill, 0, 15);
 const ui = new Ui(bil);
 bil.draw();
-// console.log("txt", txt);
-
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, CompFactory as cf, hsl } from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 const grid = cf.grid("grey");
 
 bil.insert.alwaysOn(grid);
 
-const txt = cf.fillRect(hsl(240));
-txt.x.set(0);
-txt.y.set(30);
-txt.x.oscillate(0, 50, 0, 90,5);
+const fill = cf.fillRect(hsl(240));
+fill.x.set(0);
+fill.y.set(50);
 
-bil.insert.add(txt, 0, 80);
+fill.width.set(10);
+fill.height.set(10);
+
+fill.align(1,1);
+fill.alignRotate(1,1);
+
+fill.x.animate(1, 10, 0, 90);
+fill.rotation.animate(1, 10, 0, 360 * 5);
+
+
+bil.insert.add(fill, 0, 15);
 const ui = new Ui(bil);
 bil.draw();
-// console.log("txt", txt);
 </code>
 </pre>
 

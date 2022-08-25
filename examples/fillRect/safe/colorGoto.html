@@ -20,9 +20,9 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
-    <script src="./00misc/prism.js"></script>
-    <link rel="stylesheet" href="./00misc/prism.css">   
+    <!-- <script src="../00misc/custom.css"></script> -->
+    <script src="../00misc/prism.js"></script>
+    <link rel="stylesheet" href="../00misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -54,36 +54,32 @@ const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 
 const fill = cf.fillRect(hsl(240));
-fill.align(1,1);
+
 fill.x.set(50);
 fill.y.set(50);
-fill.showBackground.set(true);
-fill.colorBackground.set(hsl(60));
+
 fill.width.set(50);
 fill.height.set(50);
-fill.border.set(15);
 
-fill.paddingLeft.animate(1,5,0,200);
-fill.paddingLeft.animate(6,10,200,0);
-//------------
-fill.paddingRight.animate(11,15,0,200);
-fill.paddingRight.animate(16,20,200,0);
-//------------
-fill.paddingTop.animate(21,25,0,200);
-fill.paddingTop.animate(26,30,200,0);
-//------------
-fill.paddingBottom.animate(31,35,0,200);
-fill.paddingBottom.animate(36,40,200,0);
-//------------
+fill.align(1,1);
 
-bil.insert.add(fill, 0, 60);
+fill.color.goto(2, hsl( 0 ));
+fill.color.goto(4, hsl( 120 ));
+fill.color.goto(6, hsl( 240 ));
+fill.color.goto(8, hsl( 180 ));
+fill.color.goto(12, hsl( 60 ));
+fill.color.goto(10, hsl(300 ));
+
+bil.insert.add(fill, 0, 15);
 const ui = new Ui(bil);
 bil.draw();
+
+// console.log("fill",fill);
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, CompFactory as cf, hsl } from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 const grid = cf.grid("grey");
@@ -91,31 +87,27 @@ const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 
 const fill = cf.fillRect(hsl(240));
-fill.align(1,1);
+
 fill.x.set(50);
 fill.y.set(50);
-fill.showBackground.set(true);
-fill.colorBackground.set(hsl(60));
+
 fill.width.set(50);
 fill.height.set(50);
-fill.border.set(15);
 
-fill.paddingLeft.animate(1,5,0,200);
-fill.paddingLeft.animate(6,10,200,0);
-//------------
-fill.paddingRight.animate(11,15,0,200);
-fill.paddingRight.animate(16,20,200,0);
-//------------
-fill.paddingTop.animate(21,25,0,200);
-fill.paddingTop.animate(26,30,200,0);
-//------------
-fill.paddingBottom.animate(31,35,0,200);
-fill.paddingBottom.animate(36,40,200,0);
-//------------
+fill.align(1,1);
 
-bil.insert.add(fill, 0, 60);
+fill.color.goto(2, hsl( 0 ));
+fill.color.goto(4, hsl( 120 ));
+fill.color.goto(6, hsl( 240 ));
+fill.color.goto(8, hsl( 180 ));
+fill.color.goto(12, hsl( 60 ));
+fill.color.goto(10, hsl(300 ));
+
+bil.insert.add(fill, 0, 15);
 const ui = new Ui(bil);
 bil.draw();
+
+//console.log("fill",fill);
 </code>
 </pre>
 

@@ -20,7 +20,7 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
+    <!-- <script src="../00misc/custom.css"></script> -->
     <script src="../00misc/prism.js"></script>
     <link rel="stylesheet" href="../00misc/prism.css">   
 
@@ -47,44 +47,48 @@
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-import heightWidthGrowShrink from "../../src/aniPresets/heightWidthGrowShrink.js";
+import rotateMid from "../../src/aniPresets/rotateMid.js";
+
 let bil = new Bilza("bilza", 70);
+// bil.resizeCanvas(500,300);
 
 const grid = cf.grid("grey");
+grid.showNumbers.set(false);
 bil.insert.alwaysOn(grid);
-bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
 
+const fill = cf.staticGrid(60,60,hsl(240));
 
-const comp = cf.particleSystem(20,hsl(0),1);
-comp.width.set(50);
-comp.height.set(50);
-comp.lineColor.set(hsl(240));
-comp.particleSize.set(5);
-heightWidthGrowShrink(comp);
-bil.insert.add(comp, 0, 65);
+fill.showBackground.set(true);
+fill.colorBackground.set(hsl(120));
+fill.showNumbers.set(true);
+
+rotateMid(fill);
+bil.insert.add(fill, 0, 15);
 const ui = new Ui(bil);
 bil.draw();
-
 </script>
 
 <pre class="language-javascript">
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-import heightWidthGrowShrink from "../../src/aniPresets/heightWidthGrowShrink.js";
+
+import rotateMid from "../../src/aniPresets/rotateMid.js";
+
 let bil = new Bilza("bilza", 70);
+// bil.resizeCanvas(500,300);
 
 const grid = cf.grid("grey");
+grid.showNumbers.set(false);
 bil.insert.alwaysOn(grid);
-bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
 
+const fill = cf.staticGrid(60,60,hsl(240));
 
-const comp = cf.particleSystem(20,hsl(0),1);
-comp.width.set(50);
-comp.height.set(50);
-comp.lineColor.set(hsl(240));
-comp.particleSize.set(5);
-heightWidthGrowShrink(comp);
-bil.insert.add(comp, 0, 65);
+fill.showBackground.set(true);
+fill.colorBackground.set(hsl(120));
+fill.showNumbers.set(true);
+
+rotateMid(fill);
+bil.insert.add(fill, 0, 15);
 const ui = new Ui(bil);
 bil.draw();
 </code>

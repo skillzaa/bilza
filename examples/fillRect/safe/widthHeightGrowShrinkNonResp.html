@@ -20,7 +20,7 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
+    <!-- <script src="../00misc/custom.css"></script> -->
     <script src="../00misc/prism.js"></script>
     <link rel="stylesheet" href="../00misc/prism.css">   
 
@@ -47,18 +47,30 @@
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-import padding from "../../src/aniPresets/padding.js";
-let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
 
+let bil = new Bilza("bilza", 70);
+
+const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 
-const comp = cf.pic("../images/house.jpg",40,40);
+const fill = cf.fillRect(hsl(240));
+//---most important line should be applied immediately after creation
+fill.setRespDims(false);
 
-padding(comp);
 
-comp.border.set(4);
-bil.insert.add(comp, 0, 60);
+fill.align(1,1);
+fill.alignRotate(1,1);
+fill.x.set(50);
+fill.y.set(50);
+
+fill.width.set(10);
+fill.height.set(10);
+
+fill.width.oscillate(1,60,10,80,5);
+fill.height.oscillate(1,60,10,80,5);
+// fill.rotation.animate(1,60,0,10 * 360);
+
+bil.insert.add(fill, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -67,24 +79,28 @@ bil.draw();
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
-import padding from "./aniPresets/padding.js";
 let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
 
+const grid = cf.grid("grey");
 bil.insert.alwaysOn(grid);
 
-const comp = cf.staticGrid(60,60,hsl(240));
+const fill = cf.fillRect(hsl(240));
+//---most important line should be applied immediately after creation
+fill.setRespDims(false);
 
-padding(comp);
+fill.align(1,1);
+fill.alignRotate(1,1);
+fill.x.set(50);
+fill.y.set(50);
 
-comp.border.set(4);
-comp.colorBorder.set(hsl(0));
-comp.showBackground.set(true);
-comp.colorBackground.set(hsl(120));
-comp.showNumbers.set(true);
+fill.width.set(10);
+fill.height.set(10);
 
+fill.width.oscillate(1,60,10,80,5);
+fill.height.oscillate(1,60,10,80,5);
+// fill.rotation.animate(1,60,0,10 * 360);
 
-bil.insert.add(comp, 0, 60);
+bil.insert.add(fill, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </code>

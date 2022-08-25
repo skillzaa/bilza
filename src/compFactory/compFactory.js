@@ -26,8 +26,8 @@ export default class CompFactory {
         let g = new Icon(code, colorHax);
         return g;
     }
-    static circle(colorHax = "red") {
-        let g = new Circle(colorHax);
+    static circle(radius = 10, colorHax = "red") {
+        let g = new Circle(radius, colorHax);
         return g;
     }
     static marker(colorHax = "red") {

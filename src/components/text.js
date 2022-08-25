@@ -44,7 +44,5 @@ export default class Text extends BaseComponent {
         this.style.fontSize = this.adjestFontSize(this.fontSize.value());
         this.style.fontFamily = this.fontFamily;
         p.drawText(this.content.value().substring(0, this.maxDisplayChars.value()), this.contentX(), this.contentY(), this.style);
-        console.log("fontSize", this.fontSize.value());
-        console.log("adjested", this.adjestFontSize(this.fontSize.value()));
     }
 }

@@ -32,8 +32,8 @@ static icon(code:number = 9876,colorHax :string="#008000"){
 let g = new Icon(code,colorHax);
 return g;    
 }
-static circle(colorHax :string="red"){
-let g = new Circle(colorHax);
+static circle(radius :number=10,colorHax :string="red"){
+let g = new Circle(radius,colorHax);
 return g;    
 }
 static marker(colorHax :string="red"){

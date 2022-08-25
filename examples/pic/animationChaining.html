@@ -20,7 +20,7 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
+    <!-- <script src="../00misc/custom.css"></script> -->
     <script src="../00misc/prism.js"></script>
     <link rel="stylesheet" href="../00misc/prism.css">   
 
@@ -44,30 +44,38 @@
 </table>
 
 </div>
-<!-- <a href="../src/bilza.js"></a> -->
+<!-- <a href="../../src/aniPresets/animationChaining.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-import paddingResponsive from "../../src/aniPresets/paddingResponsive.js";
+
 let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
 
-bil.insert.alwaysOn(grid);
+const fc = cf.frameCounter(hsl(0));
+fc.align(1,1);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
+bil.insert.add(fc,0,20);
 
-const comp = cf.staticGrid(60,60,hsl(180));
-//--By default responsive padding is off
-comp.setRespPadding(true);
-comp.align(1,1);
+const comp = cf.pic("../00images/house.jpg");
 
-comp.x.set(50);
-comp.y.set(50);
+comp.setPaddings(10);
 comp.showBackground.set(true);
-comp.colorBackground.set(hsl(60));
-comp.width.set(50);
-comp.height.set(50);
-comp.border.set(15);
-paddingResponsive(comp);
+comp.border.set(3);
+comp.colorBorder.set(hsl(0));
+comp.colorBackground.set(hsl(240,20));
+//===---Animation Settings
+comp.x.set(0);
+    comp.y.set(0);
+    comp.width.set(20);
+    comp.height.set(20);
+    comp.x.animate(1, 5, 0, 90);
+    comp.y.animate(6, 10, 0, 90);
+    comp.x.animate(11, 15, 90, 0);
+    comp.y.animate(16, 20, 90, 0);
+//---------------------------------
 
-bil.insert.add(comp, 0, 60);
+bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -75,27 +83,35 @@ bil.draw();
 <pre class="language-javascript">
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-import paddingResponsive from "../../src/aniPresets/paddingResponsive.js";
+
 let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
 
-bil.insert.alwaysOn(grid);
+const fc = cf.frameCounter(hsl(0));
+fc.align(1,1);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
+bil.insert.add(fc,0,20);
 
-const comp = cf.staticGrid(60,60,hsl(180));
-//--By default responsive padding is off
-comp.setRespPadding(true);
-comp.align(1,1);
+const comp = cf.pic("../00images/house.jpg");
 
-comp.x.set(50);
-comp.y.set(50);
+comp.setPaddings(10);
 comp.showBackground.set(true);
-comp.colorBackground.set(hsl(60));
-comp.width.set(50);
-comp.height.set(50);
-comp.border.set(15);
-paddingResponsive(comp);
+comp.border.set(3);
+comp.colorBorder.set(hsl(0));
+comp.colorBackground.set(hsl(240,20));
+//===---Animation Settings
+comp.x.set(0);
+    comp.y.set(0);
+    comp.width.set(20);
+    comp.height.set(20);
+    comp.x.animate(1, 5, 0, 90);
+    comp.y.animate(6, 10, 0, 90);
+    comp.x.animate(11, 15, 90, 0);
+    comp.y.animate(16, 20, 90, 0);
+//---------------------------------
 
-bil.insert.add(comp, 0, 60);
+bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </code>

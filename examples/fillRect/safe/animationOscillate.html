@@ -20,7 +20,7 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
+    <!-- <script src="../00misc/custom.css"></script> -->
     <script src="../00misc/prism.js"></script>
     <link rel="stylesheet" href="../00misc/prism.css">   
 
@@ -53,37 +53,16 @@ const grid = cf.grid("grey");
 
 bil.insert.alwaysOn(grid);
 
-const fill = cf.circle(hsl(240));
-fill.align(1,1);
-//--By default responsive padding is off
-fill.setRespPadding(true);
+const txt = cf.fillRect(hsl(240));
+txt.x.set(0);
+txt.y.set(30);
+txt.x.oscillate(0, 50, 0, 90,5);
 
-fill.x.set(50);
-fill.y.set(50);
-fill.showBackground.set(true);
-fill.colorBackground.set(hsl(60));
-fill.width.set(25);
-//--in circle height is not implemented and width = height always
-// fill.height.set(50);
-// fill.height.set(50);
-fill.border.set(15);
-
-fill.paddingLeft.animate(1,5,0,20);
-fill.paddingLeft.animate(6,10,20,0);
-//------------
-fill.paddingRight.animate(11,15,0,20);
-fill.paddingRight.animate(16,20,20,0);
-//------------
-fill.paddingTop.animate(21,25,0,20);
-fill.paddingTop.animate(26,30,20,0);
-//------------
-fill.paddingBottom.animate(31,35,0,20);
-fill.paddingBottom.animate(36,40,20,0);
-//------------
-
-bil.insert.add(fill, 0, 60);
+bil.insert.add(txt, 0, 80);
 const ui = new Ui(bil);
 bil.draw();
+// console.log("txt", txt);
+
 </script>
 
 <pre class="language-javascript">
@@ -95,36 +74,15 @@ const grid = cf.grid("grey");
 
 bil.insert.alwaysOn(grid);
 
-const fill = cf.circle(hsl(240));
-fill.align(1,1);
-//--By default responsive padding is off
-fill.setRespPadding(true);
+const txt = cf.fillRect(hsl(240));
+txt.x.set(0);
+txt.y.set(30);
+txt.x.oscillate(0, 50, 0, 90,5);
 
-fill.x.set(50);
-fill.y.set(50);
-fill.showBackground.set(true);
-fill.colorBackground.set(hsl(60));
-fill.width.set(25);
-//--in circle height is not implemented and width = height always
-//fill.height.set(50);
-fill.border.set(15);
-
-fill.paddingLeft.animate(1,5,0,20);
-fill.paddingLeft.animate(6,10,20,0);
-//------------
-fill.paddingRight.animate(11,15,0,20);
-fill.paddingRight.animate(16,20,20,0);
-//------------
-fill.paddingTop.animate(21,25,0,20);
-fill.paddingTop.animate(26,30,20,0);
-//------------
-fill.paddingBottom.animate(31,35,0,20);
-fill.paddingBottom.animate(36,40,20,0);
-//------------
-
-bil.insert.add(fill, 0, 60);
+bil.insert.add(txt, 0, 80);
 const ui = new Ui(bil);
 bil.draw();
+// console.log("txt", txt);
 </code>
 </pre>
 

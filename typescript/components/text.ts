@@ -65,8 +65,6 @@ this.style.fontFamily = this.fontFamily;
      this.contentX(),
      this.contentY(),
      this.style);   
-console.log("fontSize", this.fontSize.value());     
-console.log("adjested", this.adjestFontSize(this.fontSize.value()));     
  } 
 //---------------------------------- 
 //---------------------------------- 

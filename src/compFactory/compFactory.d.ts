@@ -17,7 +17,7 @@ export default class CompFactory {
     static spriteSheetAlt(imgUrl: string): SpriteSheetAlt;
     static spriteSheet(imgUrl: string, IconWidth: number, IconHeight: number, totalColumns: number, totalRows: number): SpriteSheet;
     static icon(code?: number, colorHax?: string): Icon;
-    static circle(colorHax?: string): Circle;
+    static circle(radius?: number, colorHax?: string): Circle;
     static marker(colorHax?: string): Marker;
     static pic(imgId: string, dynWidth?: number, dynHeight?: number): Pic;
     static staticGrid(cellWidth?: number, cellHeight?: number, color?: string): StaticGrid;

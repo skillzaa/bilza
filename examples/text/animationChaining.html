@@ -47,6 +47,7 @@
 <!-- <a href="../../src/aniPresets/animationChaining.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+
 let bil = new Bilza("bilza", 70);
 
 const fc = cf.frameCounter(hsl(0));
@@ -56,19 +57,22 @@ fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
 bil.insert.add(fc,0,20);
 
-const comp = cf.staticGrid(30,30,hsl(0));
-comp.setPaddings(10);
-comp.showBackground.set(true);
-comp.border.set(3);
-comp.showNumbers.set(true);
-comp.colorNumbers.set(hsl(0,15));
-comp.colorBorder.set(hsl(0));
+const comp = cf.text("Welcome to Bilza.js");
 
+comp.setPaddings(10);
+
+comp.fontSize.set(40);
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(240,70));
+comp.border.set(3);
+comp.colorBorder.set(hsl(0));
+comp.color.set(hsl(60));
 //===---Animation Settings
 comp.x.set(0);
     comp.y.set(0);
-    comp.width.set(30);
-    comp.height.set(30);
+    //---In text height and width is set according to font size
+    // comp.width.set(20);
+    // comp.height.set(30);
     comp.x.animate(1, 5, 0, 90);
     comp.y.animate(6, 10, 0, 90);
     comp.x.animate(11, 15, 90, 0);
@@ -85,6 +89,7 @@ bil.draw();
 <pre class="language-javascript">
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+
 let bil = new Bilza("bilza", 70);
 
 const fc = cf.frameCounter(hsl(0));
@@ -94,19 +99,22 @@ fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
 bil.insert.add(fc,0,20);
 
-const comp = cf.staticGrid(30,30,hsl(0));
-comp.setPaddings(10);
-comp.showBackground.set(true);
-comp.border.set(3);
-comp.showNumbers.set(true);
-comp.colorNumbers.set(hsl(0,15));
-comp.colorBorder.set(hsl(0));
+const comp = cf.text("Welcome to Bilza.js");
 
+comp.setPaddings(10);
+
+comp.fontSize.set(40);
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(240,70));
+comp.border.set(3);
+comp.colorBorder.set(hsl(0));
+comp.color.set(hsl(60));
 //===---Animation Settings
 comp.x.set(0);
     comp.y.set(0);
-    comp.width.set(30);
-    comp.height.set(30);
+    //---In text height and width is set according to font size
+    // comp.width.set(20);
+    // comp.height.set(30);
     comp.x.animate(1, 5, 0, 90);
     comp.y.animate(6, 10, 0, 90);
     comp.x.animate(11, 15, 90, 0);
