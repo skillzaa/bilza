@@ -24,6 +24,9 @@ export default class AniNumber extends AniProp {
         this.addFilter(v);
     }
     oscillate(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter = 1, stopAt = endValue) {
+        if (startValue > endValue) {
+            throw new Error("for oscillate operation the startValue can not be bigger than endValue, however in future this restriction may be lifted.");
+        }
         const v = new Oscillate(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, secPerIter * 1000, stopAt);
         this.addFilter(v);
     }

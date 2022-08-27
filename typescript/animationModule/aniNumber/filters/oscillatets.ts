@@ -13,7 +13,7 @@ super(rTimeMsStart,rTimeMsEnd,startValue, endValue,secPerIter);
 this.incDecArray = [];
 this.beyondValue = stopAt;
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-//--convert delay in sec
+//-- delay in sec
 const timeDiff = this.rTimeMsEnd - this.rTimeMsStart;
 
 //--------------------

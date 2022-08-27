@@ -42,6 +42,10 @@ this.addFilter(v);
 }
 
 public oscillate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number, endValue :number,secPerIter :number= 1,stopAt=endValue){
+///-Bug 002
+if (startValue > endValue ){
+throw new Error("for oscillate operation the startValue can not be bigger than endValue, however in future this restriction may be lifted.");   
+}    
 const v = new Oscillate(rTimeMsStart * 1000,rTimeMsEnd * 1000,startValue,endValue,secPerIter * 1000,stopAt);
 this.addFilter(v);  
 }//oscialte
