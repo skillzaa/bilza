@@ -47,48 +47,72 @@
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-import rotateMid from "../../src/aniPresets/rotateMid.js";
+
 
 let bil = new Bilza("bilza", 70);
-// bil.resizeCanvas(500,300);
+bil.background.color.set(hsl(240,100,30));
 
 const grid = cf.grid("grey");
-grid.showNumbers.set(false);
 bil.insert.alwaysOn(grid);
 
-const fill = cf.staticGrid(60,60,hsl(240));
+const fc = cf.frameCounter(hsl(0))
+fc.align(0,2);
+fc.goto(0,0,100);
+fc.fontSize.set(80);
+fc.color.set(hsl(60));
+fc.colorBackground.set(hsl(240,100,60));
+bil.insert.alwaysOn(fc);
 
-fill.showBackground.set(true);
-fill.colorBackground.set(hsl(120));
-fill.showNumbers.set(true);
+const comp = cf.circle(20,hsl(0));
+comp.align(1,1);
+comp.alignRotate(1,1);
+comp.setxy(50,50);
+comp.setPaddings(10);
 
-rotateMid(fill);
-bil.insert.add(fill, 0, 15);
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(90,100,30));
+comp.border.set(2);
+comp.colorBorder.set(hsl(0));
+comp.rotation.animate(0,15, 0, 3 * 360);
+bil.insert.add(comp,0,20);
+
 const ui = new Ui(bil);
 bil.draw();
+
 </script>
 
 <pre class="language-javascript">
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
-import rotateMid from "../../src/aniPresets/rotateMid.js";
 
 let bil = new Bilza("bilza", 70);
-// bil.resizeCanvas(500,300);
+bil.background.color.set(hsl(240,100,30));
 
 const grid = cf.grid("grey");
-grid.showNumbers.set(false);
 bil.insert.alwaysOn(grid);
 
-const fill = cf.staticGrid(60,60,hsl(240));
+const fc = cf.frameCounter(hsl(0))
+fc.align(0,2);
+fc.goto(0,0,100);
+fc.fontSize.set(80);
+fc.color.set(hsl(60));
+fc.colorBackground.set(hsl(240,100,60));
+bil.insert.alwaysOn(fc);
 
-fill.showBackground.set(true);
-fill.colorBackground.set(hsl(120));
-fill.showNumbers.set(true);
+const comp = cf.circle(20,hsl(0));
+comp.align(1,1);
+comp.alignRotate(1,1);
+comp.setxy(50,50);
+comp.setPaddings(10);
 
-rotateMid(fill);
-bil.insert.add(fill, 0, 15);
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(90,100,30));
+comp.border.set(2);
+comp.colorBorder.set(hsl(0));
+comp.rotation.animate(0,15, 0, 3 * 360);
+bil.insert.add(comp,0,20);
+
 const ui = new Ui(bil);
 bil.draw();
 </code>

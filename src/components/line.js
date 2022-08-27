@@ -60,4 +60,16 @@ export default class Line extends BaseComponent {
         this.postDraw(p);
         return true;
     }
+    compWidth() {
+        return Math.floor(Math.abs(this.x2.value() - this.x.value()));
+    }
+    compHeight() {
+        return this.lineWidth.value();
+    }
+    align(x, y) {
+        super.align(0, 0);
+    }
+    alignRotate(x, y) {
+        super.alignRotate(x, 0);
+    }
 }

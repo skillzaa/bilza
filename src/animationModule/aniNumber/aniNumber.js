@@ -19,8 +19,8 @@ export default class AniNumber extends AniProp {
             this.addFilter(dec);
         }
     }
-    random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delaySec = 0) {
-        const v = new Random(rTimeMsStart * 1000, rTimeMsEnd * 1000, min, max, delaySec * 1000);
+    random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delayMs = 0) {
+        const v = new Random(rTimeMsStart * 1000, rTimeMsEnd * 1000, min, max, delayMs);
         this.addFilter(v);
     }
     oscillate(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter = 1, stopAt = endValue) {

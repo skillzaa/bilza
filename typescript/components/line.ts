@@ -71,10 +71,8 @@ this.style.lineWidth = this.lineWidth.value();
 
 // this.preDraw(p);
 this.style.opacity = (this.opacity.value());
-// this.style.opacity = 100;    
 this.applyRotation(p);
-// this.drawBackground(p);
-// this.drawBorder(p);
+//--dont draw border or
 //-----------------------------preDrawEnds
 p.drawLine(
     this.x.value(),
@@ -83,9 +81,27 @@ p.drawLine(
     this.y2.value(),
     this.style
 );
+// this.style.opacity = 100;
+
 this.postDraw(p); //its ok to keep
 return true;
 }
-
-
+//---we do not need to add padding etc to we just over-written compWidth and compHeight methods.
+compWidth(): number {
+return Math.floor(Math.abs(this.x2.value() - this.x.value()));    
+}
+compHeight(): number {
+    return this.lineWidth.value();
+}
+/**
+ * line comp is drawn differently- so we do not want to change align at all since that will add extra addition/sub in calc.
+ * in the rotate align as well we should just change x value and not y
+ */
+public align(x?: number | null, y?: number | null): void {
+//--we do not align line comp so there is no add / sub in the x/y value    
+    super.align(0,0);
+}
+public alignRotate(x?: number | null, y?: number | null): void {
+    super.alignRotate(x,0);
+}
 }//class

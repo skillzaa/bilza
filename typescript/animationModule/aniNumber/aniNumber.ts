@@ -36,8 +36,8 @@ public animate(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endVal
     // }
 }
 
-public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number=100,delaySec :number=0){
-const v = new Random(rTimeMsStart * 1000,rTimeMsEnd * 1000,min,max,delaySec * 1000);
+public random(rTimeMsStart :number,rTimeMsEnd :number,min :number=0, max :number=100,delayMs :number=0){
+const v = new Random(rTimeMsStart * 1000,rTimeMsEnd * 1000,min,max,delayMs);
 this.addFilter(v);
 }
 

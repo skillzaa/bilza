@@ -26,7 +26,7 @@ import TextTempl from "./compFactory/textTempl.js";
 import PremadeSpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 import SpriteSheet from "./components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "./components/spriteSheet/spriteSheetAlt.js";
-
+import getRandom from "./functions/getRandom.js";
 export {
 Pack,
 TextTempl,
@@ -39,6 +39,7 @@ UTFIcons,
 Experimental,
 IComponent,
 Ui,
+getRandom,
 Bilza,
 BaseComponent,
 CompFactory,

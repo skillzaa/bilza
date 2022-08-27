@@ -1,16 +1,12 @@
 import {Pack,BaseComponent,DrawLayer,FontFamily } from "../bilza.js";
 
 import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js"; 
-/*
- * A totally Non-Openionated Text Class for other Text components to inheret from.
- */
+
+
 export default class Text extends BaseComponent {
 public content :AniString;
 public fontFamily :FontFamily;
 public fontSize :AniNumber;
-//--15-july-2022 : no need for this use width as fontSize
-// private fontSize :AniNumber;
-//--- The only abstraction -- if is a problem even remove this
 public maxDisplayChars :AniNumber; 
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
