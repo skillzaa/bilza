@@ -47,12 +47,17 @@
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-
 let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
 
-bil.insert.alwaysOn(grid);
-
+bil.insert.alwaysOn(cf.grid("grey"));
+//--------------------
+const caption = cf.text("blue",hsl(240));
+caption.align(1,2)// --x align mid , y align bottom
+caption.x.set(50);
+caption.y.set(95);
+caption.fontSize.set(100);
+bil.insert.add(caption,0,15);
+//--------------------
 const fill = cf.fillRect(hsl(240));
 
 fill.x.set(50);
@@ -62,30 +67,52 @@ fill.width.set(50);
 fill.height.set(50);
 
 fill.align(1,1);
+bil.insert.add(fill, 0, 15);
+
+//---Goto commands for fillRect and text components
 
 fill.color.goto(2, hsl( 0 ));
+caption.color.goto(2, hsl( 0 ));
+caption.content.goto(2, "red");
+///////////////////////////////
 fill.color.goto(4, hsl( 120 ));
+caption.color.goto(4, hsl( 120 ));
+caption.content.goto(4, "green");
+///////////////////////////////
 fill.color.goto(6, hsl( 240 ));
+caption.color.goto(6, hsl( 240 ));
+caption.content.goto(6, "blue");
+///////////////////////////////
 fill.color.goto(8, hsl( 180 ));
-fill.color.goto(12, hsl( 60 ));
+caption.color.goto(8, hsl( 180 ));
+caption.content.goto(8, "cyan");
+///////////////////////////////
 fill.color.goto(10, hsl(300 ));
-
-bil.insert.add(fill, 0, 15);
+caption.color.goto(10, hsl( 300 ));
+caption.content.goto(10, "megenta");
+/////////////////////////////////
+fill.color.goto(12, hsl( 60 ));
+caption.color.goto(12, hsl( 60 ));
+caption.content.goto(12, "yellow");
+///////////////////////////////
 const ui = new Ui(bil);
 bil.draw();
-
-// console.log("fill",fill);
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl } from "../../src/bilza.js";
-
+import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
 
-bil.insert.alwaysOn(grid);
-
+bil.insert.alwaysOn(cf.grid("grey"));
+//--------------------
+const caption = cf.text("blue",hsl(240));
+caption.align(1,2)// --x align mid , y align bottom
+caption.x.set(50);
+caption.y.set(95);
+caption.fontSize.set(100);
+bil.insert.add(caption,0,15);
+//--------------------
 const fill = cf.fillRect(hsl(240));
 
 fill.x.set(50);
@@ -95,19 +122,36 @@ fill.width.set(50);
 fill.height.set(50);
 
 fill.align(1,1);
+bil.insert.add(fill, 0, 15);
+
+//---Goto commands for fillRect and text components
 
 fill.color.goto(2, hsl( 0 ));
+caption.color.goto(2, hsl( 0 ));
+caption.content.goto(2, "red");
+///////////////////////////////
 fill.color.goto(4, hsl( 120 ));
+caption.color.goto(4, hsl( 120 ));
+caption.content.goto(4, "green");
+///////////////////////////////
 fill.color.goto(6, hsl( 240 ));
+caption.color.goto(6, hsl( 240 ));
+caption.content.goto(6, "blue");
+///////////////////////////////
 fill.color.goto(8, hsl( 180 ));
-fill.color.goto(12, hsl( 60 ));
+caption.color.goto(8, hsl( 180 ));
+caption.content.goto(8, "cyan");
+///////////////////////////////
 fill.color.goto(10, hsl(300 ));
-
-bil.insert.add(fill, 0, 15);
+caption.color.goto(10, hsl( 300 ));
+caption.content.goto(10, "megenta");
+/////////////////////////////////
+fill.color.goto(12, hsl( 60 ));
+caption.color.goto(12, hsl( 60 ));
+caption.content.goto(12, "yellow");
+///////////////////////////////
 const ui = new Ui(bil);
 bil.draw();
-
-//console.log("fill",fill);
 </code>
 </pre>
 
