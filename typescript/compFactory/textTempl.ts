@@ -1,6 +1,5 @@
 import Text from "../components/text.js";
 
-
 export default class TextTempl {
 
 constructor(){
@@ -9,8 +8,7 @@ constructor(){
 
 static megatron(content :string="",colorHax :string="#000000"):Text{
     let g = new Text(content,colorHax);
-    g.xAlign = g.XAlignOpt.Mid;
-    g.yAlign = g.YAlignOpt.Mid;
+    g.align(1,1);
     g.showBackground.set(true);
     g.border.set(3);
     g.colorBorder.set(colorHax);
@@ -25,8 +23,7 @@ static megatron(content :string="",colorHax :string="#000000"):Text{
 }
 static welcome(content :string="",colorHax :string="#000000"):Text{
     let g = new Text(content,colorHax);
-    g.xAlign = g.XAlignOpt.Mid;
-    g.yAlign = g.YAlignOpt.Mid;
+    g.align(1,1);
     g.showBackground.set(true);
     g.border.set(3);
     g.colorBorder.set(colorHax);
@@ -41,9 +38,7 @@ static welcome(content :string="",colorHax :string="#000000"):Text{
 }
 static h1(content :string="",colorHax :string="#000000"):Text{
     let g = new Text(content,colorHax);
-    g.xAlign = g.XAlignOpt.Mid;
-    g.yAlign = g.YAlignOpt.Top;
-
+    g.align(1,1);
     g.showBackground.set(true);
     g.border.set(1);
     g.colorBorder.set(colorHax);
@@ -59,8 +54,7 @@ static h1(content :string="",colorHax :string="#000000"):Text{
 }
 static footNote(content :string="",colorHax :string="#000000"):Text{
     let g = new Text(content,colorHax);
-    g.xAlign = g.XAlignOpt.Right;
-    g.yAlign = g.YAlignOpt.Bot;
+    g.align(0,2);
     g.showBackground.set(true);
     g.border.set(1);
     g.colorBorder.set(colorHax);

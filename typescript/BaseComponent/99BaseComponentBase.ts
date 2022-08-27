@@ -16,27 +16,27 @@ import {YAlignOpt} from "./designBC/yAlignOpt.js";
 export default class BaseComponentBase{
 
 //--We have 2 values xAlign , yAlign. These 2 classes are used to align the X and Y coordingates of a component
-public xAlign :XAlignOpt;
-public yAlign : YAlignOpt;
+protected xAlign :XAlignOpt;
+protected yAlign : YAlignOpt;
 
 //--We have 2 values xRotate and yRotate. These 2 classes are used to align the rotate X and rotate Y coordingates of a component
-public xRotate :XAlignOpt;
-public yRotate :YAlignOpt;
+protected xRotate :XAlignOpt;
+protected yRotate :YAlignOpt;
 //--Both of the above 2 groups of alignment classes uses the following 2 options
-public readonly XAlignOpt :typeof XAlignOpt;
-public readonly YAlignOpt :typeof YAlignOpt;
+protected readonly XAlignOpt :typeof XAlignOpt;
+protected readonly YAlignOpt :typeof YAlignOpt;
 //---Every component has a random id
 public readonly id :string;
 
 // protected responsiveDims : boolean; 
 
-public interactive : boolean; //for mouse click etc 
+private interactive : boolean; //for mouse click etc 
 //--The draw layer
 public drawLayer : DrawLayer; 
-public style:Style; 
+protected style:Style; 
 //--This will be set by the engine so do not touch it.
 public alwaysOn: boolean;
-public version :string;
+public readonly version :string;
 // IMPLEMENTED IN ENGINE-- visible = false will not be drawn
 public visible :AniBoolean;//
 //--implemented in Base Component but component creator has to implement it

@@ -29,7 +29,7 @@ export default interface IComponent{
     colorBackground :AniColor;
 
 //-----Public Objects
-    style:Style; 
+    // style:Style; 
 ////////////////////////////////////////
 // usePercentages is used in xy module and entire system is built around it. It means that using percentages OR pixes both are possible in all components.
 setRespPadding(tf :boolean):boolean;

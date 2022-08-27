@@ -23,14 +23,8 @@ draw(p: Pack): boolean {
     return true;
 }
 
-// public random(startTimeSec :number,endTimeSec :number,Xmin :number=1, Xmax :number=100,Ymin :number=1, Ymax :number=100,delay :number=60){
-// this.x.random(startTimeSec,endTimeSec,Xmin,Xmax,delay);
-// this.y.random(startTimeSec,endTimeSec,Ymin,Ymax,delay);
-// }
-// public vibrate(from: number, to: number, x: number,y: number, offset: number, delay: number): void {
-//     this.x.vibrate(from,to,offset,delay);
-//     this.y.vibrate(from,to,offset,delay);
-// }
+
+
 goto(atFrame: number, x: number, y: number): boolean {
 this.x.goto(atFrame,x);
 this.y.goto(atFrame,y);

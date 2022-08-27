@@ -4,8 +4,7 @@ export default class TextTempl {
     }
     static megatron(content = "", colorHax = "#000000") {
         let g = new Text(content, colorHax);
-        g.xAlign = g.XAlignOpt.Mid;
-        g.yAlign = g.YAlignOpt.Mid;
+        g.align(1, 1);
         g.showBackground.set(true);
         g.border.set(3);
         g.colorBorder.set(colorHax);
@@ -20,8 +19,7 @@ export default class TextTempl {
     }
     static welcome(content = "", colorHax = "#000000") {
         let g = new Text(content, colorHax);
-        g.xAlign = g.XAlignOpt.Mid;
-        g.yAlign = g.YAlignOpt.Mid;
+        g.align(1, 1);
         g.showBackground.set(true);
         g.border.set(3);
         g.colorBorder.set(colorHax);
@@ -36,8 +34,7 @@ export default class TextTempl {
     }
     static h1(content = "", colorHax = "#000000") {
         let g = new Text(content, colorHax);
-        g.xAlign = g.XAlignOpt.Mid;
-        g.yAlign = g.YAlignOpt.Top;
+        g.align(1, 1);
         g.showBackground.set(true);
         g.border.set(1);
         g.colorBorder.set(colorHax);
@@ -53,8 +50,7 @@ export default class TextTempl {
     }
     static footNote(content = "", colorHax = "#000000") {
         let g = new Text(content, colorHax);
-        g.xAlign = g.XAlignOpt.Right;
-        g.yAlign = g.YAlignOpt.Bot;
+        g.align(0, 2);
         g.showBackground.set(true);
         g.border.set(1);
         g.colorBorder.set(colorHax);

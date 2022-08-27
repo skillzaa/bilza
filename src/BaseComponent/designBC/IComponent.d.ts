@@ -1,4 +1,4 @@
-import { DrawLayer, Pack, Style } from "../../bilza.js";
+import { DrawLayer, Pack } from "../../bilza.js";
 import { AniNumber, AniPerc, AniBoolean, AniColor } from "../../animationModule/animations.js";
 export default interface IComponent {
     readonly id: string;
@@ -15,7 +15,6 @@ export default interface IComponent {
     opacity: AniNumber;
     showBackground: AniBoolean;
     colorBackground: AniColor;
-    style: Style;
     setRespPadding(tf: boolean): boolean;
     setRespDims(tf: boolean): boolean;
     setRespLoc(tf: boolean): boolean;
