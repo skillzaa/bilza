@@ -1,0 +1,1 @@
+{"version":3,"file":"textBuilder.d.ts","sourceRoot":"","sources":["../../typescript/textBuilder/textBuilder.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,mBAAmB,CAAC;AAC7C,OAAO,EAAE,QAAQ,EAAE,MAAM,sBAAsB,CAAC;AAChD,OAAO,IAAI,MAAM,uBAAuB,CAAC;AAEzC,MAAM,CAAC,OAAO,OAAO,WAAW;IAIhC,MAAM,CAAC,KAAK,CAAC,OAAO,EAAE,MAAM,EAAE,QAAQ,EAAE,QAAQ,EAAC,QAAQ,EAAE,QAAQ;CAQlE"}
