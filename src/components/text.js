@@ -1,5 +1,5 @@
 import { BaseComponent, DrawLayer, FontFamily } from "../bilza.js";
-import { AniNumber, AniString, } from "../animationModule/animations.js";
+import { AniNumber, AniString, AniBoolean, } from "../animationModule/animations.js";
 import TextTempl from "../templates/textTempl.js";
 import TextTheme from "../templates/textTheme.js";
 export default class Text extends BaseComponent {
@@ -9,12 +9,18 @@ export default class Text extends BaseComponent {
         this.fontSize = new AniNumber(20);
         this.maxDisplayChars = new AniNumber(200);
         this.fontFamily = FontFamily.Calibri;
-        this.color.set(colorHax);
+        this.fitToWidth = new AniBoolean(false);
+        this.respFontSize = new AniBoolean(false);
         this.drawLayer = DrawLayer.MiddleGround;
         this.templ = new TextTempl(this);
         this.theme = new TextTheme(this);
+        this.color.set(colorHax);
     }
     update(msDelta, p) {
+        if (this.fitToWidth.value() == true) {
+            this.fitToWidthFn(p);
+            this.fitToWidth.set(false);
+        }
         super.update(msDelta, p);
         this.fontSize.update(msDelta);
         this.content.update(msDelta);
@@ -48,5 +54,30 @@ export default class Text extends BaseComponent {
         this.style.fontSize = this.adjestFontSize(this.fontSize.value());
         this.style.fontFamily = this.fontFamily;
         p.drawText(this.content.value().substring(0, this.maxDisplayChars.value()), this.contentX(), this.contentY(), this.style);
+    }
+    fitToWidthFn(p) {
+        const reqWdInPix = (this.width.value());
+        ;
+        this.style.fontSize = this.fontSize.value();
+        for (let i = 1; i < 900; i++) {
+            const newWidthInPix = p.charsWidth(this.content.value(), i, this.style.fontFamily);
+            if (newWidthInPix >= (reqWdInPix)) {
+                this.fontSize.set(i);
+                this.style.fontSize = i;
+                return this.fontSize.value();
+            }
+        }
+        return null;
+    }
+    adjestFontSize(n) {
+        if (this.canvasWidth == null) {
+            throw new Error("init error");
+        }
+        if (this.respFontSize.value() == true) {
+            return (n / 1000) * this.canvasWidth;
+        }
+        else {
+            return n;
+        }
     }
 }

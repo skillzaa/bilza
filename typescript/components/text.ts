@@ -11,6 +11,8 @@ public fontSize :AniNumber;
 public maxDisplayChars :AniNumber; 
 public templ :TextTempl; 
 public theme :TextTheme; 
+public fitToWidth :AniBoolean; 
+public respFontSize :AniBoolean; 
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
 super();  
@@ -18,15 +20,22 @@ this.content = new AniString(content);
 this.fontSize = new AniNumber(20);
 this.maxDisplayChars = new AniNumber(200);
 this.fontFamily = FontFamily.Calibri;
-this.color.set(colorHax); 
+this.fitToWidth = new AniBoolean(false); 
+this.respFontSize = new AniBoolean(false); 
 //-----------------------------
 this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
 //-----------------------------
 this.templ = new TextTempl(this);
 this.theme = new TextTheme(this);
+//-----------------------------
+this.color.set(colorHax); 
 }
 
 update(msDelta: number, p: Pack): boolean {
+    if (this.fitToWidth.value() == true){
+        this.fitToWidthFn(p);
+        this.fitToWidth.set(false); // run once
+    }    
 super.update(msDelta,p);
 this.fontSize.update(msDelta); 
 this.content.update(msDelta); 
@@ -69,34 +78,45 @@ this.style.fontFamily = this.fontFamily;
  } 
 //---------------------------------- 
 //---------------------------------- 
-}//class
-
-///////////////////////////////////////////
-// private dynamicFontSize(p :Pack):number | null{
-// //----required with should exclude padding     
-//  const reqWdInPix = (this.width.value());;
+protected fitToWidthFn(p :Pack):number | null{
+//----required with should exclude padding     
+ const reqWdInPix = (this.width.value());;
  
-//  //if not already in sync
-//  this.style.fontSize = this.fontSize.value(); 
-//  //-------------check if ok the no need to process
+ //if not already in sync
+ this.style.fontSize = this.fontSize.value(); 
+ //-------------check if ok the no need to process
 //  const alreadyWidth = p.charsWidth(this.content.value(),this.fontSize.value(),this.style.fontFamily);
 //  if (alreadyWidth >= (reqWdInPix) ){
 // return null;
 //  }
-//  //--------------------The Process
-//      for (let i = 1; i < 900; i++) {
-//      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
+ //--------------------The Process
+     for (let i = 1; i < 900; i++) {
+     //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
 
-//      const newWidthInPix = p.charsWidth(this.content.value(),i,this.style.fontFamily);
-//  //----------------------------
-//      if (newWidthInPix >= (reqWdInPix) ){
-//          this.fontSize.set(i); 
-//          this.style.fontSize = i; //important
-//          return this.fontSize.value();
-//      } 
-//  }//for end  
-//  return null; 
-// }//dynamic font size
+     const newWidthInPix = p.charsWidth(this.content.value(),i,this.style.fontFamily);
+ //----------------------------
+     if (newWidthInPix >= (reqWdInPix) ){
+         this.fontSize.set(i); 
+         this.style.fontSize = i; //important
+         return this.fontSize.value();
+     } 
+ }//for end  
+ return null; 
+}//dynamic font size
+//---------------------------------- 
+protected adjestFontSize(n :number):number{
+    if (this.canvasWidth == null){
+        throw new Error("init error");}    
+    if (this.respFontSize.value()== true){
+        return (n/1000) * this.canvasWidth;
+    } else {
+        return n;
+    }   
+} 
+}//class
+
+///////////////////////////////////////////
+
 //--this creats a tug of war between height and width
 // private shrinkToFitMaxHeight(p :Pack):boolean{
 // if (this.charsWidth==null){throw new Error("init error");
