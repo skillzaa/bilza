@@ -49,7 +49,19 @@ this.lineWidthVertical = new AniNumber(1);
 this.lineWidthHorizontal = new AniNumber(1);
 this.lineDash = [];
 this.drawLayer = DrawLayer.BackGround;   
-}    
+} 
+init(p: Pack): boolean {  
+//--imp--it want us to keep it here or cause init error
+super.init(p);     
+if (this.canvasWidth == null || this.canvasHeight == null){
+    throw new Error("init error");
+}
+if (this.cellWidth instanceof AniPerc && this.cellHeight instanceof AniPerc ){
+    this.cellWidth.init(this.canvasWidth);//canvasWidth
+    this.cellHeight.init(this.canvasHeight);//canvasHeight
+}
+return true;
+}   
 update(msDelta: number, p: Pack): boolean {
 //--11 props updated (no need for lineDash)    
 this.cellWidth.update(msDelta);
@@ -85,75 +97,103 @@ return true;
 
 setRespCellDims(tf :boolean=true):boolean{
     if (tf == true){
-        this.cellWidth = new AniPerc(10);
-        this.cellHeight = new AniPerc(10);
+        const wd = this.cellWidth.value();
+        const ht = this.cellHeight.value();
+
+        this.cellWidth = new AniPerc(wd);
+        this.cellHeight = new AniPerc(ht);
+        
         return true;
+
     } else {
-        this.cellWidth = new AniNumber(10);
-        this.cellHeight = new AniNumber(10);
+        
+        this.cellWidth = new AniNumber(this.cellWidth.value());
+        this.cellHeight = new AniNumber(this.cellHeight.value());
+        
         return false;
     }   
 }
 
 draw_horizontal(p:Pack){
-
 let y = 0;
-let y_iteration = 100/this.cellHeight.value();
-const yFactor = ( (this.contentHeight()/100) * this.cellHeight.value() );
-//--convert this.width.value to this.contentWidth
-let end_x = this.contentX() + this.contentWidth();
+let lastLineDrawn = false;
+do{
+    //---Draw grid line 
+    // the last y = theNumber 
+    this.drawGridLine(p,0,y,this.contentWidth(),y,y);
 
-for (let i = 0; i < ( y_iteration + 1); i++) {
-    this.style.strokeStyle = this.colorHorizontalLines.value(); 
-    this.style.opacity = this.opacity.value();       
-    this.style.fillStyle = this.colorHorizontalLines.value();        
-    this.style.lineDash = this.lineDash;        
-    this.style.lineWidth = this.lineWidthHorizontal.value();        
+        //---if last line is drawn or not            
+        if (this.contentY() +  y == this.contentWidth()){
+            lastLineDrawn = true;
+        }                        
+    y += this.cellHeight.value();;    
 
-p.drawLine( this.contentX() ,
-this.contentY() + y,
-    end_x,
-this.contentY() + y ,this.style);
+} while (this.contentHeight() >=  y);
 
-    if (this.showNumbers.value() == true && i < (y_iteration)){
-        this.style.strokeStyle = this.colorNumbers.value();
-        this.drawText(p, Math.ceil(y), this.contentX() ,this.contentY() + y+ 2);
-    }
-y += yFactor;
+////////////////////=======Step-2
+//-draw last line
+if (lastLineDrawn == false){
+    //this.contentY() + this.contentHeight() // last line Y value
+    this.drawGridLine(p,
+        0,
+        this.contentHeight(),
+        this.contentWidth(), 
+        this.contentHeight(),
+        (this.contentY() + this.contentHeight())
+    );    
 }
-}
+}////
 
 draw_vertical(p:Pack){
 let x = 0;
-let _x_iteration = 100/this.cellWidth.value(); 
-
-let end_y = this.contentY() + this.contentHeight();
-const Xfactor = ( (this.width.value()/100) * this.cellWidth.value());
-this.style.opacity = this.opacity.value();       
-    
-
-for (let i = 0; i < ( _x_iteration + 1); i++) {
-    this.style.strokeStyle = this.colorVerticalLines.value();
-    this.style.fillStyle = this.colorVerticalLines.value();        
-    this.style.lineWidth = this.lineWidthVertical.value();        
-    this.style.lineDash = this.lineDash;        
+let lastLineDrawn = false;
+do{
     //---Draw grid line
-        p.drawLine(
-            this.contentX() +  x,
-            this.contentY(),
-            this.contentX() +  x, 
-            end_y , 
-            this.style);
-    //---Draw Numbers
-                if (this.showNumbers.value() == true && i < (_x_iteration) ){
-                    this.style.strokeStyle = this.colorNumbers.value();
-                    this.drawText(p, Math.ceil(x), this.contentX()+x ,this.contentY() + 2);
-                }
-        x += Xfactor;    
-}
+    this.drawGridLine(p,x,0,x,this.contentHeight(),x);
+
+    //---if last line is drawn or not            
+    if (this.contentX() +  x == this.contentWidth()){
+        lastLineDrawn = true;
+    }                        
+
+   x += this.cellWidth.value();;    
+
+} while (this.contentWidth() >=  x);
+
+////////////////////=======Step-2
+//-draw last line
+if (lastLineDrawn == false){
+    //this.contentX() + this.contentWidth() // last line x value
+    this.drawGridLine(p,this.contentWidth(),0,this.contentWidth(), 
+        this.contentHeight(),(this.contentX() + this.contentWidth()));
 }
 
+}//draw_vertical
+//--drawGrid line is just for drawing grid lines OR the last lines
+//--keep in mind contentX and Y is added by default
+drawGridLine(p :Pack,x1 :number,y1 :number,x2 :number,y2 :number, theNumber :number){
+ this.style.opacity = this.opacity.value();       
+this.style.strokeStyle = this.colorVerticalLines.value();
+this.style.fillStyle = this.colorVerticalLines.value();        
+this.style.lineWidth = this.lineWidthVertical.value();        
+this.style.lineDash = this.lineDash;        
+
+    p.drawLine(
+        this.contentX() +  x1,
+        this.contentY() + y1,
+        this.contentX() +  x2, 
+        this.contentY() + y2, 
+        this.style);
+//////////-draw text inside drawGrid lines
+if (this.showNumbers.value() == true){
+    this.drawText(p, Math.ceil(theNumber), this.contentX() +  x1,
+            this.contentY() + y1 + 2);
+}
+
+}
 drawText(p :Pack,theNumber :number,x :number,y :number){
+    if (this.showNumbers.value() == false){return;}
+
 this.style.fontSize = this.fontSize.value();    
 this.style.strokeStyle = this.colorNumbers.value();    
 this.style.fillStyle = this.colorNumbers.value();    

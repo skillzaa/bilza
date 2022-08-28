@@ -15,11 +15,13 @@ export default class Grid extends BaseComponent {
     colorNumbers: AniColor;
     showNumbers: AniBoolean;
     constructor(cellWidth?: number, cellHeight?: number, color?: string);
+    init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     setRespCellDims(tf?: boolean): boolean;
     draw_horizontal(p: Pack): void;
     draw_vertical(p: Pack): void;
+    drawGridLine(p: Pack, x1: number, y1: number, x2: number, y2: number, theNumber: number): void;
     drawText(p: Pack, theNumber: number, x: number, y: number): void;
 }
 //# sourceMappingURL=grid.d.ts.map

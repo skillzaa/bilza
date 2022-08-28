@@ -20,6 +20,17 @@ export default class Grid extends BaseComponent {
         this.lineDash = [];
         this.drawLayer = DrawLayer.BackGround;
     }
+    init(p) {
+        super.init(p);
+        if (this.canvasWidth == null || this.canvasHeight == null) {
+            throw new Error("init error");
+        }
+        if (this.cellWidth instanceof AniPerc && this.cellHeight instanceof AniPerc) {
+            this.cellWidth.init(this.canvasWidth);
+            this.cellHeight.init(this.canvasHeight);
+        }
+        return true;
+    }
     update(msDelta, p) {
         this.cellWidth.update(msDelta);
         this.cellHeight.update(msDelta);
@@ -47,55 +58,63 @@ export default class Grid extends BaseComponent {
     }
     setRespCellDims(tf = true) {
         if (tf == true) {
-            this.cellWidth = new AniPerc(10);
-            this.cellHeight = new AniPerc(10);
+            const wd = this.cellWidth.value();
+            const ht = this.cellHeight.value();
+            this.cellWidth = new AniPerc(wd);
+            this.cellHeight = new AniPerc(ht);
             return true;
         }
         else {
-            this.cellWidth = new AniNumber(10);
-            this.cellHeight = new AniNumber(10);
+            this.cellWidth = new AniNumber(this.cellWidth.value());
+            this.cellHeight = new AniNumber(this.cellHeight.value());
             return false;
         }
     }
     draw_horizontal(p) {
         let y = 0;
-        let y_iteration = 100 / this.cellHeight.value();
-        const yFactor = ((this.contentHeight() / 100) * this.cellHeight.value());
-        let end_x = this.contentX() + this.contentWidth();
-        for (let i = 0; i < (y_iteration + 1); i++) {
-            this.style.strokeStyle = this.colorHorizontalLines.value();
-            this.style.opacity = this.opacity.value();
-            this.style.fillStyle = this.colorHorizontalLines.value();
-            this.style.lineDash = this.lineDash;
-            this.style.lineWidth = this.lineWidthHorizontal.value();
-            p.drawLine(this.contentX(), this.contentY() + y, end_x, this.contentY() + y, this.style);
-            if (this.showNumbers.value() == true && i < (y_iteration)) {
-                this.style.strokeStyle = this.colorNumbers.value();
-                this.drawText(p, Math.ceil(y), this.contentX(), this.contentY() + y + 2);
+        let lastLineDrawn = false;
+        do {
+            this.drawGridLine(p, 0, y, this.contentWidth(), y, y);
+            if (this.contentY() + y == this.contentWidth()) {
+                lastLineDrawn = true;
             }
-            y += yFactor;
+            y += this.cellHeight.value();
+            ;
+        } while (this.contentHeight() >= y);
+        if (lastLineDrawn == false) {
+            this.drawGridLine(p, 0, this.contentHeight(), this.contentWidth(), this.contentHeight(), (this.contentY() + this.contentHeight()));
         }
     }
     draw_vertical(p) {
         let x = 0;
-        let _x_iteration = 100 / this.cellWidth.value();
-        let end_y = this.contentY() + this.contentHeight();
-        const Xfactor = ((this.width.value() / 100) * this.cellWidth.value());
-        this.style.opacity = this.opacity.value();
-        for (let i = 0; i < (_x_iteration + 1); i++) {
-            this.style.strokeStyle = this.colorVerticalLines.value();
-            this.style.fillStyle = this.colorVerticalLines.value();
-            this.style.lineWidth = this.lineWidthVertical.value();
-            this.style.lineDash = this.lineDash;
-            p.drawLine(this.contentX() + x, this.contentY(), this.contentX() + x, end_y, this.style);
-            if (this.showNumbers.value() == true && i < (_x_iteration)) {
-                this.style.strokeStyle = this.colorNumbers.value();
-                this.drawText(p, Math.ceil(x), this.contentX() + x, this.contentY() + 2);
+        let lastLineDrawn = false;
+        do {
+            this.drawGridLine(p, x, 0, x, this.contentHeight(), x);
+            if (this.contentX() + x == this.contentWidth()) {
+                lastLineDrawn = true;
             }
-            x += Xfactor;
+            x += this.cellWidth.value();
+            ;
+        } while (this.contentWidth() >= x);
+        if (lastLineDrawn == false) {
+            this.drawGridLine(p, this.contentWidth(), 0, this.contentWidth(), this.contentHeight(), (this.contentX() + this.contentWidth()));
+        }
+    }
+    drawGridLine(p, x1, y1, x2, y2, theNumber) {
+        this.style.opacity = this.opacity.value();
+        this.style.strokeStyle = this.colorVerticalLines.value();
+        this.style.fillStyle = this.colorVerticalLines.value();
+        this.style.lineWidth = this.lineWidthVertical.value();
+        this.style.lineDash = this.lineDash;
+        p.drawLine(this.contentX() + x1, this.contentY() + y1, this.contentX() + x2, this.contentY() + y2, this.style);
+        if (this.showNumbers.value() == true) {
+            this.drawText(p, Math.ceil(theNumber), this.contentX() + x1, this.contentY() + y1 + 2);
         }
     }
     drawText(p, theNumber, x, y) {
+        if (this.showNumbers.value() == false) {
+            return;
+        }
         this.style.fontSize = this.fontSize.value();
         this.style.strokeStyle = this.colorNumbers.value();
         this.style.fillStyle = this.colorNumbers.value();
