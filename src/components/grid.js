@@ -1,14 +1,14 @@
 import { DrawLayer, } from "../bilza.js";
-import { AniNumber, AniBoolean, AniColor, } from "../animationModule/animations.js";
+import { AniNumber, AniPerc, AniBoolean, AniColor, } from "../animationModule/animations.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class Grid extends BaseComponent {
-    constructor(cellWidthPerc = 10, cellHeightPerc = 10, color = "grey") {
+    constructor(cellWidth = 10, cellHeight = 10, color = "grey") {
         super();
         this.fontSize = new AniNumber(12);
         this.width.set(100);
         this.height.set(100);
-        this.cellWidthPerc = new AniNumber(cellWidthPerc);
-        this.cellHeightPerc = new AniNumber(cellHeightPerc);
+        this.cellWidth = new AniNumber(cellWidth);
+        this.cellHeight = new AniNumber(cellHeight);
         this.colorHorizontalLines = new AniColor(color);
         this.colorVerticalLines = new AniColor(color);
         this.colorNumbers = new AniColor("black");
@@ -21,8 +21,8 @@ export default class Grid extends BaseComponent {
         this.drawLayer = DrawLayer.BackGround;
     }
     update(msDelta, p) {
-        this.cellWidthPerc.update(msDelta);
-        this.cellHeightPerc.update(msDelta);
+        this.cellWidth.update(msDelta);
+        this.cellHeight.update(msDelta);
         this.showHorizontalLines.update(msDelta);
         this.showVerticalLines.update(msDelta);
         this.lineWidthVertical.update(msDelta);
@@ -45,19 +45,31 @@ export default class Grid extends BaseComponent {
         this.postDraw(p);
         return true;
     }
+    setRespCellDims(tf = true) {
+        if (tf == true) {
+            this.cellWidth = new AniPerc(10);
+            this.cellHeight = new AniPerc(10);
+            return true;
+        }
+        else {
+            this.cellWidth = new AniNumber(10);
+            this.cellHeight = new AniNumber(10);
+            return false;
+        }
+    }
     draw_horizontal(p) {
         let y = 0;
-        let _y_iteration = 100 / this.cellHeightPerc.value();
-        const yFactor = ((this.contentHeight() / 100) * this.cellHeightPerc.value());
+        let y_iteration = 100 / this.cellHeight.value();
+        const yFactor = ((this.contentHeight() / 100) * this.cellHeight.value());
         let end_x = this.contentX() + this.contentWidth();
-        for (let i = 0; i < (_y_iteration + 1); i++) {
+        for (let i = 0; i < (y_iteration + 1); i++) {
             this.style.strokeStyle = this.colorHorizontalLines.value();
             this.style.opacity = this.opacity.value();
             this.style.fillStyle = this.colorHorizontalLines.value();
             this.style.lineDash = this.lineDash;
             this.style.lineWidth = this.lineWidthHorizontal.value();
             p.drawLine(this.contentX(), this.contentY() + y, end_x, this.contentY() + y, this.style);
-            if (this.showNumbers.value() == true && i < (_y_iteration)) {
+            if (this.showNumbers.value() == true && i < (y_iteration)) {
                 this.style.strokeStyle = this.colorNumbers.value();
                 this.drawText(p, Math.ceil(y), this.contentX(), this.contentY() + y + 2);
             }
@@ -66,9 +78,9 @@ export default class Grid extends BaseComponent {
     }
     draw_vertical(p) {
         let x = 0;
-        let _x_iteration = 100 / this.cellWidthPerc.value();
+        let _x_iteration = 100 / this.cellWidth.value();
         let end_y = this.contentY() + this.contentHeight();
-        const Xfactor = ((this.width.value() / 100) * this.cellWidthPerc.value());
+        const Xfactor = ((this.width.value() / 100) * this.cellWidth.value());
         this.style.opacity = this.opacity.value();
         for (let i = 0; i < (_x_iteration + 1); i++) {
             this.style.strokeStyle = this.colorVerticalLines.value();

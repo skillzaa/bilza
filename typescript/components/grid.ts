@@ -6,8 +6,8 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class Grid extends BaseComponent {
     lineDash :number[];
     
-    cellWidthPerc :AniNumber;    
-    cellHeightPerc :AniNumber;
+    cellWidth : AniNumber | AniPerc;    
+    cellHeight :AniNumber | AniPerc;
     //--Lines---
     showHorizontalLines :AniBoolean ;   
     showVerticalLines :AniBoolean ;   
@@ -25,16 +25,16 @@ export default class Grid extends BaseComponent {
 // private _x_iteration :number;
 // private _y_iteration :number;
 
-constructor (cellWidthPerc :number=10,cellHeightPerc :number=10,color :string="grey"){
+constructor (cellWidth :number=10,cellHeight :number=10,color :string="grey"){
 super();
 this.fontSize = new AniNumber(12);
 //--these 2 are settings but very imp since grid is normally used for entire screen
 this.width.set(100);
 this.height.set(100);
 
-this.cellWidthPerc = new AniNumber(cellWidthPerc);    
+this.cellWidth = new AniNumber(cellWidth);    
 
-this.cellHeightPerc = new AniNumber(cellHeightPerc);
+this.cellHeight = new AniNumber(cellHeight);
 // this._y_iteration = 100/this.cellHeightPerc.value(); 
 
 this.colorHorizontalLines = new AniColor(color);   
@@ -51,8 +51,9 @@ this.lineDash = [];
 this.drawLayer = DrawLayer.BackGround;   
 }    
 update(msDelta: number, p: Pack): boolean {
-this.cellWidthPerc.update(msDelta);
-this.cellHeightPerc.update(msDelta);
+//--11 props updated (no need for lineDash)    
+this.cellWidth.update(msDelta);
+this.cellHeight.update(msDelta);
 this.showHorizontalLines.update(msDelta);
 this.showVerticalLines.update(msDelta);
 
@@ -82,14 +83,27 @@ this.postDraw(p);
 return true;
 }    
 
+setRespCellDims(tf :boolean=true):boolean{
+    if (tf == true){
+        this.cellWidth = new AniPerc(10);
+        this.cellHeight = new AniPerc(10);
+        return true;
+    } else {
+        this.cellWidth = new AniNumber(10);
+        this.cellHeight = new AniNumber(10);
+        return false;
+    }   
+}
+
 draw_horizontal(p:Pack){
+
 let y = 0;
-let _y_iteration = 100/this.cellHeightPerc.value();
-const yFactor = ( (this.contentHeight()/100) * this.cellHeightPerc.value() );
+let y_iteration = 100/this.cellHeight.value();
+const yFactor = ( (this.contentHeight()/100) * this.cellHeight.value() );
 //--convert this.width.value to this.contentWidth
 let end_x = this.contentX() + this.contentWidth();
 
-for (let i = 0; i < ( _y_iteration + 1); i++) {
+for (let i = 0; i < ( y_iteration + 1); i++) {
     this.style.strokeStyle = this.colorHorizontalLines.value(); 
     this.style.opacity = this.opacity.value();       
     this.style.fillStyle = this.colorHorizontalLines.value();        
@@ -101,7 +115,7 @@ this.contentY() + y,
     end_x,
 this.contentY() + y ,this.style);
 
-    if (this.showNumbers.value() == true && i < (_y_iteration)){
+    if (this.showNumbers.value() == true && i < (y_iteration)){
         this.style.strokeStyle = this.colorNumbers.value();
         this.drawText(p, Math.ceil(y), this.contentX() ,this.contentY() + y+ 2);
     }
@@ -111,10 +125,10 @@ y += yFactor;
 
 draw_vertical(p:Pack){
 let x = 0;
-let _x_iteration = 100/this.cellWidthPerc.value(); 
+let _x_iteration = 100/this.cellWidth.value(); 
 
 let end_y = this.contentY() + this.contentHeight();
-const Xfactor = ( (this.width.value()/100) * this.cellWidthPerc.value());
+const Xfactor = ( (this.width.value()/100) * this.cellWidth.value());
 this.style.opacity = this.opacity.value();       
     
 
