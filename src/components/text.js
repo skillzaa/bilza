@@ -10,6 +10,7 @@ export default class Text extends BaseComponent {
         this.maxDisplayChars = new AniNumber(200);
         this.fontFamily = FontFamily.Calibri;
         this.fitToWidth = new AniBoolean(false);
+        this.shrinkToHeight = new AniBoolean(false);
         this.respFontSize = new AniBoolean(false);
         this.drawLayer = DrawLayer.MiddleGround;
         this.templ = new TextTempl(this);
@@ -20,6 +21,10 @@ export default class Text extends BaseComponent {
         if (this.fitToWidth.value() == true) {
             this.fitToWidthFn(p);
             this.fitToWidth.set(false);
+        }
+        if (this.shrinkToHeight.value() == true) {
+            this.shrinkToHeightFn(p);
+            this.shrinkToHeight.set(false);
         }
         super.update(msDelta, p);
         this.fontSize.update(msDelta);
@@ -79,5 +84,24 @@ export default class Text extends BaseComponent {
         else {
             return n;
         }
+    }
+    shrinkToHeightFn(p) {
+        if (this.charsWidth == null) {
+            throw new Error("init error");
+        }
+        const reqHtInPix = (this.height.value());
+        const contentHeight = this.charsWidth("W", this.fontSize.value(), this.style.fontFamily);
+        if (contentHeight < reqHtInPix) {
+            return true;
+        }
+        for (let i = 300; i > 0; i--) {
+            const newHeightInPix = p.charsWidth("W", i, this.style.fontFamily);
+            if (newHeightInPix <= reqHtInPix) {
+                this.fontSize.set(i);
+                this.style.fontSize = i;
+                return true;
+            }
+        }
+        return true;
     }
 }

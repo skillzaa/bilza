@@ -10,6 +10,7 @@ export default class Text extends BaseComponent {
     templ: TextTempl;
     theme: TextTheme;
     fitToWidth: AniBoolean;
+    shrinkToHeight: AniBoolean;
     respFontSize: AniBoolean;
     constructor(content?: string, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
@@ -19,5 +20,6 @@ export default class Text extends BaseComponent {
     drawContent(p: Pack): void;
     protected fitToWidthFn(p: Pack): number | null;
     protected adjestFontSize(n: number): number;
+    protected shrinkToHeightFn(p: Pack): boolean;
 }
 //# sourceMappingURL=text.d.ts.map

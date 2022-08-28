@@ -12,6 +12,7 @@ public maxDisplayChars :AniNumber;
 public templ :TextTempl; 
 public theme :TextTheme; 
 public fitToWidth :AniBoolean; 
+public shrinkToHeight :AniBoolean; 
 public respFontSize :AniBoolean; 
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
@@ -21,6 +22,7 @@ this.fontSize = new AniNumber(20);
 this.maxDisplayChars = new AniNumber(200);
 this.fontFamily = FontFamily.Calibri;
 this.fitToWidth = new AniBoolean(false); 
+this.shrinkToHeight = new AniBoolean(false); 
 this.respFontSize = new AniBoolean(false); 
 //-----------------------------
 this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
@@ -35,6 +37,10 @@ update(msDelta: number, p: Pack): boolean {
     if (this.fitToWidth.value() == true){
         this.fitToWidthFn(p);
         this.fitToWidth.set(false); // run once
+    }    
+    if (this.shrinkToHeight.value() == true){
+        this.shrinkToHeightFn(p);
+        this.shrinkToHeight.set(false); // run once
     }    
 super.update(msDelta,p);
 this.fontSize.update(msDelta); 
@@ -113,28 +119,27 @@ protected adjestFontSize(n :number):number{
         return n;
     }   
 } 
+protected shrinkToHeightFn(p :Pack){
+if (this.charsWidth==null){throw new Error("init error");
+}    
+const reqHtInPix =  (this.height.value());
+const contentHeight = this.charsWidth("W",this.fontSize.value(),this.style.fontFamily);
+if ( contentHeight < reqHtInPix){return true;}
+//-----------------------------------------
+    for (let i = 300; i > 0; i--) {
+    // this.style.fontSize = i; 
+    const newHeightInPix = p.charsWidth("W",i,this.style.fontFamily);
+//----------------------------
+// if (i < 100){debugger;}
+    if (newHeightInPix <= reqHtInPix ){
+        this.fontSize.set(i); 
+        this.style.fontSize = i;//may not be required
+        return true;
+    }
+}
+return true;
+}
 }//class
 
 ///////////////////////////////////////////
 
-//--this creats a tug of war between height and width
-// private shrinkToFitMaxHeight(p :Pack):boolean{
-// if (this.charsWidth==null){throw new Error("init error");
-// }    
-// const reqHtInPix =  (this.height.value());
-// const contentHeight = this.charsWidth("W",this.fontSize.value(),this.style.fontFamily);
-// if ( contentHeight < reqHtInPix){return true;}
-// //-----------------------------------------
-//     for (let i = 300; i > 0; i--) {
-//     // this.style.fontSize = i; 
-//     const newHeightInPix = p.charsWidth("W",i,this.style.fontFamily);
-// //----------------------------
-// // if (i < 100){debugger;}
-//     if (newHeightInPix <= reqHtInPix ){
-//         this.fontSize.set(i); 
-//         this.style.fontSize = i;//may not be required
-//         return true;
-//     }
-// }
-// return true;
-// }  
