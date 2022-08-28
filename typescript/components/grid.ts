@@ -21,9 +21,6 @@ export default class Grid extends BaseComponent {
     fontSize :AniNumber;
     colorNumbers :AniColor ;   
     showNumbers :AniBoolean ;   
-//-----
-// private _x_iteration :number;
-// private _y_iteration :number;
 
 constructor (cellWidth :number=10,cellHeight :number=10,color :string="grey"){
 super();
@@ -32,10 +29,8 @@ this.fontSize = new AniNumber(12);
 this.width.set(100);
 this.height.set(100);
 
-this.cellWidth = new AniNumber(cellWidth);    
-
-this.cellHeight = new AniNumber(cellHeight);
-// this._y_iteration = 100/this.cellHeightPerc.value(); 
+this.cellWidth = new AniPerc(cellWidth);    
+this.cellHeight = new AniPerc(cellHeight);
 
 this.colorHorizontalLines = new AniColor(color);   
 this.colorVerticalLines = new AniColor(color);   
@@ -57,8 +52,8 @@ if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }
 if (this.cellWidth instanceof AniPerc && this.cellHeight instanceof AniPerc ){
-    this.cellWidth.init(this.canvasWidth);//canvasWidth
-    this.cellHeight.init(this.canvasHeight);//canvasHeight
+    this.cellWidth.init(this.contentWidth());//canvasWidth
+    this.cellHeight.init(this.contentHeight());//canvasHeight
 }
 return true;
 }   
@@ -95,21 +90,14 @@ this.postDraw(p);
 return true;
 }    
 
-setRespCellDims(tf :boolean=true):boolean{
+setRespCellDims(tf :boolean=true,cellWidth :number=10,cellHeight :number=10):boolean{
     if (tf == true){
-        const wd = this.cellWidth.value();
-        const ht = this.cellHeight.value();
-
-        this.cellWidth = new AniPerc(wd);
-        this.cellHeight = new AniPerc(ht);
-        
+        this.cellWidth = new AniPerc(cellWidth);
+        this.cellHeight = new AniPerc(cellHeight);
         return true;
-
     } else {
-        
-        this.cellWidth = new AniNumber(this.cellWidth.value());
-        this.cellHeight = new AniNumber(this.cellHeight.value());
-        
+        this.cellWidth = new AniNumber(cellWidth);
+        this.cellHeight = new AniNumber(cellHeight);
         return false;
     }   
 }
@@ -120,7 +108,7 @@ let lastLineDrawn = false;
 do{
     //---Draw grid line 
     // the last y = theNumber 
-    this.drawGridLine(p,0,y,this.contentWidth(),y,y);
+    this.drawGridLine(p,0,y,this.contentWidth(),y,y,"horizontal");
 
         //---if last line is drawn or not            
         if (this.contentY() +  y == this.contentWidth()){
@@ -139,7 +127,8 @@ if (lastLineDrawn == false){
         this.contentHeight(),
         this.contentWidth(), 
         this.contentHeight(),
-        (this.contentY() + this.contentHeight())
+        (this.contentY() + this.contentHeight()),
+        "horizontal"
     );    
 }
 }////
@@ -149,7 +138,7 @@ let x = 0;
 let lastLineDrawn = false;
 do{
     //---Draw grid line
-    this.drawGridLine(p,x,0,x,this.contentHeight(),x);
+    this.drawGridLine(p,x,0,x,this.contentHeight(),x,"vertical");
 
     //---if last line is drawn or not            
     if (this.contentX() +  x == this.contentWidth()){
@@ -165,18 +154,25 @@ do{
 if (lastLineDrawn == false){
     //this.contentX() + this.contentWidth() // last line x value
     this.drawGridLine(p,this.contentWidth(),0,this.contentWidth(), 
-        this.contentHeight(),(this.contentX() + this.contentWidth()));
+        this.contentHeight(),(this.contentX() + this.contentWidth()),"vertical");
 }
 
 }//draw_vertical
 //--drawGrid line is just for drawing grid lines OR the last lines
 //--keep in mind contentX and Y is added by default
-drawGridLine(p :Pack,x1 :number,y1 :number,x2 :number,y2 :number, theNumber :number){
+drawGridLine(p :Pack,x1 :number,y1 :number,x2 :number,y2 :number, theNumber :number, hv :string){
  this.style.opacity = this.opacity.value();       
-this.style.strokeStyle = this.colorVerticalLines.value();
-this.style.fillStyle = this.colorVerticalLines.value();        
-this.style.lineWidth = this.lineWidthVertical.value();        
-this.style.lineDash = this.lineDash;        
+ this.style.lineDash = this.lineDash;        
+ if (hv == "vertical"){
+    this.style.fillStyle = this.colorVerticalLines.value();        
+    this.style.strokeStyle = this.colorVerticalLines.value();
+    this.style.lineWidth = this.lineWidthVertical.value();        
+}
+if (hv == "horizontal"){
+    this.style.fillStyle = this.colorHorizontalLines.value();        
+    this.style.strokeStyle = this.colorHorizontalLines.value();
+    this.style.lineWidth = this.lineWidthHorizontal.value();        
+}
 
     p.drawLine(
         this.contentX() +  x1,

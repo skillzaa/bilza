@@ -1,7 +1,6 @@
 import Grid from "../components/grid.js";
 import Rect from "../components/rect.js";
 import FillRect from "../components/fillRect.js";
-import StaticGrid from "../components/staticGrid.js";
 import FrameCounter from "../components/frameCounter.js";
 import ParticleSystem from "../components/particleSystem.js";
 import Text from "../components/text.js";
@@ -20,7 +19,6 @@ export default class CompFactory {
     static circle(radius?: number, colorHax?: string): Circle;
     static marker(colorHax?: string): Marker;
     static pic(imgId: string, dynWidth?: number, dynHeight?: number): Pic;
-    static staticGrid(cellWidth?: number, cellHeight?: number, color?: string): StaticGrid;
     static grid(cellWidthPerc?: number, cellHeightPerc?: number, colorHax?: string): Grid;
     static rect(color?: string): Rect;
     static fillRect(color?: string): FillRect;

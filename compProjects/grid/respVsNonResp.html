@@ -47,18 +47,30 @@
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
-
 let bil = new Bilza("bilza", 70);
+bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
+let flag = true;
 //--------------------
-const grid = cf.grid(10,10,hsl(240));
+const grid = cf.grid(20,20,hsl(240));
 
-grid.cellHeight.oscillate(0,60,10,20,5);
-grid.cellWidth.oscillate(0,60,10,20,5);
+grid.setRespCellDims(flag);
+grid.setxy(5,5);
+grid.width.set(90);
+grid.height.set(90);
 
-bil.insert.add(grid,0,60);
+bil.insert.add(grid,0,15);
+
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
+
+//---------------------------
+//---------------------------
+setInterval(function(){
+    flag = !flag;
+    grid.setRespCellDims(flag,20,20);
+    bil.draw();
+},2000);
 
 </script>
 
@@ -66,17 +78,29 @@ bil.draw();
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
+bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
+let flag = true;
 //--------------------
-const grid = cf.grid(1,1,hsl(240));
+const grid = cf.grid(20,20,hsl(240));
 
-grid.cellHeightPerc.oscillate(0,60,10,20,5);
-grid.cellWidthPerc.oscillate(0,60,10,20,5);
+grid.setRespCellDims(flag);
+grid.setxy(5,5);
+grid.width.set(90);
+grid.height.set(90);
 
-bil.insert.add(grid,0,60);
+bil.insert.add(grid,0,15);
+
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
 
+//---------------------------
+//---------------------------
+setInterval(function(){
+    flag = !flag;
+    grid.setRespCellDims(flag,20,20);
+    bil.draw();
+},2000);
 </code>
 </pre>
 

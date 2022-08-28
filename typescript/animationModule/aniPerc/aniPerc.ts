@@ -34,7 +34,6 @@ this.defaultFilter  = defFil;
 this.initObj.init(this.canvasWidthHeight);
 }
 
-
 responsiveValue(heightWidth :number,perc :number):number {
     return ((heightWidth / 100) * perc);
 }

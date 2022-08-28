@@ -51,6 +51,8 @@ import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 //--------------------
 const grid = cf.grid(10,10,hsl(240));
+//---Importantay
+grid.setRespCellDims(false,10,10);
 
 grid.cellHeight.oscillate(0,60,10,20,5);
 grid.cellWidth.oscillate(0,60,10,20,5);

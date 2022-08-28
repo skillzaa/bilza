@@ -7,8 +7,8 @@ export default class Grid extends BaseComponent {
         this.fontSize = new AniNumber(12);
         this.width.set(100);
         this.height.set(100);
-        this.cellWidth = new AniNumber(cellWidth);
-        this.cellHeight = new AniNumber(cellHeight);
+        this.cellWidth = new AniPerc(cellWidth);
+        this.cellHeight = new AniPerc(cellHeight);
         this.colorHorizontalLines = new AniColor(color);
         this.colorVerticalLines = new AniColor(color);
         this.colorNumbers = new AniColor("black");
@@ -26,8 +26,8 @@ export default class Grid extends BaseComponent {
             throw new Error("init error");
         }
         if (this.cellWidth instanceof AniPerc && this.cellHeight instanceof AniPerc) {
-            this.cellWidth.init(this.canvasWidth);
-            this.cellHeight.init(this.canvasHeight);
+            this.cellWidth.init(this.contentWidth());
+            this.cellHeight.init(this.contentHeight());
         }
         return true;
     }
@@ -56,17 +56,15 @@ export default class Grid extends BaseComponent {
         this.postDraw(p);
         return true;
     }
-    setRespCellDims(tf = true) {
+    setRespCellDims(tf = true, cellWidth = 10, cellHeight = 10) {
         if (tf == true) {
-            const wd = this.cellWidth.value();
-            const ht = this.cellHeight.value();
-            this.cellWidth = new AniPerc(wd);
-            this.cellHeight = new AniPerc(ht);
+            this.cellWidth = new AniPerc(cellWidth);
+            this.cellHeight = new AniPerc(cellHeight);
             return true;
         }
         else {
-            this.cellWidth = new AniNumber(this.cellWidth.value());
-            this.cellHeight = new AniNumber(this.cellHeight.value());
+            this.cellWidth = new AniNumber(cellWidth);
+            this.cellHeight = new AniNumber(cellHeight);
             return false;
         }
     }
@@ -74,7 +72,7 @@ export default class Grid extends BaseComponent {
         let y = 0;
         let lastLineDrawn = false;
         do {
-            this.drawGridLine(p, 0, y, this.contentWidth(), y, y);
+            this.drawGridLine(p, 0, y, this.contentWidth(), y, y, "horizontal");
             if (this.contentY() + y == this.contentWidth()) {
                 lastLineDrawn = true;
             }
@@ -82,14 +80,14 @@ export default class Grid extends BaseComponent {
             ;
         } while (this.contentHeight() >= y);
         if (lastLineDrawn == false) {
-            this.drawGridLine(p, 0, this.contentHeight(), this.contentWidth(), this.contentHeight(), (this.contentY() + this.contentHeight()));
+            this.drawGridLine(p, 0, this.contentHeight(), this.contentWidth(), this.contentHeight(), (this.contentY() + this.contentHeight()), "horizontal");
         }
     }
     draw_vertical(p) {
         let x = 0;
         let lastLineDrawn = false;
         do {
-            this.drawGridLine(p, x, 0, x, this.contentHeight(), x);
+            this.drawGridLine(p, x, 0, x, this.contentHeight(), x, "vertical");
             if (this.contentX() + x == this.contentWidth()) {
                 lastLineDrawn = true;
             }
@@ -97,15 +95,22 @@ export default class Grid extends BaseComponent {
             ;
         } while (this.contentWidth() >= x);
         if (lastLineDrawn == false) {
-            this.drawGridLine(p, this.contentWidth(), 0, this.contentWidth(), this.contentHeight(), (this.contentX() + this.contentWidth()));
+            this.drawGridLine(p, this.contentWidth(), 0, this.contentWidth(), this.contentHeight(), (this.contentX() + this.contentWidth()), "vertical");
         }
     }
-    drawGridLine(p, x1, y1, x2, y2, theNumber) {
+    drawGridLine(p, x1, y1, x2, y2, theNumber, hv) {
         this.style.opacity = this.opacity.value();
-        this.style.strokeStyle = this.colorVerticalLines.value();
-        this.style.fillStyle = this.colorVerticalLines.value();
-        this.style.lineWidth = this.lineWidthVertical.value();
         this.style.lineDash = this.lineDash;
+        if (hv == "vertical") {
+            this.style.fillStyle = this.colorVerticalLines.value();
+            this.style.strokeStyle = this.colorVerticalLines.value();
+            this.style.lineWidth = this.lineWidthVertical.value();
+        }
+        if (hv == "horizontal") {
+            this.style.fillStyle = this.colorHorizontalLines.value();
+            this.style.strokeStyle = this.colorHorizontalLines.value();
+            this.style.lineWidth = this.lineWidthHorizontal.value();
+        }
         p.drawLine(this.contentX() + x1, this.contentY() + y1, this.contentX() + x2, this.contentY() + y2, this.style);
         if (this.showNumbers.value() == true) {
             this.drawText(p, Math.ceil(theNumber), this.contentX() + x1, this.contentY() + y1 + 2);

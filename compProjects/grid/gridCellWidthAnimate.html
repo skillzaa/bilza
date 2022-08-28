@@ -51,28 +51,26 @@ import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 //--------------------
 const grid = cf.grid(10,10,hsl(240));
-grid.cellWidthPerc.oscillate(0,60,10,20,2);
+grid.cellWidth.oscillate(0,60,10,20,2);
 bil.insert.add(grid,0,60);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-console.log("bil",bil);
 
 </script>
 
 <pre class="language-javascript">
 <code>
+import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 //--------------------
 const grid = cf.grid(10,10,hsl(240));
-grid.cellWidthPerc.oscillate(0,60,10,20,2);
+grid.cellWidth.oscillate(0,60,10,20,2);
 bil.insert.add(grid,0,60);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-console.log("bil",bil);
-
 </code>
 </pre>
 

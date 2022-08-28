@@ -1,7 +1,6 @@
 import Grid from "../components/grid.js";
 import Rect from "../components/rect.js";
 import FillRect from "../components/fillRect.js";
-import StaticGrid from "../components/staticGrid.js";
 import FrameCounter from "../components/frameCounter.js";
 import ParticleSystem from "../components/particleSystem.js";
 import Text from "../components/text.js";
@@ -36,10 +35,6 @@ export default class CompFactory {
     }
     static pic(imgId, dynWidth = 10, dynHeight = 10) {
         let g = new Pic(imgId, dynWidth, dynHeight);
-        return g;
-    }
-    static staticGrid(cellWidth = 100, cellHeight = 100, color = "#efe1e1") {
-        let g = new StaticGrid(cellWidth, cellHeight, color);
         return g;
     }
     static grid(cellWidthPerc = 10, cellHeightPerc = 10, colorHax = "grey") {
