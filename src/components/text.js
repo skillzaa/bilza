@@ -1,5 +1,7 @@
 import { BaseComponent, DrawLayer, FontFamily } from "../bilza.js";
 import { AniNumber, AniString, } from "../animationModule/animations.js";
+import TextTempl from "../templates/textTempl.js";
+import TextTheme from "../templates/textTheme.js";
 export default class Text extends BaseComponent {
     constructor(content = "", colorHax = "#000000") {
         super();
@@ -9,6 +11,8 @@ export default class Text extends BaseComponent {
         this.fontFamily = FontFamily.Calibri;
         this.color.set(colorHax);
         this.drawLayer = DrawLayer.MiddleGround;
+        this.templ = new TextTempl(this);
+        this.theme = new TextTheme(this);
     }
     update(msDelta, p) {
         super.update(msDelta, p);

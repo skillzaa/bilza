@@ -1,13 +1,16 @@
 import {Pack,BaseComponent,DrawLayer,FontFamily } from "../bilza.js";
 
 import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js"; 
-
+import TextTempl from "../templates/textTempl.js";
+import TextTheme from "../templates/textTheme.js";
 
 export default class Text extends BaseComponent {
 public content :AniString;
 public fontFamily :FontFamily;
 public fontSize :AniNumber;
 public maxDisplayChars :AniNumber; 
+public templ :TextTempl; 
+public theme :TextTheme; 
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
 super();  
@@ -19,6 +22,8 @@ this.color.set(colorHax);
 //-----------------------------
 this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
 //-----------------------------
+this.templ = new TextTempl(this);
+this.theme = new TextTheme(this);
 }
 
 update(msDelta: number, p: Pack): boolean {
