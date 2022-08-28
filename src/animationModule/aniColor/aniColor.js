@@ -3,6 +3,6 @@ export default class AniColor extends AniProp {
     constructor(initialValue = "") {
         super(initialValue);
     }
-    random(rTimeMsStart, rTimeMsEnd, delay) {
+    random(startSec, endSec, delay) {
     }
 }

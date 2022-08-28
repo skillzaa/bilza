@@ -62,13 +62,13 @@ export default class AniProp {
         }
         this.filtersArr.push(bfil);
     }
-    goto(rSec, value) {
-        const v = new IdentityFil(rSec * 1000, (rSec * 1000) + 1000, value, value, 0);
+    goto(atSec, value) {
+        const v = new IdentityFil(atSec * 1000, (atSec * 1000) + 1000, value, value, 0);
         this.addFilter(v);
         return false;
     }
-    jumpBetween(rSecStart, rSecEnd, firstValue, secondValue, delaySec = 1000) {
-        const jb = new JumpBetween(rSecStart * 1000, rSecEnd * 1000, firstValue, secondValue, delaySec * 1000);
+    jumpBetween(startSec, endSec, firstValue, secondValue, delayInMS = 1000) {
+        const jb = new JumpBetween(startSec * 1000, endSec * 1000, firstValue, secondValue, delayInMS * 1000);
         this.addFilter(jb);
     }
 }

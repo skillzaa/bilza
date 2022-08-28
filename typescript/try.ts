@@ -1,15 +1,24 @@
-import Bilza, {Ui, CompFactory as cf,hsl} from "./bilza.js";
-
+import Bilza, {Ui, CompFactory as cf,hsl,getRandom} from "./bilza.js";
 
 let bil = new Bilza("bilza", 70);
-bil.insert.alwaysOn(cf.grid());
+bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
 //--------------------
-const line = cf.line(10,10,90,90,hsl(0));
-line.lineWidth.set(20);
-bil.insert.add(line,0,30);
-//--------------------
-line.y.oscillate(1,25,10,90,2);
-// line.y2.oscillate(1,25,90,10,2);
+const grid = cf.grid(10,10,hsl(240));
+
+grid.lineWidthHorizontal.set(1);
+grid.lineWidthVertical.set(1);
+
+grid.colorVerticalLines.set(hsl(240));
+grid.colorHorizontalLines.set(hsl(120));
+
+//---Animations
+grid.lineWidthHorizontal.animate(1,3,1,20);
+grid.lineWidthHorizontal.animate(4,6,20,1);
+
+grid.lineWidthVertical.animate(7,9,1,20);
+grid.lineWidthVertical.animate(10,12,20,1);
+
+bil.insert.add(grid,0,15);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();

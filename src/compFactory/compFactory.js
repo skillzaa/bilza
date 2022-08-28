@@ -42,8 +42,8 @@ export default class CompFactory {
         let g = new StaticGrid(cellWidth, cellHeight, color);
         return g;
     }
-    static grid(colorHax = "grey", cellWidthPerc = 10, cellHeightPerc = 10) {
-        let g = new Grid(colorHax, cellWidthPerc, cellHeightPerc);
+    static grid(cellWidthPerc = 10, cellHeightPerc = 10, colorHax = "grey") {
+        let g = new Grid(cellWidthPerc, cellHeightPerc, colorHax);
         return g;
     }
     static rect(color = "#000000") {

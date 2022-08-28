@@ -9,25 +9,25 @@ export default class AniNumber extends AniProp {
         this.minValue = minValue;
         this.maxValue = maxValue;
     }
-    animate(rTimeMsStart, rTimeMsEnd, startValue, endValue) {
+    animate(StartSec, endSec, startValue, endValue) {
         if (startValue < endValue) {
-            let inc = new Increment(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, 0);
+            let inc = new Increment(StartSec * 1000, endSec * 1000, startValue, endValue, 0);
             this.addFilter(inc);
         }
         else if (startValue > endValue) {
-            let dec = new Decrement(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, 0);
+            let dec = new Decrement(StartSec * 1000, endSec * 1000, startValue, endValue, 0);
             this.addFilter(dec);
         }
     }
-    random(rTimeMsStart, rTimeMsEnd, min = 0, max = 100, delayMs = 0) {
-        const v = new Random(rTimeMsStart * 1000, rTimeMsEnd * 1000, min, max, delayMs);
+    random(StartSec, endSec, min = 0, max = 100, delayInMs = 10) {
+        const v = new Random(StartSec * 1000, endSec * 1000, min, max, delayInMs);
         this.addFilter(v);
     }
-    oscillate(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter = 1, stopAt = endValue) {
+    oscillate(StartSec, endSec, startValue, endValue, secPerIter = 1, stopAt = endValue) {
         if (startValue > endValue) {
             throw new Error("for oscillate operation the startValue can not be bigger than endValue, however in future this restriction may be lifted.");
         }
-        const v = new Oscillate(rTimeMsStart * 1000, rTimeMsEnd * 1000, startValue, endValue, secPerIter * 1000, stopAt);
+        const v = new Oscillate(StartSec * 1000, endSec * 1000, startValue, endValue, secPerIter * 1000, stopAt);
         this.addFilter(v);
     }
     vibrate(rTimeMsStart, rTimeMsEnd, offset = 10, delaySec = 100) {
