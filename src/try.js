@@ -1,24 +1,21 @@
 import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
-bil.background.color.set(hsl(240, 25, 30));
+bil.background.color.set(hsl(240, 100, 15));
 bil.insert.alwaysOn(cf.grid());
-let startFrame = 0;
-for (let row = 0; row < 100; row += 10) {
-    for (let col = 0; col < 100; col += 10) {
-        const comp = cf.text(` ${startFrame} `, hsl(60));
-        comp.setPaddings(0);
-        comp.showBackground.set(true);
-        comp.colorBackground.set(hsl(240, 50, 20));
-        comp.border.set(0);
-        comp.x.set(row);
-        comp.y.set(col);
-        comp.width.set(10);
-        comp.height.set(10);
-        comp.fitToWidth.set(true);
-        comp.shrinkToHeight.set(true);
-        bil.insert.add(comp, startFrame, 120);
-        startFrame++;
-    }
+getPic(4, 2);
+getPic(54, 2);
+getPic(4, 50);
+getPic(54, 50);
+function getPic(x, y) {
+    const pic = cf.pic("../compProjects/00images/house.jpg");
+    pic.setxy(x, y);
+    pic.width.set(10);
+    pic.height.set(10);
+    pic.border.set(2);
+    pic.colorBorder.set("red");
+    pic.width.oscillate(0, 20, 10, 45, 4);
+    pic.height.oscillate(0, 20, 10, 45, 4);
+    bil.insert.add(pic, 0, 20);
 }
 const ui = new Ui(bil);
 bil.draw();
