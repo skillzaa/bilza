@@ -64,6 +64,7 @@ export default class Text extends BaseComponent {
         const reqWdInPix = (this.width.value());
         ;
         this.style.fontSize = this.fontSize.value();
+        this.style.fontFamily = this.fontFamily;
         for (let i = 1; i < 900; i++) {
             const newWidthInPix = p.charsWidth(this.content.value(), i, this.style.fontFamily);
             if (newWidthInPix >= (reqWdInPix)) {
@@ -75,15 +76,7 @@ export default class Text extends BaseComponent {
         return null;
     }
     adjestFontSize(n) {
-        if (this.canvasWidth == null) {
-            throw new Error("init error");
-        }
-        if (this.respFontSize.value() == true) {
-            return (n / 1000) * this.canvasWidth;
-        }
-        else {
-            return n;
-        }
+        return n;
     }
     shrinkToHeightFn(p) {
         if (this.charsWidth == null) {

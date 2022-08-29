@@ -12,6 +12,7 @@ public maxDisplayChars :AniNumber;
 public templ :TextTempl; 
 public theme :TextTheme; 
 public fitToWidth :AniBoolean; 
+// public fitToHeight :AniBoolean; 
 public shrinkToHeight :AniBoolean; 
 public respFontSize :AniBoolean; 
 /////////////////////////////////////////
@@ -90,6 +91,7 @@ protected fitToWidthFn(p :Pack):number | null{
  
  //if not already in sync
  this.style.fontSize = this.fontSize.value(); 
+ this.style.fontFamily = this.fontFamily; 
  //-------------check if ok the no need to process
 //  const alreadyWidth = p.charsWidth(this.content.value(),this.fontSize.value(),this.style.fontFamily);
 //  if (alreadyWidth >= (reqWdInPix) ){
@@ -111,13 +113,14 @@ protected fitToWidthFn(p :Pack):number | null{
 }//dynamic font size
 //---------------------------------- 
 protected adjestFontSize(n :number):number{
-    if (this.canvasWidth == null){
-        throw new Error("init error");}    
-    if (this.respFontSize.value()== true){
-        return (n/1000) * this.canvasWidth;
-    } else {
-        return n;
-    }   
+    return n;
+    // if (this.canvasWidth == null){
+    //     throw new Error("init error");}    
+    // if (this.respFontSize.value()== true){
+    //     return (n/1000) * this.canvasWidth;
+    // } else {
+    //     return n;
+    // }   
 } 
 protected shrinkToHeightFn(p :Pack){
 if (this.charsWidth==null){throw new Error("init error");
