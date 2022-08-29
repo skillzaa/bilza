@@ -29,10 +29,22 @@ this.comp.align(1,1);
 this.comp.showBackground.set(true);
 this.comp.border.set(15);
 this.comp.setPaddings(10);
-this.comp.respFontSize.set(false);
 this.comp.width.set(100);
+this.comp.height.set(20);
+this.comp.respFontSize.set(false);
 this.comp.fitToWidth.set(true);
-
 }
-
+ftNoteL(x :number=10){
+    this.comp.x.set(10);    
+    this.comp.y.set(95);    
+    this.comp.align(0,2);
+    //------------------------  
+    this.comp.showBackground.set(true);
+    this.comp.border.set(1);
+    this.comp.setPaddings(2);
+    this.comp.width.set(20);
+    this.comp.height.set(10);
+    this.comp.respFontSize.set(true);
+    this.comp.fitToWidth.set(true);
+}
 }
