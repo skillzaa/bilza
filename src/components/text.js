@@ -11,7 +11,7 @@ export default class Text extends BaseComponent {
         this.fontFamily = FontFamily.Calibri;
         this.fitToWidth = new AniBoolean(false);
         this.shrinkToHeight = new AniBoolean(false);
-        this.respFontSize = new AniBoolean(false);
+        this.respFontSize = new AniBoolean(true);
         this.drawLayer = DrawLayer.MiddleGround;
         this.templ = new TextTempl(this);
         this.theme = new TextTheme(this);
@@ -66,7 +66,7 @@ export default class Text extends BaseComponent {
         this.style.fontSize = this.fontSize.value();
         this.style.fontFamily = this.fontFamily;
         for (let i = 1; i < 900; i++) {
-            const newWidthInPix = p.charsWidth(this.content.value(), i, this.style.fontFamily);
+            const newWidthInPix = p.charsWidth(this.content.value(), this.adjestFontSize(i), this.style.fontFamily);
             if (newWidthInPix >= (reqWdInPix)) {
                 this.fontSize.set(i);
                 this.style.fontSize = i;
@@ -76,7 +76,15 @@ export default class Text extends BaseComponent {
         return null;
     }
     adjestFontSize(n) {
-        return n;
+        if (this.canvasWidth == null) {
+            throw new Error("init error");
+        }
+        if (this.respFontSize.value() == true) {
+            return (n / 1000) * this.canvasWidth;
+        }
+        else {
+            return n;
+        }
     }
     shrinkToHeightFn(p) {
         if (this.charsWidth == null) {

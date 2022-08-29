@@ -86,12 +86,6 @@ export default class BaseComponent extends RotateObj {
     contentX() {
         return this.xAligned() + this.paddingLeft.value();
     }
-    adjestFontSize(n) {
-        if (this.canvasWidth == null) {
-            throw new Error("init error");
-        }
-        return (n / 1000) * this.canvasWidth;
-    }
     setPaddings(n) {
         this.paddingLeft.set(n);
         this.paddingRight.set(n);

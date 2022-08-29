@@ -24,7 +24,7 @@ this.maxDisplayChars = new AniNumber(200);
 this.fontFamily = FontFamily.Calibri;
 this.fitToWidth = new AniBoolean(false); 
 this.shrinkToHeight = new AniBoolean(false); 
-this.respFontSize = new AniBoolean(false); 
+this.respFontSize = new AniBoolean(true); 
 //-----------------------------
 this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
 //-----------------------------
@@ -101,7 +101,7 @@ protected fitToWidthFn(p :Pack):number | null{
      for (let i = 1; i < 900; i++) {
      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
 
-     const newWidthInPix = p.charsWidth(this.content.value(),i,this.style.fontFamily);
+     const newWidthInPix = p.charsWidth(this.content.value(),this.adjestFontSize(i),this.style.fontFamily);
  //----------------------------
      if (newWidthInPix >= (reqWdInPix) ){
          this.fontSize.set(i); 
@@ -113,14 +113,13 @@ protected fitToWidthFn(p :Pack):number | null{
 }//dynamic font size
 //---------------------------------- 
 protected adjestFontSize(n :number):number{
-    return n;
-    // if (this.canvasWidth == null){
-    //     throw new Error("init error");}    
-    // if (this.respFontSize.value()== true){
-    //     return (n/1000) * this.canvasWidth;
-    // } else {
-    //     return n;
-    // }   
+    if (this.canvasWidth == null){
+        throw new Error("init error");}    
+    if (this.respFontSize.value()== true){
+        return (n/1000) * this.canvasWidth;
+    } else {
+        return n;
+    }   
 } 
 protected shrinkToHeightFn(p :Pack){
 if (this.charsWidth==null){throw new Error("init error");

@@ -127,11 +127,11 @@ protected contentX():number{
 return this.xAligned() + this.paddingLeft.value(); 
 }
 ////////////////////////////////////////////////////////
-protected adjestFontSize(n :number):number{
-    if (this.canvasWidth == null){
-        throw new Error("init error");}    
-    return (n/1000) * this.canvasWidth;
-} 
+// protected adjestFontSize(n :number):number{
+//     if (this.canvasWidth == null){
+//         throw new Error("init error");}    
+//     return (n/1000) * this.canvasWidth;
+// } 
 public setPaddings(n :number){
 this.paddingLeft.set(n);
 this.paddingRight.set(n);
