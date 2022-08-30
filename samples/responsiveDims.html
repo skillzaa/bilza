@@ -21,8 +21,8 @@
 }
 </style>
     <!-- <script src="./00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="./00misc/prism.js"></script>
+    <link rel="stylesheet" href="./00misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,52 +46,62 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
-let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
-//-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 
-const fillRect = cf.fillRect("red");
-fillRect.xAlign = fillRect.XAlignOpt.Mid;
-fillRect.yAlign = fillRect.YAlignOpt.Mid;
-fillRect.goto(0,50,50);
+let bil = new Bilza("bilza", 70);
+bil.background.color.set("#031363");
 
-//----transparency
-fillRect.opacity.goto(10,50);
+const t = cf.fillRect("hsl(180,100%,50%)");
+t.width.set(80);
+//--important
+t.responsiveDims = true;
 
-fillRect.width.animate(2,5,10,90);
-fillRect.height.animate(6,10,10,90);
+t.xAlign = t.XAlignOpt.Mid;
+t.yAlign = t.YAlignOpt.Mid;
 
-bil.insert.add(fillRect,0,15);
+t.border.set(1);
+t.colorBorder.set("hsl()");
+t.goto(0, 50, 50);
+
+//--------------------------
+bil.insert.add(t, 0, 30);
 const ui = new Ui(bil);
 bil.draw();
+
+setInterval(function(){
+    t.responsiveDims = !t.responsiveDims;
+    bil.draw();
+},2000);
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
-let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
-//-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
+import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
 
-const fillRect = cf.fillRect("red");
-fillRect.xAlign = fillRect.XAlignOpt.Mid;
-fillRect.yAlign = fillRect.YAlignOpt.Mid;
-fillRect.goto(0,50,50);
+let bil = new Bilza("bilza", 70);
+bil.background.color.set("#031363");
 
-//----transparency
-fillRect.opacity.goto(10,50);
+const t = cf.fillRect("hsl(180,100%,50%)");
+t.width.set(80);
+//--important
+t.responsiveDims = true;
 
-fillRect.width.animate(2,5,10,90);
-fillRect.height.animate(6,10,10,90);
+t.xAlign = t.XAlignOpt.Mid;
+t.yAlign = t.YAlignOpt.Mid;
 
-bil.insert.add(fillRect,0,15);
+t.border.set(1);
+t.colorBorder.set("hsl()");
+t.goto(0, 50, 50);
+
+//--------------------------
+bil.insert.add(t, 0, 30);
 const ui = new Ui(bil);
 bil.draw();
+
+setInterval(function(){
+    t.responsiveDims = !t.responsiveDims;
+    bil.draw();
+},2000);
 </code>
 </pre>
 

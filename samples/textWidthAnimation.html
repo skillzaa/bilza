@@ -21,15 +21,15 @@
 }
 </style>
     <!-- <script src="./00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="./00misc/prism.js"></script>
+    <link rel="stylesheet" href="./00misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
 <body>
 
 <div id="canvasContainer">
-<canvas id="bilza"></canvas>
+    <canvas id="bilza"></canvas>
 <!--controls table-->
 <table id="controls" style="width:100%">
 <tr>    
@@ -44,64 +44,63 @@
 </table>
 
 </div>
+<hr/>
+<!-- <h2>Test Controls</h2>
+<div id="parentDiv"></div> -->
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+
 let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
+// bil.resizeCanvas(1000,350);
 //-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 
-const fillRect = cf.fillRect("red");
+const counter = cf.frameCounter("#ff0000");
+counter.goto(0,90,0);
+bil.insert.alwaysOn(counter);
 
-fillRect.showBackground.set(true);
-fillRect.colorBackground.set("green");
-fillRect.width.set(20);
-fillRect.height.set(20);
+const plain = cf.text("Text Demo","#008000");
+plain.goto(0,50,10);
 
-fillRect.goto(0,20,20);
+plain.width.set(10);
+plain.xAlign = plain.XAlignOpt.Mid;
+// plain.maxHeight = 20;
+plain.width.animate(0,10,0,80);
 
-fillRect.paddingLeft.animate(2,8,0,20);
-fillRect.paddingRight.animate(10,18,0,20);
-fillRect.paddingTop.animate(20,28,0,20);
-fillRect.paddingBottom.animate(30,38,0,20);
-
-fillRect.border.animate(40,48,0,20);
-
-bil.insert.add(fillRect,0,60);
+bil.insert.add(plain,0,30);
 const ui = new Ui(bil);
 bil.draw();
+
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "./bilza.js";
+
 let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
+// bil.resizeCanvas(1000,350);
 //-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 
-const fillRect = cf.fillRect("red");
+const counter = cf.frameCounter("#ff0000");
+counter.goto(0,90,0);
+bil.insert.alwaysOn(counter);
 
-fillRect.showBackground.set(true);
-fillRect.colorBackground.set("green");
-fillRect.width.set(20);
-fillRect.height.set(20);
+const plain = cf.text("Text Demo","#008000");
+plain.goto(0,50,10);
 
-fillRect.goto(0,20,20);
+plain.width.set(10);
+plain.xAlign = plain.XAlignOpt.Mid;
+// plain.maxHeight = 20;
+plain.width.animate(0,10,0,80);
 
-fillRect.paddingLeft.animate(2,8,0,20);
-fillRect.paddingRight.animate(10,18,0,20);
-fillRect.paddingTop.animate(20,28,0,20);
-fillRect.paddingBottom.animate(30,38,0,20);
-
-fillRect.border.animate(40,48,0,20);
-
-bil.insert.add(fillRect,0,60);
+bil.insert.add(plain,0,30);
 const ui = new Ui(bil);
 bil.draw();
+    
 </code>
 </pre>
 

@@ -4,6 +4,7 @@ export default class Circle extends BaseComponent {
     startAngle: AniNumber;
     endAngle: AniNumber;
     filled: AniBoolean;
+    lineWidth: AniNumber;
     constructor(radius?: number, color?: string);
     contentHeight(): number;
     update(msDelta: number, p: Pack): boolean;

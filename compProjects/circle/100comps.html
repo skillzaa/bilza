@@ -48,82 +48,68 @@
 <script  type="module">
 import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 
-
 let bil = new Bilza("bilza", 70);
-bil.resizeCanvas(600,null);
+
+bil.background.color.set(hsl(240,100,15));
 // bil.insert.alwaysOn(cf.grid());
-bil.background.color.set(hsl(0,5,30));
 //--------------------
-const comp = cf.text("ABCDEFG",hsl(240));
+let startFrame = 0;
+//--------------------
+for (let row = 0; row < 100; row+=10) {
+    for (let col = 0; col < 100; col+=20) {
+        //....................................
+        const comp = cf.circle(5,hsl(getRandom(0,360)));
+        
+        comp.setPaddings(0);
 
-comp.templ.h1();
-comp.theme.color(240);
-bil.insert.add(comp,0,30);
-
-const ftnt = cf.text("This is foot note and we can write what ever we want in it");
-ftnt.templ.ftNote();
-ftnt.theme.color(240);
-bil.insert.add(ftnt,0,30);
-
-const bltPt = cf.text("The is a Bullet Point of Presentation");
-bltPt.templ.bltPt(40);
-bltPt.theme.color(240);
-bil.insert.add(bltPt,0,30);
-
-const bltPt02 = cf.text("ddd ddd ==it can spill off the screen as well== ddd ddd");
-bltPt02.templ.bltPt(60);
-bltPt02.theme.color(240);
-bil.insert.add(bltPt02,0,30);
-
-const bltPt03 = cf.text("The Third and last point of this slide");
-bltPt03.templ.bltPt(80);
-bltPt03.theme.color(240);
-bil.insert.add(bltPt03,0,30);
+        comp.border.set(1);
+        comp.colorBorder.set("red");
+        comp.x.set(row);        
+        comp.y.set(col);      
+        // comp.width.set(10);
+        // comp.height.set(10);
+        bil.insert.add(comp,startFrame,120);
+        startFrame++;  
+        //....................................        
+    }
+}
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-
 </script>
 
 <pre class="language-javascript">
 <code>
 import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 
-
 let bil = new Bilza("bilza", 70);
-bil.resizeCanvas(600,null);
+
+bil.background.color.set(hsl(240,100,15));
 // bil.insert.alwaysOn(cf.grid());
-bil.background.color.set(hsl(0,5,30));
 //--------------------
-const comp = cf.text("ABCDEFG",hsl(240));
+let startFrame = 0;
+//--------------------
+for (let row = 0; row < 100; row+=10) {
+    for (let col = 0; col < 100; col+=20) {
+        //....................................
+        const comp = cf.circle(5,hsl(getRandom(0,360)));
+        
+        comp.setPaddings(0);
 
-comp.templ.h1();
-comp.theme.color(240);
-bil.insert.add(comp,0,30);
-
-const ftnt = cf.text("This is foot note and we can write what ever we want in it");
-ftnt.templ.ftNote();
-ftnt.theme.color(240);
-bil.insert.add(ftnt,0,30);
-
-const bltPt = cf.text("The is a Bullet Point of Presentation");
-bltPt.templ.bltPt(40);
-bltPt.theme.color(240);
-bil.insert.add(bltPt,0,30);
-
-const bltPt02 = cf.text("ddd ddd ==it can spill off the screen as well== ddd ddd");
-bltPt02.templ.bltPt(60);
-bltPt02.theme.color(240);
-bil.insert.add(bltPt02,0,30);
-
-const bltPt03 = cf.text("The Third and last point of this slide");
-bltPt03.templ.bltPt(80);
-bltPt03.theme.color(240);
-bil.insert.add(bltPt03,0,30);
+        comp.border.set(1);
+        comp.colorBorder.set("red");
+        comp.x.set(row);        
+        comp.y.set(col);      
+        // comp.width.set(10);
+        // comp.height.set(10);
+        bil.insert.add(comp,startFrame,120);
+        startFrame++;  
+        //....................................        
+    }
+}
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-
 </code>
 </pre>
 

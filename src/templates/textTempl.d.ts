@@ -4,7 +4,7 @@ export default class TextTempl {
     constructor(comp: Text);
     h1(): void;
     jumbotron(): void;
-    ftNoteL(x?: number): void;
+    ftNote(x?: number, y?: number): void;
     bltPt(y?: number, height?: number): void;
 }
 //# sourceMappingURL=textTempl.d.ts.map

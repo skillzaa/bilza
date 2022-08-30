@@ -46,7 +46,7 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
 
 let bil = new Bilza("bilza",70);
 //-----------------------------------------
@@ -60,9 +60,9 @@ bil.background.color.goto(8,"yellow");
 bil.background.color.goto(10,"brown");
 bil.background.color.goto(12,"pink");
 
-const raw = cf.rawText("blue");
-raw.xAlign = raw.XAlignOpt.Mid;
-raw.yAlign = raw.YAlignOpt.Mid;
+const raw = cf.text("blue");
+raw.align(1,1);
+
 raw.goto(0,50,50);
 raw.width.set(60);
 raw.color.set("black");
@@ -82,7 +82,7 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
 
 let bil = new Bilza("bilza",70);
 //-----------------------------------------

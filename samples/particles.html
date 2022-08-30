@@ -46,7 +46,7 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui, CompFactory as cf } from "../src/bilza.js";
+import Bilza, { Ui, CompFactory as cf } from "../bilza/src/bilza.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set("#182b89");
 
@@ -72,7 +72,7 @@ bil.draw(); //-------------------------------------//
 /////////////////////////////////////////////////////
 
 function getParticles(x = 0, y = 0, count = 20, color = "red", delay = 20) {
-    const particleSystem = cf.particleSystem(count, color, delay);
+    const particleSystem = cf.circleParticles(count, color, delay);
     particleSystem.size = 5;
     particleSystem.count = count;
     particleSystem.width.set(30);
@@ -88,7 +88,7 @@ function getParticles(x = 0, y = 0, count = 20, color = "red", delay = 20) {
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf } from "../src/bilza.js";
+import Bilza, { Ui, CompFactory as cf } from "../bilza/src/bilza.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set("#182b89");
 

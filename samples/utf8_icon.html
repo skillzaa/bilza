@@ -44,72 +44,65 @@
 </table>
 
 </div>
-<!-- <audio id="soundTrackElement">
-<source src="../sounds/mix.mp3" type="audio/mp3">
-</audio> -->
 
 <script  type="module" >
-const x = document.getElementById("soundTrackElement");
-const playBtn = document.getElementById("start");
-const stopBtn = document.getElementById("stop");
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 
-playBtn.addEventListener("click",function () {
-  x.play();
-});
-stopBtn.addEventListener("click",function () {
-  x.pause();
-  x.currentTime = 0;
-});
-
-</script>
-
-<script  type="module" >
-import Bilza, { Ui, CompFactory as cf } from "../src/bilza.js";
 
 let bil = new Bilza("bilza",70);
 bil.background.color.set("hsl(240,100%,15%)");
+//-----------------------------------------
+const txt01 = cf.icon(9632);
+txt01.fontSize.set(400);
+txt01.x.set(50);
+txt01.y.set(40);
 
-//----Grid
-let grid = cf.grid();
-bil.insert.alwaysOn(grid);
-//----frameCounter
-let c = cf.frameCounter();
-c.goto(0, 10, 0);
-bil.insert.alwaysOn(c);
+txt01.xAlign = txt01.XAlignOpt.Mid;
+txt01.yAlign = txt01.YAlignOpt.Mid;
 
-//----fillRect
-let mt = cf.fillRect("red");
-mt.goto(0,0,50);
-mt.animate(1, 10, 0, 100, 50, 50);
-bil.insert.add(mt,0, 12);
-//----Draw
-const ui = new Ui(bil);
+txt01.color.set("hsl(60,100%,50%)");
+bil.insert.add(txt01,0,50);
+//-----------------------------------------
+//--We do not need buttons for this one
+// const ui = new Ui(bil);
 bil.draw();
+
+let code = 9632;
+setInterval(function(){
+txt01.code += 1;
+bil.draw();
+},500);
 </script>
+
+
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf } from "../src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
+
 
 let bil = new Bilza("bilza",70);
 bil.background.color.set("hsl(240,100%,15%)");
+//-----------------------------------------
+const txt01 = cf.icon(9632);
+txt01.fontSize.set(400);
+txt01.x.set(50);
+txt01.y.set(40);
 
-//----Grid
-let grid = cf.grid();
-bil.insert.alwaysOn(grid);
-//----frameCounter
-let c = cf.frameCounter();
-c.goto(0, 10, 0);
-bil.insert.alwaysOn(c);
+txt01.xAlign = txt01.XAlignOpt.Mid;
+txt01.yAlign = txt01.YAlignOpt.Mid;
 
-//----fillRect
-let mt = cf.fillRect("red");
-mt.goto(0,0,50);
-mt.animate(1, 10, 0, 100, 50, 50);
-bil.insert.add(mt,0, 12);
-//----Draw
+txt01.color.set("hsl(60,100%,50%)");
+bil.insert.add(txt01,0,50);
+//-----------------------------------------
 const ui = new Ui(bil);
 bil.draw();
+
+let code = 9632;
+setInterval(function(){
+txt01.code += 1;
+bil.draw();
+},500);
 </code>
 </pre>
 

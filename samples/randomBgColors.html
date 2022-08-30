@@ -46,62 +46,34 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
+//Background color can not be seen since there is rect ahead
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 let bil = new Bilza("bilza",70);
 // bil.resizeCanvas(800,300);
 //-----------------------------------------
 const grid = cf.grid("grey");
+
 bil.insert.alwaysOn(grid);
 
 const fillRect = cf.fillRect("red");
+fillRect.xAlign = fillRect.XAlignOpt.Mid;
+fillRect.yAlign = fillRect.YAlignOpt.Mid;
+fillRect.goto(0,50,50);
 
-fillRect.showBackground.set(true);
-fillRect.colorBackground.set("green");
-fillRect.width.set(20);
-fillRect.height.set(20);
+fillRect.width.set(50);
+fillRect.height.set(50);
+fillRect.opacity.set(50);
 
-fillRect.goto(0,20,20);
+fillRect.colorBackground.random(2,10,60);
 
-fillRect.paddingLeft.animate(2,8,0,20);
-fillRect.paddingRight.animate(10,18,0,20);
-fillRect.paddingTop.animate(20,28,0,20);
-fillRect.paddingBottom.animate(30,38,0,20);
-
-fillRect.border.animate(40,48,0,20);
-
-bil.insert.add(fillRect,0,60);
+bil.insert.add(fillRect,0,15);
 const ui = new Ui(bil);
 bil.draw();
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
-let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
-//-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
 
-const fillRect = cf.fillRect("red");
-
-fillRect.showBackground.set(true);
-fillRect.colorBackground.set("green");
-fillRect.width.set(20);
-fillRect.height.set(20);
-
-fillRect.goto(0,20,20);
-
-fillRect.paddingLeft.animate(2,8,0,20);
-fillRect.paddingRight.animate(10,18,0,20);
-fillRect.paddingTop.animate(20,28,0,20);
-fillRect.paddingBottom.animate(30,38,0,20);
-
-fillRect.border.animate(40,48,0,20);
-
-bil.insert.add(fillRect,0,60);
-const ui = new Ui(bil);
-bil.draw();
 </code>
 </pre>
 

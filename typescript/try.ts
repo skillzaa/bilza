@@ -1,26 +1,40 @@
 import Bilza, {Ui, CompFactory as cf,hsl,getRandom} from "./bilza.js";
 
-let bil = new Bilza("bilza", 70);
+let bil = new Bilza("bilza",70);
+bil.background.color.set("#000000");
+//-----------------------------------------
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 
-bil.background.color.set(hsl(240,100,15));
-bil.insert.alwaysOn(cf.grid());
-getPic(4,2);
-getPic(54,2);
-getPic(4,50);
-getPic(54,50);
+const counter = cf.frameCounter("#ff0000");
+bil.insert.alwaysOn(counter);
 
-function getPic(x :number,y :number){
-const pic = cf.pic("../compProjects/00images/house.jpg");
-pic.setxy(x,y);
-pic.width.set(10);
-pic.height.set(10);
-pic.border.set(2);
-pic.colorBorder.set("red");
 
-pic.width.oscillate(0,20,10,45,4);
-pic.height.oscillate(0,20,10,45,4);
-bil.insert.add(pic,0,20);
+getCircle(29,"yellow");
+getCircle(25,"red");
+getCircle(21,"green");
+getCircle(17,"blue");
+getCircle(13,"magenta");
+getCircle(9,"cyan");
+getCircle(6,"crimson");
+
+
+function getCircle(radius :number=25,color :string="red",){
+const circle = cf.circle(radius,color);
+//--This will just draw the boundry
+circle.filled.set(false);
+circle.lineWidth.set(25);
+circle.align(1,1);
+
+circle.goto(0,50,50);
+circle.startAngle.set(0);
+circle.endAngle.set(0);
+
+circle.endAngle.animate(1,15,0,360);
+
+bil.insert.add(circle,0,20);
 }
-//--------------------
+
+//-----------------------
 const ui = new Ui(bil);
 bil.draw();

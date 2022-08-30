@@ -45,32 +45,30 @@
 
 </div>
 
-<script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl } from "../bilza/src/bilza.js";
+<script  type="module" >
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
+bil.background.color.set("#031363");
 
-bil.background.color.set(hsl(240, 100, 18));
-bil.insert.alwaysOn(cf.grid(hsl(60, 50, 30)));
+const t = cf.text("Text Padding Demo", "#ffff00");
+t.width.set(50);
+//--Try the example with both options
+// t.responsivePadding = false;
+// t.responsivePadding = true;
 
-const fill = cf.fillRect(hsl(30));
-fill.xAlign = fill.XAlignOpt.Mid;
-fill.yAlign = fill.YAlignOpt.Mid;
-
-fill.x.set(50);
-fill.y.set(50);
-
-fill.width.set(50);
-fill.height.set(50);
-bil.insert.add(fill, 0, 30);
-const line = cf.line(50, 50, 25, 25);
-line.color.set(hsl(120));
-line.lineWidth.set(10);
-bil.insert.alwaysOn(line);
-line.x2.animate(1, 5, 25, 75);
-line.y2.animate(6, 10, 25, 75);
-line.x2.animate(11, 15, 75, 25);
-line.y2.animate(16, 20, 75, 25);
+t.showBackground.set(true);
+t.colorBackground.set("#000000");
+t.border.set(4);
+t.colorBorder.set("red");
+t.goto(0, 0, 0);
+t.paddingLeft.animate(2, 5, 0, 45);
+t.paddingLeft.animate(7, 10, 45, 0);
+t.paddingRight.animate(7, 10, 0, 45);
+t.paddingTop.animate(12, 15, 0, 40);
+t.paddingTop.animate(17, 20, 40, 0);
+t.paddingBottom.animate(17, 20, 0, 40);
+bil.insert.add(t, 0, 30);
 const ui = new Ui(bil);
 bil.draw();
 
@@ -78,34 +76,31 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl } from "../bilza/src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
+bil.background.color.set("#031363");
 
-bil.background.color.set(hsl(240, 100, 18));
-bil.insert.alwaysOn(cf.grid(hsl(60, 50, 30)));
+const t = cf.text("Text Padding Demo", "#ffff00");
+t.width.set(50);
+//--Try the example with both options
+// t.responsivePadding = false;
+// t.responsivePadding = true;
 
-const fill = cf.fillRect(hsl(30));
-fill.xAlign = fill.XAlignOpt.Mid;
-fill.yAlign = fill.YAlignOpt.Mid;
-
-fill.x.set(50);
-fill.y.set(50);
-
-fill.width.set(50);
-fill.height.set(50);
-bil.insert.add(fill, 0, 30);
-const line = cf.line(50, 50, 25, 25);
-line.color.set(hsl(120));
-line.lineWidth.set(10);
-bil.insert.alwaysOn(line);
-line.x2.animate(1, 5, 25, 75);
-line.y2.animate(6, 10, 25, 75);
-line.x2.animate(11, 15, 75, 25);
-line.y2.animate(16, 20, 75, 25);
+t.showBackground.set(true);
+t.colorBackground.set("#000000");
+t.border.set(4);
+t.colorBorder.set("red");
+t.goto(0, 0, 0);
+t.paddingLeft.animate(2, 5, 0, 45);
+t.paddingLeft.animate(7, 10, 45, 0);
+t.paddingRight.animate(7, 10, 0, 45);
+t.paddingTop.animate(12, 15, 0, 40);
+t.paddingTop.animate(17, 20, 40, 0);
+t.paddingBottom.animate(17, 20, 0, 40);
+bil.insert.add(t, 0, 30);
 const ui = new Ui(bil);
 bil.draw();
-
 </code>
 </pre>
 

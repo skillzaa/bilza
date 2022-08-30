@@ -7,6 +7,7 @@ export default class Circle extends BaseComponent {
 startAngle :AniNumber;  
 endAngle :AniNumber;  
 filled :AniBoolean;
+lineWidth :AniNumber;
 
 constructor (radius :number=10,color :string="#ff0000"){ 
 super();
@@ -14,6 +15,7 @@ super();
 this.filled = new AniBoolean(true);
 this.startAngle = new AniNumber(0);
 this.endAngle = new AniNumber(360);
+this.lineWidth = new AniNumber(1);
 //---existing prop
 this.color.set(color) ; 
 this.width.set(Math.floor(radius * 2)) ; 
@@ -25,6 +27,7 @@ return this.width.value();//since its circle and height = width
 update(msDelta: number, p: Pack): boolean {
     this.startAngle.update(msDelta);
     this.endAngle.update(msDelta);
+    this.lineWidth.update(msDelta);
     //---??
     this.height.set(this.width.value());
     super.update(msDelta,p);
@@ -37,6 +40,7 @@ this.preDraw(p);
 //--------------
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value(); 
+this.style.lineWidth = this.lineWidth.value(); 
 //---------------------------------------
 p.beginPath();
 /*

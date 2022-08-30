@@ -46,60 +46,88 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
+import Bilza, { Ui, CompFactory as cf,hsl } from "../../src/bilza.js";
 let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
+bil.background.color.set("#000000");
 //-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 
-const fillRect = cf.fillRect("red");
+const counter = cf.frameCounter("#ff0000");
+bil.insert.alwaysOn(counter);
 
-fillRect.showBackground.set(true);
-fillRect.colorBackground.set("green");
-fillRect.width.set(20);
-fillRect.height.set(20);
 
-fillRect.goto(0,20,20);
+getCircle(29,"yellow");
+getCircle(25,"red");
+getCircle(21,"green");
+getCircle(17,"blue");
+getCircle(13,"magenta");
+getCircle(9,"cyan");
+getCircle(6,"crimson");
 
-fillRect.paddingLeft.animate(2,8,0,20);
-fillRect.paddingRight.animate(10,18,0,20);
-fillRect.paddingTop.animate(20,28,0,20);
-fillRect.paddingBottom.animate(30,38,0,20);
 
-fillRect.border.animate(40,48,0,20);
+function getCircle(radius=25,color="red",){
+const circle = cf.circle(radius,color);
+//--This will just draw the boundry
+circle.filled.set(false);
+circle.lineWidth.set(25);
+circle.align(1,1);
 
-bil.insert.add(fillRect,0,60);
+circle.goto(0,50,50);
+circle.startAngle.set(0);
+circle.endAngle.set(0);
+
+circle.endAngle.animate(1,15,0,360);
+
+bil.insert.add(circle,0,20);
+}
+
+//-----------------------
 const ui = new Ui(bil);
 bil.draw();
+
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
+import Bilza, { Ui, CompFactory as cf,hsl } from "../../src/bilza.js";
+
 let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
+bil.background.color.set("#000000");
 //-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 
-const fillRect = cf.fillRect("red");
+const counter = cf.frameCounter("#ff0000");
+bil.insert.alwaysOn(counter);
 
-fillRect.showBackground.set(true);
-fillRect.colorBackground.set("green");
-fillRect.width.set(20);
-fillRect.height.set(20);
 
-fillRect.goto(0,20,20);
+getCircle(29,"yellow");
+getCircle(25,"red");
+getCircle(21,"green");
+getCircle(17,"blue");
+getCircle(13,"magenta");
+getCircle(9,"cyan");
+getCircle(6,"crimson");
 
-fillRect.paddingLeft.animate(2,8,0,20);
-fillRect.paddingRight.animate(10,18,0,20);
-fillRect.paddingTop.animate(20,28,0,20);
-fillRect.paddingBottom.animate(30,38,0,20);
 
-fillRect.border.animate(40,48,0,20);
+function getCircle(radius=25,color="red",){
+const circle = cf.circle(radius,color);
+//--This will just draw the boundry
+circle.filled.set(false);
+circle.lineWidth.set(25);
+circle.align(1,1);
 
-bil.insert.add(fillRect,0,60);
+circle.goto(0,50,50);
+circle.startAngle.set(0);
+circle.endAngle.set(0);
+
+circle.endAngle.animate(1,15,0,360);
+
+bil.insert.add(circle,0,20);
+}
+
+//-----------------------
 const ui = new Ui(bil);
 bil.draw();
 </code>

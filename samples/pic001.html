@@ -21,15 +21,15 @@
 }
 </style>
     <!-- <script src="./00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="./00misc/prism.js"></script>
+    <link rel="stylesheet" href="./00misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
 <body>
 
 <div id="canvasContainer">
-<canvas id="bilza"></canvas>
+    <canvas id="bilza"></canvas>
 <!--controls table-->
 <table id="controls" style="width:100%">
 <tr>    
@@ -46,52 +46,30 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
+// bil.resizeCanvas(1000,350);
+bil.background.color.set("#000000");
 //-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
+const g = cf.grid();
+bil.insert.alwaysOn(g);
 
-const fillRect = cf.fillRect("red");
-fillRect.xAlign = fillRect.XAlignOpt.Mid;
-fillRect.yAlign = fillRect.YAlignOpt.Mid;
-fillRect.goto(0,50,50);
+const counter = cf.frameCounter("#ff0000");
+bil.insert.alwaysOn(counter);
 
-//----transparency
-fillRect.opacity.goto(10,50);
-
-fillRect.width.animate(2,5,10,90);
-fillRect.height.animate(6,10,10,90);
-
-bil.insert.add(fillRect,0,15);
+const plain = cf.pic("./images/house.jpg",80,80);
+plain.y.set(10);
+plain.xAlign = plain.XAlignOpt.Right;
+plain.x.animate(0,10,0,100);
+bil.insert.add(plain,0,15);
 const ui = new Ui(bil);
 bil.draw();
+
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
-let bil = new Bilza("bilza",70);
-// bil.resizeCanvas(800,300);
-//-----------------------------------------
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
 
-const fillRect = cf.fillRect("red");
-fillRect.xAlign = fillRect.XAlignOpt.Mid;
-fillRect.yAlign = fillRect.YAlignOpt.Mid;
-fillRect.goto(0,50,50);
-
-//----transparency
-fillRect.opacity.goto(10,50);
-
-fillRect.width.animate(2,5,10,90);
-fillRect.height.animate(6,10,10,90);
-
-bil.insert.add(fillRect,0,15);
-const ui = new Ui(bil);
-bil.draw();
 </code>
 </pre>
 

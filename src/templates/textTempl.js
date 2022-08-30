@@ -25,9 +25,9 @@ export default class TextTempl {
         this.comp.height.set(20);
         this.comp.fitToWidth.set(true);
     }
-    ftNoteL(x = 10) {
+    ftNote(x = 10, y = 95) {
         this.comp.x.set(5);
-        this.comp.y.set(95);
+        this.comp.y.set(y);
         this.comp.align(0, 2);
         this.comp.showBackground.set(true);
         this.comp.border.set(1);
