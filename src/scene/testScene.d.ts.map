@@ -1,1 +1,1 @@
-{"version":3,"file":"testScene.d.ts","sourceRoot":"","sources":["../../typescript/scene/testScene.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,MAAM,YAAY,CAAC;AAE/B,QAAA,MAAM,GAAG,OAAgB,CAAC;AAkB1B,eAAe,GAAG,CAAC"}
+{"version":3,"file":"testScene.d.ts","sourceRoot":"","sources":["../../typescript/scene/testScene.ts"],"names":[],"mappings":"AAAA,OAAc,EAA2B,KAAK,EAAW,MAAM,aAAa,CAAC;AAE7E,MAAM,CAAC,OAAO,UAAU,SAAS,CAAC,SAAS,EAAE,MAAM,EAAC,OAAO,EAAE,MAAM,GAAE,KAAK,CAczE"}

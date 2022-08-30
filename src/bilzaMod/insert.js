@@ -8,10 +8,7 @@ export default class Insert {
         const comps = scene.getComps();
         for (let i = 0; i < comps.length; i++) {
             const comp = comps[i];
-            const compDuration = comp.getDuration();
-            const compStartTime = comp.getStartTime(false);
-            '';
-            this.add(comp, startTimeSec + compStartTime, startTimeSec + compStartTime + compDuration);
+            this.add(comp, comp.getStartTime(false), comp.getEndTime(false));
         }
     }
     append(comp, duration) {

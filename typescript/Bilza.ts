@@ -27,6 +27,7 @@ import PremadeSpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 import SpriteSheet from "./components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "./components/spriteSheet/spriteSheetAlt.js";
 import getRandom from "./functions/getRandom.js";
+import Scene from "./scene/scene.js";
 export {
 Pack,
 TextTempl,
@@ -48,6 +49,6 @@ XAlignOpt,
 YAlignOpt,
 FontFamily,
 Style,
-// TextTempl
+Scene,
 k
 }

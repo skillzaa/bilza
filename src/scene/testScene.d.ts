@@ -1,4 +1,3 @@
-import Scene from "./scene.js";
-declare const sce: Scene;
-export default sce;
+import { Scene } from "../bilza.js";
+export default function testScene(startTime: number, endTime: number): Scene;
 //# sourceMappingURL=testScene.d.ts.map

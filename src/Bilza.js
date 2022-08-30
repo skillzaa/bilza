@@ -18,4 +18,5 @@ import PremadeSpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 import SpriteSheet from "./components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "./components/spriteSheet/spriteSheetAlt.js";
 import getRandom from "./functions/getRandom.js";
-export { Pack, TextTempl, PremadeSpriteSheets, SpriteSheet, SpriteSheetAlt, hsl, DrawLayer, UTFIcons, Experimental, Ui, getRandom, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, k };
+import Scene from "./scene/scene.js";
+export { Pack, TextTempl, PremadeSpriteSheets, SpriteSheet, SpriteSheetAlt, hsl, DrawLayer, UTFIcons, Experimental, Ui, getRandom, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, Scene, k };

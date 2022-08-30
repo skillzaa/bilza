@@ -29,7 +29,7 @@ this.comp.align(1,1);
 this.comp.showBackground.set(true);
 this.comp.border.set(15);
 this.comp.setPaddings(10);
-this.comp.width.set(100);
+this.comp.width.set(80);
 this.comp.height.set(20);
 // this.comp.respFontSize.set(false);
 this.comp.fitToWidth.set(true);
