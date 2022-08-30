@@ -1,5 +1,10 @@
 import BaseComponentBase from "./99BaseComponentBase.js";
 
+/**
+ * You just use
+ * setDuration(startFrame :number,endFrame:number):number
+ * and this will also set getStartTime,getEndTime and getDuration
+ */
 export default class Time extends BaseComponentBase{
 private  _endFrame:number | null; 
 private  _startFrame:number | null; 
@@ -26,10 +31,10 @@ if (this._endFrame ==null || this._startFrame == null){
     throw new Error("duration not yet set, please call setDuration first");
     
 }      
-    const dur = this._startFrame - this._endFrame;
-    // if ((dur < 1) || (typeof dur == "undefined")) {
-    //     throw new Error("please make sure that startFrame is smaller than endFrame");
-    // }
+    const dur =  this._endFrame - this._startFrame;
+    if ((dur < 1) || (typeof dur == "undefined")) {
+        throw new Error("please make sure that startFrame is smaller than endFrame");
+    }
 return dur;
 }
 getEndTime(inMilliSec :boolean = true) :number{

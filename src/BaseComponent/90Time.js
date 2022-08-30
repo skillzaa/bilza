@@ -18,7 +18,10 @@ export default class Time extends BaseComponentBase {
         if (this._endFrame == null || this._startFrame == null) {
             throw new Error("duration not yet set, please call setDuration first");
         }
-        const dur = this._startFrame - this._endFrame;
+        const dur = this._endFrame - this._startFrame;
+        if ((dur < 1) || (typeof dur == "undefined")) {
+            throw new Error("please make sure that startFrame is smaller than endFrame");
+        }
         return dur;
     }
     getEndTime(inMilliSec = true) {
