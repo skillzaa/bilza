@@ -22,17 +22,20 @@ this.comp.fitToWidth.set(true); // This will set fontSize
 this.comp.shrinkToHeight.set(true);  
 }
 jumbotron(){
-this.comp.x.set(50);    
-this.comp.y.set(40);    
+//do not touch this no align from now on    
 this.comp.align(1,1);
+// this.comp.align(0,0);
+this.comp.width.set(80);
+this.comp.fitToWidth.set(true);
+this.comp.height.set(20);
+this.comp.setPaddings(10);
+//since we know width = 80 so x = 20 will place it at mid without messing with align.
+this.comp.x.set(50);     
+this.comp.y.set(40);    
 // this.comp.fontSize.set(100);  
 this.comp.showBackground.set(true);
 this.comp.border.set(15);
-this.comp.setPaddings(10);
-this.comp.width.set(80);
-this.comp.height.set(20);
 // this.comp.respFontSize.set(false);
-this.comp.fitToWidth.set(true);
 }
 ftNote(x :number=10,y :number=95){
     this.comp.x.set(5);    

@@ -5,7 +5,7 @@ export default class Time extends BaseComponentBase {
         this._startFrame = null;
         this._endFrame = null;
     }
-    setDuration(startFrame, endFrame) {
+    setTimings(startFrame, endFrame) {
         const dur = endFrame - startFrame;
         if ((dur < 1) || (typeof dur == "undefined")) {
             throw new Error("please make sure that startFrame is smaller than endFrame");

@@ -16,7 +16,7 @@ constructor(){
     this._endFrame = null;    
 }
 /**This fn is got engine do not expose to user */
-setDuration(startFrame :number,endFrame:number):number{    
+setTimings(startFrame :number,endFrame:number):number{    
     const dur = endFrame - startFrame;
     if ((dur < 1) || (typeof dur == "undefined")) {
         throw new Error("please make sure that startFrame is smaller than endFrame");

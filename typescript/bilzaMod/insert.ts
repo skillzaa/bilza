@@ -35,7 +35,7 @@ public append(comp :IComponent,duration :number){
     const startingFrame = this.duration.len(false);
     const endFrame = startingFrame + duration;
      //--1 : comp.duration cant be > 0 
-     comp.setDuration(startingFrame,endFrame);
+     comp.setTimings(startingFrame,endFrame);
     
     //--2 : Add comp duration to this.duration .
     this.duration.extend(comp.getDuration());
@@ -46,7 +46,7 @@ return this.comps.push(comp);
 public add(comp :IComponent,startTime :number,endTime :number){
     comp.charsWidth = this.charsWidth;
         //--1 : comp.duration cant be > 0 
-    comp.setDuration(startTime,endTime);    
+    comp.setTimings(startTime,endTime);    
 //--------------------------------------    
 //--2 : stop if startTime > bil.duration(false);
   if (comp.getStartTime(false) > this.duration.len(false)){

@@ -1,0 +1,1 @@
+{"version":3,"file":"entryAnimations.d.ts","sourceRoot":"","sources":["../../typescript/templates/entryAnimations.ts"],"names":[],"mappings":"AAEA,OAAO,IAAI,MAAM,uBAAuB,CAAC;AAEzC,OAAO,aAAa,MAAM,qCAAqC,CAAC;AAEhE,MAAM,CAAC,OAAO,OAAO,eAAe;IACpC,OAAO,CAAE,IAAI,CAAM;gBAEP,IAAI,EAAE,IAAI;IAGtB,MAAM,CAAC,IAAI,EAAE,aAAa;CAIzB"}

@@ -15,13 +15,13 @@ export default class Insert {
         comp.charsWidth = this.charsWidth;
         const startingFrame = this.duration.len(false);
         const endFrame = startingFrame + duration;
-        comp.setDuration(startingFrame, endFrame);
+        comp.setTimings(startingFrame, endFrame);
         this.duration.extend(comp.getDuration());
         return this.comps.push(comp);
     }
     add(comp, startTime, endTime) {
         comp.charsWidth = this.charsWidth;
-        comp.setDuration(startTime, endTime);
+        comp.setTimings(startTime, endTime);
         if (comp.getStartTime(false) > this.duration.len(false)) {
             this.duration.set(comp.getStartTime(false));
         }

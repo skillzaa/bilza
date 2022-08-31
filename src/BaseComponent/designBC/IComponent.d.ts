@@ -26,7 +26,7 @@ export default interface IComponent {
     compWidth(): number;
     compHeight(): number;
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
-    setDuration(startFrame: number, endFrame: number): number;
+    setTimings(startFrame: number, endFrame: number): number;
     getDuration(): number;
     getStartTime(inMilliSec?: boolean): number;
     getEndTime(inMilliSec?: boolean): number;

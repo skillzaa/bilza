@@ -5,5 +5,5 @@ export default interface IScene {
     getStartTime():number;
     getEndTime():number;
     duration():number;
-    push(comp :IComponent,startTimeSec :number, endTimeSec :number):void;
+    add(comp :IComponent,startTimeSec :number, endTimeSec :number):void;
 } 

@@ -28,6 +28,7 @@ import SpriteSheet from "./components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "./components/spriteSheet/spriteSheetAlt.js";
 import getRandom from "./functions/getRandom.js";
 import Scene from "./scene/scene.js";
+import Slide from "./scene/slide.js";
 export {
 Pack,
 TextTempl,
@@ -50,5 +51,6 @@ YAlignOpt,
 FontFamily,
 Style,
 Scene,
+Slide,
 k
 }

@@ -1,6 +1,6 @@
 import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
 
-export default function welcome(startTime :number,endTime :number, hslColorNo :number):Scene{
+export default function h1bp3 ( startTime :number,endTime :number, hslColorNo :number ):Scene{
     const sce = new Scene(startTime,endTime);
 /////////////////////////////////////////////
     

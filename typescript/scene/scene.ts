@@ -22,7 +22,6 @@ if (this._duration < 1) { throw new Error("start time can not be smaller than en
 }
 //////////////////////////////////////
 public getComps():IComponent[]{
-this.init();    
 return this.comps;
 }
 
@@ -35,11 +34,9 @@ return this._endTime;
 public duration():number{
 return this._duration;
 }        
-//////////////////////////////////////////
-protected init(){
 
-}
-public push(comp :IComponent,startTimeSec :number, endTimeSec :number){
+
+public add(comp :IComponent,startTimeSec :number, endTimeSec :number){
  if (startTimeSec < this.getStartTime() ||
  endTimeSec > this.getEndTime()
  ){
@@ -47,14 +44,14 @@ public push(comp :IComponent,startTimeSec :number, endTimeSec :number){
  }
 //--here we set its duration which also sets its startTime (scene start time is always = 0 so comp start point is from that prespective), and endTimeSec  
 //--BUT when we insert it inside bil.insert.add we have to reset its start and end time keeping the same duration
-comp.setDuration(startTimeSec,endTimeSec);     
+comp.setTimings(startTimeSec,endTimeSec);     
 this.comps.push(comp);
 }
 
-startTimePlus(timeSec :number):number{
+startTimePlus(timeSec :number=0):number{
 return this._startTime + timeSec;
 }
-endTimeMinus(timeSec :number):number{
+endTimeMinus(timeSec :number=0):number{
 return Math.abs(this._endTime - timeSec) ;
 }
 /////////////////////////////////////

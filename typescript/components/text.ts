@@ -3,6 +3,8 @@ import {Pack,BaseComponent,DrawLayer,FontFamily } from "../bilza.js";
 import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js"; 
 import TextTempl from "../templates/textTempl.js";
 import TextTheme from "../templates/textTheme.js";
+import EntryAni from "../templates/entryAni.js";
+import ExitAni from "../templates/exitAni.js";
 
 export default class Text extends BaseComponent {
 public content :AniString;
@@ -11,6 +13,8 @@ public fontSize :AniNumber;
 public maxDisplayChars :AniNumber; 
 public templ :TextTempl; 
 public theme :TextTheme; 
+public entryAni :EntryAni; 
+public exitAni :ExitAni; 
 public fitToWidth :AniBoolean; 
 // public fitToHeight :AniBoolean; 
 public shrinkToHeight :AniBoolean; 
@@ -30,6 +34,8 @@ this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
 //-----------------------------
 this.templ = new TextTempl(this);
 this.theme = new TextTheme(this);
+this.entryAni = new EntryAni(this);
+this.exitAni = new ExitAni(this);
 //-----------------------------
 this.color.set(colorHax); 
 }
