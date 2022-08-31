@@ -3,26 +3,28 @@ import { AniPerc } from "../animationModule/animations.js";
 export default class BaseComponent extends RotateObj {
     constructor() {
         super();
+        this._canvasWidth = null;
+        this._canvasHeight = null;
     }
     init(p) {
-        this.canvasWidth = p.canvasWidth();
-        this.canvasHeight = p.canvasHeight();
+        this._canvasWidth = p.canvasWidth();
+        this._canvasHeight = p.canvasHeight();
         if (this.width instanceof AniPerc && this.height instanceof AniPerc) {
-            this.width.init(this.canvasWidth);
-            this.height.init(this.canvasHeight);
+            this.width.init(this.canvasWidth());
+            this.height.init(this.canvasHeight());
         }
         if (this.x instanceof AniPerc && this.y instanceof AniPerc) {
-            this.x.init(this.canvasWidth);
-            this.y.init(this.canvasHeight);
+            this.x.init(this.canvasWidth());
+            this.y.init(this.canvasHeight());
         }
         if (this.paddingLeft instanceof AniPerc &&
             this.paddingRight instanceof AniPerc &&
             this.paddingTop instanceof AniPerc &&
             this.paddingBottom instanceof AniPerc) {
-            this.paddingLeft.init(this.canvasWidth);
-            this.paddingRight.init(this.canvasWidth);
-            this.paddingTop.init(this.canvasHeight);
-            this.paddingBottom.init(this.canvasHeight);
+            this.paddingLeft.init(this.canvasWidth());
+            this.paddingRight.init(this.canvasWidth());
+            this.paddingTop.init(this.canvasHeight());
+            this.paddingBottom.init(this.canvasHeight());
         }
         return true;
     }
@@ -98,5 +100,17 @@ export default class BaseComponent extends RotateObj {
         }
         this.x.set(x);
         this.y.set(y);
+    }
+    canvasHeight() {
+        if (this._canvasHeight == null) {
+            throw new Error("the lib may not be initiailzed yet");
+        }
+        return this._canvasHeight;
+    }
+    canvasWidth() {
+        if (this._canvasWidth == null) {
+            throw new Error("the lib may not be initiailzed yet");
+        }
+        return this._canvasWidth;
     }
 }

@@ -35,8 +35,6 @@ export default class BaseComponentBase {
     y: AniPerc | AniNumber;
     colorBackground: AniColor;
     showBackground: AniBoolean;
-    canvasWidth: number | null;
-    canvasHeight: number | null;
     constructor();
     setRespPadding(tf?: boolean): boolean;
     setRespLoc(tf?: boolean): boolean;

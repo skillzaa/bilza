@@ -73,11 +73,7 @@ public y :AniPerc | AniNumber;
 public colorBackground :AniColor;
 public showBackground :AniBoolean;
 
-/////////////////----PRIVATE----/////////////////// 
-//---these 2 variables will be set in init
-canvasWidth :number | null;    
-canvasHeight :number | null;   
-//---
+
 constructor(){
     //--insert the current version numebr into components
     this.version = "0.0.30";
@@ -108,8 +104,6 @@ constructor(){
     this.style = new Style(); 
 ///////////// 
  
-this.canvasWidth = null;    
-this.canvasHeight = null;    
 
 //---flags-- 
 this.selected = false;

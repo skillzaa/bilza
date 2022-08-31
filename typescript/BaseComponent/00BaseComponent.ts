@@ -3,23 +3,29 @@ import RotateObj from "./60rotateObj.js";
 import { AniPerc } from "../animationModule/animations.js";
 
 export default class BaseComponent extends RotateObj implements IComponent{
- 
+//-its nec to keep canvas width and height here to keep them private    
+//---these 2 variables will be set in init
+private _canvasWidth :number | null;    
+private _canvasHeight :number | null;    
 constructor (){
 super();
+this._canvasWidth = null;    
+this._canvasHeight = null;    
+
 }
 
 init(p: Pack): boolean {
-this.canvasWidth =  p.canvasWidth();  
-this.canvasHeight =  p.canvasHeight();
+this._canvasWidth =  p.canvasWidth();  
+this._canvasHeight =  p.canvasHeight();
 
 if (this.width instanceof AniPerc && this.height instanceof AniPerc){
-    this.width.init(this.canvasWidth);//canvasWidth
-    this.height.init(this.canvasHeight);//canvasHeight
+    this.width.init(this.canvasWidth());//canvasWidth
+    this.height.init(this.canvasHeight());//canvasHeight
 }
 
 if (this.x instanceof AniPerc && this.y instanceof AniPerc){
-    this.x.init(this.canvasWidth);//canvasWidth
-    this.y.init(this.canvasHeight);//canvasHeight
+    this.x.init(this.canvasWidth());//canvasWidth
+    this.y.init(this.canvasHeight());//canvasHeight
 }
 //paddings
 if (this.paddingLeft instanceof AniPerc &&
@@ -27,11 +33,11 @@ if (this.paddingLeft instanceof AniPerc &&
     this.paddingTop instanceof AniPerc &&
     this.paddingBottom instanceof AniPerc ){
     
-    this.paddingLeft.init(this.canvasWidth);
-    this.paddingRight.init(this.canvasWidth);
+    this.paddingLeft.init(this.canvasWidth());
+    this.paddingRight.init(this.canvasWidth());
     //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
-    this.paddingTop.init(this.canvasHeight);
-    this.paddingBottom.init(this.canvasHeight);
+    this.paddingTop.init(this.canvasHeight());
+    this.paddingBottom.init(this.canvasHeight());
     }
 return true;
 }
@@ -143,7 +149,16 @@ public setxy(x :number, y :number | null=null){
 this.x.set(x);
 this.y.set(y);
 }
-
+canvasHeight():number{
+if (this._canvasHeight == null) { throw new Error("the lib may not be initiailzed yet");
+}    
+return this._canvasHeight;
+}
+canvasWidth():number{
+if (this._canvasWidth == null) { throw new Error("the lib may not be initiailzed yet");
+}    
+return this._canvasWidth;
+}
 ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 }//component ends 

@@ -46,12 +46,12 @@ super.setRespLoc(tf);
 init(p: Pack): boolean {  
 //--imp--it want us to keep it here or cause init error
 super.init(p);     
-if (this.canvasWidth == null || this.canvasHeight == null){
-    throw new Error("init error");
-}
+// if (this.canvasWidth == null || this.canvasHeight == null){
+//     throw new Error("init error");
+// }
 if (this.x2 instanceof AniPerc && this.y2 instanceof AniPerc ){
-    this.x2.init(this.canvasWidth);//canvasWidth
-    this.y2.init(this.canvasHeight);//canvasHeight
+    this.x2.init(this.canvasWidth());//canvasWidth
+    this.y2.init(this.canvasHeight());//canvasHeight
 }
 return true;
 }

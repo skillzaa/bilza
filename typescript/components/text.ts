@@ -122,7 +122,7 @@ protected adjestFontSize(n :number):number{
     if (this.canvasWidth == null){
         throw new Error("init error");}    
     if (this.respFontSize.value()== true){
-        return (n/1000) * this.canvasWidth;
+        return (n/1000) * this.canvasWidth();
     } else {
         return n;
     }   

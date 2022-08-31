@@ -22,8 +22,6 @@ export default class BaseComponentBase {
         this.drawLayer = DrawLayer.MiddleGround;
         this.id = Math.random().toString(36).slice(2);
         this.style = new Style();
-        this.canvasWidth = null;
-        this.canvasHeight = null;
         this.selected = false;
         this.visible = new AniBoolean(true);
         this.x = new AniPerc(0);
