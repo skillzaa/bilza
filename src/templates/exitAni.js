@@ -5,4 +5,7 @@ export default class ExitAniPresets {
     leftOut() {
         this.comp.x.animate(this.comp.getEndTime(false) - 2, this.comp.getEndTime(false), this.comp.x.value(), -this.comp.width.value());
     }
+    rightOut() {
+        this.comp.x.animate(this.comp.getEndTime(false) - 2, this.comp.getEndTime(false), this.comp.x.value(), this.comp.width.value() + this.comp.canvasWidth());
+    }
 }

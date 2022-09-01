@@ -6,6 +6,6 @@ bil.insert.add(txt, 5, 10);
 txt.templ.jumbotron();
 txt.theme.color(240);
 txt.entryAni.leftIn();
-txt.exitAni.leftOut();
+txt.exitAni.rightOut();
 const ui = new Ui(bil);
 bil.draw();

@@ -3,5 +3,6 @@ export default class ExitAniPresets {
     private comp;
     constructor(comp: BaseComponent);
     leftOut(): void;
+    rightOut(): void;
 }
 //# sourceMappingURL=exitAni.d.ts.map

@@ -21,7 +21,7 @@ constructor(
     rTimeMsStart :number, //--start time
     rTimeMsEnd :number, //--end time
     startValue :T,       //--base value
-    endValue :T,       //--base value
+    endValue :T,       //--end value
     delaySec :number=0) // delay
 {
 this.delay = new Delay(delaySec);  
