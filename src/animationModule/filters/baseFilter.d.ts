@@ -4,8 +4,8 @@ export default class BaseFilter<T> implements IFilter<T> {
     rTimeMsStart: number;
     rTimeMsEnd: number;
     delay: Delay;
-    protected _animatedValue: T | null;
     protected startValue: T;
+    protected _animatedValue: T | null;
     protected endValue: T;
     protected beyondValue: T;
     protected readonly delaySec: number;

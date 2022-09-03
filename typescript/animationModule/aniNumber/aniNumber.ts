@@ -13,7 +13,7 @@ public readonly minValue :number;
 public readonly maxValue :number;
 
 constructor(initialValue :number=0, minValue :number=-3000,maxValue :number=3000){
-
+ 
 super(initialValue);
 
 this.minValue  = minValue; 

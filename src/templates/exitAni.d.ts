@@ -4,5 +4,8 @@ export default class ExitAniPresets {
     constructor(comp: BaseComponent);
     leftOut(): void;
     rightOut(): void;
+    bottomOut(): void;
+    topOut(): void;
+    fadeOut(): void;
 }
 //# sourceMappingURL=exitAni.d.ts.map

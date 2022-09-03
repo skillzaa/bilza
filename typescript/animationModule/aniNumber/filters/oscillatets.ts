@@ -18,14 +18,8 @@ const timeDiff = this.rTimeMsEnd - this.rTimeMsStart;
 
 //--------------------
 const noOfIter = Math.floor( timeDiff / this.delay.delayValue);
-// let finalNoOfIter:number;
-// if ( timeDiff % this.delay.delayValue == 0 ){ 
-//     // if even division then the last step will be on the last filter so reduce one since last filter is placed 
-//     finalNoOfIter = noOfIter -1 ; 
-// }else {
-//     // if odd division then the last frame is already skipped due to math.floor
-//     finalNoOfIter = noOfIter; 
-// }
+
+
 let stratWithInc:boolean = (startValue < endValue) ? true : false;
 
 for (let i = 0; i < noOfIter ; i ++) {

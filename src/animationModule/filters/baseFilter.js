@@ -3,9 +3,9 @@ export default class BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, delaySec = 0) {
         this.delay = new Delay(delaySec);
         this.startValue = startValue;
+        this._animatedValue = null;
         this.endValue = endValue;
         this.beyondValue = endValue;
-        this._animatedValue = null;
         this.delaySec = delaySec;
         if (rTimeMsStart < 0 || rTimeMsEnd < 0) {
             throw new Error("time can not be negative");

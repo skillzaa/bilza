@@ -1,1 +1,1 @@
-{"version":3,"file":"entryAni.d.ts","sourceRoot":"","sources":["../../typescript/templates/entryAni.ts"],"names":[],"mappings":"AAIA,OAAO,aAAa,MAAM,qCAAqC,CAAC;AAEhE,MAAM,CAAC,OAAO,OAAO,eAAe;IACpC,OAAO,CAAE,IAAI,CAAe;gBAEhB,IAAI,EAAE,aAAa;IAG/B,MAAM;CAKL"}
+{"version":3,"file":"entryAni.d.ts","sourceRoot":"","sources":["../../typescript/templates/entryAni.ts"],"names":[],"mappings":"AAIA,OAAO,aAAa,MAAM,qCAAqC,CAAC;AAEhE,MAAM,CAAC,OAAO,OAAO,eAAe;IACpC,OAAO,CAAE,IAAI,CAAe;gBAEhB,IAAI,EAAE,aAAa;IAG/B,MAAM;IAIN,OAAO;IASP,QAAQ;IAQR,KAAK;IASL,MAAM;CAQL"}

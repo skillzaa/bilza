@@ -1,15 +1,13 @@
 import IFilter from "./IFilter.js";
 import Delay from "./delay.js";
 
-
-
 export default class BaseFilter <T> implements IFilter<T> {
     
 public  rTimeMsStart :number;
 public  rTimeMsEnd :number;
 public delay :Delay;
-protected  _animatedValue :T | null;
 protected startValue :T;
+protected  _animatedValue :T | null;
 ///--most often the beyondValue is the end value but if it is not the we have beyondValue seperately also
 protected endValue :T;
 protected beyondValue :T;
@@ -26,11 +24,12 @@ constructor(
 {
 this.delay = new Delay(delaySec);  
 this.startValue = startValue;
+this._animatedValue = null;
 this.endValue = endValue;
+//--beyond value is just to hold some value
 this.beyondValue = endValue; //we can change it if we want
 //--wrong    
 // this._animatedValue = baseValue;
-this._animatedValue = null;
 this.delaySec = delaySec;
 //--no more counter since i am not counting frames any more
 // this.delayInMSCounter = 0;
@@ -77,7 +76,8 @@ return this.endValue;
 }
 
 //--This impl will work for all if baseValue and animatedvalue r same then send any if not send _animatedValue
-//--it must not send out null since the defaultValue of AniProp is for time when there is no filter. a filter must always atleast return its default value.
+//--it must not send out null since the defaultValue of AniProp is for time when there is no filter. 
+// --A filter must always atleast return its default value.
 public animatedValue():T{
     if (this._animatedValue == null){
         return this.startValue; 

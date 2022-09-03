@@ -1,24 +1,21 @@
 import IFilter from "../filters/IFilter";
 import IdentityFil from "../filters/identityFil.js";
 import JumpBetween from "../filters/jumpBetween.js";
-
+ 
 export default class AniProp <T>  {
-//--this cant be null its not _ret_val of filter its aniProp    
+//--this cant be null its not _ret_val of filter ITS aniProp    
 protected _value :T | null;                 
 // protected defaultValue :T;                 
 protected filtersArr :IFilter<T>[];       
 protected defaultFilter :IFilter<T>;       
-//--now that we have default value there is no need for goto at zero in any case the aniProp will have a value it can never be null. However the animated value (from filter) can be null thus _value keep track between default value and animatedValue
+//--now that we have default Filter there is no need for goto at zero in any case the aniProp will have a value it can never be null. However the animated value (from filter) can be null thus _value keep track between default value and animatedValue
 
 constructor(defaultValue :T){
 this.filtersArr  = []; 
-
 this.defaultFilter  = new IdentityFil(0,100,defaultValue,defaultValue); 
 this._value  = null; 
-//--What if not filter is applied--? then what ? --Then always have 1 filter at frame 0; 
-// once inserted can not be deleted just altered.
-// this.goto(0,defaultValue); 
 }
+
 public update(rTimeMs :number):boolean{
 //---STEP-1--find current filter or return defaultValue
 const baseGoto = this.getBaseFilter(rTimeMs);
@@ -27,7 +24,7 @@ if (baseGoto == null ){
     this._value = this.defaultFilter.animatedValue();
     return false; //return
 }else {
-    //--Step-2 --importantay-- VVVVVVV
+    //--Step-2 --importantay-- VVVVVV
     baseGoto.update(rTimeMs);
     //---step-3:get value from AniFilter inside gotoObj
     const animatedValue = baseGoto.animatedValue();
@@ -37,6 +34,8 @@ if (baseGoto == null ){
             if (animatedValue !== null){
                 this._value = animatedValue;
             }else {
+                //--this must not be null
+                //--why use animatedValue why not value?
                 this._value = this.defaultFilter.animatedValue();
             }
 }

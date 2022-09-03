@@ -9,7 +9,7 @@ private canvasWidthHeight :number | null;
 private initObj :InitObj;
 /**
  * Finally the solution to an age old problem :How to change the Interface of an item from that what it has been assigned in a base class: answer re-declare that item with a new interface in a new class and the  use it internally.
- ---protected filtersArr :IPercFilter<number>[];   
+ ---protected filtersArr :IPercFilter<number>[];    
  */
 constructor(initialValue :number=0,responsive:boolean=true, minValue :number=-3000,maxValue :number=3000){
 
