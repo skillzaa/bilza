@@ -9,7 +9,6 @@
     padding:0;
     margin:0;
 }
-#parnetDiv {width:100%;padding :15px;background-color:aqua;}
 
 #canvasContainer {
     text-align: center;
@@ -20,11 +19,11 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
+    <!-- <script src="../00misc/custom.css"></script> -->
     <script src="./00misc/prism.js"></script>
     <link rel="stylesheet" href="./00misc/prism.css">   
 
-    <title>Bilza Core Samples</title>
+    <title>Bilza Samples</title>
 </head>
 <body>
 
@@ -44,35 +43,105 @@
 </table>
 
 </div>
-
+<!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl } from "../bilza/src/bilza.js";
-let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
-const txt = cf.rawText("Hellow World", hsl(240));
-txt.x.set(30);
-txt.y.set(30);
-txt.width.oscillate(0, 120, 20, 100, .15);
-bil.insert.add(txt, 0, 120);
+import Bilza, { Ui, CompFactory as cf, hsl} from "../src/bilza.js";
+//--------------------
+//--Step-1 Create Bilza Engine. The first argument is the id of the canvas element and second argument tells bilza to set canvas equal to 70% of the window width.
+const bil = new Bilza("bilza",70);
+bil.background.color.set("darkblue");
+//--Step-2 Creating Elements
+
+//-- create a Grid Element
+const grid = cf.grid(10,10, "grey");
+//--insert.add will make the gird show from second 0 to 15.
+bil.insert.add( grid, 0 , 15 );
+
+//---create a frameCounter component that counts running seconds.
+const frameCounter = cf.frameCounter( "yellow" );
+bil.insert.add( frameCounter  , 0 , 15 );
+//--------------------
+
+//--create Text element
+
+const txt = cf.text("Welcome To Bilza.js");
+//--The text will appear after completion of 2nd sec
+//-- and will stay on display till 8th second.
+//--You must insert the component immediately after creation to the engine.
+bil.insert.add(txt,2,8);
+
+
+//-- Assign the jumbotron template to the text 
+txt.templ.jumbotron();
+//--set theme color to hsl=0 (red)
+txt.theme.color( 0 );
+//-- Set the entry animation 
+txt.entryAni.topIn()
+//-- Set the exit animation 
+txt.exitAni.fadeOut();
+
+
+//--------------------
+//---These 2lines should always be the last lines of the animation code.
+//--Ui object will enable the start and stop buttons on the screen to run and stop animation. Without this line the buttons will not work 
 const ui = new Ui(bil);
+//-- the draw line draw frame 0 onto the screen else the user will have to look at a blank screen unless play is clicked.
 bil.draw();
-
-
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl } from "../bilza/src/bilza.js";
-let bil = new Bilza("bilza", 70);
-const grid = cf.grid("grey");
-bil.insert.alwaysOn(grid);
-const txt = cf.rawText("Hellow World", hsl(240));
-txt.x.set(30);
-txt.y.set(30);
-txt.width.oscillate(0, 120, 20, 100, .15);
-bil.insert.add(txt, 0, 120);
+import Bilza, { Ui, CompFactory as cf, hsl} from "../src/bilza.js";
+//--------------------
+//--Step-1 Create Bilza Engine. The first argument is the id of the
+//canvas element and second argument tells bilza to set canvas equal
+//to 70% of the window width.
+
+const bil = new Bilza("bilza",70);
+bil.background.color.set("darkblue");
+
+//--Step-2 Creating Elements
+
+//-- create a Grid Element
+const grid = cf.grid(10,10, "grey");
+
+//--insert.add will make the gird show from second 0 to 15.
+bil.insert.add( grid, 0 , 15 );
+
+//---create a frameCounter component that counts running seconds.
+const frameCounter = cf.frameCounter( "yellow" );
+
+bil.insert.add( frameCounter  , 0 , 15 );
+//--------------------
+
+//--create Text element
+
+const txt = cf.text("Welcome To Bilza.js");
+//--The text will appear after completion of 2nd sec
+//-- and will stay on display till 8th second.
+//--You must insert the component immediately after creation to the 
+//engine.
+
+bil.insert.add(txt,2,8);
+
+
+//-- Assign the jumbotron template to the text 
+txt.templ.jumbotron();
+//--set theme color to hsl=0 (red)
+txt.theme.color( 0 );
+//-- Set the entry animation 
+txt.entryAni.topIn()
+//-- Set the exit animation 
+txt.exitAni.fadeOut();
+
+
+//--------------------
+//---These 2lines should always be the last lines of the animation code.
+//--Ui object will enable the start and stop buttons on the screen to
+// run and stop animation. Without this line the buttons will not work 
 const ui = new Ui(bil);
+//-- The draw command draws frame 0 onto the screen else the user will
+// have to look at a blank screen unless play is clicked.
 bil.draw();
 </code>
 </pre>

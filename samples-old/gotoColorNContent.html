@@ -46,7 +46,7 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui,CompFactory as cf } from "../bilza/src/bilza.js";
+import Bilza, { Ui,CompFactory as cf } from "../src/bilza.js";
 
 let bil = new Bilza("bilza",70);
 //-----------------------------------------
@@ -64,7 +64,7 @@ const raw = cf.text("blue");
 raw.align(1,1);
 
 raw.goto(0,50,50);
-raw.width.set(60);
+raw.fontSize.set(90);
 raw.color.set("black");
 
 raw.content.set("Cream");
