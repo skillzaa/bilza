@@ -25,7 +25,7 @@
 
 1. Creating Responsive Animations: The single main "pain point" of creating javascript animation is <b> creating responsive animations</b>. We like to create animations but we also want them to fit on to the many screen sizes. For this the bilza.js has been written with responsiveness in mind and (almost) every thing grow and shrink according to the screen size. All the x and y coordinated and the width and height values are in percentages of the current canvas size and are drawn according. 
 
-1. Animation is code and Code is Reusable : One of the basic purpose of this library is to enable users to stich together small pieces of animation and create complex animations.
+1. Animation is code and Code is Reusable : One of the basic purpose of this library is to enable users to stitch together small pieces of animation and create complex animations.
 
 1. It is not morally and ethically correct for any developer / app to hold the data of its users as hostage. The hard work and effort that a user has put into creating an animation makes him the creator and owner of that animation. <i> I think its dishonesty if an app / lib does not allow its users to download their data in a user firendly format or make it difficult for its users to take their data and use another tool</i>. For this I wil make sure that there is always commands present in the library (working on it currently) which should enable the user to get their animation data in json format so that if they like they can use it else-where.  
 
@@ -63,84 +63,84 @@
 <!-- The snippets from Docs -->
 # Important Sections of Documentation
 
-> <a href="https://skillzaa.github.io/bilzaDocs/docs/howBilzaWorks.html">How Bilza.js Works</a>
+> <a href="https://skillzaa.github.io/bilzaDocs/docs/howBilzaWorks.html" target="_blank">How Bilza.js Works</a>
 
-> <a href="https://skillzaa.github.io/bilzaDocs/samples/helloWorld.html">Hello world Example</a>
+> <a href="https://skillzaa.github.io/bilzaDocs/samples/helloWorld.html" target="_blank">Hello world Example</a>
 
 
-> <a href="https://skillzaa.github.io/bilzaDocs/coreTests/index.html">All Components Core Props Examples</a>
+> <a href="https://skillzaa.github.io/bilzaDocs/coreTests/index.html" target="_blank">All Components Core Props Examples</a>
 
-> <a href="https://skillzaa.github.io/bilzaDocs/compProjects/">Projects to showcase every component</a>
+> <a href="https://skillzaa.github.io/bilzaDocs/compProjects/" target="_blank">Projects to showcase every component</a>
 
-> <a href="https://skillzaa.github.io/bilzaDocs/index.html">Bilza.js Documentation (work in progress)</a>
+> <a href="https://skillzaa.github.io/bilzaDocs/index.html" target="_blank">Bilza.js Documentation (work in progress)</a>
 ---
 <!-- The snippets from Docs -->
 # Selected Examples
 
-<a href="https://skillzaa.github.io/bilzaDocs/index.html">Colored Circles
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/coloredCircles.html" target="_blank">Colored Circles
 </a>
 
 ![Colored Circles](./images/coloredCircles.png "Colored Circles")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/fillRect/100comps.html">100 Rectangles
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/fillRect/100comps.html" target="_blank">100 Rectangles
 </a>
 
 ![100 Rectangles](./images/100rectangles.png "100 Rectangles")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/100line.html">Lines Animation
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/100line.html" target="_blank">Lines Animation
 </a>
 
 ![Lines Animation](./images/100lines.png "Lines Animation")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/100TextComps.html">Text and Grid Example
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/100TextComps.html" target="_blank">Text and Grid Example
 </a>
 
 ![Text and Grid Example](./images/100text.png "Text and Grid Example")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/randomLines.html">Random Lines
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/randomLines.html" target="_blank">Random Lines
 </a>
 
 ![Random Lines](./images/randomLines.png "Random Lines")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/pic/4pics.html">Four Pics
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/pic/4pics.html" target="_blank">Four Pics
 </a>
 
 ![Four Pics](./images/4pics.png "Four Pics")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/grid/gridLinesWidth.html">Grid Lines Width
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/grid/gridLinesWidth.html" target="_blank">Grid Lines Width
 </a>
 
 ![Grid Lines Width](./images/gridLinesWidth.png "Grid Lines Width")
 
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/dancingCircles.html">Dancing Circles
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/dancingCircles.html" target="_blank">Dancing Circles
 </a>
 
 ![Dancing Circles](./images/dancingCircles.png "Dancing Circles")
 
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/dancingCircles.html">Circles and Grid Example
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/dancingCircles.html" target="_blank">Circles and Grid Example
 </a>
 
 ![Circles and Grid Example](./images/circleGrid.png "Circles and Grid Example")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/circleDemo.html">Circles Component Demo
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/circleDemo.html" target="_blank">Circles Component Demo
 </a>
 
 ![Circles Component Demo](./images/circleDemo.png "Circles Component Demo")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/grid/gridCellWidthAnimate.html">Animating Grid
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/grid/gridCellWidthAnimate.html" target="_blank">Animating Grid
 </a>
 
 ![Animating Grid](./images/animatingGrid.png "Animating Grid")
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fontSizeAnimate.html">Font Size Animation
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fontSizeAnimate.html" target="_blank">Font Size Animation
 </a>
 
 ![Font Size Animation](./images/textFontSize.png "Font Size Animation")
 
 
-<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/lineAnimation.html">Line Animation
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/lineAnimation.html" target="_blank">Line Animation
 </a>
 
 ![Line Animation](./images/lineanimation.png "Line Animation")
