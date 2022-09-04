@@ -1,7 +1,5 @@
-<a href="https://skillzaa.github.io/bilzaDocs/">Documentation</a>
-&nbsp;
-&nbsp;
-<a href="https://skillzaa.github.io/bilzaDocs/samples.html">Samples</a>
+<a href="https://skillzaa.github.io/bilzaDocs/coreTests/index.html" >Core Props Examples</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="https://skillzaa.github.io/bilzaDocs/compProjects/" >Comp Projects</a>    
+<!-- <a href="./samples.html" >Samples</a>&nbsp;     -->
 ---
 
 # What is Bilza
@@ -25,11 +23,11 @@
 
 1. One of the things that I want to achieve is that:: Since the final output is a javascript file and once you have packed your presentation there should be no outer dependency for it. There should be  nothing out of the single file that can break and crash your animation. As long as browsers support javascript your animation should run. <b>BUT</b> The images and sound files that you use are external reasources and if they go missing your animation will not work. We can make effort to convert images and sound files also into Javascript BUT a better option is to bind them using an html file just like we have been doing for so many years on the web. 
 
-1. Creating Responsive Animations: The single main pain point of creating javascript animation is <b> creating responsive animations</b>. We like to create animations but we also want them to fit themselves according to the many sizes of screens they are viewed on. For this the bilz.js has been written with responsiveness in mind and every thing grow and shrink according to the screen size. All the x and y coordinated and the width and height values are in percentages of the current canvas size and are drawn according. 
+1. Creating Responsive Animations: The single main "pain point" of creating javascript animation is <b> creating responsive animations</b>. We like to create animations but we also want them to fit on to the many screen sizes. For this the bilza.js has been written with responsiveness in mind and (almost) every thing grow and shrink according to the screen size. All the x and y coordinated and the width and height values are in percentages of the current canvas size and are drawn according. 
 
 1. Animation is code and Code is Reusable : One of the basic purpose of this library is to enable users to stich together small pieces of animation and create complex animations.
 
-1. It is not morally and ethically correct for any developers / apps to hold the data of its users as hostage. The hard work and effort that a user has put into creating an animation makes him the creator and owner of that animation. <i> I think its dishonesty if an app / lib does not allow its users to download their data in a user firendly format or make it difficult for its users to take their data and use another tool</i>. For this I wil make sure that there is always commands present in the library (working on it currently) which should enable the user to get their animation data in json format so that if they like they can use it else-where.  
+1. It is not morally and ethically correct for any developer / app to hold the data of its users as hostage. The hard work and effort that a user has put into creating an animation makes him the creator and owner of that animation. <i> I think its dishonesty if an app / lib does not allow its users to download their data in a user firendly format or make it difficult for its users to take their data and use another tool</i>. For this I wil make sure that there is always commands present in the library (working on it currently) which should enable the user to get their animation data in json format so that if they like they can use it else-where.  
 
 
 
@@ -60,97 +58,92 @@
 - <strong>Behave like a Video</strong> : This library is written with an intention that the animation should behave more like a normal video. 
 ---
 
-# How Bilza.js Works
-Following are the steps to create animations with bilza.js:
-
-1. <b>Create Bilza Engine</b>
-
- The first step is to create an instance of bilza engine. Here we decide about the width and height of the canvas that we want to create.
-
- Also in this step we decide if we want to keep the canvas size responsive (i.e equal to 70% of the screen size) or to make the canvas of a fixed size. 
-
-2. <b>Create Components</b> :
-
-<b>Please keep in mind that every thing that you see on bilza canvas is a components</b>. We create components and them insert them in bilza engine.
-
-Currently components avaialbe in the library are
-1. grid
-1. circle
-1. rect
-1. fillRect
-1. frameCounter
-1. text
-1. line
-1. marker (not complete)
-1. pic
-1. particleSystem
-1. spriteSheet (not complete)
-1. many others are in development
-
-You can <strong>use these components</strong> to quickly draw complex animations.  
-
-2. <b>Edit Components</b> :
-
-We edit components by editing their properties and attaching animations to them. 
-
-Each of these components have 2 sets of properties (called the props). 
-- One set of props are those that these components get from their parent object which are common among all the components (except few). These props are refered to as <b>core props</b>
-- Second set of props is what is unique to that specific component.These props are refered to as <b>component props</b>
-- The props that (almost) all of the components share are like:
-    - x
-    - y
-    - color
-    - width
-    - height
-    - rotation
-    - opacity
-    - border
-    - colorBorder
-    - and many more .......
-
-- The props that are unique to each component are explained on the relevant page of that component (work in progress).
-
-- <b>We add animation to a component by adding animation to one of its props</b> For example every component has "opacity" prop. We can animate it to go from value 100 to value 0 in 1 second starting from frame 10 to 11. 
-
-3. <b>Inserting Components into Bilza Engine</b> :
-
-When ever we insert components into bilza engine, we have to tell the engine the starting frame (starting time) and the ending frame (ending time) of that components. A component is just loaded and displayed between its starting frame and ending frame.When all components have completed their ending frame, the animation ends.
-
-When we insert a component into bilza engine, we have following options:
-
-- alwaysOn
-
-This will make the component visible throughout the duration of the animation. However, inserting components with alwaysOn does not affect the duration of the animation, we need other components to give the animation some duration to run.
-
-- add
-
-When we "add" a component, we have to provide the starting time (also called the starting frame) and the duration. The component will appear just between its starting and ending frame. If the ending frame is larger than the current duration of the animation will extend its self to accommodate the newly inserted component. Keep in mind that we can create blank frames while inserting components and the engine will not object to that, assuming you actually mean to create blank frames. For example, if we insert componentOne from frame 0 to 60 and componentTwo from frame 120 to 300. The animation duration has been set to 300 seconds, but there is no component displayed between frame 60 and 120. This is not an error, but may occur without knowing.
-
-- append
-
-This comes in handy when we want to use premade scenes and just append them together (stitch them together like LEGO pieces).
-
-4. <b>Running the Animation</b> : 
-
-The last step is to run the animation.
 
 ---
 <!-- The snippets from Docs -->
 # Important Sections of Documentation
 
-<small>I am starting to write important chapters of the documentation first.</small>
+> <a href="https://skillzaa.github.io/bilzaDocs/docs/howBilzaWorks.html">How Bilza.js Works</a>
 
-> <a href="#">Hello world Example</a>
-
-> <a href="#">Getting Started Example</a>
-
-> <a href="#">Getting Started Example</a>
-
-> <a href="#">Getting Started Example</a>
-
-> <a href="#">Getting Started Example</a>
+> <a href="https://skillzaa.github.io/bilzaDocs/samples/helloWorld.html">Hello world Example</a>
 
 
+> <a href="https://skillzaa.github.io/bilzaDocs/coreTests/index.html">All Components Core Props Examples</a>
+
+> <a href="https://skillzaa.github.io/bilzaDocs/compProjects/">Projects to showcase every component</a>
+
+> <a href="https://skillzaa.github.io/bilzaDocs/index.html">Bilza.js Documentation (work in progress)</a>
+---
+<!-- The snippets from Docs -->
+# Selected Examples
+
+<a href="https://skillzaa.github.io/bilzaDocs/index.html">Colored Circles
+</a>
+
+![Colored Circles](./images/coloredCircles.png "Colored Circles")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/fillRect/100comps.html">100 Rectangles
+</a>
+
+![100 Rectangles](./images/100rectangles.png "100 Rectangles")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/100line.html">Lines Animation
+</a>
+
+![Lines Animation](./images/100lines.png "Lines Animation")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/100TextComps.html">Text and Grid Example
+</a>
+
+![Text and Grid Example](./images/100text.png "Text and Grid Example")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/randomLines.html">Random Lines
+</a>
+
+![Random Lines](./images/randomLines.png "Random Lines")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/pic/4pics.html">Four Pics
+</a>
+
+![Four Pics](./images/4pics.png "Four Pics")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/grid/gridLinesWidth.html">Grid Lines Width
+</a>
+
+![Grid Lines Width](./images/gridLinesWidth.png "Grid Lines Width")
+
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/dancingCircles.html">Dancing Circles
+</a>
+
+![Dancing Circles](./images/dancingCircles.png "Dancing Circles")
+
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/dancingCircles.html">Circles and Grid Example
+</a>
+
+![Circles and Grid Example](./images/circleGrid.png "Circles and Grid Example")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/circleDemo.html">Circles Component Demo
+</a>
+
+![Circles Component Demo](./images/circleDemo.png "Circles Component Demo")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/grid/gridCellWidthAnimate.html">Animating Grid
+</a>
+
+![Animating Grid](./images/animatingGrid.png "Animating Grid")
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fontSizeAnimate.html">Font Size Animation
+</a>
+
+![Font Size Animation](./images/textFontSize.png "Font Size Animation")
+
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/line/lineAnimation.html">Line Animation
+</a>
+
+![Line Animation](./images/lineanimation.png "Line Animation")
 
 
 
@@ -159,6 +152,7 @@ The last step is to run the animation.
 <small>If you want to be in touch or send me a bug report please use github issues.</small>
 
 -----
+###### 04-sep-2022   (version 0.1.0) // - Alhamdullah
 ###### 06-aug-2022   (version 0.0.30) //0 ver short of 0.1.0
 ###### 04-aug-2022   (version 0.0.29) //1 ver short of 0.1.0 
 ###### 26-july-2022   (version 0.0.28) //2 ver short of 0.1.0 
