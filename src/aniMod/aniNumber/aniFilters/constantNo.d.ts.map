@@ -1,1 +1,0 @@
-{"version":3,"file":"constantNo.d.ts","sourceRoot":"","sources":["../../../../typescript/aniMod/aniNumber/aniFilters/constantNo.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,MAAM,wBAAwB,CAAC;AAEhD,MAAM,CAAC,OAAO,OAAO,UAAW,SAAQ,UAAU;IAC9C,aAAa,EAAC,MAAM,CAAC;gBACb,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EAAE,aAAa,EAAE,MAAM;IAWnE,KAAK,IAAI,MAAM,GAAG,IAAI;CAI5B"}

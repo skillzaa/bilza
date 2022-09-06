@@ -8,11 +8,9 @@ export default [
   {
 
     input: './src/bilza.js',
-    // input: './src/bilza.js',
-    // input: './standalone/standalone.js',
 
     output: {
-      file: './dist/bilza.0.0.30.js',
+      file: './dist/bilza.0.1.0.js',
       format: 'es',
       sourcemap: devMode ? 'inline' : false,
       plugins: [

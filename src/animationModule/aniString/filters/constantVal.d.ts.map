@@ -1,1 +1,0 @@
-{"version":3,"file":"constantVal.d.ts","sourceRoot":"","sources":["../../../../typescript/animationModule/aniString/filters/constantVal.ts"],"names":[],"mappings":"AAAA,OAAO,gBAAgB,MAAM,uBAAuB,CAAC;AAErD,MAAM,CAAC,OAAO,OAAO,WAAY,SAAQ,gBAAgB;gBAE7C,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EAAC,SAAS,EAAE,MAAM,EAAC,SAAS,GAAE,MAAQ;IAGlF,aAAa,IAAI,MAAM;CAG7B"}

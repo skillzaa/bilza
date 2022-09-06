@@ -1,1 +1,0 @@
-{"version":3,"file":"baseNumberFilter.d.ts","sourceRoot":"","sources":["../../../../typescript/animationModule/aniPerc/filters/baseNumberFilter.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,MAAM,6BAA6B,CAAC;AAErD,MAAM,CAAC,OAAO,OAAO,gBAAkB,SAAQ,UAAU,CAAE,MAAM,CAAC;gBAG9D,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EACvC,SAAS,EAAE,MAAM,EACjB,SAAS,GAAE,MAAQ;CAOtB"}

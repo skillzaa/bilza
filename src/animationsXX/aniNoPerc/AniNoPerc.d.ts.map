@@ -1,1 +1,0 @@
-{"version":3,"file":"AniNoPerc.d.ts","sourceRoot":"","sources":["../../../typescript/animationsXX/aniNoPerc/AniNoPerc.ts"],"names":[],"mappings":"AAAA,OAAO,aAAa,MAAM,oBAAoB,CAAC;AAE/C,MAAM,CAAC,OAAO,OAAO,SAAU,SAAQ,aAAa;gBAExC,YAAY,GAAE,MAAQ;IAKlC,IAAI,CAAC,cAAc,EAAE,OAAO,EAAC,iBAAiB,EAAE,MAAM;IAYtD,YAAY;IAYZ,WAAW;IAWX,UAAU;IAYV,eAAe;IAYf,QAAQ;IAUR,WAAW;CAYV"}

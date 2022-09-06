@@ -1,6 +1,6 @@
 {
   "name": "bilza",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "A Javascript Animation Engine for creating responsive animations on HTML5 Canvas",
   "main": "src/bilza.js",
   "scripts": {

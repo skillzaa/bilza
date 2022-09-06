@@ -1,1 +1,0 @@
-{"version":3,"file":"constantVal.d.ts","sourceRoot":"","sources":["../../../../typescript/animationModule/aniBoolean/filters/constantVal.ts"],"names":[],"mappings":"AAAA,OAAO,iBAAiB,MAAM,wBAAwB,CAAC;AAEvD,MAAM,CAAC,OAAO,OAAO,WAAY,SAAQ,iBAAiB;gBAE9C,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EAAC,SAAS,EAAE,OAAO,EAAC,SAAS,GAAE,MAAQ;IAInF,aAAa,IAAI,OAAO;CAI9B"}

@@ -17,7 +17,7 @@
 
 1. There are many content types (e.g educational slides, business presentations etc) which we want to be presented like a video but should be edit-able like normal text (or a power point presentation). Incase of video format;  editing is very expensive and time consuming. On the other hand editing a javascript animation is just editing few commands.
 
-1. Incase you want your message / presentation to reach millions of viewers and the message is in videos format: the file size will be atleast 2-10 Gb (and this is on the lowest side). Imgaine how many people will be reluctant to download such a heavy file or to share it. On the other hand a javascript animation is very light weight as compared to video format.  A javascript animation carrying the same message may have a filesize of few kilo Bites. The heaviest thing in a javascript animation is the sound file. 
+1. Incase you want your message / presentation to reach millions of viewers and the message is in videos format: the file size will be atleast 2-10 Mb (and this is on the lowest side). Imgaine how many people will be reluctant to download such a heavy file or to share it. On the other hand a javascript animation is very light weight as compared to video format.  A javascript animation carrying the same message may have a filesize of few kilo Bites. The heaviest thing in a javascript animation is the sound file. 
 
 1. You can share javascript animation just like you share a link to an html file. It can be hosted free of cost on github.
 
@@ -27,7 +27,7 @@
 
 1. Animation is code and Code is Reusable : One of the basic purpose of this library is to enable users to stitch together small pieces of animation and create complex animations.
 
-1. It is not morally and ethically correct for any developer / app to hold the data of its users as hostage. The hard work and effort that a user has put into creating an animation makes him the creator and owner of that animation. <i> I think its dishonesty if an app / lib does not allow its users to download their data in a user firendly format or make it difficult for its users to take their data and use another tool</i>. For this I wil make sure that there is always commands present in the library (working on it currently) which should enable the user to get their animation data in json format so that if they like they can use it else-where.  
+1. It is not morally and ethically correct for any developer / app to hold the data of its users as hostage. The hard work and effort that a user has put into creating an animation makes him the creator and owner of that animation. <i> I think its dishonesty if an app / lib does not allow its users to download their data in a user firendly format or make it difficult for its users to take their data and use another tool</i>. For this I wil make sure that there is always some command present in the library (working on it currently) which should enable the user to get their animation data in json format so that if they like they can use it else-where.  
 
 
 
@@ -35,7 +35,7 @@
 
 1. <i>Bilza.js will enable you to create Javascript animation that behave like a video</i>. You can "play", "pause", "stop" the animation just like a video. You can also "skip forward" ,  "skip backward" or draw any random frame from inbetween the animation. You can also go to any frame and save that as an image.
 
-1. <i>Bilza.js will enable you to create slide (presentations, lesson plans ,sales Pitch, advertisements etc)</i> and then share them with who ever you like. The final product is a simple javascript file that will run in any (decent) browser anywhere. There is no installation or plug ins and NO dependency on any other library. This will enable your clients to consume your content with out any hassle.
+1. <i>Bilza.js will enable you to create slide (presentations, lesson plans ,sales Pitch, advertisements etc)</i> and then share them with who ever you like. The final product is a simple javascript file that will run in any (decent) browser anywhere. There is NO installation NO plugins and NO dependencies (on any other library). This will enable your clients to consume your content with out any hassle.
 
 
 1. <i>Bilza.js will enable you to create web based advertisement videos (animation) and embed them into your website or your client websites. Animated graphics are always prefered over still ones.</i>
