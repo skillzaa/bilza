@@ -8,8 +8,7 @@ bil.background.color.set(hsl(0,20,30));
 
 const slim = cf.text("Simple Text")
 slim.setxy(10,50);
-slim.templ.slim(60)
-slim.theme.color(60);
+slim.templ.slim(60).theme.color(60);
 bil.insert.add(slim,0,30);
 
 //--------------------

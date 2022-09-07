@@ -10,6 +10,7 @@ export default class TextTempl {
         this.comp.height.set(15);
         this.comp.fitToWidth.set(true);
         this.comp.shrinkToHeight.set(true);
+        return this.comp;
     }
     h2() {
         this.comp.showBackground.set(true);
@@ -19,6 +20,7 @@ export default class TextTempl {
         this.comp.height.set(12);
         this.comp.fitToWidth.set(true);
         this.comp.shrinkToHeight.set(true);
+        return this.comp;
     }
     h3() {
         this.comp.showBackground.set(true);
@@ -28,6 +30,7 @@ export default class TextTempl {
         this.comp.height.set(10);
         this.comp.fitToWidth.set(true);
         this.comp.shrinkToHeight.set(true);
+        return this.comp;
     }
     h4() {
         this.comp.showBackground.set(true);
@@ -37,6 +40,7 @@ export default class TextTempl {
         this.comp.height.set(8);
         this.comp.fitToWidth.set(true);
         this.comp.shrinkToHeight.set(true);
+        return this.comp;
     }
     h5() {
         this.comp.showBackground.set(true);
@@ -46,6 +50,7 @@ export default class TextTempl {
         this.comp.height.set(6);
         this.comp.fitToWidth.set(true);
         this.comp.shrinkToHeight.set(true);
+        return this.comp;
     }
     h6() {
         this.comp.showBackground.set(true);
@@ -55,6 +60,7 @@ export default class TextTempl {
         this.comp.height.set(5);
         this.comp.fitToWidth.set(true);
         this.comp.shrinkToHeight.set(true);
+        return this.comp;
     }
     jumbotron() {
         this.comp.align(1, 1);
@@ -66,6 +72,7 @@ export default class TextTempl {
         this.comp.y.set(40);
         this.comp.showBackground.set(true);
         this.comp.border.set(15);
+        return this.comp;
     }
     ftNote(x = 10, y = 95) {
         this.comp.setxy(5, y);
@@ -73,6 +80,7 @@ export default class TextTempl {
         this.comp.showBackground.set(true);
         this.comp.border.set(1);
         this.comp.setPaddings(4);
+        return this.comp;
     }
     bltPt(y = 50, height = 15) {
         this.comp.align(1, 1);
@@ -84,6 +92,7 @@ export default class TextTempl {
         this.comp.fontSize.set(120);
         this.comp.height.set(height);
         this.comp.shrinkToHeight.set(true);
+        return this.comp;
     }
     slim(fontSize = 50) {
         this.comp.showBackground.set(false);
