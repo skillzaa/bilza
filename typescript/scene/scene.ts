@@ -18,6 +18,7 @@ constructor(startTime :number,endTime :number){
 this._duration = this._endTime  - this._startTime;
 if (this._duration < 1) { throw new Error("start time can not be smaller than end time");
 }
+if (this._duration <= 2) { console.error("Scene duration is set too small may cause problems while inserting components");}
 
 }
 //////////////////////////////////////
@@ -37,6 +38,9 @@ return this._duration;
 
 
 public add(comp :IComponent,startTimePlusInSec :number=0, endTimeMinusInSec :number=0){
+
+this.minDurationViolation(comp,startTimePlusInSec, endTimeMinusInSec);
+//--------------------------------
 const startTimeSec = this.startTimePlus(startTimePlusInSec);
 const endTimeSec = this.endTimeMinus(endTimeMinusInSec);
 
@@ -48,9 +52,6 @@ this.comps.push(comp);
 
 private startTimePlus(timeSec :number=0):number{
 const startTimeSec = this._startTime + timeSec;
-
-// if ( startTimeSec < this.getStartTime()  || //iski zarorat nahi hai
-
 if (startTimeSec > (this.getEndTime() - 1)  
 ){
    throw new Error( `components start and end time should be with in the start and end time of the scene (which in this case is ${this.getStartTime()} and ${this.getEndTime()}`);
@@ -59,14 +60,30 @@ return startTimeSec;
 }
 
 private endTimeMinus(timeSec :number=0):number{
+const endTimeSec =  this._endTime - timeSec;
 
-const endTimeSec = Math.abs(this._endTime - timeSec);
+if (endTimeSec <= 0){ throw new Error("Negative end time");}
+//-- i think this is covered
+// if (endTimeSec <= 0){ throw new Error("Negative end time");}
 
 if (endTimeSec > (this.getEndTime())  
 ){
    throw new Error( `components start and end time should be with in the start and end time of the scene (which in this case is ${this.getStartTime()} and ${this.getEndTime()}`);
 }
+//---------------------------
+if (endTimeSec <= this._startTime ){
+   throw new Error("scene minimum width violation");
+}
 return endTimeSec;
+}
+
+private minDurationViolation(comp :IComponent,startTimePlusInSec :number, endTimeMinusInSec :number){
+const minReq = endTimeMinusInSec + startTimePlusInSec  ;
+//--plus 1 since entry and exit animations to lag sakay
+if (minReq >= (this._duration)){ // - 1
+   throw new Error(`Scene minimum duration violated by component id:${comp.id}. The scene minimum duration may be more than you have given it`);
+}
+
 }
 /////////////////////////////////////
 }

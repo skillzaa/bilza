@@ -17,15 +17,13 @@ import testScene from "./scenes/testScene.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(0,20,30));
 //--------------------
-//----- Bilza duration set
-const grid  = cf.grid(10,10,hsl(240));
-bil.insert.add(grid,0,15);
+
 //--------------------
 bil.insert.alwaysOn(cf.frameCounter(hsl(120)));
 //--------------------
 
 const scene01 = testScene(3,12,hsl(120));
-const scene02 = h1bp3(5,8,120);
+const scene02 = h1bp3(5,9,120);
 
 bil.insert.addScene(scene01);
 bil.insert.addScene(scene02);
