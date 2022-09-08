@@ -36,23 +36,37 @@ return this._duration;
 }        
 
 
-public add(comp :IComponent,startTimeSec :number, endTimeSec :number){
- if (startTimeSec < this.getStartTime() ||
- endTimeSec > this.getEndTime()
- ){
-    throw new Error( `components start and end time should be with in 0 and scene duration (which in this case is ${this._duration}`);
- }
+public add(comp :IComponent,startTimePlusInSec :number=0, endTimeMinusInSec :number=0){
+const startTimeSec = this.startTimePlus(startTimePlusInSec);
+const endTimeSec = this.endTimeMinus(endTimeMinusInSec);
+
 //--here we set its duration which also sets its startTime (scene start time is always = 0 so comp start point is from that prespective), and endTimeSec  
 //--BUT when we insert it inside bil.insert.add we have to reset its start and end time keeping the same duration
 comp.setTimings(startTimeSec,endTimeSec);     
 this.comps.push(comp);
 }
 
-startTimePlus(timeSec :number=0):number{
-return this._startTime + timeSec;
+private startTimePlus(timeSec :number=0):number{
+const startTimeSec = this._startTime + timeSec;
+
+// if ( startTimeSec < this.getStartTime()  || //iski zarorat nahi hai
+
+if (startTimeSec > (this.getEndTime() - 1)  
+){
+   throw new Error( `components start and end time should be with in the start and end time of the scene (which in this case is ${this.getStartTime()} and ${this.getEndTime()}`);
 }
-endTimeMinus(timeSec :number=0):number{
-return Math.abs(this._endTime - timeSec) ;
+return startTimeSec;
+}
+
+private endTimeMinus(timeSec :number=0):number{
+
+const endTimeSec = Math.abs(this._endTime - timeSec);
+
+if (endTimeSec > (this.getEndTime())  
+){
+   throw new Error( `components start and end time should be with in the start and end time of the scene (which in this case is ${this.getStartTime()} and ${this.getEndTime()}`);
+}
+return endTimeSec;
 }
 /////////////////////////////////////
 }

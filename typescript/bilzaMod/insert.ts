@@ -16,31 +16,14 @@ this.charsWidth =   charsWidth;
 /**
  * The scene must not have a component which runs before scene start time or after scene endTime
  */
-public addScene (scene :IScene, startTimeSec :number){
+public addScene (scene :IScene){
 //--the scene already has its duration set
 //---get all the comps    
 const comps = scene.getComps();
-
     for (let i = 0; i < comps.length; i++) {
         const comp = comps[i];
-        // const compDuration = comp.getDuration();
-        // const compStartTime = comp.getStartTime(false);
-
     this.add(comp,comp.getStartTime(false),comp.getEndTime(false) );
     }
-}
-public append(comp :IComponent,duration :number){
-    //--This charsWidth is a function ref from Pack so that components can find the width of some chars with out Pack
-    comp.charsWidth = this.charsWidth;
-    const startingFrame = this.duration.len(false);
-    const endFrame = startingFrame + duration;
-     //--1 : comp.duration cant be > 0 
-     comp.setTimings(startingFrame,endFrame);
-    
-    //--2 : Add comp duration to this.duration .
-    this.duration.extend(comp.getDuration());
-//---finally    
-return this.comps.push(comp);
 }
 //-21-6-2022 previously blank frame between startTime and Video.len were not allowed BUT now we allow it the gap is just inserted.
 public add(comp :IComponent,startTime :number,endTime :number){
@@ -63,6 +46,19 @@ public add(comp :IComponent,startTime :number,endTime :number){
 return this.comps.push(comp);      
 } 
 
+public append(comp :IComponent,duration :number){
+    //--This charsWidth is a function ref from Pack so that components can find the width of some chars with out Pack
+    comp.charsWidth = this.charsWidth;
+    const startingFrame = this.duration.len(false);
+    const endFrame = startingFrame + duration;
+     //--1 : comp.duration cant be > 0 
+     comp.setTimings(startingFrame,endFrame);
+    
+    //--2 : Add comp duration to this.duration .
+    this.duration.extend(comp.getDuration());
+//---finally    
+return this.comps.push(comp);
+}
 public alwaysOn(comp:IComponent):IComponent{
     comp.charsWidth = this.charsWidth;    
  comp.alwaysOn = true;   

@@ -20,18 +20,24 @@ export default class Scene {
     duration() {
         return this._duration;
     }
-    add(comp, startTimeSec, endTimeSec) {
-        if (startTimeSec < this.getStartTime() ||
-            endTimeSec > this.getEndTime()) {
-            throw new Error(`components start and end time should be with in 0 and scene duration (which in this case is ${this._duration}`);
-        }
+    add(comp, startTimePlusInSec = 0, endTimeMinusInSec = 0) {
+        const startTimeSec = this.startTimePlus(startTimePlusInSec);
+        const endTimeSec = this.endTimeMinus(endTimeMinusInSec);
         comp.setTimings(startTimeSec, endTimeSec);
         this.comps.push(comp);
     }
     startTimePlus(timeSec = 0) {
-        return this._startTime + timeSec;
+        const startTimeSec = this._startTime + timeSec;
+        if (startTimeSec > (this.getEndTime() - 1)) {
+            throw new Error(`components start and end time should be with in the start and end time of the scene (which in this case is ${this.getStartTime()} and ${this.getEndTime()}`);
+        }
+        return startTimeSec;
     }
     endTimeMinus(timeSec = 0) {
-        return Math.abs(this._endTime - timeSec);
+        const endTimeSec = Math.abs(this._endTime - timeSec);
+        if (endTimeSec > (this.getEndTime())) {
+            throw new Error(`components start and end time should be with in the start and end time of the scene (which in this case is ${this.getStartTime()} and ${this.getEndTime()}`);
+        }
+        return endTimeSec;
     }
 }

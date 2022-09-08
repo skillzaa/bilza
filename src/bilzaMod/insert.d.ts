@@ -7,9 +7,9 @@ export default class Insert {
     private comps;
     private charsWidth;
     constructor(comps: Comps, duration: Duration, charsWidth: (chars: string, fontSize: number, fontName: string) => number);
-    addScene(scene: IScene, startTimeSec: number): void;
-    append(comp: IComponent, duration: number): IComponent;
+    addScene(scene: IScene): void;
     add(comp: IComponent, startTime: number, endTime: number): IComponent;
+    append(comp: IComponent, duration: number): IComponent;
     alwaysOn(comp: IComponent): IComponent;
 }
 //# sourceMappingURL=insert.d.ts.map

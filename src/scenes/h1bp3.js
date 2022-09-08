@@ -1,9 +1,11 @@
 import { CompFactory as cf, hsl, Scene } from "../bilza.js";
 export default function h1bp3(startTime, endTime, hslColorNo) {
-    const sce = new Scene(startTime, endTime);
+    const scene = new Scene(startTime, endTime);
     const txt = cf.text("Test Scene", hsl(0));
-    txt.templ.h1();
+    scene.add(txt, 2, 2);
+    txt.templ.jumbotron();
     txt.theme.color(240);
-    sce.add(txt, sce.startTimePlus(0), sce.endTimeMinus(0));
-    return sce;
+    txt.entryAni.fadeIn();
+    txt.exitAni.fadeOut();
+    return scene;
 }

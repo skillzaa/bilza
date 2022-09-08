@@ -10,8 +10,8 @@ export default class Scene implements IScene {
     getStartTime(): number;
     getEndTime(): number;
     duration(): number;
-    add(comp: IComponent, startTimeSec: number, endTimeSec: number): void;
-    startTimePlus(timeSec?: number): number;
-    endTimeMinus(timeSec?: number): number;
+    add(comp: IComponent, startTimePlusInSec?: number, endTimeMinusInSec?: number): void;
+    private startTimePlus;
+    private endTimeMinus;
 }
 //# sourceMappingURL=scene.d.ts.map

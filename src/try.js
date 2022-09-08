@@ -1,10 +1,11 @@
 import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
+import h1bp3 from "./scenes/h1bp3.js";
 let bil = new Bilza("bilza", 70);
-bil.resizeCanvas(600, null);
 bil.background.color.set(hsl(0, 20, 30));
-const slim = cf.text("Simple Text");
-slim.setxy(10, 50);
-slim.templ.slim(60).theme.color(60);
-bil.insert.add(slim, 0, 30);
+const grid = cf.grid(10, 10, hsl(0));
+bil.insert.add(grid, 0, 15);
+bil.insert.alwaysOn(cf.frameCounter(hsl(120)));
+const h1 = h1bp3(5, 15, 240);
+bil.insert.addScene(h1);
 const ui = new Ui(bil);
 bil.draw();

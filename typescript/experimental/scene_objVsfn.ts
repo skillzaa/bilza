@@ -67,7 +67,7 @@ const sc = h1bp3(2,20,"The Title","Bp one",4,"bp2",6,"bp3",8,240);
 const bil = new Bilza("bilza",70);
 
 bil.insert.alwaysOn(cf.frameCounter(hsl(60)));
-bil.insert.addScene(sc,2);
+bil.insert.addScene(sc);
 
 const ui = new Ui(bil);
 bil.draw();
@@ -77,6 +77,6 @@ bil.draw();
 const slide = new Slide(2,20);
 slide.addGrid();
 slide.addH1("HEADING ONE FROM SLIDE!!!!!",120);
-bil.insert.addScene(slide,2);
+bil.insert.addScene(slide);
 
 // console.log("slide",slide);
