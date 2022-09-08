@@ -71,7 +71,7 @@ export default class TextTempl {
         this.comp.x.set(50);
         this.comp.y.set(40);
         this.comp.showBackground.set(true);
-        this.comp.border.set(15);
+        this.comp.border.set(10);
         return this.comp;
     }
     ftNote(x = 10, y = 95) {

@@ -79,7 +79,7 @@ this.comp.x.set(50);
 this.comp.y.set(40);    
 // this.comp.fontSize.set(100);  
 this.comp.showBackground.set(true);
-this.comp.border.set(15);
+this.comp.border.set(10);
 // this.comp.respFontSize.set(false);
 return this.comp;
 }

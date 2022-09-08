@@ -1,12 +1,10 @@
 import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
-import h1bp3 from "./scenes/h1bp3.js";
-import testScene from "./scenes/testScene.js";
+import swingJt from "./scenes/swingJt.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(0, 20, 30));
-bil.insert.alwaysOn(cf.frameCounter(hsl(120)));
-const scene01 = testScene(3, 12, hsl(120));
-const scene02 = h1bp3(5, 9, 120);
-bil.insert.addScene(scene01);
-bil.insert.addScene(scene02);
+const fc = cf.frameCounter(hsl(120));
+bil.insert.add(fc, 0, 50);
+const jt = swingJt(0, 30, "Welcome To Bilza.js", 300);
+bil.insert.addScene(jt);
 const ui = new Ui(bil);
 bil.draw();
