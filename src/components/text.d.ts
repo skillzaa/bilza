@@ -2,8 +2,6 @@ import { Pack, BaseComponent, FontFamily } from "../bilza.js";
 import { AniNumber, AniString, AniBoolean } from "../animationModule/animations.js";
 import TextTempl from "../templates/textTempl.js";
 import TextTheme from "../templates/textTheme.js";
-import EntryAni from "../templates/entryAni.js";
-import ExitAni from "../templates/exitAni.js";
 export default class Text extends BaseComponent {
     content: AniString;
     fontFamily: FontFamily;
@@ -11,8 +9,6 @@ export default class Text extends BaseComponent {
     maxDisplayChars: AniNumber;
     templ: TextTempl;
     theme: TextTheme;
-    entryAni: EntryAni;
-    exitAni: ExitAni;
     fitToWidth: AniBoolean;
     shrinkToHeight: AniBoolean;
     respFontSize: AniBoolean;

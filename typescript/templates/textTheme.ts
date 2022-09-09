@@ -11,7 +11,8 @@ this.comp = comp;
 color(Hue_0_to_360 :number){
 this.comp.color.set(hsl(Hue_0_to_360));    
 this.comp.colorBorder.set(hsl(Hue_0_to_360));    
-this.comp.colorBackground.set(hsl(Hue_0_to_360,30,90));    
+this.comp.colorBackground.set(hsl(Hue_0_to_360,30,90)); 
+return this.comp;   
 }
 
 }

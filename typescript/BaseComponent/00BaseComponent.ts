@@ -1,16 +1,24 @@
 import { IComponent,Pack } from "../bilza.js";
 import RotateObj from "./60rotateObj.js";
 import { AniPerc } from "../animationModule/animations.js";
+import EntryAni from "../templates/entryAni.js";
+import ExitAni from "../templates/exitAni.js";
 
 export default class BaseComponent extends RotateObj implements IComponent{
 //-its nec to keep canvas width and height here to keep them private    
 //---these 2 variables will be set in init
 private _canvasWidth :number | null;    
 private _canvasHeight :number | null;    
+//---Preset Animations
+public entryAni :EntryAni; 
+public exitAni :ExitAni; 
+
 constructor (){
 super();
 this._canvasWidth = null;    
 this._canvasHeight = null;    
+this.entryAni = new EntryAni(this);
+this.exitAni = new ExitAni(this);
 
 }
 

@@ -12,6 +12,7 @@ import Icon from "../components/icon.js";
 import Row from "../container/row.js";
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../components/spriteSheet/spriteSheetAlt.js";
+import Scenes from "./scenes.js";
 export default class CompFactory {
     static spriteSheetAlt(imgUrl) {
         let g = new SpriteSheetAlt(imgUrl);
@@ -70,3 +71,4 @@ export default class CompFactory {
         return g;
     }
 }
+CompFactory.scenes = Scenes;

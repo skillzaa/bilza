@@ -127,6 +127,8 @@ this.colorContentAreaBorder = new AniColor("black");
 
 this.colorBackground = new AniColor("#ffffff");
 this.showBackground = new AniBoolean(false);
+//..
+
 }
 
 //////////////////////////////////////////

@@ -2,7 +2,7 @@ import Text from "../components/text.js";
 export default class TextTempl {
     private comp;
     constructor(comp: Text);
-    h1(): Text;
+    h1(x?: number, y?: number): Text;
     h2(): Text;
     h3(): Text;
     h4(): Text;

@@ -1,3 +1,3 @@
 import { Scene } from "../bilza.js";
 export default function h13bp(startTime: number, endTime: number, titleContent?: string, bp1Content?: string, bp2Content?: string, bp3Content?: string, ftNoteContent?: string, hslColorNo?: number, bp1EntryTime?: number, bp2EntryTime?: number, bp3EntryTime?: number, ftNoteEntryTime?: number, bp1Y?: number, bp2Y?: number, bp3Y?: number): Scene;
-//# sourceMappingURL=h1bp3.d.ts.map
+//# sourceMappingURL=h13bp.d.ts.map

@@ -3,7 +3,7 @@ export default function h13bp(startTime, endTime, titleContent = "", bp1Content 
     const scene = new Scene(startTime, endTime);
     if (titleContent !== "") {
         const txt = cf.text(titleContent, hsl(0));
-        scene.add(txt, 1, 1);
+        scene.add(txt);
         txt.templ.h1(50, 5);
         txt.theme.color(hslColorNo);
         txt.entryAni.topIn();
@@ -12,21 +12,21 @@ export default function h13bp(startTime, endTime, titleContent = "", bp1Content 
     if (bp1Content !== "") {
         const bltPt = cf.text(bp1Content);
         scene.add(bltPt, bp1EntryTime);
-        bltPt.templ.bltPt(35).theme.color(hslColorNo)
+        bltPt.templ.bltPt(bp1Y).theme.color(hslColorNo)
             .entryAni.fadeIn()
             .exitAni.fadeOut();
     }
     if (bp2Content !== "") {
         const bltPt02 = cf.text(bp2Content);
         scene.add(bltPt02, bp2EntryTime);
-        bltPt02.templ.bltPt(55).theme.color(hslColorNo)
+        bltPt02.templ.bltPt(bp2Y).theme.color(hslColorNo)
             .entryAni.fadeIn()
             .exitAni.fadeOut();
     }
     if (bp3Content !== "") {
         const bltPt03 = cf.text(bp3Content);
         scene.add(bltPt03, bp3EntryTime);
-        bltPt03.templ.bltPt(75).theme.color(hslColorNo)
+        bltPt03.templ.bltPt(bp3Y).theme.color(hslColorNo)
             .entryAni.fadeIn()
             .exitAni.fadeOut();
     }
@@ -37,7 +37,6 @@ export default function h13bp(startTime, endTime, titleContent = "", bp1Content 
         ftnt.theme.color(hslColorNo);
         ftnt.entryAni.fadeIn();
         ftnt.exitAni.fadeOut();
-        scene.add(ftnt);
     }
     return scene;
 }

@@ -2,8 +2,12 @@ export default class TextTempl {
     constructor(comp) {
         this.comp = comp;
     }
-    h1() {
+    h1(x = 50, y = 5) {
         this.comp.showBackground.set(true);
+        this.comp.x.set(x);
+        this.comp.y.set(y);
+        this.comp.align(1, 0);
+        this.comp.alignRotate(1, 1);
         this.comp.border.set(5);
         this.comp.setPaddings(8);
         this.comp.width.set(50);
@@ -71,7 +75,7 @@ export default class TextTempl {
         this.comp.x.set(50);
         this.comp.y.set(40);
         this.comp.showBackground.set(true);
-        this.comp.border.set(10);
+        this.comp.border.set(5);
         return this.comp;
     }
     ftNote(x = 10, y = 95) {

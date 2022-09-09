@@ -1,10 +1,14 @@
 import RotateObj from "./60rotateObj.js";
 import { AniPerc } from "../animationModule/animations.js";
+import EntryAni from "../templates/entryAni.js";
+import ExitAni from "../templates/exitAni.js";
 export default class BaseComponent extends RotateObj {
     constructor() {
         super();
         this._canvasWidth = null;
         this._canvasHeight = null;
+        this.entryAni = new EntryAni(this);
+        this.exitAni = new ExitAni(this);
     }
     init(p) {
         this._canvasWidth = p.canvasWidth();

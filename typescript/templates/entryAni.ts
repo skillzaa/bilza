@@ -1,6 +1,6 @@
 
-import {FontFamily} from "../bilza.js";
-import Text from "../components/text.js";
+// import {FontFamily} from "../bilza.js";
+// import Text from "../components/text.js";
 //---dont use bilza i may remove that
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
@@ -11,8 +11,10 @@ constructor(comp :BaseComponent){
 this.comp = comp;    
 }
 leftIn(){
+    
 //---what ever the alignment it does not matter even if the align is right still - width takes care of that   
 this.comp.x.animate(this.comp.getStartTime(false),this.comp.getStartTime(false) + 2,-this.comp.width.value(),this.comp.x.value());
+return this.comp;    
 }
 rightIn(){
 this.comp.x.animate(
@@ -21,6 +23,7 @@ this.comp.x.animate(
 100 + this.comp.width.value(), 
 this.comp.x.value()
 );
+return this.comp;    
 }
 
 bottomIn(){
@@ -30,6 +33,7 @@ bottomIn(){
         100 + this.comp.height.value(), 
         this.comp.y.value()
     );
+return this.comp;    
 }
 topIn(){
     this.comp.y.animate(
@@ -38,6 +42,7 @@ topIn(){
     ( -1 * this.comp.height.value()) ,
     this.comp.y.value()
     );
+return this.comp;    
 }
 
 fadeIn(){
@@ -46,6 +51,7 @@ fadeIn(){
         this.comp.getStartTime(false)+1,
     0,100
     );
+return this.comp;    
 }
 /////////////////////////////////////////////////
 }

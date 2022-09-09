@@ -14,9 +14,10 @@ import Row from "../container/row.js";
 // import Paragraph from "../container/paragraph.js";
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../components/spriteSheet/spriteSheetAlt.js";
-
+//-----------------scenes
+import Scenes from "./scenes.js";
 export default class CompFactory {
-
+static scenes = Scenes;
 
 static spriteSheetAlt(imgUrl :string):SpriteSheetAlt{
 let g = new SpriteSheetAlt(imgUrl);

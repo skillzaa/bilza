@@ -3,10 +3,12 @@ export default function SwingJt(startTime, endTime, content = "Welcome To Bilza.
     const scene = new Scene(startTime, endTime);
     const txt = cf.text(content);
     scene.add(txt);
-    txt.templ.jumbotron();
-    txt.alignRotate(1, 0);
-    txt.rotation.oscillate(startTime, endTime, -15, 15, 3);
-    txt.theme.color(hslColorNo);
-    txt.exitAni.fadeOut();
+    txt.align(1, 1);
+    txt.x.set(50);
+    txt.y.set(50);
+    txt.templ.jumbotron()
+        .theme.color(hslColorNo)
+        .entryAni.bottomIn()
+        .exitAni.fadeOut();
     return scene;
 }

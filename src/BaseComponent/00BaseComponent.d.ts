@@ -1,8 +1,12 @@
 import { IComponent, Pack } from "../bilza.js";
 import RotateObj from "./60rotateObj.js";
+import EntryAni from "../templates/entryAni.js";
+import ExitAni from "../templates/exitAni.js";
 export default class BaseComponent extends RotateObj implements IComponent {
     private _canvasWidth;
     private _canvasHeight;
+    entryAni: EntryAni;
+    exitAni: ExitAni;
     constructor();
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
