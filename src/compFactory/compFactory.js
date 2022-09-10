@@ -8,6 +8,7 @@ import Pic from "../components/pic.js";
 import Line from "../components/line.js";
 import Circle from "../components/circle.js";
 import CanvasBorder from "../components/canvasBorder.js";
+import Slide from "../slide/slide.js";
 import Row from "../container/row.js";
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../components/spriteSheet/spriteSheetAlt.js";
@@ -15,6 +16,10 @@ import Scenes from "./scenes.js";
 export default class CompFactory {
     static spriteSheetAlt(imgUrl) {
         let g = new SpriteSheetAlt(imgUrl);
+        return g;
+    }
+    static slide(startTime, endTime, themeHue_0_to_360 = 240) {
+        let g = new Slide(startTime, endTime, themeHue_0_to_360);
         return g;
     }
     static spriteSheet(imgUrl, IconWidth, IconHeight, totalColumns, totalRows) {

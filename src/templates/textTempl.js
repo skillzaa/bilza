@@ -4,8 +4,7 @@ export default class TextTempl {
     }
     h1(x = 50, y = 5) {
         this.comp.showBackground.set(true);
-        this.comp.x.set(x);
-        this.comp.y.set(y);
+        this.comp.setxy(x, y);
         this.comp.align(1, 0);
         this.comp.alignRotate(1, 1);
         this.comp.border.set(5);
@@ -16,7 +15,8 @@ export default class TextTempl {
         this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
-    h2() {
+    h2(x = 50, y = 5) {
+        this.comp.setxy(x, y);
         this.comp.showBackground.set(true);
         this.comp.border.set(5);
         this.comp.setPaddings(8);
@@ -26,7 +26,8 @@ export default class TextTempl {
         this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
-    h3() {
+    h3(x = 50, y = 5) {
+        this.comp.setxy(x, y);
         this.comp.showBackground.set(true);
         this.comp.border.set(5);
         this.comp.setPaddings(8);
@@ -36,7 +37,8 @@ export default class TextTempl {
         this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
-    h4() {
+    h4(x = 50, y = 5) {
+        this.comp.setxy(x, y);
         this.comp.showBackground.set(true);
         this.comp.border.set(5);
         this.comp.setPaddings(8);
@@ -46,7 +48,8 @@ export default class TextTempl {
         this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
-    h5() {
+    h5(x = 50, y = 5) {
+        this.comp.setxy(x, y);
         this.comp.showBackground.set(true);
         this.comp.border.set(5);
         this.comp.setPaddings(8);
@@ -56,7 +59,8 @@ export default class TextTempl {
         this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
-    h6() {
+    h6(x = 50, y = 5) {
+        this.comp.setxy(x, y);
         this.comp.showBackground.set(true);
         this.comp.border.set(5);
         this.comp.setPaddings(8);
@@ -66,14 +70,13 @@ export default class TextTempl {
         this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
-    jumbotron() {
+    jumbotron(x = 50, y = 50) {
+        this.comp.setxy(x, y);
         this.comp.align(1, 1);
         this.comp.width.set(80);
         this.comp.fitToWidth.set(true);
         this.comp.height.set(20);
         this.comp.setPaddings(10);
-        this.comp.x.set(50);
-        this.comp.y.set(40);
         this.comp.showBackground.set(true);
         this.comp.border.set(5);
         return this.comp;

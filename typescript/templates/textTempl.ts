@@ -10,8 +10,7 @@ this.comp = comp;
 }
 h1(x :number=50,y :number=5){
 this.comp.showBackground.set(true);
-this.comp.x.set(x);
-this.comp.y.set(y);
+this.comp.setxy(x,y); 
 this.comp.align(1,0);
 this.comp.alignRotate(1,1);
 this.comp.border.set(5);
@@ -22,7 +21,8 @@ this.comp.fitToWidth.set(true); // This will set fontSize
 this.comp.shrinkToHeight.set(true);  
 return this.comp;
 }
-h2(){
+h2(x :number=50,y :number=5){
+    this.comp.setxy(x,y);
 this.comp.showBackground.set(true);
 this.comp.border.set(5);
 this.comp.setPaddings(8);
@@ -32,7 +32,8 @@ this.comp.fitToWidth.set(true); // This will set fontSize
 this.comp.shrinkToHeight.set(true);
 return this.comp;  
 }
-h3(){
+h3(x :number=50,y :number=5){
+    this.comp.setxy(x,y);
 this.comp.showBackground.set(true);
 this.comp.border.set(5);
 this.comp.setPaddings(8);
@@ -42,7 +43,8 @@ this.comp.fitToWidth.set(true); // This will set fontSize
 this.comp.shrinkToHeight.set(true);  
 return this.comp;
 }
-h4(){
+h4(x :number=50,y :number=5){
+    this.comp.setxy(x,y);
 this.comp.showBackground.set(true);
 this.comp.border.set(5);
 this.comp.setPaddings(8);
@@ -52,7 +54,8 @@ this.comp.fitToWidth.set(true); // This will set fontSize
 this.comp.shrinkToHeight.set(true);  
 return this.comp;
 }
-h5(){
+h5(x :number=50,y :number=5){
+    this.comp.setxy(x,y);
 this.comp.showBackground.set(true);
 this.comp.border.set(5);
 this.comp.setPaddings(8);
@@ -62,7 +65,8 @@ this.comp.fitToWidth.set(true); // This will set fontSize
 this.comp.shrinkToHeight.set(true);  
 return this.comp;
 }
-h6(){
+h6(x :number=50,y :number=5){
+    this.comp.setxy(x,y);
 this.comp.showBackground.set(true);
 this.comp.border.set(5);
 this.comp.setPaddings(8);
@@ -72,15 +76,13 @@ this.comp.fitToWidth.set(true); // This will set fontSize
 this.comp.shrinkToHeight.set(true); 
 return this.comp; 
 }
-jumbotron(){
+jumbotron(x :number=50,y :number=50){
+    this.comp.setxy(x,y);
 this.comp.align(1,1);
 this.comp.width.set(80);
 this.comp.fitToWidth.set(true);
 this.comp.height.set(20);
 this.comp.setPaddings(10);
-//since we know width = 80 so x = 20 will place it at mid without messing with align.
-this.comp.x.set(50);     
-this.comp.y.set(40);    
 // this.comp.fontSize.set(100);  
 this.comp.showBackground.set(true);
 this.comp.border.set(5);

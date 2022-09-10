@@ -28,7 +28,7 @@ import SpriteSheet from "./components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "./components/spriteSheet/spriteSheetAlt.js";
 import getRandom from "./functions/getRandom.js";
 import Scene from "./scene/scene.js";
-import Slide from "./scene/slide.js";
+import Slide from "./slide/slide.js";
 export {
 Pack,
 // TextTempl,
