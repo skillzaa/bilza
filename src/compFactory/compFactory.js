@@ -50,8 +50,8 @@ export default class CompFactory {
         let g = new FillRect(color);
         return g;
     }
-    static frameCounter(color = "#000000") {
-        let g = new FrameCounter(color);
+    static frameCounter(Hue_0_to_360 = 240) {
+        let g = new FrameCounter(Hue_0_to_360);
         return g;
     }
     static particleSystem(count = 10, color = "#008000", framesToSkip = 50) {

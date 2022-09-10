@@ -67,8 +67,8 @@ static fillRect(color :string="#000000"){
 let g = new FillRect(color);
 return g;    
 }
-static frameCounter(color :string="#000000"){
-let g = new FrameCounter(color);
+static frameCounter(Hue_0_to_360 :number=240){
+let g = new FrameCounter(Hue_0_to_360);
 return g;    
 }
 static particleSystem(count :number= 10,color :string="#008000",framesToSkip :number=50){

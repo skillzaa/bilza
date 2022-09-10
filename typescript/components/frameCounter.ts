@@ -6,13 +6,14 @@ import { AniBoolean } from "../animationModule/animations.js";
 export default class FrameCounter extends Text {
     convertToSec :AniBoolean;
 
-constructor (color :string= hsl(60)){ 
-    super("",color);
+constructor (Hue_0_to_360 :number=240){ 
+    super("",hsl(Hue_0_to_360));
     this.convertToSec = new AniBoolean(true);
     this.fontSize.set(26);
     this.showBackground.set(true);
-    this.colorBackground.set("blue");
-    this.colorBorder.set(color);
+    this.colorBackground.set(hsl(Hue_0_to_360,20,90));
+    this.colorBorder.set(hsl(Hue_0_to_360));
+    this.color.set(hsl(Hue_0_to_360));
     // this.color.set(color);
     this.border.set(1);
     this.drawLayer = DrawLayer.ForeGround;

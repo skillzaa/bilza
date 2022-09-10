@@ -24,7 +24,7 @@ export default class CompFactory {
     static grid(cellWidthPerc?: number, cellHeightPerc?: number, colorHax?: string): Grid;
     static rect(color?: string): Rect;
     static fillRect(color?: string): FillRect;
-    static frameCounter(color?: string): FrameCounter;
+    static frameCounter(Hue_0_to_360?: number): FrameCounter;
     static particleSystem(count?: number, color?: string, framesToSkip?: number): ParticleSystem;
     static text(content?: string, colorHax?: string): Text;
     static line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string): Line;

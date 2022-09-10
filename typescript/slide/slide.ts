@@ -11,15 +11,6 @@ super(startTime,endTime);
 this.themeHue_0_to_360 = themeHue_0_to_360;    
 }
 
-addGrid(cellWidth :number=10,cellHeight :number=10,color :string | null= null ):Grid{
-
-const newColor = color == null ? hsl(this.themeHue_0_to_360) : color ;    
-
-const grid = cf.grid(cellWidth,cellHeight,newColor);
-this.add(grid);
-return grid;
-}
-
 addBltPt(content :string,entryTimePlus :number=0, exitTimeMinus :number=0,x :number=50, y :number=5,Hue_0_to_360 :number|null=null):Text{
 // const newColor = color == null ? hsl(this.themeHue_0_to_360) : color ;    
 const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360 ;    
@@ -102,12 +93,32 @@ const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360 ;
     return comp;
 }
 
-addCanvasBorder(color :string|null=null , borderWidth :number=0.5,entryTimePlus :number=0, exitTimeMinus :number=0){
+addGrid(cellWidth :number=10,cellHeight :number=10,color :string | null= null ):Grid{
+
+const newColor = color == null ? hsl(this.themeHue_0_to_360) : color ;    
+
+const grid = cf.grid(cellWidth,cellHeight,newColor);
+this.add(grid);
+return grid;
+}
+
+addCanvasBorder(borderWidth :number=0.5,entryTimePlus :number=0, exitTimeMinus :number=0,color :string | null= null ){
 const newColor = color == null ? 
 hsl(this.themeHue_0_to_360) : color ;    
-
 const comp = cf.canvasBorder(newColor,borderWidth);
 this.add(comp,entryTimePlus,exitTimeMinus);
+}
+
+addFrameCounter(entryTimePlus :number=0, exitTimeMinus :number=0,x :number=90, y :number=90,Hue_0_to_360 :number | null= null){
+
+const newColor = Hue_0_to_360 == null ? 
+this.themeHue_0_to_360 : Hue_0_to_360 ;    
+
+const comp = cf.frameCounter((newColor));
+comp.setxy(x,y);
+this.add(comp,entryTimePlus,exitTimeMinus);
+comp.entryAni.fadeIn()
+comp.exitAni.fadeOut();
 }
 //.................
 }//slide ends here
