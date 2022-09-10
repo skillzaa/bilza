@@ -99,9 +99,23 @@ ftNote(x :number=10,y :number=95){
     this.comp.setPaddings(4);
     return this.comp;
 }
-bltPt(y :number=50,height :number=15){
+bltPt(x :number=50,y :number=50,height :number=15){
     this.comp.align(1,1);
-    this.comp.x.set(50);    
+    this.comp.x.set(x);    
+    this.comp.y.set(y);    
+    //------------------------  
+    this.comp.showBackground.set(true);
+    this.comp.border.set(0);
+    this.comp.setPaddings(3);
+    this.comp.fontSize.set(120);
+    this.comp.height.set(height);
+    // this.comp.respFontSize.set(true);
+    this.comp.shrinkToHeight.set(true);
+    return this.comp;
+}
+boldLine(x :number=10,y :number=10,height :number=15){
+    this.comp.align(0,0);
+    this.comp.x.set(x);    
     this.comp.y.set(y);    
     //------------------------  
     this.comp.showBackground.set(true);

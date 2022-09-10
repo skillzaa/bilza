@@ -9,7 +9,17 @@ export default class Slide extends Scene {
         const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360;
         const comp = cf.text(content);
         this.add(comp, entryTimePlus, exitTimeMinus);
-        comp.templ.bltPt(y);
+        comp.templ.bltPt(x, y);
+        comp.entryAni.topIn();
+        comp.exitAni.fadeOut();
+        comp.theme.color(newColor);
+        return comp;
+    }
+    addBoldLine(content, entryTimePlus = 0, exitTimeMinus = 0, x = 50, y = 5, Hue_0_to_360 = null) {
+        const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360;
+        const comp = cf.text(content);
+        this.add(comp, entryTimePlus, exitTimeMinus);
+        comp.templ.boldLine(x, y);
         comp.entryAni.topIn();
         comp.exitAni.fadeOut();
         comp.theme.color(newColor);
@@ -70,6 +80,17 @@ export default class Slide extends Scene {
         const comp = cf.text(content);
         this.add(comp, entryTimePlus, exitTimeMinus);
         comp.templ.h6(x, y);
+        comp.entryAni.topIn();
+        comp.exitAni.fadeOut();
+        comp.theme.color(newColor);
+        return comp;
+    }
+    addGpHdg(content, entryTimePlus = 0, exitTimeMinus = 0, x = 50, y = 5, Hue_0_to_360 = null) {
+        const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360;
+        const comp = cf.text(content);
+        this.add(comp, entryTimePlus, exitTimeMinus);
+        comp.templ.h2(x, y);
+        comp.align(0, 0);
         comp.entryAni.topIn();
         comp.exitAni.fadeOut();
         comp.theme.color(newColor);

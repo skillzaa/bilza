@@ -10,7 +10,8 @@ export default class TextTempl {
     h6(x?: number, y?: number): Text;
     jumbotron(x?: number, y?: number): Text;
     ftNote(x?: number, y?: number): Text;
-    bltPt(y?: number, height?: number): Text;
+    bltPt(x?: number, y?: number, height?: number): Text;
+    boldLine(x?: number, y?: number, height?: number): Text;
     slim(fontSize?: number): Text;
 }
 //# sourceMappingURL=textTempl.d.ts.map

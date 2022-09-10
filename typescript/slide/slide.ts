@@ -17,7 +17,19 @@ const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360 ;
 
     const comp = cf.text( content);
     this.add(comp,entryTimePlus,exitTimeMinus);
-    comp.templ.bltPt(y);
+    comp.templ.bltPt(x,y);
+    comp.entryAni.topIn();
+    comp.exitAni.fadeOut();
+    comp.theme.color(newColor);
+//---importantay
+    return comp;
+}
+addBoldLine(content :string,entryTimePlus :number=0, exitTimeMinus :number=0,x :number=50, y :number=5,Hue_0_to_360 :number|null=null):Text{
+const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360 ;    
+
+    const comp = cf.text( content);
+    this.add(comp,entryTimePlus,exitTimeMinus);
+    comp.templ.boldLine(x,y);
     comp.entryAni.topIn();
     comp.exitAni.fadeOut();
     comp.theme.color(newColor);
@@ -86,6 +98,18 @@ const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360 ;
     const comp = cf.text( content);
     this.add(comp,entryTimePlus,exitTimeMinus);
     comp.templ.h6(x,y);
+    comp.entryAni.topIn();
+    comp.exitAni.fadeOut();
+    comp.theme.color(newColor);
+//---importantay
+    return comp;
+}
+addGpHdg(content :string,entryTimePlus :number=0, exitTimeMinus :number=0,x :number=50, y :number=5,Hue_0_to_360 :number|null=null):Text{
+const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360 ;    
+    const comp = cf.text( content);
+    this.add(comp,entryTimePlus,exitTimeMinus);
+    comp.templ.h2(x,y);
+    comp.align(0,0);
     comp.entryAni.topIn();
     comp.exitAni.fadeOut();
     comp.theme.color(newColor);
