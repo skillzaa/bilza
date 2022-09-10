@@ -6,9 +6,11 @@ import ParticleSystem from "../components/particleSystem.js";
 import Text from "../components/text.js";
 import Pic from "../components/pic.js";
 import Line from "../components/line.js";
-import Marker from "../components/marker.js";
 import Circle from "../components/circle.js";
-import Icon from "../components/icon.js";
+import CanvasBorder from "../components/canvasBorder.js";
+////////////------------09-comps----------////////////////////
+// import Icon from "../components/icon.js";
+// import Marker from "../components/marker.js";
 ////////////////////////////////////////////////////
 import Row from "../container/row.js";
 // import Paragraph from "../container/paragraph.js";
@@ -27,18 +29,22 @@ static spriteSheet(imgUrl :string, IconWidth:number, IconHeight :number, totalCo
 let g = new SpriteSheet(imgUrl, IconWidth, IconHeight, totalColumns,totalRows);
 return g;
 }
-static icon(code:number = 9876,colorHax :string="#008000"){
-let g = new Icon(code,colorHax);
-return g;    
-}
+// static icon(code:number = 9876,colorHax :string="#008000"){
+// let g = new Icon(code,colorHax);
+// return g;    
+// }
 static circle(radius :number=10,colorHax :string="red"){
 let g = new Circle(radius,colorHax);
 return g;    
 }
-static marker(colorHax :string="red"){
-let g = new Marker(colorHax);
+static canvasBorder(color :string="grey" , borderWidth :number=5){
+let g = new CanvasBorder(color, borderWidth);
 return g;    
 }
+// static marker(colorHax :string="red"){
+// let g = new Marker(colorHax);
+// return g;    
+// }
 static pic(imgId :string,dynWidth:number=10,dynHeight :number=10){
 let g = new Pic(imgId,dynWidth,dynHeight);
 return g;    

@@ -1,4 +1,4 @@
-import {Pack,hsl} from "../bilza.js";
+import {Pack,hsl,DrawLayer} from "../bilza.js";
 import Text from "./text.js";
 import { AniBoolean } from "../animationModule/animations.js";
 
@@ -15,6 +15,7 @@ constructor (color :string= hsl(60)){
     this.colorBorder.set(color);
     // this.color.set(color);
     this.border.set(1);
+    this.drawLayer = DrawLayer.ForeGround;
 }
 
 

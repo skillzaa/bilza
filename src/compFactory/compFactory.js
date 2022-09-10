@@ -6,9 +6,8 @@ import ParticleSystem from "../components/particleSystem.js";
 import Text from "../components/text.js";
 import Pic from "../components/pic.js";
 import Line from "../components/line.js";
-import Marker from "../components/marker.js";
 import Circle from "../components/circle.js";
-import Icon from "../components/icon.js";
+import CanvasBorder from "../components/canvasBorder.js";
 import Row from "../container/row.js";
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../components/spriteSheet/spriteSheetAlt.js";
@@ -22,16 +21,12 @@ export default class CompFactory {
         let g = new SpriteSheet(imgUrl, IconWidth, IconHeight, totalColumns, totalRows);
         return g;
     }
-    static icon(code = 9876, colorHax = "#008000") {
-        let g = new Icon(code, colorHax);
-        return g;
-    }
     static circle(radius = 10, colorHax = "red") {
         let g = new Circle(radius, colorHax);
         return g;
     }
-    static marker(colorHax = "red") {
-        let g = new Marker(colorHax);
+    static canvasBorder(color = "grey", borderWidth = 5) {
+        let g = new CanvasBorder(color, borderWidth);
         return g;
     }
     static pic(imgId, dynWidth = 10, dynHeight = 10) {

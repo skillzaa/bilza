@@ -1,4 +1,4 @@
-import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
+import Bilza, { Ui, CompFactory as cf, hsl } from "../bilza.js";
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(240, 55, 70));
 const cb = cf.canvasBorder(hsl(240), 25);

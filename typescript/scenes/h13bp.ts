@@ -1,6 +1,6 @@
 import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
 /**
-    startTime :number,endTime :number, 
+startTime :number,endTime :number, 
     //------------------   
     titleContent:string="",    
     bp1Content  :string="",    
@@ -15,9 +15,10 @@ import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
     bp3EntryTime :number=0,
     ftNoteEntryTime :number=0,
     //------------------
+    titleY :number= 5,
     bp1Y :number=35,
     bp2Y :number=55,
-    bp3Y :number=75
+    bp3Y :number=75    
 */
 
 export default function h13bp ( 
@@ -36,6 +37,7 @@ export default function h13bp (
     bp3EntryTime :number=0,
     ftNoteEntryTime :number=0,
     //------------------
+    titleY :number= 5,
     bp1Y :number=35,
     bp2Y :number=55,
     bp3Y :number=75
@@ -46,8 +48,8 @@ export default function h13bp (
 if (titleContent !== ""){
     const txt = cf.text(titleContent,hsl(0));
     scene.add(txt); // this makes scene min-duration = 2
-    
-    txt.templ.h1(50,5);
+    txt.y.set(titleY);
+    txt.templ.h1(50,titleY);
     txt.theme.color(hslColorNo);
     txt.entryAni.topIn()
     txt.exitAni.fadeOut();

@@ -21,7 +21,7 @@ export default Bilza;
 import Experimental from "./experimental/experimental.js";
 import { UTFIcons } from "./design/utfIcons.js";
 import hsl from "./functions/hsl.js";
-import TextTempl from "./compFactory/textTempl.js";
+// import TextTempl from "./compFactory/textTempl.js";
 // import SpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 import PremadeSpriteSheets from "./premadeSpriteSheets/premadeSpriteSheets.js";
 import SpriteSheet from "./components/spriteSheet/spriteSheet.js";
@@ -31,7 +31,7 @@ import Scene from "./scene/scene.js";
 import Slide from "./scene/slide.js";
 export {
 Pack,
-TextTempl,
+// TextTempl,
 PremadeSpriteSheets,
 SpriteSheet,
 SpriteSheetAlt,

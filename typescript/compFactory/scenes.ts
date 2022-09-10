@@ -30,6 +30,7 @@ static h13bp(
     bp3EntryTime :number=0,
     ftNoteEntryTime :number=0,
     //------------------
+    titleY :number=5,
     bp1Y :number=35,
     bp2Y :number=55,
     bp3Y :number=75
@@ -50,6 +51,7 @@ return h13bp(
     bp3EntryTime,
     ftNoteEntryTime,
     //------------------
+    titleY,
     bp1Y,
     bp2Y,
     bp3Y); 

@@ -1,4 +1,4 @@
-import { hsl } from "../bilza.js";
+import { hsl, DrawLayer } from "../bilza.js";
 import Text from "./text.js";
 import { AniBoolean } from "../animationModule/animations.js";
 export default class FrameCounter extends Text {
@@ -10,6 +10,7 @@ export default class FrameCounter extends Text {
         this.colorBackground.set("blue");
         this.colorBorder.set(color);
         this.border.set(1);
+        this.drawLayer = DrawLayer.ForeGround;
     }
     update(msDelta, p) {
         if (this.convertToSec.value() == true) {

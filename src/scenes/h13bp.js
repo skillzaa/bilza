@@ -1,10 +1,11 @@
 import { CompFactory as cf, hsl, Scene } from "../bilza.js";
-export default function h13bp(startTime, endTime, titleContent = "", bp1Content = "", bp2Content = "", bp3Content = "", ftNoteContent = "", hslColorNo = 240, bp1EntryTime = 0, bp2EntryTime = 0, bp3EntryTime = 0, ftNoteEntryTime = 0, bp1Y = 35, bp2Y = 55, bp3Y = 75) {
+export default function h13bp(startTime, endTime, titleContent = "", bp1Content = "", bp2Content = "", bp3Content = "", ftNoteContent = "", hslColorNo = 240, bp1EntryTime = 0, bp2EntryTime = 0, bp3EntryTime = 0, ftNoteEntryTime = 0, titleY = 5, bp1Y = 35, bp2Y = 55, bp3Y = 75) {
     const scene = new Scene(startTime, endTime);
     if (titleContent !== "") {
         const txt = cf.text(titleContent, hsl(0));
         scene.add(txt);
-        txt.templ.h1(50, 5);
+        txt.y.set(titleY);
+        txt.templ.h1(50, titleY);
         txt.theme.color(hslColorNo);
         txt.entryAni.topIn();
         txt.exitAni.fadeOut();

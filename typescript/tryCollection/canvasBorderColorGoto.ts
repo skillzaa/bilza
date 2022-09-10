@@ -1,4 +1,4 @@
-import Bilza, {Slide,Ui, CompFactory as cf,hsl,getRandom,Scene} from "./bilza.js";
+import Bilza, {Slide,Ui, CompFactory as cf,hsl,getRandom,Scene} from "../bilza.js";
 
 
 let bil = new Bilza("bilza", 70);
