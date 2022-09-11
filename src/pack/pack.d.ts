@@ -17,7 +17,6 @@ export default class Pack {
     drawImageSrcDest(image: HTMLImageElement, sourceX: number, sourceY: number, sourceWidth: number, sourceHeight: number, destX: number, destY: number, destWidth: number, destHeight: number): void;
     clearCanvas(): void;
     charsWidth(chars: string, fontSize: number, fontName: string): number;
-    textWidth(chars: string, incomTempl: Style): number;
     drawLine(startX: number, startY: number, endX: number, endY: number, incomTempl: Style): void;
     line(startX: number, startY: number, endX: number, endY: number): void;
     beginPath(): void;

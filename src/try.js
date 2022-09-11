@@ -1,18 +1,22 @@
 import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
-bil.background.color.set(hsl(240, 55, 70));
-const slide = cf.slide(1, 20, 240);
-slide.addCanvasBorder();
-slide.addFrameCounter();
-slide.addH1("Main Heading");
-slide.addGpHdg("First Group Heading", 2, 0, 5, 25, 0);
-slide.addBoldLine("First content", 4, 0, 5, 45, 0);
-slide.addBoldLine("Third content", 6, 0, 5, 65, 0);
-slide.addBoldLine("Fifth content", 8, 0, 5, 85, 0);
-slide.addGpHdg("Second Group Heading", 2.5, 0, 50, 25);
-slide.addBoldLine("Second content", 5, 0, 50, 45);
-slide.addBoldLine("Fourth content", 7, 0, 50, 65);
-slide.addBoldLine("Sixth content", 9, 0, 50, 85);
-bil.insert.addScene(slide);
+bil.resizeCanvas(1000, 500);
+bil.insert.alwaysOn(cf.grid());
+bil.background.color.set(hsl(0, 5, 30));
+const comp = cf.text("fitToWidth", hsl(240));
+comp.setxy(0, 20);
+comp.theme.color(120);
+comp.fontSize.set(100);
+comp.width.set(100);
+comp.fitToWidth.set(true);
+bil.insert.add(comp, 0, 30);
 const ui = new Ui(bil);
 bil.draw();
+function getComp(color) {
+    const comp = cf.text("fitToWidth", hsl(240));
+    comp.x.set(0);
+    comp.theme.color(color);
+    comp.fontSize.set(300);
+    bil.insert.add(comp, 0, 30);
+    return comp;
+}

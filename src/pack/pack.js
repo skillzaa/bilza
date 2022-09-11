@@ -58,13 +58,6 @@ export default class Pack {
         this.ctx.restore();
         return Math.ceil(m);
     }
-    textWidth(chars, incomTempl) {
-        this.ctx.save();
-        this.commitCtxData(incomTempl);
-        let m = this.ctx.measureText(chars).width;
-        this.ctx.restore();
-        return Math.ceil(m);
-    }
     drawLine(startX, startY, endX, endY, incomTempl) {
         this.commitCtxData(incomTempl);
         this.ctx.beginPath();

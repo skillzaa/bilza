@@ -1,1 +1,10 @@
 
+p {line-height: 2em; font-size: larger;}
+li {line-height: 2em; font-size: larger;}
+hr {padding-bottom: 5px;padding-top: 5px;}
+
+.red {color: red;}
+.green {color: green}
+.blue {color: blue}
+.orange {color: orange}
+.magenta {color: magenta}

@@ -12,7 +12,6 @@ export default class TextTempl {
         this.comp.width.set(50);
         this.comp.height.set(15);
         this.comp.fitToWidth.set(true);
-        this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
     h2(x = 50, y = 5) {
@@ -23,7 +22,6 @@ export default class TextTempl {
         this.comp.width.set(40);
         this.comp.height.set(12);
         this.comp.fitToWidth.set(true);
-        this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
     h3(x = 50, y = 5) {
@@ -34,7 +32,6 @@ export default class TextTempl {
         this.comp.width.set(30);
         this.comp.height.set(10);
         this.comp.fitToWidth.set(true);
-        this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
     h4(x = 50, y = 5) {
@@ -45,7 +42,6 @@ export default class TextTempl {
         this.comp.width.set(20);
         this.comp.height.set(8);
         this.comp.fitToWidth.set(true);
-        this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
     h5(x = 50, y = 5) {
@@ -56,7 +52,6 @@ export default class TextTempl {
         this.comp.width.set(10);
         this.comp.height.set(6);
         this.comp.fitToWidth.set(true);
-        this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
     h6(x = 50, y = 5) {
@@ -67,7 +62,6 @@ export default class TextTempl {
         this.comp.width.set(5);
         this.comp.height.set(5);
         this.comp.fitToWidth.set(true);
-        this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
     jumbotron(x = 50, y = 50) {
@@ -98,7 +92,6 @@ export default class TextTempl {
         this.comp.setPaddings(3);
         this.comp.fontSize.set(120);
         this.comp.height.set(height);
-        this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
     boldLine(x = 10, y = 10, height = 15) {
@@ -110,7 +103,6 @@ export default class TextTempl {
         this.comp.setPaddings(3);
         this.comp.fontSize.set(120);
         this.comp.height.set(height);
-        this.comp.shrinkToHeight.set(true);
         return this.comp;
     }
     slim(fontSize = 50) {
@@ -118,7 +110,6 @@ export default class TextTempl {
         this.comp.border.set(0);
         this.comp.setPaddings(0);
         this.comp.fontSize.set(fontSize);
-        this.comp.shrinkToHeight.set(false);
         return this.comp;
     }
 }

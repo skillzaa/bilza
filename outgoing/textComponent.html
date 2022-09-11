@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        * {
+    padding:0;
+    margin:0;
+}
+
+
+</style>
+    <!-- <script src="../00misc/custom.css"></script> -->
+    <script src="../misc/prism.js"></script>
+    <link rel="stylesheet" href="../misc/prism.css">   
+    <link rel="stylesheet" href="../misc/dark.css">   
+    <link rel="stylesheet" href="../misc/custom.css">   
+
+    <title>Bilza TextComponent</title>
+</head>
+<body>
+
+<h1>Text Component</h1>
+
+<p>Text is one of the most important comp (component) of bilza library. It is not only different from other components of this library but the "Text" comp in bilza.js is also implemented differently from other libraries.</p>
+
+<p>To understand Text comp we need to understand the following 3 props of the Text comp</p>
+
+<ol>
+<li class="orange"><b>"fontSize" prop:</b></li>
+
+<p>The fontSize prop of the Text comp is the main factor which decided the width and height of Text comp. If you do not need to worry about the width and height of the text content just use fontSize. The resultant width and height of the comp will be what ever it is at that fontSize.</p>
+
+<p><a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fontSizeAnimate.html" target="_blank">fontSize Animate Example</a></p>
+
+
+<li class="orange"><b>"fitToWidth" prop:</b></li>
+
+<p>Text comp has a boolean (AniBoolean) prop "fitToWidth". This prop by default is set to false.</p>
+<p>When "fitToWidth" is set to false the width of Text comp is treated as "Maximum Width". It means that we can set any value for fontSize prop and it is fine but if the resultant width is larger than comp.width then it is reduced to the given width.</p>
+<p>By default the width (and also height) value of a Text comp are set at 300% thus they have no effect most of the times. To see some effect  these values need to be reduced by the user.</p>
+
+<p><a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fitToWidth.html" target="_blank">Text FitToWidth True Example</a></p>
+
+<p><a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fitToWidth.html" target="_blank">Text FitToWidth False Example</a></p>
+
+
+<li class="orange"><b>"fitToHeight" prop:</b></li>
+
+<p>Text comp has a boolean (AniBoolean) prop "fitToHeight". This prop by default is set to false.</p>
+
+<p>When "fitToHeight" is set to false the height of Text comp is treated as "Maximum Height". It means that we can set any value for fontSize prop and it is fine but if the resultant height is larger than comp.height then it is reduced to the given height.</p>
+
+<p>By default the height (and also width) value of a Text comp are set at 300% thus they have no effect most of the times. To see some effect  these values need to be reduced by the user.</p>
+
+
+</ol>
+
+<!-- <pre class="language-javascript">
+<code>
+</code>
+</pre> -->
+
+</body>
+</html>

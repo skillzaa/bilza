@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        * {
+    padding:0;
+    margin:0;
+}
+
+
+</style>
+    <!-- <script src="../00misc/custom.css"></script> -->
+    <script src="../misc/prism.js"></script>
+    <link rel="stylesheet" href="../misc/prism.css">   
+    <link rel="stylesheet" href="../misc/dark.css">   
+    <link rel="stylesheet" href="../misc/custom.css">   
+
+    <title>Bilza TextComponent</title>
+</head>
+<body>
+
+<h1>Text Component</h1>
+<p>Following is point by point explanation of Text Comp in Bilza.js. Reading this article is important since this will enable you to understand the purpose and objectives of Text Component</p>
+
+<p>Text is one of the most important comp (component) of bilza library. Text comp is not only different from other components of this library but the "Text" comp in bilza.js is also implemented differently than other libraries.</p>
+
+<p>One of the main reason Text comp is different in Bilza.js is due to so many different options to set the width and height of the text content and hence the Text comp. </p>
+
+<p>We mainly use the comp-prop "fontSize" to size the content of Text comp but we can also use the comp-prop "fitToWidth" , "fitToHeight", "shrinkToWidth" and "shrinkToHeight"</p>
+
+<blockquote>One of the main objective of Bilza.js is to create Template which can just take in data and spit out animations. That means that before we get the real content we have to make decisions on how every text comp will handle its content (both large and small).</blockquote>
+
+<br>
+<br>
+<hr/>
+<br>
+<br>
+<h2>Resize Text Component</h2>
+<p>Lets look at different ways we can set Text comp dimentions.</p>
+<ol>
+
+<li class="orange"><b>Using "fontSize" prop:</b></li>
+
+<p>Text comp has a comp-prop called "fontSize" which is mainly responsible for the size of the text. Once we set "fontSize" to a specific number the text is adjusted to that "fontSize" and the resultant width and height of the comp is what ever it is.</p>
+
+<p><b>Please keep in mind the all the following methods to change the width or height of a Text comp change the same "fontSize" prop to get the desired results.</b></p>
+
+<p><a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fontSizeAnimate.html" target="_blank">Text Comp FontSize Animation Example</a></p>
+
+<li class="orange"><b>Using "fitToWidth" prop: </b></li>
+
+<p>Text comp has a comp-prop called "fitToWidth" which is a bollean. By default this is set to false and thus has no affect. Once we set "fitToWidth" to true the first time the text is drawn its fontSize prop will be changed such that the entire content fit into the given width of the Text comp.</p>
+<p> This means that if "fitToWidth" prop is set to false (as it is by default) the width prop of the Text comp has no effect on the size of the Text comp. Only once we set "fitToWidth" to true the width of the text content will be made to fit the width of the Text comp.</p>
+
+<p>Keep in mind that this change in width happens because the fontSize prop of the text is changed. The text content is made to fit width just on first diaplay after that it is up to the artist what to do with it.
+</p>
+<p><a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fitToWidth.html" target="_blank">Text FitToWidth Example</a></p>
+
+<hr>
+<h3 class="magenta">Summary of "fitToWidth"</h3>
+
+<ol>
+        <li>The "fitToWidth" is false by default and thus the width of text comp has no effect on its size. When the "fitToWidth" is set to false the only thing decided the size of a Text comp is its comp-prop fontSize.</li>
+
+        <li>Once "fitToWidth" is set to true the Text comp will be set equal to its width by adjesting the fontSize prop.</li>
+
+        <li>The change in fontSize by when "fitToWidth" is set true is done just the first time the Text comp is displayed and is NOT ensured / forced on subsequent draws.</li>
+
+        <li>There may be an error of few pixels since fonts in a browser has its own limitations.</li>
+
+</ol>
+    
+
+<li class="orange"><b>Using "fitToHeight" prop: </b></li>
+
+<p>Just like "fitToWidth" the "fitToHeight" prop will make sure that on the first draw the fontSize is changed such that the height of Text comp is made equal to its set height (comp.height.set(xx)).</p>
+
+<p>If "fitToHeight" is set to false (which by default it is) the height of comp will have no effect on its size.</p>
+
+<p>The change in fontSize by when "fitToHeight" is set true is done just the first time the Text comp is displayed and is NOT ensured / forced on subsequent draws.</p>
+
+<p>If the "fitToWidth" and "fitToHeight" both are set to true the "fitToWidth" will act first and then "fitToHeight". Keep this in mind since in some cases they over-write each other changes.</p>
+
+<li class="orange"><b>Using "shrinkToWidth" prop: </b></li>
+<p>The "shrinkToWidth" prop is just like "fitToWidth" except that if the text is already smaller than the width then it is not changed. The content will only be shrunk to fit the width and not enlarged.</p>
+
+<p>We use "shrinkToWidth" when we want a minimum limit on the width of Text comp</p>
+
+<p>It is advised not to use "shrinkToWidth" and "fitToWidth" both at the same time. This will not create an error but is wasteful since both use the same mechanism and may over-write each other result.</p>
+
+<li class="orange"><b>Using "shrinkToHeight" prop: </b></li>
+
+<p>The "shrinkToHeight" prop is just like "fitToHeight" except that If the text is already smaller than the height then it is not changed. The content will only be shrunk to fit the height and not enlarged.</p>
+
+<p>We use "shrinkToHeight" when we want a minimum limit on the height of Text comp</p>
+
+<p>It is advised not to use "shrinkToHeight" and "fitToHeight" both at the same time. This will not create an error but is wasteful since both use the same mechanism and may over-write each other result.</p>
+
+</ol>
+<p>In addition to all the above Text comp props I must also mention the <span class="red">"maxDisplayChars"</span> prop which will restrict the number of characters to be shown. This is yet another method to control the incomming content in a Text comp. By default the "maxDisplayChars" = 2000.</p>
+<br>
+<hr>
+<br>
+<p>Now all this discussion will make us ask a question.</p>
+
+<p class="red"><b>Why cant we just simply use fontSize prop and then use visual inspection to see if some text comp needs adjestment?</b></p>
+<p><b>Answer :</b> Yes we can if we have a small presentation to make. However if we are creating a Template where we just have a rought estimate of the size of the text content we need all the above features.</p>
+<p>All these features come in handy when we do not know how much content the Text comp has to hold in advance.</p>
+<p></p>
+<p></p>
+
+<!-- <pre class="language-javascript">
+<code>
+</code>
+</pre> -->
+
+</body>
+</html>

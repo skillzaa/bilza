@@ -1,4 +1,4 @@
-import Bilza, { Slide, Ui, CompFactory as cf, hsl, Scene } from "../bilza.js";
+import Bilza, { Slide, Ui, CompFactory as cf, Scene } from "../bilza.js";
 function h1bp3(sceneStartTime, sceneEndTime, contentTitle, contentBp1, appearTimeBp1, contentBp2, appearTimeBp2, contentBp3, appearTimeBp3, themeColor) {
     const scene = new Scene(sceneStartTime, sceneEndTime);
     const comp = cf.text(contentTitle);
@@ -21,7 +21,7 @@ function h1bp3(sceneStartTime, sceneEndTime, contentTitle, contentBp1, appearTim
 }
 const sc = h1bp3(2, 20, "The Title", "Bp one", 4, "bp2", 6, "bp3", 8, 240);
 const bil = new Bilza("bilza", 70);
-bil.insert.alwaysOn(cf.frameCounter(hsl(60)));
+bil.insert.alwaysOn(cf.frameCounter(60));
 bil.insert.addScene(sc);
 const ui = new Ui(bil);
 bil.draw();

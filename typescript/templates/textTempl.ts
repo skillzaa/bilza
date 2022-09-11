@@ -18,7 +18,7 @@ this.comp.setPaddings(8);
 this.comp.width.set(50);
 this.comp.height.set(15);
 this.comp.fitToWidth.set(true); // This will set fontSize  
-this.comp.shrinkToHeight.set(true);  
+// this.comp.shrinkToHeight.set(true);  
 return this.comp;
 }
 h2(x :number=50,y :number=5){
@@ -29,7 +29,7 @@ this.comp.setPaddings(8);
 this.comp.width.set(40);
 this.comp.height.set(12);
 this.comp.fitToWidth.set(true); // This will set fontSize  
-this.comp.shrinkToHeight.set(true);
+// this.comp.shrinkToHeight.set(true);
 return this.comp;  
 }
 h3(x :number=50,y :number=5){
@@ -40,7 +40,7 @@ this.comp.setPaddings(8);
 this.comp.width.set(30);
 this.comp.height.set(10);
 this.comp.fitToWidth.set(true); // This will set fontSize  
-this.comp.shrinkToHeight.set(true);  
+// this.comp.shrinkToHeight.set(true);  
 return this.comp;
 }
 h4(x :number=50,y :number=5){
@@ -51,7 +51,7 @@ this.comp.setPaddings(8);
 this.comp.width.set(20);
 this.comp.height.set(8);
 this.comp.fitToWidth.set(true); // This will set fontSize  
-this.comp.shrinkToHeight.set(true);  
+// this.comp.shrinkToHeight.set(true);  
 return this.comp;
 }
 h5(x :number=50,y :number=5){
@@ -62,7 +62,7 @@ this.comp.setPaddings(8);
 this.comp.width.set(10);
 this.comp.height.set(6);
 this.comp.fitToWidth.set(true); // This will set fontSize  
-this.comp.shrinkToHeight.set(true);  
+// this.comp.shrinkToHeight.set(true);  
 return this.comp;
 }
 h6(x :number=50,y :number=5){
@@ -73,7 +73,7 @@ this.comp.setPaddings(8);
 this.comp.width.set(5);
 this.comp.height.set(5);
 this.comp.fitToWidth.set(true); // This will set fontSize  
-this.comp.shrinkToHeight.set(true); 
+// this.comp.shrinkToHeight.set(true); 
 return this.comp; 
 }
 jumbotron(x :number=50,y :number=50){
@@ -110,7 +110,7 @@ bltPt(x :number=50,y :number=50,height :number=15){
     this.comp.fontSize.set(120);
     this.comp.height.set(height);
     // this.comp.respFontSize.set(true);
-    this.comp.shrinkToHeight.set(true);
+    // this.comp.shrinkToHeight.set(true);
     return this.comp;
 }
 boldLine(x :number=10,y :number=10,height :number=15){
@@ -124,7 +124,7 @@ boldLine(x :number=10,y :number=10,height :number=15){
     this.comp.fontSize.set(120);
     this.comp.height.set(height);
     // this.comp.respFontSize.set(true);
-    this.comp.shrinkToHeight.set(true);
+    // this.comp.shrinkToHeight.set(true);
     return this.comp;
 }
 slim(fontSize :number=50){
@@ -132,7 +132,7 @@ slim(fontSize :number=50){
     this.comp.border.set(0);
     this.comp.setPaddings(0);
     this.comp.fontSize.set(fontSize);
-    this.comp.shrinkToHeight.set(false);
+    // this.comp.shrinkToHeight.set(false);
     return this.comp;
 }
 }

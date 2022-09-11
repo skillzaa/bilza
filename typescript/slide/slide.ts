@@ -12,7 +12,7 @@ this.themeHue_0_to_360 = themeHue_0_to_360;
 }
 
 addBltPt(content :string,entryTimePlus :number=0, exitTimeMinus :number=0,x :number=50, y :number=5,Hue_0_to_360 :number|null=null):Text{
-// const newColor = color == null ? hsl(this.themeHue_0_to_360) : color ;    
+
 const newColor = Hue_0_to_360 == null ? this.themeHue_0_to_360 : Hue_0_to_360 ;    
 
     const comp = cf.text( content);

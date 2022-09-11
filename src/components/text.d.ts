@@ -7,11 +7,11 @@ export default class Text extends BaseComponent {
     fontFamily: FontFamily;
     fontSize: AniNumber;
     maxDisplayChars: AniNumber;
+    fitToWidth: AniBoolean;
+    fitToHeight: AniBoolean;
+    respFontSize: AniBoolean;
     templ: TextTempl;
     theme: TextTheme;
-    fitToWidth: AniBoolean;
-    shrinkToHeight: AniBoolean;
-    respFontSize: AniBoolean;
     constructor(content?: string, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
     contentHeight(): number;
@@ -19,7 +19,9 @@ export default class Text extends BaseComponent {
     draw(p: Pack): boolean;
     drawContent(p: Pack): void;
     protected fitToWidthFn(p: Pack): number | null;
+    protected fitToHeightFn(p: Pack): number | null;
     protected adjestFontSize(n: number): number;
     protected shrinkToHeightFn(p: Pack): boolean;
+    protected shrinkToWidthFn(p: Pack): boolean;
 }
 //# sourceMappingURL=text.d.ts.map

@@ -53,8 +53,6 @@ public restore(){
 public save(){
     this.ctx.save();
 }
-
-
 public drawImage(image :HTMLImageElement,
             x :number, 
             y:number, 
@@ -91,15 +89,15 @@ let m = this.ctx.measureText(chars).width;
 this.ctx.restore();
 return Math.ceil(m);    
 }
-public textWidth(chars:string,incomTempl:Style){
-    this.ctx.save();
-    this.commitCtxData(incomTempl);
-//not required since its done in commitCtxData
-    // this.setFont(incomTempl.fontSize,incomTempl.fontName);
-let m = this.ctx.measureText(chars).width;
-this.ctx.restore();
-return Math.ceil(m);    
-}
+// public textWidth(chars:string,incomTempl:Style){
+//     this.ctx.save();
+//     this.commitCtxData(incomTempl);
+// //not required since its done in commitCtxData
+//     // this.setFont(incomTempl.fontSize,incomTempl.fontName);
+// let m = this.ctx.measureText(chars).width;
+// this.ctx.restore();
+// return Math.ceil(m);    
+// }
 public drawLine(startX:number,startY:number,endX:number,endY:number,incomTempl:Style){
     this.commitCtxData(incomTempl);
     this.ctx.beginPath();
