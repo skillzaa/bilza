@@ -15,29 +15,38 @@ export default class Text extends BaseComponent {
         this.drawLayer = DrawLayer.MiddleGround;
         this.templ = new TextTempl(this);
         this.theme = new TextTheme(this);
+        this._oldWidth = null;
+        this._oldHeight = null;
         this.color.set(colorHax);
         this.width.set(300);
         this.height.set(300);
     }
     update(msDelta, p) {
         if (this.fitToWidth.value() == true) {
-            this.fitToWidthFn(p);
+            if (this.hasWidthChanged() == true) {
+                this.fitToWidthFn(p);
+            }
         }
         else {
             this.shrinkToWidthFn(p);
         }
         if (this.fitToHeight.value() == true) {
-            this.fitToHeightFn(p);
-            this.fitToHeight.set(false);
+            if (this.hasHeightChanged() == true) {
+                this.fitToHeightFn(p);
+            }
         }
         else {
             this.shrinkToHeightFn(p);
         }
         super.update(msDelta, p);
-        this.fontSize.update(msDelta);
+        if (this.fitToWidth.value() == false && this.fitToHeight.value() == false) {
+            this.fontSize.update(msDelta);
+        }
         this.content.update(msDelta);
         this.maxDisplayChars.update(msDelta);
         this.respFontSize.update(msDelta);
+        this.fitToWidth.update(msDelta);
+        this.fitToHeight.update(msDelta);
         return true;
     }
     contentHeight() {
@@ -73,7 +82,7 @@ export default class Text extends BaseComponent {
         this.style.fontSize = this.fontSize.value();
         this.style.fontFamily = this.fontFamily;
         for (let i = 1; i < 900; i++) {
-            const newWidthInPix = p.charsWidth(this.content.value(), this.adjestFontSize(i), this.style.fontFamily);
+            const newWidthInPix = p.charsWidth(this.content.value(), i, this.style.fontFamily);
             if (newWidthInPix >= (reqWdInPix)) {
                 this.fontSize.set(i);
                 this.style.fontSize = i;
@@ -88,7 +97,7 @@ export default class Text extends BaseComponent {
         this.style.fontSize = this.fontSize.value();
         this.style.fontFamily = this.fontFamily;
         for (let i = 1; i < 900; i++) {
-            const newHeightInPix = p.charsWidth("X", this.adjestFontSize(i), this.style.fontFamily);
+            const newHeightInPix = p.charsWidth("X", i, this.style.fontFamily);
             if (newHeightInPix >= (reqHtInPix)) {
                 this.fontSize.set(i);
                 this.style.fontSize = i;
@@ -96,17 +105,6 @@ export default class Text extends BaseComponent {
             }
         }
         return null;
-    }
-    adjestFontSize(n) {
-        if (this.canvasWidth == null) {
-            throw new Error("init error");
-        }
-        if (this.respFontSize.value() == true) {
-            return (n / 1000) * this.canvasWidth();
-        }
-        else {
-            return n;
-        }
     }
     shrinkToHeightFn(p) {
         if (this.charsWidth == null) {
@@ -147,5 +145,35 @@ export default class Text extends BaseComponent {
             }
         }
         return true;
+    }
+    hasWidthChanged() {
+        if (this._oldWidth == null) {
+            this._oldWidth = this.width.value();
+            return true;
+        }
+        else {
+            if (this._oldWidth == this.width.value()) {
+                return false;
+            }
+            else {
+                this._oldWidth = this.width.value();
+                return true;
+            }
+        }
+    }
+    hasHeightChanged() {
+        if (this._oldHeight == null) {
+            this._oldHeight = this.height.value();
+            return true;
+        }
+        else {
+            if (this._oldHeight == this.height.value()) {
+                return false;
+            }
+            else {
+                this._oldHeight = this.height.value();
+                return true;
+            }
+        }
     }
 }

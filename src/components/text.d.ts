@@ -3,6 +3,8 @@ import { AniNumber, AniString, AniBoolean } from "../animationModule/animations.
 import TextTempl from "../templates/textTempl.js";
 import TextTheme from "../templates/textTheme.js";
 export default class Text extends BaseComponent {
+    private _oldWidth;
+    private _oldHeight;
     content: AniString;
     fontFamily: FontFamily;
     fontSize: AniNumber;
@@ -20,8 +22,9 @@ export default class Text extends BaseComponent {
     drawContent(p: Pack): void;
     protected fitToWidthFn(p: Pack): number | null;
     protected fitToHeightFn(p: Pack): number | null;
-    protected adjestFontSize(n: number): number;
     protected shrinkToHeightFn(p: Pack): boolean;
     protected shrinkToWidthFn(p: Pack): boolean;
+    private hasWidthChanged;
+    private hasHeightChanged;
 }
 //# sourceMappingURL=text.d.ts.map

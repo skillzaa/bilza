@@ -24,22 +24,28 @@
 
 <h1>Text Component</h1>
 
-<p>Text is one of the most important comp (component) of bilza library. It is not only different from other components of this library but the "Text" comp in bilza.js is also implemented differently from other libraries.</p>
+<p>Text is one of the most important comp (component) of bilza library.It is very important to understand how to use Text since it is used in all educational products (the main target of this library).</p>
 
-<p>To understand Text comp we need to understand the following 3 props of the Text comp</p>
+<p> The Text comp is not only different from other components of this library but the "Text" comp in bilza.js is also implemented differently from other libraries.</p>
+
+<p>To understand Text comp we need to understand that we can set text dimentions (width and height) using following of the three props.</p>
 
 <ol>
-<li class="orange"><b>"fontSize" prop:</b></li>
+<li class="orange"><b>"fontSize" Prop:</b></li>
 
-<p>The fontSize prop of the Text comp is the main factor which decided the width and height of Text comp. If you do not need to worry about the width and height of the text content just use fontSize. The resultant width and height of the comp will be what ever it is at that fontSize.</p>
+<p>The fontSize prop of the Text comp is the main factor which decided the width and height of Text comp. If you do not need to worry about the width and height of the text content (according to the screen size i.e Non Responsive text) just use fontSize. The resultant width and height of the comp will be what ever it is at that fontSize.</p>
 
+<p>By default the Text Comp uses fontSize Prop to determine its width and height</p>
 <p><a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fontSizeAnimate.html" target="_blank">fontSize Animate Example</a></p>
 
 
 <li class="orange"><b>"fitToWidth" prop:</b></li>
 
-<p>Text comp has a boolean (AniBoolean) prop "fitToWidth". This prop by default is set to false.</p>
-<p>When "fitToWidth" is set to false the width of Text comp is treated as "Maximum Width". It means that we can set any value for fontSize prop and it is fine but if the resultant width is larger than comp.width then it is reduced to the given width.</p>
+<p>Text comp has a boolean (AniBoolean) prop "fitToWidth". This prop by default is set to false. Incase if we want that our text be sized according to the "width" prop and not fontSize we can disable fontSize props by setting "fitToWidth" prop as true.</p>
+
+<p>Once "fitToWidth" (or fitToHeight) prop is set to True, the "fontSize" prop is disabled. It means that all the animations etc attached to comp "fontSize" prop will not run and Text comp dimentions will be decided by width prop.</p>
+
+<p>When "fitToWidth" is set to false (the default) the width of Text comp is treated as "Maximum Width". It means that we can set any value for fontSize prop and it is fine but if the resultant width is larger than comp.width then it is reduced to the given width.</p>
 <p>By default the width (and also height) value of a Text comp are set at 300% thus they have no effect most of the times. To see some effect  these values need to be reduced by the user.</p>
 
 <p><a href="https://skillzaa.github.io/bilzaDocs/compProjects/text/fitToWidth.html" target="_blank">Text FitToWidth True Example</a></p>
@@ -49,19 +55,81 @@
 
 <li class="orange"><b>"fitToHeight" prop:</b></li>
 
-<p>Text comp has a boolean (AniBoolean) prop "fitToHeight". This prop by default is set to false.</p>
+<p>Text comp has a boolean (AniBoolean) prop "fitToHeight". This prop by default is set to false. Incase if we want that our text be sized according to the "height" prop and not fontSize we can disable fontSize props by setting "fitToHeight" prop as true.</p>
 
-<p>When "fitToHeight" is set to false the height of Text comp is treated as "Maximum Height". It means that we can set any value for fontSize prop and it is fine but if the resultant height is larger than comp.height then it is reduced to the given height.</p>
+<p>Once "fitToHeight" (or fitToWidth) prop is set to True, the "fontSize" prop is disabled. It means that all the animations etc attached to comp "fontSize" prop will not run and Text comp dimentions will be decided by height prop.</p>
+
+<p>When "fitToHeight" is set to false (the default) the height of Text comp is treated as "Maximum Height". It means that we can set any value for fontSize prop and it is fine but if the resultant height is larger than height prop then it is reduced to the given height.</p>
 
 <p>By default the height (and also width) value of a Text comp are set at 300% thus they have no effect most of the times. To see some effect  these values need to be reduced by the user.</p>
-
-
 </ol>
 
-<!-- <pre class="language-javascript">
-<code>
-</code>
-</pre> -->
+<h3 class="red">Summary</h3>
+<ul>
+
+<li class="blue">By default Text comp uses fontSize prop for setting its width and height. The "fitToWidth" and "fitToHeight" props are both set to false by default.</li>
+
+<li class="blue">If any of the "fitToWidth" <span class="red">OR</span> "fitToHeight" Props are set to "True", this will disable fontSize prop. </li>
+
+<li class="blue">When "fitToWidth" OR "fitToHeight" Props are set to "False", they act as <span class="red">maximum width</span> and <span class="red">maximum height</span>. </li>
+
+<li class="blue">If "fitToWidth" <span class="red">AND</span> "fitToHeight" Props are both set to "True" it is not a problem unless we assign conflicting values / animations to these props. for example IF height prop is increasing the size of the Text on every draw and width prop is reducing the size of the Text on every draw this will cause flickering.</li>
+
+<li class="blue">If "fitToWidth" <span class="red">AND</span> "fitToHeight" Props are both set to "True" the width prop is run first and than the height prop. It means that if both of these cancel each other effect it is the height prop that runs last and thus is height prop thats result are visible on the screen.</li>
+</ul>
+
+<br>
+<hr>
+<br>
+
+<p>I hope the above discussion is clear incase of any problems please contant me and I may create youtube video on this topic.</p>
+
+<p>Lets look at some frequently asked questions about Text Comp</p>
+
+<ol>
+
+<li class="magenta">How to create Non-Responsive text that does not shrink or grow with the screen size?</li>
+
+<p>If we keep the "fitToWidth" AND "fitToHeight" both as false the text comp will be non-responsive. It will be displayed based on fontSize and not width or height props.</p>
+
+<li class="magenta">How to create Responsive Text that grow and shrink with the screen?</li>
+<p>To make Text really Responsive where it adjest its self to the width as well as height of the canvas we need to set "fitToWidth" AND "fitToHeight" both as true. This will ensure that the text is fitted into the Box determined by the width and height props.</p>
+
+<li class="magenta">If we set "fitToWidth" to true and keep "fitToHeight" as false; is that a problem, if yes why?</li>
+<p>Keeping "fitToWidth" as true and keeping "fitToHeight" as false is not a problem or error <span class="green">as long as you want the desired results</span>. For example we give Text comp width = 100% and the content is a long sentence, bilza will have to shrink it and it will look decent on the screen since to fit it into the width <span class="red">we will also need to adjest its height</span>. On the other hand if the content are very short e.g ("Hi") now if we fit this to the 100% of the screen width and there is no-restriction on the height it will conver the entire screen. If this is what you want then its ok.</p>
+
+<a href="#">Using fitToWidth without fitToHeight</a>
+<a href="#">Using fitToHeight without fitToWidth</a>
+
+
+
+<li class="magenta">If we set "fitToHeight" to true and keep "fitToWidth" as false; is that a problem, if yes why?</li>
+
+<p>Keeping  "fitToHeight" as true and keeping "fitToWidth" as false is not a problem or error <span class="green">as long as you want the desired results</span>. If "fitToHeight" is true it means we do not have to worry about characters covering up the entire height of the screen BUT if the content is too long it will run off the screen.</p>
+
+<li class="magenta">How can we set 2 different Text comps on the screen have same fontSize?</li>
+
+<p>To make 2 different Text comps have same fontSize all we have to do is set "fitToHeight" of both of them to true and then give their height props the same value. For example if 2 Text comps both have "fitToHeight" = true and height = 10% both of them will have same fontSize.</p>
+
+<li class="magenta">Can you please give an example of conflict between fitToHeight and fitToWidth?</li>
+
+<a href="#">Conflict between fitToHeight and fitToWidth</a>
+
+
+<li class="magenta">How to achieve if I want Text content to be smaller than or equal to some width Or if I want Text to be smaller than or equal to some height ?</li>
+
+<p>When fitToWidth is set to false the value of width Prop is treated as "maximum Width" similarly when fitToHeight is set to false the value of height Prop is treated as "maximum Height". However you may not notice this since by default the width and height props are set at 300% so their effect is not visible. You can just set the width prop and the height prop to the desired numbers while fitToHeight and fitToWidth are false and they will allow Text to grow upto that point but not more.</p>
+
+
+<li class="magenta">Give examples where each of the fontSize, fitToWidth and fitToHeight is more suitable to use.</li>
+
+<ul>
+<li>If we want Non-Responsive text just use <span class="red">fontSize</span> </li>
+<li>If we want to restrict font to some specific fontSize (or want it to occupy some specific height on screen) use <span class="red">fitToHeight</span>. All the text comps on a screen with same height prop value will have same fontSize provided their fitToHeight = true.</li>
+
+<li>If we want to fit content into some area use <span class="red">fitToWidth</span>. If the content is more the fontSize will be reduced to fit it, however if the content are less then the fontsize will have to increase to fit the width value.</li>
+
+</ol>
 
 </body>
 </html>

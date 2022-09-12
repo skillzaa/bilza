@@ -5,6 +5,9 @@ import TextTempl from "../templates/textTempl.js";
 import TextTheme from "../templates/textTheme.js";
 
 export default class Text extends BaseComponent {
+private _oldWidth :null|number;
+private _oldHeight :null|number;
+
 public content :AniString;
 public fontFamily :FontFamily;
 public fontSize :AniNumber;
@@ -35,6 +38,9 @@ this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
 this.templ = new TextTempl(this);
 this.theme = new TextTheme(this);
 //-----------------------------
+this._oldWidth = null;
+this._oldHeight = null;
+//-----------------------------
 this.color.set(colorHax); 
 this.width.set(300);
 this.height.set(300);
@@ -42,23 +48,33 @@ this.height.set(300);
 
 update(msDelta: number, p: Pack): boolean {
     if (this.fitToWidth.value() == true){
-        this.fitToWidthFn(p);
+        if (this.hasWidthChanged() == true){
+            //--dont run it on every step
+            this.fitToWidthFn(p);
+        }
         // this.fitToWidth.set(false); // run once
     }else {
         this.shrinkToWidthFn(p);
     }   
     ////////-------------------------
     if (this.fitToHeight.value() == true){
-        this.fitToHeightFn(p);
-        this.fitToHeight.set(false); // run once
+        if (this.hasHeightChanged()==true){
+            this.fitToHeightFn(p);
+        }
+        // this.fitToHeight.set(false); // run once
     } else {
         this.shrinkToHeightFn(p);
     }    
 super.update(msDelta,p);
-this.fontSize.update(msDelta); 
+//--Disable fontSize --update it internally
+if (this.fitToWidth.value() == false && this.fitToHeight.value()==false){
+    this.fontSize.update(msDelta); 
+}
 this.content.update(msDelta); 
 this.maxDisplayChars.update(msDelta);
 this.respFontSize.update(msDelta);
+this.fitToWidth.update(msDelta);
+this.fitToHeight.update(msDelta);
 return true;
 }
  
@@ -111,7 +127,7 @@ protected fitToWidthFn(p :Pack):number | null{
  //--------------------The Process
      for (let i = 1; i < 900; i++) {
      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
-     const newWidthInPix = p.charsWidth(this.content.value(),this.adjestFontSize(i),this.style.fontFamily);
+     const newWidthInPix = p.charsWidth(this.content.value(), i ,this.style.fontFamily);
  //----------------------------
      if (newWidthInPix >= (reqWdInPix) ){
          this.fontSize.set(i); 
@@ -132,7 +148,7 @@ protected fitToHeightFn(p :Pack):number | null{
  //--------------------The Process
      for (let i = 1; i < 900; i++) {
      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
-     const newHeightInPix = p.charsWidth( "X",this.adjestFontSize(i),this.style.fontFamily);
+     const newHeightInPix = p.charsWidth( "X", i , this.style.fontFamily);
  //----------------------------
      if (newHeightInPix >= (reqHtInPix) ){
          this.fontSize.set(i); 
@@ -143,15 +159,15 @@ protected fitToHeightFn(p :Pack):number | null{
  return null; 
 }//fitToHeight
 //---------------------------------- 
-protected adjestFontSize(n :number):number{
-    if (this.canvasWidth == null){
-        throw new Error("init error");}    
-    if (this.respFontSize.value()== true){
-        return (n/1000) * this.canvasWidth();
-    } else {
-        return n;
-    }   
-} 
+// protected adjestFontSize(n :number):number{
+//     if (this.canvasWidth == null){
+//         throw new Error("init error");}    
+//     if (this.respFontSize.value()== true){
+//         return (n/1000) * this.canvasWidth();
+//     } else {
+//         return n;
+//     }   
+// } 
 protected shrinkToHeightFn(p :Pack){
 if (this.charsWidth==null){throw new Error("init error");
 } 
@@ -199,6 +215,36 @@ if ( contentWidth < reqWdInPix){return true;}
 }
 return true;
 }
+
+private hasWidthChanged():boolean{
+//--first time    
+        if(this._oldWidth == null){
+            this._oldWidth = this.width.value();
+            return true;
+        }else {
+            if (this._oldWidth == this.width.value()){
+                return false;
+            }else {
+                this._oldWidth = this.width.value();
+                return true;
+            }
+        }
+}
+private hasHeightChanged():boolean{
+//--first time    
+        if(this._oldHeight == null){
+            this._oldHeight = this.height.value();
+            return true;
+        }else {
+            if (this._oldHeight == this.height.value()){
+                return false;
+            }else {
+                this._oldHeight = this.height.value();
+                return true;
+            }
+        }
+}
+
 }//class
 
 ///////////////////////////////////////////
