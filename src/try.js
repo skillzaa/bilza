@@ -1,15 +1,18 @@
 import Bilza, { Ui, CompFactory as cf, hsl } from "./bilza.js";
 let bil = new Bilza("bilza", 70);
 bil.insert.alwaysOn(cf.grid());
-bil.insert.alwaysOn(cf.frameCounter());
 bil.background.color.set(hsl(0, 5, 30));
-const comp = cf.text("fitToWidth");
-comp.setxy(0, 20);
-comp.theme.color(0);
-comp.showBackground.set(true);
-comp.width.set(10);
-comp.fitToWidth.set(true);
-comp.width.animate(1, 1.5, 10, 100);
-bil.insert.add(comp, 0, 30);
+const hdg = cf.text("Heading 1");
+bil.insert.add(hdg, 0, 20);
+hdg.templ.hdg(1, 3, 10)
+    .theme.color(0)
+    .entryAni.topIn()
+    .exitAni.fadeOut();
+const comp = cf.text("Trying Templates")
+    .templ.bltPt(1, 35, 5)
+    .theme.color(0);
+bil.insert.add(comp, 2, 20);
+comp.entryAni.leftIn();
+comp.exitAni.fadeOut();
 const ui = new Ui(bil);
 bil.draw();

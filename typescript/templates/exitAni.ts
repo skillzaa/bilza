@@ -1,6 +1,6 @@
 
 import {FontFamily} from "../bilza.js";
-import Text from "../components/text.js";
+import Text from "../components/text/text.js";
 //---dont use bilza i may remove that
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 

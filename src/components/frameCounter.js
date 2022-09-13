@@ -1,5 +1,5 @@
 import { hsl, DrawLayer } from "../bilza.js";
-import Text from "./text.js";
+import Text from "./text/text.js";
 import { AniBoolean } from "../animationModule/animations.js";
 export default class FrameCounter extends Text {
     constructor(Hue_0_to_360 = 240) {

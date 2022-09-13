@@ -8,7 +8,7 @@ export default class CanvasBorder extends BaseComponent {
 borderWidth :AniNumber;
     
 
-constructor (color :string="grey" , borderWidth :number=0.5){
+constructor ( color :string="grey" , borderWidth :number=0.5 ){
 super();
 
 this.borderWidth = new AniNumber(borderWidth);

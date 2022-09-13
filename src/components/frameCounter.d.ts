@@ -1,5 +1,5 @@
 import { Pack } from "../bilza.js";
-import Text from "./text.js";
+import Text from "./text/text.js";
 import { AniBoolean } from "../animationModule/animations.js";
 export default class FrameCounter extends Text {
     convertToSec: AniBoolean;

@@ -49,7 +49,7 @@ if (titleContent !== ""){
     const txt = cf.text(titleContent,hsl(0));
     scene.add(txt); // this makes scene min-duration = 2
     txt.y.set(titleY);
-    txt.templ.h1(50,titleY);
+    // txt.templ.h1(50,titleY);
     txt.theme.color(hslColorNo);
     txt.entryAni.topIn()
     txt.exitAni.fadeOut();
@@ -59,7 +59,7 @@ if (titleContent !== ""){
 if (bp1Content !== ""){
 const bltPt = cf.text(bp1Content);
 scene.add(bltPt,bp1EntryTime);
-bltPt.templ.bltPt(bp1Y ) .theme.color(hslColorNo)
+bltPt.templ.bltPt(1,25,10) .theme.color(hslColorNo)
                        .entryAni.fadeIn()
                        .exitAni.fadeOut();
 }
@@ -68,7 +68,7 @@ if (bp2Content !== ""){
 const bltPt02 = cf.text(bp2Content);
 scene.add(bltPt02,bp2EntryTime);
 
-bltPt02.templ.bltPt(bp2Y).theme.color(hslColorNo)
+bltPt02.templ.bltPt(1,bp2Y,10).theme.color(hslColorNo)
                        .entryAni.fadeIn()
                        .exitAni.fadeOut();
 }
@@ -76,7 +76,7 @@ bltPt02.templ.bltPt(bp2Y).theme.color(hslColorNo)
 if (bp3Content !== ""){
 const bltPt03 = cf.text(bp3Content);
 scene.add(bltPt03,bp3EntryTime);
-bltPt03.templ.bltPt(bp3Y).theme.color(hslColorNo)
+bltPt03.templ.bltPt(1,bp3Y,10).theme.color(hslColorNo)
                        .entryAni.fadeIn()
                        .exitAni.fadeOut();
 }
@@ -84,7 +84,7 @@ bltPt03.templ.bltPt(bp3Y).theme.color(hslColorNo)
 if (ftNoteContent !== ""){
 const ftnt = cf.text(ftNoteContent);
 scene.add(ftnt,ftNoteEntryTime);
-ftnt.templ.ftNote();
+ftnt.templ.ftNote(0,90,10);
 ftnt.theme.color(hslColorNo);
 ftnt.entryAni.fadeIn();
 ftnt.exitAni.fadeOut();

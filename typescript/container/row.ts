@@ -3,7 +3,7 @@ import {Pack} from "../bilza.js";
 import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
-import RawText from "../components/text.js";
+import RawText from "../components/text/text.js";
 
 export default class Row extends BaseComponent {
 textArray : RawText[];

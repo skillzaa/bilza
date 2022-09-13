@@ -15,7 +15,7 @@ export default class EntryAniPresets {
         return this.comp;
     }
     topIn() {
-        this.comp.y.animate(this.comp.getStartTime(false), this.comp.getStartTime(false) + 1, (-1 * this.comp.height.value()), this.comp.y.value());
+        this.comp.y.animate(this.comp.getStartTime(false), this.comp.getStartTime(false) + 1, (-1 * (this.comp.height.value() * 3)), this.comp.y.value());
         return this.comp;
     }
     fadeIn() {
