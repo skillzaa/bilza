@@ -111,18 +111,22 @@ export default class Bilza {
         const cf = new CompFactory(0, duration, "append", this.insert.bind(this));
         return cf;
     }
-    insert(comp, actionType) {
+    insert(comp, startTime, endTime, actionType) {
+        comp.setTimings(startTime, endTime);
         switch (actionType) {
             case "add":
-                this._insert.add(comp, comp.getStartTime(false), comp.getEndTime(false));
+                this._insert.add(comp, startTime, endTime);
                 break;
             case "append":
-                this._insert.append(comp, comp.getStartTime(false));
+                this._insert.append(comp, startTime);
                 break;
             case "alwaysOn":
                 this._insert.alwaysOn(comp);
                 break;
         }
         return comp;
+    }
+    addScene(scene) {
+        this._insert.addScene(scene);
     }
 }

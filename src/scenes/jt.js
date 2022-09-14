@@ -1,9 +1,7 @@
-import { CompFactory, Scene } from "../bilza.js";
-export default function SwingJt(startTime, endTime, content = "Welcome To Bilza.js", hslColorNo = 0) {
+import { Scene } from "../bilza.js";
+export default function jt(startTime, endTime, content = "Welcome To Bilza.js", hslColorNo = 0) {
     const scene = new Scene(startTime, endTime);
-    const cf = new CompFactory(0, 10);
-    const txt = cf.text(content);
-    scene.add(txt);
+    const txt = scene.add().text(content);
     txt.align(1, 1);
     txt.x.set(50);
     txt.y.set(50);

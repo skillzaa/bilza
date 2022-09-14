@@ -51,11 +51,22 @@ return this._duration;
 // comp.setTimings(startTimeSec,endTimeSec);     
 // this.sceneComps.push(comp);
 // }
-add(startTime :number,endTime :number):CompFactory{
+/**
+ * This scene.add is for comps insdie scene
+ */
+add(startTime :number=0,endTime :number=0):CompFactory{
 const cf = new CompFactory(startTime,endTime,"add",this.insert.bind(this));
 return cf;
 }
 
+
+public insert(comp :IComponent, startTime :number,endTime :number,actionType :string):IComponent{
+// const sc = new SceneComp(comp,actionType);   
+//upto this point the timings are for scene and now will translate for 
+this.setCompTimings(comp,startTime,endTime);
+this.comps.push(comp)
+return comp;  
+}
 private setCompTimings(comp :IComponent,startTimePlusInSec :number=0, endTimeMinusInSec :number=0){
 
 this.minDurationViolation(comp,startTimePlusInSec, endTimeMinusInSec);
@@ -68,14 +79,6 @@ const endTimeSec = this.endTimeMinus(endTimeMinusInSec);
 comp.setTimings(startTimeSec,endTimeSec);     
 this.comps.push(comp);
 }
-public insert(comp :IComponent, actionType :string):IComponent{
-// const sc = new SceneComp(comp,actionType);   
-//upto this point the timings are for scene and now will translate for 
-this.setCompTimings(comp,comp.getStartTime(false),comp.getEndTime(false))
-this.comps.push(comp)
-return comp;  
-}
-
 private startTimePlus(timeSec :number=0):number{
 const startTimeSec = this._startTime + timeSec;
 if (startTimeSec > (this.getEndTime() - 1)  

@@ -1,5 +1,6 @@
 import { IComponent } from "../bilza.js";
 import Background from "../components/background.js";
+import IScene from "../scene/IScene.js";
 import Settings from "./settings.js";
 import CompFactory from "./insert/compFactory.js";
 import Insert from "./insert/insert.js";
@@ -30,6 +31,7 @@ export default class Bilza {
     add(startTime: number, endTime: number): CompFactory;
     alwaysOn(): CompFactory;
     append(duration: number): CompFactory;
-    insert(comp: IComponent, actionType: string): IComponent;
+    insert(comp: IComponent, startTime: number, endTime: number, actionType: string): IComponent;
+    addScene(scene: IScene): void;
 }
 //# sourceMappingURL=00bilza.d.ts.map

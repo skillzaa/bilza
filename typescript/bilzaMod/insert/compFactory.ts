@@ -29,11 +29,11 @@ export default class CompFactory {
 private readonly startTime :number;
 private readonly endTime :number;
 private actionType :string;
-private insert : (comp :IComponent,actionType :string)=>IComponent;
+private insert : (comp :IComponent,startTime :number,endTime :number,actionType :string)=>IComponent;
 
 ////////////////////////////////////////////////////
 
-constructor(startTime :number,endTime :number,actionType :string="add", insert :(comp :IComponent,actionType :string)=>IComponent ){
+constructor(startTime :number,endTime :number,actionType :string="add", insert : (comp :IComponent,startTime :number,endTime :number,actionType :string)=>IComponent){
 
 this.insert = insert;
 this.startTime = startTime;
@@ -44,39 +44,42 @@ this.actionType = actionType;
 /////////--------components functions---///////////
 circle(radius :number=10,colorHax :string="red"){
 let g = new Circle(radius,colorHax);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 canvasBorder(color :string="grey" , borderWidth :number=5){
 let g = new CanvasBorder(color, borderWidth);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 
 grid(cellWidthPerc :number=10,cellHeightPerc :number=10,colorHax :string="grey"){
 let g = new Grid(cellWidthPerc,cellHeightPerc,colorHax);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 pic(imgId :string,dynWidth:number=10,dynHeight :number=10){
 let g = new Pic(imgId,dynWidth,dynHeight);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 rect(color :string="#000000"){
 let g = new Rect(color);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 spriteSheetAlt(imgUrl :string):SpriteSheetAlt{
 let g = new SpriteSheetAlt(imgUrl);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+this.insert(g,this.startTime,this.endTime,this.actionType);
 return g;
 }
 //  slide(startTime :number,endTime :number,themeHue_0_to_360 :number=240):Slide{
@@ -85,14 +88,15 @@ return g;
 // }
 spriteSheet(imgUrl :string, IconWidth:number, IconHeight :number, totalColumns :number ,totalRows :number):SpriteSheet{
 let g = new SpriteSheet(imgUrl, IconWidth, IconHeight, totalColumns,totalRows);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;
 }
 text(content :string="",colorHax :string="#000000"){
 let g = new Text(content,colorHax);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+// 
+this.insert(g,this.startTime,this.endTime,this.actionType);
 return g;    
 }
 
@@ -108,38 +112,43 @@ return g;
 
 fillRect(color :string="#000000"){
 let g = new FillRect(color);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 
 frameCounter(Hue_0_to_360 :number=240){
 let g = new FrameCounter(Hue_0_to_360);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 
 particleSystem(count :number= 10,color :string="#008000",framesToSkip :number=50){
 let g = new ParticleSystem(count,color,framesToSkip);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 
 
 line(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
 let g = new Line(x1,y1,x2,y2,color);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 ////////////---container--------------///////
 
 row(incommingTextArray :string = "one two"){
 let g = new Row(incommingTextArray);
-g.setTimings(this.startTime,this.endTime);
-this.insert(g,this.actionType);
+
+this.insert(g,this.startTime,this.endTime,this.actionType);
+
 return g;    
 }
 

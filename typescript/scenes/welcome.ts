@@ -1,14 +1,13 @@
-// import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
+import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
 
-// export default function welcome(startTime :number,endTime :number, hslColorNo :number):Scene{
-//     const sce = new Scene(startTime,endTime);
-// /////////////////////////////////////////////
+export default function welcome(startTime :number,endTime :number, hslColorNo :number):Scene{
+    const scene = new Scene(startTime,endTime);
+/////////////////////////////////////////////
     
-//     const txt = cf.text("Test Scene",hsl(0));
-//     // txt.templ.jumbotron();
-//     txt.templ.h1();
-//     txt.theme.color(240);
-//     sce.add(txt,sce.startTimePlus(0) ,sce.endTimeMinus(0));
+    const txt = scene.add(startTime,endTime).text("Test Scene",hsl(0));
+    // txt.templ.jumbotron();
+    txt.templ.hdg();
+    txt.theme.color(hslColorNo);
     
-// return sce;
-// }
+return scene;
+}

@@ -17,7 +17,7 @@ export default class CompFactory {
     private readonly endTime;
     private actionType;
     private insert;
-    constructor(startTime: number, endTime: number, actionType: string | undefined, insert: (comp: IComponent, actionType: string) => IComponent);
+    constructor(startTime: number, endTime: number, actionType: string | undefined, insert: (comp: IComponent, startTime: number, endTime: number, actionType: string) => IComponent);
     circle(radius?: number, colorHax?: string): Circle;
     canvasBorder(color?: string, borderWidth?: number): CanvasBorder;
     grid(cellWidthPerc?: number, cellHeightPerc?: number, colorHax?: string): Grid;

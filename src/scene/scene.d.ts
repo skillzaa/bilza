@@ -10,9 +10,9 @@ export default class Scene implements IScene {
     getStartTime(): number;
     getEndTime(): number;
     duration(): number;
-    add(startTime: number, endTime: number): CompFactory;
+    add(startTime?: number, endTime?: number): CompFactory;
+    insert(comp: IComponent, startTime: number, endTime: number, actionType: string): IComponent;
     private setCompTimings;
-    insert(comp: IComponent, actionType: string): IComponent;
     private startTimePlus;
     private endTimeMinus;
     private minDurationViolation;

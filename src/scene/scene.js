@@ -24,9 +24,14 @@ export default class Scene {
     duration() {
         return this._duration;
     }
-    add(startTime, endTime) {
+    add(startTime = 0, endTime = 0) {
         const cf = new CompFactory(startTime, endTime, "add", this.insert.bind(this));
         return cf;
+    }
+    insert(comp, startTime, endTime, actionType) {
+        this.setCompTimings(comp, startTime, endTime);
+        this.comps.push(comp);
+        return comp;
     }
     setCompTimings(comp, startTimePlusInSec = 0, endTimeMinusInSec = 0) {
         this.minDurationViolation(comp, startTimePlusInSec, endTimeMinusInSec);
@@ -34,11 +39,6 @@ export default class Scene {
         const endTimeSec = this.endTimeMinus(endTimeMinusInSec);
         comp.setTimings(startTimeSec, endTimeSec);
         this.comps.push(comp);
-    }
-    insert(comp, actionType) {
-        this.setCompTimings(comp, comp.getStartTime(false), comp.getEndTime(false));
-        this.comps.push(comp);
-        return comp;
     }
     startTimePlus(timeSec = 0) {
         const startTimeSec = this._startTime + timeSec;

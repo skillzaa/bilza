@@ -180,13 +180,16 @@ const cf = new CompFactory(0,duration,"append",this.insert.bind(this));
 return cf;    
 }
 
-public insert(comp :IComponent, actionType :string):IComponent{
+public insert(comp :IComponent,startTime :number,endTime :number, actionType :string):IComponent{
+
+comp.setTimings(startTime , endTime);
+///=====================================>>>>>>>>>>
 switch (actionType) {
 case "add":
-    this._insert.add(comp,comp.getStartTime(false),comp.getEndTime(false));
+    this._insert.add(comp,startTime,endTime);
     break;
 case "append":
-    this._insert.append(comp,comp.getStartTime(false));
+    this._insert.append(comp,startTime);
     break;
 case "alwaysOn":
     this._insert.alwaysOn(comp);
@@ -197,7 +200,9 @@ return comp; //why???
 
 
 
-
+public addScene(scene :IScene){
+this._insert.addScene(scene);
+}
 
 
 
