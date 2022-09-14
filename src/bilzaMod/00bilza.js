@@ -3,8 +3,9 @@ import Background from "../components/background.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
 import Comps from "./comps.js";
-import Insert from "./insert.js";
-import Duration from "./duration.js";
+import CompFactory from "./insert/compFactory.js";
+import Duration from "./insert/duration.js";
+import Insert from "./insert/insert.js";
 export default class Bilza {
     constructor(canvasId = "bilza", screenWidthInPercent = 70) {
         this.pack = new Pack(canvasId, screenWidthInPercent);
@@ -13,14 +14,14 @@ export default class Bilza {
         this.lastMsDelta = 0;
         this.soundTrackElement = document.getElementById("soundTrackElement");
         this.soundTrack = null;
-        this.insert = new Insert(this.comps, this.duration, this.pack.charsWidth.bind(this.pack));
         this.stopWatch = new StopWatch();
         this.set = new Settings(this.pack);
         this.background = new Background();
+        this._insert = new Insert(this.comps, this.duration, this.pack.charsWidth.bind(this.pack));
     }
     init() {
         if (this.set.loadSystemBackground == true) {
-            this.insert.alwaysOn(this.background);
+            this._insert.alwaysOn(this.background);
         }
         this.comps.init(this.pack);
         return true;
@@ -97,5 +98,31 @@ export default class Bilza {
     }
     isRunning() {
         return this.stopWatch.isRunning();
+    }
+    add(startTime, endTime) {
+        const cf = new CompFactory(startTime, endTime, "add", this.insert.bind(this));
+        return cf;
+    }
+    alwaysOn() {
+        const cf = new CompFactory(0, 1, "alwaysOn", this.insert.bind(this));
+        return cf;
+    }
+    append(duration) {
+        const cf = new CompFactory(0, duration, "append", this.insert.bind(this));
+        return cf;
+    }
+    insert(comp, actionType) {
+        switch (actionType) {
+            case "add":
+                this._insert.add(comp, comp.getStartTime(false), comp.getEndTime(false));
+                break;
+            case "append":
+                this._insert.append(comp, comp.getStartTime(false));
+                break;
+            case "alwaysOn":
+                this._insert.alwaysOn(comp);
+                break;
+        }
+        return comp;
     }
 }

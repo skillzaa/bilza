@@ -14,6 +14,7 @@ return comp;
 }
 public init(pack :Pack):boolean{
     for (let i = 0; i < this.compArray.length; i++) {
+        
         this.compArray[i].init(pack);    
     }
 return true;

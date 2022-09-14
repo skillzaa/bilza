@@ -1,4 +1,4 @@
-import { IComponent } from "../bilza.js";
+import { IComponent, CompFactory } from "../bilza.js";
 import IScene from "./IScene.js";
 export default class Scene implements IScene {
     private readonly _duration;
@@ -10,7 +10,9 @@ export default class Scene implements IScene {
     getStartTime(): number;
     getEndTime(): number;
     duration(): number;
-    add(comp: IComponent, startTimePlusInSec?: number, endTimeMinusInSec?: number): void;
+    add(startTime: number, endTime: number): CompFactory;
+    private setCompTimings;
+    insert(comp: IComponent, actionType: string): IComponent;
     private startTimePlus;
     private endTimeMinus;
     private minDurationViolation;

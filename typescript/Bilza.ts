@@ -1,5 +1,5 @@
 import Bilza from "./bilzaMod/00bilza.js";
-import CompFactory from "./compFactory/compFactory.js";
+import CompFactory from "./bilzaMod/insert/compFactory.js";
 // import PresetComps from "./presetComps/presetComps.js";
 import Ui from "./ui/ui.js";
 //--A seperate package on top of which Engine build abstractions

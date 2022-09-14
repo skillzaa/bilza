@@ -1,0 +1,1 @@
+{"version":3,"file":"duration.d.ts","sourceRoot":"","sources":["../../../typescript/bilzaMod/insert/duration.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,OAAO,QAAQ;IAE7B,OAAO,CAAC,iBAAiB,CAAS;;IAM3B,GAAG,CAAC,cAAc,GAAE,OAAc,GAAE,MAAM;IAQ1C,MAAM,CAAC,CAAC,EAAE,MAAM,GAAE,MAAM;IAIxB,GAAG,CAAC,CAAC,EAAE,MAAM,GAAE,MAAM;CAK3B"}

@@ -11,9 +11,9 @@ import CanvasBorder from "../components/canvasBorder.js";
 import Row from "../container/row.js";
 import SpriteSheet from "../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../components/spriteSheet/spriteSheetAlt.js";
-import Scenes from "./scenes.js";
 export default class CompFactory {
-    static scenes: typeof Scenes;
+    private comps;
+    private charsWidth;
     static spriteSheetAlt(imgUrl: string): SpriteSheetAlt;
     static spriteSheet(imgUrl: string, IconWidth: number, IconHeight: number, totalColumns: number, totalRows: number): SpriteSheet;
     static circle(radius?: number, colorHax?: string): Circle;

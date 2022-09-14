@@ -1,7 +1,7 @@
-import {IComponent,Pack} from "../bilza.js";
-import Comps from "./comps.js";
+import {IComponent,Pack} from "../../bilza.js";
+import Comps from "../comps.js";
 import Duration from "./duration.js";
-import IScene from "../scene/IScene.js";
+import IScene from "../../scene/IScene.js";
 
 export default class Insert {
 private duration :Duration;     
@@ -13,9 +13,9 @@ this.comps = comps;
 this.duration = duration;  
 this.charsWidth =   charsWidth;
 }
-/**
- * The scene must not have a component which runs before scene start time or after scene endTime
- */
+/*
+ The scene must not have a component which runs before scene start time or after scene endTime --
+*/
 public addScene (scene :IScene){
 //--the scene already has its duration set
 //---get all the comps    

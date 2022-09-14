@@ -1,18 +1,20 @@
 
-import { IComponent,CompFactory as cf } from "../bilza.js";
+import { IComponent,CompFactory} from "../bilza.js";
 import IScene from "./IScene.js";
-
+import SceneComp from "./SceneComp.js";
 export default class Scene implements IScene{
 //--START TIME IS ALWAYS = 0 
 
 private readonly _duration :number;    
-//--start time can be zero but when we create a scene and we know it we can eaily use this point for inserting comps.
+//--start time can be zero but when we create a scene and we know it we can eaily use this point for inserting sceneComps.
 private readonly _startTime :number;    
 private readonly _endTime :number;    
+// private sceneComps :SceneComp[];
 private comps :IComponent[];
 
 constructor(startTime :number,endTime :number){
    this.comps = [];
+   // this.sceneComps = [];
    this._startTime = startTime;   
    this._endTime = endTime;   
 this._duration = this._endTime  - this._startTime;
@@ -37,7 +39,24 @@ return this._duration;
 }        
 
 
-public add(comp :IComponent,startTimePlusInSec :number=0, endTimeMinusInSec :number=0){
+// public add(comp :IComponent,startTimePlusInSec :number=0, endTimeMinusInSec :number=0){
+
+// this.minDurationViolation(comp,startTimePlusInSec, endTimeMinusInSec);
+// //--------------------------------
+// const startTimeSec = this.startTimePlus(startTimePlusInSec);
+// const endTimeSec = this.endTimeMinus(endTimeMinusInSec);
+
+// //--here we set its duration which also sets its startTime (scene start time is always = 0 so comp start point is from that prespective), and endTimeSec  
+// //--BUT when we insert it inside bil.insert.add we have to reset its start and end time keeping the same duration
+// comp.setTimings(startTimeSec,endTimeSec);     
+// this.sceneComps.push(comp);
+// }
+add(startTime :number,endTime :number):CompFactory{
+const cf = new CompFactory(startTime,endTime,"add",this.insert.bind(this));
+return cf;
+}
+
+private setCompTimings(comp :IComponent,startTimePlusInSec :number=0, endTimeMinusInSec :number=0){
 
 this.minDurationViolation(comp,startTimePlusInSec, endTimeMinusInSec);
 //--------------------------------
@@ -48,6 +67,13 @@ const endTimeSec = this.endTimeMinus(endTimeMinusInSec);
 //--BUT when we insert it inside bil.insert.add we have to reset its start and end time keeping the same duration
 comp.setTimings(startTimeSec,endTimeSec);     
 this.comps.push(comp);
+}
+public insert(comp :IComponent, actionType :string):IComponent{
+// const sc = new SceneComp(comp,actionType);   
+//upto this point the timings are for scene and now will translate for 
+this.setCompTimings(comp,comp.getStartTime(false),comp.getEndTime(false))
+this.comps.push(comp)
+return comp;  
 }
 
 private startTimePlus(timeSec :number=0):number{

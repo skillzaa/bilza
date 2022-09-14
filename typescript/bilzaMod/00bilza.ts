@@ -1,19 +1,22 @@
-import {DrawLayer,Pack} from "../bilza.js";
+import {DrawLayer,IComponent,Pack} from "../bilza.js";
 //----------functions
 import Background from "../components/background.js";
 import StopWatch from "./stopWatch.js";
+import IScene from "../scene/IScene.js";
+
 //-------------------------------------------
 import Settings from "./settings.js";
 import Comps from "./comps.js";
-import Insert from "./insert.js";
-import Duration from "./duration.js";
+import CompFactory from "./insert/compFactory.js";
+import Duration from "./insert/duration.js";
+import Insert from "./insert/insert.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
 //==================PUBLIC API
 public background :Background;
-public insert:Insert; 
+public _insert:Insert; 
 public set :Settings; 
-private  soundTrackElement :HTMLAudioElement | null;
+private soundTrackElement :HTMLAudioElement | null;
 public soundTrack :string | null;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 private duration : Duration; 
@@ -31,12 +34,15 @@ this.lastMsDelta =0;
 this.soundTrackElement = document.getElementById("soundTrackElement") as HTMLAudioElement;
 this.soundTrack = null;
 
-this.insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
+// this.compFactory = new CompFactory(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
 this.stopWatch  = new StopWatch();
 this.set = new Settings(this.pack); ///EasyPeasyyyyyy...!!!
 //-----------Add Background
 this.background = new Background();
 // this.insert.alwaysOn(this.background);
+
+this._insert = new Insert(this.comps,this.duration,this.pack.charsWidth.bind(this.pack));
+
 } 
 // --27-june-2022 converted to private since user does not need to know
 //--30-june-2022 back to puiblic lets see
@@ -48,8 +54,8 @@ public init():boolean{
 // }
 //---Background
 if (this.set.loadSystemBackground == true){
-    this.insert.alwaysOn(this.background);
-}        
+    this._insert.alwaysOn(this.background);
+}   
 //--now init    
     this.comps.init(this.pack);
     return true;
@@ -159,4 +165,41 @@ return this.stopWatch.isRunning();
 //         // }
 //     return true;
 // }
+//---------------------------------------
+add(startTime :number,endTime :number):CompFactory{
+const cf = new CompFactory(startTime,endTime,"add",this.insert.bind(this));
+return cf;
+}
+alwaysOn():CompFactory{
+const cf = new CompFactory(0,1,"alwaysOn",this.insert.bind(this));
+return cf;
+}
+
+append(duration :number){
+const cf = new CompFactory(0,duration,"append",this.insert.bind(this));
+return cf;    
+}
+
+public insert(comp :IComponent, actionType :string):IComponent{
+switch (actionType) {
+case "add":
+    this._insert.add(comp,comp.getStartTime(false),comp.getEndTime(false));
+    break;
+case "append":
+    this._insert.append(comp,comp.getStartTime(false));
+    break;
+case "alwaysOn":
+    this._insert.alwaysOn(comp);
+    break;
+}
+return comp; //why???    
+}
+
+
+
+
+
+
+
+
 }//ends

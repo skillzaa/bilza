@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        * {
+    padding:0;
+    margin:0;
+}
+#parnetDiv {width:100%;padding :15px;background-color:aqua;}
+
+#canvasContainer {
+    text-align: center;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    margin-top:5px;
+    background-color: rgb(1, 1, 45);
+}
+</style>
+    <!-- <script src="../00misc/custom.css"></script> -->
+    <script src="../00misc/prism.js"></script>
+    <link rel="stylesheet" href="../00misc/prism.css">   
+
+    <title>Bilza Core Samples</title>
+</head>
+<body>
+
+<div id="canvasContainer">
+<canvas id="bilza"></canvas>
+<!--controls table-->
+<table id="controls" style="width:100%">
+<tr>    
+    <td style="width:10%"><button style="width:100%" id="start">Play</button></td>
+    <td style="width:10%"><button style="width:100%" id="stop">Stop</button></td>
+
+    <td style="width:70%">
+        <input type="range" id="slider" style="width:100%" value="0" max="20">
+    </td>
+    <td style="width:10%"></td>
+</tr>
+</table>
+
+</div>
+<!-- <a href="../src/bilza.js"></a> -->
+<script  type="module">
+import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+
+let bil = new Bilza("bilza", 70);
+//--------------------
+const grid = cf.grid(10,10,20,20,hsl(240));
+
+grid.setRespCellDims(false,20,20);
+grid.cellWidth.oscillate(0,60,20,40,2);
+bil.insert.add(grid,0,60);
+//--------------------
+const ui = new Ui(bil);
+bil.draw();
+
+</script>
+
+<pre class="language-javascript">
+<code>
+let bil = new Bilza("bilza", 70);
+//--------------------
+const grid = cf.grid(10,10,20,20,hsl(240));
+
+grid.setRespCellDims(false,20,20);
+grid.cellWidth.oscillate(0,60,20,40,2);
+bil.insert.add(grid,0,60);
+//--------------------
+const ui = new Ui(bil);
+bil.draw();
+    
+</code>
+</pre>
+
+</body>
+</html>

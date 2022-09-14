@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        * {
+    padding:0;
+    margin:0;
+}
+#parnetDiv {width:100%;padding :15px;background-color:aqua;}
+
+#canvasContainer {
+    text-align: center;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    margin-top:5px;
+    background-color: rgb(1, 1, 45);
+}
+</style>
+    <!-- <script src="../00misc/custom.css"></script> -->
+    <script src="../00misc/prism.js"></script>
+    <link rel="stylesheet" href="../00misc/prism.css">   
+
+    <title>Bilza Core Samples</title>
+</head>
+<body>
+
+<div id="canvasContainer">
+<canvas id="bilza"></canvas>
+<!--controls table-->
+<table id="controls" style="width:100%">
+<tr>    
+    <td style="width:10%"><button style="width:100%" id="start">Play</button></td>
+    <td style="width:10%"><button style="width:100%" id="stop">Stop</button></td>
+
+    <td style="width:70%">
+        <input type="range" id="slider" style="width:100%" value="0" max="20">
+    </td>
+    <td style="width:10%"></td>
+</tr>
+</table>
+
+</div>
+<!-- <a href="../../src/aniPresets/animationChaining.js"></a> -->
+<script  type="module">
+import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+
+let bil = new Bilza("bilza", 70);
+
+const fc = cf.frameCounter(hsl(0));
+fc.align(1,1);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
+bil.insert.add(fc,0,20);
+
+const comp = cf.text("Welcome to Bilza.js");
+
+comp.setPaddings(10);
+
+comp.fontSize.set(40);
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(240,70));
+comp.border.set(3);
+comp.colorBorder.set(hsl(0));
+comp.color.set(hsl(60));
+//===---Animation Settings
+comp.x.set(0);
+    comp.y.set(0);
+    //---In text height and width is set according to font size
+    // comp.width.set(20);
+    // comp.height.set(30);
+    comp.x.animate(1, 5, 0, 90);
+    comp.y.animate(6, 10, 0, 90);
+    comp.x.animate(11, 15, 90, 0);
+    comp.y.animate(16, 20, 90, 0);
+//---------------------------------
+
+bil.insert.add(comp,0,25);
+const ui = new Ui(bil);
+bil.draw();
+</script>
+
+<pre class="language-javascript">
+<code>
+import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+
+let bil = new Bilza("bilza", 70);
+
+const fc = cf.frameCounter(hsl(0));
+fc.align(1,1);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
+bil.insert.add(fc,0,20);
+
+const comp = cf.text("Welcome to Bilza.js");
+
+comp.setPaddings(10);
+
+comp.fontSize.set(40);
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(240,70));
+comp.border.set(3);
+comp.colorBorder.set(hsl(0));
+comp.color.set(hsl(60));
+//===---Animation Settings
+comp.x.set(0);
+    comp.y.set(0);
+    //---In text height and width is set according to font size
+    // comp.width.set(20);
+    // comp.height.set(30);
+    comp.x.animate(1, 5, 0, 90);
+    comp.y.animate(6, 10, 0, 90);
+    comp.x.animate(11, 15, 90, 0);
+    comp.y.animate(16, 20, 90, 0);
+//---------------------------------
+bil.insert.add(comp,0,25);
+bil.insert.add(comp, comp.getStartTime(), comp.duration);
+const ui = new Ui(bil);
+bil.draw();
+</code>
+</pre>
+
+</body>
+</html>
