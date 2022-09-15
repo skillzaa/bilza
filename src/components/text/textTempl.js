@@ -36,7 +36,7 @@ export default class TextTempl {
         this.setXAlignment(XAlignment);
         this.comp.y.set(y);
         this.comp.fitToWidth.set(false);
-        this.comp.width.set(80);
+        this.comp.width.set(300);
         this.comp.fitToHeight.set(true);
         this.comp.height.set(height);
         this.comp.showBackground.set(true);

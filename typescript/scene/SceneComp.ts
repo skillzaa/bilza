@@ -1,15 +1,15 @@
-import { IComponent} from "../bilza.js";
+// import { IComponent} from "../bilza.js";
 
-export default class SceneComps {
+// export default class SceneComps {
 
-comp :IComponent;
-actionType :string;
+// comp :IComponent;
+// actionType :string;
 
-constructor(comp :IComponent,actionType :string){
-this.comp = comp; 
-this.actionType = actionType; 
-}
+// constructor(comp :IComponent,actionType :string){
+// this.comp = comp; 
+// this.actionType = actionType; 
+// }
 
 
 
-} 
+// } 

@@ -7,7 +7,7 @@ export default function jt(startTime, endTime, content = "Welcome To Bilza.js", 
     txt.y.set(50);
     txt.templ.jumbotron()
         .theme.color(hslColorNo)
-        .entryAni.bottomIn()
+        .entryAni.fadeIn()
         .exitAni.fadeOut();
     return scene;
 }

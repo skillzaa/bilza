@@ -1,5 +1,5 @@
 import { IComponent,CompFactory} from "../bilza.js";
-import SceneComp from "./SceneComp.js";
+// import SceneComp from "./SceneComp.js";
 
 
 

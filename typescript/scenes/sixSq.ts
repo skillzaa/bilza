@@ -6,28 +6,21 @@ export default function sixSq ( startTime :number,endTime :number,colorSq1 :stri
     const scene = new Scene(startTime,endTime);
 //----------------------------------------------
     //-----------Row - 1
-    const sq1 = getRect(colorSq1,0,0);
-    scene.add(sq1);
-    const sq2 = getRect(colorSq2,33,0);
-    scene.add(sq2);
-    const sq3 = getRect(colorSq3,66,0);
-    scene.add(sq3);
+    const sq1 = getRect(scene,colorSq1,0,0);
+    const sq2 = getRect(scene,colorSq2,33,0);
+    const sq3 = getRect(scene,colorSq3,66,0);
     //-----------Row -2
-    const sq4 = getRect(colorSq4,0,50);
-    scene.add(sq4);
-    const sq5 = getRect(colorSq5,33,50);
-    scene.add(sq5);
-    const sq6 = getRect(colorSq6,66,50);
-    scene.add(sq6);
+    const sq4 = getRect(scene,colorSq4,0,50);
+    const sq5 = getRect(scene,colorSq5,33,50);
+    const sq6 = getRect(scene,colorSq6,66,50);
     
 return scene;
 }
 
-function getRect(color :string,x :number,y :number){
-  const rect = cf.fillRect(color)  
+function getRect(scene :Scene,color :string,x :number,y :number){
+  const rect = scene.add().fillRect(color)  
     rect.x.set(x);
     rect.y.set(y);
     rect.width.set(34);
     rect.height.set(50);
-    return rect;
 }

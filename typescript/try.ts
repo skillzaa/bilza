@@ -1,28 +1,22 @@
-import Bilza, {Ui,hsl,getRandom,Scene} from "./bilza.js";
-import jt from "./scenes/jt.js";
-import swingJt from "./scenes/swingJt.js";
-import welcome from "./scenes/welcome.js";
+import Bilza, {Ui,hsl,Scene,Scenes} from "./bilza.js";
 
 let bil = new Bilza("bilza", 70);
 // bil.resizeCanvas(1000,500);
-// bil.insert.alwaysOn(cf.grid());
-bil.alwaysOn().grid();
-bil.alwaysOn().frameCounter();
-bil.background.color.set(hsl(0,5,30));
 
+
+const themeColorNumber = 0;
+//--Beautiful
+bil.alwaysOn().grid(10,10,hsl(themeColorNumber,80,20));
+bil.alwaysOn().frameCounter(themeColorNumber);
+bil.background.color.set(hsl(themeColorNumber,100,10));
 //=============================================
-
-bil.add(0,9).text("Scene Again").templ.hdg().theme.color(0)
-.entryAni.leftIn().exitAni.fadeOut();
-
-const j = jt(4,8,"Message from Scene",240);
-bil.addScene(j);
-
-const sj = swingJt(9,20,"Swinging",240);
-bil.addScene(sj);
-
-// const wel = welcome(8,20,0);
+const slide = Scenes.hdg1bp(
+    0,10,themeColorNumber, //Start time , end time and theme color
+    "This is the Main Title",
+    "The Bullet point # 01",2,
+    "The footnote",6,25
+);
+bil.addScene(slide);
 //-------------------
 const ui = new Ui(bil);
 bil.draw();
-// console.log(j);

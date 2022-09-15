@@ -1,3 +1,3 @@
 import { Scene } from "../bilza.js";
-export default function h13bp(startTime: number, endTime: number, titleContent?: string, bp1Content?: string, bp2Content?: string, bp3Content?: string, ftNoteContent?: string, hslColorNo?: number, bp1EntryTime?: number, bp2EntryTime?: number, bp3EntryTime?: number, ftNoteEntryTime?: number, titleY?: number, bp1Y?: number, bp2Y?: number, bp3Y?: number): Scene;
+export default function h13bp(startTime: number, endTime: number, titleContent?: string, bp1Content?: string, bp1EntryTime?: number, bp2Content?: string, bp2EntryTime?: number, bp3Content?: string, bp3EntryTime?: number, ftNoteContent?: string, ftNoteEntryTime?: number, hslColorNo?: number, titleY?: number): Scene;
 //# sourceMappingURL=h13bp.d.ts.map

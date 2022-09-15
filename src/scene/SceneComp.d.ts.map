@@ -1,1 +1,1 @@
-{"version":3,"file":"SceneComp.d.ts","sourceRoot":"","sources":["../../typescript/scene/SceneComp.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAC,MAAM,aAAa,CAAC;AAExC,MAAM,CAAC,OAAO,OAAO,UAAU;IAE/B,IAAI,EAAE,UAAU,CAAC;IACjB,UAAU,EAAE,MAAM,CAAC;gBAEP,IAAI,EAAE,UAAU,EAAC,UAAU,EAAE,MAAM;CAO9C"}
+{"version":3,"file":"SceneComp.d.ts","sourceRoot":"","sources":["../../typescript/scene/SceneComp.ts"],"names":[],"mappings":""}
