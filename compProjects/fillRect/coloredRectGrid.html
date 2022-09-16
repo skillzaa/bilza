@@ -21,8 +21,8 @@
 }
 </style>
     <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../misc/prism.js"></script>
+    <link rel="stylesheet" href="../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,25 +46,24 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui,hsl,getRandom} from "../../src/bilza.js";
 
 function main(){
 let bil = new Bilza("bilza", 70);
 // bil.resizeCanvas(800,400);
-bil.insert.alwaysOn(cf.grid(10,10,));
+bil.alwaysOn().grid(10,10,"grey");
 //--------------------
 let x = 0;
 let y = 0;
 for (let iy = 0; iy < 10; iy++) {
     
         for (let i = 0; i < 10; i++) {
-            const comp = cf.fillRect(hsl(getRandom(0,360),100,50));
+            const comp = bil.add(0,60).fillRect(hsl(getRandom(0,360),100,50));
             comp.width.set(10);
             comp.height.set(10);
             comp.x.set(x);
             comp.y.set(y);
             comp.color.random(0,60,1);
-            bil.insert.add(comp,0,60);
             x += 10;
         }
  y += 10;        
@@ -73,7 +72,6 @@ for (let iy = 0; iy < 10; iy++) {
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-
 }
 setInterval(function(){
 main();
