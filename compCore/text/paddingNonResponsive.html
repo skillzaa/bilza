@@ -23,7 +23,6 @@
 <script src="../../misc/custom.css"></script>
 <script src="../../misc/prism.js"></script>
 <link rel="stylesheet" href="../../misc/prism.css">   
-<script src="../../misc/dark.js"></script>
 
     <title>Bilza Core Samples</title>
 </head>
@@ -47,14 +46,13 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set("#031363");
 
-const t = cf.text("Text Padding Demo", "#ffff00");
-bil.insert.add(t, 0, 20);
+const t = bil.add(0,20 ).text("Text Padding Demo", "#ffff00");
 
 t.align(1,1);
 t.x.set(50);
@@ -80,14 +78,13 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set("#031363");
 
-const t = cf.text("Text Padding Demo", "#ffff00");
-bil.insert.add(t, 0, 20);
+const t = bil.add(0,20 ).text("Text Padding Demo", "#ffff00");
 
 t.align(1,1);
 t.x.set(50);

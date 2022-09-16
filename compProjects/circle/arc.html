@@ -20,9 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,18 +47,16 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui, CompFactory as cf,hsl } from "../../src/bilza.js";
+import Bilza, { Ui,hsl } from "../../src/bilza.js";
 
 let bil = new Bilza("bilza",70);
 bil.background.color.set("#000000");
 //-----------------------------------------
-const g = cf.grid(10,10,);
-bil.insert.alwaysOn(g);
+const g = bil.alwaysOn().grid(10,10,"grey");
 
-const counter = cf.frameCounter("#ff0000");
-bil.insert.alwaysOn(counter);
+const counter = bil.alwaysOn( ).frameCounter("#ff0000");
 
-const circle = cf.circle(20,"red");
+const circle = bil.add(0,25).circle(20,"red");
 //--This will just draw the boundry
 circle.filled.set(false);
 circle.lineWidth.set(25);
@@ -69,8 +68,6 @@ circle.endAngle.set(360);
 
 circle.endAngle.animate(2,10,0,360);
 circle.startAngle.animate(12,20,0,360);
-
-bil.insert.add(circle,0,25);
 
 const ui = new Ui(bil);
 bil.draw();
@@ -78,18 +75,16 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf,hsl } from "../../src/bilza.js";
+import Bilza, { Ui,hsl } from "../../src/bilza.js";
 
 let bil = new Bilza("bilza",70);
 bil.background.color.set("#000000");
 //-----------------------------------------
-const g = cf.grid(10,10,);
-bil.insert.alwaysOn(g);
+const g = bil.alwaysOn().grid(10,10,"grey");
 
-const counter = cf.frameCounter("#ff0000");
-bil.insert.alwaysOn(counter);
+const counter = bil.alwaysOn( ).frameCounter("#ff0000");
 
-const circle = cf.circle(20,"red");
+const circle = bil.add(0,25).circle(20,"red");
 //--This will just draw the boundry
 circle.filled.set(false);
 circle.lineWidth.set(25);
@@ -101,8 +96,6 @@ circle.endAngle.set(360);
 
 circle.endAngle.animate(2,10,0,360);
 circle.startAngle.animate(12,20,0,360);
-
-bil.insert.add(circle,0,25);
 
 const ui = new Ui(bil);
 bil.draw();

@@ -23,7 +23,6 @@
 <script src="../../misc/custom.css"></script>
 <script src="../../misc/prism.js"></script>
 <link rel="stylesheet" href="../../misc/prism.css">   
-<script src="../../misc/dark.js"></script>   
 
     <title>Component Core Samples</title>
 </head>
@@ -47,14 +46,13 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui,hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn( ).grid(10,10,"grey");
 
-const comp = cf.particleSystem(10,hsl(0),2);
+const comp = bil.add(0,65).particleSystem(10,hsl(0),2);
 comp.particleSize.set(3);
 comp.align(1,1);
 comp.alignRotate(1,1);
@@ -76,21 +74,19 @@ comp.height.set(10);
 comp.width.oscillate(1,60,10,60,5);
 comp.height.oscillate(1,60,10,60,5);
 
-bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui,hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn( ).grid(10,10,"grey");
 
-const comp = cf.particleSystem(10,hsl(0),2);
+const comp = bil.add(0,65).particleSystem(10,hsl(0),2);
 comp.particleSize.set(3);
 comp.align(1,1);
 comp.alignRotate(1,1);
@@ -112,7 +108,6 @@ comp.height.set(10);
 comp.width.oscillate(1,60,10,60,5);
 comp.height.oscillate(1,60,10,60,5);
 
-bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </code>

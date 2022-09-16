@@ -20,9 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+  
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,18 +47,17 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui,hsl} from "../../src/bilza.js";
+
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set(hsl(0,55,70));
-bil.insert.alwaysOn(cf.grid(10,10,"grey"));
 
+bil.alwaysOn( ).grid(10,10,"grey");
 //--------------------
-const cb = cf.canvasBorder(hsl(240),25);
+const cb = bil.add(0,10).canvasBorder(hsl(240),25);
 
 cb.borderWidth.animate(2,2.5,20,0.5);
-
-bil.insert.add(cb,0,10);
 //-------------------
 const ui = new Ui(bil);
 bil.draw();
@@ -65,18 +65,17 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui,hsl} from "../../src/bilza.js";
+
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set(hsl(0,55,70));
-bil.insert.alwaysOn(cf.grid(10,10,"grey"));
 
+bil.alwaysOn( ).grid(10,10,"grey");
 //--------------------
-const cb = cf.canvasBorder(hsl(240),25);
+const cb = bil.add(0,10).canvasBorder(hsl(240),25);
 
 cb.borderWidth.animate(2,2.5,20,0.5);
-
-bil.insert.add(cb,0,10);
 //-------------------
 const ui = new Ui(bil);
 bil.draw();

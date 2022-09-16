@@ -20,9 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,28 +47,24 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui, CompFactory as cf,hsl,getRandom } from "../../src/bilza.js";
+import Bilza, { Ui,hsl,getRandom } from "../../src/bilza.js";
 
 setInterval(function(){
 /////////////////////////////--set interval
 let bil = new Bilza("bilza",70);
 bil.background.color.set("#000000");
 //-----------------------------------------
-const g = cf.grid(10,10,);
-bil.insert.alwaysOn(g);
+const g = bil.alwaysOn( ).grid(10,10,);
 
-const counter = cf.frameCounter("#ff0000");
-bil.insert.alwaysOn(counter);
+const counter = bil.alwaysOn( ).frameCounter(0);
 
 for (let i = 0; i < 200; i++) {
-
-        const circle = cf.circle(5,hsl(getRandom(0,360)));
+        const circle = bil.add(0,20).circle(5,hsl(getRandom(0,360)));
         //--This will just draw the boundry
         circle.filled.set(false);
         circle.lineWidth.set(2);
         circle.x.set(getRandom(1,100));
         circle.y.set(getRandom(1,100));
-        bil.insert.add(circle,0,20);
 }
 //-------------------------------
 // const ui = new Ui(bil); //not required for this example
@@ -79,35 +76,30 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf,hsl,getRandom } from "../../src/bilza.js";
+import Bilza, { Ui,hsl,getRandom } from "../../src/bilza.js";
 
 setInterval(function(){
 /////////////////////////////--set interval
 let bil = new Bilza("bilza",70);
 bil.background.color.set("#000000");
 //-----------------------------------------
-const g = cf.grid(10,10,);
-bil.insert.alwaysOn(g);
+const g = bil.alwaysOn( ).grid(10,10,);
 
-const counter = cf.frameCounter("#ff0000");
-bil.insert.alwaysOn(counter);
+const counter = bil.alwaysOn( ).frameCounter(0);
 
 for (let i = 0; i < 200; i++) {
-
-        const circle = cf.circle(5,hsl(getRandom(0,360)));
+        const circle = bil.add(0,20).circle(5,hsl(getRandom(0,360)));
         //--This will just draw the boundry
         circle.filled.set(false);
         circle.lineWidth.set(2);
         circle.x.set(getRandom(1,100));
         circle.y.set(getRandom(1,100));
-        bil.insert.add(circle,0,20);
 }
 //-------------------------------
 // const ui = new Ui(bil); //not required for this example
 bil.draw();
 ////////////////////////////--set interval ends
 },1000);
-
 </code>
 </pre>
 

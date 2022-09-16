@@ -23,7 +23,6 @@
 <script src="../../misc/custom.css"></script>
 <script src="../../misc/prism.js"></script>
 <link rel="stylesheet" href="../../misc/prism.css">   
-<script src="../../misc/dark.js"></script>
 
     <title>Bilza Core Samples</title>
 </head>
@@ -45,20 +44,18 @@
 </table>
 
 </div>
-<!-- <a href="../../src/aniPresets/animationChaining.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui , hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const fc = cf.frameCounter(hsl(0));
+const fc = bil.add(0,20).frameCounter(0);
 fc.align(1,1);
 fc.goto(0,50,50);
 fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
-bil.insert.add(fc,0,20);
 
-const comp = cf.text("Welcome to Bilza.js");
+const comp = bil.add(0,25 ).text("Welcome to Bilza.js");
 
 comp.setPaddings(10);
 
@@ -68,8 +65,9 @@ comp.colorBackground.set(hsl(240,70));
 comp.border.set(3);
 comp.colorBorder.set(hsl(0));
 comp.color.set(hsl(60));
-//===---Animation Settings
-comp.x.set(0);
+
+    //===---Animation Settings
+    comp.x.set(0);
     comp.y.set(0);
     //---In text height and width is set according to font size
     // comp.width.set(20);
@@ -80,25 +78,23 @@ comp.x.set(0);
     comp.y.animate(16, 20, 90, 0);
 //---------------------------------
 
-bil.insert.add(comp,0,25);
 const ui = new Ui(bil);
 bil.draw();
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui , hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const fc = cf.frameCounter(hsl(0));
+const fc = bil.add(0,20).frameCounter(0);
 fc.align(1,1);
 fc.goto(0,50,50);
 fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
-bil.insert.add(fc,0,20);
 
-const comp = cf.text("Welcome to Bilza.js");
+const comp = bil.add(0,25 ).text("Welcome to Bilza.js");
 
 comp.setPaddings(10);
 
@@ -108,8 +104,9 @@ comp.colorBackground.set(hsl(240,70));
 comp.border.set(3);
 comp.colorBorder.set(hsl(0));
 comp.color.set(hsl(60));
-//===---Animation Settings
-comp.x.set(0);
+
+    //===---Animation Settings
+    comp.x.set(0);
     comp.y.set(0);
     //---In text height and width is set according to font size
     // comp.width.set(20);
@@ -119,8 +116,7 @@ comp.x.set(0);
     comp.x.animate(11, 15, 90, 0);
     comp.y.animate(16, 20, 90, 0);
 //---------------------------------
-bil.insert.add(comp,0,25);
-bil.insert.add(comp, comp.getStartTime(), comp.duration);
+
 const ui = new Ui(bil);
 bil.draw();
 </code>

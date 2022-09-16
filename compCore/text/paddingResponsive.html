@@ -23,7 +23,6 @@
 <script src="../../misc/custom.css"></script>
 <script src="../../misc/prism.js"></script>
 <link rel="stylesheet" href="../../misc/prism.css">   
-<script src="../../misc/dark.js"></script>
 
     <title>Bilza Core Samples</title>
 </head>
@@ -47,13 +46,13 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set("#031363");
 
-const txt = cf.text("Text Padding Demo", "#ffff00");
+const txt = bil.add(0,20).text("Text Padding Demo", "#ffff00");
 /**
  * By default padding = Non-Responsive 
  * This line will make paddings reactive i.e it will 
@@ -61,8 +60,6 @@ const txt = cf.text("Text Padding Demo", "#ffff00");
  * This line should be placed immediately after creation
  */
 txt.setRespPadding(true);
-
-bil.insert.add(txt, 0, 20);
 
 txt.align(1,1);
 txt.x.set(50);
@@ -84,18 +81,17 @@ txt.paddingBottom.animate(11,14, 0, 20);
 
 const ui = new Ui(bil);
 bil.draw();
-
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set("#031363");
 
-const txt = cf.text("Text Padding Demo", "#ffff00");
+const txt = bil.add(0,20).text("Text Padding Demo", "#ffff00");
 /**
  * By default padding = Non-Responsive 
  * This line will make paddings reactive i.e it will 
@@ -103,8 +99,6 @@ const txt = cf.text("Text Padding Demo", "#ffff00");
  * This line should be placed immediately after creation
  */
 txt.setRespPadding(true);
-
-bil.insert.add(txt, 0, 20);
 
 txt.align(1,1);
 txt.x.set(50);
@@ -125,8 +119,7 @@ txt.paddingTop.animate(8, 10, 0, 20);
 txt.paddingBottom.animate(11,14, 0, 20);
 
 const ui = new Ui(bil);
-bil.draw();
-</code>
+bil.draw();</code>
 </pre>
 
 </body>

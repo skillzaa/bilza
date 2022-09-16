@@ -50,20 +50,20 @@
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 
-const fc = cf.frameCounter(hsl(0));
+const fc = bil.add(0,20).frameCounter(0);
 fc.align(1,1);
 fc.goto(0,50,50);
 fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
-bil.insert.add(fc,0,20);
 
-const comp = cf.particleSystem(10,hsl(0),1);
+const comp = bil.add(0,25).particleSystem(10,hsl(0),1);
 comp.particleSize.set(5);
 comp.setPaddings(10);
 comp.showBackground.set(true);
 comp.border.set(3);
 comp.colorBorder.set(hsl(0));
 comp.colorBackground.set(hsl(240));
+
 //===---Animation Settings
 comp.x.set(0);
     comp.y.set(0);
@@ -74,8 +74,6 @@ comp.x.set(0);
     comp.x.animate(11, 15, 90, 0);
     comp.y.animate(16, 20, 90, 0);
 //---------------------------------
-
-bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -85,20 +83,20 @@ bil.draw();
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 
-const fc = cf.frameCounter(hsl(0));
+const fc = bil.add(0,20).frameCounter(0);
 fc.align(1,1);
 fc.goto(0,50,50);
 fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
-bil.insert.add(fc,0,20);
 
-const comp = cf.particleSystem(10,hsl(0),1);
+const comp = bil.add(0,25).particleSystem(10,hsl(0),1);
 comp.particleSize.set(5);
 comp.setPaddings(10);
 comp.showBackground.set(true);
 comp.border.set(3);
 comp.colorBorder.set(hsl(0));
 comp.colorBackground.set(hsl(240));
+
 //===---Animation Settings
 comp.x.set(0);
     comp.y.set(0);
@@ -109,8 +107,6 @@ comp.x.set(0);
     comp.x.animate(11, 15, 90, 0);
     comp.y.animate(16, 20, 90, 0);
 //---------------------------------
-
-bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </code>

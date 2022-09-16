@@ -20,9 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="./00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,15 +47,14 @@
 </div>
 
 <script  type="module" >
-import Bilza, { Ui, CompFactory as cf,hsl } from "../../src/bilza.js";
+import Bilza, { Ui,hsl } from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.background.color.set("#330505");
 
-const g = cf.grid(10,10,);
-bil.insert.alwaysOn(g);
+const g = bil.alwaysOn( ).grid(10,10,);
 
-const circle = cf.circle(10,hsl(0));
+const circle = bil.add(0,50).circle(10,hsl(0));
 circle.align(1,1);
 circle.alignRotate(1,1);
 
@@ -82,56 +82,49 @@ circle.width.animate(12, 20, 0, 100);
 circle.width.animate(22, 30, 100, 25);
 circle.rotation.animate(32,40,0,6 * 360);
 
-bil.insert.add(circle, 0, 50);
 const ui = new Ui(bil);
 bil.draw();
-
-
-
-
 </script>
 
 <pre class="language-javascript">
 <code>
-    import Bilza, { Ui, CompFactory as cf,hsl } from "../../src/bilza.js";
-    let bil = new Bilza("bilza", 70);
-    bil.background.color.set("#330505");
-    
-    const g = cf.grid(10,10,);
-    bil.insert.alwaysOn(g);
-    
-    const circle = cf.circle(10,hsl(0));
-    circle.align(1,1);
-    circle.alignRotate(1,1);
-    
-    
-    circle.showBackground.set(true);
-    circle.colorBackground.set("green");
-    
-    //--Set Commands
-    circle.paddingLeft.set(2);
-    circle.paddingRight.set(2);
-    circle.paddingTop.set(2);
-    circle.paddingBottom.set(2);
-    
-    circle.x.set(0);
-    circle.y.set(50);
-    circle.width.set(10);
-    circle.border.set(2);
-    circle.colorBorder.set("yellow");
-    
-    //--Animate Commands
-    circle.x.animate(1, 5, 0, 100);
-    circle.x.animate(6, 10, 100, 50);
-    
-    circle.width.animate(12, 20, 0, 100);
-    circle.width.animate(22, 30, 100, 25);
-    circle.rotation.animate(32,40,0,6 * 360);
-    
-    bil.insert.add(circle, 0, 50);
-    const ui = new Ui(bil);
-    bil.draw();
-    
+import Bilza, { Ui,hsl } from "../../src/bilza.js";
+
+let bil = new Bilza("bilza", 70);
+bil.background.color.set("#330505");
+
+const g = bil.alwaysOn( ).grid(10,10,);
+
+const circle = bil.add(0,50).circle(10,hsl(0));
+circle.align(1,1);
+circle.alignRotate(1,1);
+
+
+circle.showBackground.set(true);
+circle.colorBackground.set("green");
+
+//--Set Commands
+circle.paddingLeft.set(2);
+circle.paddingRight.set(2);
+circle.paddingTop.set(2);
+circle.paddingBottom.set(2);
+
+circle.x.set(0);
+circle.y.set(50);
+circle.width.set(10);
+circle.border.set(2);
+circle.colorBorder.set("yellow");
+
+//--Animate Commands
+circle.x.animate(1, 5, 0, 100);
+circle.x.animate(6, 10, 100, 50);
+
+circle.width.animate(12, 20, 0, 100);
+circle.width.animate(22, 30, 100, 25);
+circle.rotation.animate(32,40,0,6 * 360);
+
+const ui = new Ui(bil);
+bil.draw();
 </code>
 </pre>
 
