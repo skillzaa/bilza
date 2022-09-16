@@ -21,8 +21,8 @@
 }
 </style>
     <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,13 +46,13 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set("#031363");
 
-const comp = cf.circle( 5 , hsl(120));
+const comp = bil.add(0,20).circle( 5 , hsl(120));
 comp.width.set(5);
 /**
  * By default padding = Non-Responsive 
@@ -61,8 +61,6 @@ comp.width.set(5);
  * This line should be placed immediately after creation
  */
 comp.setRespPadding(true);
-
-bil.insert.add(comp, 0, 20);
 
 comp.align(1,1);
 comp.x.set(50);
@@ -87,12 +85,13 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
+
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set("#031363");
 
-const comp = cf.circle( 5 , hsl(120));
+const comp = bil.add(0,20).circle( 5 , hsl(120));
 comp.width.set(5);
 /**
  * By default padding = Non-Responsive 
@@ -101,8 +100,6 @@ comp.width.set(5);
  * This line should be placed immediately after creation
  */
 comp.setRespPadding(true);
-
-bil.insert.add(comp, 0, 20);
 
 comp.align(1,1);
 comp.x.set(50);

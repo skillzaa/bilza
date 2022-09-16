@@ -20,10 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/dark.js"></script>
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+<script src="../../misc/dark.js"></script>
 
     <title>Component Core Samples</title>
 </head>
@@ -51,10 +51,9 @@ import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn().grid(10,10,"grey");
 
-const comp = cf.fillRect(hsl(240));
+const comp = bil.add(0,65).fillRect(hsl(240));
 comp.align(1,1);
 comp.alignRotate(1,1);
 comp.x.set(50);
@@ -66,7 +65,6 @@ comp.height.set(10);
 comp.width.oscillate(1,60,10,80,5);
 comp.height.oscillate(1,60,10,80,5);
 
-bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -77,10 +75,9 @@ import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn().grid(10,10,"grey");
 
-const comp = cf.fillRect(hsl(240));
+const comp = bil.add(0,65).fillRect(hsl(240));
 comp.align(1,1);
 comp.alignRotate(1,1);
 comp.x.set(50);
@@ -92,7 +89,6 @@ comp.height.set(10);
 comp.width.oscillate(1,60,10,80,5);
 comp.height.oscillate(1,60,10,80,5);
 
-bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </code>

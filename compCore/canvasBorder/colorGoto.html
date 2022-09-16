@@ -20,9 +20,9 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/custom.css"></script>
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,22 +46,18 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(0,55,100));
 
-const cb = cf.canvasBorder(hsl(240),25);
+const cb = bil.add(0,12).canvasBorder(hsl(240),25);
 cb.color.goto(1,hsl(280));
 cb.color.goto(2,hsl(0));
 cb.color.goto(4,hsl(120));
 cb.color.goto(6,hsl(240));
 cb.color.goto(8,hsl(60));
 cb.color.goto(10,hsl(300));
-
-bil.insert.add(cb,0,12);
-
-
 //-------------------
 const ui = new Ui(bil);
 bil.draw();
@@ -69,25 +65,21 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(0,55,100));
 
-const cb = cf.canvasBorder(hsl(240),25);
+const cb = bil.add(0,12).canvasBorder(hsl(240),25);
 cb.color.goto(1,hsl(280));
 cb.color.goto(2,hsl(0));
 cb.color.goto(4,hsl(120));
 cb.color.goto(6,hsl(240));
 cb.color.goto(8,hsl(60));
 cb.color.goto(10,hsl(300));
-
-bil.insert.add(cb,0,12);
-
-
 //-------------------
 const ui = new Ui(bil);
-bil.draw();    
+bil.draw();
 </code>
 </pre>
 

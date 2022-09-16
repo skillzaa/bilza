@@ -20,9 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+<script src="../../misc/dark.js"></script>
 
     <title>Bilza Core Samples</title>
 </head>
@@ -52,10 +53,9 @@ let bil = new Bilza("bilza", 70);
 //-We gave size to canvas which will always be 640 X 360
 bil.resizeCanvas(640 , 360);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn().grid(10,10,"grey");
 
-const comp = cf.fillRect(hsl(240));
+const comp = bil.add(0,65).fillRect(hsl(240));
 /**
  * Most important line should be applied immediately after creation
 This will make the Dimentions (width and height) as 
@@ -63,9 +63,7 @@ non-responsive i.e they will use their values
 as raw numbers and not as percentage of screen 
 width or height 
  */
-
 comp.setRespDims(false);
-
 
 comp.align(1,1);
 comp.alignRotate(1,1);
@@ -79,7 +77,6 @@ comp.width.oscillate(1,60,10,300,5);
 //--note the value 10 to 300 is in pixels
 comp.height.oscillate(1,60,10,300,5);
 
-bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -92,10 +89,9 @@ let bil = new Bilza("bilza", 70);
 //-We gave size to canvas which will always be 640 X 360
 bil.resizeCanvas(640 , 360);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn().grid(10,10,"grey");
 
-const comp = cf.fillRect(hsl(240));
+const comp = bil.add(0,65).fillRect(hsl(240));
 /**
  * Most important line should be applied immediately after creation
 This will make the Dimentions (width and height) as 
@@ -103,9 +99,7 @@ non-responsive i.e they will use their values
 as raw numbers and not as percentage of screen 
 width or height 
  */
-
 comp.setRespDims(false);
-
 
 comp.align(1,1);
 comp.alignRotate(1,1);
@@ -119,7 +113,6 @@ comp.width.oscillate(1,60,10,300,5);
 //--note the value 10 to 300 is in pixels
 comp.height.oscillate(1,60,10,300,5);
 
-bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </code>

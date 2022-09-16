@@ -20,9 +20,9 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/custom.css"></script>
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -49,16 +49,15 @@
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 
-bil.insert.alwaysOn(cf.grid(10,10,10,10,"grey"));
+bil.alwaysOn().grid(10,10,"grey");
 //--------------------
-const caption = cf.text("blue",hsl(240));
+const caption = bil.add(0,15).text("blue",hsl(240));
 caption.align(1,2)// --x align mid , y align bottom
 caption.x.set(50);
 caption.y.set(95);
 caption.fontSize.set(100);
-bil.insert.add(caption,0,15);
 //--------------------
-const comp = cf.circle(15,hsl(240));
+const comp = bil.add(0,15).circle(15,hsl(240));
 
 comp.x.set(50);
 comp.y.set(50);
@@ -66,9 +65,7 @@ comp.y.set(50);
 // comp.width.set(50);
 //--Height is not implemented for circle
 // comp.height.set(50);
-
 comp.align(1,1);
-bil.insert.add(comp, 0, 15);
 
 //---Goto commands for fillRect and text components
 
@@ -105,16 +102,15 @@ bil.draw();
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 
-bil.insert.alwaysOn(cf.grid(10,10,10,10,"grey"));
+bil.alwaysOn().grid(10,10,"grey");
 //--------------------
-const caption = cf.text("blue",hsl(240));
+const caption = bil.add(0,15).text("blue",hsl(240));
 caption.align(1,2)// --x align mid , y align bottom
 caption.x.set(50);
 caption.y.set(95);
 caption.fontSize.set(100);
-bil.insert.add(caption,0,15);
 //--------------------
-const comp = cf.circle(15,hsl(240));
+const comp = bil.add(0,15).circle(15,hsl(240));
 
 comp.x.set(50);
 comp.y.set(50);
@@ -122,9 +118,7 @@ comp.y.set(50);
 // comp.width.set(50);
 //--Height is not implemented for circle
 // comp.height.set(50);
-
 comp.align(1,1);
-bil.insert.add(comp, 0, 15);
 
 //---Goto commands for fillRect and text components
 

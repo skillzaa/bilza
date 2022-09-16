@@ -20,9 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+<script src="../../misc/dark.js"></script>
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,13 +47,12 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
-
 bil.background.color.set("#031363");
 
-const comp = cf.grid(10,10, hsl(120));
+const comp = bil.add(0,20).grid(10,10, hsl(120));
 comp.width.set(50);
 comp.height.set(50);
 /**
@@ -63,7 +63,6 @@ comp.height.set(50);
  */
 comp.setRespPadding(true);
 
-bil.insert.add(comp, 0, 20);
 
 comp.align(1,1);
 comp.x.set(50);
@@ -86,13 +85,12 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
-
 bil.background.color.set("#031363");
 
-const comp = cf.grid(10,10, hsl(120));
+const comp = bil.add(0,20).grid(10,10, hsl(120));
 comp.width.set(50);
 comp.height.set(50);
 /**
@@ -102,8 +100,6 @@ comp.height.set(50);
  * This line should be placed immediately after creation
  */
 comp.setRespPadding(true);
-
-bil.insert.add(comp, 0, 20);
 
 comp.align(1,1);
 comp.x.set(50);

@@ -20,9 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+<script src="../../misc/dark.js"></script>
 
     <title>Bilza Core Samples</title>
 </head>
@@ -50,14 +51,13 @@ import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const fc = cf.frameCounter(hsl(0));
+const fc = bil.add(0,25).frameCounter(0);
 fc.align(1,1);
 fc.goto(0,50,50);
 fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
-bil.insert.add(fc,0,20);
 
-const comp = cf.grid(10,10,hsl(60));
+const comp = bil.add(0,25).grid(10,10,hsl(60));
 comp.setPaddings(10);
 comp.showBackground.set(true);
 comp.border.set(3);
@@ -65,8 +65,8 @@ comp.colorNumbers.set(hsl(60));
 comp.colorBorder.set(hsl(0));
 comp.colorBackground.set(hsl(240));
 
-//===---Animation Settings
-comp.x.set(0);
+    //===---Animation Settings
+    comp.x.set(0);
     comp.y.set(0);
     comp.width.set(30);
     comp.height.set(20);
@@ -76,7 +76,6 @@ comp.x.set(0);
     comp.y.animate(16, 20, 90, 0);
 //---------------------------------
 
-bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </script>
@@ -87,14 +86,13 @@ import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const fc = cf.frameCounter(hsl(0));
+const fc = bil.add(0,25).frameCounter(0);
 fc.align(1,1);
 fc.goto(0,50,50);
 fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
-bil.insert.add(fc,0,20);
 
-const comp = cf.grid(10,10,hsl(60));
+const comp = bil.add(0,25).grid(10,10,hsl(60));
 comp.setPaddings(10);
 comp.showBackground.set(true);
 comp.border.set(3);
@@ -102,8 +100,8 @@ comp.colorNumbers.set(hsl(60));
 comp.colorBorder.set(hsl(0));
 comp.colorBackground.set(hsl(240));
 
-//===---Animation Settings
-comp.x.set(0);
+    //===---Animation Settings
+    comp.x.set(0);
     comp.y.set(0);
     comp.width.set(30);
     comp.height.set(20);
@@ -113,7 +111,6 @@ comp.x.set(0);
     comp.y.animate(16, 20, 90, 0);
 //---------------------------------
 
-bil.insert.add(comp, 0, 25);
 const ui = new Ui(bil);
 bil.draw();
 </code>

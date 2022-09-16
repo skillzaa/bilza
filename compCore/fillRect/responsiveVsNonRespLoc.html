@@ -20,10 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/dark.js"></script>
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/custom.css"></script>
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
+    <script src="../../misc/dark.js"></script>
 
     <title>Component Core Samples</title>
 </head>
@@ -51,14 +51,12 @@ import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn().grid(10,10,"grey");
 //----------------------------
 //---Keep first comp x and y responsive which it is by default
 const compResp= getComp("green");
 compResp.x.set(0);
 compResp.y.set(30);
-bil.insert.add(compResp,0,20);
 
 //---Keep second comp x and y Non-responsive
 const compNonResp= getComp("red");
@@ -67,7 +65,6 @@ const compNonResp= getComp("red");
 compNonResp.setRespLoc(false);
 compNonResp.x.set(0);
 compNonResp.y.set(30);
-bil.insert.add(compNonResp,0,20);
 
 //---now lets animate both of them to 90
 compResp.x.animate(2,10,0,90);
@@ -79,7 +76,7 @@ bil.draw();
 
 
 function getComp(color){
-const comp = cf.fillRect(color);
+const comp = bil.add(0,20).fillRect(color);
 comp.width.set(10);
 comp.height.set(10);
 return comp;
@@ -93,14 +90,12 @@ import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn().grid(10,10,"grey");
 //----------------------------
 //---Keep first comp x and y responsive which it is by default
 const compResp= getComp("green");
 compResp.x.set(0);
 compResp.y.set(30);
-bil.insert.add(compResp,0,20);
 
 //---Keep second comp x and y Non-responsive
 const compNonResp= getComp("red");
@@ -109,7 +104,6 @@ const compNonResp= getComp("red");
 compNonResp.setRespLoc(false);
 compNonResp.x.set(0);
 compNonResp.y.set(30);
-bil.insert.add(compNonResp,0,20);
 
 //---now lets animate both of them to 90
 compResp.x.animate(2,10,0,90);
@@ -121,12 +115,11 @@ bil.draw();
 
 
 function getComp(color){
-const comp = cf.fillRect(color);
+const comp = bil.add(0,20).fillRect(color);
 comp.width.set(10);
 comp.height.set(10);
 return comp;
 }
-
 </code>
 </pre>
 

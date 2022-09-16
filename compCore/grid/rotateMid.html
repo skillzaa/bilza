@@ -20,9 +20,10 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+<script src="../../misc/dark.js"></script>
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,24 +47,22 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(240,100,30));
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn().grid(10,10,"grey");
 
-const fc = cf.frameCounter(hsl(0))
+const fc = bil.alwaysOn().frameCounter(0);
 fc.align(0,2);
 fc.goto(0,0,100);
 fc.fontSize.set(80);
 fc.color.set(hsl(60));
 fc.colorBackground.set(hsl(240,100,60));
-bil.insert.alwaysOn(fc);
 
-const comp = cf.grid(10,10,hsl(0));
+
+const comp = bil.add(0,20).grid(10,10,hsl(0));
 comp.align(1,1);
 comp.alignRotate(1,1);
 comp.setxy(50,50);
@@ -77,7 +76,6 @@ comp.colorBackground.set(hsl(60,100,90));
 comp.border.set(2);
 comp.colorBorder.set(hsl(0));
 comp.rotation.animate(0,15, 0, 3 * 360);
-bil.insert.add(comp,0,20);
 
 const ui = new Ui(bil);
 bil.draw();
@@ -86,24 +84,22 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
-
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(240,100,30));
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn().grid(10,10,"grey");
 
-const fc = cf.frameCounter(hsl(0))
+const fc = bil.alwaysOn().frameCounter(0);
 fc.align(0,2);
 fc.goto(0,0,100);
 fc.fontSize.set(80);
 fc.color.set(hsl(60));
 fc.colorBackground.set(hsl(240,100,60));
-bil.insert.alwaysOn(fc);
 
-const comp = cf.grid(10,10,hsl(0));
+
+const comp = bil.add(0,20).grid(10,10,hsl(0));
 comp.align(1,1);
 comp.alignRotate(1,1);
 comp.setxy(50,50);
@@ -117,7 +113,6 @@ comp.colorBackground.set(hsl(60,100,90));
 comp.border.set(2);
 comp.colorBorder.set(hsl(0));
 comp.rotation.animate(0,15, 0, 3 * 360);
-bil.insert.add(comp,0,20);
 
 const ui = new Ui(bil);
 bil.draw();
