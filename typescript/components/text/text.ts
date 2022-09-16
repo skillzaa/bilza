@@ -14,8 +14,6 @@ public fontSize :AniNumber;
 public maxDisplayChars :AniNumber; 
 public fitToWidth :AniBoolean; 
 public fitToHeight :AniBoolean; 
-// public shrinkToHeight :AniBoolean; 
-// public shrinkToWidth :AniBoolean; 
 public respFontSize :AniBoolean; 
 /////////////////////////////////////////
 public templ :TextTempl; 
@@ -29,8 +27,6 @@ this.maxDisplayChars = new AniNumber(1000);
 this.fontFamily = FontFamily.Calibri;
 this.fitToWidth = new AniBoolean(false); 
 this.fitToHeight = new AniBoolean(false); 
-// this.shrinkToHeight = new AniBoolean(false); 
-// this.shrinkToWidth = new AniBoolean(false); 
 this.respFontSize = new AniBoolean(true); 
 //-----------------------------
 this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
@@ -141,23 +137,27 @@ protected fitToWidthFn(p :Pack):number | null{
 
 protected fitToHeightFn(p :Pack):number | null{
 //----required with should exclude padding     
- const reqHtInPix = (this.height.value());;
- //if not already in sync
+ const reqHtInPix = (this.height.value());
+ 
+ this.fontSize.set(reqHtInPix); 
  this.style.fontSize = this.fontSize.value(); 
- this.style.fontFamily = this.fontFamily; 
+ return reqHtInPix;
+//  if not already in sync
+//  this.style.fontSize = this.fontSize.value(); 
+//  this.style.fontFamily = this.fontFamily; 
 
- //--------------------The Process
-     for (let i = 1; i < 900; i++) {
-     //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
-     const newHeightInPix = p.charsWidth( "X", i , this.style.fontFamily);
- //----------------------------
-     if (newHeightInPix >= (reqHtInPix) ){
-         this.fontSize.set(i); 
-         this.style.fontSize = i; //important
-         return this.fontSize.value();
-     } 
- }//for end  
- return null; 
+//  //--------------------The Process
+//      for (let i = 1; i < 900; i++) {
+//      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
+//      const newHeightInPix = p.charsWidth( "Xi", i , this.style.fontFamily);
+//  //----------------------------
+//      if (newHeightInPix >= (reqHtInPix) ){
+//          this.fontSize.set(i); 
+//          this.style.fontSize = i; //important
+//          return this.fontSize.value();
+//      } 
+//  }//for end  
+//  return null; 
 }//fitToHeight
 //---------------------------------- 
 // protected adjestFontSize(n :number):number{

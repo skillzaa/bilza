@@ -93,18 +93,9 @@ export default class Text extends BaseComponent {
     }
     fitToHeightFn(p) {
         const reqHtInPix = (this.height.value());
-        ;
+        this.fontSize.set(reqHtInPix);
         this.style.fontSize = this.fontSize.value();
-        this.style.fontFamily = this.fontFamily;
-        for (let i = 1; i < 900; i++) {
-            const newHeightInPix = p.charsWidth("X", i, this.style.fontFamily);
-            if (newHeightInPix >= (reqHtInPix)) {
-                this.fontSize.set(i);
-                this.style.fontSize = i;
-                return this.fontSize.value();
-            }
-        }
-        return null;
+        return reqHtInPix;
     }
     shrinkToHeightFn(p) {
         if (this.charsWidth == null) {

@@ -1,7 +1,6 @@
 
 import { IComponent,CompFactory} from "../bilza.js";
 import IScene from "./IScene.js";
-import SceneComp from "./SceneComp.js";
 export default class Scene implements IScene{
 //--START TIME IS ALWAYS = 0 
 

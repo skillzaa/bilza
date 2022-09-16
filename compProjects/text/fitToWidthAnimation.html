@@ -55,23 +55,15 @@ const comp = bil.add(0,30).text("ABCDEFG",hsl(240));
 
 comp.setxy(10,10);
 comp.setPaddings(0);
-//--font is 20 to keep the text smaller
-comp.fontSize.set(20);
-//-- width is 80% but still this will not change the size of the comp
-// since that is dependent upon fontSize and we have not allowed
-// that to be changed
-comp.width.set(80);
-//---Now we have allowed it to change fontSize such that the text 
-//fits the comp.width.value(). 
-//-- Keep in mind that the fontSize will be changed ONCE before 
-// the first draw and after that its up to the user what he does with the text. 
-//-- If you comment this line out the text will revert back
-// to its initial value.
+
+comp.width.set(10);
+
 comp.fitToWidth.set(true);
 
 comp.theme.color(0);
 comp.showBackground.set(true);
 //--------------------
+comp.width.animate(0,10,0,80);
 const ui = new Ui(bil);
 bil.draw();
 
@@ -79,7 +71,28 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
+import Bilza, { Ui,hsl,getRandom} from "../../src/bilza.js";
 
+let bil = new Bilza("bilza", 70);
+
+bil.background.color.set(hsl(0,5,30));
+bil.alwaysOn().grid(10,10,"grey");
+//--------------------
+const comp = bil.add(0,30).text("ABCDEFG",hsl(240));
+
+comp.setxy(10,10);
+comp.setPaddings(0);
+
+comp.width.set(10);
+
+comp.fitToWidth.set(true);
+
+comp.theme.color(0);
+comp.showBackground.set(true);
+//--------------------
+comp.width.animate(0,10,0,80);
+const ui = new Ui(bil);
+bil.draw();
 </code>
 </pre>
 
