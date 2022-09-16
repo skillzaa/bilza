@@ -21,8 +21,8 @@
 }
 </style>
     <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,34 +46,32 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui, hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 //--------------------
-const grid = cf.grid(10,10,20,20,hsl(240));
+const grid = bil.add(0,60).grid(10,10,hsl(0));
 
 grid.setRespCellDims(false,20,20);
 grid.cellWidth.oscillate(0,60,20,40,2);
-bil.insert.add(grid,0,60);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-
 </script>
 
 <pre class="language-javascript">
 <code>
+import Bilza, { Ui, hsl,getRandom} from "../../src/bilza.js";
+
 let bil = new Bilza("bilza", 70);
 //--------------------
-const grid = cf.grid(10,10,20,20,hsl(240));
+const grid = bil.add(0,60).grid(10,10,hsl(0));
 
 grid.setRespCellDims(false,20,20);
 grid.cellWidth.oscillate(0,60,20,40,2);
-bil.insert.add(grid,0,60);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-    
 </code>
 </pre>
 

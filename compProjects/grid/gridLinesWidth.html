@@ -49,9 +49,9 @@
 import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
-bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
+bil.insert.alwaysOn(bil.add( ).frameCounter(hsl(0)));
 //--------------------
-const grid = cf.grid(10,10,10,10,hsl(240));
+const grid = bil.add( ).grid(10,10,10,10,hsl(240));
 
 grid.lineWidthHorizontal.set(1);
 grid.lineWidthVertical.set(1);
@@ -78,9 +78,9 @@ bil.draw();
 import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
-bil.insert.alwaysOn(cf.frameCounter(hsl(0)));
+bil.insert.alwaysOn(bil.add( ).frameCounter(hsl(0)));
 //--------------------
-const grid = cf.grid(10,10,10,10,hsl(240));
+const grid = bil.add( ).grid(10,10,10,10,hsl(240));
 
 grid.lineWidthHorizontal.set(1);
 grid.lineWidthVertical.set(1);

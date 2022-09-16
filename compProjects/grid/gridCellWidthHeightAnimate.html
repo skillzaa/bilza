@@ -20,9 +20,8 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,16 +45,14 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui,hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 //--------------------
-const grid = cf.grid(10,10,10,10,hsl(240));
+const grid = bil.add(0,60).grid(10,10,hsl(240));
 
 grid.cellHeight.oscillate(0,60,10,20,5);
 grid.cellWidth.oscillate(0,60,10,20,5);
-
-bil.insert.add(grid,0,60);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
@@ -64,19 +61,17 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui,hsl,getRandom} from "../../src/bilza.js";
+
 let bil = new Bilza("bilza", 70);
 //--------------------
-const grid = cf.grid(10,10,1,1,hsl(240));
+const grid = bil.add(0,60).grid(10,10,hsl(240));
 
-grid.cellHeightPerc.oscillate(0,60,10,20,5);
-grid.cellWidthPerc.oscillate(0,60,10,20,5);
-
-bil.insert.add(grid,0,60);
+grid.cellHeight.oscillate(0,60,10,20,5);
+grid.cellWidth.oscillate(0,60,10,20,5);
 //--------------------
 const ui = new Ui(bil);
-bil.draw();
-
+bil.draw();    
 </code>
 </pre>
 

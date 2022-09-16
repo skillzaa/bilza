@@ -21,8 +21,8 @@
 }
 </style>
     <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -44,26 +44,23 @@
 </table>
 
 </div>
-<!-- <a href="../../src/aniPresets/animationChaining.js"></a> -->
+
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, {Ui,hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(240,100,20));
 
-const fc = cf.frameCounter(hsl(0))
+const fc = bil.alwaysOn().frameCounter(hsl(0))
 fc.align(0,2);
 fc.goto(0,0,100);
 fc.fontSize.set(80);
 fc.color.set(hsl(60));
 fc.colorBackground.set(hsl(240,100,60));
-bil.insert.alwaysOn(fc);
-
-//------------------------------------
 //------------------------------------
 for (let i = 0; i < 100; i++) {
 
-    const comp = cf.line(
+    const comp = bil.add(0,25).line(
         getRandom(0,100),
         getRandom(0,100),
         getRandom(0,100),
@@ -76,34 +73,29 @@ for (let i = 0; i < 100; i++) {
     comp.x.oscillate(0,60,0,100);
     comp.y.oscillate(0,60,0,100);
     //---------------------------------
-    bil.insert.add(comp, 0, 25);    
 }
 //-------------------------------
 const ui = new Ui(bil);
 bil.draw();
-
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, {Ui,hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.background.color.set(hsl(240,100,20));
 
-const fc = cf.frameCounter(hsl(0))
+const fc = bil.alwaysOn().frameCounter(hsl(0))
 fc.align(0,2);
 fc.goto(0,0,100);
 fc.fontSize.set(80);
 fc.color.set(hsl(60));
 fc.colorBackground.set(hsl(240,100,60));
-bil.insert.alwaysOn(fc);
-
-//------------------------------------
 //------------------------------------
 for (let i = 0; i < 100; i++) {
 
-    const comp = cf.line(
+    const comp = bil.add(0,25).line(
         getRandom(0,100),
         getRandom(0,100),
         getRandom(0,100),
@@ -116,7 +108,6 @@ for (let i = 0; i < 100; i++) {
     comp.x.oscillate(0,60,0,100);
     comp.y.oscillate(0,60,0,100);
     //---------------------------------
-    bil.insert.add(comp, 0, 25);    
 }
 //-------------------------------
 const ui = new Ui(bil);

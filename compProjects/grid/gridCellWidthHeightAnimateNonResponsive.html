@@ -50,7 +50,7 @@ import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 //--------------------
-const grid = cf.grid(10,10,10,10,hsl(240));
+const grid = bil.add( ).grid(10,10,10,10,hsl(240));
 //---Importantay
 grid.setRespCellDims(false,10,10);
 
@@ -69,7 +69,7 @@ bil.draw();
 import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 //--------------------
-const grid = cf.grid(10,10,1,1,hsl(240));
+const grid = bil.add( ).grid(10,10,1,1,hsl(240));
 
 grid.cellHeightPerc.oscillate(0,60,10,20,5);
 grid.cellWidthPerc.oscillate(0,60,10,20,5);

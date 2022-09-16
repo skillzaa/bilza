@@ -21,8 +21,8 @@
 }
 </style>
     <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,19 +46,20 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui,hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set(hsl(240,100,15));
-bil.insert.alwaysOn(cf.grid(10,10,));
+bil.alwaysOn().grid(10,10,"grey");
+
 getPic(4,2);
 getPic(54,2);
 getPic(4,50);
 getPic(54,50);
 
 function getPic(x,y){
-const pic = cf.pic("../00images/house.jpg");
+const pic = bil.add(0,29).pic("../../images/cat.jpg");
 pic.setxy(x,y);
 pic.width.set(10);
 pic.height.set(10);
@@ -67,7 +68,6 @@ pic.colorBorder.set("red");
 
 pic.width.oscillate(0,20,10,45,4);
 pic.height.oscillate(0,20,10,45,4);
-bil.insert.add(pic,0,20);
 }
 //--------------------
 const ui = new Ui(bil);
@@ -76,19 +76,19 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui, CompFactory as bil.add( )., hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
 bil.background.color.set(hsl(240,100,15));
-bil.insert.alwaysOn(cf.grid(10,10,));
+bil.insert.alwaysOn(bil.add( )..grid(10,10,));
 getPic(4,2);
 getPic(54,2);
 getPic(4,50);
 getPic(54,50);
 
 function getPic(x,y){
-const pic = cf.pic("../00images/house.jpg");
+const pic = bil.add( )..pic("../00images/house.jpg");
 pic.setxy(x,y);
 pic.width.set(10);
 pic.height.set(10);
