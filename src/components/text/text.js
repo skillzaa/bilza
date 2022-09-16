@@ -92,7 +92,7 @@ export default class Text extends BaseComponent {
         return null;
     }
     fitToHeightFn(p) {
-        const reqHtInPix = (this.height.value());
+        const reqHtInPix = (this.height.value()) * 1.12;
         this.fontSize.set(reqHtInPix);
         this.style.fontSize = this.fontSize.value();
         return reqHtInPix;

@@ -81,30 +81,29 @@ bil.draw();
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as bil.add( )., hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui, hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
-
+// bil.resizeCanvas(640,300);
 bil.background.color.set(hsl(240,25,30));
-bil.insert.alwaysOn(bil.add( )..grid(10,10,));
+bil.alwaysOn().grid(10,10,"grey");
 //--------------------
 let startFrame = 0;
 //--------------------
 for (let row = 0; row < 100; row+=10) {
     for (let col = 0; col < 100; col+=10) {
         //....................................
-        const comp = bil.add( )..text(` ${startFrame} `,hsl(60));
+        const comp = bil.add(startFrame,120).text(` ${startFrame} `,hsl(60));
         comp.setPaddings(0);
         comp.showBackground.set(true);
         comp.colorBackground.set(hsl(240,50,20));
         comp.border.set(0);
         comp.x.set(row);        
         comp.y.set(col);      
-        comp.width.set(10);
+        comp.fitToWidth.set(false);
+        comp.width.set(100);
+        comp.fitToHeight.set(true);
         comp.height.set(10);
-        comp.fitToWidth.set(true);
-        comp.shrinkToHeight.set(true);
-        bil.insert.add(comp,startFrame,120);
         startFrame++;  
         //....................................        
     }
@@ -112,7 +111,6 @@ for (let row = 0; row < 100; row+=10) {
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-
 </code>
 </pre>
 

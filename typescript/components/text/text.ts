@@ -137,7 +137,7 @@ protected fitToWidthFn(p :Pack):number | null{
 
 protected fitToHeightFn(p :Pack):number | null{
 //----required with should exclude padding     
- const reqHtInPix = (this.height.value());
+ const reqHtInPix = (this.height.value())* 1.12;
  
  this.fontSize.set(reqHtInPix); 
  this.style.fontSize = this.fontSize.value(); 

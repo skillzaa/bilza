@@ -20,9 +20,8 @@
     background-color: rgb(1, 1, 45);
 }
 </style>
-    <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -44,60 +43,58 @@
 </table>
 
 </div>
-<!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui,hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
+// bil.resizeCanvas(300,300);
+
 bil.background.color.set(hsl(0,5,30));
-bil.insert.alwaysOn(cf.grid(10,10,));
+bil.alwaysOn().grid(10,10,"grey");
 //--------------------
-const comp = cf.text("ABCDEFG",hsl(240));
+const comp = bil.add(0,30).text("Demo Text",hsl(240));
 
 comp.setxy(10,10);
 comp.setPaddings(0);
-
-comp.fontSize.set(80);
-//-- Height is 20% but still this will not change the size of the comp since that is dependent upon fontSize and we have not allowed that to be changed
-comp.height.set(20);
-//--- This will trigger just once
-comp.shrinkToHeight.set(true);
-
-comp.theme.color(0);
 comp.showBackground.set(true);
+//-------------------------
+comp.fitToWidth.set(false);
+comp.width.set(1000);
 
-bil.insert.add(comp,0,30);
+comp.fitToHeight.set(true);
+comp.height.set(10)
+
+comp.height.animate(0,5,10,90);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui,hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
+// bil.resizeCanvas(300,300);
+
 bil.background.color.set(hsl(0,5,30));
-bil.insert.alwaysOn(cf.grid(10,10,));
+bil.alwaysOn().grid(10,10,"grey");
 //--------------------
-const comp = cf.text("ABCDEFG",hsl(240));
+const comp = bil.add(0,30).text("Demo Text",hsl(240));
 
 comp.setxy(10,10);
 comp.setPaddings(0);
-
-comp.fontSize.set(80);
-//-- Height is 20% but still this will not change the size of the comp since that is dependent upon fontSize and we have not allowed that to be changed
-comp.height.set(20);
-//--- This will trigger just once
-comp.shrinkToHeight.set(true);
-
-comp.theme.color(0);
 comp.showBackground.set(true);
+//-------------------------
+comp.fitToWidth.set(false);
+comp.width.set(1000);
 
-bil.insert.add(comp,0,30);
+comp.fitToHeight.set(true);
+comp.height.set(10)
+
+comp.height.animate(0,5,10,90);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
