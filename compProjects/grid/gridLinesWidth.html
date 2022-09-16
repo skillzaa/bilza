@@ -21,8 +21,8 @@
 }
 </style>
     <!-- <script src="../00misc/custom.css"></script> -->
-    <script src="../00misc/prism.js"></script>
-    <link rel="stylesheet" href="../00misc/prism.css">   
+    <script src="../../misc/prism.js"></script>
+    <link rel="stylesheet" href="../../misc/prism.css">   
 
     <title>Bilza Core Samples</title>
 </head>
@@ -46,12 +46,12 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui, hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
-bil.insert.alwaysOn(bil.add( ).frameCounter(hsl(0)));
+bil.alwaysOn().frameCounter(0);
 //--------------------
-const grid = bil.add( ).grid(10,10,10,10,hsl(240));
+const grid = bil.add(0,15).grid(10,10,10,10,hsl(240));
 
 grid.lineWidthHorizontal.set(1);
 grid.lineWidthVertical.set(1);
@@ -65,22 +65,19 @@ grid.lineWidthHorizontal.animate(4,6,20,1);
 
 grid.lineWidthVertical.animate(7,9,1,20);
 grid.lineWidthVertical.animate(10,12,20,1);
-
-bil.insert.add(grid,0,15);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl,getRandom} from "../../src/bilza.js";
+import Bilza, { Ui, hsl,getRandom} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
-bil.insert.alwaysOn(bil.add( ).frameCounter(hsl(0)));
+bil.alwaysOn().frameCounter(0);
 //--------------------
-const grid = bil.add( ).grid(10,10,10,10,hsl(240));
+const grid = bil.add(0,15).grid(10,10,10,10,hsl(240));
 
 grid.lineWidthHorizontal.set(1);
 grid.lineWidthVertical.set(1);
@@ -94,12 +91,9 @@ grid.lineWidthHorizontal.animate(4,6,20,1);
 
 grid.lineWidthVertical.animate(7,9,1,20);
 grid.lineWidthVertical.animate(10,12,20,1);
-
-bil.insert.add(grid,0,15);
 //--------------------
 const ui = new Ui(bil);
 bil.draw();
-
 </code>
 </pre>
 
