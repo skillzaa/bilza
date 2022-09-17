@@ -47,17 +47,16 @@
 </div>
 <!-- <a href="../../src/aniPresets/animationChaining.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 
-const fc = cf.frameCounter(hsl(0));
+const fc = bil.add(0,20).frameCounter(0);
 fc.align(1,1);
 fc.goto(0,50,50);
 fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
-bil.insert.add(fc,0,20);
 
-const comp = cf.rect(hsl(240));
+const comp = bil.add(0,25).rect(hsl(240));
 
 comp.setPaddings(10);
 comp.showBackground.set(false);
@@ -75,25 +74,22 @@ comp.x.set(0);
     comp.x.animate(11, 15, 90, 0);
     comp.y.animate(16, 20, 90, 0);
 //---------------------------------
-
-bil.insert.add(comp,0,25);
 const ui = new Ui(bil);
 bil.draw();
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 
-const fc = cf.frameCounter(hsl(0));
+const fc = bil.add(0,20).frameCounter(0);
 fc.align(1,1);
 fc.goto(0,50,50);
 fc.fontSize.set(80);
 fc.colorBackground.set(hsl(60,75));
-bil.insert.add(fc,0,20);
 
-const comp = cf.rect(hsl(240));
+const comp = bil.add(0,25).rect(hsl(240));
 
 comp.setPaddings(10);
 comp.showBackground.set(false);
@@ -111,8 +107,6 @@ comp.x.set(0);
     comp.x.animate(11, 15, 90, 0);
     comp.y.animate(16, 20, 90, 0);
 //---------------------------------
-
-bil.insert.add(comp,0,25);
 const ui = new Ui(bil);
 bil.draw();
 </code>

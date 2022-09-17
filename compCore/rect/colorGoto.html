@@ -47,19 +47,17 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 
-// bil.insert.alwaysOn(cf.grid(10,10,"grey"));
 //--------------------
-const caption = cf.text("blue",hsl(240));
+const caption = bil.add(0,15).text("blue",hsl(240));
 caption.align(1,2)// --x align mid , y align bottom
 caption.x.set(50);
 caption.y.set(95);
 caption.fontSize.set(100);
-bil.insert.add(caption,0,15);
 //--------------------
-const comp = cf.rect(hsl(240));
+const comp = bil.add(0,15).rect(hsl(240));
 comp.lineWidth.set(15);
 comp.x.set(50);
 comp.y.set(50);
@@ -67,7 +65,6 @@ comp.width.set(50);
 comp.height.set(50);
 
 comp.align(1,1);
-bil.insert.add(comp, 0, 15);
 
 //---Goto commands for fillRect and text components
 
@@ -104,16 +101,16 @@ bil.draw();
 import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 let bil = new Bilza("bilza", 70);
 
-// bil.insert.alwaysOn(cf.grid(10,10,"grey"));
+// bil.insert.alwaysOn(bil.add( ).grid(10,10,"grey"));
 //--------------------
-const caption = cf.text("blue",hsl(240));
+const caption = bil.add( ).text("blue",hsl(240));
 caption.align(1,2)// --x align mid , y align bottom
 caption.x.set(50);
 caption.y.set(95);
 caption.fontSize.set(100);
 bil.insert.add(caption,0,15);
 //--------------------
-const comp = cf.rect(hsl(240));
+const comp = bil.add( ).rect(hsl(240));
 comp.lineWidth.set(15);
 comp.x.set(50);
 comp.y.set(50);

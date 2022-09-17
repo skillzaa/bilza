@@ -47,15 +47,14 @@
 </div>
 <!-- <a href="../src/bilza.js"></a> -->
 <script  type="module">
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.resizeCanvas(640 , 360);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn( ).grid(10,10,"grey");
 
-const comp = cf.rect(hsl(60));
+const comp = bil.add(0,65).rect(hsl(60));
 //---most important line should be applied immediately after creation
 comp.setRespDims(false);
 comp.setPaddings(15);
@@ -77,22 +76,20 @@ comp.height.set(10);
 comp.width.oscillate(1,60,10,300,5);
 comp.height.oscillate(1,60,10,300,5);
 
-bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </script>
 
 <pre class="language-javascript">
 <code>
-import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
+import Bilza, { Ui, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 bil.resizeCanvas(640 , 360);
 
-const grid = cf.grid(10,10,"grey");
-bil.insert.alwaysOn(grid);
+const grid = bil.alwaysOn( ).grid(10,10,"grey");
 
-const comp = cf.pic("../00images/house.jpg");
+const comp = bil.add(0,65).rect(hsl(60));
 //---most important line should be applied immediately after creation
 comp.setRespDims(false);
 comp.setPaddings(15);
@@ -101,6 +98,7 @@ comp.colorBackground.set(hsl(240));
 comp.border.set(2);
 comp.colorBorder.set(hsl(0))
 
+comp.lineWidth.set(5);
 
 comp.align(1,1);
 comp.alignRotate(1,1);
@@ -113,7 +111,6 @@ comp.height.set(10);
 comp.width.oscillate(1,60,10,300,5);
 comp.height.oscillate(1,60,10,300,5);
 
-bil.insert.add(comp, 0, 65);
 const ui = new Ui(bil);
 bil.draw();
 </code>
