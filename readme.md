@@ -135,6 +135,7 @@ Philosophy Behind Bilza.js
 <small>If you want to be in touch or send me a bug report please use github issues.</small>
 
 -----
+###### <a href="https://skillzaa.github.io/bilzaDocs/releaseNotes/v0_1_1.html">17-sep-2022</a>   (version 0.1.1) // - Big Changes in API
 ###### 04-sep-2022   (version 0.1.0) // - Alhamdullah
 ###### 06-aug-2022   (version 0.0.30) //0 ver short of 0.1.0
 ###### 04-aug-2022   (version 0.0.29) //1 ver short of 0.1.0 
