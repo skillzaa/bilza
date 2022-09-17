@@ -13,14 +13,13 @@ Philosophy Behind Bilza.js
 
 1. There are many content types (e.g. educational slides, business presentations etc.) which we want to be presented like a video but should be editable like normal text (or a PowerPoint presentation). In case of video format; editing is very expensive and time-consuming. On the other hand, editing a JavaScript animation is just editing a few commands.
 
-1. In case you want your message / presentation to reach millions of viewers and the message is in videos format: the file size will be at least 2-10 Mb (and this is on the lowest side). Imagine how many people will be reluctant to download such a heavy file or to share it. On the other hand, a JavaScript animation is very lightweight as compared to video format.  A JavaScript animation carrying the same message may have a file size of few kilo Bites. The heaviest thing in a JavaScript animation is the sound file. 
+1. In case you want your message / presentation to reach millions of viewers and the message is in videos format: the file size will be in Mega Bites (and this is on the lowest side). Imagine how many people will be reluctant to download such a heavy file or to share it. On the other hand, a JavaScript animation is very lightweight as compared to video format.  A JavaScript animation carrying the same message may have a file size of few kilo Bites. The heaviest thing in a JavaScript animation is the sound file. 
 
-1. Creating Responsive Animations: The single main "pain point" of creating JavaScript animation is <b> creating responsive animations</b>. We like to create animations, but we also want them to fit on to the many screen sizes. For this the bilza.js has been written with responsiveness in mind and (almost) every thing grow and shrink according to the screen size. All the x and y coordinated and the width and height values are in percentages of the current canvas size and are drawn according. 
+1. The single main "pain point" of creating JavaScript animation is <b> creating responsive animations</b>. We like to create animations, but we also want them to fit on to the many screen sizes. For this the bilza.js has been written with responsiveness in mind and (almost) every thing grow and shrink according to the screen size.
 
 1. Animation is code and Code is Reusable : One of the basic purpose of this library is to enable users to stitch together small pieces of animation and create complex animations.
 
 1. It is NOT morally and ethically correct for any developer / app to hold the data of its users as hostage. The hard work and effort that a user has put into creating an animation makes him the creator and owner of that animation. For this I will make sure that there is always some command present in the library (working on it currently) which should enable the user to get their animation data in json format so that they can use it else-where.  
-
 
 
 # What Will Bilza.js Enable you to do ?
@@ -30,8 +29,6 @@ Philosophy Behind Bilza.js
 1. <i>Bilza.js will enable you to create slide (presentations, lesson plans, advertisements etc)</i> and then share them. The final product is a simple JavaScript file that will run in any (decent) browser anywhere. There is NO installation, NO plugins and NO dependencies (on any other library). This will enable your clients to consume your content with out any hassle.
 
 1. <i>Bilza.js can help you in creating viral content</i>. To create viral content we need animation, but we want to make the file size as small as possible since downloading large content is what costs money to your customers. In this scenario light weight JavaScript animations seems like the best candidate.
-
-1. <i>Bilza.js will enable you to create responsive animations which will resize themselves according to the current screen size</i>. Your content can be viewed on many screen sizes and will draw responsively.
 
 ---
 # Basic Feature
@@ -44,8 +41,8 @@ Philosophy Behind Bilza.js
 ---
 <!-- The snippets from Docs -->
 # Important Sections of Documentation
-
-> <a href="https://skillzaa.github.io/bilzaDocs/docs/howBilzaWorks.html" target="_blank">How Bilza.js Works</a>
+<!-- 
+> <a href="https://skillzaa.github.io/bilzaDocs/docs/howBilzaWorks.html" target="_blank">How Bilza.js Works</a> -->
 
 > <a href="https://skillzaa.github.io/bilzaDocs/samples/helloWorld.html" target="_blank">Hello world Example</a>
 

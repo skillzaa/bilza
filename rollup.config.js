@@ -1,5 +1,5 @@
 import { terser } from 'rollup-plugin-terser';
-
+ 
 // const devMode = (process.env.NODE_ENV === 'development');
 const devMode = (process.env.NODE_ENV === 'production');
 console.log(`${ devMode ? 'development' : 'production' } mode bundle`);
@@ -10,7 +10,7 @@ export default [
     input: './src/bilza.js',
 
     output: {
-      file: './dist/bilza.0.1.0.js',
+      file: './dist/bilza.0.1.1.js',
       format: 'es',
       sourcemap: devMode ? 'inline' : false,
       plugins: [
