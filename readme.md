@@ -1,4 +1,4 @@
-<a href="https://skillzaa.github.io/bilzaDocs/coreTests/index.html" >Core Props Examples</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="https://skillzaa.github.io/bilzaDocs/compProjects/" >Comp Projects</a>    
+<a href="https://skillzaa.github.io/bilzaDocs/compCore/" >Core Props Examples</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="https://skillzaa.github.io/bilzaDocs/compProjects/" >Comp Projects</a>    
 <!-- <a href="./samples.html" >Samples</a>&nbsp;     -->
 ---
 
@@ -41,13 +41,13 @@ Philosophy Behind Bilza.js
 ---
 <!-- The snippets from Docs -->
 # Important Sections of Documentation
-<!-- 
-> <a href="https://skillzaa.github.io/bilzaDocs/docs/howBilzaWorks.html" target="_blank">How Bilza.js Works</a> -->
+
+> <a href="https://skillzaa.github.io/bilzaDocs/docs/howBilzaWorks.html" target="_blank">How Bilza.js Works</a>
 
 > <a href="https://skillzaa.github.io/bilzaDocs/samples/helloWorld.html" target="_blank">Hello world Example</a>
 
 
-> <a href="https://skillzaa.github.io/bilzaDocs/coreTests/index.html" target="_blank">All Components Core Props Examples</a>
+> <a href="https://skillzaa.github.io/bilzaDocs/compCore/" target="_blank">All Components Core Props Examples</a>
 
 > <a href="https://skillzaa.github.io/bilzaDocs/compProjects/" target="_blank">Projects to showcase every component</a>
 

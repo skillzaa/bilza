@@ -16,11 +16,11 @@ private xyArray :XY[];
     public filled :AniBoolean;
     public lineColor :AniColor;
 
-constructor (count :number= 20,color :string="#008000",framesToSkip :number=50) { 
+constructor (count :number= 20,color :string="#008000",delay :number=50) { 
     super();
     //!!!!!!!!!!!!!!!!!!!
     this.particleSize = new AniNumber(12);
-    this.skipXFrames = new SkipXFrames(framesToSkip);
+    this.skipXFrames = new SkipXFrames(delay);
     this.xyArray = [];
     //!!!!!!!!!!!!!!!!!!!
     this.lineWidth = new AniNumber(1);
