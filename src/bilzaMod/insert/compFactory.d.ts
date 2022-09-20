@@ -8,6 +8,7 @@ import Pic from "../../components/pic.js";
 import Line from "../../components/line.js";
 import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
+import Wave from "../../components/wave.js";
 import Row from "../../container/row.js";
 import SpriteSheet from "../../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../../components/spriteSheet/spriteSheetAlt.js";
@@ -19,6 +20,7 @@ export default class CompFactory {
     private insert;
     constructor(startTime: number, endTime: number, actionType: string | undefined, insert: (comp: IComponent, startTime: number, endTime: number, actionType: string) => IComponent);
     circle(radius?: number, colorHax?: string): Circle;
+    wave(): Wave;
     canvasBorder(color?: string, borderWidth?: number): CanvasBorder;
     grid(cellWidthPerc?: number, cellHeightPerc?: number, colorHax?: string): Grid;
     pic(imgId: string, dynWidth?: number, dynHeight?: number): Pic;

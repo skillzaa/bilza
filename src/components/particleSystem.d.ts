@@ -8,7 +8,7 @@ export default class ParticleSystem extends BaseComponent {
     lineWidth: AniNumber;
     filled: AniBoolean;
     lineColor: AniColor;
-    constructor(count?: number, color?: string, framesToSkip?: number);
+    constructor(count?: number, color?: string, delay?: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;

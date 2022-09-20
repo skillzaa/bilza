@@ -8,6 +8,7 @@ import Pic from "../../components/pic.js";
 import Line from "../../components/line.js";
 import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
+import Wave from "../../components/wave.js";
 ////////////------------09-comps----------////////////////////
 // import Slide from "../slide/slide.js";
 // import Icon from "../components/icon.js";
@@ -47,6 +48,11 @@ let g = new Circle(radius,colorHax);
 
 this.insert(g,this.startTime,this.endTime,this.actionType);
 
+return g;    
+}
+wave(){
+let g = new Wave();
+this.insert(g,this.startTime,this.endTime,this.actionType);
 return g;    
 }
 canvasBorder(color :string="grey" , borderWidth :number=5){

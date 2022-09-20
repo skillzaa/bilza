@@ -3,10 +3,10 @@ import { AniNumber, AniBoolean, AniColor, } from "../animationModule/animations.
 import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
 import XY from "../BaseComponent/designBC/xy.js";
 export default class ParticleSystem extends BaseComponent {
-    constructor(count = 20, color = "#008000", framesToSkip = 50) {
+    constructor(count = 20, color = "#008000", delay = 50) {
         super();
         this.particleSize = new AniNumber(12);
-        this.skipXFrames = new SkipXFrames(framesToSkip);
+        this.skipXFrames = new SkipXFrames(delay);
         this.xyArray = [];
         this.lineWidth = new AniNumber(1);
         this.filled = new AniBoolean(true);

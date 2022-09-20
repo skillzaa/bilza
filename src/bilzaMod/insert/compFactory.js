@@ -8,6 +8,7 @@ import Pic from "../../components/pic.js";
 import Line from "../../components/line.js";
 import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
+import Wave from "../../components/wave.js";
 import Row from "../../container/row.js";
 import SpriteSheet from "../../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../../components/spriteSheet/spriteSheetAlt.js";
@@ -20,6 +21,11 @@ export default class CompFactory {
     }
     circle(radius = 10, colorHax = "red") {
         let g = new Circle(radius, colorHax);
+        this.insert(g, this.startTime, this.endTime, this.actionType);
+        return g;
+    }
+    wave() {
+        let g = new Wave();
         this.insert(g, this.startTime, this.endTime, this.actionType);
         return g;
     }
