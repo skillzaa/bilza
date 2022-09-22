@@ -1,6 +1,9 @@
-import {Pack,BaseComponent,DrawLayer} from "../bilza.js";
+import {Pack,BaseComponent,DrawLayer} from "../../bilza.js";
 
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
+
+import Templ from "./templ.js";
+import Theme from "./theme.js";
 
 export default class Arrow extends BaseComponent {
 public x2 :AniPerc | AniNumber; 
@@ -9,7 +12,11 @@ public headWidth :AniNumber;
 public headHeight :AniNumber;
 public headFilled :AniBoolean;
 public colorHead :AniColor;
-lineWidth :AniNumber;
+public lineWidth :AniNumber;
+
+public templ :Templ; 
+public theme :Theme; 
+
     
 
 constructor (x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
@@ -28,6 +35,9 @@ this.color.set(color);
 this.colorHead = new AniColor(color);
 
 this.drawLayer = DrawLayer.MiddleGround;
+this.templ = new Templ(this);
+this.theme = new Theme(this);
+
 }
 //---new addition-----
 setRespLoc(tf :boolean=true):boolean{

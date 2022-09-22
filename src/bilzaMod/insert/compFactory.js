@@ -9,7 +9,7 @@ import Line from "../../components/line.js";
 import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
 import Wave from "../../components/wave.js";
-import Arrow from "../../components/arrow.js";
+import Arrow from "../../components/arrow/arrow.js";
 import Row from "../../container/row.js";
 import SpriteSheet from "../../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../../components/spriteSheet/spriteSheetAlt.js";

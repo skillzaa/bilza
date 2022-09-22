@@ -9,7 +9,7 @@ import Line from "../../components/line.js";
 import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
 import Wave from "../../components/wave.js";
-import Arrow from "../../components/arrow.js";
+import Arrow from "../../components/arrow/arrow.js";
 ////////////------------09-comps----------////////////////////
 // import Slide from "../slide/slide.js";
 // import Icon from "../components/icon.js";
