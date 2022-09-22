@@ -55,16 +55,17 @@ export default class Arrow extends BaseComponent {
         return true;
     }
     draw(p) {
+        this.preDrawNonBoxed(p);
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
         this.style.lineWidth = this.lineWidth.value();
-        this.style.opacity = (this.opacity.value());
-        this.applyRotation(p);
         p.drawLine(this.x.value(), this.y.value(), this.x2.value(), this.y2.value(), this.style);
         p.save();
         const rotateAngle = Math.atan2(this.y2.value() - this.y.value(), this.x2.value() - this.x.value());
-        p.translate(this.x2.value(), this.y2.value());
+        p.translate(this.x2.value() + 4, this.y2.value());
         p.rotateRad(rotateAngle);
+        this.style.fillStyle = this.colorHead.value();
+        this.style.strokeStyle = this.colorHead.value();
         p.beginPath();
         p.moveTo(0, 0);
         p.lineTo(-this.headWidth.value(), this.headHeight.value(), this.style);
@@ -81,10 +82,10 @@ export default class Arrow extends BaseComponent {
         return true;
     }
     compWidth() {
-        return (Math.floor(Math.abs(this.x2.value() - this.x.value())));
+        return 0;
     }
     compHeight() {
-        return this.lineWidth.value();
+        return 0;
     }
     align(x, y) {
         super.align(0, 0);

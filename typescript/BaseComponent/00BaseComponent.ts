@@ -126,6 +126,10 @@ this.applyRotation(p);
 this.drawBackground(p);
 this.drawBorder(p);
 }
+protected preDrawNonBoxed(p :Pack){
+this.style.opacity = (this.opacity.value());
+this.applyRotation(p);
+}
 //---15-july-2022 : seems final
 protected postDraw(p :Pack){
 this.style.opacity = 100;

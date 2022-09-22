@@ -82,6 +82,10 @@ export default class BaseComponent extends RotateObj {
         this.drawBackground(p);
         this.drawBorder(p);
     }
+    preDrawNonBoxed(p) {
+        this.style.opacity = (this.opacity.value());
+        this.applyRotation(p);
+    }
     postDraw(p) {
         this.style.opacity = 100;
         this.removeRotation(p);

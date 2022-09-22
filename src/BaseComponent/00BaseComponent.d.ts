@@ -14,6 +14,7 @@ export default class BaseComponent extends RotateObj implements IComponent {
     protected drawBorder(p: Pack): void;
     protected drawContentAreaBorder(p: Pack): void;
     protected preDraw(p: Pack): void;
+    protected preDrawNonBoxed(p: Pack): void;
     protected postDraw(p: Pack): void;
     protected contentY(): number;
     protected contentX(): number;

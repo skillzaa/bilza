@@ -76,25 +76,14 @@ update(msDelta: number, p: Pack): boolean {
 }
 
 draw(p:Pack):boolean{
+this.preDrawNonBoxed(p);
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value(); 
-
-this.style.opacity = (this.opacity.value());
-this.applyRotation(p);
-//--dont draw border or
-//-----------------------------preDrawEnds
-
-// let x2Value;
-// if (this.x2.value() >= this.x.value() ){
-//     x2Value = this.x2.value() - this.headWidth.value(); 
-// } else {
-//     x2Value = this.x2.value() + this.headWidth.value(); 
-// }
+//----------------------------------------------
 p.drawLine(
     this.x.value(),
     this.y.value(),
-    // x2Value,
     this.x2.value(),
     this.y2.value(),
     this.style
@@ -103,17 +92,20 @@ p.drawLine(
 p.save();
 const rotateAngle  = Math.atan2(this.y2.value() - this.y.value(),this.x2.value() - this.x.value());
 
-p.translate( this.x2.value() , this.y2.value() );
+p.translate( this.x2.value()+4 , this.y2.value() );
 
 //---------------------------------
 p.rotateRad(  rotateAngle );
+//---------------------------------
+this.style.fillStyle = this.colorHead.value();    
+this.style.strokeStyle = this.colorHead.value(); 
 
 //---Arrow Head-- 
 p.beginPath(); 
 
 p.moveTo( 0 , 0); 
-p.lineTo( - this.headWidth.value(), this.headHeight.value(),this.style); 
-p.lineTo( - this.headWidth.value(), -this.headHeight.value(),this.style); 
+p.lineTo( -this.headWidth.value(), this.headHeight.value(),this.style); 
+p.lineTo( -this.headWidth.value(), -this.headHeight.value(),this.style); 
 p.lineTo( 0, 0,this.style); 
 
 if (this.headFilled.value() ==true){
@@ -130,10 +122,10 @@ return true;
 }
 //---we do not need to add padding etc to we just over-written compWidth and compHeight methods.
 compWidth(): number {
-return (Math.floor(Math.abs(this.x2.value() - this.x.value())));    
+return 0;    
 }
 compHeight(): number {
-    return this.lineWidth.value();
+return 0;
 }
 /**
  * line comp is drawn differently- so we do not want to change align at all since that will add extra addition/sub in calc.
