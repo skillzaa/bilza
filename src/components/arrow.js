@@ -6,7 +6,7 @@ export default class Arrow extends BaseComponent {
         this.x.set(x1);
         this.y.set(y1);
         this.headWidth = new AniNumber(30);
-        this.headFilled = new AniBoolean(true);
+        this.headFilled = new AniBoolean(false);
         this.headHeight = new AniNumber(20);
         this.x2 = new AniPerc(x2);
         this.y2 = new AniPerc(y2);
@@ -60,32 +60,17 @@ export default class Arrow extends BaseComponent {
         this.style.lineWidth = this.lineWidth.value();
         this.style.opacity = (this.opacity.value());
         this.applyRotation(p);
-        let x2Value;
-        if (this.x2.value() >= this.x.value()) {
-            x2Value = this.x2.value() - this.headWidth.value();
-        }
-        else {
-            x2Value = this.x2.value() + this.headWidth.value();
-        }
-        p.drawLine(this.x.value(), this.y.value(), x2Value, this.y2.value(), this.style);
-        const rotateAngle = Math.atan2(this.y2.value() - this.y.value(), this.x2.value() - this.x.value());
+        p.drawLine(this.x.value(), this.y.value(), this.x2.value(), this.y2.value(), this.style);
         p.save();
-        if (this.x2.value() >= this.x.value()) {
-            p.translate(this.x2.value() - (this.headWidth.value() - 2), this.y2.value());
-        }
-        else {
-            p.translate(this.x2.value() + (this.headWidth.value() - 2), this.y2.value());
-        }
-        p.beginPath();
-        p.drawCircle(0, 0, 2, true, 0, 360, this.style);
-        p.stroke();
-        p.rotateRad(rotateAngle);
+        const rotateAngle = Math.atan2(this.y2.value() - this.y.value(), this.x2.value() - this.x.value());
+        p.translate(this.x2.value(), this.y2.value());
+        p.rotateRad(Math.abs(rotateAngle));
         p.beginPath();
         p.moveTo(0, 0);
-        p.lineTo(0, -this.headHeight.value(), this.style);
-        p.lineTo(0, this.headHeight.value(), this.style);
-        p.lineTo(this.headWidth.value(), 0, this.style);
-        p.lineTo(0, -this.headHeight.value(), this.style);
+        p.lineTo(-this.headWidth.value(), this.headHeight.value(), this.style);
+        p.lineTo(-this.headWidth.value(), -this.headHeight.value(), this.style);
+        p.lineTo(0, 0, this.style);
+        p.moveTo(0, 0);
         if (this.headFilled.value() == true) {
             p.fill(this.style);
         }
