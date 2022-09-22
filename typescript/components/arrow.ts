@@ -105,19 +105,8 @@ const rotateAngle  = Math.atan2(this.y2.value() - this.y.value(),this.x2.value()
 
 p.translate( this.x2.value() , this.y2.value() );
 
-// if (this.x2.value() >= this.x.value() ){
-//     // -2 is error
-// p.translate( this.x2.value() - (this.headWidth.value()-2), this.y2.value() );
-// }else {
-// p.translate( this.x2.value() + (this.headWidth.value()-2), this.y2.value() );
-// }
-//---------mark circle 0,0
-// p.beginPath();
-// p.drawCircle(0,0,2,true,0,360,this.style);
-// p.stroke();
 //---------------------------------
-
-p.rotateRad( Math.abs(rotateAngle) );
+p.rotateRad(  rotateAngle );
 
 //---Arrow Head-- 
 p.beginPath(); 
@@ -126,10 +115,6 @@ p.moveTo( 0 , 0);
 p.lineTo( - this.headWidth.value(), this.headHeight.value(),this.style); 
 p.lineTo( - this.headWidth.value(), -this.headHeight.value(),this.style); 
 p.lineTo( 0, 0,this.style); 
-
-p.moveTo( 0 , 0); 
-// p.lineTo( 0 , -this.headHeight.value(),this.style); 
-// p.lineTo(this.headWidth.value() , 0,this.style); 
 
 if (this.headFilled.value() ==true){
     p.fill(this.style);

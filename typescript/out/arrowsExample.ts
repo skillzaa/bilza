@@ -1,4 +1,4 @@
-import Bilza, {Ui,hsl,Scene,Scenes} from "./bilza.js";
+import Bilza, {Ui,hsl,Scene,Scenes} from "../bilza.js";
 
 let bil = new Bilza("bilza", 70);
 

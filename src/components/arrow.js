@@ -64,13 +64,12 @@ export default class Arrow extends BaseComponent {
         p.save();
         const rotateAngle = Math.atan2(this.y2.value() - this.y.value(), this.x2.value() - this.x.value());
         p.translate(this.x2.value(), this.y2.value());
-        p.rotateRad(Math.abs(rotateAngle));
+        p.rotateRad(rotateAngle);
         p.beginPath();
         p.moveTo(0, 0);
         p.lineTo(-this.headWidth.value(), this.headHeight.value(), this.style);
         p.lineTo(-this.headWidth.value(), -this.headHeight.value(), this.style);
         p.lineTo(0, 0, this.style);
-        p.moveTo(0, 0);
         if (this.headFilled.value() == true) {
             p.fill(this.style);
         }
