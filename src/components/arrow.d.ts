@@ -1,8 +1,12 @@
 import { Pack, BaseComponent } from "../bilza.js";
-import { AniNumber, AniPerc } from "../animationModule/animations.js";
-export default class Line extends BaseComponent {
+import { AniNumber, AniPerc, AniBoolean, AniColor } from "../animationModule/animations.js";
+export default class Arrow extends BaseComponent {
     x2: AniPerc | AniNumber;
     y2: AniPerc | AniNumber;
+    headWidth: AniNumber;
+    headHeight: AniNumber;
+    headFilled: AniBoolean;
+    colorHead: AniColor;
     lineWidth: AniNumber;
     constructor(x1?: number, y1?: number, x2?: number, y2?: number, color?: string);
     setRespLoc(tf?: boolean): boolean;

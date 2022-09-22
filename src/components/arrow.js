@@ -1,14 +1,18 @@
 import { BaseComponent, DrawLayer } from "../bilza.js";
-import { AniNumber, AniPerc, } from "../animationModule/animations.js";
-export default class Line extends BaseComponent {
+import { AniNumber, AniPerc, AniBoolean, AniColor, } from "../animationModule/animations.js";
+export default class Arrow extends BaseComponent {
     constructor(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
         super();
         this.x.set(x1);
         this.y.set(y1);
+        this.headWidth = new AniNumber(30);
+        this.headFilled = new AniBoolean(true);
+        this.headHeight = new AniNumber(20);
         this.x2 = new AniPerc(x2);
         this.y2 = new AniPerc(y2);
         this.lineWidth = new AniNumber(2);
         this.color.set(color);
+        this.colorHead = new AniColor(color);
         this.drawLayer = DrawLayer.MiddleGround;
     }
     setRespLoc(tf = true) {
@@ -45,6 +49,9 @@ export default class Line extends BaseComponent {
         this.x2.update(msDelta);
         this.y2.update(msDelta);
         this.lineWidth.update(msDelta);
+        this.headFilled.update(msDelta);
+        this.headHeight.update(msDelta);
+        this.headWidth.update(msDelta);
         return true;
     }
     draw(p) {
@@ -53,27 +60,44 @@ export default class Line extends BaseComponent {
         this.style.lineWidth = this.lineWidth.value();
         this.style.opacity = (this.opacity.value());
         this.applyRotation(p);
-        p.drawLine(this.x.value(), this.y.value(), this.x2.value(), this.y2.value(), this.style);
+        let x2Value;
+        if (this.x2.value() >= this.x.value()) {
+            x2Value = this.x2.value() - this.headWidth.value();
+        }
+        else {
+            x2Value = this.x2.value() + this.headWidth.value();
+        }
+        p.drawLine(this.x.value(), this.y.value(), x2Value, this.y2.value(), this.style);
         const rotateAngle = Math.atan2(this.y2.value() - this.y.value(), this.x2.value() - this.x.value());
         p.save();
-        p.translate(this.x2.value() - 25, this.y2.value() - 14);
+        if (this.x2.value() >= this.x.value()) {
+            p.translate(this.x2.value() - (this.headWidth.value() - 2), this.y2.value());
+        }
+        else {
+            p.translate(this.x2.value() + (this.headWidth.value() - 2), this.y2.value());
+        }
         p.beginPath();
         p.drawCircle(0, 0, 2, true, 0, 360, this.style);
         p.stroke();
         p.rotateRad(rotateAngle);
         p.beginPath();
         p.moveTo(0, 0);
-        p.lineTo(0, -20, this.style);
-        p.lineTo(0, 20, this.style);
-        p.lineTo(30, 0, this.style);
-        p.lineTo(0, -20, this.style);
-        p.fill(this.style);
+        p.lineTo(0, -this.headHeight.value(), this.style);
+        p.lineTo(0, this.headHeight.value(), this.style);
+        p.lineTo(this.headWidth.value(), 0, this.style);
+        p.lineTo(0, -this.headHeight.value(), this.style);
+        if (this.headFilled.value() == true) {
+            p.fill(this.style);
+        }
+        else {
+            p.stroke();
+        }
         p.restore();
         this.postDraw(p);
         return true;
     }
     compWidth() {
-        return Math.floor(Math.abs(this.x2.value() - this.x.value()));
+        return (Math.floor(Math.abs(this.x2.value() - this.x.value())));
     }
     compHeight() {
         return this.lineWidth.value();
