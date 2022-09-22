@@ -2,13 +2,14 @@ import {Pack,BaseComponent,DrawLayer} from "../bilza.js";
 
 import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 
-export default class Arrow extends BaseComponent {
+export default class Line extends BaseComponent {
 public x2 :AniPerc | AniNumber; 
 public y2 :AniPerc | AniNumber;
+
 lineWidth :AniNumber;
-   
-constructor (x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
     
+
+constructor (x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
 super();
 
 this.x.set(x1); 
@@ -68,7 +69,6 @@ this.style.fillStyle = this.color.value();
 this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value(); 
 
-// this.preDraw(p);
 this.style.opacity = (this.opacity.value());
 this.applyRotation(p);
 //--dont draw border or
@@ -80,8 +80,36 @@ p.drawLine(
     this.y2.value(),
     this.style
 );
-// this.style.opacity = 100;
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Arrow Head Code
+const rotateAngle  = Math.atan2(this.y2.value() - this.y.value(),this.x2.value() - this.x.value());
+p.save();
+// console.log("rotateAngle",rotateAngle);
+p.translate(this.x2.value()-25,this.y2.value()-14);
+//---------mark 0,0
+p.beginPath();
+p.drawCircle(0,0,2,true,0,360,this.style);
+// p.arc(0,0,2 ,0,2 * Math.PI);
+p.stroke();
 
+p.rotateRad( rotateAngle);
+// this.style.fillStyle = "black";
+// this.style.strokeStyle = "green";
+
+
+//---Arrow Head-- 
+p.beginPath();   
+p.moveTo( 0,   0); 
+p.lineTo( 0 , -20,this.style);
+p.lineTo( 0 , 20,this.style); 
+//---Arrow Head--line 2  
+p.lineTo(30, 0,this.style); 
+p.lineTo(0, -20,this.style); 
+p.fill(this.style);
+// p.stroke()
+
+//----------restored
+p.restore();
+//;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 this.postDraw(p); //its ok to keep
 return true;
 }

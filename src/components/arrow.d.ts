@@ -1,6 +1,6 @@
 import { Pack, BaseComponent } from "../bilza.js";
 import { AniNumber, AniPerc } from "../animationModule/animations.js";
-export default class Arrow extends BaseComponent {
+export default class Line extends BaseComponent {
     x2: AniPerc | AniNumber;
     y2: AniPerc | AniNumber;
     lineWidth: AniNumber;

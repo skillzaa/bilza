@@ -7,8 +7,6 @@ import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 export default class Wave extends BaseComponent {
 
-private incX :number;
-
 numberOfWaves   :AniNumber;
 midLineColor    :AniColor;
 showMidLine     :AniBoolean;
@@ -16,7 +14,6 @@ showMidLine     :AniBoolean;
 constructor (numberOfWaves :number=3,color :string ="blue"){ 
 super();
 this.numberOfWaves = new  AniNumber(numberOfWaves);
-this.incX = 0.9;
 this.color.set(color);
 this.midLineColor = new AniColor("red");
 this.showMidLine = new AniBoolean(true);
@@ -28,6 +25,8 @@ draw(p:Pack):boolean{
     this.preDraw(p);
 //--------------
 let increase = Math.PI * this.numberOfWaves.value() / this.width.value(); 
+
+// console.log("increase", increase);
 this.style.fillStyle = this.color.value();
 this.style.strokeStyle = this.color.value(); 
 //---------------------------------------
@@ -38,15 +37,13 @@ let endX = this.contentX() + this.width.value();
 let oldY =  ( this.contentY() + (this.height.value()/2) );
 let counter = 1;
 
-for ( let x = this.contentX()  ; x <= endX ; x += this.incX ) {
-// for ( let x = startx  ; x >= this.contentX(); x -= this.incX ) {
-// for ( let x = 500  ; x >= 1; x -= this.incX ) {
+for ( let x = this.contentX()  ; x <= endX ; x += 0.5 ) {
 
     let y = (Math.sin(counter) * this.height.value()/2 ) ;
     y += ( this.contentY() + (this.height.value()/2) );
 
     counter +=   increase;
-    this.style.lineWidth = 3;
+    this.style.lineWidth = 2;
     p.beginPath();
     p.moveTo(oldX, oldY);
     p.lineTo(x,y,this.style);  
@@ -59,7 +56,8 @@ for ( let x = this.contentX()  ; x <= endX ; x += this.incX ) {
 //-------draw mid line
 if (this.showMidLine.value() == true){
     this.style.fillStyle = this.midLineColor.value();
-    this.style.strokeStyle = this.midLineColor.value(); 
+    this.style.strokeStyle = this.midLineColor.value();
+    this.style.lineWidth = 1; 
     p.beginPath();       // Start a new path
     p.moveTo(
         this.contentX(), 

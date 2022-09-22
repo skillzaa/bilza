@@ -2,7 +2,6 @@ import { Pack } from "../bilza.js";
 import { AniNumber, AniBoolean, AniColor } from "../animationModule/animations.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class Wave extends BaseComponent {
-    private incX;
     numberOfWaves: AniNumber;
     midLineColor: AniColor;
     showMidLine: AniBoolean;

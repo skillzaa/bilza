@@ -9,6 +9,7 @@ import Line from "../../components/line.js";
 import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
 import Wave from "../../components/wave.js";
+import Arrow from "../../components/arrow.js";
 ////////////------------09-comps----------////////////////////
 // import Slide from "../slide/slide.js";
 // import Icon from "../components/icon.js";
@@ -33,7 +34,6 @@ private actionType :string;
 private insert : (comp :IComponent,startTime :number,endTime :number,actionType :string)=>IComponent;
 
 ////////////////////////////////////////////////////
-
 constructor(startTime :number,endTime :number,actionType :string="add", insert : (comp :IComponent,startTime :number,endTime :number,actionType :string)=>IComponent){
 
 this.insert = insert;
@@ -43,6 +43,12 @@ this.actionType = actionType;
 }
 
 /////////--------components functions---///////////
+arrow(x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
+let g = new Arrow(x1,y1,x2,y2,color);
+this.insert(g,this.startTime,this.endTime,this.actionType);
+return g;    
+}
+
 circle(radius :number=10,colorHax :string="red"){
 let g = new Circle(radius,colorHax);
 
@@ -50,11 +56,7 @@ this.insert(g,this.startTime,this.endTime,this.actionType);
 
 return g;    
 }
-wave(){
-let g = new Wave();
-this.insert(g,this.startTime,this.endTime,this.actionType);
-return g;    
-}
+
 canvasBorder(color :string="grey" , borderWidth :number=5){
 let g = new CanvasBorder(color, borderWidth);
 
@@ -148,6 +150,7 @@ this.insert(g,this.startTime,this.endTime,this.actionType);
 
 return g;    
 }
+
 ////////////---container--------------///////
 
 row(incommingTextArray :string = "one two"){
@@ -157,7 +160,11 @@ this.insert(g,this.startTime,this.endTime,this.actionType);
 
 return g;    
 }
-
+wave(){
+    let g = new Wave();
+    this.insert(g,this.startTime,this.endTime,this.actionType);
+    return g;    
+}
 //  paragraph(){
 // let g = new Paragraph();
 // return g;    

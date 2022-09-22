@@ -45,6 +45,7 @@ export default class Pack {
     resizeCanvas(width: number, height: number | null): void;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     rotate(degrees: number, reverse?: boolean): void;
+    rotateRad(radians: number, reverse?: boolean): void;
     translate(x: number, y: number): void;
     setTransform(a?: number, b?: number, c?: number, d?: number, e?: number, f?: number): void;
 }

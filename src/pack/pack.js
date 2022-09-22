@@ -251,6 +251,14 @@ export default class Pack {
             this.ctx.rotate(-rad);
         }
     }
+    rotateRad(radians, reverse = false) {
+        if (reverse == false) {
+            this.ctx.rotate(radians);
+        }
+        else {
+            this.ctx.rotate(-radians);
+        }
+    }
     translate(x, y) {
         this.ctx.translate(x, y);
     }

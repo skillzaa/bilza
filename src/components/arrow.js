@@ -1,6 +1,6 @@
 import { BaseComponent, DrawLayer } from "../bilza.js";
 import { AniNumber, AniPerc, } from "../animationModule/animations.js";
-export default class Arrow extends BaseComponent {
+export default class Line extends BaseComponent {
     constructor(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
         super();
         this.x.set(x1);
@@ -54,6 +54,21 @@ export default class Arrow extends BaseComponent {
         this.style.opacity = (this.opacity.value());
         this.applyRotation(p);
         p.drawLine(this.x.value(), this.y.value(), this.x2.value(), this.y2.value(), this.style);
+        const rotateAngle = Math.atan2(this.y2.value() - this.y.value(), this.x2.value() - this.x.value());
+        p.save();
+        p.translate(this.x2.value() - 25, this.y2.value() - 14);
+        p.beginPath();
+        p.drawCircle(0, 0, 2, true, 0, 360, this.style);
+        p.stroke();
+        p.rotateRad(rotateAngle);
+        p.beginPath();
+        p.moveTo(0, 0);
+        p.lineTo(0, -20, this.style);
+        p.lineTo(0, 20, this.style);
+        p.lineTo(30, 0, this.style);
+        p.lineTo(0, -20, this.style);
+        p.fill(this.style);
+        p.restore();
         this.postDraw(p);
         return true;
     }

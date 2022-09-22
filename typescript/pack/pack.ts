@@ -313,6 +313,13 @@ rotate(degrees :number,reverse :boolean=false){
         this.ctx.rotate(-rad);
     }
 } 
+rotateRad(radians :number,reverse :boolean=false){    
+    if (reverse == false){
+        this.ctx.rotate(radians);
+    }else {
+        this.ctx.rotate(-radians);
+    }
+} 
 translate(x :number, y :number){
 this.ctx.translate(x,y);    
 }

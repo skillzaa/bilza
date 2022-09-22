@@ -9,6 +9,7 @@ import Line from "../../components/line.js";
 import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
 import Wave from "../../components/wave.js";
+import Arrow from "../../components/arrow.js";
 import Row from "../../container/row.js";
 import SpriteSheet from "../../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../../components/spriteSheet/spriteSheetAlt.js";
@@ -19,13 +20,13 @@ export default class CompFactory {
         this.endTime = endTime;
         this.actionType = actionType;
     }
-    circle(radius = 10, colorHax = "red") {
-        let g = new Circle(radius, colorHax);
+    arrow(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
+        let g = new Arrow(x1, y1, x2, y2, color);
         this.insert(g, this.startTime, this.endTime, this.actionType);
         return g;
     }
-    wave() {
-        let g = new Wave();
+    circle(radius = 10, colorHax = "red") {
+        let g = new Circle(radius, colorHax);
         this.insert(g, this.startTime, this.endTime, this.actionType);
         return g;
     }
@@ -86,6 +87,11 @@ export default class CompFactory {
     }
     row(incommingTextArray = "one two") {
         let g = new Row(incommingTextArray);
+        this.insert(g, this.startTime, this.endTime, this.actionType);
+        return g;
+    }
+    wave() {
+        let g = new Wave();
         this.insert(g, this.startTime, this.endTime, this.actionType);
         return g;
     }

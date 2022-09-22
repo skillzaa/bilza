@@ -4,7 +4,6 @@ export default class Wave extends BaseComponent {
     constructor(numberOfWaves = 3, color = "blue") {
         super();
         this.numberOfWaves = new AniNumber(numberOfWaves);
-        this.incX = 0.9;
         this.color.set(color);
         this.midLineColor = new AniColor("red");
         this.showMidLine = new AniBoolean(true);
@@ -20,11 +19,11 @@ export default class Wave extends BaseComponent {
         let endX = this.contentX() + this.width.value();
         let oldY = (this.contentY() + (this.height.value() / 2));
         let counter = 1;
-        for (let x = this.contentX(); x <= endX; x += this.incX) {
+        for (let x = this.contentX(); x <= endX; x += 0.5) {
             let y = (Math.sin(counter) * this.height.value() / 2);
             y += (this.contentY() + (this.height.value() / 2));
             counter += increase;
-            this.style.lineWidth = 3;
+            this.style.lineWidth = 2;
             p.beginPath();
             p.moveTo(oldX, oldY);
             p.lineTo(x, y, this.style);
@@ -35,6 +34,7 @@ export default class Wave extends BaseComponent {
         if (this.showMidLine.value() == true) {
             this.style.fillStyle = this.midLineColor.value();
             this.style.strokeStyle = this.midLineColor.value();
+            this.style.lineWidth = 1;
             p.beginPath();
             p.moveTo(this.contentX(), this.contentY() + (this.height.value() / 2));
             p.lineTo(this.contentX() + this.width.value(), this.contentY() + (this.height.value() / 2), this.style);
