@@ -6,7 +6,7 @@ export default class Arrow extends BaseComponent {
         this.x.set(x1);
         this.y.set(y1);
         this.headWidth = new AniNumber(30);
-        this.headFilled = new AniBoolean(false);
+        this.headFilled = new AniBoolean(true);
         this.headHeight = new AniNumber(20);
         this.x2 = new AniPerc(x2);
         this.y2 = new AniPerc(y2);
