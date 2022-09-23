@@ -9,13 +9,15 @@ export default class FrameCounter extends Text {
 constructor (Hue_0_to_360 :number=240){ 
     super("",hsl(Hue_0_to_360));
     this.convertToSec = new AniBoolean(true);
-    this.fontSize.set(26);
+    // this.fontSize.set(26);
     this.showBackground.set(true);
     this.colorBackground.set(hsl(Hue_0_to_360,20,90));
     this.colorBorder.set(hsl(Hue_0_to_360));
     this.color.set(hsl(Hue_0_to_360));
     // this.color.set(color);
     this.border.set(1);
+    this.fitToHeight.set(true);
+    this.height.set(10);
     this.drawLayer = DrawLayer.ForeGround;
 }
 

@@ -7,28 +7,29 @@
 ---
 > A Javascript Animation Engine for creating responsive animations on HTML5 Canvas.
 ---
-Philosophy Behind Bilza.js
+<blockquote>
+<h3>Latest Updates (23-sep-2022)</h3>
+<h4><a href="https://skillzaa.github.io/bilzaDocs/components/arrow.html">Arrow</a></h4>
+<h4><a href="https://skillzaa.github.io/bilzaDocs/components/marker.html">Marker</a></h4>
+</blockquote>
 
-1. I think that in year 2022 creating complex animations in JavaScript should not be a black art. <b>Anybody who has basic JavaScript knowledge should be able to create animations.</b>
-
-1. There are many content types (e.g. educational slides, business presentations etc.) which we want to be presented like a video but should be editable like normal text (or a PowerPoint presentation). In case of video format; editing is very expensive and time-consuming. On the other hand, editing a JavaScript animation is just editing a few commands.
-
-1. In case you want your message / presentation to reach millions of viewers and the message is in videos format: the file size will be in Mega Bites (and this is on the lowest side). Imagine how many people will be reluctant to download such a heavy file or to share it. On the other hand, a JavaScript animation is very lightweight as compared to video format.  A JavaScript animation carrying the same message may have a file size of few kilo Bites. The heaviest thing in a JavaScript animation is the sound file. 
-
-1. The single main "pain point" of creating JavaScript animation is <b> creating responsive animations</b>. We like to create animations, but we also want them to fit on to the many screen sizes. For this the bilza.js has been written with responsiveness in mind and (almost) every thing grow and shrink according to the screen size.
-
-1. Animation is code and Code is Reusable : One of the basic purpose of this library is to enable users to stitch together small pieces of animation and create complex animations.
-
-1. It is NOT morally and ethically correct for any developer / app to hold the data of its users as hostage. The hard work and effort that a user has put into creating an animation makes him the creator and owner of that animation. For this I will make sure that there is always some command present in the library (working on it currently) which should enable the user to get their animation data in json format so that they can use it else-where.  
-
-
-# What Will Bilza.js Enable you to do ?
+Bilza.js Basic Idea
 
 1. <i>Bilza.js will enable you to create JavaScript animation that behave like a video</i>. You can "play", "pause", "stop", "skip forward" and "skip backward" the animation just like a video. You can also  draw any random frame from in between the animation or save that as an image.
 
-1. <i>Bilza.js will enable you to create slide (presentations, lesson plans, advertisements etc)</i> and then share them. The final product is a simple JavaScript file that will run in any (decent) browser anywhere. There is NO installation, NO plugins and NO dependencies (on any other library). This will enable your clients to consume your content with out any hassle.
+1. <i>Bilza.js will enable you to create slide (presentations, lesson plans, advertisements etc)</i> and then share them as html / javascript file.There are many content types (e.g. educational slides, business presentations etc.) which we want to be presented like a video but should be editable like normal text (or a PowerPoint presentation). In case of video format; editing is very expensive and time-consuming. Bilza.js final product is a simple JavaScript file that will run in any (decent) browser anywhere. 
 
-1. <i>Bilza.js can help you in creating viral content</i>. To create viral content we need animation, but we want to make the file size as small as possible since downloading large content is what costs money to your customers. In this scenario light weight JavaScript animations seems like the best candidate.
+
+1. In case you want your message / presentation to reach millions of viewers and the message is in videos format: the file size will be in Mega Bites (and this is on the lowest side). Imagine how many people will be reluctant to download such a heavy file or to share it. On the other hand, a JavaScript animation is very lightweight as compared to video format.  A JavaScript animation carrying the same message may have a file size of few kilo Bites. The heaviest thing in a JavaScript animation is the sound file. 
+
+1. The single main "pain point" of creating JavaScript animation is <b> creating responsive animations</b>. We like our animations to fit all screen sizes. For this the bilza.js has been written with responsiveness in mind and (almost) every thing grow and shrink according to the screen size.
+
+1. Animation is code and Code is Reusable : One of the basic purpose of this library is to enable users to stitch together small pieces of animation and create complex animations.
+
+1. There is NO installation, NO plugins and NO dependencies (on any other library). This will enable your clients to consume your content with out any hassle.
+
+1. It is NOT morally and ethically correct for any developer / app to hold the data of its users as hostage. The hard work and effort that a user has put into creating an animation makes him the creator and owner of that animation. For this there will always be some command present in the library (working on it currently) which should enable the user to get their animation data in json format.  
+
 
 ---
 # Basic Feature
@@ -55,6 +56,11 @@ Philosophy Behind Bilza.js
 ---
 <!-- The snippets from Docs -->
 # Selected Examples
+
+<a href="https://skillzaa.github.io/bilzaDocs/compProjects/arrow/sixArrows.html" target="_blank">Six Arrows
+</a>
+
+![Colored Circles](./images/sixArrows.png "Colored Circles")
 
 <a href="https://skillzaa.github.io/bilzaDocs/compProjects/circle/coloredCircles.html" target="_blank">Colored Circles
 </a>
@@ -132,6 +138,7 @@ Philosophy Behind Bilza.js
 <small>If you want to be in touch or send me a bug report please use github issues.</small>
 
 -----
+###### 23-sep-2022   (version 0.1.1) // - Arrow and Marker
 ###### <a href="https://skillzaa.github.io/bilzaDocs/releaseNotes/v0_1_1.html">17-sep-2022</a>   (version 0.1.1) // - Big Changes in API
 ###### 04-sep-2022   (version 0.1.0) // - Alhamdullah
 ###### 06-aug-2022   (version 0.0.30) //0 ver short of 0.1.0
