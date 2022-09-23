@@ -1,44 +1,16 @@
 import Pack from "../pack/pack.js";
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
+import Circle from "./circle.js";
 
-export default class Marker extends BaseComponent {
+export default class Marker extends Circle {
   
-// color :string;
-constructor (color :string="#ffff00"){ 
+constructor (x :number=50,y :number=50,color :string="red",radius=2){ 
 super();
-this.xAlign = this.XAlignOpt.Mid;
-this.yAlign = this.YAlignOpt.Mid;
-this.x.set(50);
-this.y.set(50);
-this.color.set(color) ; 
-}
-// init(p: Pack): boolean {
-// super.init(p);
-// return true;
-// }
-
-// update(msDelta: number, p: Pack): boolean {
-//     super.update(msDelta,p);
-//     return true;
-// }
-widthInPix(): number {
-   return 0;
-}
-heightInPix(): number {
-    return 0;
-}
-draw(p:Pack):boolean{
-
-this.style.fillStyle = this.color.value();    
-this.style.strokeStyle = this.color.value(); 
-   p.drawFillRect(
-     this.x.value(),
-     this.y.value(),
-    4,
-    4,
-    this.style
-    );
-return true;
+this.align(1,1);
+this.alignRotate(1,1);
+this.width.set(radius/2);
+this.x.set(x);
+this.y.set(y);
+this.color.set(color);
 }
 
 }

@@ -21,6 +21,5 @@ export default class Arrow extends BaseComponent {
     compHeight(): number;
     align(x?: number | null, y?: number | null): void;
     alignRotate(x?: number | null, y?: number | null): void;
-    pointTo(second: number, x: number, y: number): void;
 }
-//# sourceMappingURL=arrow.d.ts.map
+//# sourceMappingURL=arrow-old.d.ts.map

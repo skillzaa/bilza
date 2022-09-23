@@ -10,6 +10,7 @@ import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
 import Wave from "../../components/wave.js";
 import Arrow from "../../components/arrow/arrow.js";
+import Marker from "../../components/marker.js";
 import Row from "../../container/row.js";
 import SpriteSheet from "../../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../../components/spriteSheet/spriteSheetAlt.js";
@@ -33,6 +34,7 @@ export default class CompFactory {
     frameCounter(Hue_0_to_360?: number): FrameCounter;
     particleSystem(count?: number, color?: string, framesToSkip?: number): ParticleSystem;
     line(x1?: number, y1?: number, x2?: number, y2?: number, color?: string): Line;
+    marker(x?: number, y?: number, color?: string, radius?: number): Marker;
     row(incommingTextArray?: string): Row;
     wave(): Wave;
 }

@@ -24,9 +24,9 @@ super();
 
 this.x.set(x1); 
 this.y.set(y1);
-this.headWidth = new AniPerc(8);
+this.headWidth = new AniPerc(4);
 this.headFilled = new AniBoolean(true);
-this.headHeight = new AniPerc(4);
+this.headHeight = new AniPerc(2);
 this.x2 = new AniPerc(x2);
 this.y2 = new AniPerc(y2);
 this.lineWidth = new AniNumber(2);
@@ -92,18 +92,54 @@ this.style.fillStyle = this.color.value();
 this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value(); 
 //----------------------------------------------
+let verticalArrow = false;
+let lineEndX;
+
+if  (this.x2.value() > this.x.value()){
+    lineEndX = this.x2.value() - (this.headWidth.value() -1);
+
+}else if (this.x2.value() < this.x.value()) {
+    lineEndX = this.x2.value() + (this.headWidth.value() );
+
+}else   {   
+    lineEndX = this.x2.value();
+    verticalArrow = true;
+}
+//----------------------------------------------
+let lineEndY;
+if  (this.y2.value() > this.y.value()){
+    if (verticalArrow ==true){
+        lineEndY = this.y2.value() - (this.headWidth.value()  );
+    }else {
+        lineEndY = this.y2.value() - (this.headHeight.value()  );
+    }
+
+}else if (this.y2.value() < this.y.value()) {
+    if (verticalArrow ==true){
+        lineEndY = this.y2.value() + (this.headWidth.value() );
+    }else {
+        lineEndY = this.y2.value() + (this.headHeight.value() );
+    }
+    // lineEndY = this.y2.value() ;
+
+}else   {   
+    lineEndY = this.y2.value();
+}
+
+//--///////////////////////////////////////////////
+
 p.drawLine(
     this.x.value(),
     this.y.value(),
-    this.x2.value(),
-    this.y2.value(),
+    lineEndX,
+    lineEndY,
     this.style
 );
 //;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;Arrow Head Code
 p.save();
-const rotateAngle  = Math.atan2(this.y2.value() - this.y.value(),this.x2.value() - this.x.value());
+const rotateAngle  = Math.atan2(this.y2.value() - lineEndY,this.x2.value() - lineEndX);
 
-p.translate( this.x2.value()+4 , this.y2.value() );
+p.translate( this.x2.value() , this.y2.value() );
 
 //---------------------------------
 p.rotateRad(  rotateAngle );
@@ -148,5 +184,11 @@ public align(x?: number | null, y?: number | null): void {
 }
 public alignRotate(x?: number | null, y?: number | null): void {
     super.alignRotate(x,0);
+}
+
+public pointTo(second :number, x :number, y : number){
+    this.x2.goto(second,x);
+    this.y2.goto(second,y);
+     
 }
 }//class

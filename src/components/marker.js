@@ -1,23 +1,12 @@
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
-export default class Marker extends BaseComponent {
-    constructor(color = "#ffff00") {
+import Circle from "./circle.js";
+export default class Marker extends Circle {
+    constructor(x = 50, y = 50, color = "red", radius = 2) {
         super();
-        this.xAlign = this.XAlignOpt.Mid;
-        this.yAlign = this.YAlignOpt.Mid;
-        this.x.set(50);
-        this.y.set(50);
+        this.align(1, 1);
+        this.alignRotate(1, 1);
+        this.width.set(radius / 2);
+        this.x.set(x);
+        this.y.set(y);
         this.color.set(color);
-    }
-    widthInPix() {
-        return 0;
-    }
-    heightInPix() {
-        return 0;
-    }
-    draw(p) {
-        this.style.fillStyle = this.color.value();
-        this.style.strokeStyle = this.color.value();
-        p.drawFillRect(this.x.value(), this.y.value(), 4, 4, this.style);
-        return true;
     }
 }

@@ -10,6 +10,7 @@ import Circle from "../../components/circle.js";
 import CanvasBorder from "../../components/canvasBorder.js";
 import Wave from "../../components/wave.js";
 import Arrow from "../../components/arrow/arrow.js";
+import Marker from "../../components/marker.js";
 import Row from "../../container/row.js";
 import SpriteSheet from "../../components/spriteSheet/spriteSheet.js";
 import SpriteSheetAlt from "../../components/spriteSheet/spriteSheetAlt.js";
@@ -82,6 +83,11 @@ export default class CompFactory {
     }
     line(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
         let g = new Line(x1, y1, x2, y2, color);
+        this.insert(g, this.startTime, this.endTime, this.actionType);
+        return g;
+    }
+    marker(x = 50, y = 50, color = "red", radius = 2) {
+        let g = new Marker(x, y, color, radius);
         this.insert(g, this.startTime, this.endTime, this.actionType);
         return g;
     }

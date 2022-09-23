@@ -7,9 +7,9 @@ export default class Arrow extends BaseComponent {
         super();
         this.x.set(x1);
         this.y.set(y1);
-        this.headWidth = new AniPerc(4);
+        this.headWidth = new AniPerc(8);
         this.headFilled = new AniBoolean(true);
-        this.headHeight = new AniPerc(2);
+        this.headHeight = new AniPerc(4);
         this.x2 = new AniPerc(x2);
         this.y2 = new AniPerc(y2);
         this.lineWidth = new AniNumber(2);
@@ -65,42 +65,10 @@ export default class Arrow extends BaseComponent {
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
         this.style.lineWidth = this.lineWidth.value();
-        let verticalArrow = false;
-        let lineEndX;
-        if (this.x2.value() > this.x.value()) {
-            lineEndX = this.x2.value() - (this.headWidth.value() - 1);
-        }
-        else if (this.x2.value() < this.x.value()) {
-            lineEndX = this.x2.value() + (this.headWidth.value());
-        }
-        else {
-            lineEndX = this.x2.value();
-            verticalArrow = true;
-        }
-        let lineEndY;
-        if (this.y2.value() > this.y.value()) {
-            if (verticalArrow == true) {
-                lineEndY = this.y2.value() - (this.headWidth.value());
-            }
-            else {
-                lineEndY = this.y2.value() - (this.headHeight.value());
-            }
-        }
-        else if (this.y2.value() < this.y.value()) {
-            if (verticalArrow == true) {
-                lineEndY = this.y2.value() + (this.headWidth.value());
-            }
-            else {
-                lineEndY = this.y2.value() + (this.headHeight.value());
-            }
-        }
-        else {
-            lineEndY = this.y2.value();
-        }
-        p.drawLine(this.x.value(), this.y.value(), lineEndX, lineEndY, this.style);
+        p.drawLine(this.x.value(), this.y.value(), this.x2.value(), this.y2.value(), this.style);
         p.save();
-        const rotateAngle = Math.atan2(this.y2.value() - lineEndY, this.x2.value() - lineEndX);
-        p.translate(this.x2.value(), this.y2.value());
+        const rotateAngle = Math.atan2(this.y2.value() - this.y.value(), this.x2.value() - this.x.value());
+        p.translate(this.x2.value() + 4, this.y2.value());
         p.rotateRad(rotateAngle);
         this.style.fillStyle = this.colorHead.value();
         this.style.strokeStyle = this.colorHead.value();
@@ -130,9 +98,5 @@ export default class Arrow extends BaseComponent {
     }
     alignRotate(x, y) {
         super.alignRotate(x, 0);
-    }
-    pointTo(second, x, y) {
-        this.x2.goto(second, x);
-        this.y2.goto(second, y);
     }
 }
