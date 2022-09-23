@@ -5,8 +5,8 @@ import Theme from "./theme.js";
 export default class Arrow extends BaseComponent {
     x2: AniPerc | AniNumber;
     y2: AniPerc | AniNumber;
-    headWidth: AniNumber;
-    headHeight: AniNumber;
+    headWidth: AniPerc;
+    headHeight: AniPerc;
     headFilled: AniBoolean;
     colorHead: AniColor;
     lineWidth: AniNumber;
