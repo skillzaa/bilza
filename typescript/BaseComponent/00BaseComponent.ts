@@ -15,6 +15,7 @@ public exitAni :ExitAni;
 
 constructor (){
 super();
+
 this._canvasWidth = null;    
 this._canvasHeight = null;    
 this.entryAni = new EntryAni(this);

@@ -13,6 +13,7 @@ export default interface IComponent{
     drawLayer : DrawLayer; 
     // duration :number;
     alwaysOn: boolean;
+    selected: boolean;
     visible: AniBoolean;
     version :string;
 /**
@@ -27,6 +28,8 @@ export default interface IComponent{
     opacity :AniNumber;
     showBackground :AniBoolean;
     colorBackground :AniColor;
+    colorBorder :AniColor;
+    color :AniColor;
 
 //-----Public Objects
     // style:Style; 

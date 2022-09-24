@@ -1,4 +1,4 @@
-import Duration from "../bilzaMod/insert/duration.js";
+import Duration from "../engine/insert/duration.js";
 import BaseTest from "./baseTest.js";
 
 let dur = new Duration();

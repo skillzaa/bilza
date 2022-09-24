@@ -4,6 +4,7 @@ export default interface IComponent {
     readonly id: string;
     drawLayer: DrawLayer;
     alwaysOn: boolean;
+    selected: boolean;
     visible: AniBoolean;
     version: string;
     width: AniNumber | AniPerc;
@@ -15,6 +16,8 @@ export default interface IComponent {
     opacity: AniNumber;
     showBackground: AniBoolean;
     colorBackground: AniColor;
+    colorBorder: AniColor;
+    color: AniColor;
     setRespPadding(tf: boolean): boolean;
     setRespDims(tf: boolean): boolean;
     setRespLoc(tf: boolean): boolean;

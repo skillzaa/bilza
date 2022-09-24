@@ -17,7 +17,8 @@ public fitToHeight :AniBoolean;
 public respFontSize :AniBoolean; 
 /////////////////////////////////////////
 public templ :TextTempl; 
-public theme :TextTheme; 
+public theme :TextTheme;
+// public static compClassName:string = "Text";
 /////////////////////////////////////////
 constructor (content :string="",colorHax :string="#000000"){
 super();  
