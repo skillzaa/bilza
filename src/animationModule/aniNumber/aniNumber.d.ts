@@ -2,10 +2,12 @@ import AniProp from "../aniProp/aniProp.js";
 export default class AniNumber extends AniProp<number> {
     readonly minValue: number;
     readonly maxValue: number;
-    private isResponsive;
+    private isResp;
     private theWhole;
     constructor(initialValue?: number, minValue?: number, maxValue?: number);
-    setResponsive(theWhole: number): void;
+    init(theWhole: number): void;
+    isResponsive(): boolean;
+    setResponsive(): void;
     setNonResponsive(): void;
     value(): number;
     responsiveValue(perc: number): number;

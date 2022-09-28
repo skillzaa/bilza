@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        * {
+    padding:0;
+    margin:0;
+}
+#parnetDiv {width:100%;padding :15px;background-color:aqua;}
+
+#canvasContainer {
+    text-align: center;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    margin-top:5px;
+    background-color: rgb(1, 1, 45);
+}
+</style>
+<script src="../../misc/custom.css"></script>
+<script src="../../misc/prism.js"></script>
+<link rel="stylesheet" href="../../misc/prism.css">   
+<script src="../../misc/dark.js"></script>
+    <title>Bilza Core Samples</title>
+</head>
+<body>
+
+<div id="canvasContainer">
+<canvas id="bilza"></canvas>
+<!--controls table-->
+<table id="controls" style="width:100%">
+<tr>    
+    <td style="width:10%"><button style="width:100%" id="start">Play</button></td>
+    <td style="width:10%"><button style="width:100%" id="stop">Stop</button></td>
+
+    <td style="width:70%">
+        <input type="range" id="slider" style="width:100%" value="0" max="20">
+    </td>
+    <td style="width:10%"></td>
+</tr>
+</table>
+
+</div>
+<!-- <a href="../src/bilza.js"></a> -->
+<script  type="module">
+import Bilza, { Ui,PremadeSpriteSheets, hsl,getRandom} from "../../src/bilza.js";
+
+let bil = new Bilza("bilza", 70);
+
+const grid = bil.alwaysOn().grid(10,10,"grey");
+
+const fc = bil.alwaysOn().frameCounter(0);
+fc.align(0,2);
+fc.goto(0,0,100);
+fc.fontSize.set(80);
+fc.color.set(hsl(60));
+fc.colorBackground.set(hsl(240,100,60));
+
+
+const comp = bil.add(0,25).line(20,25,80,25,hsl());
+comp.alignRotate(0);  
+comp.lineWidth.set(30);
+comp.rotation.animate(0,6, 0, 3 * 360);
+//=================================
+const comp02 = bil.add(0,25).line(20,50,80,50,hsl(120));
+comp02.alignRotate(1);  
+comp02.lineWidth.set(30);
+comp02.rotation.animate(7,12, 0, 3 * 360);
+//=================================
+const comp03 = bil.add(0,25).line(20,75,80,75,hsl(240));
+comp03.alignRotate(2);  
+comp03.lineWidth.set(30);
+comp03.rotation.animate(13,20, 0, 3 * 360);
+//=================================
+const ui = new Ui(bil);
+bil.draw();
+
+</script>
+
+<pre class="language-javascript">
+<code>
+
+let bil = new Bilza("bilza", 70);
+
+const grid = bil.alwaysOn().grid(10,10,"grey");
+
+const fc = bil.alwaysOn().frameCounter(0);
+fc.align(0,2);
+fc.goto(0,0,100);
+fc.fontSize.set(80);
+fc.color.set(hsl(60));
+fc.colorBackground.set(hsl(240,100,60));
+
+
+const comp = bil.add(0,25).line(20,25,80,25,hsl());
+comp.alignRotate(0);  
+comp.lineWidth.set(30);
+comp.rotation.animate(0,6, 0, 3 * 360);
+//=================================
+const comp02 = bil.add(0,25).line(20,50,80,50,hsl(120));
+comp02.alignRotate(1);  
+comp02.lineWidth.set(30);
+comp02.rotation.animate(7,12, 0, 3 * 360);
+//=================================
+const comp03 = bil.add(0,25).line(20,75,80,75,hsl(240));
+comp03.alignRotate(2);  
+comp03.lineWidth.set(30);
+comp03.rotation.animate(13,20, 0, 3 * 360);
+//=================================
+const ui = new Ui(bil);
+bil.draw();
+</code>
+</pre>
+
+</body>
+</html>

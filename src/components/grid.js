@@ -25,8 +25,8 @@ export default class Grid extends BaseComponent {
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
-        this.cellWidth.setResponsive(this.contentWidth());
-        this.cellHeight.setResponsive(this.contentHeight());
+        this.cellWidth.init(this.canvasWidth());
+        this.cellHeight.init(this.canvasHeight());
         return true;
     }
     update(msDelta, p) {

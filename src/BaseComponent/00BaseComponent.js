@@ -12,10 +12,14 @@ export default class BaseComponent extends RotateObj {
     init(p) {
         this._canvasWidth = p.canvasWidth();
         this._canvasHeight = p.canvasHeight();
-        this.width.setResponsive(this.canvasWidth());
-        this.height.setResponsive(this.canvasHeight());
-        this.x.setResponsive(this.canvasWidth());
-        this.y.setResponsive(this.canvasHeight());
+        this.width.init(this.canvasWidth());
+        this.height.init(this.canvasHeight());
+        this.x.init(this.canvasWidth());
+        this.y.init(this.canvasHeight());
+        this.paddingLeft.init(this.canvasWidth());
+        this.paddingRight.init(this.canvasWidth());
+        this.paddingTop.init(this.canvasHeight());
+        this.paddingBottom.init(this.canvasHeight());
         return true;
     }
     update(msDelta, p) {
@@ -106,5 +110,45 @@ export default class BaseComponent extends RotateObj {
             throw new Error("the lib may not be initiailzed yet");
         }
         return this._canvasWidth;
+    }
+    setRespPadding(tf = false) {
+        if (tf == true) {
+            this.paddingLeft.setResponsive();
+            this.paddingRight.setResponsive();
+            this.paddingTop.setResponsive();
+            this.paddingBottom.setResponsive();
+            return true;
+        }
+        else {
+            this.paddingLeft.setNonResponsive();
+            this.paddingRight.setNonResponsive();
+            this.paddingTop.setNonResponsive();
+            this.paddingBottom.setNonResponsive();
+            return false;
+        }
+    }
+    setRespLoc(tf = true) {
+        if (tf == true) {
+            this.x.setResponsive();
+            this.y.setResponsive();
+            return true;
+        }
+        else {
+            this.x.setNonResponsive();
+            this.y.setNonResponsive();
+            return false;
+        }
+    }
+    setRespDims(tf = true) {
+        if (tf == true) {
+            this.width.setResponsive();
+            this.height.setResponsive();
+            return true;
+        }
+        else {
+            this.width.setNonResponsive();
+            this.height.setNonResponsive();
+            return false;
+        }
     }
 }

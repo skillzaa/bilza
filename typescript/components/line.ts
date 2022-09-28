@@ -16,7 +16,9 @@ this.x.set(x1);
 this.y.set(y1);
 
 this.x2 = new AniNumber(x2);
+this.x2.setResponsive(); //default
 this.y2 = new AniNumber(y2);
+this.y2.setResponsive(); //default
 this.lineWidth = new AniNumber(2);
 this.color.set(color);
 this.drawLayer = DrawLayer.MiddleGround;
@@ -49,8 +51,8 @@ super.init(p);
 // if (this.canvasWidth == null || this.canvasHeight == null){
 //     throw new Error("init error");
 // }
-    this.x2.setResponsive(this.canvasWidth());//canvasWidth
-    this.y2.setResponsive(this.canvasHeight());//canvasHeight
+    this.x2.init(this.canvasWidth());//canvasWidth
+    this.y2.init(this.canvasHeight());//canvasHeight
 
 return true;
 }

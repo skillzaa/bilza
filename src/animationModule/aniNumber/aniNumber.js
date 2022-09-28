@@ -6,22 +6,26 @@ import Oscillate from "./filters/oscillatets.js";
 export default class AniNumber extends AniProp {
     constructor(initialValue = 0, minValue = -3000, maxValue = 3000) {
         super(initialValue);
-        this.isResponsive = false;
+        this.isResp = false;
         this.theWhole = null;
         this.minValue = minValue;
         this.maxValue = maxValue;
     }
-    setResponsive(theWhole) {
-        this.isResponsive = true;
+    init(theWhole) {
         this.theWhole = theWhole;
     }
+    isResponsive() {
+        return this.isResp;
+    }
+    setResponsive() {
+        this.isResp = true;
+    }
     setNonResponsive() {
-        this.isResponsive = false;
-        this.theWhole = null;
+        this.isResp = false;
     }
     value() {
         if (this._value == null) {
-            if (this.isResponsive == false) {
+            if (this.isResp == false) {
                 return this.defaultFilter.animatedValue();
             }
             else {
@@ -29,7 +33,7 @@ export default class AniNumber extends AniProp {
             }
         }
         else {
-            if (this.isResponsive == false) {
+            if (this.isResp == false) {
                 return this._value;
             }
             else {

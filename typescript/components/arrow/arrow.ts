@@ -25,10 +25,14 @@ super();
 this.x.set(x1); 
 this.y.set(y1);
 this.headWidth = new AniNumber(4);
+this.headWidth.setResponsive();
 this.headFilled = new AniBoolean(true);
 this.headHeight = new AniNumber(2);
+this.headHeight.setResponsive();
 this.x2 = new AniNumber(x2);
+this.x2.setResponsive();
 this.y2 = new AniNumber(y2);
+this.y2.setResponsive();
 this.lineWidth = new AniNumber(2);
 
 this.color.set(color);
@@ -65,11 +69,11 @@ init(p: Pack): boolean {
 //--imp--it want us to keep it here or cause init error
 super.init(p);     
 
-this.headWidth.setResponsive(this.canvasWidth());//canvasWidth
-this.headHeight.setResponsive(this.canvasWidth());//canvasWidth
+this.headWidth.init(this.canvasWidth());//canvasWidth
+this.headHeight.init(this.canvasWidth());//canvasWidth
 
-    this.x2.setResponsive(this.canvasWidth());//canvasWidth
-    this.y2.setResponsive(this.canvasHeight());//canvasHeight
+    this.x2.init(this.canvasWidth());//canvasWidth
+    this.y2.init(this.canvasHeight());//canvasHeight
 return true;
 }
     

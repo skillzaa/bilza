@@ -52,8 +52,8 @@ super.init(p);
 if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }
-    this.cellWidth.setResponsive(this.contentWidth());//canvasWidth
-    this.cellHeight.setResponsive(this.contentHeight());//canvasHeight
+    this.cellWidth.init(this.canvasWidth());//canvasWidth
+    this.cellHeight.init(this.canvasHeight());//canvasHeight
 return true;
 }   
 

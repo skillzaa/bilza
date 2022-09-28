@@ -22,5 +22,8 @@ export default class BaseComponent extends RotateObj implements IComponent {
     setxy(x: number, y?: number | null): void;
     canvasHeight(): number;
     canvasWidth(): number;
+    setRespPadding(tf?: boolean): boolean;
+    setRespLoc(tf?: boolean): boolean;
+    setRespDims(tf?: boolean): boolean;
 }
 //# sourceMappingURL=00BaseComponent.d.ts.map

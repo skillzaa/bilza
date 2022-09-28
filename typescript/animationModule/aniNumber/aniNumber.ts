@@ -11,36 +11,42 @@ export default class AniNumber extends AniProp<number>  {
     
 public readonly minValue :number;
 public readonly maxValue :number;
-private isResponsive :boolean;
+private isResp :boolean;
 private theWhole :number | null;
 
 constructor(initialValue :number=0, minValue :number=-3000,maxValue :number=3000){
  
 super(initialValue);
-this.isResponsive = false;
+this.isResp = false;
 this.theWhole = null;
 this.minValue  = minValue; 
 this.maxValue  = maxValue; 
 
 }
-setResponsive(theWhole :number){
-    this.isResponsive = true;
-    this.theWhole = theWhole;     
+init(theWhole :number){
+this.theWhole = theWhole;
+}
+isResponsive(){
+    return this.isResp;
+}
+setResponsive(){
+    this.isResp = true;
+    // this.theWhole = theWhole;     
 }
 setNonResponsive(){
-    this.isResponsive = false;    
-this.theWhole = null;
+    this.isResp = false;    
+// this.theWhole = null;
 }
 public value():number{
 //--do not return this._value that is null in start-- this will give a correct result even without an update  
 if (this._value == null){
-        if (this.isResponsive == false){
+        if (this.isResp == false){
             return this.defaultFilter.animatedValue();
         }else {
             return this.responsiveValue(this.defaultFilter.animatedValue());        
         }
 } else {
-    if (this.isResponsive == false){
+    if (this.isResp == false){
         return this._value;
     }else {
         return this.responsiveValue(this._value);        

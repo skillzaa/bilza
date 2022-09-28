@@ -89,8 +89,6 @@ constructor(){
     
     this.interactive = false; // this is for mouse click etc
     
-    this.width = new AniNumber(10);
-    this.height = new AniNumber(10);
     
     this.rotation = new AniNumber(0);
     this.opacity = new AniNumber(100);
@@ -111,13 +109,25 @@ this.visible = new AniBoolean(true);
 
 //-----------Location x and y
 this.x = new AniNumber(0);
+this.x.setResponsive();
 this.y = new AniNumber(0);
+this.y.setResponsive();
 //-----------padding
 // this.responsivePadding = true;
 this.paddingTop =    new AniNumber(0);
+this.paddingTop.setNonResponsive();
 this.paddingBottom = new AniNumber(0); 
+this.paddingBottom.setNonResponsive();
 this.paddingRight =  new AniNumber(0);
+this.paddingRight.setNonResponsive();
 this.paddingLeft  =  new AniNumber(0);
+this.paddingLeft.setNonResponsive();
+//----------------Dims
+this.width = new AniNumber(10);
+this.width.setResponsive();
+this.height = new AniNumber(10);
+this.height.setResponsive();
+
 ////////////
 this.border  = new AniNumber(0);
 this.colorBorder = new AniColor("#000000");
@@ -133,49 +143,6 @@ this.showBackground = new AniBoolean(false);
 
 //////////////////////////////////////////
 //////////////////////////////////////////
-// setRespPadding(tf :boolean=false):boolean{
-//     if (tf == true){
-//         this.paddingTop = new AniPerc(0);
-//         this.paddingBottom = new AniPerc(0); 
-//         this.paddingRight = new AniPerc(0);
-//         this.paddingLeft  = new AniPerc(0);
-//         return true;
-//     } else {
-//         this.paddingTop = new    AniNumber(0);
-//         this.paddingBottom = new AniNumber(0); 
-//         this.paddingRight = new  AniNumber(0);
-//         this.paddingLeft  = new  AniNumber(0);
-//         return false;
-//     }       
-// }
-// setRespLoc(tf :boolean=true):boolean{
-// const xOldVal = this.x.value();
-// const yOldVal = this.y.value();
-// if (tf == true){
-//     this.x = new AniPerc(0);
-//     this.y = new AniPerc(0);
-//     this.x.set(xOldVal);
-//     this.y.set(yOldVal);
-//     return true;
-// } else {
-//     this.x = new AniNumber(0);
-//     this.y = new AniNumber(0);
-//     this.x.set(xOldVal);
-//     this.y.set(yOldVal);
-//     return false;
-// }   
-// }
 
-// setRespDims(tf :boolean=true):boolean{
-//     if (tf == true){
-//         this.width = new AniPerc(0);
-//         this.height = new AniPerc(0);
-//         return true;
-//     } else {
-//         this.width = new AniNumber(0);
-//         this.height = new AniNumber(0);
-//         return false;
-//     }   
-// }
 
 }//claass

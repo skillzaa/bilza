@@ -26,18 +26,18 @@ init(p: Pack): boolean {
 this._canvasWidth =  p.canvasWidth();  
 this._canvasHeight =  p.canvasHeight();
 
-    this.width.setResponsive(this.canvasWidth());//canvasWidth
-    this.height.setResponsive(this.canvasHeight());//canvasHeight
+    this.width.init(this.canvasWidth());//canvasWidth
+    this.height.init(this.canvasHeight());//canvasHeight
 
-    this.x.setResponsive(this.canvasWidth());//canvasWidth
-    this.y.setResponsive(this.canvasHeight());//canvasHeight
+    this.x.init(this.canvasWidth());//canvasWidth
+    this.y.init(this.canvasHeight());//canvasHeight
 //paddings
     
-    // this.paddingLeft.setResponsive(this.canvasWidth());
-    // this.paddingRight.setResponsive(this.canvasWidth());
+    this.paddingLeft.init(this.canvasWidth());
+    this.paddingRight.init(this.canvasWidth());
     // //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
-    // this.paddingTop.setResponsive(this.canvasHeight());
-    // this.paddingBottom.setResponsive(this.canvasHeight());
+    this.paddingTop.init(this.canvasHeight());
+    this.paddingBottom.init(this.canvasHeight());
 return true;
 }
 
@@ -163,5 +163,44 @@ if (this._canvasWidth == null) { throw new Error("the lib may not be initiailzed
 return this._canvasWidth;
 }
 ////////////////////////////////////////////////////////
+setRespPadding(tf :boolean=false):boolean{
+    if (tf == true){
+    this.paddingLeft.setResponsive();
+    this.paddingRight.setResponsive();
+    // //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
+    this.paddingTop.setResponsive();
+    this.paddingBottom.setResponsive();
+        return true;
+    } else {
+        this.paddingLeft.setNonResponsive();
+    this.paddingRight.setNonResponsive();
+    this.paddingTop.setNonResponsive();
+    this.paddingBottom.setNonResponsive();
+        return false;
+    }       
+}
+setRespLoc(tf :boolean=true):boolean{
+if (tf == true){
+    this.x.setResponsive();
+    this.y.setResponsive();
+    return true;
+} else {
+    this.x.setNonResponsive();
+    this.y.setNonResponsive();
+    return false;
+}   
+}
+
+setRespDims(tf :boolean=true):boolean{
+    if (tf == true){
+        this.width.setResponsive();
+        this.height.setResponsive();
+        return true;
+    } else {
+        this.width.setNonResponsive();
+        this.height.setNonResponsive();
+        return false;
+    }   
+}
 ////////////////////////////////////////////////////////
 }//component ends 
