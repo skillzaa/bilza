@@ -13,7 +13,7 @@ this.comp = comp;
 leftIn(){
     
 //---what ever the alignment it does not matter even if the align is right still - width takes care of that   
-this.comp.x.animate(this.comp.getStartTime(false),this.comp.getStartTime(false) + 2,-this.comp.width.value(),this.comp.x.value());
+this.comp.x.animate(this.comp.getStartTime(false),this.comp.getStartTime(false) + 2,-this.comp.compWidth(),this.comp.x.valueNR());
 return this.comp;    
 }
 rightIn(){

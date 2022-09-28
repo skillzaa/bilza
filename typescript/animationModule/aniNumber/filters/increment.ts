@@ -10,7 +10,7 @@ protected  timeDiff :number;
 constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :number,endValue :number,delayInMS :number=0){
 
 super(rTimeMsStart,rTimeMsEnd,startValue,endValue,delayInMS);
-
+ 
 
 if (this.startValue >= this.endValue ){throw new Error("start value can not be equal to or larger than end value in an increment operation");}    
 

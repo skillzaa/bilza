@@ -41,6 +41,14 @@ export default class AniNumber extends AniProp {
             }
         }
     }
+    valueNR() {
+        if (this._value == null) {
+            return this.defaultFilter.animatedValue();
+        }
+        else {
+            return this._value;
+        }
+    }
     responsiveValue(perc) {
         if (this.theWhole == null) {
             throw new Error("theWhole is null");

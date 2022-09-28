@@ -53,6 +53,14 @@ if (this._value == null){
     }
 } 
 }
+public valueNR():number{
+//--do not return this._value that is null in start-- this will give a correct result even without an update  
+if (this._value == null){
+    return this.defaultFilter.animatedValue();
+} else {
+    return this._value;
+} 
+}
 responsiveValue(perc :number):number {
 if (this.theWhole == null){throw new Error("theWhole is null");}
     return ((this.theWhole / 100) * perc);

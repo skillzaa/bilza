@@ -25,6 +25,12 @@ export default interface IComponent {
     draw(p: Pack): boolean;
     compWidth(): number;
     compHeight(): number;
+    compWidthNR(): number;
+    compHeightNR(): number;
+    contentWidth(): number;
+    contentHeight(): number;
+    contentWidthNR(): number;
+    contentHeightNR(): number;
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);
     setTimings(startFrame: number, endFrame: number): number;
     getDuration(): number;

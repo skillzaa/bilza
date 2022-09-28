@@ -54,6 +54,14 @@ draw(p :Pack):boolean;
  */
 compWidth():number;
 compHeight():number;
+compWidthNR():number;
+compHeightNR():number;
+
+contentWidth():number;
+contentHeight():number;
+contentWidthNR():number;
+contentHeightNR():number;
+
 ///////////28-june-2022/////////// 
 //-- This is one function reference that it gets so that it can directly access one function of the main "bilza" pack object.
 //-- There can be more such functions but those functions can not make breaking changes just get information from rest of the system.
