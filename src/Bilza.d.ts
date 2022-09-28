@@ -21,4 +21,4 @@ import getRandom from "./functions/getRandom.js";
 import Scene from "./scene/scene.js";
 import Scenes from "./scene/scenes.js";
 export { Pack, PremadeSpriteSheets, SpriteSheet, SpriteSheetAlt, hsl, DrawLayer, UTFIcons, Experimental, IComponent, Ui, getRandom, Bilza, BaseComponent, CompFactory, XAlignOpt, YAlignOpt, FontFamily, Style, Scene, Scenes, k };
-//# sourceMappingURL=bilza.d.ts.map
+//# sourceMappingURL=Bilza.d.ts.map
