@@ -1,23 +1,33 @@
 import Bilza, {Ui,hsl,Scene,Scenes} from "./bilza.js";
-// import Text from "./components/text/text.js";
+
 let bil = new Bilza("bilza", 70);
 
-bil.alwaysOn().grid(10,10,hsl(0,80,20));
-// bil.background.color.set(hsl(240,30,10));
-//=============================================
-// const title = bil.add(0,15).text("Markers",hsl(120));
+bil.alwaysOn().grid(10,10,"grey");
 
-const rect = bil.add(0,60).fillRect("green");
-rect.width.set(20);
-// .entryAni.leftIn();
-// rect.x.set(20);
+const fc = bil.add(0,20).frameCounter(0);
+fc.align(0,0);
+fc.goto(0,50,50);
+fc.fontSize.set(80);
+fc.colorBackground.set(hsl(60,75));
 
-rect.x.animate(0,5,10,100 - rect.compWidthNR());
-// console.log(title.constructor.name)    
-// console.log("title instanceof Text", title instanceof Text)    
+const comp = bil.add(0,25).circle(20,hsl(60));
+comp.setPaddings(0.25);
+comp.showBackground.set(true);
+comp.border.set(1);
+comp.colorBorder.set(hsl(0));
+comp.colorBackground.set(hsl(240));
 
+//===---Animation Settings
+    comp.x.set(0);
+    comp.y.set(0);
+    comp.width.set(20);
+    comp.height.set(20);
 
+    comp.x.animate(1, 5, 0, (100 - comp.compWidthPerc()) );
+    comp.y.animate(6, 10, 0, 100 - comp.compHeightPerc());
+    comp.x.animate(11, 15, 100 - comp.compWidthPerc(), 0);
+    comp.y.animate(16, 20, 100 - comp.compHeightPerc(), 0);
 
+//---------------------------------
 const ui = new Ui(bil);
 bil.draw();
-    

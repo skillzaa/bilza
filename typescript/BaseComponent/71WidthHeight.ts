@@ -45,21 +45,21 @@ compWidth(): number {
     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
     return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
 }   
-compWidthNR(): number {
-    //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
+
+compWidthPerc(): number {
     return this.contentWidthNR() + this.paddingLeft.valueNR() + this.paddingRight.valueNR();
 }   
-// compHeight(): number {
-// //--Border is not included    
-// return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value() + (this.border.value() * 2);
-// }
+
 //---border is excluded from height
 compHeight(): number {
 //--Border is not included    
 return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
 }
-compHeightNR(): number {
-//--Border is not included    
-return this.contentHeightNR() + this.paddingTop.valueNR() + this.paddingBottom.valueNR();
+
+compHeightPerc(): number {
+    //--Border is not included    
+    return this.contentHeightNR() + this.paddingTop.valueNR() + this.paddingBottom.valueNR();
 }
+
+
 } 

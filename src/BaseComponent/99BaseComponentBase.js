@@ -27,13 +27,13 @@ export default class BaseComponentBase {
         this.y = new AniNumber(0);
         this.y.setResponsive();
         this.paddingTop = new AniNumber(0);
-        this.paddingTop.setNonResponsive();
+        this.paddingTop.setResponsive();
         this.paddingBottom = new AniNumber(0);
-        this.paddingBottom.setNonResponsive();
+        this.paddingBottom.setResponsive();
         this.paddingRight = new AniNumber(0);
-        this.paddingRight.setNonResponsive();
+        this.paddingRight.setResponsive();
         this.paddingLeft = new AniNumber(0);
-        this.paddingLeft.setNonResponsive();
+        this.paddingLeft.setResponsive();
         this.width = new AniNumber(10);
         this.width.setResponsive();
         this.height = new AniNumber(10);

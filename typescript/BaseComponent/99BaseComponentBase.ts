@@ -115,13 +115,13 @@ this.y.setResponsive();
 //-----------padding
 // this.responsivePadding = true;
 this.paddingTop =    new AniNumber(0);
-this.paddingTop.setNonResponsive();
+this.paddingTop.setResponsive();
 this.paddingBottom = new AniNumber(0); 
-this.paddingBottom.setNonResponsive();
+this.paddingBottom.setResponsive();
 this.paddingRight =  new AniNumber(0);
-this.paddingRight.setNonResponsive();
+this.paddingRight.setResponsive();
 this.paddingLeft  =  new AniNumber(0);
-this.paddingLeft.setNonResponsive();
+this.paddingLeft.setResponsive();
 //----------------Dims
 this.width = new AniNumber(10);
 this.width.setResponsive();

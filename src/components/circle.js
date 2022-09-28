@@ -10,15 +10,20 @@ export default class Circle extends BaseComponent {
         this.color.set(color);
         this.width.set(Math.floor(radius * 2));
     }
+    init(p) {
+        super.init(p);
+        this.height.init(this.canvasWidth());
+        return true;
+    }
     contentHeight() {
         return this.width.value();
     }
     update(msDelta, p) {
+        super.update(msDelta, p);
         this.startAngle.update(msDelta);
         this.endAngle.update(msDelta);
         this.lineWidth.update(msDelta);
-        this.height.set(this.width.value());
-        super.update(msDelta, p);
+        this.height.set(this.width.valueNR());
         return true;
     }
     draw(p) {

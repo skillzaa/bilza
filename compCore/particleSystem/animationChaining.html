@@ -58,9 +58,9 @@ fc.colorBackground.set(hsl(60,75));
 
 const comp = bil.add(0,25).particleSystem(10,hsl(0),1);
 comp.particleSize.set(5);
-comp.setPaddings(10);
+comp.setPaddings(0);
 comp.showBackground.set(true);
-comp.border.set(3);
+comp.border.set(0);
 comp.colorBorder.set(hsl(0));
 comp.colorBackground.set(hsl(240));
 
@@ -69,10 +69,11 @@ comp.x.set(0);
     comp.y.set(0);
     comp.width.set(20);
     comp.height.set(30);
-    comp.x.animate(1, 5, 0, 90);
-    comp.y.animate(6, 10, 0, 90);
-    comp.x.animate(11, 15, 90, 0);
-    comp.y.animate(16, 20, 90, 0);
+
+     comp.x.animate(1, 5, 0, 100 - comp.compWidthNR());
+    comp.y.animate(6, 10, 0, 100 - comp.compHeightNR());
+    comp.x.animate(11, 15, 100 - comp.compWidthNR(), 0);
+    comp.y.animate(16, 20, 100 - comp.compHeightNR(), 0);
 //---------------------------------
 const ui = new Ui(bil);
 bil.draw();

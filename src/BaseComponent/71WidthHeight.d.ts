@@ -6,8 +6,8 @@ export default class WidthHeight extends Shadow {
     contentHeight(): number;
     contentHeightNR(): number;
     compWidth(): number;
-    compWidthNR(): number;
+    compWidthPerc(): number;
     compHeight(): number;
-    compHeightNR(): number;
+    compHeightPerc(): number;
 }
 //# sourceMappingURL=71WidthHeight.d.ts.map

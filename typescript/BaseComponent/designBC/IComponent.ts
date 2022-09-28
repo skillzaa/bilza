@@ -53,14 +53,17 @@ draw(p :Pack):boolean;
  From now on there is not confusion. "width" and "height" (IF APPLIED BY THE COMPONENT) are both aniNumber| AniPerc where as the fol methods will just return the size of comp in pix
  */
 compWidth():number;
+compWidthPerc():number;
+
 compHeight():number;
-compWidthNR():number;
-compHeightNR():number;
+compHeightPerc():number;
+
+
 
 contentWidth():number;
 contentHeight():number;
-contentWidthNR():number;
-contentHeightNR():number;
+// contentWidthNR():number;
+// contentHeightNR():number;
 
 ///////////28-june-2022/////////// 
 //-- This is one function reference that it gets so that it can directly access one function of the main "bilza" pack object.

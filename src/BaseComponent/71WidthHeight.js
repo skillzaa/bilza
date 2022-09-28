@@ -18,13 +18,13 @@ export default class WidthHeight extends Shadow {
     compWidth() {
         return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
     }
-    compWidthNR() {
+    compWidthPerc() {
         return this.contentWidthNR() + this.paddingLeft.valueNR() + this.paddingRight.valueNR();
     }
     compHeight() {
         return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
     }
-    compHeightNR() {
+    compHeightPerc() {
         return this.contentHeightNR() + this.paddingTop.valueNR() + this.paddingBottom.valueNR();
     }
 }
