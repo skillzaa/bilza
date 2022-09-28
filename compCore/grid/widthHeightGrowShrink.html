@@ -51,19 +51,19 @@ import Bilza, { Ui, CompFactory as cf, hsl} from "../../src/bilza.js";
 
 let bil = new Bilza("bilza", 70);
 
-const grid = bil.alwaysOn().grid(10,10,"grey");
-
 const comp = bil.add(0,65).grid(10,10,);
+
+comp.showBackground.set(true);
+comp.colorBackground.set(hsl(240,0,0));
+comp.border.set(2);
+comp.colorNumbers.set(hsl(0));
+comp.colorBorder.set(hsl(60))
+
 comp.align(1,1);
 comp.alignRotate(1,1);
 
-comp.showBackground.set(true);
-comp.colorBackground.set(hsl(120,20));
 
 comp.setPaddings(10);
-
-comp.border.set(4);
-comp.colorBorder.set(hsl(0));
 
 comp.x.set(50);
 comp.y.set(50);

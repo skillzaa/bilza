@@ -54,14 +54,15 @@ bil.resizeCanvas(640 , 360);
 
 const grid = bil.alwaysOn().grid(10,10,"grey");
 
-const comp = bil.add(0,65).grid(10,10,hsl(0));
+const comp = bil.add(0,65).grid(10,10,hsl(60));
 //---most important line should be applied immediately after creation
 comp.setRespDims(false);
 comp.setPaddings(15);
 comp.showBackground.set(true);
-comp.colorBackground.set(hsl(240));
+comp.colorBackground.set(hsl(240,0,0));
 comp.border.set(2);
-comp.colorBorder.set(hsl(0))
+comp.colorNumbers.set(hsl(0));
+comp.colorBorder.set(hsl(60))
 
 
 comp.align(1,1);

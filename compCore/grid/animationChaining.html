@@ -65,11 +65,13 @@ comp.colorNumbers.set(hsl(60));
 comp.colorBorder.set(hsl(0));
 comp.colorBackground.set(hsl(240));
 
+const compWidth = 30;
+const compHeight = 20;
     //===---Animation Settings
     comp.x.set(0);
     comp.y.set(0);
-    comp.width.set(30);
-    comp.height.set(20);
+    comp.width.set(compWidth);
+    comp.height.set(compHeight);
     comp.x.animate(1, 5, 0, 90);
     comp.y.animate(6, 10, 0, 90);
     comp.x.animate(11, 15, 90, 0);

@@ -8,7 +8,9 @@ export default class Grid extends BaseComponent {
         this.width.set(100);
         this.height.set(100);
         this.cellWidth = new AniNumber(cellWidth);
+        this.cellWidth.setResponsive();
         this.cellHeight = new AniNumber(cellHeight);
+        this.cellHeight.setResponsive();
         this.colorHorizontalLines = new AniColor(color);
         this.colorVerticalLines = new AniColor(color);
         this.colorNumbers = new AniColor("black");
