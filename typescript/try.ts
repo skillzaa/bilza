@@ -7,9 +7,13 @@ bil.alwaysOn().frameCounter(0);
 bil.background.color.set(hsl(240,30,10));
 
 //=============================================
-const title = bil.add(0,15).text("Markers",hsl(120))
-    .templ.hdg(1,0).entryAni.topIn().exitAni.fadeOut();
+const title = bil.add(0,15).text("Markers",hsl(120));
 
+const rect = bil.add(0,60).fillRect("green");
+rect.x.set(10);
+rect.y.set(10);
+
+rect.x.animate(0,10,10,90);
 // console.log(title.constructor.name)    
 // console.log("title instanceof Text", title instanceof Text)    
 

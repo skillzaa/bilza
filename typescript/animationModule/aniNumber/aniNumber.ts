@@ -24,11 +24,11 @@ this.maxValue  = maxValue;
 
 }
 setResponsive(theWhole :number){
-    this.isResponsive == true;
+    this.isResponsive = true;
     this.theWhole = theWhole;     
 }
 setNonResponsive(){
-    this.isResponsive == false;    
+    this.isResponsive = false;    
 this.theWhole = null;
 }
 public value():number{

@@ -12,11 +12,11 @@ export default class AniNumber extends AniProp {
         this.maxValue = maxValue;
     }
     setResponsive(theWhole) {
-        this.isResponsive == true;
+        this.isResponsive = true;
         this.theWhole = theWhole;
     }
     setNonResponsive() {
-        this.isResponsive == false;
+        this.isResponsive = false;
         this.theWhole = null;
     }
     value() {
