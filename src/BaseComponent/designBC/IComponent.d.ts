@@ -1,5 +1,5 @@
 import { DrawLayer, Pack } from "../../bilza.js";
-import { AniNumber, AniPerc, AniBoolean, AniColor } from "../../animationModule/animations.js";
+import { AniNumber, AniBoolean, AniColor } from "../../animationModule/animations.js";
 export default interface IComponent {
     readonly id: string;
     drawLayer: DrawLayer;
@@ -7,10 +7,10 @@ export default interface IComponent {
     selected: boolean;
     visible: AniBoolean;
     version: string;
-    width: AniNumber | AniPerc;
-    height: AniNumber | AniPerc;
-    x: AniNumber | AniPerc;
-    y: AniNumber | AniPerc;
+    width: AniNumber;
+    height: AniNumber;
+    x: AniNumber;
+    y: AniNumber;
     border: AniNumber;
     rotation: AniNumber;
     opacity: AniNumber;
@@ -18,9 +18,6 @@ export default interface IComponent {
     colorBackground: AniColor;
     colorBorder: AniColor;
     color: AniColor;
-    setRespPadding(tf: boolean): boolean;
-    setRespDims(tf: boolean): boolean;
-    setRespLoc(tf: boolean): boolean;
     init(p: Pack): boolean;
     align(x: number, y: number): void;
     alignRotate(x: number, y: number): void;

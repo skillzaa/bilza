@@ -1,6 +1,6 @@
 import {Pack} from "../bilza.js";
 
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 import RawText from "../components/text/text.js";

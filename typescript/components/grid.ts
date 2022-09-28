@@ -1,13 +1,13 @@
 import {Pack,DrawLayer,} from "../bilza.js";
 
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 export default class Grid extends BaseComponent {
     lineDash :number[];
     
-    cellWidth : AniNumber | AniPerc;    
-    cellHeight :AniNumber | AniPerc;
+    cellWidth : AniNumber;    
+    cellHeight :AniNumber;
     //--Lines---
     showHorizontalLines :AniBoolean ;   
     showVerticalLines :AniBoolean ;   
@@ -29,8 +29,9 @@ this.fontSize = new AniNumber(12);
 this.width.set(100);
 this.height.set(100);
 
-this.cellWidth = new AniPerc(cellWidth);    
-this.cellHeight = new AniPerc(cellHeight);
+this.cellWidth = new AniNumber(cellWidth);    
+// this.cellWidth.setResponsive()
+this.cellHeight = new AniNumber(cellHeight);
 
 this.colorHorizontalLines = new AniColor(color);   
 this.colorVerticalLines = new AniColor(color);   
@@ -51,12 +52,11 @@ super.init(p);
 if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }
-if (this.cellWidth instanceof AniPerc && this.cellHeight instanceof AniPerc ){
-    this.cellWidth.init(this.contentWidth());//canvasWidth
-    this.cellHeight.init(this.contentHeight());//canvasHeight
-}
+    this.cellWidth.setResponsive(this.contentWidth());//canvasWidth
+    this.cellHeight.setResponsive(this.contentHeight());//canvasHeight
 return true;
 }   
+
 update(msDelta: number, p: Pack): boolean {
 //--11 props updated (no need for lineDash)    
 this.cellWidth.update(msDelta);
@@ -90,17 +90,17 @@ this.postDraw(p);
 return true;
 }    
 
-setRespCellDims(tf :boolean=true,cellWidth :number=10,cellHeight :number=10):boolean{
-    if (tf == true){
-        this.cellWidth = new AniPerc(cellWidth);
-        this.cellHeight = new AniPerc(cellHeight);
-        return true;
-    } else {
-        this.cellWidth = new AniNumber(cellWidth);
-        this.cellHeight = new AniNumber(cellHeight);
-        return false;
-    }   
-}
+// setRespCellDims(tf :boolean=true,cellWidth :number=10,cellHeight :number=10):boolean{
+//     if (tf == true){
+//         this.cellWidth = new AniPerc(cellWidth);
+//         this.cellHeight = new AniPerc(cellHeight);
+//         return true;
+//     } else {
+//         this.cellWidth = new AniNumber(cellWidth);
+//         this.cellHeight = new AniNumber(cellHeight);
+//         return false;
+//     }   
+// }
 
 draw_horizontal(p:Pack){
 let y = 0;

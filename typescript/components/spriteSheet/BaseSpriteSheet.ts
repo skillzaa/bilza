@@ -1,6 +1,6 @@
 import {Pack,DrawLayer,BaseComponent } from "../../bilza.js";
 
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
 
 export default class BaseSpriteSheet extends BaseComponent {
 img :HTMLImageElement;

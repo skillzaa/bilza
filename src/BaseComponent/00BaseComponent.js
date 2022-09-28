@@ -1,5 +1,4 @@
 import RotateObj from "./60rotateObj.js";
-import { AniPerc } from "../animationModule/animations.js";
 import EntryAni from "../templates/entryAni.js";
 import ExitAni from "../templates/exitAni.js";
 export default class BaseComponent extends RotateObj {
@@ -13,23 +12,10 @@ export default class BaseComponent extends RotateObj {
     init(p) {
         this._canvasWidth = p.canvasWidth();
         this._canvasHeight = p.canvasHeight();
-        if (this.width instanceof AniPerc && this.height instanceof AniPerc) {
-            this.width.init(this.canvasWidth());
-            this.height.init(this.canvasHeight());
-        }
-        if (this.x instanceof AniPerc && this.y instanceof AniPerc) {
-            this.x.init(this.canvasWidth());
-            this.y.init(this.canvasHeight());
-        }
-        if (this.paddingLeft instanceof AniPerc &&
-            this.paddingRight instanceof AniPerc &&
-            this.paddingTop instanceof AniPerc &&
-            this.paddingBottom instanceof AniPerc) {
-            this.paddingLeft.init(this.canvasWidth());
-            this.paddingRight.init(this.canvasWidth());
-            this.paddingTop.init(this.canvasHeight());
-            this.paddingBottom.init(this.canvasHeight());
-        }
+        this.width.setResponsive(this.canvasWidth());
+        this.height.setResponsive(this.canvasHeight());
+        this.x.setResponsive(this.canvasWidth());
+        this.y.setResponsive(this.canvasHeight());
         return true;
     }
     update(msDelta, p) {

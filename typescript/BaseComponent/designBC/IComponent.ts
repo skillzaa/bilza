@@ -1,6 +1,6 @@
 import {DrawLayer,Pack,Style} from "../../bilza.js";
 
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
 /**
  * An IComponent is used and drawn. All the logic inside it has be deal with update and drawing- no business logic etc inside. That will come when we build systems.
  * The components needs to be like lego pieces exposing just this.xyz and reacting to that.
@@ -19,10 +19,10 @@ export default interface IComponent{
 /**
  * 30-july-2022 : added since now all those component which implement this can be widened and shortened (scaled) using width.animate height.animate.
  */
-    width :AniNumber | AniPerc;
-    height :AniNumber | AniPerc;
-    x :AniNumber | AniPerc;
-    y :AniNumber | AniPerc;
+    width :AniNumber ;
+    height :AniNumber;
+    x :AniNumber ;
+    y :AniNumber ;
     border :AniNumber;
     rotation :AniNumber;
     opacity :AniNumber;
@@ -35,9 +35,10 @@ export default interface IComponent{
     // style:Style; 
 ////////////////////////////////////////
 // usePercentages is used in xy module and entire system is built around it. It means that using percentages OR pixes both are possible in all components.
-setRespPadding(tf :boolean):boolean;
-setRespDims(tf :boolean):boolean;
-setRespLoc(tf :boolean):boolean;    
+
+// setRespPadding(tf :boolean):boolean;
+// setRespDims(tf :boolean):boolean;
+// setRespLoc(tf :boolean):boolean;    
 //=============--- METHODS--------    
 //---28-june-2022 --Basic methods
 //--30-june-2022 the user should not see init. This is just for the engine and for component creator --??? what to do aboit it? i may need 2 interfaces

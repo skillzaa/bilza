@@ -1,6 +1,6 @@
 import {DrawLayer} from "../bilza.js";
 
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 
 /**
  * Reviewed on 14-july-2022 == > In future I may need to break base component class into 2. one facing the engine and other facing the child classes.
@@ -47,8 +47,8 @@ public opacity :AniNumber;
 public color :AniColor;
 
 
-public width :AniPerc | AniNumber;
-public height :AniPerc | AniNumber;
+public width :AniNumber;
+public height :AniNumber;
 
 
 //--this will come in handy during using the lib with gui and while making interactive tools.
@@ -61,13 +61,13 @@ public borderContentArea :AniNumber;
 public colorContentAreaBorder :AniColor;
 
 //---Padding
-public paddingTop       :AniPerc | AniNumber;        
-public paddingBottom    :AniPerc | AniNumber;         
-public paddingRight     :AniPerc | AniNumber;         
-public paddingLeft      :AniPerc | AniNumber;         
+public paddingTop       :AniNumber;        
+public paddingBottom    :AniNumber;         
+public paddingRight     :AniNumber;         
+public paddingLeft      :AniNumber;         
 //---Loc
-public x :AniPerc | AniNumber; 
-public y :AniPerc | AniNumber;
+public x :AniNumber; 
+public y :AniNumber;
 
 //---Basic colors
 public colorBackground :AniColor;
@@ -89,8 +89,8 @@ constructor(){
     
     this.interactive = false; // this is for mouse click etc
     
-    this.width = new AniPerc(10);
-    this.height = new AniPerc(10);
+    this.width = new AniNumber(10);
+    this.height = new AniNumber(10);
     
     this.rotation = new AniNumber(0);
     this.opacity = new AniNumber(100);
@@ -110,8 +110,8 @@ this.selected = false;
 this.visible = new AniBoolean(true);
 
 //-----------Location x and y
-this.x = new AniPerc(0);
-this.y = new AniPerc(0);
+this.x = new AniNumber(0);
+this.y = new AniNumber(0);
 //-----------padding
 // this.responsivePadding = true;
 this.paddingTop =    new AniNumber(0);
@@ -133,49 +133,49 @@ this.showBackground = new AniBoolean(false);
 
 //////////////////////////////////////////
 //////////////////////////////////////////
-setRespPadding(tf :boolean=false):boolean{
-    if (tf == true){
-        this.paddingTop = new AniPerc(0);
-        this.paddingBottom = new AniPerc(0); 
-        this.paddingRight = new AniPerc(0);
-        this.paddingLeft  = new AniPerc(0);
-        return true;
-    } else {
-        this.paddingTop = new    AniNumber(0);
-        this.paddingBottom = new AniNumber(0); 
-        this.paddingRight = new  AniNumber(0);
-        this.paddingLeft  = new  AniNumber(0);
-        return false;
-    }       
-}
-setRespLoc(tf :boolean=true):boolean{
-const xOldVal = this.x.value();
-const yOldVal = this.y.value();
-if (tf == true){
-    this.x = new AniPerc(0);
-    this.y = new AniPerc(0);
-    this.x.set(xOldVal);
-    this.y.set(yOldVal);
-    return true;
-} else {
-    this.x = new AniNumber(0);
-    this.y = new AniNumber(0);
-    this.x.set(xOldVal);
-    this.y.set(yOldVal);
-    return false;
-}   
-}
+// setRespPadding(tf :boolean=false):boolean{
+//     if (tf == true){
+//         this.paddingTop = new AniPerc(0);
+//         this.paddingBottom = new AniPerc(0); 
+//         this.paddingRight = new AniPerc(0);
+//         this.paddingLeft  = new AniPerc(0);
+//         return true;
+//     } else {
+//         this.paddingTop = new    AniNumber(0);
+//         this.paddingBottom = new AniNumber(0); 
+//         this.paddingRight = new  AniNumber(0);
+//         this.paddingLeft  = new  AniNumber(0);
+//         return false;
+//     }       
+// }
+// setRespLoc(tf :boolean=true):boolean{
+// const xOldVal = this.x.value();
+// const yOldVal = this.y.value();
+// if (tf == true){
+//     this.x = new AniPerc(0);
+//     this.y = new AniPerc(0);
+//     this.x.set(xOldVal);
+//     this.y.set(yOldVal);
+//     return true;
+// } else {
+//     this.x = new AniNumber(0);
+//     this.y = new AniNumber(0);
+//     this.x.set(xOldVal);
+//     this.y.set(yOldVal);
+//     return false;
+// }   
+// }
 
-setRespDims(tf :boolean=true):boolean{
-    if (tf == true){
-        this.width = new AniPerc(0);
-        this.height = new AniPerc(0);
-        return true;
-    } else {
-        this.width = new AniNumber(0);
-        this.height = new AniNumber(0);
-        return false;
-    }   
-}
+// setRespDims(tf :boolean=true):boolean{
+//     if (tf == true){
+//         this.width = new AniPerc(0);
+//         this.height = new AniPerc(0);
+//         return true;
+//     } else {
+//         this.width = new AniNumber(0);
+//         this.height = new AniNumber(0);
+//         return false;
+//     }   
+// }
 
 }//claass

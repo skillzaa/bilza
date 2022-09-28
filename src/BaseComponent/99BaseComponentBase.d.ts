@@ -1,5 +1,5 @@
 import { DrawLayer } from "../bilza.js";
-import { AniNumber, AniPerc, AniBoolean, AniColor } from "../animationModule/animations.js";
+import { AniNumber, AniBoolean, AniColor } from "../animationModule/animations.js";
 import Style from "../design/style.js";
 import { XAlignOpt } from "./designBC/xAlignOpt.js";
 import { YAlignOpt } from "./designBC/yAlignOpt.js";
@@ -20,24 +20,21 @@ export default class BaseComponentBase {
     rotation: AniNumber;
     opacity: AniNumber;
     color: AniColor;
-    width: AniPerc | AniNumber;
-    height: AniPerc | AniNumber;
+    width: AniNumber;
+    height: AniNumber;
     selected: boolean;
     border: AniNumber;
     colorBorder: AniColor;
     borderContentArea: AniNumber;
     colorContentAreaBorder: AniColor;
-    paddingTop: AniPerc | AniNumber;
-    paddingBottom: AniPerc | AniNumber;
-    paddingRight: AniPerc | AniNumber;
-    paddingLeft: AniPerc | AniNumber;
-    x: AniPerc | AniNumber;
-    y: AniPerc | AniNumber;
+    paddingTop: AniNumber;
+    paddingBottom: AniNumber;
+    paddingRight: AniNumber;
+    paddingLeft: AniNumber;
+    x: AniNumber;
+    y: AniNumber;
     colorBackground: AniColor;
     showBackground: AniBoolean;
     constructor();
-    setRespPadding(tf?: boolean): boolean;
-    setRespLoc(tf?: boolean): boolean;
-    setRespDims(tf?: boolean): boolean;
 }
 //# sourceMappingURL=99BaseComponentBase.d.ts.map

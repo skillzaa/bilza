@@ -1,6 +1,5 @@
 import { IComponent,Pack } from "../bilza.js";
 import RotateObj from "./60rotateObj.js";
-import { AniPerc } from "../animationModule/animations.js";
 import EntryAni from "../templates/entryAni.js";
 import ExitAni from "../templates/exitAni.js";
 
@@ -27,27 +26,18 @@ init(p: Pack): boolean {
 this._canvasWidth =  p.canvasWidth();  
 this._canvasHeight =  p.canvasHeight();
 
-if (this.width instanceof AniPerc && this.height instanceof AniPerc){
-    this.width.init(this.canvasWidth());//canvasWidth
-    this.height.init(this.canvasHeight());//canvasHeight
-}
+    this.width.setResponsive(this.canvasWidth());//canvasWidth
+    this.height.setResponsive(this.canvasHeight());//canvasHeight
 
-if (this.x instanceof AniPerc && this.y instanceof AniPerc){
-    this.x.init(this.canvasWidth());//canvasWidth
-    this.y.init(this.canvasHeight());//canvasHeight
-}
+    this.x.setResponsive(this.canvasWidth());//canvasWidth
+    this.y.setResponsive(this.canvasHeight());//canvasHeight
 //paddings
-if (this.paddingLeft instanceof AniPerc &&
-    this.paddingRight instanceof AniPerc &&
-    this.paddingTop instanceof AniPerc &&
-    this.paddingBottom instanceof AniPerc ){
     
-    this.paddingLeft.init(this.canvasWidth());
-    this.paddingRight.init(this.canvasWidth());
-    //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
-    this.paddingTop.init(this.canvasHeight());
-    this.paddingBottom.init(this.canvasHeight());
-    }
+    // this.paddingLeft.setResponsive(this.canvasWidth());
+    // this.paddingRight.setResponsive(this.canvasWidth());
+    // //--- DO NOT FEED CANVASWIDTH HERE its for canvasHeight
+    // this.paddingTop.setResponsive(this.canvasHeight());
+    // this.paddingBottom.setResponsive(this.canvasHeight());
 return true;
 }
 

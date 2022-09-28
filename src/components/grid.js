@@ -1,5 +1,5 @@
 import { DrawLayer, } from "../bilza.js";
-import { AniNumber, AniPerc, AniBoolean, AniColor, } from "../animationModule/animations.js";
+import { AniNumber, AniBoolean, AniColor, } from "../animationModule/animations.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class Grid extends BaseComponent {
     constructor(cellWidth = 10, cellHeight = 10, color = "grey") {
@@ -7,8 +7,8 @@ export default class Grid extends BaseComponent {
         this.fontSize = new AniNumber(12);
         this.width.set(100);
         this.height.set(100);
-        this.cellWidth = new AniPerc(cellWidth);
-        this.cellHeight = new AniPerc(cellHeight);
+        this.cellWidth = new AniNumber(cellWidth);
+        this.cellHeight = new AniNumber(cellHeight);
         this.colorHorizontalLines = new AniColor(color);
         this.colorVerticalLines = new AniColor(color);
         this.colorNumbers = new AniColor("black");
@@ -25,10 +25,8 @@ export default class Grid extends BaseComponent {
         if (this.canvasWidth == null || this.canvasHeight == null) {
             throw new Error("init error");
         }
-        if (this.cellWidth instanceof AniPerc && this.cellHeight instanceof AniPerc) {
-            this.cellWidth.init(this.contentWidth());
-            this.cellHeight.init(this.contentHeight());
-        }
+        this.cellWidth.setResponsive(this.contentWidth());
+        this.cellHeight.setResponsive(this.contentHeight());
         return true;
     }
     update(msDelta, p) {
@@ -55,18 +53,6 @@ export default class Grid extends BaseComponent {
         }
         this.postDraw(p);
         return true;
-    }
-    setRespCellDims(tf = true, cellWidth = 10, cellHeight = 10) {
-        if (tf == true) {
-            this.cellWidth = new AniPerc(cellWidth);
-            this.cellHeight = new AniPerc(cellHeight);
-            return true;
-        }
-        else {
-            this.cellWidth = new AniNumber(cellWidth);
-            this.cellHeight = new AniNumber(cellHeight);
-            return false;
-        }
     }
     draw_horizontal(p) {
         let y = 0;

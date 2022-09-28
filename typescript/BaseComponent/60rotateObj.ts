@@ -1,6 +1,6 @@
 import {Pack,IComponent,XAlignOpt,YAlignOpt} from "../bilza.js";
 
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 import Loc from "./70loc.js";
 
 export default class RotateObj extends Loc{

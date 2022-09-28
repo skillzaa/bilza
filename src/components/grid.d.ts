@@ -1,10 +1,10 @@
 import { Pack } from "../bilza.js";
-import { AniNumber, AniPerc, AniBoolean, AniColor } from "../animationModule/animations.js";
+import { AniNumber, AniBoolean, AniColor } from "../animationModule/animations.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 export default class Grid extends BaseComponent {
     lineDash: number[];
-    cellWidth: AniNumber | AniPerc;
-    cellHeight: AniNumber | AniPerc;
+    cellWidth: AniNumber;
+    cellHeight: AniNumber;
     showHorizontalLines: AniBoolean;
     showVerticalLines: AniBoolean;
     lineWidthVertical: AniNumber;
@@ -18,7 +18,6 @@ export default class Grid extends BaseComponent {
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    setRespCellDims(tf?: boolean, cellWidth?: number, cellHeight?: number): boolean;
     draw_horizontal(p: Pack): void;
     draw_vertical(p: Pack): void;
     drawGridLine(p: Pack, x1: number, y1: number, x2: number, y2: number, theNumber: number, hv: string): void;

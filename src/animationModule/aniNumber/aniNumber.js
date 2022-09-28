@@ -6,8 +6,42 @@ import Oscillate from "./filters/oscillatets.js";
 export default class AniNumber extends AniProp {
     constructor(initialValue = 0, minValue = -3000, maxValue = 3000) {
         super(initialValue);
+        this.isResponsive = false;
+        this.theWhole = null;
         this.minValue = minValue;
         this.maxValue = maxValue;
+    }
+    setResponsive(theWhole) {
+        this.isResponsive == true;
+        this.theWhole = theWhole;
+    }
+    setNonResponsive() {
+        this.isResponsive == false;
+        this.theWhole = null;
+    }
+    value() {
+        if (this._value == null) {
+            if (this.isResponsive == false) {
+                return this.defaultFilter.animatedValue();
+            }
+            else {
+                return this.responsiveValue(this.defaultFilter.animatedValue());
+            }
+        }
+        else {
+            if (this.isResponsive == false) {
+                return this._value;
+            }
+            else {
+                return this.responsiveValue(this._value);
+            }
+        }
+    }
+    responsiveValue(perc) {
+        if (this.theWhole == null) {
+            throw new Error("theWhole is null");
+        }
+        return ((this.theWhole / 100) * perc);
     }
     animate(StartSec, endSec, startValue, endValue) {
         if (startValue < endValue) {

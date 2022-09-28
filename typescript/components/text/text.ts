@@ -1,6 +1,6 @@
 import {Pack,BaseComponent,DrawLayer,FontFamily } from "../../bilza.js";
 
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js"; 
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js"; 
 import TextTempl from "./textTempl.js";
 import TextTheme from "./textTheme.js";
 

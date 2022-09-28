@@ -1,5 +1,5 @@
 import {Pack } from "../../bilza.js";
-import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
 
 import BaseSpriteSheet from "./BaseSpriteSheet.js";
 
