@@ -9,5 +9,11 @@ constructor(){
     // super();
 }
 
+draw(){
 
+}
+
+start(){
+    
+}
 }

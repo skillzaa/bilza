@@ -12,7 +12,8 @@ public readonly startTime :number | StartTimeObj;
 public readonly endTime :number | EndTimeObj;
 private readonly canvasWidth :number;
 private readonly canvasHeight :number;
-public alignment :Alignment;
+public align :Alignment;
+public alignRotate :Alignment;
 ///////////////////////////////////////////////////
 constructor(startTime :number | StartTimeObj,
     endTime :number | EndTimeObj,
@@ -24,7 +25,8 @@ this.endTime = endTime;
 this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
 
-this.alignment = new Alignment(0,0);
+this.align = new Alignment(0,0);
+this.alignRotate = new Alignment(0,0);
 }
 
     
