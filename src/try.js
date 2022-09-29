@@ -1,3 +1,4 @@
-import Bilza from "./compilerModule/facade/fascade.js";
+import Bilza from "./facade/fascade.js";
 const bil = new Bilza("bilza");
-bil.addTextComp(0, 60);
+const comp = bil.add(0, 60).fillRect("red");
+console.log("comp", comp);

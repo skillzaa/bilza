@@ -1,8 +1,10 @@
 import IComponent  from "./IComponent.js";
 import getCanvasElement from "../functions/getCanvasElement.js";
-import StartTimeObj from "./baseComponentDB/startTimeObj.js";
-import EndTimeObj from "./baseComponentDB/endTimeObj.js";
-import BaseCompDb from "./baseComponentDB/baseCompDb.js";
+import StartTimeObj from "./compDB/startTimeObj.js";
+import EndTimeObj from "./compDB/endTimeObj.js";
+import BaseCompDb from "./compDB/compDb.js";
+import CompFactory from "./compFactory.js";
+
 ///////////////////////////////////////////////////
 
 export default class Fascade {
@@ -24,14 +26,10 @@ this.canvasWidth = 680;
 this.canvasHeight = 320;
 }
 
-
-addTextComp(startTime :number | StartTimeObj, endTime :number | EndTimeObj){
-const base = new BaseCompDb(startTime,endTime,this.canvasWidth,this.canvasHeight);
-this.comps.push(base);
-console.log(this.comps);
-
+add(secStart :number,secEnd :number):CompFactory{
+const cf = new CompFactory(secStart,secEnd,this.comps,"add",this.canvasWidth,this.canvasHeight);
+return cf;
 }
-
 
     
 }

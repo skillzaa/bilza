@@ -1,0 +1,42 @@
+import AniNumberDb from "./propTypes/AniNumberDb.js";
+import AniColorDb from "./propTypes/AniColorDb.js";
+import AniBooleanDb from "./propTypes/AniBooleanDb.js";
+export default interface IComponent {
+    readonly id: string;
+    border: AniNumberDb;
+    colorBackground: AniColorDb;
+    colorBorder: AniColorDb;
+    color: AniColorDb;
+    selected: boolean;
+    height: AniNumberDb;
+    rotation: AniNumberDb;
+    opacity: AniNumberDb;
+    paddingTop: AniNumberDb;
+    paddingBottom: AniNumberDb;
+    paddingRight: AniNumberDb;
+    paddingLeft: AniNumberDb;
+    showBackground: AniBooleanDb;
+    visible: AniBooleanDb;
+    version: string;
+    width: AniNumberDb;
+    x: AniNumberDb;
+    y: AniNumberDb;
+    drawLayer: 0 | 1 | 2 | 3 | 4;
+    align(x: number, y: number): void;
+    alignRotate(x: number, y: number): void;
+    compWidth(): number;
+    compWidthPix(): number;
+    compHeight(): number;
+    compHeightPix(): number;
+    contentWidth(): number;
+    contentWidthPix(): number;
+    contentHeight(): number;
+    contentHeightPix(): number;
+    getDuration(): number;
+    getStartTime(inMilliSec?: boolean): number;
+    getEndTime(inMilliSec?: boolean): number;
+    goto(atFrame: number, x: number, y: number): boolean;
+    animate(secFrom: number, secTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
+    setDrawLayer(drawLayerNumber: 0 | 1 | 2 | 3 | 4): 0 | 1 | 2 | 3 | 4;
+}
+//# sourceMappingURL=IComponent.d.ts.map

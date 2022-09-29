@@ -23,10 +23,10 @@ export default interface IComponent {
     alignRotate(x: number, y: number): void;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    compWidth(): number;
     compWidthPerc(): number;
-    compHeight(): number;
     compHeightPerc(): number;
+    compWidth(): number;
+    compHeight(): number;
     contentWidth(): number;
     contentHeight(): number;
     charsWidth: null | ((chars: string, fontSize: number, fontName: string) => number);

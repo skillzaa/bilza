@@ -6,26 +6,27 @@ import EndTimeObj from "./endTimeObj.js";
 ///////////////////////////////////////////////////
 
 
-export default class BaseCompDb extends CoreProps implements IComponent {
+export default class CompDb extends CoreProps implements IComponent {
 ///////////////////////////////////////////////////
 
 public readonly startTime :number | StartTimeObj;
 public readonly endTime :number | EndTimeObj;
+public readonly insertAction :"add"|"append";
 private readonly canvasWidth :number;
 private readonly canvasHeight :number;
 ////////////////////////////////////////
 public alignObj :Alignment;
 public alignRotateObj :Alignment;
 ///////////////////////////////////////////////////
-constructor(startTime :number | StartTimeObj,
-    endTime :number | EndTimeObj,
-    canvasWidth :number,canvasHeight :number){
+constructor(startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,insertAction :"add"|"append"){
         
 super();
 this.startTime = startTime;
 this.endTime = endTime;
 this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
+this.canvasHeight = canvasHeight;
+this.insertAction = insertAction;
 
 this.alignObj = new Alignment(0,0);
 this.alignRotateObj = new Alignment(0,0);

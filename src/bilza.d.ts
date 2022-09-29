@@ -1,5 +1,5 @@
 import Bilza from "./engine/engine.js";
-import CompFactory from "./engine/insert/compFactory.js";
+import CompFactory from "./facade/compFactory.js";
 import Ui from "./ui/ui.js";
 import Pack from "./pack/pack.js";
 import { DrawLayer } from "./design/drawLayer.js";
