@@ -1,4 +1,8 @@
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import AniNumberDb from "./propTypes/AniNumberDb.js";
+import AniStringDb from "./propTypes/AniStringDb.js";
+import AniColorDb from "./propTypes/AniColorDb.js";
+import AniBooleanDb from "./propTypes/AniBooleanDb.js";
+
 import Pack from "../pack/pack.js";
 //--This is actuall IFsacadeComp but since its for public to appropriate name
 export default interface IComponent{
@@ -6,24 +10,24 @@ export default interface IComponent{
 //--25-9-2022 -- 19 CORE props 
 ////////////////////////////////////////////    
     readonly id :string;
-    border :AniNumber;
-    colorBackground :AniColor;
-    colorBorder :AniColor;
-    color :AniColor;
+    border :AniNumberDb;
+    colorBackground :AniColorDb;
+    colorBorder :AniColorDb;
+    color :AniColorDb;
     selected: boolean;
-    height :AniNumber;
-    rotation :AniNumber;
-    opacity :AniNumber;
-    paddingTop    :AniNumber;        
-    paddingBottom :AniNumber;         
-    paddingRight  :AniNumber;         
-    paddingLeft   :AniNumber;         
-    showBackground :AniBoolean;
-    visible: AniBoolean;
+    height :AniNumberDb;
+    rotation :AniNumberDb;
+    opacity :AniNumberDb;
+    paddingTop    :AniNumberDb;        
+    paddingBottom :AniNumberDb;         
+    paddingRight  :AniNumberDb;         
+    paddingLeft   :AniNumberDb;         
+    showBackground :AniBooleanDb;
+    visible: AniBooleanDb;
     version :string;
-    width :AniNumber;
-    x :AniNumber;
-    y :AniNumber;
+    width :AniNumberDb;
+    x :AniNumberDb;
+    y :AniNumberDb;
 ////////////////////////////////////////////
 //--29-9-2022 -- 1 Additional props 
 ////////////////////////////////////////////    
@@ -67,6 +71,8 @@ animate(secFrom :number,secTo :number,
     xFrom :number,xTo :number, 
     yFrom :number,yTo :number,
     ):boolean;
+setDrawLayer(drawLayerNumber :0|1|2|3|4):0|1|2|3|4;
+
 ///////////////////////////////////////////
 // charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 

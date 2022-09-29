@@ -14,24 +14,26 @@ public border :AniNumberDb;
 public colorBackground :AniColorDb;
 public colorBorder :AniColorDb;
 public color :AniColorDb;
+public drawLayer :0|1|2|3|4;
 public selected: boolean;
 public height :AniNumberDb;
 public rotation :AniNumberDb;
 public opacity :AniNumberDb;
+public paddingTop    :AniNumberDb;        
+public paddingBottom :AniNumberDb;         
+public paddingRight  :AniNumberDb;         
+public paddingLeft   :AniNumberDb;         
 public showBackground :AniBooleanDb;
 public visible: AniBooleanDb;
 public version :string;
 public width :AniNumberDb;
 public x :AniNumberDb;
 public y :AniNumberDb;
-public paddingTop    :AniNumberDb;        
-public paddingBottom :AniNumberDb;         
-public paddingRight  :AniNumberDb;         
-public paddingLeft   :AniNumberDb;         
 
 
 constructor(){
 this.id = Math.random().toString(36).slice(2);
+this.drawLayer = 2;
 
 this.border = new AniNumberDb(0);
 this.colorBackground = new AniColorDb("white");

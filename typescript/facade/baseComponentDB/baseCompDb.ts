@@ -1,3 +1,4 @@
+import IComponent from "../IComponent.js";
 import CoreProps from "./coreProps.js";
 import Alignment from "./alignment.js";
 import StartTimeObj from "./startTimeObj.js";
@@ -5,15 +6,16 @@ import EndTimeObj from "./endTimeObj.js";
 ///////////////////////////////////////////////////
 
 
-export default class BaseCompDb extends CoreProps {
+export default class BaseCompDb extends CoreProps implements IComponent {
 ///////////////////////////////////////////////////
 
 public readonly startTime :number | StartTimeObj;
 public readonly endTime :number | EndTimeObj;
 private readonly canvasWidth :number;
 private readonly canvasHeight :number;
-public align :Alignment;
-public alignRotate :Alignment;
+////////////////////////////////////////
+public alignObj :Alignment;
+public alignRotateObj :Alignment;
 ///////////////////////////////////////////////////
 constructor(startTime :number | StartTimeObj,
     endTime :number | EndTimeObj,
@@ -25,9 +27,65 @@ this.endTime = endTime;
 this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
 
-this.align = new Alignment(0,0);
-this.alignRotate = new Alignment(0,0);
+this.alignObj = new Alignment(0,0);
+this.alignRotateObj = new Alignment(0,0);
+}
+align(x:number,y:number):void{
+
+}
+alignRotate(x:number,y:number):void{
+
 }
 
-    
+compWidth():number{
+    return 3;
+}
+compWidthPix():number{
+    return 3;
+}
+
+compHeight():number{
+    return 3;
+}
+compHeightPix():number{
+    return 3;
+}
+
+contentWidth():number{
+    return 3;
+}
+contentWidthPix():number{
+    return 3;
+}
+
+contentHeight():number{
+    return 3;
+}
+contentHeightPix():number{
+    return 3;
+}
+////////////////////////////////////////////
+getDuration():number{
+    return 3;
+}
+getStartTime(inMilliSec ?:boolean) :number{
+    return 3;
+}
+getEndTime(inMilliSec ?:boolean) :number{
+    return 3;
+}
+
+
+goto(atFrame :number,x :number , y :number):boolean{
+    return true;
+}
+
+animate(secFrom :number,secTo :number,xFrom :number,xTo :number, 
+    yFrom :number,yTo :number,):boolean{
+        return true;
+}  
+setDrawLayer(drawLayerNumber :0|1|2|3|4):0|1|2|3|4{
+    return 2;
+}      
+////////////////////////////////////////////    
 }

@@ -1,5 +1,5 @@
-import { IComponent } from "../../bilza.js";
-import getCanvasElement from "../../functions/getCanvasElement.js";
+import IComponent  from "./IComponent.js";
+import getCanvasElement from "../functions/getCanvasElement.js";
 import StartTimeObj from "./baseComponentDB/startTimeObj.js";
 import EndTimeObj from "./baseComponentDB/endTimeObj.js";
 import BaseCompDb from "./baseComponentDB/baseCompDb.js";
@@ -11,7 +11,7 @@ public readonly canvasWidthPerc :number;
 public readonly canvas :HTMLCanvasElement;
 public readonly canvasWidth :number;
 public readonly canvasHeight :number;
-private comps :BaseCompDb[];
+private comps :IComponent[];
 //////////////////////////////////////////////
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 this.comps = [];    
