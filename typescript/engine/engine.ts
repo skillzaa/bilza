@@ -13,16 +13,24 @@ import Insert from "./insert/insert.js";
 //zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 export default class Bilza {
 //==================PUBLIC API
+//--@compiler create and add comps into it including background
 public background :Background;
+//@compiler --insert is not req here we need it just in compiler
 public _insert:Insert; 
+//@compiler again move to compiler
 public set :Settings; 
+//@compiler create and give
 private soundTrackElement :HTMLAudioElement | null;
+//?/
 public soundTrack :string | null;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+// @compiler -- not needed here
 private duration : Duration; 
 private comps:Comps;//--009
 private stopWatch:StopWatch;
+//@compiler--create and handover
 private pack:Pack; //---later
+//@compiler--stay here
 private lastMsDelta:number; //---later
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

@@ -1,0 +1,1 @@
+//# sourceMappingURL=simpleslide.d.ts.map

@@ -1,5 +1,5 @@
 import Style from "../design/style.js";
-import getCanvasElement from "./getCanvasElement.js";
+import getCanvasElement from "../functions/getCanvasElement.js";
 import Position from "../design/Position.js";
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
@@ -10,7 +10,9 @@ private canvas :HTMLCanvasElement;
 private ctx :CanvasRenderingContext2D;
 private canvasId :string;
 public disableOpacity:boolean;
-constructor(canvasId :string,screenWidthInPercent=80){
+
+
+constructor(canvasId :string,screenWidthInPercent=70){
     
 this.canvasId = canvasId;  
 //--improve later   
