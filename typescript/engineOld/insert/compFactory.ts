@@ -2,7 +2,7 @@ import Grid from "../../components/grid.js";
 import Rect from "../../components/rect.js";
 import FillRect from "../../components/fillRect.js";
 import FrameCounter from "../../components/frameCounter.js";
-import ParticleSystem from "../../components/particleSystem.js";
+import ParticleSystem from "../../components/particleSystem.js"; 
 import Text from "../../components/text/text.js";
 import Pic from "../../components/pic.js";
 import Line from "../../components/line.js";

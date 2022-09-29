@@ -2,7 +2,7 @@ import {IComponent,Pack} from "../../bilza.js";
 import Comps from "../comps.js";
 import Duration from "./duration.js";
 import IScene from "../../scene/IScene.js";
-
+ 
 export default class Insert {
 private duration :Duration;     
 private comps :Comps;

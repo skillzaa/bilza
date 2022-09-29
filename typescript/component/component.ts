@@ -1,4 +1,4 @@
-import IComponent from "./IComponent.js";
+import IComponent from "./IEngineComp.js";
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 import Pack from "../pack/pack.js";
 import CoreProps from "./coreProps.js";

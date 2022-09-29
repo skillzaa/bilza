@@ -1,7 +1,7 @@
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 import Pack from "../pack/pack.js";
 
-export default interface IComponent{
+export default interface IEngineComp{
 ////////////////////////////////////////////
 //--25-9-2022 -- 19 CORE props 
 ////////////////////////////////////////////    
@@ -32,10 +32,5 @@ draw(p :Pack):boolean;
 //////////////////////////////////////////
 
 
-goto(atFrame :number,x :number , y :number):boolean; 
 
-animate(timeFrom :number,timeTo :number,
-    xFrom :number,xTo :number, 
-    yFrom :number,yTo :number,
-    ):boolean;
 }

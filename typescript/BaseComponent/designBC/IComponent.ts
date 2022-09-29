@@ -52,14 +52,14 @@ draw(p :Pack):boolean;
  *--30-june-2022 : widthInPix and heightInPix added.
  From now on there is not confusion. "width" and "height" (IF APPLIED BY THE COMPONENT) are both aniNumber| AniPerc where as the fol methods will just return the size of comp in pix
  */
-compWidth():number;
 compWidthPerc():number;
 
-compHeight():number;
 compHeightPerc():number;
 
 
 
+compWidth():number;
+compHeight():number;
 contentWidth():number;
 contentHeight():number;
 // contentWidthNR():number;
