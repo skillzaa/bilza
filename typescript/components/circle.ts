@@ -21,14 +21,14 @@ this.color.set(color) ;
 this.width.set(Math.floor(radius * 2)) ; 
 }
 
-init(p: Pack): boolean {
-super.init(p);
-//---theWhole of circle height = canvasWidth
-// this.height.setResponsive();
-this.height.init(this.canvasWidth());//canvasHeight
+// init(p: Pack): boolean {
+// super.init(p);
+// //---theWhole of circle height = canvasWidth
+// // this.height.setResponsive();
+// // this.height.init(this.canvasWidth());//canvasHeight
 
-return true;    
-}
+// return true;    
+// }
 //-------------------------over ride
 contentHeight(): number {
 return this.width.value();//since its circle and height = width     
@@ -39,7 +39,7 @@ update(msDelta: number, p: Pack): boolean {
     this.endAngle.update(msDelta);
     this.lineWidth.update(msDelta);
     //---??
-    this.height.set(this.width.valueNR());
+    this.height.set(this.width.value());
     return true;
 }
 

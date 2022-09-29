@@ -1,5 +1,27 @@
 import Bilza, {Ui,hsl,Scene,Scenes} from "./bilza.js";
 
+/*
+ * - Before init we do not know the width and height of the canvas. 
+ * - So how do we get the right-edge and bottom-edge
+ * - Why is it important to get the edges.
+ * - Option 1 : Use aspect ration and do not allow user to set width and height at random.
+ * - Option 2 : Allow user to use any values for canvas width and height just resolve everything at the last moment (everything gets translated at init). 
+ * Final::::
+ *      -- Have aspect ration but also allow users to resizeCanvas
+ *      -- Every thing resolves at the init dont try to resolve         anything before that.
+ *      -- We need to introduce classes which store data and get resolved at init. For example
+ *          - till-end (for inserting comps into )
+ *          - in-mid.
+ *          - at_percent
+ * Why is init not when the bil is created all the remainig code does not need to be written with the idea that the 
+ * --what about insert time and end time in percentages.
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
 let bil = new Bilza("bilza", 70);
 
 bil.alwaysOn().grid(10,10,"grey");
