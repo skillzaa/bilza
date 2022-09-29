@@ -1,1 +1,0 @@
-{"version":3,"file":"background.d.ts","sourceRoot":"","sources":["../../typescript/components/background.ts"],"names":[],"mappings":"AACA,OAAO,IAAI,MAAM,iBAAiB,CAAC;AACnC,OAAO,aAAa,MAAM,qCAAqC,CAAC;AAKhE,MAAM,CAAC,OAAO,OAAO,UAAW,SAAQ,aAAa;gBAGxC,KAAK,GAAE,MAAgB;IAMpC,IAAI,CAAC,CAAC,EAAC,IAAI,GAAE,OAAO;CAKnB"}

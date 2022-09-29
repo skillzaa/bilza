@@ -1,1 +1,0 @@
-{"version":3,"file":"initObj.d.ts","sourceRoot":"","sources":["../../../typescript/animationModule/aniPerc/initObj.ts"],"names":[],"mappings":"AAAA,OAAO,OAAO,MAAM,uBAAuB,CAAC;AAQ5C,MAAM,CAAC,OAAO,OAAO,OAAO;IAExB,OAAO,CAAC,UAAU,CAAoB;gBAE9B,UAAU,EAAC,OAAO,CAAC,MAAM,CAAC,EAAE;IAIxC,IAAI,CAAC,iBAAiB,EAAE,MAAM;IAgD9B,eAAe,CAAC,WAAW,EAAE,MAAM,EAAC,IAAI,EAAE,MAAM,GAAE,MAAM;CAIvD"}
