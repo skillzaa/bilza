@@ -1,1 +1,0 @@
-{"version":3,"file":"stopWatch.d.ts","sourceRoot":"","sources":["../../typescript/engine/stopWatch.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,OAAO,SAAS;IAC9B,OAAO,CAAC,SAAS,CAAU;IAG3B,OAAO,CAAC,kBAAkB,CAAgB;;IAO1C,SAAS,IAAG,OAAO;IAQnB,UAAU,IAAG,OAAO;IAGpB,IAAI,IAAG,OAAO;IAKd,KAAK,IAAG,OAAO;IAKR,UAAU,IAAI,MAAM;CAU1B"}

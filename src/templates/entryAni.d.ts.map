@@ -1,1 +1,0 @@
-{"version":3,"file":"entryAni.d.ts","sourceRoot":"","sources":["../../typescript/templates/entryAni.ts"],"names":[],"mappings":"AAIA,OAAO,aAAa,MAAM,qCAAqC,CAAC;AAEhE,MAAM,CAAC,OAAO,OAAO,eAAe;IACpC,OAAO,CAAE,IAAI,CAAe;gBAEhB,IAAI,EAAE,aAAa;IAG/B,MAAM;IAMN,OAAO;IAUP,QAAQ;IASR,KAAK;IAUL,MAAM;CASL"}
