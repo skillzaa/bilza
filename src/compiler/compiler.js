@@ -1,8 +1,9 @@
+import Engine from "../engine/engine.js";
 export default class Compiler {
     constructor() {
     }
-    draw() {
-    }
-    start() {
+    genEngine(engineDb) {
+        const engine = new Engine(engineDb.canvasId);
+        return engine;
     }
 }

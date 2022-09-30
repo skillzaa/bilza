@@ -4,7 +4,7 @@ import {AniNumber,AniBoolean,AniString,AniColor} from "../animationModule/animat
 
 export default class CoreProps {
 ////////////////////////////////////////////
-//--25-9-2022 -- 19 CORE props 
+//--30-9-2022 -- 21 CORE props 
 ////////////////////////////////////////////    
 public readonly id :string;
 public border :AniNumber;
@@ -25,7 +25,9 @@ public version :string;
 public width :AniNumber;
 public x :AniNumber;
 public y :AniNumber;
-
+/////////////////////
+public drawLayer : 0|1|2|3|4;  
+public alwaysOn : boolean;  
 
 constructor(){
 this.id = Math.random().toString(36).slice(2);
@@ -48,6 +50,10 @@ this.version = "0.1.2";
 this.width = new AniNumber(10);
 this.x = new AniNumber(0);
 this.y = new AniNumber(0);
+//////////////
+this.drawLayer =  2;  
+this.alwaysOn =  false;  
+
 }
 
 

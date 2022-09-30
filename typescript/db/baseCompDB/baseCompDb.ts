@@ -1,4 +1,4 @@
-import IComponent from "../IComponent.js";
+import IComponent from "../../facade/IComponent.js";
 import CoreProps from "./coreProps.js";
 import Alignment from "./alignment.js";
 import StartTimeObj from "./startTimeObj.js";
@@ -11,14 +11,14 @@ export default class CompDb extends CoreProps implements IComponent {
 
 public readonly startTime :number | StartTimeObj;
 public readonly endTime :number | EndTimeObj;
-public readonly insertAction :"add"|"append";
+public readonly insertAction :"add"|"append" | "alwaysOn";
 private readonly canvasWidth :number;
 private readonly canvasHeight :number;
 ////////////////////////////////////////
 public alignObj :Alignment;
 public alignRotateObj :Alignment;
 ///////////////////////////////////////////////////
-constructor(startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,insertAction :"add"|"append"){
+constructor(startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,insertAction :"add"|"append" | "alwaysOn"){
         
 super();
 this.startTime = startTime;

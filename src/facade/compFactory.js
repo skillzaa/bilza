@@ -1,4 +1,4 @@
-import FillRectDB from "./compsDB/fillRectDb.js";
+import FillRectDB from "../db/compsDB/fillRectDb.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight) {
         this.comps = comps;

@@ -8,8 +8,8 @@ export default class Insert {
     private charsWidth;
     constructor(comps: Comps, duration: Duration, charsWidth: (chars: string, fontSize: number, fontName: string) => number);
     addScene(scene: IScene): void;
-    add(comp: IComponent, startTime: number, endTime: number): IComponent;
-    append(comp: IComponent, duration: number): IComponent;
+    add(comp: IComponent, startTime: number, endTime: number): import("../../component/IEngineComp.js").default;
+    append(comp: IComponent, duration: number): import("../../component/IEngineComp.js").default;
     alwaysOn(comp: IComponent): IComponent;
 }
 //# sourceMappingURL=insert.d.ts.map

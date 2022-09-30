@@ -20,7 +20,11 @@ export default interface IEngineComp {
     width: AniNumber;
     x: AniNumber;
     y: AniNumber;
+    drawLayer: 0 | 1 | 2 | 3 | 4;
+    alwaysOn: boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
+    getStartTime(inSec: boolean): number;
+    getEndTime(inSec: boolean): number;
 }
 //# sourceMappingURL=IEngineComp.d.ts.map

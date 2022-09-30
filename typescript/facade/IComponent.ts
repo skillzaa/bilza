@@ -1,7 +1,7 @@
-import AniNumberDb from "./propTypes/AniNumberDb.js";
-import AniStringDb from "./propTypes/AniStringDb.js";
-import AniColorDb from "./propTypes/AniColorDb.js";
-import AniBooleanDb from "./propTypes/AniBooleanDb.js";
+import AniNumberDb from "../db/propTypes/AniNumberDb.js";
+import AniStringDb from "../db/propTypes/AniStringDb.js";
+import AniColorDb from "../db/propTypes/AniColorDb.js";
+import AniBooleanDb from "../db/propTypes/AniBooleanDb.js";
 
 import Pack from "../pack/pack.js";
 //--This is actuall IFsacadeComp but since its for public to appropriate name

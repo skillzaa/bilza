@@ -1,11 +1,11 @@
-import { DrawLayer, IComponent, Pack } from "../bilza";
+import IEngineComp from "../component/IEngineComp.js";
+import Pack from "../pack/pack.js";
 export default class Comps {
-    compArray: IComponent[];
+    compArray: IEngineComp[];
     constructor();
-    push(comp: IComponent): IComponent;
-    init(pack: Pack): boolean;
-    drawByDrawLayer(msDelta: number, drawLayer: DrawLayer, pack: Pack): boolean;
-    qualifyForDraw(comp: IComponent, msDelta: number): boolean;
+    push(comp: IEngineComp): IEngineComp;
+    drawByDrawLayer(msDelta: number, drawLayer: 0 | 1 | 2 | 3 | 4, pack: Pack): boolean;
+    qualifyForDraw(comp: IEngineComp, msDelta: number): boolean;
     len(): number;
 }
 //# sourceMappingURL=comps.d.ts.map

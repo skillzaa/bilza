@@ -1,4 +1,3 @@
-import FillRectDB from "./compsDB/fillRectDb.js";
 import IComponent from "./IComponent.js";
 export default class CompFactory {
     private readonly startTime;
@@ -7,7 +6,7 @@ export default class CompFactory {
     private readonly canvasHeight;
     private insertAction;
     private comps;
-    constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append", canvasWidth: number, canvasHeight: number);
-    fillRect(color?: string): FillRectDB;
+    constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
+    fillRect(color?: string): IComponent;
 }
 //# sourceMappingURL=compFactory.d.ts.map

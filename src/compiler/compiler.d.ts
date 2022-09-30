@@ -1,6 +1,7 @@
+import EngineDb from "../db/engineDb.js";
+import Engine from "../engine/engine.js";
 export default class Compiler {
     constructor();
-    draw(): void;
-    start(): void;
+    genEngine(engineDb: EngineDb): Engine;
 }
 //# sourceMappingURL=compiler.d.ts.map

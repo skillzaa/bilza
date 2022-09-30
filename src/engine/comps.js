@@ -6,12 +6,6 @@ export default class Comps {
         this.compArray.push(comp);
         return comp;
     }
-    init(pack) {
-        for (let i = 0; i < this.compArray.length; i++) {
-            this.compArray[i].init(pack);
-        }
-        return true;
-    }
     drawByDrawLayer(msDelta, drawLayer, pack) {
         for (let i = 0; i < this.compArray.length; i++) {
             let comp = this.compArray[i];

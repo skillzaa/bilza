@@ -1,0 +1,1 @@
+{"version":3,"file":"engineDb.d.ts","sourceRoot":"","sources":["../../typescript/db/engineDb.ts"],"names":[],"mappings":"AAGA,MAAM,CAAC,OAAO,OAAO,QAAQ;IAC7B,SAAgB,QAAQ,EAAE,MAAM,CAAC;IACjC,SAAgB,eAAe,EAAE,MAAM,CAAC;IACxC,SAAgB,MAAM,EAAE,iBAAiB,CAAC;IAC1C,SAAgB,WAAW,EAAE,MAAM,CAAC;IACpC,SAAgB,YAAY,EAAE,MAAM,CAAC;gBAEzB,QAAQ,GAAE,MAAc,EAAC,eAAe,GAAE,MAAS;CAY9D"}
