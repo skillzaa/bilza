@@ -5,8 +5,6 @@ export default class FillRect extends Component {
         this.color.set(color);
     }
     draw(p) {
-        p.ctx.fillStyle = "red";
-        p.ctx.strokeStyle = "red";
         this.style.fillStyle = "blue";
         this.style.strokeStyle = "blue";
         this.style.opacity = 100;

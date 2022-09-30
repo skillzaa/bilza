@@ -13,11 +13,8 @@ this.color.set(color) ;
 }
 
 draw(p:Pack):boolean{
-p.ctx.fillStyle = "red";  
-p.ctx.strokeStyle = "red";  
 this.style.fillStyle = "blue";  
 this.style.strokeStyle = "blue";  
-// p.ctx.fillRect(100,100,300,300,);
 this.style.opacity = 100;
 p.drawFillRect(100,100,300,300,this.style);
 // this.preDraw(p);

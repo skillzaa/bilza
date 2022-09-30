@@ -26,12 +26,21 @@ public width :AniNumber;
 public x :AniNumber;
 public y :AniNumber;
 /////////////////////
-public drawLayer : 0|1|2|3|4;  
+public drawLayer : 0|1|2|3|4; 
 public alwaysOn : boolean;  
+
+public xAlign  : 0|1|2;  
+public yAlign  : 0|1|2;  
+public xRotate : 0|1|2;  
+public yRotate : 0|1|2;  
+
 
 constructor(){
 this.id = Math.random().toString(36).slice(2);
-
+this.xAlign = 0;
+this.yAlign = 0;
+this.xRotate = 0;
+this.yRotate = 0;
 this.border = new AniNumber(0);
 this.colorBackground = new AniColor("white");
 this.colorBorder = new AniColor("black");

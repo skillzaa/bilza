@@ -1,5 +1,6 @@
 import { AniNumber, AniBoolean, AniColor } from "../animationModule/animations.js";
 import Pack from "../pack/pack.js";
+import Time from "./time.js";
 export default interface IEngineComp {
     readonly id: string;
     border: AniNumber;
@@ -22,9 +23,12 @@ export default interface IEngineComp {
     y: AniNumber;
     drawLayer: 0 | 1 | 2 | 3 | 4;
     alwaysOn: boolean;
+    xAlign: 0 | 1 | 2;
+    yAlign: 0 | 1 | 2;
+    xRotate: 0 | 1 | 2;
+    yRotate: 0 | 1 | 2;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    getStartTime(inSec: boolean): number;
-    getEndTime(inSec: boolean): number;
+    time: Time;
 }
 //# sourceMappingURL=IEngineComp.d.ts.map
