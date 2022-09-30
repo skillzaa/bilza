@@ -20,5 +20,7 @@ export default class CoreProps {
         this.width = new AniNumber(10);
         this.x = new AniNumber(0);
         this.y = new AniNumber(0);
+        this.drawLayer = 2;
+        this.alwaysOn = false;
     }
 }

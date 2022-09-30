@@ -1,6 +1,6 @@
-import { Pack } from "../bilza.js";
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
-export default class FillRect extends BaseComponent {
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
+export default class FillRect extends Component {
     constructor(color?: string);
     draw(p: Pack): boolean;
 }

@@ -19,6 +19,8 @@ export default class CoreProps {
     width: AniNumber;
     x: AniNumber;
     y: AniNumber;
+    drawLayer: 0 | 1 | 2 | 3 | 4;
+    alwaysOn: boolean;
     constructor();
 }
 //# sourceMappingURL=coreProps.d.ts.map

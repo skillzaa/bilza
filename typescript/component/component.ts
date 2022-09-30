@@ -35,11 +35,11 @@ public animate(timeFrom :number,timeTo :number,xFrom :number,xTo :number,
 }
 
 public getStartTime(inSec :boolean):number{
-    return 4;
+    return 0;
 }
 
 public getEndTime(inSec :boolean):number{
-    return 5;
+    return 60;
 }
 
 ///////////////////protected 

@@ -17,4 +17,16 @@ export default class Component extends CoreProps {
     animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo) {
         return true;
     }
+    getStartTime(inSec) {
+        return 0;
+    }
+    getEndTime(inSec) {
+        return 60;
+    }
+    preDraw(p) {
+    }
+    postDraw(p) {
+    }
+    contentX() { return 0; }
+    contentY() { return 0; }
 }

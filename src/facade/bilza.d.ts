@@ -5,6 +5,7 @@ export default class Bilza {
     background: BackgroundDb;
     private engine;
     private comps;
+    private bil;
     constructor(canvasId?: string, canvasWidthPerc?: number);
     add(secStart: number, secEnd: number): CompFactory;
     alwaysOn(): CompFactory;

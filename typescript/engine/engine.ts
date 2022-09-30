@@ -5,15 +5,15 @@ import Pack from "../pack/pack.js";
 //-------------------------------------------
 
 export default class Bilza {
-public background :Background;
+public background :Background | null;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 private pack:Pack; //---later
 private lastMsDelta:number; //---later
 private comps :IEngineComp[];
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",screenWidthInPercent=70,pack :Pack,comps :IEngineComp[]=[], background :Background){
+constructor (canvasId="bilza",canvasWidthPerc=70,comps :IEngineComp[]=[], background :Background | null =null){
 
-this.pack = pack;
+this.pack = new Pack(canvasId,canvasWidthPerc);;
 this.comps = comps;
 this.background = background;
 
@@ -28,13 +28,16 @@ public draw(msDelta :number=0){
 // if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
 //--Clear Canvas
 // if (this.set.clearCanvasBwFrames == true){
-this.pack.clearCanvas();          
+this.pack.clearCanvas();       
+this.pack.ctx.fillStyle = "green";
+this.pack.ctx.strokeStyle = "green";
+this.pack.ctx.fillRect(0,0,300,300);   
 // }
-
-this.drawByDrawLayer(msDelta,0,this.pack);
-this.drawByDrawLayer(msDelta,1,this.pack);
-this.drawByDrawLayer(msDelta,2,this.pack);
-this.drawByDrawLayer(msDelta,3,this.pack);
+this.comps[0].draw(this.pack);
+// this.drawByDrawLayer(msDelta,0,this.pack);
+// this.drawByDrawLayer(msDelta,1,this.pack);
+// this.drawByDrawLayer(msDelta,2,this.pack);
+// this.drawByDrawLayer(msDelta,3,this.pack);
 ///-----connection with outer world
 // this.drawEvent(msDelta);
 }
