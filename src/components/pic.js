@@ -1,7 +1,7 @@
-import { DrawLayer, BaseComponent } from "../bilza.js";
-export default class Pic extends BaseComponent {
-    constructor(imgUrl, width = 25, height = 25) {
-        super();
+import Component from "../component/component.js";
+export default class Pic extends Component {
+    constructor(startTime, endTime, imgUrl, width = 25, height = 25) {
+        super(startTime, endTime);
         this.width.set(width);
         this.height.set(height);
         this.img = new Image();
@@ -15,7 +15,7 @@ export default class Pic extends BaseComponent {
             this.orignalHeight = this.img.clientHeight;
             this.img.style.display = "none";
         }
-        this.drawLayer = DrawLayer.MiddleGround;
+        this.drawLayer = 2;
     }
     init(p) {
         super.init(p);

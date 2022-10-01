@@ -1,18 +1,18 @@
-import {Pack} from "../bilza.js";
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
 
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
 //-20-sep-2022
 
-export default class Wave extends BaseComponent {
+export default class Wave extends Component {
 
 numberOfWaves   :AniNumber;
 midLineColor    :AniColor;
 showMidLine     :AniBoolean;
 
-constructor (numberOfWaves :number=3,color :string ="blue"){ 
-super();
+constructor (startTime :number,endTime :number,numberOfWaves :number=3,color :string ="blue"){ 
+super(startTime,endTime);
 this.numberOfWaves = new  AniNumber(numberOfWaves);
 this.color.set(color);
 this.midLineColor = new AniColor("red");

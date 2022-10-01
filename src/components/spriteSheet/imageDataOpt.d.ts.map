@@ -1,1 +1,1 @@
-{"version":3,"file":"imageDataOpt.d.ts","sourceRoot":"","sources":["../../../typescript/components/spriteSheet/imageDataOpt.ts"],"names":[],"mappings":"AAGA,MAAM,CAAC,OAAO,OAAO,YAAY;IAC1B,IAAI,EAAE,MAAM,CAAC;IACb,CAAC,EAAE,MAAM,CAAC;IACV,CAAC,EAAE,MAAM,CAAC;IACV,KAAK,EAAE,MAAM,CAAC;IACd,MAAM,EAAE,MAAM,CAAC;gBACV,IAAI,EAAE,MAAM,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,MAAM,EAAC,KAAK,EAAE,MAAM,EAAC,MAAM,EAAE,MAAM;CAa1E"}
+{"version":3,"file":"imageDataOpt.d.ts","sourceRoot":"","sources":["../../../typescript/components/spriteSheet/imageDataOpt.ts"],"names":[],"mappings":""}

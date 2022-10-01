@@ -1,10 +1,10 @@
-import { BaseComponent, DrawLayer } from "../../bilza.js";
-import { AniNumber, AniBoolean, AniColor, } from "../../animationModule/animations.js";
+import Component from "../../component/component.js";
+import { AniNumber, AniBoolean, AniColor, } from "../../animations/animations.js";
 import Templ from "./templ.js";
 import Theme from "./theme.js";
-export default class Arrow extends BaseComponent {
-    constructor(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
-        super();
+export default class Arrow extends Component {
+    constructor(startTime, endTime, x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
+        super(startTime, endTime);
         this.x.set(x1);
         this.y.set(y1);
         this.headWidth = new AniNumber(4);
@@ -19,12 +19,11 @@ export default class Arrow extends BaseComponent {
         this.lineWidth = new AniNumber(2);
         this.color.set(color);
         this.colorHead = new AniColor(color);
-        this.drawLayer = DrawLayer.MiddleGround;
+        this.drawLayer = 2;
         this.templ = new Templ(this);
         this.theme = new Theme(this);
     }
     init(p) {
-        super.init(p);
         this.headWidth.init(this.canvasWidth());
         this.headHeight.init(this.canvasWidth());
         this.x2.init(this.canvasWidth());

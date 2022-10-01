@@ -1,13 +1,14 @@
-import {Pack,hsl,DrawLayer} from "../bilza.js";
+import {hsl} from "../bilza.js";
+import Pack  from "../pack/pack.js";
 import Text from "./text/text.js";
-import { AniBoolean } from "../animationModule/animations.js";
+import { AniBoolean } from "../animations/animations.js";
 
 //--16-july-2022 completed frame counter for last time inshallah
 export default class FrameCounter extends Text {
     convertToSec :AniBoolean;
 
-constructor (Hue_0_to_360 :number=240){ 
-    super("",hsl(Hue_0_to_360));
+constructor (startTime :number,endTime :number,Hue_0_to_360 :number=240){ 
+    super(startTime,endTime,"",hsl(Hue_0_to_360));
     this.convertToSec = new AniBoolean(true);
     // this.fontSize.set(26);
     this.showBackground.set(true);
@@ -18,7 +19,7 @@ constructor (Hue_0_to_360 :number=240){
     this.border.set(1);
     this.fitToHeight.set(true);
     this.height.set(10);
-    this.drawLayer = DrawLayer.ForeGround;
+    this.drawLayer = 3;
 }
 
 

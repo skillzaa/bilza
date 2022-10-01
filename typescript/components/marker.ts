@@ -1,10 +1,12 @@
 import Pack from "../pack/pack.js";
+
 import Circle from "./circle.js";
 
 export default class Marker extends Circle {
   
-constructor (x :number=50,y :number=50,color :string="red",radius=2){ 
-super();
+constructor (startTime :number,endTime :number,x :number=50,y :number=50,color :string="red",radius=2){ 
+super(startTime,endTime);
+
 this.width.setNonResponsive()
 this.height.setNonResponsive()
 

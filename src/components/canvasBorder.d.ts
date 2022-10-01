@@ -1,5 +1,5 @@
 import { Pack, BaseComponent } from "../bilza.js";
-import { AniNumber } from "../animationModule/animations.js";
+import { AniNumber } from "../animations/animations.js";
 export default class CanvasBorder extends BaseComponent {
     borderWidth: AniNumber;
     constructor(color?: string, borderWidth?: number);

@@ -1,13 +1,15 @@
-import {Pack,DrawLayer,BaseComponent } from "../bilza.js";
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
 
-export default class Pic extends BaseComponent {
+export default class Pic extends Component {
 img :HTMLImageElement;
 //--There is no use for them for now
 protected orignalWidth :number;
 protected orignalHeight :number;
 
-constructor(imgUrl :string, width:number=25, height :number=25){
-super();
+constructor(startTime :number,endTime :number,imgUrl :string, width:number=25, height :number=25){
+
+super(startTime,endTime);
 
 this.width.set(width); 
 this.height.set(height); 
@@ -27,7 +29,7 @@ this.img.src = imgUrl;
     }
 
 //--Draw Layer
-this.drawLayer = DrawLayer.MiddleGround;
+this.drawLayer = 2;
 }
 
 init(p: Pack): boolean {

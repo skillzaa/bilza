@@ -1,10 +1,14 @@
-import {Pack,BaseComponent,DrawLayer,FontFamily } from "../../bilza.js";
+import Component from "../../component/component.js";
+import Pack from "../../pack/pack.js";
+import {FontFamily}  from "../../pack/fontFamily.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js"; 
 
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js"; 
+
+
 import TextTempl from "./textTempl.js";
 import TextTheme from "./textTheme.js";
-
-export default class Text extends BaseComponent {
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export default class Text extends Component {
 private _oldWidth :null|number;
 private _oldHeight :null|number;
 
@@ -20,8 +24,10 @@ public templ :TextTempl;
 public theme :TextTheme;
 // public static compClassName:string = "Text";
 /////////////////////////////////////////
-constructor (content :string="",colorHax :string="#000000"){
-super();  
+constructor (startTime :number,endTime :number,content :string="",colorHax :string="#000000"){
+
+    super(startTime,endTime);  
+
 this.content = new AniString(content);
 this.fontSize = new AniNumber(20);
 this.maxDisplayChars = new AniNumber(1000);
@@ -30,7 +36,7 @@ this.fitToWidth = new AniBoolean(false);
 this.fitToHeight = new AniBoolean(false); 
 this.respFontSize = new AniBoolean(true); 
 //-----------------------------
-this.drawLayer = DrawLayer.MiddleGround;//its default but for safety
+this.drawLayer = 2;//its default but for safety
 //-----------------------------
 this.templ = new TextTempl(this);
 this.theme = new TextTheme(this);

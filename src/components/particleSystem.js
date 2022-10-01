@@ -1,22 +1,21 @@
-import { BaseComponent, DrawLayer } from "../bilza.js";
-import { AniNumber, AniBoolean, AniColor, } from "../animationModule/animations.js";
-import SkipXFrames from "../BaseComponent/pure/skipXFrames.js";
-import XY from "../BaseComponent/designBC/xy.js";
-export default class ParticleSystem extends BaseComponent {
-    constructor(count = 20, color = "#008000", delay = 50) {
-        super();
+import Component from "../component/component.js";
+import SkipXFrames from "../component/skipXFrames.js";
+import XY from "../component/xy.js";
+import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
+export default class ParticleSystem extends Component {
+    constructor(startTime, endTime, count = 20, color = "#008000", delay = 50) {
+        super(startTime, endTime);
         this.particleSize = new AniNumber(12);
         this.skipXFrames = new SkipXFrames(delay);
         this.xyArray = [];
         this.lineWidth = new AniNumber(1);
         this.filled = new AniBoolean(true);
-        this.drawLayer = DrawLayer.MiddleGround;
+        this.drawLayer = 2;
         this.count = new AniNumber(count);
         this.color.set(color);
         this.lineColor = new AniColor(color);
     }
     init(p) {
-        super.init(p);
         this.getRandomXY();
         return true;
     }

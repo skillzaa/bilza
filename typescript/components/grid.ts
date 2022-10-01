@@ -1,6 +1,6 @@
 import {Pack,DrawLayer,} from "../bilza.js";
 
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
 export default class Grid extends BaseComponent {

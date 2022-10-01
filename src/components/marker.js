@@ -1,7 +1,7 @@
 import Circle from "./circle.js";
 export default class Marker extends Circle {
-    constructor(x = 50, y = 50, color = "red", radius = 2) {
-        super();
+    constructor(startTime, endTime, x = 50, y = 50, color = "red", radius = 2) {
+        super(startTime, endTime);
         this.width.setNonResponsive();
         this.height.setNonResponsive();
         this.align(1, 1);

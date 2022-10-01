@@ -1,6 +1,7 @@
-import { Pack, BaseComponent } from "../bilza.js";
-import { AniNumber, AniBoolean, AniColor } from "../animationModule/animations.js";
-export default class ParticleSystem extends BaseComponent {
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
+import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
+export default class ParticleSystem extends Component {
     private skipXFrames;
     private xyArray;
     count: AniNumber;
@@ -8,7 +9,7 @@ export default class ParticleSystem extends BaseComponent {
     lineWidth: AniNumber;
     filled: AniBoolean;
     lineColor: AniColor;
-    constructor(count?: number, color?: string, delay?: number);
+    constructor(startTime: number, endTime: number, count?: number, color?: string, delay?: number);
     init(p: Pack): boolean;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;

@@ -1,8 +1,10 @@
-import { Pack, BaseComponent, FontFamily } from "../../bilza.js";
-import { AniNumber, AniString, AniBoolean } from "../../animationModule/animations.js";
+import Component from "../../component/component.js";
+import Pack from "../../pack/pack.js";
+import { FontFamily } from "../../pack/fontFamily.js";
+import { AniNumber, AniString, AniBoolean } from "../../animations/animations.js";
 import TextTempl from "./textTempl.js";
 import TextTheme from "./textTheme.js";
-export default class Text extends BaseComponent {
+export default class Text extends Component {
     private _oldWidth;
     private _oldHeight;
     content: AniString;
@@ -14,7 +16,7 @@ export default class Text extends BaseComponent {
     respFontSize: AniBoolean;
     templ: TextTempl;
     theme: TextTheme;
-    constructor(content?: string, colorHax?: string);
+    constructor(startTime: number, endTime: number, content?: string, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
     contentHeight(): number;
     contentWidth(): number;

@@ -1,16 +1,18 @@
-import { Pack,BaseComponent } from "../bilza.js";
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
 
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
 
-export default class Circle extends BaseComponent {
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
+
+export default class Circle extends Component {
 
 startAngle :AniNumber;  
 endAngle :AniNumber;  
 filled :AniBoolean;
 lineWidth :AniNumber;
 
-constructor (radius :number=10,color :string="#ff0000"){ 
-super();
+constructor (startTime :number,endTime :number,radius :number=10,color :string="#ff0000"){ 
+super(startTime,endTime);
 //--new props
 this.filled = new AniBoolean(true);
 this.startAngle = new AniNumber(0);

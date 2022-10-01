@@ -1,5 +1,5 @@
 import { BaseComponent, DrawLayer } from "../bilza.js";
-import { AniNumber, } from "../animationModule/animations.js";
+import { AniNumber, } from "../animations/animations.js";
 export default class CanvasBorder extends BaseComponent {
     constructor(color = "grey", borderWidth = 0.5) {
         super();

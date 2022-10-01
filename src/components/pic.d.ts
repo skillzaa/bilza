@@ -1,9 +1,10 @@
-import { Pack, BaseComponent } from "../bilza.js";
-export default class Pic extends BaseComponent {
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
+export default class Pic extends Component {
     img: HTMLImageElement;
     protected orignalWidth: number;
     protected orignalHeight: number;
-    constructor(imgUrl: string, width?: number, height?: number);
+    constructor(startTime: number, endTime: number, imgUrl: string, width?: number, height?: number);
     init(p: Pack): boolean;
     draw(p: Pack): boolean;
 }

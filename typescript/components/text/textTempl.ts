@@ -1,5 +1,5 @@
 
-import {FontFamily} from "../../bilza.js";
+import {FontFamily} from "../../pack/fontFamily.js";
 import Text from "./text.js";
 
 export default class TextTempl {
@@ -77,7 +77,7 @@ return this.comp;
 
 
 //-------------
-private setXAlignment(alignX :number=0,y :number=0){
+private setXAlignment(alignX :0|1|2|null=0,y :0|1|2|null=0){
     switch (alignX) {
         case 2:
             this.comp.align(alignX,y);

@@ -1,10 +1,11 @@
-import { BaseComponent, DrawLayer, FontFamily } from "../../bilza.js";
-import { AniNumber, AniString, AniBoolean, } from "../../animationModule/animations.js";
+import Component from "../../component/component.js";
+import { FontFamily } from "../../pack/fontFamily.js";
+import { AniNumber, AniString, AniBoolean, } from "../../animations/animations.js";
 import TextTempl from "./textTempl.js";
 import TextTheme from "./textTheme.js";
-export default class Text extends BaseComponent {
-    constructor(content = "", colorHax = "#000000") {
-        super();
+export default class Text extends Component {
+    constructor(startTime, endTime, content = "", colorHax = "#000000") {
+        super(startTime, endTime);
         this.content = new AniString(content);
         this.fontSize = new AniNumber(20);
         this.maxDisplayChars = new AniNumber(1000);
@@ -12,7 +13,7 @@ export default class Text extends BaseComponent {
         this.fitToWidth = new AniBoolean(false);
         this.fitToHeight = new AniBoolean(false);
         this.respFontSize = new AniBoolean(true);
-        this.drawLayer = DrawLayer.MiddleGround;
+        this.drawLayer = 2;
         this.templ = new TextTempl(this);
         this.theme = new TextTheme(this);
         this._oldWidth = null;

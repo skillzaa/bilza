@@ -1,5 +1,5 @@
 import CoreProps from "./coreProps.js";
-import Style from "../design/style.js";
+import Style from "../pack/style.js";
 import Time from "./time.js";
 export default class Component extends CoreProps {
     constructor(startTime, endTime) {

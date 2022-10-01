@@ -1,5 +1,5 @@
 import { Pack, BaseComponent } from "../bilza.js";
-import { AniNumber } from "../animationModule/animations.js";
+import { AniNumber } from "../animations/animations.js";
 export default class Line extends BaseComponent {
     x2: AniNumber;
     y2: AniNumber;

@@ -1,5 +1,5 @@
 import { BaseComponent, DrawLayer } from "../bilza.js";
-import { AniNumber, } from "../animationModule/animations.js";
+import { AniNumber, } from "../animations/animations.js";
 export default class Line extends BaseComponent {
     constructor(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
         super();

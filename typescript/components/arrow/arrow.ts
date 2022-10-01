@@ -1,11 +1,12 @@
-import {Pack,BaseComponent,DrawLayer} from "../../bilza.js";
+import Pack from "../../pack/pack.js";
+import Component from "../../component/component.js";
 
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js";
 
 import Templ from "./templ.js";
 import Theme from "./theme.js";
 
-export default class Arrow extends BaseComponent {
+export default class Arrow extends Component {
 public x2 : AniNumber; 
 public y2 : AniNumber;
 public headWidth :AniNumber;
@@ -19,8 +20,8 @@ public theme :Theme;
 
     
 
-constructor (x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
-super();
+constructor (startTime :number,endTime :number,x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
+super(startTime,endTime);
 
 this.x.set(x1); 
 this.y.set(y1);
@@ -38,7 +39,7 @@ this.lineWidth = new AniNumber(2);
 this.color.set(color);
 this.colorHead = new AniColor(color);
 
-this.drawLayer = DrawLayer.MiddleGround;
+this.drawLayer = 2;
 this.templ = new Templ(this);
 this.theme = new Theme(this);
 
@@ -67,7 +68,7 @@ this.theme = new Theme(this);
 
 init(p: Pack): boolean {  
 //--imp--it want us to keep it here or cause init error
-super.init(p);     
+// super.init(p);     
 
 this.headWidth.init(this.canvasWidth());//canvasWidth
 this.headHeight.init(this.canvasWidth());//canvasWidth

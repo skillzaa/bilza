@@ -1,8 +1,8 @@
 import IEngineComp from "./IEngineComp.js";
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+// import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 import Pack from "../pack/pack.js";
 import CoreProps from "./coreProps.js";
-import Style from "../design/style.js";
+import Style from "../pack/style.js";
 import Time from "./time.js";
 
 export default class Component extends CoreProps implements IEngineComp{

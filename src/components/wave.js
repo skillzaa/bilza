@@ -1,8 +1,8 @@
-import { AniNumber, AniBoolean, AniColor, } from "../animationModule/animations.js";
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
-export default class Wave extends BaseComponent {
-    constructor(numberOfWaves = 3, color = "blue") {
-        super();
+import Component from "../component/component.js";
+import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
+export default class Wave extends Component {
+    constructor(startTime, endTime, numberOfWaves = 3, color = "blue") {
+        super(startTime, endTime);
         this.numberOfWaves = new AniNumber(numberOfWaves);
         this.color.set(color);
         this.midLineColor = new AniColor("red");
