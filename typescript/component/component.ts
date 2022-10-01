@@ -8,12 +8,19 @@ import Time from "./time.js";
 export default class Component extends CoreProps implements IEngineComp{
 protected style:Style; 
 public time :Time;
-
+private _canvasWidth :number;
+private _canvasHeight :number;
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor(startTime :number,endTime :number){
+constructor(startTime :number,endTime :number,canvasWidth :number,canvasHeight :number){
 super();    
+this._canvasWidth = canvasWidth;
+this._canvasHeight = canvasHeight;
 this.time = new Time(startTime,endTime);
 this.style = new Style(); 
+}
+protected preDrawNonBoxed(p :Pack){
+this.style.opacity = (this.opacity.value());
+this.applyRotation(p);
 }
 //////////////////////////////////////////
 update(msDelta :number,p :Pack): boolean {
@@ -39,6 +46,12 @@ update(msDelta :number,p :Pack): boolean {
     this.colorBorder.update(msDelta);
 
 return true;    
+}
+get canvasWidth():number{
+return this._canvasWidth;
+}
+get canvasHeight():number{
+return this._canvasHeight;
 }
 public draw(p :Pack):boolean{
     return true;

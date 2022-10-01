@@ -17,8 +17,8 @@ private xyArray :XY[];
     public filled :AniBoolean;
     public lineColor :AniColor;
 
-constructor (startTime :number,endTime :number,count :number= 20,color :string="#008000",delay :number=50) { 
-    super(startTime,endTime);
+constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,count :number= 20,color :string="#008000",delay :number=50) { 
+    super(startTime,endTime,canvasWidth,canvasHeight);
     //!!!!!!!!!!!!!!!!!!!
     this.particleSize = new AniNumber(12);
     this.skipXFrames = new SkipXFrames(delay);

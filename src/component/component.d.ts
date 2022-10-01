@@ -6,8 +6,13 @@ import Time from "./time.js";
 export default class Component extends CoreProps implements IEngineComp {
     protected style: Style;
     time: Time;
-    constructor(startTime: number, endTime: number);
+    private _canvasWidth;
+    private _canvasHeight;
+    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number);
+    protected preDrawNonBoxed(p: Pack): void;
     update(msDelta: number, p: Pack): boolean;
+    get canvasWidth(): number;
+    get canvasHeight(): number;
     draw(p: Pack): boolean;
     goto(atFrame: number, x: number, y: number): boolean;
     animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;

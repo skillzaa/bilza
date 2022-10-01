@@ -20,8 +20,8 @@ public theme :Theme;
 
     
 
-constructor (startTime :number,endTime :number,x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
-super(startTime,endTime);
+constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
+super(startTime,endTime,canvasWidth,canvasHeight);
 
 this.x.set(x1); 
 this.y.set(y1);
@@ -44,39 +44,7 @@ this.templ = new Templ(this);
 this.theme = new Theme(this);
 
 }
-//---new addition-----
-// setRespLoc(tf :boolean=true):boolean{
-// super.setRespLoc(tf);    
-//     if (tf == true){
-//         const x2OldValue = this.x2.value();
-//         const y2OldValue = this.y2.value();
-//         this.x2 = new AniPerc(0);
-//         this.x2.set(x2OldValue);
-//         this.y2 = new AniPerc(0);
-//         this.y2.set(y2OldValue);
-//         return true;
-//     } else {
-//         const x2OldValue = this.x2.value();
-//         const y2OldValue = this.y2.value();
-//         this.x2 = new AniNumber(0);
-//         this.x2.set(x2OldValue);
-//         this.y2 = new AniNumber(0);
-//         this.y2.set(y2OldValue);
-//         return false;
-//     }   
-// }
 
-init(p: Pack): boolean {  
-//--imp--it want us to keep it here or cause init error
-// super.init(p);     
-
-this.headWidth.init(this.canvasWidth());//canvasWidth
-this.headHeight.init(this.canvasWidth());//canvasWidth
-
-    this.x2.init(this.canvasWidth());//canvasWidth
-    this.y2.init(this.canvasHeight());//canvasHeight
-return true;
-}
     
 update(msDelta: number, p: Pack): boolean {
    super.update(msDelta,p);
@@ -181,11 +149,11 @@ return 0;
  * line comp is drawn differently- so we do not want to change align at all since that will add extra addition/sub in calc.
  * in the rotate align as well we should just change x value and not y
  */
-public align(x?: number | null, y?: number | null): void {
+public align(x :0|1|2|null=null, y?: number | null): void {
 //--we do not align line comp so there is no add / sub in the x/y value    
     super.align(0,0);
 }
-public alignRotate(x?: number | null, y?: number | null): void {
+public alignRotate(x :0|1|2|null=null, y?: number | null): void {
     super.alignRotate(x,0);
 }
 

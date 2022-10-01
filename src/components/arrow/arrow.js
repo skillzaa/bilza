@@ -3,8 +3,8 @@ import { AniNumber, AniBoolean, AniColor, } from "../../animations/animations.js
 import Templ from "./templ.js";
 import Theme from "./theme.js";
 export default class Arrow extends Component {
-    constructor(startTime, endTime, x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
-        super(startTime, endTime);
+    constructor(startTime, endTime, canvasWidth, canvasHeight, x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
+        super(startTime, endTime, canvasWidth, canvasHeight);
         this.x.set(x1);
         this.y.set(y1);
         this.headWidth = new AniNumber(4);
@@ -22,13 +22,6 @@ export default class Arrow extends Component {
         this.drawLayer = 2;
         this.templ = new Templ(this);
         this.theme = new Theme(this);
-    }
-    init(p) {
-        this.headWidth.init(this.canvasWidth());
-        this.headHeight.init(this.canvasWidth());
-        this.x2.init(this.canvasWidth());
-        this.y2.init(this.canvasHeight());
-        return true;
     }
     update(msDelta, p) {
         super.update(msDelta, p);
@@ -105,10 +98,10 @@ export default class Arrow extends Component {
     compHeight() {
         return 0;
     }
-    align(x, y) {
+    align(x = null, y) {
         super.align(0, 0);
     }
-    alignRotate(x, y) {
+    alignRotate(x = null, y) {
         super.alignRotate(x, 0);
     }
     pointTo(second, x, y) {

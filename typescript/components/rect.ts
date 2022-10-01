@@ -10,8 +10,8 @@ import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations
 export default class Rect extends Component {
 public lineWidth :AniNumber;
 
-constructor (startTime :number,endTime :number,color :string="#000000"){ 
-    super(startTime,endTime);
+constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,color :string="#000000"){ 
+    super(startTime,endTime,canvasWidth,canvasHeight);
     this.color.set(color); 
     this.lineWidth = new AniNumber(1);
     

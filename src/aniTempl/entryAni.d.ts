@@ -1,11 +1,11 @@
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
+import Component from "../component/component.js";
 export default class EntryAniPresets {
     private comp;
-    constructor(comp: BaseComponent);
-    leftIn(): BaseComponent;
-    rightIn(): BaseComponent;
-    bottomIn(): BaseComponent;
-    topIn(): BaseComponent;
-    fadeIn(): BaseComponent;
+    constructor(comp: Component);
+    leftIn(): Component;
+    rightIn(): Component;
+    bottomIn(): Component;
+    topIn(): Component;
+    fadeIn(): Component;
 }
 //# sourceMappingURL=entryAni.d.ts.map

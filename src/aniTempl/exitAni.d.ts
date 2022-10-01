@@ -1,11 +1,11 @@
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
+import Component from "../component/component.js";
 export default class ExitAniPresets {
     private comp;
-    constructor(comp: BaseComponent);
-    leftOut(): BaseComponent;
-    rightOut(): BaseComponent;
-    bottomOut(): BaseComponent;
-    topOut(): BaseComponent;
-    fadeOut(): BaseComponent;
+    constructor(comp: Component);
+    leftOut(): Component;
+    rightOut(): Component;
+    bottomOut(): Component;
+    topOut(): Component;
+    fadeOut(): Component;
 }
 //# sourceMappingURL=exitAni.d.ts.map

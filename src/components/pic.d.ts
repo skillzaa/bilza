@@ -4,7 +4,7 @@ export default class Pic extends Component {
     img: HTMLImageElement;
     protected orignalWidth: number;
     protected orignalHeight: number;
-    constructor(startTime: number, endTime: number, imgUrl: string, width?: number, height?: number);
+    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number, imgUrl: string, width?: number, height?: number);
     init(p: Pack): boolean;
     draw(p: Pack): boolean;
 }

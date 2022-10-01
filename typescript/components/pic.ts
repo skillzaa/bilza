@@ -7,9 +7,9 @@ img :HTMLImageElement;
 protected orignalWidth :number;
 protected orignalHeight :number;
 
-constructor(startTime :number,endTime :number,imgUrl :string, width:number=25, height :number=25){
+constructor(startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,imgUrl :string, width:number=25, height :number=25){
 
-super(startTime,endTime);
+super(startTime,endTime,canvasWidth,canvasHeight);
 
 this.width.set(width); 
 this.height.set(height); 

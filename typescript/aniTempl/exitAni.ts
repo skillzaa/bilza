@@ -1,22 +1,22 @@
 
-import {FontFamily} from "../bilza.js";
+import {FontFamily} from "../pack/fontFamily.js";
 import Text from "../components/text/text.js";
 //---dont use bilza i may remove that
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
+import Component from "../component/component.js";
 
 /**
  * ExitAni works with endTime
  */
 export default class ExitAniPresets {
-private  comp:BaseComponent;    
+private  comp:Component;    
 
-constructor(comp :BaseComponent){
+constructor(comp :Component){
 this.comp = comp;    
 }
 leftOut(){
 this.comp.x.animate(
-    this.comp.getEndTime(false) - 2,
-this.comp.getEndTime(false),
+    this.comp.time.getEnd(true) - 2,
+this.comp.time.getEnd(true),
 this.comp.x.value(),
 - this.comp.width.value() 
 );
@@ -25,8 +25,8 @@ return this.comp;
 rightOut(){
 //---what ever the alignment it does not matter even if the align is right still - width takes care of that   
 this.comp.x.animate(
-    this.comp.getEndTime(false) - 1,
-this.comp.getEndTime(false),
+    this.comp.time.getEnd(true) - 1,
+this.comp.time.getEnd(true),
 this.comp.x.value(),
 100 + this.comp.width.value() 
 );
@@ -35,8 +35,8 @@ return this.comp;
 
 bottomOut(){
     this.comp.y.animate(
-    this.comp.getEndTime(false) - 1,
-    this.comp.getEndTime(false),
+    this.comp.time.getEnd(true) - 1,
+    this.comp.time.getEnd(true),
     this.comp.y.value(),
     100 + this.comp.height.value() 
     );
@@ -44,8 +44,8 @@ bottomOut(){
 }
 topOut(){
     this.comp.y.animate(
-    this.comp.getEndTime(false) - 1,
-    this.comp.getEndTime(false),
+    this.comp.time.getEnd(true) - 1,
+    this.comp.time.getEnd(true),
     this.comp.y.value(),
     ( -1 * this.comp.height.value()) 
     );
@@ -53,8 +53,8 @@ topOut(){
 }
 fadeOut(){
     this.comp.opacity.animate(
-        this.comp.getEndTime(false) - 1,
-    this.comp.getEndTime(false),100,0
+        this.comp.time.getEnd(true) - 1,
+    this.comp.time.getEnd(true),100,0
     );
     return this.comp;    
 }

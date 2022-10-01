@@ -16,7 +16,7 @@ export default class Text extends Component {
     respFontSize: AniBoolean;
     templ: TextTempl;
     theme: TextTheme;
-    constructor(startTime: number, endTime: number, content?: string, colorHax?: string);
+    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number, content?: string, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
     contentHeight(): number;
     contentWidth(): number;

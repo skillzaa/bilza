@@ -24,9 +24,9 @@ public templ :TextTempl;
 public theme :TextTheme;
 // public static compClassName:string = "Text";
 /////////////////////////////////////////
-constructor (startTime :number,endTime :number,content :string="",colorHax :string="#000000"){
+constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,content :string="",colorHax :string="#000000"){
 
-    super(startTime,endTime);  
+    super(startTime,endTime,canvasWidth,canvasHeight);  
 
 this.content = new AniString(content);
 this.fontSize = new AniNumber(20);

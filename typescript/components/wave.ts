@@ -11,8 +11,8 @@ numberOfWaves   :AniNumber;
 midLineColor    :AniColor;
 showMidLine     :AniBoolean;
 
-constructor (startTime :number,endTime :number,numberOfWaves :number=3,color :string ="blue"){ 
-super(startTime,endTime);
+constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,numberOfWaves :number=3,color :string ="blue"){ 
+super(startTime,endTime,canvasWidth,canvasHeight);
 this.numberOfWaves = new  AniNumber(numberOfWaves);
 this.color.set(color);
 this.midLineColor = new AniColor("red");

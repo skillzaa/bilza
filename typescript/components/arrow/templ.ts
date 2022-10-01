@@ -1,5 +1,5 @@
 
-import {FontFamily} from "../../bilza.js";
+import {FontFamily} from "../../pack/fontFamily.js";
 import Arrow from "./arrow.js";
 
 export default class Templ {

@@ -4,8 +4,8 @@ import { AniNumber, AniString, AniBoolean, } from "../../animations/animations.j
 import TextTempl from "./textTempl.js";
 import TextTheme from "./textTheme.js";
 export default class Text extends Component {
-    constructor(startTime, endTime, content = "", colorHax = "#000000") {
-        super(startTime, endTime);
+    constructor(startTime, endTime, canvasWidth, canvasHeight, content = "", colorHax = "#000000") {
+        super(startTime, endTime, canvasWidth, canvasHeight);
         this.content = new AniString(content);
         this.fontSize = new AniNumber(20);
         this.maxDisplayChars = new AniNumber(1000);

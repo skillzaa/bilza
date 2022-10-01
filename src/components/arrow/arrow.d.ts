@@ -13,14 +13,13 @@ export default class Arrow extends Component {
     lineWidth: AniNumber;
     templ: Templ;
     theme: Theme;
-    constructor(startTime: number, endTime: number, x1?: number, y1?: number, x2?: number, y2?: number, color?: string);
-    init(p: Pack): boolean;
+    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number, x1?: number, y1?: number, x2?: number, y2?: number, color?: string);
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     compWidth(): number;
     compHeight(): number;
-    align(x?: number | null, y?: number | null): void;
-    alignRotate(x?: number | null, y?: number | null): void;
+    align(x?: 0 | 1 | 2 | null, y?: number | null): void;
+    alignRotate(x?: 0 | 1 | 2 | null, y?: number | null): void;
     pointTo(second: number, x: number, y: number): void;
 }
 //# sourceMappingURL=arrow.d.ts.map

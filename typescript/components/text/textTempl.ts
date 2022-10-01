@@ -9,7 +9,7 @@ constructor(comp :Text){
 this.comp = comp;    
 }
 
-hdg(XAlignment :number=1, y:number= 10 ,height :number=10){
+hdg(XAlignment :0|1|2|null=1, y:number= 10 ,height :number=10){
 this.setXAlignment(XAlignment,0);    // this.comp.align(1,0);
 this.comp.y.set(y);
 
@@ -26,7 +26,7 @@ this.comp.setPaddings(8);
     return this.comp;
 }
 
-jumbotron(XAlignment :number=1, y:number=50,height :number=30){
+jumbotron(XAlignment :0|1|2|null=1, y:number=50,height :number=30){
 this.setXAlignment(XAlignment,1);
 this.comp.y.set(y);
     
@@ -40,7 +40,7 @@ this.comp.border.set(5);
 // this.comp.respFontSize.set(false);
 return this.comp;
 }
-ftNote(XAlignment :number, y:number,height :number){
+ftNote(XAlignment :0|1|2|null, y:number,height :number){
     this.setXAlignment(XAlignment);
     this.comp.y.set(y);    
     //------------------------  
@@ -49,7 +49,7 @@ ftNote(XAlignment :number, y:number,height :number){
     this.comp.setPaddings(4);
     return this.comp;
 }
-bltPt(XAlignment :number, y:number,height :number){
+bltPt(XAlignment :0|1|2|null, y:number,height :number){
 this.setXAlignment(XAlignment);
 this.comp.y.set(y);
 //------------------------  

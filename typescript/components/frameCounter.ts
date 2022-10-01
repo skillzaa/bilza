@@ -7,7 +7,7 @@ import { AniBoolean } from "../animations/animations.js";
 export default class FrameCounter extends Text {
     convertToSec :AniBoolean;
 
-constructor (startTime :number,endTime :number,Hue_0_to_360 :number=240){ 
+constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,Hue_0_to_360 :number=240){ 
     super(startTime,endTime,"",hsl(Hue_0_to_360));
     this.convertToSec = new AniBoolean(true);
     // this.fontSize.set(26);

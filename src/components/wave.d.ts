@@ -5,7 +5,7 @@ export default class Wave extends Component {
     numberOfWaves: AniNumber;
     midLineColor: AniColor;
     showMidLine: AniBoolean;
-    constructor(startTime: number, endTime: number, numberOfWaves?: number, color?: string);
+    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number, numberOfWaves?: number, color?: string);
     draw(p: Pack): boolean;
 }
 //# sourceMappingURL=wave.d.ts.map

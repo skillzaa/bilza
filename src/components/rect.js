@@ -1,8 +1,8 @@
 import Component from "../component/component.js";
 import { AniNumber, } from "../animations/animations.js";
 export default class Rect extends Component {
-    constructor(startTime, endTime, color = "#000000") {
-        super(startTime, endTime);
+    constructor(startTime, endTime, canvasWidth, canvasHeight, color = "#000000") {
+        super(startTime, endTime, canvasWidth, canvasHeight);
         this.color.set(color);
         this.lineWidth = new AniNumber(1);
     }

@@ -6,7 +6,7 @@ export default class Circle extends Component {
     endAngle: AniNumber;
     filled: AniBoolean;
     lineWidth: AniNumber;
-    constructor(startTime: number, endTime: number, radius?: number, color?: string);
+    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number, radius?: number, color?: string);
     contentHeight(): number;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;

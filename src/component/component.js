@@ -2,10 +2,16 @@ import CoreProps from "./coreProps.js";
 import Style from "../pack/style.js";
 import Time from "./time.js";
 export default class Component extends CoreProps {
-    constructor(startTime, endTime) {
+    constructor(startTime, endTime, canvasWidth, canvasHeight) {
         super();
+        this._canvasWidth = canvasWidth;
+        this._canvasHeight = canvasHeight;
         this.time = new Time(startTime, endTime);
         this.style = new Style();
+    }
+    preDrawNonBoxed(p) {
+        this.style.opacity = (this.opacity.value());
+        this.applyRotation(p);
     }
     update(msDelta, p) {
         this.color.update(msDelta);
@@ -24,6 +30,12 @@ export default class Component extends CoreProps {
         this.colorBackground.update(msDelta);
         this.colorBorder.update(msDelta);
         return true;
+    }
+    get canvasWidth() {
+        return this._canvasWidth;
+    }
+    get canvasHeight() {
+        return this._canvasHeight;
     }
     draw(p) {
         return true;

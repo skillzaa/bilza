@@ -3,8 +3,8 @@ import SkipXFrames from "../component/skipXFrames.js";
 import XY from "../component/xy.js";
 import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
 export default class ParticleSystem extends Component {
-    constructor(startTime, endTime, count = 20, color = "#008000", delay = 50) {
-        super(startTime, endTime);
+    constructor(startTime, endTime, canvasWidth, canvasHeight, count = 20, color = "#008000", delay = 50) {
+        super(startTime, endTime, canvasWidth, canvasHeight);
         this.particleSize = new AniNumber(12);
         this.skipXFrames = new SkipXFrames(delay);
         this.xyArray = [];
