@@ -1,5 +1,5 @@
 import IEngineComp from "../component/IEngineComp.js";
-import Background from "../components/background.js";
+import Background from "../components/background/background.js";
 import Pack from "../pack/pack.js";
 export default class Engine {
     background: Background | null;

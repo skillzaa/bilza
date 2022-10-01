@@ -1,7 +1,7 @@
-import {AniNumber,AniBoolean,AniString,AniColor} from "../animationModule/animations.js";
+import {AniNumber,AniBoolean,AniString,AniColor} from "../animations/animations.js";
 
 
-
+/////////////////////////////////////////////////////////
 export default class CoreProps {
 ////////////////////////////////////////////
 //--30-9-2022 -- 21 CORE props 

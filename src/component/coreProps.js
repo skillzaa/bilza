@@ -1,4 +1,4 @@
-import { AniNumber, AniBoolean, AniColor } from "../animationModule/animations.js";
+import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
 export default class CoreProps {
     constructor() {
         this.id = Math.random().toString(36).slice(2);

@@ -1,6 +1,6 @@
-import AniNumberDb from "../db/propTypes/AniNumberDb.js";
-import AniColorDb from "../db/propTypes/AniColorDb.js";
-import AniBooleanDb from "../db/propTypes/AniBooleanDb.js";
+import AniNumberDb from "../animations/propTypesDb/AniNumberDb.js";
+import AniColorDb from "../animations/propTypesDb/AniColorDb.js";
+import AniBooleanDb from "../animations/propTypesDb/AniBooleanDb.js";
 export default interface IComponent {
     readonly id: string;
     border: AniNumberDb;

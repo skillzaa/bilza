@@ -1,14 +1,11 @@
-import EnginePack from "./enginePack.js";
 import Pack from "../pack/pack.js";
+import getEngine from "./getEngine.js";
 export default class Compiler {
     constructor() {
     }
-    getEnginePack() {
-        const ep = new EnginePack();
-    }
     genApp(engineDb, compsDb) {
         const pack = new Pack(engineDb.canvasId, engineDb.canvasWidthPerc);
-        const comps = getComps(compsDb);
+        const bilza = getEngine(engineDb, pack, []);
         return bilza;
     }
 }

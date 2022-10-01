@@ -1,6 +1,6 @@
-import EngineDb from "../db/engineDb.js";
+import EngineDb from "../engine/engineDb.js";
 import CompFactory from "./compFactory.js";
-import BackgroundDb from "../db/backgroundDb.js";
+import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidthPerc = 70) {

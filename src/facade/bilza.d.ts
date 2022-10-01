@@ -1,5 +1,5 @@
 import CompFactory from "./compFactory.js";
-import BackgroundDb from "../db/backgroundDb.js";
+import BackgroundDb from "../components/background/backgroundDb.js";
 export default class Bilza {
     background: BackgroundDb;
     private engine;
