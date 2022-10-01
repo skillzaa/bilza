@@ -1,11 +1,11 @@
-import { BaseComponent, DrawLayer } from "../bilza.js";
+import Component from "../component/component.js";
 import { AniNumber, } from "../animations/animations.js";
-export default class CanvasBorder extends BaseComponent {
-    constructor(color = "grey", borderWidth = 0.5) {
-        super();
+export default class CanvasBorder extends Component {
+    constructor(startTime, endTime, componentPack, color = "grey", borderWidth = 0.5) {
+        super(startTime, endTime, componentPack);
         this.borderWidth = new AniNumber(borderWidth);
         this.color.set(color);
-        this.drawLayer = DrawLayer.MiddleGround;
+        this.drawLayer = 1;
     }
     update(msDelta, p) {
         super.update(msDelta, p);

@@ -1,5 +1,6 @@
 import Component from "../../component/component.js";
 import Pack from "../../pack/pack.js";
+import ComponentPack from "../../compiler/componentPack.js";
 import { FontFamily } from "../../pack/fontFamily.js";
 import { AniNumber, AniString, AniBoolean } from "../../animations/animations.js";
 import TextTempl from "./textTempl.js";
@@ -16,7 +17,7 @@ export default class Text extends Component {
     respFontSize: AniBoolean;
     templ: TextTempl;
     theme: TextTheme;
-    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number, content?: string, colorHax?: string);
+    constructor(startTime: number, endTime: number, componentPack: ComponentPack, content?: string, colorHax?: string);
     update(msDelta: number, p: Pack): boolean;
     contentHeight(): number;
     contentWidth(): number;

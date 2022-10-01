@@ -1,19 +1,23 @@
-import {Pack,BaseComponent,DrawLayer} from "../bilza.js";
+import Component from "../component/component.js";
+import Pack from "../pack/pack.js";
+import ComponentPack from "../compiler/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 
-export default class CanvasBorder extends BaseComponent {
+export default class CanvasBorder extends Component {
 
 
 borderWidth :AniNumber;
     
 
-constructor ( color :string="grey" , borderWidth :number=0.5 ){
-super();
+constructor (startTime :number,endTime :number,componentPack :ComponentPack, color :string="grey" , borderWidth :number=0.5 ){
+
+super(startTime,endTime,componentPack);  
+
 
 this.borderWidth = new AniNumber(borderWidth);
 this.color.set(color);
-this.drawLayer = DrawLayer.MiddleGround;
+this.drawLayer = 1;
 }
 
     

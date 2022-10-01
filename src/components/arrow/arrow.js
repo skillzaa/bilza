@@ -3,8 +3,8 @@ import { AniNumber, AniBoolean, AniColor, } from "../../animations/animations.js
 import Templ from "./templ.js";
 import Theme from "./theme.js";
 export default class Arrow extends Component {
-    constructor(startTime, endTime, canvasWidth, canvasHeight, x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
-        super(startTime, endTime, canvasWidth, canvasHeight);
+    constructor(startTime, endTime, componentPack, x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
+        super(startTime, endTime, componentPack);
         this.x.set(x1);
         this.y.set(y1);
         this.headWidth = new AniNumber(4);

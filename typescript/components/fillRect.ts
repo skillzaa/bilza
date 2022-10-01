@@ -1,13 +1,17 @@
 import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
+import ComponentPack from "../compiler/componentPack.js";
+
 
 //-14-july-2022 : There is no need to add any public prop width height and color are all added    
 //--16-jul-2022 : This is the first completed comp.
 
 export default class FillRect extends Component {
 
-constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,color :string="#000000"){ 
-super(startTime,endTime,canvasWidth,canvasHeight);
+constructor (startTime :number,endTime :number,componentPack :ComponentPack,color :string="#000000"){ 
+
+super(startTime,endTime,componentPack);
+
 this.color.set(color) ; 
 }
 

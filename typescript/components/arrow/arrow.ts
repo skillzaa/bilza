@@ -1,5 +1,6 @@
 import Pack from "../../pack/pack.js";
 import Component from "../../component/component.js";
+import ComponentPack from "../../compiler/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js";
 
@@ -20,8 +21,8 @@ public theme :Theme;
 
     
 
-constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
-super(startTime,endTime,canvasWidth,canvasHeight);
+constructor (startTime :number,endTime :number,componentPack :ComponentPack,x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
+super(startTime,endTime,componentPack);
 
 this.x.set(x1); 
 this.y.set(y1);

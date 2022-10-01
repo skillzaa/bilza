@@ -2,8 +2,8 @@ import { hsl } from "../bilza.js";
 import Text from "./text/text.js";
 import { AniBoolean } from "../animations/animations.js";
 export default class FrameCounter extends Text {
-    constructor(startTime, endTime, canvasWidth, canvasHeight, Hue_0_to_360 = 240) {
-        super(startTime, endTime, "", hsl(Hue_0_to_360));
+    constructor(startTime, endTime, componentPack, Hue_0_to_360 = 240) {
+        super(startTime, endTime, componentPack, "", hsl(Hue_0_to_360));
         this.convertToSec = new AniBoolean(true);
         this.showBackground.set(true);
         this.colorBackground.set(hsl(Hue_0_to_360, 20, 90));

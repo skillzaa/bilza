@@ -2,10 +2,9 @@ import CoreProps from "./coreProps.js";
 import Style from "../pack/style.js";
 import Time from "./time.js";
 export default class Component extends CoreProps {
-    constructor(startTime, endTime, canvasWidth, canvasHeight) {
+    constructor(startTime, endTime, componentPack) {
         super();
-        this._canvasWidth = canvasWidth;
-        this._canvasHeight = canvasHeight;
+        this.cp = componentPack;
         this.time = new Time(startTime, endTime);
         this.style = new Style();
     }
@@ -31,11 +30,11 @@ export default class Component extends CoreProps {
         this.colorBorder.update(msDelta);
         return true;
     }
-    get canvasWidth() {
-        return this._canvasWidth;
+    canvasWidth() {
+        return this.cp.canvasWidth;
     }
-    get canvasHeight() {
-        return this._canvasHeight;
+    canvasHeight() {
+        return this.cp.canvasHeight;
     }
     draw(p) {
         return true;

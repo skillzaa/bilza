@@ -1,5 +1,7 @@
 import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
+import ComponentPack from "../compiler/componentPack.js";
+
 
 export default class Pic extends Component {
 img :HTMLImageElement;
@@ -7,9 +9,9 @@ img :HTMLImageElement;
 protected orignalWidth :number;
 protected orignalHeight :number;
 
-constructor(startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,imgUrl :string, width:number=25, height :number=25){
+constructor(startTime :number,endTime :number,componentPack :ComponentPack,imgUrl :string, width:number=25, height :number=25){
 
-super(startTime,endTime,canvasWidth,canvasHeight);
+super(startTime,endTime,componentPack);
 
 this.width.set(width); 
 this.height.set(height); 
@@ -33,7 +35,7 @@ this.drawLayer = 2;
 }
 
 init(p: Pack): boolean {
-    super.init(p);    
+    // super.init(p);    
 //---do i need them ?????? isnt it covered in super.init?    
 if(this.canvasWidth==null){throw new Error("init error");}
 if(this.canvasHeight==null){throw new Error("init error");}

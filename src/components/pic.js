@@ -1,7 +1,7 @@
 import Component from "../component/component.js";
 export default class Pic extends Component {
-    constructor(startTime, endTime, canvasWidth, canvasHeight, imgUrl, width = 25, height = 25) {
-        super(startTime, endTime, canvasWidth, canvasHeight);
+    constructor(startTime, endTime, componentPack, imgUrl, width = 25, height = 25) {
+        super(startTime, endTime, componentPack);
         this.width.set(width);
         this.height.set(height);
         this.img = new Image();
@@ -18,7 +18,6 @@ export default class Pic extends Component {
         this.drawLayer = 2;
     }
     init(p) {
-        super.init(p);
         if (this.canvasWidth == null) {
             throw new Error("init error");
         }

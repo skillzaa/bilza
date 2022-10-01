@@ -4,17 +4,16 @@ import Pack from "../pack/pack.js";
 import CoreProps from "./coreProps.js";
 import Style from "../pack/style.js";
 import Time from "./time.js";
+import ComponentPack from "../compiler/componentPack.js";
 
 export default class Component extends CoreProps implements IEngineComp{
 protected style:Style; 
 public time :Time;
-private _canvasWidth :number;
-private _canvasHeight :number;
+public cp :ComponentPack;
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor(startTime :number,endTime :number,canvasWidth :number,canvasHeight :number){
+constructor(startTime :number,endTime :number,componentPack :ComponentPack){
 super();    
-this._canvasWidth = canvasWidth;
-this._canvasHeight = canvasHeight;
+this.cp = componentPack;
 this.time = new Time(startTime,endTime);
 this.style = new Style(); 
 }
@@ -47,11 +46,11 @@ update(msDelta :number,p :Pack): boolean {
 
 return true;    
 }
-get canvasWidth():number{
-return this._canvasWidth;
+public canvasWidth():number{
+    return this.cp.canvasWidth;
 }
-get canvasHeight():number{
-return this._canvasHeight;
+public canvasHeight():number{
+return this.cp.canvasHeight;
 }
 public draw(p :Pack):boolean{
     return true;

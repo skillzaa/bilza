@@ -1,16 +1,20 @@
-import {Pack,BaseComponent,DrawLayer} from "../bilza.js";
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
+import ComponentPack from "../compiler/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 
-export default class Line extends BaseComponent {
+export default class Line extends Component {
 public x2 :AniNumber; 
 public y2 :AniNumber;
 
 lineWidth :AniNumber;
     
 
-constructor (x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
-super();
+constructor (startTime :number,endTime :number,componentPack :ComponentPack,x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
+
+    super(startTime,endTime,componentPack);
+    
 
 this.x.set(x1); 
 this.y.set(y1);
@@ -21,33 +25,13 @@ this.y2 = new AniNumber(y2);
 this.y2.setResponsive(); //default
 this.lineWidth = new AniNumber(2);
 this.color.set(color);
-this.drawLayer = DrawLayer.MiddleGround;
+this.drawLayer = 2;
 }
-//---new addition-----
-// setRespLoc(tf :boolean=true):boolean{
-// super.setRespLoc(tf);    
-//     if (tf == true){
-//         const x2OldValue = this.x2.value();
-//         const y2OldValue = this.y2.value();
-//         this.x2 = new AniPerc(0);
-//         this.x2.set(x2OldValue);
-//         this.y2 = new AniPerc(0);
-//         this.y2.set(y2OldValue);
-//         return true;
-//     } else {
-//         const x2OldValue = this.x2.value();
-//         const y2OldValue = this.y2.value();
-//         this.x2 = new AniNumber(0);
-//         this.x2.set(x2OldValue);
-//         this.y2 = new AniNumber(0);
-//         this.y2.set(y2OldValue);
-//         return false;
-//     }   
-// }
+
 
 init(p: Pack): boolean {  
 //--imp--it want us to keep it here or cause init error
-super.init(p);     
+// super.init(p);     
 // if (this.canvasWidth == null || this.canvasHeight == null){
 //     throw new Error("init error");
 // }
@@ -102,7 +86,7 @@ public align(x?: number | null, y?: number | null): void {
 //--we do not align line comp so there is no add / sub in the x/y value    
     super.align(0,0);
 }
-public alignRotate(x?: number | null, y?: number | null): void {
+public alignRotate(x: 0|1|2|null, y?: number | null): void {
     super.alignRotate(x,0);
 }
 }//class

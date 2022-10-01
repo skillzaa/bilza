@@ -1,8 +1,8 @@
-import { BaseComponent, DrawLayer } from "../bilza.js";
+import Component from "../component/component.js";
 import { AniNumber, } from "../animations/animations.js";
-export default class Line extends BaseComponent {
-    constructor(x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
-        super();
+export default class Line extends Component {
+    constructor(startTime, endTime, componentPack, x1 = 0, y1 = 0, x2 = 20, y2 = 20, color = "#000000") {
+        super(startTime, endTime, componentPack);
         this.x.set(x1);
         this.y.set(y1);
         this.x2 = new AniNumber(x2);
@@ -11,10 +11,9 @@ export default class Line extends BaseComponent {
         this.y2.setResponsive();
         this.lineWidth = new AniNumber(2);
         this.color.set(color);
-        this.drawLayer = DrawLayer.MiddleGround;
+        this.drawLayer = 2;
     }
     init(p) {
-        super.init(p);
         this.x2.init(this.canvasWidth());
         this.y2.init(this.canvasHeight());
         return true;

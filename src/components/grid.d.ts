@@ -1,7 +1,8 @@
-import { Pack } from "../bilza.js";
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
+import ComponentPack from "../compiler/componentPack.js";
 import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
-export default class Grid extends BaseComponent {
+export default class Grid extends Component {
     lineDash: number[];
     cellWidth: AniNumber;
     cellHeight: AniNumber;
@@ -14,8 +15,7 @@ export default class Grid extends BaseComponent {
     fontSize: AniNumber;
     colorNumbers: AniColor;
     showNumbers: AniBoolean;
-    constructor(cellWidth?: number, cellHeight?: number, color?: string);
-    init(p: Pack): boolean;
+    constructor(startTime: number, endTime: number, componentPack: ComponentPack, cellWidth?: number, cellHeight?: number, color?: string);
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     draw_horizontal(p: Pack): void;

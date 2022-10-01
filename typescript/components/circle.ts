@@ -1,5 +1,7 @@
 import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
+import ComponentPack from "../compiler/componentPack.js";
+
 
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
@@ -11,8 +13,8 @@ endAngle :AniNumber;
 filled :AniBoolean;
 lineWidth :AniNumber;
 
-constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,radius :number=10,color :string="#ff0000"){ 
-super(startTime,endTime,canvasWidth,canvasHeight);
+constructor (startTime :number,endTime :number,componentPack :ComponentPack,radius :number=10,color :string="#ff0000"){ 
+super(startTime,endTime,componentPack);
 //--new props
 this.filled = new AniBoolean(true);
 this.startAngle = new AniNumber(0);

@@ -1,5 +1,7 @@
 import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
+import ComponentPack from "../compiler/componentPack.js";
+
 import SkipXFrames from "../component/skipXFrames.js";
 import XY from "../component/xy.js";
 
@@ -17,8 +19,8 @@ private xyArray :XY[];
     public filled :AniBoolean;
     public lineColor :AniColor;
 
-constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,count :number= 20,color :string="#008000",delay :number=50) { 
-    super(startTime,endTime,canvasWidth,canvasHeight);
+constructor (startTime :number,endTime :number,componentPack :ComponentPack,count :number= 20,color :string="#008000",delay :number=50) { 
+    super(startTime,endTime,componentPack);
     //!!!!!!!!!!!!!!!!!!!
     this.particleSize = new AniNumber(12);
     this.skipXFrames = new SkipXFrames(delay);
@@ -56,7 +58,7 @@ if (this.canvasWidth == null || this.canvasHeight == null){
     throw new Error("init error");
 }    
 //----------------
-this.drawContentAreaBorder(p);
+// this.drawContentAreaBorder(p);
 //----------------
 this.style.lineWidth = this.lineWidth.value();
 this.style.strokeStyle = this.lineColor.value();

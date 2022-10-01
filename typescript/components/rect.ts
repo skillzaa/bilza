@@ -1,5 +1,6 @@
 import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
+import ComponentPack from "../compiler/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 
@@ -10,8 +11,9 @@ import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations
 export default class Rect extends Component {
 public lineWidth :AniNumber;
 
-constructor (startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,color :string="#000000"){ 
-    super(startTime,endTime,canvasWidth,canvasHeight);
+constructor (startTime :number,endTime :number,componentPack :ComponentPack,color :string="#000000"){ 
+
+    super(startTime,endTime,componentPack);
     this.color.set(color); 
     this.lineWidth = new AniNumber(1);
     

@@ -1,9 +1,10 @@
-import {Pack,DrawLayer,} from "../bilza.js";
+import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
+import ComponentPack from "../compiler/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
 
-export default class Grid extends BaseComponent {
+export default class Grid extends Component {
     lineDash :number[];
     
     cellWidth : AniNumber;    
@@ -22,8 +23,9 @@ export default class Grid extends BaseComponent {
     colorNumbers :AniColor ;   
     showNumbers :AniBoolean ;   
 
-constructor (cellWidth :number=10,cellHeight :number=10,color :string="grey"){
-super();
+constructor (startTime :number,endTime :number,componentPack :ComponentPack,cellWidth :number=10,cellHeight :number=10,color :string="grey"){
+    super(startTime,endTime,componentPack);  
+
 this.fontSize = new AniNumber(12);
 //--these 2 are settings but very imp since grid is normally used for entire screen
 this.width.set(100);
@@ -45,18 +47,18 @@ this.showVerticalLines = new AniBoolean(true);
 this.lineWidthVertical = new AniNumber(1);
 this.lineWidthHorizontal = new AniNumber(1);
 this.lineDash = [];
-this.drawLayer = DrawLayer.BackGround;   
+this.drawLayer = 1;   
 } 
-init(p: Pack): boolean {  
-//--imp--it want us to keep it here or cause init error
-super.init(p);     
-if (this.canvasWidth == null || this.canvasHeight == null){
-    throw new Error("init error");
-}
-    this.cellWidth.init(this.canvasWidth());//canvasWidth
-    this.cellHeight.init(this.canvasHeight());//canvasHeight
-return true;
-}   
+// init(p: Pack): boolean {  
+// //--imp--it want us to keep it here or cause init error
+// super.init(p);     
+// if (this.canvasWidth == null || this.canvasHeight == null){
+//     throw new Error("init error");
+// }
+//     this.cellWidth.init(this.canvasWidth());//canvasWidth
+//     this.cellHeight.init(this.canvasHeight());//canvasHeight
+// return true;
+// }   
 
 update(msDelta: number, p: Pack): boolean {
 //--11 props updated (no need for lineDash)    
@@ -91,17 +93,6 @@ this.postDraw(p);
 return true;
 }    
 
-// setRespCellDims(tf :boolean=true,cellWidth :number=10,cellHeight :number=10):boolean{
-//     if (tf == true){
-//         this.cellWidth = new AniPerc(cellWidth);
-//         this.cellHeight = new AniPerc(cellHeight);
-//         return true;
-//     } else {
-//         this.cellWidth = new AniNumber(cellWidth);
-//         this.cellHeight = new AniNumber(cellHeight);
-//         return false;
-//     }   
-// }
 
 draw_horizontal(p:Pack){
 let y = 0;

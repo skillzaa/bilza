@@ -1,5 +1,6 @@
 import Pack from "../../pack/pack.js";
 import Component from "../../component/component.js";
+import ComponentPack from "../../compiler/componentPack.js";
 import { AniNumber, AniBoolean, AniColor } from "../../animations/animations.js";
 import Templ from "./templ.js";
 import Theme from "./theme.js";
@@ -13,7 +14,7 @@ export default class Arrow extends Component {
     lineWidth: AniNumber;
     templ: Templ;
     theme: Theme;
-    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number, x1?: number, y1?: number, x2?: number, y2?: number, color?: string);
+    constructor(startTime: number, endTime: number, componentPack: ComponentPack, x1?: number, y1?: number, x2?: number, y2?: number, color?: string);
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     compWidth(): number;

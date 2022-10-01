@@ -1,9 +1,8 @@
-import { DrawLayer, } from "../bilza.js";
+import Component from "../component/component.js";
 import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
-import BaseComponent from "../BaseComponent/00BaseComponent.js";
-export default class Grid extends BaseComponent {
-    constructor(cellWidth = 10, cellHeight = 10, color = "grey") {
-        super();
+export default class Grid extends Component {
+    constructor(startTime, endTime, componentPack, cellWidth = 10, cellHeight = 10, color = "grey") {
+        super(startTime, endTime, componentPack);
         this.fontSize = new AniNumber(12);
         this.width.set(100);
         this.height.set(100);
@@ -20,16 +19,7 @@ export default class Grid extends BaseComponent {
         this.lineWidthVertical = new AniNumber(1);
         this.lineWidthHorizontal = new AniNumber(1);
         this.lineDash = [];
-        this.drawLayer = DrawLayer.BackGround;
-    }
-    init(p) {
-        super.init(p);
-        if (this.canvasWidth == null || this.canvasHeight == null) {
-            throw new Error("init error");
-        }
-        this.cellWidth.init(this.canvasWidth());
-        this.cellHeight.init(this.canvasHeight());
-        return true;
+        this.drawLayer = 1;
     }
     update(msDelta, p) {
         this.cellWidth.update(msDelta);
