@@ -33,6 +33,7 @@ export default interface IComponent{
 ////////////////////////////////////////////    
 //-0:for systemBg, 1-2-3 backgr,midgr,frontgr and 4: for filters
 drawLayer : 0|1|2|3|4;  
+compType :string;
 //////////////////////////////////////////////////    
 ////////////////////////////////////////////
 //--29-9-2022 -- 16 Public Methods 

@@ -1,0 +1,1 @@
+{"version":3,"file":"lab.d.ts","sourceRoot":"","sources":["../../typescript/labs/lab.ts"],"names":[],"mappings":"AAAA,OAAO,IAAI,MAAM,4BAA4B,CAAC;AAG9C,MAAM,CAAC,OAAO,OAAO,GAAG;IACxB,IAAI,EAAE,IAAI,CAAC;gBAEC,GAAG,EAAE,IAAI;IAKrB,aAAa,CAAC,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,MAAM,EAAE,UAAU,GAAE,OAAa;CAInE"}

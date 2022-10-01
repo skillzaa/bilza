@@ -41,7 +41,7 @@ stop(){
 }
 draw(timeSec :number=0){
 const compiler = new Compiler();
-this.bil = compiler.genApp(this.engine);
+this.bil = compiler.genApp(this.engine,this.comps);
 this.bil.draw();
 console.log("bil",this.bil);
 }

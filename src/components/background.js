@@ -1,7 +1,7 @@
 import Component from "../component/component.js";
 export default class Background extends Component {
-    constructor(color = "#efeee3") {
-        super();
+    constructor(startTime, endTime, color = "#efeee3") {
+        super(startTime, endTime);
         this.drawLayer = 0;
         this.color.set(color);
     }

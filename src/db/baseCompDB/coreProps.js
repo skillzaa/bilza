@@ -4,6 +4,7 @@ import AniBooleanDb from "../propTypes/AniBooleanDb.js";
 export default class CoreProps {
     constructor() {
         this.id = Math.random().toString(36).slice(2);
+        this.compType = "base";
         this.drawLayer = 2;
         this.border = new AniNumberDb(0);
         this.colorBackground = new AniColorDb("white");

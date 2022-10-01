@@ -22,6 +22,7 @@ export default class CoreProps {
     width: AniNumberDb;
     x: AniNumberDb;
     y: AniNumberDb;
+    compType: string;
     constructor();
 }
 //# sourceMappingURL=coreProps.d.ts.map

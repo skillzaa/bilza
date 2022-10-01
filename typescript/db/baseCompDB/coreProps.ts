@@ -7,7 +7,7 @@ import AniBooleanDb from "../propTypes/AniBooleanDb.js";
 
 export default class CoreProps {
 ////////////////////////////////////////////
-//--25-9-2022 -- 19 CORE props 
+//--25-9-2022 -- xx CORE props 
 ////////////////////////////////////////////    
 public readonly id :string;
 public border :AniNumberDb;
@@ -29,10 +29,12 @@ public version :string;
 public width :AniNumberDb;
 public x :AniNumberDb;
 public y :AniNumberDb;
-
+/////////////////////////////////////////////
+public compType :string;
 
 constructor(){
 this.id = Math.random().toString(36).slice(2);
+this.compType = "base";
 this.drawLayer = 2;
 
 this.border = new AniNumberDb(0);

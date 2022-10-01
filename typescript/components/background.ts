@@ -6,8 +6,9 @@ import Component from "../component/component.js";
 export default class Background extends Component {
   
 
-constructor (color :string="#efeee3"){ 
-super();
+constructor (startTime :number,endTime :number,color :string="#efeee3"){ 
+super(startTime,endTime);
+
 this.drawLayer = 0;
 this.color.set(color); 
 }

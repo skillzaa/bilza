@@ -7,8 +7,8 @@ import Component from "../component/component.js";
 
 export default class FillRect extends Component {
 
-constructor (color :string="#000000"){ 
-super();
+constructor (startTime :number,endTime :number,color :string="#000000"){ 
+super(startTime,endTime);
 this.color.set(color) ; 
 }
 
