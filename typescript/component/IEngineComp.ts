@@ -44,7 +44,7 @@ yRotate : 0|1|2;
 update(msDelta :number,p :Pack):boolean; //second not frame 
 draw(p :Pack):boolean;
 //////////////////////////////////////////
-time:Time;
+time:Time; //time obj will provide fol methods
 // getStartTime(inSec :boolean):number;
 // getEndTime(inSec :boolean):number;
 

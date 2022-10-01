@@ -1,20 +1,12 @@
-import { Pack } from "../bilza";
-
-
 
 export default class Settings {
-    clearCanvasBwFrames :boolean;
-    loadSystemBackground :boolean;
-    pack :Pack;
-constructor(pack :Pack){
+public clearCanvasBwFrames :boolean;
+public loadSystemBackground :boolean;
+
+constructor(){
 this.clearCanvasBwFrames  = true;
 this.loadSystemBackground  = true;
-this.pack  = pack;
 }
-disableOpacity(){
-this.pack.disableOpacity = true;
-}
-enableOpacity(){
-this.pack.disableOpacity = false;
-}
+
+
 }//settings

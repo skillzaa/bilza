@@ -1,42 +1,34 @@
 
 export default class StopWatch {
-private _stopFlag :boolean;
-
-//--change to runningStartTime
-private runningStartTimeTS :number | null; //when we start video
+ //Time stamp of start time be used to generate msDelta (time delata in milli sec)    
+private startTimeStamp :number | null;
  
 constructor(){
-    this.runningStartTimeTS = null;
-    this._stopFlag = true;
+    this.startTimeStamp = null;
 }
 
 isRunning():boolean{
-if (this.runningStartTimeTS == null){
+if (this.startTimeStamp == null){
     return false;
 }else {
     return true;
 }
 }
-//--???
-shouldStop():boolean{
- return this._stopFlag;
-}
+
 stop():boolean{
-    this.runningStartTimeTS = null;
-    this._stopFlag = true; 
+    this.startTimeStamp = null;
 return true;    
 }
 start():boolean{
-    this._stopFlag = false; 
-    this.runningStartTimeTS = new Date().getTime();
+    this.startTimeStamp = new Date().getTime();
 return true;    
 }
 public getMsDelta() :number{
-    if (this.runningStartTimeTS ==null){   
+    if (this.startTimeStamp ==null){   
             return 0;
     } else{
             let curTime = new Date().getTime();
-            return curTime - this.runningStartTimeTS;
+            return curTime - this.startTimeStamp;
     }
 }
 

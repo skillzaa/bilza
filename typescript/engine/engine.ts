@@ -2,19 +2,37 @@
 import IEngineComp from "../component/IEngineComp.js";
 import Background from "../components/background.js";
 import Pack from "../pack/pack.js";
+import StopWatch from "./stopWatch.js";
+import Settings from "./settings.js";
 //-------------------------------------------
 
-export default class Bilza {
+export default class Engine {
 public background :Background | null;
+private stopWatch:StopWatch;
+private set:Settings;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-private pack:Pack; //---later
-private lastMsDelta:number; //---later
+private pack:Pack;
+private lastMsDelta:number;
+private duration:number;
 private comps :IEngineComp[];
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor (canvasId="bilza",canvasWidthPerc=70,comps :IEngineComp[]=[], background :Background | null =null){
 
+constructor (
+    canvasId="bilza",
+    canvasWidthPerc=70,
+    comps :IEngineComp[]=[], 
+    background :Background | null =null,
+    duration :number
+    ){
+
+
+this.set = new Settings();
+this.stopWatch = new StopWatch();
 this.pack = new Pack(canvasId,canvasWidthPerc);;
+this.duration = duration;
+//--Incomming comps already has background or not based on settings in Fasade , such decisions are not part of engine
 this.comps = comps;
+//--if background !== null then it is also present at index 0 in comps 
 this.background = background;
 
 this.lastMsDelta =0;
@@ -23,23 +41,21 @@ this.lastMsDelta =0;
 
 
 public draw(msDelta :number=0){
-// if(this.pack == null){throw new Error("bilzaa is not initialized");}   
-//--Auto Stop
-// if(msDelta >= this.len(true)){ this.stopWatch.stop();}             
+if(msDelta >= this.duration){ this.stopWatch.stop();}             
 //--Clear Canvas
-// if (this.set.clearCanvasBwFrames == true){
-this.pack.clearCanvas();       
-this.pack.ctx.fillStyle = "green";
-this.pack.ctx.strokeStyle = "green";
-this.pack.ctx.fillRect(0,0,300,300);   
-// }
-this.comps[0].draw(this.pack);
-// this.drawByDrawLayer(msDelta,0,this.pack);
-// this.drawByDrawLayer(msDelta,1,this.pack);
-// this.drawByDrawLayer(msDelta,2,this.pack);
-// this.drawByDrawLayer(msDelta,3,this.pack);
+if (this.set.clearCanvasBwFrames == true){
+this.pack.clearCanvas();          
+}
+
+this.drawByDrawLayer(msDelta,0,this.pack);
+this.drawByDrawLayer(msDelta,1,this.pack);
+this.drawByDrawLayer(msDelta,2,this.pack);
+this.drawByDrawLayer(msDelta,3,this.pack);
 ///-----connection with outer world
 // this.drawEvent(msDelta);
+}
+durationInMs():number{
+  return this.duration * 1000;  
 }
 public drawByDrawLayer(msDelta :number,drawLayer :0|1|2|3|4,pack :Pack):boolean{ 
 // console.log("drawByDrawLayer");    
@@ -65,11 +81,13 @@ if (comp.visible.value() == false){
 if (comp.alwaysOn == true){
     return true;
 }
-if(comp.getStartTime(true) <= msDelta && comp.getEndTime(true) > msDelta){
+//msDelta is always in ms so start/end time should also be 
+if(comp.time.getStart(false) <= msDelta && comp.time.getEnd(false) > msDelta){
     return true;
 }
 return false;
 }
+
 public start():boolean{
     return true;
 }
@@ -78,7 +96,7 @@ public stop():boolean{
 }
 
 protected getLastMsDelta():number{
-    return this.lastMsDelta;
+return this.lastMsDelta;
 }
 
 ////////////////////////////////////engine ends
