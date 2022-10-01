@@ -4,7 +4,7 @@ import Time from "./time.js";
 export default class Component extends CoreProps {
     constructor(startTime, endTime, componentPack) {
         super();
-        this.cp = componentPack;
+        this.compPack = componentPack;
         this.time = new Time(startTime, endTime);
         this.style = new Style();
     }
@@ -31,10 +31,10 @@ export default class Component extends CoreProps {
         return true;
     }
     canvasWidth() {
-        return this.cp.canvasWidth;
+        return this.compPack.canvasWidth;
     }
     canvasHeight() {
-        return this.cp.canvasHeight;
+        return this.compPack.canvasHeight;
     }
     draw(p) {
         return true;

@@ -18,17 +18,17 @@ private comps :IEngineComp[];
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 constructor (
-    canvasId="bilza",
-    canvasWidthPerc=70,
-    comps :IEngineComp[]=[], 
+    canvasId :string,
+    canvasWidthPerc :number,
+    comps :IEngineComp[]=[],
     background :Background | null =null,
-    duration :number
-    ){
-
-
+    duration :number,
+    pack :Pack    
+){
+/////////////////////////////////////////////    
 this.set = new Settings();
 this.stopWatch = new StopWatch();
-this.pack = new Pack(canvasId,canvasWidthPerc);;
+this.pack = pack;
 this.duration = duration;
 //--Incomming comps already has background or not based on settings in Fasade , such decisions are not part of engine
 this.comps = comps;

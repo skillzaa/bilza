@@ -7,7 +7,7 @@ import ComponentPack from "../compiler/componentPack.js";
 export default class Component extends CoreProps implements IEngineComp {
     protected style: Style;
     time: Time;
-    cp: ComponentPack;
+    compPack: ComponentPack;
     constructor(startTime: number, endTime: number, componentPack: ComponentPack);
     protected preDrawNonBoxed(p: Pack): void;
     update(msDelta: number, p: Pack): boolean;

@@ -1,6 +1,7 @@
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../animationModule/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 import Pack from "../pack/pack.js";
 import Time from "./time.js";
+import ComponentPack from "../compiler/componentPack.js";
 
 export default interface IEngineComp{
 ////////////////////////////////////////////
@@ -45,6 +46,8 @@ update(msDelta :number,p :Pack):boolean; //second not frame
 draw(p :Pack):boolean;
 //////////////////////////////////////////
 time:Time; //time obj will provide fol methods
+compPack :ComponentPack;
+
 // getStartTime(inSec :boolean):number;
 // getEndTime(inSec :boolean):number;
 

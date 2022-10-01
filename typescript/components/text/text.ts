@@ -85,17 +85,17 @@ return true;
 }
  
 contentHeight():number {
-if (this.cp.charsWidth == null){throw new Error("init error");}    
+if (this.compPack.charsWidth == null){throw new Error("init error");}    
 //--Abstraction
 if (this.maxDisplayChars.value() < 1) {return 0;}
-// return this.cp.charsWidth("W",this.adjestFontSize(this.fontSize.value()),this.fontFamily);
-return this.cp.charsWidth("W",this.fontSize.value(),this.fontFamily);
+// return this.compPack.charsWidth("W",this.adjestFontSize(this.fontSize.value()),this.fontFamily);
+return this.compPack.charsWidth("W",this.fontSize.value(),this.fontFamily);
 }
 //--contentWidth has to return the actual width of the content area. If we use fitTextToWidth in text this method does not need to change it stil is correct just the fontSize change.
 contentWidth():number {
-if (this.cp.charsWidth == null){throw new Error("init error");}        
-// return this.cp.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this.adjestFontSize(this.fontSize.value()),this.fontFamily)
-return this.cp.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this.fontSize.value(),this.fontFamily)
+if (this.compPack.charsWidth == null){throw new Error("init error");}        
+// return this.compPack.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this.adjestFontSize(this.fontSize.value()),this.fontFamily)
+return this.compPack.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this.fontSize.value(),this.fontFamily)
 }
    
 //-ideal draw function
@@ -179,13 +179,13 @@ protected fitToHeightFn(p :Pack):number | null{
 //     }   
 // } 
 protected shrinkToHeightFn(p :Pack){
-if (this.cp.charsWidth==null){throw new Error("init error");
+if (this.compPack.charsWidth==null){throw new Error("init error");
 } 
 //--must sync Both
 this.style.fontFamily = this.fontFamily;
 
 const reqHtInPix =  (this.height.value());
-const contentHeight = this.cp.charsWidth("W",this.fontSize.value(),this.style.fontFamily);
+const contentHeight = this.compPack.charsWidth("W",this.fontSize.value(),this.style.fontFamily);
 if ( contentHeight < reqHtInPix){return true;}
 //-----------------------------------------
     for (let i = 300; i > 0; i--) {
@@ -202,14 +202,14 @@ if ( contentHeight < reqHtInPix){return true;}
 return true;
 }
 protected shrinkToWidthFn(p :Pack){
-if (this.cp.charsWidth==null){throw new Error("init error");
+if (this.compPack.charsWidth==null){throw new Error("init error");
 }    
 //--must sync Both
 this.style.fontFamily = this.fontFamily;
 this.style.fontSize = this.fontSize.value();
 const reqWdInPix =  (this.width.value());
 //--why not
-const contentWidth = this.cp.charsWidth(this.content.value() , this.fontSize.value(),this.style.fontFamily);
+const contentWidth = this.compPack.charsWidth(this.content.value() , this.fontSize.value(),this.style.fontFamily);
 
 if ( contentWidth < reqWdInPix){return true;}
 //-----------------------------------------

@@ -9,11 +9,11 @@ import ComponentPack from "../compiler/componentPack.js";
 export default class Component extends CoreProps implements IEngineComp{
 protected style:Style; 
 public time :Time;
-public cp :ComponentPack;
+public compPack :ComponentPack;
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor(startTime :number,endTime :number,componentPack :ComponentPack){
 super();    
-this.cp = componentPack;
+this.compPack = componentPack;
 this.time = new Time(startTime,endTime);
 this.style = new Style(); 
 }
@@ -47,10 +47,10 @@ update(msDelta :number,p :Pack): boolean {
 return true;    
 }
 public canvasWidth():number{
-    return this.cp.canvasWidth;
+    return this.compPack.canvasWidth;
 }
 public canvasHeight():number{
-return this.cp.canvasHeight;
+return this.compPack.canvasHeight;
 }
 public draw(p :Pack):boolean{
     return true;

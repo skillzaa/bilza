@@ -51,19 +51,19 @@ export default class Text extends Component {
         return true;
     }
     contentHeight() {
-        if (this.cp.charsWidth == null) {
+        if (this.compPack.charsWidth == null) {
             throw new Error("init error");
         }
         if (this.maxDisplayChars.value() < 1) {
             return 0;
         }
-        return this.cp.charsWidth("W", this.fontSize.value(), this.fontFamily);
+        return this.compPack.charsWidth("W", this.fontSize.value(), this.fontFamily);
     }
     contentWidth() {
-        if (this.cp.charsWidth == null) {
+        if (this.compPack.charsWidth == null) {
             throw new Error("init error");
         }
-        return this.cp.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.fontSize.value(), this.fontFamily);
+        return this.compPack.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.fontSize.value(), this.fontFamily);
     }
     draw(p) {
         this.preDraw(p);
@@ -99,12 +99,12 @@ export default class Text extends Component {
         return reqHtInPix;
     }
     shrinkToHeightFn(p) {
-        if (this.cp.charsWidth == null) {
+        if (this.compPack.charsWidth == null) {
             throw new Error("init error");
         }
         this.style.fontFamily = this.fontFamily;
         const reqHtInPix = (this.height.value());
-        const contentHeight = this.cp.charsWidth("W", this.fontSize.value(), this.style.fontFamily);
+        const contentHeight = this.compPack.charsWidth("W", this.fontSize.value(), this.style.fontFamily);
         if (contentHeight < reqHtInPix) {
             return true;
         }
@@ -119,13 +119,13 @@ export default class Text extends Component {
         return true;
     }
     shrinkToWidthFn(p) {
-        if (this.cp.charsWidth == null) {
+        if (this.compPack.charsWidth == null) {
             throw new Error("init error");
         }
         this.style.fontFamily = this.fontFamily;
         this.style.fontSize = this.fontSize.value();
         const reqWdInPix = (this.width.value());
-        const contentWidth = this.cp.charsWidth(this.content.value(), this.fontSize.value(), this.style.fontFamily);
+        const contentWidth = this.compPack.charsWidth(this.content.value(), this.fontSize.value(), this.style.fontFamily);
         if (contentWidth < reqWdInPix) {
             return true;
         }

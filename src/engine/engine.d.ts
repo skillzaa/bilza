@@ -9,7 +9,7 @@ export default class Engine {
     private lastMsDelta;
     private duration;
     private comps;
-    constructor(canvasId: string | undefined, canvasWidthPerc: number | undefined, comps: IEngineComp[] | undefined, background: Background | null | undefined, duration: number);
+    constructor(canvasId: string, canvasWidthPerc: number, comps: IEngineComp[] | undefined, background: Background | null | undefined, duration: number, pack: Pack);
     draw(msDelta?: number): void;
     durationInMs(): number;
     drawByDrawLayer(msDelta: number, drawLayer: 0 | 1 | 2 | 3 | 4, pack: Pack): boolean;

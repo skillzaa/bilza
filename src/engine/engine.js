@@ -1,12 +1,10 @@
-import Pack from "../pack/pack.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
 export default class Engine {
-    constructor(canvasId = "bilza", canvasWidthPerc = 70, comps = [], background = null, duration) {
+    constructor(canvasId, canvasWidthPerc, comps = [], background = null, duration, pack) {
         this.set = new Settings();
         this.stopWatch = new StopWatch();
-        this.pack = new Pack(canvasId, canvasWidthPerc);
-        ;
+        this.pack = pack;
         this.duration = duration;
         this.comps = comps;
         this.background = background;

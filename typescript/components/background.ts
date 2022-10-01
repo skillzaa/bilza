@@ -9,6 +9,7 @@ export default class Background extends Component {
   
 
 constructor (startTime :number,endTime :number,componentPack :ComponentPack,color :string="#efeee3"){ 
+    
 super(startTime,endTime,componentPack);
 
 this.drawLayer = 0;
