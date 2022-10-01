@@ -1,0 +1,1 @@
+{"version":3,"file":"settings.d.ts","sourceRoot":"","sources":["../../typescript/engineOld/settings.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,MAAM,UAAU,CAAC;AAIhC,MAAM,CAAC,OAAO,OAAO,QAAQ;IACzB,mBAAmB,EAAE,OAAO,CAAC;IAC7B,oBAAoB,EAAE,OAAO,CAAC;IAC9B,IAAI,EAAE,IAAI,CAAC;gBACH,IAAI,EAAE,IAAI;IAKtB,cAAc;IAGd,aAAa;CAGZ"}

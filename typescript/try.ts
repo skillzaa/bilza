@@ -1,4 +1,4 @@
-import Bilza from "./facade/bilza.js";
+import Bilza from "./bilza.js";
 
 
 const bil = new Bilza("bilza");

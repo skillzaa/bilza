@@ -1,6 +1,6 @@
-import Style from "../design/style.js";
+import Style from "./style.js";
 import getCanvasElement from "../functions/getCanvasElement.js";
-import Position from "../design/Position.js";
+import Position from "./Position.js";
 import aspectRatioHeight from "../functions/aspectRatioHeight.js";
 import setBWzeroNhundred from "../functions/setBWzeroNhundred.js";
 

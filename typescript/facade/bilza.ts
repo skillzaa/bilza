@@ -3,7 +3,6 @@ import EngineDb from "../db/engineDb.js";
 import Engine from "../engine/engine.js";
 import CompFactory from "./compFactory.js";
 import BackgroundDb from "../db/backgroundDb.js";
-import IScene from "../scene/IScene.js";
 import Compiler from "../compiler/compiler.js";
 
 //--30-9-2022-This level does not export any object just API
@@ -45,9 +44,8 @@ this.bil = compiler.genApp(this.engine,this.comps);
 this.bil.draw();
 console.log("bil",this.bil);
 }
-animationDuration(){
 
-}
+
 isRunning(){
 
 }
@@ -56,8 +54,5 @@ resizeCanvas(){
 
 }
 
-addScene(scene :IScene){
-
-}
 ////////////////////////////////////
 }

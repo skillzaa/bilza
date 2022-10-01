@@ -48,7 +48,9 @@ getEngine(engineDb :EngineDb,comps :IEngineComp[]):Engine{
 const engine = new Engine (
     engineDb.canvasId,
     engineDb.canvasWidthPerc,
-    comps
+    comps,
+    null,
+    5
 );
 return engine;
 }

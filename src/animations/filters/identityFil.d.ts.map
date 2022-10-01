@@ -1,0 +1,1 @@
+{"version":3,"file":"identityFil.d.ts","sourceRoot":"","sources":["../../../typescript/animations/filters/identityFil.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,MAAM,iBAAiB,CAAC;AAOzC,MAAM,CAAC,OAAO,OAAO,WAAW,CAAE,CAAC,CAAE,SAAQ,UAAU,CAAE,CAAC,CAAC;gBAE/C,YAAY,EAAE,MAAM,EAAC,UAAU,EAAE,MAAM,EAAC,UAAU,EAAE,CAAC,EAAC,QAAQ,EAAE,CAAC,EAAE,QAAQ,GAAE,MAAQ;IAK1F,aAAa,IAAI,CAAC;CAIxB"}
