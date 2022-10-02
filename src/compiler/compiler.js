@@ -8,7 +8,9 @@ export default class Compiler {
         const pack = new Pack(engineDb.canvasId, engineDb.canvasWidthPerc);
         const comps = [];
         const componentPack = getComponentPack(pack);
+        componentPack.endTime = 60;
         const compDb = compsDb[0];
+        componentPack.init(compDb);
         const engineComp = compDb.getEngineComponent(componentPack);
         comps.push(engineComp);
         console.log("engineComp", engineComp);

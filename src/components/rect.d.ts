@@ -1,5 +1,5 @@
 import Pack from "../pack/pack.js";
-import Component from "../component/component.js";
+import Component from "../EngineComponent/component.js";
 import ComponentPack from "../componentPack/componentPack.js";
 import { AniNumber } from "../animations/animations.js";
 export default class Rect extends Component {

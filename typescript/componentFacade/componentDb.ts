@@ -2,7 +2,7 @@ import IComponent from "./IComponent.js";
 import CoreProps from "../coreProps/corePropsDb.js";
 import Alignment from "./alignment.js";
 import ComponentPack from "../componentPack/componentPack.js";
-import Component from "../component/component.js";
+import Component from "../EngineComponent/component.js";
 
 ///////////////////////////////////////////////////
 export default class ComponentDb extends CoreProps implements IComponent {

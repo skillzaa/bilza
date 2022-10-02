@@ -1,4 +1,4 @@
-import Component from "../component/component.js";
+import Component from "../EngineComponent/component.js";
 import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
 export default class Wave extends Component {
     constructor(id, startTime, endTime, componentPack, numberOfWaves = 3, color = "blue") {

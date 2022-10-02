@@ -1,5 +1,5 @@
 import IComponent from "../componentFacade/IComponent.js";
-import IEngineComp from "../component/IEngineComp.js";
+import IEngineComp from "../EngineComponent/IEngineComp.js";
 
 import FillRect from "../components/fillRect/fillRect.js";
 import Background from "../components/background/background.js";

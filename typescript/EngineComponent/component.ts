@@ -1,18 +1,10 @@
 import IEngineComp from "./IEngineComp.js";
 // import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 import Pack from "../pack/pack.js";
-import CoreProps from "../coreProps/engineCompCore.js";
-import Style from "../pack/style.js";
-import Time from "./time.js";
+import EngineCompCore from "./engineCompCore.js";
 import ComponentPack from "../componentPack/componentPack.js";
 
-export default class Component extends CoreProps implements IEngineComp{
-
-// /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-// public xAlign  : 0|1|2;  
-// public yAlign  : 0|1|2;  
-// public xRotate : 0|1|2;  
-// public yRotate : 0|1|2;  
+export default class Component extends EngineCompCore implements IEngineComp{
 
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor(componentPack :ComponentPack){

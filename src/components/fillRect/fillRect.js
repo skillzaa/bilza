@@ -1,4 +1,4 @@
-import Component from "../../component/component.js";
+import Component from "../../EngineComponent/component.js";
 export default class FillRect extends Component {
     constructor(componentPack, color = "#000000") {
         super(componentPack);

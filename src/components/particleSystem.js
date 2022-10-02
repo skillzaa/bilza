@@ -1,6 +1,6 @@
-import Component from "../component/component.js";
-import SkipXFrames from "../component/skipXFrames.js";
-import XY from "../component/xy.js";
+import Component from "../EngineComponent/component.js";
+import SkipXFrames from "../EngineComponent/skipXFrames.js";
+import XY from "../EngineComponent/xy.js";
 import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
 export default class ParticleSystem extends Component {
     constructor(startTime, endTime, componentPack, count = 20, color = "#008000", delay = 50) {

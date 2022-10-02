@@ -1,10 +1,10 @@
 // import IEngineComp from "../component/IEngineComp.js";
-import IEngineComp from "../component/IEngineComp.js";
+import IEngineComp from "../EngineComponent/IEngineComp.js";
 import Background from "../components/background/background.js";
 import Pack from "../pack/pack.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
-import Component from "../component/component.js";
+import Component from "../EngineComponent/component.js";
 //-------------------------------------------
 
 export default class Engine {

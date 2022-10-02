@@ -1,4 +1,4 @@
-import Component from "../component/component.js";
+import Component from "../EngineComponent/component.js";
 import { AniNumber, AniBoolean, } from "../animations/animations.js";
 export default class Circle extends Component {
     constructor(startTime, endTime, componentPack, radius = 10, color = "#ff0000") {

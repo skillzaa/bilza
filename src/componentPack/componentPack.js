@@ -1,3 +1,4 @@
+import Time from "../EngineComponent/time.js";
 export default class ComponentPack {
     constructor(canvasWidth, canvasHeight, charsWidth) {
         this.id = "";
@@ -7,16 +8,8 @@ export default class ComponentPack {
         this.canvasHeight = canvasHeight;
         this.charsWidth = charsWidth;
     }
-    setStartTime(startTime) {
-        this.startTime = startTime;
-        return this.startTime;
-    }
-    setEndTime(endTime) {
-        this.endTime = endTime;
-        return this.endTime;
-    }
-    setId(id) {
-        this.id = id;
-        return this.id;
+    init(compDb) {
+        compDb.id = this.id;
+        compDb.time = new Time(this.startTime, this.endTime);
     }
 }

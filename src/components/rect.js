@@ -1,4 +1,4 @@
-import Component from "../component/component.js";
+import Component from "../EngineComponent/component.js";
 import { AniNumber, } from "../animations/animations.js";
 export default class Rect extends Component {
     constructor(startTime, endTime, componentPack, color = "#000000") {

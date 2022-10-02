@@ -1,4 +1,4 @@
-import IEngineComp from "../component/IEngineComp.js";
+import IEngineComp from "../EngineComponent/IEngineComp.js";
 import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
 import FillRect from "../components/fillRect/fillRect.js";
@@ -8,7 +8,7 @@ import  IComponent  from "../componentFacade/IComponent.js";
 import getEngine from "./getEngine.js"
 import getComponentPack from "../componentPack/getComponentPack.js";
 import ComponentDb from "../componentFacade/componentDb.js";
-import Component from "../component/component.js";
+import Component from "../EngineComponent/component.js";
 
 
 export default class Compiler {
@@ -23,7 +23,11 @@ const pack = new Pack(engineDb.canvasId,engineDb.canvasWidthPerc);
 const comps :IEngineComp[] = [];
 const componentPack = getComponentPack(pack);    
 
+///--remove
+componentPack.endTime = 60;
+
 const compDb = compsDb[0];
+componentPack.init(compDb);
 //@ts-expect-error
 const engineComp :Component =  compDb.getEngineComponent(componentPack);
 comps.push(engineComp);

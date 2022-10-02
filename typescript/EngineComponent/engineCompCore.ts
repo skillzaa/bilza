@@ -1,12 +1,12 @@
 import {AniNumber,AniBoolean,AniString,AniColor} from "../animations/animations.js";
 import ComponentPack from "../componentPack/componentPack.js";
-import Time from "../component/time.js";
+import Time from "./time.js";
 import Style from "../pack/style.js";
 /////////////////////////////////////////////////////////
 export default class EngineCompCore{
 ////////////////////////////////////////////
 //--30-9-2022 -- 21 CORE props 
-////////////////////////////////////////////    
+////////////////////////////////////////////     
 
 public border :AniNumber;
 public colorBackground :AniColor;

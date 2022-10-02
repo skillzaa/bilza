@@ -2,14 +2,15 @@ import AniNumberDb from "../animationsFacade/AniNumberDb.js";
 import AniStringDb from "../animationsFacade/AniStringDb.js";
 import AniColorDb from  "../animationsFacade/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
-
+import Time from "../EngineComponent/time.js";
 import Pack from "../pack/pack.js";
 //--This is actuall IFsacadeComp but since its for public to appropriate name
 export default interface IComponent{
 ////////////////////////////////////////////
 //--25-9-2022 -- 19 CORE props 
 ////////////////////////////////////////////    
-    readonly id :string;
+// NOT readonly
+    id :string;
     border :AniNumberDb;
     colorBackground :AniColorDb;
     colorBorder :AniColorDb;
@@ -79,6 +80,7 @@ animate(secFrom :number,secTo :number,
     ):boolean;
 // setDrawLayer(drawLayerNumber :0|1|2|3|4):0|1|2|3|4;
 
+time:Time;
 ///////////////////////////////////////////
 
 }

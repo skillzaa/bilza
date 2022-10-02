@@ -1,4 +1,4 @@
-import IEngineComp from "../component/IEngineComp.js";
+import IEngineComp from "../EngineComponent/IEngineComp.js";
 import ComponentDb from "../componentFacade/componentDb.js";
 import corePropsToEngineComp from "./corePropsToEngineComp.js";
 import ComponentPack from "../componentPack/componentPack.js";

@@ -1,4 +1,4 @@
-import Component from "../../component/component.js";
+import Component from "../../EngineComponent/component.js";
 import ComponentDb from "../../componentFacade/componentDb.js";
 import ComponentPack from "../../componentPack/componentPack.js";
 export default class FillRectDb extends ComponentDb {

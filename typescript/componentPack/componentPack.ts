@@ -1,6 +1,6 @@
 import IComponent from "../componentFacade/IComponent.js";
 import IComponentPack from "./IComponentPack.js";
-
+import Time from "../EngineComponent/time.js";
 
 /**
  * ComponentPack is used for packing all the required data for creation of a component. It is used so that the component API does not break
@@ -35,19 +35,10 @@ this.canvasHeight = canvasHeight ;
 this.charsWidth = charsWidth;
 }
 
-setStartTime(startTime :number):number{
-this.startTime = startTime;
-return this.startTime;
+init(compDb :IComponent){
+//compDb id is not readonly but engine comp id is 
+    compDb.id = this.id;
+compDb.time  = new Time(this.startTime , this.endTime);
 }
-setEndTime(endTime :number):number{
-this.endTime = endTime;
-return this.endTime;
-}
-
-setId(id :string):string{
-this.id = id;
-return this.id;
-}
-
 ////////////////////////////////////    
 }
