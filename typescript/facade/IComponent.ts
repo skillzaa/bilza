@@ -34,6 +34,12 @@ export default interface IComponent{
 //-0:for systemBg, 1-2-3 backgr,midgr,frontgr and 4: for filters
 drawLayer : 0|1|2|3|4;  
 compType :string;
+
+xAlign  : 0|1|2;  
+yAlign  : 0|1|2;  
+xRotate : 0|1|2;  
+yRotate : 0|1|2;  
+
 //////////////////////////////////////////////////    
 ////////////////////////////////////////////
 //--29-9-2022 -- 16 Public Methods 
@@ -42,8 +48,8 @@ compType :string;
 // update(msDelta :number,p :Pack):boolean; //second not frame 
 // draw(p :Pack):boolean;
 
-align(x:number,y:number):void;
-alignRotate(x:number,y:number):void;
+align(x : 0|1|2|null, y :0|1|2|null):void;
+alignRotate(x : 0|1|2|null, y :0|1|2|null):void;
 
 compWidth():number;
 compWidthPix():number;

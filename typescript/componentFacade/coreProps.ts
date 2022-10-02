@@ -1,7 +1,7 @@
-import AniNumberDb from "../../animations/propTypesDb/AniNumberDb.js";
-import AniStringDb from "../../animations/propTypesDb/AniStringDb.js";
-import AniColorDb from "../../animations/propTypesDb/AniColorDb.js";
-import AniBooleanDb from "../../animations/propTypesDb/AniBooleanDb.js";
+import AniNumberDb from "../animations/propTypesDb/AniNumberDb.js";
+import AniStringDb from "../animations/propTypesDb/AniStringDb.js";
+import AniColorDb from "../animations/propTypesDb/AniColorDb.js";
+import AniBooleanDb from "../animations/propTypesDb/AniBooleanDb.js";
 
 
 

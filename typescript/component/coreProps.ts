@@ -1,8 +1,9 @@
 import {AniNumber,AniBoolean,AniString,AniColor} from "../animations/animations.js";
+// import IComponent from "../facade/IComponent.js";
 
 
 /////////////////////////////////////////////////////////
-export default class CoreProps {
+export default class CoreProps{
 ////////////////////////////////////////////
 //--30-9-2022 -- 21 CORE props 
 ////////////////////////////////////////////    
@@ -29,20 +30,12 @@ public y :AniNumber;
 public drawLayer : 0|1|2|3|4; 
 public alwaysOn : boolean;  
 
-public xAlign  : 0|1|2;  
-public yAlign  : 0|1|2;  
-public xRotate : 0|1|2;  
-public yRotate : 0|1|2;  
 
 
 constructor(){
 
 this.id = Math.random().toString(36).slice(2);
 
-this.xAlign = 0;        
-this.yAlign = 0;
-this.xRotate = 0;
-this.yRotate = 0;
 
 this.border = new AniNumber(0);
 this.colorBackground = new AniColor("white");

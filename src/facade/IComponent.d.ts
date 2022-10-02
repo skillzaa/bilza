@@ -23,8 +23,12 @@ export default interface IComponent {
     y: AniNumberDb;
     drawLayer: 0 | 1 | 2 | 3 | 4;
     compType: string;
-    align(x: number, y: number): void;
-    alignRotate(x: number, y: number): void;
+    xAlign: 0 | 1 | 2;
+    yAlign: 0 | 1 | 2;
+    xRotate: 0 | 1 | 2;
+    yRotate: 0 | 1 | 2;
+    align(x: 0 | 1 | 2 | null, y: 0 | 1 | 2 | null): void;
+    alignRotate(x: 0 | 1 | 2 | null, y: 0 | 1 | 2 | null): void;
     compWidth(): number;
     compWidthPix(): number;
     compHeight(): number;

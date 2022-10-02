@@ -122,21 +122,7 @@ this.compHeight(),
 this.style);
 }
 
-xRotateAligned():number{   
-let x = this.xAligned();     
-switch (this.xRotate) {  
-    case 0 :
-    //--nothing        
-    break;
-    case 1:
-    x = x + (this.compWidth()/2);    
-    break;
-    case 2:
-    x = x + this.compWidth();    
-    break;
-}
-return x;    
-}
+
 yRotateAligned():number{   
 let y = this.yAligned();     
 switch (this.yRotate) {   
@@ -183,25 +169,6 @@ switch (this.yAlign) {
 }
 return y;    
 }
-//--move to db
-public align(x : 0|1|2|null=null, y :0|1|2|null=null){
-if (x !== null){
-    this.xAlign = x;                   
-}    
-if (y !== null){
-    this.yAlign = y;                   
-}       
-}
-
-public alignRotate(x : 0|1|2|null=null, y :0|1|2|null=null){
-if (x !== null){
-    this.xRotate = x;                   
-}    
-if (y !== null){
-    this.yRotate = y;                   
-}           
-
-}
 compWidth(): number {
     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
     return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
@@ -216,16 +183,7 @@ contentHeight(): number {
 contentWidth(): number {
     return this.width.value();
 }
-public setPaddings(n :number){
-this.paddingLeft.set(n);
-this.paddingRight.set(n);
-this.paddingTop.set(n);
-this.paddingBottom.set(n);
-}
-public setxy(x :number, y :number | null=null){
-    if (y ==null){y=x;}
-this.x.set(x);
-this.y.set(y);
-}
+
+
 ///////////////////////////////////////////    
 }//class

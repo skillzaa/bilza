@@ -86,20 +86,6 @@ export default class Component extends CoreProps {
         this.style.strokeStyle = this.colorBackground.value();
         p.drawFillRect(this.xAligned(), this.yAligned(), this.compWidth(), this.compHeight(), this.style);
     }
-    xRotateAligned() {
-        let x = this.xAligned();
-        switch (this.xRotate) {
-            case 0:
-                break;
-            case 1:
-                x = x + (this.compWidth() / 2);
-                break;
-            case 2:
-                x = x + this.compWidth();
-                break;
-        }
-        return x;
-    }
     yRotateAligned() {
         let y = this.yAligned();
         switch (this.yRotate) {
@@ -142,22 +128,6 @@ export default class Component extends CoreProps {
         }
         return y;
     }
-    align(x = null, y = null) {
-        if (x !== null) {
-            this.xAlign = x;
-        }
-        if (y !== null) {
-            this.yAlign = y;
-        }
-    }
-    alignRotate(x = null, y = null) {
-        if (x !== null) {
-            this.xRotate = x;
-        }
-        if (y !== null) {
-            this.yRotate = y;
-        }
-    }
     compWidth() {
         return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
     }
@@ -169,18 +139,5 @@ export default class Component extends CoreProps {
     }
     contentWidth() {
         return this.width.value();
-    }
-    setPaddings(n) {
-        this.paddingLeft.set(n);
-        this.paddingRight.set(n);
-        this.paddingTop.set(n);
-        this.paddingBottom.set(n);
-    }
-    setxy(x, y = null) {
-        if (y == null) {
-            y = x;
-        }
-        this.x.set(x);
-        this.y.set(y);
     }
 }

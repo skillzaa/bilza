@@ -1,4 +1,4 @@
-import CompDB from "../../component/baseCompDB/baseCompDb.js";
+import CompDB from "../../component/compFacade/baseCompDb.js";
 
 
 

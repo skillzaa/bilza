@@ -21,10 +21,6 @@ export default class CoreProps {
     y: AniNumber;
     drawLayer: 0 | 1 | 2 | 3 | 4;
     alwaysOn: boolean;
-    xAlign: 0 | 1 | 2;
-    yAlign: 0 | 1 | 2;
-    xRotate: 0 | 1 | 2;
-    yRotate: 0 | 1 | 2;
     constructor();
 }
 //# sourceMappingURL=coreProps.d.ts.map

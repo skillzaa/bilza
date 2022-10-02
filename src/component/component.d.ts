@@ -23,17 +23,12 @@ export default class Component extends CoreProps implements IEngineComp {
     protected removeRotation(p: Pack): void;
     protected drawBorder(p: Pack): void;
     protected drawBackground(p: Pack): void;
-    xRotateAligned(): number;
     yRotateAligned(): number;
     xAligned(): number;
     yAligned(): number;
-    align(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
-    alignRotate(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
     compWidth(): number;
     compHeight(): number;
     contentHeight(): number;
     contentWidth(): number;
-    setPaddings(n: number): void;
-    setxy(x: number, y?: number | null): void;
 }
 //# sourceMappingURL=component.d.ts.map
