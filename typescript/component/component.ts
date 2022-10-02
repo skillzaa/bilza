@@ -11,8 +11,19 @@ protected style:Style;
 public time :Time;
 public compPack :ComponentPack;
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+public xAlign  : 0|1|2;  
+public yAlign  : 0|1|2;  
+public xRotate : 0|1|2;  
+public yRotate : 0|1|2;  
+
+// /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor(startTime :number,endTime :number,componentPack :ComponentPack){
-super();    
+super(); 
+this.xAlign = 0;        
+this.yAlign = 0;
+this.xRotate = 0;
+this.yRotate = 0;
+
 this.compPack = componentPack;
 this.time = new Time(startTime,endTime);
 this.style = new Style(); 
@@ -122,7 +133,21 @@ this.compHeight(),
 this.style);
 }
 
-
+xRotateAligned():number{   
+let x = this.xAligned();     
+switch (this.xRotate) {  
+    case 0 :
+    //--nothing        
+    break;
+    case 1:
+    x = x + (this.compWidth()/2);    
+    break;
+    case 2:
+    x = x + this.compWidth();    
+    break;
+}
+return x;    
+}
 yRotateAligned():number{   
 let y = this.yAligned();     
 switch (this.yRotate) {   

@@ -1,1 +1,1 @@
-{"version":3,"file":"entryAni.d.ts","sourceRoot":"","sources":["../../typescript/aniTempl/entryAni.ts"],"names":[],"mappings":"AAIA,OAAO,SAAS,MAAM,2BAA2B,CAAC;AAElD,MAAM,CAAC,OAAO,OAAO,eAAe;IACpC,OAAO,CAAE,IAAI,CAAW;gBAEZ,IAAI,EAAE,SAAS;IAG3B,MAAM;IAMN,OAAO;IAUP,QAAQ;IASR,KAAK;IAUL,MAAM;CASL"}
+{"version":3,"file":"entryAni.d.ts","sourceRoot":"","sources":["../../typescript/aniTempl/entryAni.ts"],"names":[],"mappings":""}
