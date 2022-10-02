@@ -1,4 +1,4 @@
-import IEngineComp from "../EngineComponent/IEngineComp.js";
+import IEngineComp from "../engineComponent/IEngineComponent.js";
 import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
 import FillRect from "../components/fillRect/fillRect.js";
@@ -8,7 +8,7 @@ import  IComponent  from "../componentFacade/IComponent.js";
 import getEngine from "./getEngine.js"
 import getComponentPack from "../componentPack/getComponentPack.js";
 import ComponentDb from "../componentFacade/componentDb.js";
-import Component from "../EngineComponent/component.js";
+import Component from "../engineComponent/engineComponent.js";
 
 
 export default class Compiler {

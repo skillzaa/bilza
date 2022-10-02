@@ -1,5 +1,5 @@
 import Pack from "../../pack/pack.js";
-import Component from "../../EngineComponent/component.js";
+import Component from "../../engineComponent/engineComponent.js";
 import ComponentPack from "../../componentPack/componentPack.js";
 export default class Background extends Component {
     constructor(startTime: number, endTime: number, componentPack: ComponentPack, color?: string);

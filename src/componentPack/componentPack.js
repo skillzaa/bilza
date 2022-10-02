@@ -1,4 +1,4 @@
-import Time from "../EngineComponent/time.js";
+import Time from "../engineComponent/time.js";
 export default class ComponentPack {
     constructor(canvasWidth, canvasHeight, charsWidth) {
         this.id = "";

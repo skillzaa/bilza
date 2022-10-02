@@ -1,4 +1,4 @@
-import IEngineComp from "./IEngineComp.js";
+import IEngineComp from "./IEngineComponent.js";
 // import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 import Pack from "../pack/pack.js";
 import EngineCompCore from "./engineCompCore.js";

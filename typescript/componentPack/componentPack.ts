@@ -1,6 +1,6 @@
 import IComponent from "../componentFacade/IComponent.js";
 import IComponentPack from "./IComponentPack.js";
-import Time from "../EngineComponent/time.js";
+import Time from "../engineComponent/time.js";
 
 /**
  * ComponentPack is used for packing all the required data for creation of a component. It is used so that the component API does not break

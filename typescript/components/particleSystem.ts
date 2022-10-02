@@ -1,9 +1,9 @@
 import Pack from "../pack/pack.js";
-import Component from "../EngineComponent/component.js";
+import Component from "../engineComponent/engineComponent.js";
 import ComponentPack from "../componentPack/componentPack.js";
 
-import SkipXFrames from "../EngineComponent/skipXFrames.js";
-import XY from "../EngineComponent/xy.js";
+import SkipXFrames from "../engineComponent/skipXFrames.js";
+import XY from "../engineComponent/xy.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 

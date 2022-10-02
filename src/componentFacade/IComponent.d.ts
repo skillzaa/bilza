@@ -1,7 +1,7 @@
 import AniNumberDb from "../animationsFacade/AniNumberDb.js";
 import AniColorDb from "../animationsFacade/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
-import Time from "../EngineComponent/time.js";
+import Time from "../engineComponent/time.js";
 export default interface IComponent {
     id: string;
     border: AniNumberDb;

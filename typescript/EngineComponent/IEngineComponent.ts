@@ -3,7 +3,7 @@ import Pack from "../pack/pack.js";
 import Time from "./time.js";
 // import ComponentPack from "../componentPack/componentPack.js";
 
-export default interface IEngineComp{
+export default interface IEngineComponent{
 ////////////////////////////////////////////
 //--25-9-2022 -- 19 CORE props 
 ////////////////////////////////////////////    

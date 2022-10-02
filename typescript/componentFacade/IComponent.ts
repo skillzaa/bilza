@@ -2,7 +2,7 @@ import AniNumberDb from "../animationsFacade/AniNumberDb.js";
 import AniStringDb from "../animationsFacade/AniStringDb.js";
 import AniColorDb from  "../animationsFacade/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
-import Time from "../EngineComponent/time.js";
+import Time from "../engineComponent/time.js";
 import Pack from "../pack/pack.js";
 //--This is actuall IFsacadeComp but since its for public to appropriate name
 export default interface IComponent{

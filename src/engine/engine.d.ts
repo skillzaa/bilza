@@ -1,6 +1,6 @@
 import Background from "../components/background/background.js";
 import Pack from "../pack/pack.js";
-import Component from "../EngineComponent/component.js";
+import Component from "../engineComponent/engineComponent.js";
 export default class Engine {
     background: Background | null;
     private stopWatch;

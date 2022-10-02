@@ -1,4 +1,4 @@
-import Component from "../EngineComponent/component.js";
+import Component from "../engineComponent/engineComponent.js";
 import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
 export default class Grid extends Component {
     constructor(startTime, endTime, componentPack, cellWidth = 10, cellHeight = 10, color = "grey") {

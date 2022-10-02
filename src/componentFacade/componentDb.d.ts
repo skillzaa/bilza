@@ -1,7 +1,7 @@
 import IComponent from "./IComponent.js";
 import CoreProps from "../coreProps/corePropsDb.js";
 import ComponentPack from "../componentPack/componentPack.js";
-import Component from "../EngineComponent/component.js";
+import Component from "../engineComponent/engineComponent.js";
 export default class ComponentDb extends CoreProps implements IComponent {
     readonly startTime: number;
     readonly endTime: number;
