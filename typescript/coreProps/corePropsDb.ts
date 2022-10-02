@@ -5,7 +5,7 @@ import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
 
 
 
-export default class CoreProps {
+export default class CorePropsDb {
 ////////////////////////////////////////////
 //--25-9-2022 -- xx CORE props 
 ////////////////////////////////////////////    
@@ -30,11 +30,18 @@ public width :AniNumberDb;
 public x :AniNumberDb;
 public y :AniNumberDb;
 /////////////////////////////////////////////
-public compType :string;
+public alwaysOn :boolean;
 
+public xAlign  : 0|1|2;  
+public yAlign  : 0|1|2;  
+public xRotate : 0|1|2;  
+public yRotate : 0|1|2;  
+
+
+
+////////////////////////////////////
 constructor(){
 this.id = Math.random().toString(36).slice(2);
-this.compType = "base";
 this.drawLayer = 2;
 
 this.border = new AniNumberDb(0);
@@ -55,8 +62,16 @@ this.version = "0.1.2";
 this.width = new AniNumberDb(10);
 this.x = new AniNumberDb(0);
 this.y = new AniNumberDb(0);
-}
 
+/////////////////
+this.alwaysOn =  false;
+this.xAlign =0;
+this.yAlign =0;
+this.xRotate =0;
+this.yRotate =0;
+
+
+}
 
 /////////////////////////////////////////////////////    
 }

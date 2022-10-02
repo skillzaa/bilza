@@ -1,6 +1,6 @@
 import Component from "../component/component.js";
 import Pack from "../pack/pack.js";
-import ComponentPack from "../compiler/componentPack.js";
+import ComponentPack from "../componentPack/componentPack.js";
 import { AniNumber } from "../animations/animations.js";
 export default class CanvasBorder extends Component {
     borderWidth: AniNumber;

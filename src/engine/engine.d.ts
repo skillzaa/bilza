@@ -1,6 +1,6 @@
-import IEngineComp from "../component/IEngineComp.js";
 import Background from "../components/background/background.js";
 import Pack from "../pack/pack.js";
+import Component from "../component/component.js";
 export default class Engine {
     background: Background | null;
     private stopWatch;
@@ -9,7 +9,7 @@ export default class Engine {
     private lastMsDelta;
     private duration;
     private comps;
-    constructor(canvasId: string, canvasWidthPerc: number, comps: IEngineComp[] | undefined, background: Background | null | undefined, duration: number, pack: Pack);
+    constructor(canvasId: string, canvasWidthPerc: number, comps: Component[] | undefined, background: Background | null | undefined, duration: number, pack: Pack);
     draw(msDelta?: number): void;
     durationInMs(): number;
     drawByDrawLayer(msDelta: number, drawLayer: 0 | 1 | 2 | 3 | 4, pack: Pack): boolean;

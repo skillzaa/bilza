@@ -1,5 +1,7 @@
 import IComponent from "./IComponent.js";
-import CoreProps from "./coreProps.js";
+import CoreProps from "../coreProps/corePropsDb.js";
+import ComponentPack from "../componentPack/componentPack.js";
+import Component from "../component/component.js";
 export default class ComponentDb extends CoreProps implements IComponent {
     readonly startTime: number;
     readonly endTime: number;
@@ -29,8 +31,9 @@ export default class ComponentDb extends CoreProps implements IComponent {
     contentHeightPix(): number;
     getDuration(): number;
     setxy(x: number, y?: number | null): void;
-    getStartTime(inMilliSec?: boolean): number;
-    getEndTime(inMilliSec?: boolean): number;
+    getStartTime(inSec?: boolean): number;
+    getEndTime(inSec?: boolean): number;
     goto(atFrame: number, x: number, y: number): boolean;
+    getEngineComponent(componentPack: ComponentPack): Component;
 }
 //# sourceMappingURL=componentDb.d.ts.map

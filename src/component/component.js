@@ -1,16 +1,7 @@
-import CoreProps from "./coreProps.js";
-import Style from "../pack/style.js";
-import Time from "./time.js";
+import CoreProps from "../coreProps/engineCompCore.js";
 export default class Component extends CoreProps {
-    constructor(startTime, endTime, componentPack) {
-        super();
-        this.xAlign = 0;
-        this.yAlign = 0;
-        this.xRotate = 0;
-        this.yRotate = 0;
-        this.compPack = componentPack;
-        this.time = new Time(startTime, endTime);
-        this.style = new Style();
+    constructor(componentPack) {
+        super(componentPack);
     }
     preDrawNonBoxed(p) {
         this.style.opacity = (this.opacity.value());
@@ -35,10 +26,10 @@ export default class Component extends CoreProps {
         return true;
     }
     canvasWidth() {
-        return this.compPack.canvasWidth;
+        return this.canvasWidth();
     }
     canvasHeight() {
-        return this.compPack.canvasHeight;
+        return this.canvasHeight();
     }
     draw(p) {
         return true;

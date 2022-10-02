@@ -22,7 +22,6 @@ export default interface IComponent {
     x: AniNumberDb;
     y: AniNumberDb;
     drawLayer: 0 | 1 | 2 | 3 | 4;
-    compType: string;
     xAlign: 0 | 1 | 2;
     yAlign: 0 | 1 | 2;
     xRotate: 0 | 1 | 2;

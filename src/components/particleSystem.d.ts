@@ -1,6 +1,6 @@
 import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
-import ComponentPack from "../compiler/componentPack.js";
+import ComponentPack from "../componentPack/componentPack.js";
 import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
 export default class ParticleSystem extends Component {
     private skipXFrames;

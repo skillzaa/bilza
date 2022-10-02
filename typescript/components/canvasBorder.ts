@@ -1,6 +1,6 @@
 import Component from "../component/component.js";
 import Pack from "../pack/pack.js";
-import ComponentPack from "../compiler/componentPack.js";
+import ComponentPack from "../componentPack/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 

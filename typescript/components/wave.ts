@@ -1,6 +1,6 @@
 import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
-import ComponentPack from "../compiler/componentPack.js";
+import ComponentPack from "../componentPack/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 
@@ -12,9 +12,9 @@ numberOfWaves   :AniNumber;
 midLineColor    :AniColor;
 showMidLine     :AniBoolean;
 
-constructor (startTime :number,endTime :number,componentPack :ComponentPack,numberOfWaves :number=3,color :string ="blue"){ 
+constructor (id :string,startTime :number,endTime :number,componentPack :ComponentPack,numberOfWaves :number=3,color :string ="blue"){ 
 
-super(startTime,endTime,componentPack);
+super(id,startTime,endTime,componentPack);
 this.numberOfWaves = new  AniNumber(numberOfWaves);
 this.color.set(color);
 this.midLineColor = new AniColor("red");

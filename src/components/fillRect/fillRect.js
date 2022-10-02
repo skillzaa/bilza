@@ -1,7 +1,7 @@
 import Component from "../../component/component.js";
 export default class FillRect extends Component {
-    constructor(startTime, endTime, componentPack, color = "#000000") {
-        super(startTime, endTime, componentPack);
+    constructor(componentPack, color = "#000000") {
+        super(componentPack);
         this.color.set(color);
     }
     draw(p) {

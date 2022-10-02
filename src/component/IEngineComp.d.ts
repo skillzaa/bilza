@@ -1,9 +1,7 @@
 import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
 import Pack from "../pack/pack.js";
 import Time from "./time.js";
-import ComponentPack from "../compiler/componentPack.js";
 export default interface IEngineComp {
-    readonly id: string;
     border: AniNumber;
     colorBackground: AniColor;
     colorBorder: AniColor;
@@ -22,6 +20,7 @@ export default interface IEngineComp {
     width: AniNumber;
     x: AniNumber;
     y: AniNumber;
+    readonly id: string;
     drawLayer: 0 | 1 | 2 | 3 | 4;
     alwaysOn: boolean;
     xAlign: 0 | 1 | 2;
@@ -31,6 +30,5 @@ export default interface IEngineComp {
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     time: Time;
-    compPack: ComponentPack;
 }
 //# sourceMappingURL=IEngineComp.d.ts.map

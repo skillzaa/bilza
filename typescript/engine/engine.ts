@@ -4,6 +4,7 @@ import Background from "../components/background/background.js";
 import Pack from "../pack/pack.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
+import Component from "../component/component.js";
 //-------------------------------------------
 
 export default class Engine {
@@ -20,7 +21,7 @@ private comps :IEngineComp[];
 constructor (
     canvasId :string,
     canvasWidthPerc :number,
-    comps :IEngineComp[]=[],
+    comps :Component[]=[],
     background :Background | null =null,
     duration :number,
     pack :Pack    

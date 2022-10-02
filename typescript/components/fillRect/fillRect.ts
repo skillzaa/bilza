@@ -1,6 +1,6 @@
 import Pack from "../../pack/pack.js";
 import Component from "../../component/component.js";
-import ComponentPack from "../../compiler/componentPack.js";
+import ComponentPack from "../../componentPack/componentPack.js";
 
 
 //-14-july-2022 : There is no need to add any public prop width height and color are all added    
@@ -8,9 +8,9 @@ import ComponentPack from "../../compiler/componentPack.js";
 
 export default class FillRect extends Component {
 
-constructor (startTime :number,endTime :number,componentPack :ComponentPack,color :string="#000000"){ 
+constructor (componentPack :ComponentPack,color :string="#000000"){ 
 
-super(startTime,endTime,componentPack);
+super(componentPack);
 
 this.color.set(color) ; 
 }
@@ -31,9 +31,8 @@ this.style.strokeStyle = this.color.value();
      this.contentX(),
      this.contentY(),
 
-    this.width.value(),
-    this.height.value(),
-
+    this.width.value(),this.height.value(),
+    // 200,200
     this.style
     );
 // ----------------------------

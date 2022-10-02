@@ -3,7 +3,7 @@ import IdentityFil from "../filters/identityFil.js";
 import Increment from "./filters/increment.js";
 import Decrement from "./filters/decrement.js";
 import Random from "./filters/random.js";
-import Oscillate from "./filters/oscillatets.js";
+import Oscillate from "./filters/oscillatets.js"; 
 
 // import Vibrate from "./effFilters/vibrate.js";
 

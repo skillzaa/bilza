@@ -1,4 +1,4 @@
-import CoreProps from "./coreProps.js";
+import CoreProps from "../coreProps/corePropsDb.js";
 export default class ComponentDb extends CoreProps {
     constructor(startTime, endTime, canvasWidth, canvasHeight, insertAction) {
         super();
@@ -109,19 +109,19 @@ export default class ComponentDb extends CoreProps {
         return this.width.value();
     }
     compWidthPix() {
-        return 3;
+        return 200;
     }
     compHeightPix() {
-        return 3;
+        return 200;
     }
     contentWidthPix() {
-        return 3;
+        return 200;
     }
     contentHeightPix() {
-        return 3;
+        return 200;
     }
     getDuration() {
-        return 3;
+        return 0;
     }
     setxy(x, y = null) {
         if (y == null) {
@@ -130,13 +130,15 @@ export default class ComponentDb extends CoreProps {
         this.x.set(x);
         this.y.set(y);
     }
-    getStartTime(inMilliSec) {
-        return this.startTime;
+    getStartTime(inSec = true) {
+        return inSec ? this.startTime : (this.startTime * 1000);
     }
-    getEndTime(inMilliSec) {
-        return this.endTime;
+    getEndTime(inSec = true) {
+        return inSec ? this.endTime : (this.endTime * 1000);
     }
     goto(atFrame, x, y) {
         return true;
+    }
+    getEngineComponent(componentPack) {
     }
 }

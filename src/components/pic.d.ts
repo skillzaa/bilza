@@ -1,6 +1,6 @@
 import Pack from "../pack/pack.js";
 import Component from "../component/component.js";
-import ComponentPack from "../compiler/componentPack.js";
+import ComponentPack from "../componentPack/componentPack.js";
 export default class Pic extends Component {
     img: HTMLImageElement;
     protected orignalWidth: number;

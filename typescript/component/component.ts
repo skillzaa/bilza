@@ -1,32 +1,23 @@
 import IEngineComp from "./IEngineComp.js";
 // import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 import Pack from "../pack/pack.js";
-import CoreProps from "./coreProps.js";
+import CoreProps from "../coreProps/engineCompCore.js";
 import Style from "../pack/style.js";
 import Time from "./time.js";
-import ComponentPack from "../compiler/componentPack.js";
+import ComponentPack from "../componentPack/componentPack.js";
 
 export default class Component extends CoreProps implements IEngineComp{
-protected style:Style; 
-public time :Time;
-public compPack :ComponentPack;
-// /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-public xAlign  : 0|1|2;  
-public yAlign  : 0|1|2;  
-public xRotate : 0|1|2;  
-public yRotate : 0|1|2;  
 
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor(startTime :number,endTime :number,componentPack :ComponentPack){
-super(); 
-this.xAlign = 0;        
-this.yAlign = 0;
-this.xRotate = 0;
-this.yRotate = 0;
+// public xAlign  : 0|1|2;  
+// public yAlign  : 0|1|2;  
+// public xRotate : 0|1|2;  
+// public yRotate : 0|1|2;  
 
-this.compPack = componentPack;
-this.time = new Time(startTime,endTime);
-this.style = new Style(); 
+// /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+constructor(componentPack :ComponentPack){
+super(componentPack); 
+
 }
 protected preDrawNonBoxed(p :Pack){
 this.style.opacity = (this.opacity.value());
@@ -58,10 +49,10 @@ update(msDelta :number,p :Pack): boolean {
 return true;    
 }
 public canvasWidth():number{
-    return this.compPack.canvasWidth;
+    return this.canvasWidth();
 }
 public canvasHeight():number{
-return this.compPack.canvasHeight;
+return this.canvasHeight();
 }
 public draw(p :Pack):boolean{
     return true;

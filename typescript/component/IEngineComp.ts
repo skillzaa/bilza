@@ -1,13 +1,13 @@
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 import Pack from "../pack/pack.js";
 import Time from "./time.js";
-import ComponentPack from "../compiler/componentPack.js";
+// import ComponentPack from "../componentPack/componentPack.js";
 
 export default interface IEngineComp{
 ////////////////////////////////////////////
 //--25-9-2022 -- 19 CORE props 
 ////////////////////////////////////////////    
-    readonly id :string;
+    
     border :AniNumber;
     colorBackground :AniColor;
     colorBorder :AniColor;
@@ -31,6 +31,7 @@ export default interface IEngineComp{
 //--29-9-2022 -- 1 Additional props 
 ////////////////////////////////////////////    
 //-0:for systemBg, 1-2-3 backgr,midgr,frontgr and 4: for filters
+readonly id :string;
 drawLayer : 0|1|2|3|4;  
 alwaysOn : boolean;  
  
@@ -47,7 +48,7 @@ update(msDelta :number,p :Pack):boolean; //second not frame
 draw(p :Pack):boolean;
 //////////////////////////////////////////
 time:Time; //time obj will provide fol methods
-compPack :ComponentPack;
+// compPack :ComponentPack;
 
 // getStartTime(inSec :boolean):number;
 // getEndTime(inSec :boolean):number;

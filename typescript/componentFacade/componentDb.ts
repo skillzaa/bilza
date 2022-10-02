@@ -1,7 +1,8 @@
 import IComponent from "./IComponent.js";
-import CoreProps from "./coreProps.js";
+import CoreProps from "../coreProps/corePropsDb.js";
 import Alignment from "./alignment.js";
-
+import ComponentPack from "../componentPack/componentPack.js";
+import Component from "../component/component.js";
 
 ///////////////////////////////////////////////////
 export default class ComponentDb extends CoreProps implements IComponent {
@@ -147,38 +148,38 @@ contentWidth(): number {
 }
 
 compWidthPix():number{
-    return 3;
+    return 200;
 }
 
 
 compHeightPix():number{
-    return 3;
+    return 200;
 }
 
 
 contentWidthPix():number{
-    return 3;
+    return 200;
 }
 
 
 
 contentHeightPix():number{
-    return 3;
+    return 200;
 }
 ////////////////////////////////////////////
 getDuration():number{
-    return 3;
+    return 0;
 }
 public setxy(x :number, y :number | null=null){
     if (y ==null){y=x;}
 this.x.set(x);
 this.y.set(y);
 }
-getStartTime(inMilliSec ?:boolean) :number{
-    return this.startTime;
+getStartTime(inSec :boolean=true) :number{
+    return  inSec ? this.startTime : (this.startTime * 1000);
 }
-getEndTime(inMilliSec ?:boolean) :number{
-    return this.endTime;
+getEndTime(inSec :boolean=true) :number{
+    return inSec ? this.endTime : (this.endTime * 1000);
 }
 
 
@@ -187,5 +188,12 @@ goto(atFrame :number,x :number , y :number):boolean{
 }
 
 
+////////////////////////////////////////////    
+////////////////////////////////////////////    
+//@ts-expect-error
+public getEngineComponent(componentPack :ComponentPack):Component{
+
+}
+////////////////////////////////////////////    
 ////////////////////////////////////////////    
 }
