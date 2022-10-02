@@ -38,6 +38,5 @@ export default interface IComponent {
     getEndTime(inMilliSec?: boolean): number;
     goto(atFrame: number, x: number, y: number): boolean;
     animate(secFrom: number, secTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
-    setDrawLayer(drawLayerNumber: 0 | 1 | 2 | 3 | 4): 0 | 1 | 2 | 3 | 4;
 }
 //# sourceMappingURL=IComponent.d.ts.map

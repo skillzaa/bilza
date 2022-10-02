@@ -72,9 +72,8 @@ animate(secFrom :number,secTo :number,
     xFrom :number,xTo :number, 
     yFrom :number,yTo :number,
     ):boolean;
-setDrawLayer(drawLayerNumber :0|1|2|3|4):0|1|2|3|4;
+// setDrawLayer(drawLayerNumber :0|1|2|3|4):0|1|2|3|4;
 
 ///////////////////////////////////////////
-// charsWidth :null | ((chars:string,fontSize:number,fontName:string)=>number);
 
 }

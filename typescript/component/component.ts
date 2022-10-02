@@ -60,11 +60,11 @@ this.x.goto(atFrame,x);
 this.y.goto(atFrame,y);
 return true;    
 }
-animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean {
-this.x.animate(timeFrom,timeTo,xFrom,xTo);    
-this.y.animate(timeFrom,timeTo,yFrom,yTo);    
-return true;    
-}
+// animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean {
+// this.x.animate(timeFrom,timeTo,xFrom,xTo);    
+// this.y.animate(timeFrom,timeTo,yFrom,yTo);    
+// return true;    
+// }
 ///////////////////protected 
 protected preDraw(p :Pack){
 this.style.opacity = (this.opacity.value());
@@ -183,6 +183,7 @@ switch (this.yAlign) {
 }
 return y;    
 }
+//--move to db
 public align(x : 0|1|2|null=null, y :0|1|2|null=null){
 if (x !== null){
     this.xAlign = x;                   
@@ -191,6 +192,7 @@ if (y !== null){
     this.yAlign = y;                   
 }       
 }
+
 public alignRotate(x : 0|1|2|null=null, y :0|1|2|null=null){
 if (x !== null){
     this.xRotate = x;                   

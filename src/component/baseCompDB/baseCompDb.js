@@ -1,6 +1,6 @@
 import CoreProps from "./coreProps.js";
 import Alignment from "./alignment.js";
-export default class CompDb extends CoreProps {
+export default class ComponentDb extends CoreProps {
     constructor(startTime, endTime, canvasWidth, canvasHeight, insertAction) {
         super();
         this.startTime = startTime;
@@ -15,6 +15,11 @@ export default class CompDb extends CoreProps {
     align(x, y) {
     }
     alignRotate(x, y) {
+    }
+    animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo) {
+        this.x.animate(timeFrom, timeTo, xFrom, xTo);
+        this.y.animate(timeFrom, timeTo, yFrom, yTo);
+        return true;
     }
     compWidth() {
         return 3;
@@ -44,18 +49,12 @@ export default class CompDb extends CoreProps {
         return 3;
     }
     getStartTime(inMilliSec) {
-        return 3;
+        return this.startTime;
     }
     getEndTime(inMilliSec) {
-        return 3;
+        return this.endTime;
     }
     goto(atFrame, x, y) {
         return true;
-    }
-    animate(secFrom, secTo, xFrom, xTo, yFrom, yTo) {
-        return true;
-    }
-    setDrawLayer(drawLayerNumber) {
-        return 2;
     }
 }

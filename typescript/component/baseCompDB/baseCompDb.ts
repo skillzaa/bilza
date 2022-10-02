@@ -1,15 +1,16 @@
 import IComponent from "../../facade/IComponent.js";
 import CoreProps from "./coreProps.js";
 import Alignment from "./alignment.js";
+
+
 ///////////////////////////////////////////////////
-
-
-export default class CompDb extends CoreProps implements IComponent {
+export default class ComponentDb extends CoreProps implements IComponent {
 ///////////////////////////////////////////////////
 
 public readonly startTime :number;
 public readonly endTime :number ;
 public readonly insertAction :"add"|"append" | "alwaysOn";
+
 private readonly canvasWidth :number;
 private readonly canvasHeight :number;
 ////////////////////////////////////////
@@ -34,6 +35,11 @@ align(x:number,y:number):void{
 }
 alignRotate(x:number,y:number):void{
 
+}
+animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean {
+this.x.animate(timeFrom,timeTo,xFrom,xTo);    
+this.y.animate(timeFrom,timeTo,yFrom,yTo);    
+return true;    
 }
 
 compWidth():number{
@@ -68,10 +74,10 @@ getDuration():number{
     return 3;
 }
 getStartTime(inMilliSec ?:boolean) :number{
-    return 3;
+    return this.startTime;
 }
 getEndTime(inMilliSec ?:boolean) :number{
-    return 3;
+    return this.endTime;
 }
 
 
@@ -79,12 +85,6 @@ goto(atFrame :number,x :number , y :number):boolean{
     return true;
 }
 
-animate(secFrom :number,secTo :number,xFrom :number,xTo :number, 
-    yFrom :number,yTo :number,):boolean{
-        return true;
-}  
-setDrawLayer(drawLayerNumber :0|1|2|3|4):0|1|2|3|4{
-    return 2;
-}      
+
 ////////////////////////////////////////////    
 }

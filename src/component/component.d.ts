@@ -15,7 +15,6 @@ export default class Component extends CoreProps implements IEngineComp {
     canvasHeight(): number;
     draw(p: Pack): boolean;
     goto(atFrame: number, x: number, y: number): boolean;
-    animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
     protected preDraw(p: Pack): void;
     protected postDraw(p: Pack): void;
     protected contentX(): number;

@@ -44,11 +44,6 @@ export default class Component extends CoreProps {
         this.y.goto(atFrame, y);
         return true;
     }
-    animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo) {
-        this.x.animate(timeFrom, timeTo, xFrom, xTo);
-        this.y.animate(timeFrom, timeTo, yFrom, yTo);
-        return true;
-    }
     preDraw(p) {
         this.style.opacity = (this.opacity.value());
         this.applyRotation(p);

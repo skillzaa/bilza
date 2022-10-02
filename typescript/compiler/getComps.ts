@@ -21,7 +21,6 @@ for (let i = 0; i < compsDb.length; i++) {
         // const background = new Background(0,60);    
         // comps.push(background);
             break;
-    
         default:
         break;
     }    
