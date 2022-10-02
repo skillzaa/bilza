@@ -1,4 +1,4 @@
-import IComponent from "./IComponent.js";
+import IComponent from "../componentFacade/IComponent.js";
 export default class CompFactory {
     private readonly startTime;
     private readonly endTime;

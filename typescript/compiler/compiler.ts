@@ -4,7 +4,7 @@ import Engine from "../engine/engine.js";
 import FillRect from "../components/fillRect/fillRect.js";
 import Background from "../components/background/background.js";
 import Pack from "../pack/pack.js";
-import  IComponent  from "../facade/IComponent.js";
+import  IComponent  from "../componentFacade/IComponent.js";
 import getEngine from "./getEngine.js"
 
 

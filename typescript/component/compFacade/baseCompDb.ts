@@ -1,4 +1,4 @@
-import IComponent from "../facade/IComponent.js";
+import IComponent from "../../componentFacade/IComponent.js";
 import CoreProps from "./coreProps.js";
 import Alignment from "./alignment.js";
 

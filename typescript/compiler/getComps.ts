@@ -1,4 +1,4 @@
-import IComponent from "../facade/IComponent.js";
+import IComponent from "../componentFacade/IComponent.js";
 import IEngineComp from "../component/IEngineComp.js";
 
 import FillRect from "../components/fillRect/fillRect.js";

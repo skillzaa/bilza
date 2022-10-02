@@ -1,6 +1,6 @@
-import AniNumberDb from "../animations/propTypesDb/AniNumberDb.js";
-import AniColorDb from "../animations/propTypesDb/AniColorDb.js";
-import AniBooleanDb from "../animations/propTypesDb/AniBooleanDb.js";
+import AniNumberDb from "../animationsFacade/AniNumberDb.js";
+import AniColorDb from "../animationsFacade/AniColorDb.js";
+import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
 export default class CoreProps {
     constructor() {
         this.id = Math.random().toString(36).slice(2);

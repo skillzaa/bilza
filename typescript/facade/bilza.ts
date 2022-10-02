@@ -1,4 +1,4 @@
-import IComponent  from "./IComponent.js";
+import IComponent  from "../componentFacade/IComponent.js";
 import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
 import CompFactory from "./compFactory.js";
