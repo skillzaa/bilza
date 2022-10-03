@@ -7,11 +7,11 @@ import CorePropsDb from "../../compDb/corePropsDb.js";
 
 export default class Background extends CompEngine {
 
-constructor (corePropsDb :CorePropsDb,pack :Pack,color :string="#000000"){ 
+constructor (corePropsDb :CorePropsDb,pack :Pack){ 
 super(corePropsDb,pack);
    
 this.drawLayer = 0;
-this.color.set(color); 
+// this.color.set(color); 
 }
 
 draw(p:Pack):boolean{
