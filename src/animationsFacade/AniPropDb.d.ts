@@ -1,7 +1,7 @@
 export default class AniPropDb<T> {
-    private initialValue;
-    constructor(initialValue: T);
-    set(initialValue: T): void;
+    protected _value: T;
+    constructor(_value: T);
+    set(_value: T): void;
     value(): T;
 }
 //# sourceMappingURL=AniPropDb.d.ts.map

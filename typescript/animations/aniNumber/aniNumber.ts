@@ -9,61 +9,11 @@ import Oscillate from "./filters/oscillatets.js";
 
 export default class AniNumber extends AniProp<number>  {
     
-public readonly minValue :number;
-public readonly maxValue :number;
-private isResp :boolean;
-private theWhole :number | null;
-
-constructor(initialValue :number=0, minValue :number=-3000,maxValue :number=3000){
+constructor(initialValue :number=0){
  
 super(initialValue);
-this.isResp = false;
-this.theWhole = null;
-this.minValue  = minValue; 
-this.maxValue  = maxValue; 
 
-}
-init(theWhole :number){
-this.theWhole = theWhole;
-}
-isResponsive(){
-    return this.isResp;
-}
-setResponsive(){
-    this.isResp = true;
-    // this.theWhole = theWhole;     
-}
-setNonResponsive(){
-    this.isResp = false;    
-// this.theWhole = null;
-}
-public value():number{
-//--do not return this._value that is null in start-- this will give a correct result even without an update  
-if (this._value == null){
-        if (this.isResp == false){
-            return this.defaultFilter.animatedValue();
-        }else {
-            return this.responsiveValue(this.defaultFilter.animatedValue());        
-        }
-} else {
-    if (this.isResp == false){
-        return this._value;
-    }else {
-        return this.responsiveValue(this._value);        
-    }
-} 
-}
-public valueNR():number{
-//--do not return this._value that is null in start-- this will give a correct result even without an update  
-if (this._value == null){
-    return this.defaultFilter.animatedValue();
-} else {
-    return this._value;
-} 
-}
-responsiveValue(perc :number):number {
-if (this.theWhole == null){throw new Error("theWhole is null");}
-    return ((this.theWhole / 100) * perc);
+
 }
 
 ///////////////////////////////////////////////////////////

@@ -36,6 +36,8 @@ export default interface IComponent {
     compHeight(): number;
     contentWidth(): number;
     contentHeight(): number;
+    setRespDims(tf: boolean): boolean;
+    setRespLoc(tf: boolean): boolean;
     getDuration(): number;
     getStartTime(inMilliSec?: boolean): number;
     getEndTime(inMilliSec?: boolean): number;

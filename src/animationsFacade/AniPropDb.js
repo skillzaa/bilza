@@ -1,11 +1,11 @@
 export default class AniPropDb {
-    constructor(initialValue) {
-        this.initialValue = initialValue;
+    constructor(_value) {
+        this._value = _value;
     }
-    set(initialValue) {
-        this.initialValue = initialValue;
+    set(_value) {
+        this._value = _value;
     }
     value() {
-        return this.initialValue;
+        return this._value;
     }
 }

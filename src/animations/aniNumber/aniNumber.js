@@ -4,56 +4,8 @@ import Decrement from "./filters/decrement.js";
 import Random from "./filters/random.js";
 import Oscillate from "./filters/oscillatets.js";
 export default class AniNumber extends AniProp {
-    constructor(initialValue = 0, minValue = -3000, maxValue = 3000) {
+    constructor(initialValue = 0) {
         super(initialValue);
-        this.isResp = false;
-        this.theWhole = null;
-        this.minValue = minValue;
-        this.maxValue = maxValue;
-    }
-    init(theWhole) {
-        this.theWhole = theWhole;
-    }
-    isResponsive() {
-        return this.isResp;
-    }
-    setResponsive() {
-        this.isResp = true;
-    }
-    setNonResponsive() {
-        this.isResp = false;
-    }
-    value() {
-        if (this._value == null) {
-            if (this.isResp == false) {
-                return this.defaultFilter.animatedValue();
-            }
-            else {
-                return this.responsiveValue(this.defaultFilter.animatedValue());
-            }
-        }
-        else {
-            if (this.isResp == false) {
-                return this._value;
-            }
-            else {
-                return this.responsiveValue(this._value);
-            }
-        }
-    }
-    valueNR() {
-        if (this._value == null) {
-            return this.defaultFilter.animatedValue();
-        }
-        else {
-            return this._value;
-        }
-    }
-    responsiveValue(perc) {
-        if (this.theWhole == null) {
-            throw new Error("theWhole is null");
-        }
-        return ((this.theWhole / 100) * perc);
     }
     animate(StartSec, endSec, startValue, endValue) {
         if (startValue < endValue) {

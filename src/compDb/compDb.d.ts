@@ -21,6 +21,8 @@ export default class CompDb extends CoreProps implements IComponent {
     setxy(x: number, y?: number | null): void;
     getStartTime(inSec?: boolean): number;
     getEndTime(inSec?: boolean): number;
+    setRespLoc(tf: boolean): boolean;
+    setRespDims(tf: boolean): boolean;
     getEngineComp(pack: Pack): CompEngine;
 }
 //# sourceMappingURL=compDb.d.ts.map

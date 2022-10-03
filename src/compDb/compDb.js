@@ -99,7 +99,7 @@ export default class CompDb extends CoreProps {
         return this.width.value();
     }
     getDuration() {
-        return 60;
+        return this.endTime - this.startTime;
     }
     goto(atFrame, x, y) {
         return true;
@@ -116,6 +116,20 @@ export default class CompDb extends CoreProps {
     }
     getEndTime(inSec = true) {
         return inSec ? this.endTime : (this.endTime * 1000);
+    }
+    setRespLoc(tf) {
+        this.x.setResp(tf);
+        this.y.setResp(tf);
+        return tf;
+    }
+    setRespDims(tf) {
+        this.width.setResp(tf);
+        this.paddingLeft.setResp(tf);
+        this.paddingRight.setResp(tf);
+        this.height.setResp(tf);
+        this.paddingTop.setResp(tf);
+        this.paddingBottom.setResp(tf);
+        return tf;
     }
     getEngineComp(pack) {
     }

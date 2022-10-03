@@ -110,24 +110,19 @@ compHeight(): number {
 //--Border is not included    
 return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
 }
+//--if the comp with and height is not = to width/height then override
 contentHeight(): number {
     return this.height.value();
 }
 contentWidth(): number {
     return this.width.value();
 }
-/**
- * why - compWidthPix , compHeightPix , contentWidthPix ,contentHeightPix in db but not in engine comp?
- * since in db the width height can be responsive or non responsive. if responsive then compWidth will give percentage and compWidthPix will give pix
- * But in compEngine there are just pix so  compWidth gives pix always
- * remember user uses DB where as engine uses compEngine hence pix
- * 
- */
+
 ////////----//////////////
 getDuration():number{
-    return 60;
+    return this.endTime - this.startTime;
 }
-
+///?????????????????????????????????????????????????????????????
 goto(atFrame :number,x :number , y :number):boolean{
     return true;
 }
@@ -144,7 +139,29 @@ getEndTime(inSec :boolean=true) :number{
     return inSec ? this.endTime : (this.endTime * 1000);
 }
 
+setRespLoc(tf: boolean): boolean {
+//@ts-expect-error    
+this.x.setResp(tf);    
+//@ts-expect-error    
+this.y.setResp(tf);    
+return tf;    
+}
 
+setRespDims(tf: boolean): boolean {
+//@ts-expect-error    
+this.width.setResp(tf);    
+//@ts-expect-error    
+this.paddingLeft.setResp(tf);    
+//@ts-expect-error    
+this.paddingRight.setResp(tf);    
+//@ts-expect-error    
+this.height.setResp(tf);  
+//@ts-expect-error    
+this.paddingTop.setResp(tf);    
+//@ts-expect-error    
+this.paddingBottom.setResp(tf);    
+return tf;        
+}
 
 
 

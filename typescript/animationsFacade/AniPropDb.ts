@@ -2,15 +2,16 @@
 
 export default class AniPropDb<T> {
 
-private initialValue :T    
-constructor(initialValue :T){
-this.initialValue = initialValue;
+protected _value :T    
+
+constructor(_value :T){
+this._value = _value;
 }
 
-set(initialValue :T){
-this.initialValue = initialValue;    
+set(_value :T){
+this._value = _value;    
 }
 value():T{
-return this.initialValue;
+return this._value;
 }
 }
