@@ -19,7 +19,7 @@ this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
 }
 fillRect(color :string="#000000"):IComponent{
-let g = new FillRectDB(this.startTime,this.endTime,this.insertAction);
+let g = new FillRectDB(this.startTime,this.endTime,this.insertAction,color);
 this.comps.push(g);
 return g;    
 }

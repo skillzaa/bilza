@@ -6,13 +6,14 @@ import Pack from "../../pack/pack.js";
 
 export default class FillRectDb extends CompDb {
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn"){
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",  color :string){
 
 super(startTime,endTime,insertAction);
+   this.color.set(color);
 }
  
 getEngineComp(pack :Pack):compEngine{
-   const comp = new FillRect(this,pack,"red");
+   const comp = new FillRect(this,pack);
    return comp; 
 }
     

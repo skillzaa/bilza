@@ -18,7 +18,7 @@ this.color = new AniColorDb(color);
 
 
 getEngineComp(pack :Pack):CompEngine{
-    const comp = new Background(this,pack,"red");
+    const comp = new Background(this,pack);
     return comp; 
  }
 

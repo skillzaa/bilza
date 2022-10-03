@@ -9,7 +9,7 @@ export default class CompFactory {
         this.canvasHeight = canvasHeight;
     }
     fillRect(color = "#000000") {
-        let g = new FillRectDB(this.startTime, this.endTime, this.insertAction);
+        let g = new FillRectDB(this.startTime, this.endTime, this.insertAction, color);
         this.comps.push(g);
         return g;
     }
