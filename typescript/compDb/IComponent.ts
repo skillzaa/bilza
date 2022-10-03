@@ -49,16 +49,14 @@ align(x : 0|1|2|null, y :0|1|2|null):void;
 alignRotate(x : 0|1|2|null, y :0|1|2|null):void;
 
 compWidth():number;
-compWidthPix():number;
-
 compHeight():number;
-compHeightPix():number;
 
+//--At times the width / height may not be equal to contentWidth and contentHeight so we have these functions. 
+//--They will always return the correct content width/height even in case of text.
 contentWidth():number;
-contentWidthPix():number;
-
 contentHeight():number;
-contentHeightPix():number;
+
+
 getDuration():number
 getStartTime(inMilliSec ?:boolean) :number;
 getEndTime(inMilliSec ?:boolean) :number;

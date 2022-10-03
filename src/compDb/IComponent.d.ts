@@ -33,13 +33,9 @@ export default interface IComponent {
     align(x: 0 | 1 | 2 | null, y: 0 | 1 | 2 | null): void;
     alignRotate(x: 0 | 1 | 2 | null, y: 0 | 1 | 2 | null): void;
     compWidth(): number;
-    compWidthPix(): number;
     compHeight(): number;
-    compHeightPix(): number;
     contentWidth(): number;
-    contentWidthPix(): number;
     contentHeight(): number;
-    contentHeightPix(): number;
     getDuration(): number;
     getStartTime(inMilliSec?: boolean): number;
     getEndTime(inMilliSec?: boolean): number;

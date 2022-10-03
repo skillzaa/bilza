@@ -98,20 +98,11 @@ export default class CompDb extends CoreProps {
     contentWidth() {
         return this.width.value();
     }
-    compWidthPix() {
-        return 200;
-    }
-    compHeightPix() {
-        return 200;
-    }
-    contentWidthPix() {
-        return 200;
-    }
-    contentHeightPix() {
-        return 200;
-    }
     getDuration() {
-        return 0;
+        return 60;
+    }
+    goto(atFrame, x, y) {
+        return true;
     }
     setxy(x, y = null) {
         if (y == null) {
@@ -125,9 +116,6 @@ export default class CompDb extends CoreProps {
     }
     getEndTime(inSec = true) {
         return inSec ? this.endTime : (this.endTime * 1000);
-    }
-    goto(atFrame, x, y) {
-        return true;
     }
     getEngineComp(pack) {
     }

@@ -1,6 +1,4 @@
 import CoreProps from "./corePropsDb.js";
-import Alignment from "./alignment.js";
-import Component from "../compEngine/compEngine.js";
 import CompEngine from "../compEngine/compEngine.js";
 import IComponent from "./IComponent.js";
 import Pack from "../pack/pack.js";
@@ -9,11 +7,10 @@ import Pack from "../pack/pack.js";
 export default class CompDb extends CoreProps implements IComponent {
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
-constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn"){
-        
+constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn"){      
 super(startTime,endTime,insertAction);
 }
-
+////////////////////////////////////////////////
 public align(x : 0|1|2|null=null, y :0|1|2|null=null){
 if (x !== null){
     this.xAlign = x;                   
@@ -119,30 +116,22 @@ contentHeight(): number {
 contentWidth(): number {
     return this.width.value();
 }
-
-compWidthPix():number{
-    return 200;
-}
-
-
-compHeightPix():number{
-    return 200;
-}
-
-
-contentWidthPix():number{
-    return 200;
-}
-
-
-
-contentHeightPix():number{
-    return 200;
-}
-////////////////////////////////////////////
+/**
+ * why - compWidthPix , compHeightPix , contentWidthPix ,contentHeightPix in db but not in engine comp?
+ * since in db the width height can be responsive or non responsive. if responsive then compWidth will give percentage and compWidthPix will give pix
+ * But in compEngine there are just pix so  compWidth gives pix always
+ * remember user uses DB where as engine uses compEngine hence pix
+ * 
+ */
+////////----//////////////
 getDuration():number{
-    return 0;
+    return 60;
 }
+
+goto(atFrame :number,x :number , y :number):boolean{
+    return true;
+}
+
 public setxy(x :number, y :number | null=null){
     if (y ==null){y=x;}
 this.x.set(x);
@@ -156,9 +145,7 @@ getEndTime(inSec :boolean=true) :number{
 }
 
 
-goto(atFrame :number,x :number , y :number):boolean{
-    return true;
-}
+
 
 
 ////////////////////////////////////////////    
