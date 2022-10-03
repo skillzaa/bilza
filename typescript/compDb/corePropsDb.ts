@@ -2,13 +2,14 @@ import AniNumberDb from "../animationsFacade/AniNumberDb.js";
 import AniStringDb from "../animationsFacade/AniStringDb.js";
 import AniColorDb from "../animationsFacade/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
+import ICorePropsDb from "./ICorePropsDb.js";
 
 
-
-export default class CorePropsDb {
+export default class CorePropsDb implements ICorePropsDb {
 ////////////////////////////////////////////
 //--25-9-2022 -- xx CORE props 
 ////////////////////////////////////////////    
+//--here readonly is ok but not in compEngine
 public readonly id :string;
 public border :AniNumberDb;
 public colorBackground :AniColorDb;
@@ -40,8 +41,24 @@ public yRotate : 0|1|2;
 
 
 ////////////////////////////////////
-constructor(){
+startTime :number;
+endTime :number;
+insertAction :"add"|"append" | "alwaysOn";
+
+////////////////////////////////////
+constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn"){
+
 this.id = Math.random().toString(36).slice(2);
+this.startTime = startTime;
+this.endTime = endTime;
+this.insertAction = insertAction;
+if (this.insertAction == "alwaysOn"){
+    this.alwaysOn = true;
+}else {
+    this.alwaysOn = false;
+}
+
+///////////////
 this.drawLayer = 2;
 
 this.border = new AniNumberDb(0);
@@ -64,7 +81,6 @@ this.x = new AniNumberDb(0);
 this.y = new AniNumberDb(0);
 
 /////////////////
-this.alwaysOn =  false;
 this.xAlign =0;
 this.yAlign =0;
 this.xRotate =0;

@@ -2,8 +2,17 @@ import AniNumberDb from "../animationsFacade/AniNumberDb.js";
 import AniColorDb from "../animationsFacade/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
 export default class CorePropsDb {
-    constructor() {
+    constructor(startTime, endTime, insertAction) {
         this.id = Math.random().toString(36).slice(2);
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.insertAction = insertAction;
+        if (this.insertAction == "alwaysOn") {
+            this.alwaysOn = true;
+        }
+        else {
+            this.alwaysOn = false;
+        }
         this.drawLayer = 2;
         this.border = new AniNumberDb(0);
         this.colorBackground = new AniColorDb("white");
@@ -23,7 +32,6 @@ export default class CorePropsDb {
         this.width = new AniNumberDb(10);
         this.x = new AniNumberDb(0);
         this.y = new AniNumberDb(0);
-        this.alwaysOn = false;
         this.xAlign = 0;
         this.yAlign = 0;
         this.xRotate = 0;

@@ -1,7 +1,7 @@
 import ICompEngine from "../compEngine/ICompEngine.js";
 import Pack from "../pack/pack.js";
 import Time from "../compEngine/time.js";
-import ICompDb from "../compDb/ICompDb";
+import ICompDb from "../compDb/ICorePropsDb";
 
 /*** 
 * corePropsToEngineComp function get a componentDb object and extract  core props from it to assign it to An engine comp (through IEngineComp)

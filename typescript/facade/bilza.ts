@@ -1,4 +1,4 @@
-import ICompDb  from "../compDb/ICompDb.js";
+import ICompDb  from "../compDb/ICorePropsDb.js";
 import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
 import CompFactory from "./compFactory.js";

@@ -1,14 +1,11 @@
 import AniNumberDb from "../animationsFacade/AniNumberDb.js";
 import AniColorDb from "../animationsFacade/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
-import ICorePropsDb from "./ICorePropsDb.js";
-export default class CorePropsDb implements ICorePropsDb {
-    readonly id: string;
+export default interface ICorePropsDb {
     border: AniNumberDb;
     colorBackground: AniColorDb;
     colorBorder: AniColorDb;
     color: AniColorDb;
-    drawLayer: 0 | 1 | 2 | 3 | 4;
     selected: boolean;
     height: AniNumberDb;
     rotation: AniNumberDb;
@@ -23,14 +20,15 @@ export default class CorePropsDb implements ICorePropsDb {
     width: AniNumberDb;
     x: AniNumberDb;
     y: AniNumberDb;
-    alwaysOn: boolean;
+    drawLayer: 0 | 1 | 2 | 3 | 4;
     xAlign: 0 | 1 | 2;
     yAlign: 0 | 1 | 2;
     xRotate: 0 | 1 | 2;
     yRotate: 0 | 1 | 2;
+    id: string;
     startTime: number;
     endTime: number;
-    insertAction: "add" | "append" | "alwaysOn";
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn");
+    insertAction: string;
+    alwaysOn: boolean;
 }
-//# sourceMappingURL=corePropsDb.d.ts.map
+//# sourceMappingURL=ICorePropsDb.d.ts.map

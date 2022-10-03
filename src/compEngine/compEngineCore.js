@@ -1,15 +1,19 @@
 import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
+import Time from "./time.js";
 import Style from "../pack/style.js";
 export default class EngineCompCore {
-    constructor() {
-        this.id = null;
-        this.charsWidth = null;
-        this.startTime = 0;
-        this.endTime = 0;
-        this.time = null;
-        this._canvasWidth = null;
-        this._canvasHeight = null;
-        this.insertAction = "";
+    constructor(compDb, pack) {
+        this.charsWidth = pack.charsWidth;
+        this._canvasWidth = pack.canvasWidth();
+        this._canvasHeight = pack.canvasHeight();
+        this.id = compDb.id;
+        if (compDb.insertAction == "alwaysOn") {
+            this.time = new Time(0, 1);
+            this.alwaysOn = true;
+        }
+        else {
+            this.time = new Time(compDb.startTime, compDb.endTime);
+        }
         this.style = new Style();
         this.border = new AniNumber(0);
         this.colorBackground = new AniColor("white");

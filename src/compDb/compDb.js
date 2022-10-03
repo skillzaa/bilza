@@ -1,10 +1,7 @@
 import CoreProps from "./corePropsDb.js";
-export default class ComponentDb extends CoreProps {
+export default class CompDb extends CoreProps {
     constructor(startTime, endTime, insertAction) {
-        super();
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.insertAction = insertAction;
+        super(startTime, endTime, insertAction);
     }
     align(x = null, y = null) {
         if (x !== null) {
@@ -132,6 +129,6 @@ export default class ComponentDb extends CoreProps {
     goto(atFrame, x, y) {
         return true;
     }
-    getEngineComponent(componentPack) {
+    getEngineComponent() {
     }
 }

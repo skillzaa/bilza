@@ -1,5 +1,5 @@
 import FillRectDB from "../components/fillRect/fillRectDb.js";
-import IComponent from "../compDb/ICompDb.js";
+import IComponent from "../compDb/ICorePropsDb.js";
 
 export default class CompFactory {
 private readonly startTime :number;

@@ -1,6 +1,8 @@
 import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
 import Time from "./time.js";
 import Style from "../pack/style.js";
+import ICorePropsDb from "../compDb/ICorePropsDb.js";
+import Pack from "../pack/pack.js";
 export default class EngineCompCore {
     border: AniNumber;
     colorBackground: AniColor;
@@ -26,15 +28,12 @@ export default class EngineCompCore {
     yAlign: 0 | 1 | 2;
     xRotate: 0 | 1 | 2;
     yRotate: 0 | 1 | 2;
-    id: string | null;
-    insertAction: string | null;
-    startTime: number | null;
-    endTime: number | null;
-    _canvasWidth: number | null;
-    _canvasHeight: number | null;
+    id: string;
+    private _canvasWidth;
+    private _canvasHeight;
     protected style: Style;
     time: Time | null;
-    charsWidth: ((chars: string, fontSize: number, fontName: string) => number) | null;
-    constructor();
+    charsWidth: ((chars: string, fontSize: number, fontName: string) => number);
+    constructor(compDb: ICorePropsDb, pack: Pack);
 }
 //# sourceMappingURL=compEngineCore.d.ts.map

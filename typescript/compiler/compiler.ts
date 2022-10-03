@@ -4,7 +4,7 @@ import Engine from "../engine/engine.js";
 import EngineDb from "../engine/engineDb.js";
 import getEngine from "./getEngine.js"
 ///////////////////////////////////////////////////
-import ICompDb from "../compDb/ICompDb.js";
+import ICompDb from "../compDb/ICorePropsDb.js";
 import ICompEngine from "../compEngine/ICompEngine.js";
 ///////////////////////////////////////////////////
 import getEngineComp from "../compCompiler/getEngineComp.js";

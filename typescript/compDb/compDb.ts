@@ -1,34 +1,16 @@
-import IComponent from "./ICompDb.js";
 import CoreProps from "./corePropsDb.js";
 import Alignment from "./alignment.js";
 import Component from "../compEngine/compEngine.js";
 import CompEngine from "../compEngine/compEngine.js";
+import ICompDb from "./ICompDb.js";
 
 ///////////////////////////////////////////////////
-export default class ComponentDb extends CoreProps implements IComponent {
+export default class CompDb extends CoreProps implements ICompDb {
 ///////////////////////////////////////////////////
-
-public readonly startTime :number;
-public readonly endTime :number ;
-public readonly insertAction :"add"|"append" | "alwaysOn";
-
-// public xAlign  : 0|1|2;  
-// public yAlign  : 0|1|2;  
-// public xRotate : 0|1|2;  
-// public yRotate : 0|1|2;  
-
-////////////////////////////////////////
-// public alignObj :Alignment;
-// public alignRotateObj :Alignment;
 ///////////////////////////////////////////////////
 constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn"){
         
-super();
-
-this.startTime = startTime;
-this.endTime = endTime;
-this.insertAction = insertAction;
-
+super(startTime,endTime,insertAction);
 }
 
 public align(x : 0|1|2|null=null, y :0|1|2|null=null){
@@ -181,7 +163,7 @@ goto(atFrame :number,x :number , y :number):boolean{
 ////////////////////////////////////////////    
 ////////////////////////////////////////////    
 //@ts-expect-error
-public getEngineComponent(componentPack :ComponentPack):CompEngine{
+public getEngineComponent():CompEngine{
 
 }
 ////////////////////////////////////////////    

@@ -1,6 +1,6 @@
 import Engine from "../engine/engine.js";
 import EngineDb from "../engine/engineDb.js";
-import ICompDb from "../compDb/ICompDb.js";
+import ICompDb from "../compDb/ICorePropsDb.js";
 export default class Compiler {
     constructor();
     genApp(engineDb: EngineDb, compsDb: ICompDb[]): Engine;

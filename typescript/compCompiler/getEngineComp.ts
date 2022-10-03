@@ -1,4 +1,4 @@
-import ICompDb from "../compDb/ICompDb";
+import ICompDb from "../compDb/ICorePropsDb";
 import Pack from "../pack/pack";
 import corePropsToEngineComp from "./corePropsToEngineComp";
 import CompEngine from "../compEngine/compEngine.js";
