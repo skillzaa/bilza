@@ -1,4 +1,4 @@
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 import Pack from "../pack/pack.js";
 import ComponentPack from "../componentPack/componentPack.js";
 import { AniNumber } from "../animations/animations.js";

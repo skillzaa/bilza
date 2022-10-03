@@ -1,7 +1,7 @@
-import EngineComponent from "../../engineComponent/engineComponent.js";
+import EngineComponent from "../../compEngine/compEngine.js";
 export default class FillRect extends EngineComponent {
-    constructor(componentPack, color = "#000000") {
-        super(componentPack);
+    constructor(color = "#000000") {
+        super();
         this.color.set(color);
     }
     draw(p) {

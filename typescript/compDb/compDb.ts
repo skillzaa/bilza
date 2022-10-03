@@ -1,8 +1,8 @@
 import IComponent from "./ICompDb.js";
 import CoreProps from "./corePropsDb.js";
 import Alignment from "./alignment.js";
-import ComponentPack from "../componentPack/componentPack.js";
 import Component from "../compEngine/compEngine.js";
+import CompEngine from "../compEngine/compEngine.js";
 
 ///////////////////////////////////////////////////
 export default class ComponentDb extends CoreProps implements IComponent {
@@ -181,7 +181,7 @@ goto(atFrame :number,x :number , y :number):boolean{
 ////////////////////////////////////////////    
 ////////////////////////////////////////////    
 //@ts-expect-error
-public getEngineComponent(componentPack :ComponentPack):Component{
+public getEngineComponent(componentPack :ComponentPack):CompEngine{
 
 }
 ////////////////////////////////////////////    

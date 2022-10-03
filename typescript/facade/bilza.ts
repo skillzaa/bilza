@@ -1,25 +1,29 @@
-import IComponent  from "../compDb/ICompDb.js";
+import ICompDb  from "../compDb/ICompDb.js";
 import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
 import CompFactory from "./compFactory.js";
 import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
-import ComponentPack from "../componentPack/componentPack.js";
+
 //--30-9-2022-This level does not export any object just API
 export default class Bilza {
 //--The background API just has 1 AniColorDb    
 public background: BackgroundDb;
 private engine:EngineDb;
-private comps :IComponent[];
+private comps :ICompDb[];
 private bil :Engine | null;
 
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 
+
 this.engine = new EngineDb(canvasId,canvasWidthPerc);
-this.background = new BackgroundDb("green");
+this.comps = [];
+//--this.background is in comps and avaialbe on top level also
+this.background = new BackgroundDb(0,0,"alwaysOn");
+this.comps.push(this.background);
+// this.background.alwaysOn = true;
 
 //--collection of comp DB classes
-this.comps = [];
 this.bil = null;
 }
 //--does not need ComponentPack since this is DB object

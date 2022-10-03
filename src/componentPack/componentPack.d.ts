@@ -1,5 +1,5 @@
 import IComponentPack from "./IComponentPack.js";
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 export default class ComponentPack implements IComponentPack {
     id: string;
     insertAction: string;

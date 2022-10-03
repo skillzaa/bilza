@@ -1,6 +1,5 @@
 import AniColorDb from "../../animationsFacade/AniColorDb.js";
 import Background from "./background.js";
-import ComponentPack from "../../componentPack/componentPack.js";
 import corePropsToEngineComp from "../../compCompiler/corePropsToEngineComp.js";
 import ComponentDb from "../../compDb/compDb.js";
 import EngineComponent from "../../compEngine/compEngine.js";
@@ -18,10 +17,8 @@ super(startTime,endTime,insertAction);
 this.color = new AniColorDb(color);
 }
 
-getEngineComponent(componentPack :ComponentPack):EngineComponent{
-
-    const comp = new Background(componentPack,"red");
-    corePropsToEngineComp(this,comp);
+getEngineComponent():EngineComponent{
+    const comp = new Background("red");
     return comp; 
  }
  

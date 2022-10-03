@@ -1,31 +1,28 @@
-import IEngineComp from "../compEngine/ICompEngine.js";
-import EngineDb from "../engine/engineDb.js";
-import Engine from "../engine/engine.js";
-import FillRect from "../components/fillRect/fillRect.js";
-import Background from "../components/background/background.js";
 import Pack from "../pack/pack.js";
-import  IComponent  from "../compDb/ICompDb.js";
-import getEngine from "./getEngine.js"
-import getComponentPack from "../componentPack/getComponentPack.js";
-import ComponentDb from "../compDb/compDb.js";
-import Component from "../compEngine/compEngine.js";
 
+import Engine from "../engine/engine.js";
+import EngineDb from "../engine/engineDb.js";
+import getEngine from "./getEngine.js"
+///////////////////////////////////////////////////
+import ICompDb from "../compDb/ICompDb.js";
+import ICompEngine from "../compEngine/ICompEngine.js";
+///////////////////////////////////////////////////
+import getEngineComp from "../compCompiler/getEngineComp.js";
 
 export default class Compiler {
 constructor(){
 
 }
-// use ComponentDb and not IComponent since that for user
 
-genApp(engineDb :EngineDb,compsDb :Component[]):Engine{
+genApp(engineDb :EngineDb,compsDb :ICompDb[]):Engine{
 
 const pack = new Pack(engineDb.canvasId,engineDb.canvasWidthPerc); 
-const comps :IEngineComp[] = [];
+const comps :ICompEngine[] = [];
 
 ///--get comps loop
 for (let i = 0; i < compsDb.length; i++) {
     const compDb = compsDb[i];
-    
+    const engineComp = getEngineComp(compDb,pack);
     comps.push(engineComp);
 }
 // console.log("engineComp",engineComp);

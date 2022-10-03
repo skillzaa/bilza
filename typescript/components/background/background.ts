@@ -1,6 +1,5 @@
 import Pack from "../../pack/pack.js";
 import Component from "../../compEngine/compEngine.js";
-import ComponentPack from "../../componentPack/componentPack.js";
 
 import EngineComponent from "../../compEngine/compEngine.js";
 
@@ -10,9 +9,9 @@ import EngineComponent from "../../compEngine/compEngine.js";
 export default class Background extends EngineComponent {
   
 
-constructor (componentPack :ComponentPack,color :string="#efeee3"){ 
+constructor (color :string="#efeee3"){ 
     
-super(componentPack);
+super();
 
 this.drawLayer = 0;
 this.color.set(color); 

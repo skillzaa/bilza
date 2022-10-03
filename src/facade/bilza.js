@@ -5,8 +5,9 @@ import Compiler from "../compiler/compiler.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidthPerc = 70) {
         this.engine = new EngineDb(canvasId, canvasWidthPerc);
-        this.background = new BackgroundDb("green");
         this.comps = [];
+        this.background = new BackgroundDb(0, 0, "alwaysOn");
+        this.comps.push(this.background);
         this.bil = null;
     }
     add(secStart, secEnd) {

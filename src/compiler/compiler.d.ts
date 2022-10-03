@@ -1,8 +1,8 @@
-import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
-import Component from "../engineComponent/engineComponent.js";
+import EngineDb from "../engine/engineDb.js";
+import ICompDb from "../compDb/ICompDb.js";
 export default class Compiler {
     constructor();
-    genApp(engineDb: EngineDb, compsDb: Component[]): Engine;
+    genApp(engineDb: EngineDb, compsDb: ICompDb[]): Engine;
 }
 //# sourceMappingURL=compiler.d.ts.map

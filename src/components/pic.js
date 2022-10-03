@@ -1,4 +1,4 @@
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 export default class Pic extends Component {
     constructor(startTime, endTime, componentPack, imgUrl, width = 25, height = 25) {
         super(componentPack);
