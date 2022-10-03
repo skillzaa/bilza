@@ -1,8 +1,7 @@
 import AniNumberDb from "../animationsFacade/AniNumberDb.js";
 import AniColorDb from "../animationsFacade/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
-import ICorePropsDb from "./ICorePropsDb.js";
-export default class CorePropsDb implements ICorePropsDb {
+export default class CorePropsDb {
     readonly id: string;
     border: AniNumberDb;
     colorBackground: AniColorDb;

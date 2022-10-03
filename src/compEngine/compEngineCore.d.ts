@@ -1,7 +1,7 @@
 import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
 import Time from "./time.js";
 import Style from "../pack/style.js";
-import ICorePropsDb from "../compDb/ICorePropsDb.js";
+import CorePropsDb from "../compDb/corePropsDb.js";
 import Pack from "../pack/pack.js";
 export default class EngineCompCore {
     border: AniNumber;
@@ -29,11 +29,11 @@ export default class EngineCompCore {
     xRotate: 0 | 1 | 2;
     yRotate: 0 | 1 | 2;
     id: string;
-    private _canvasWidth;
-    private _canvasHeight;
+    protected _canvasWidth: number;
+    protected _canvasHeight: number;
     protected style: Style;
     time: Time | null;
     charsWidth: ((chars: string, fontSize: number, fontName: string) => number);
-    constructor(compDb: ICorePropsDb, pack: Pack);
+    constructor(corePropsDb: CorePropsDb, pack: Pack);
 }
 //# sourceMappingURL=compEngineCore.d.ts.map

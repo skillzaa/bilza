@@ -46,6 +46,9 @@ export default class Engine {
         if (comp.alwaysOn == true) {
             return true;
         }
+        if (comp.time == null) {
+            throw new Error("time object was found null");
+        }
         if (comp.time.getStart(false) <= msDelta && comp.time.getEnd(false) > msDelta) {
             return true;
         }

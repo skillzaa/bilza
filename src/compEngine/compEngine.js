@@ -1,7 +1,7 @@
 import CompEngineCore from "./compEngineCore.js";
 export default class CompEngine extends CompEngineCore {
-    constructor() {
-        super();
+    constructor(compDb, pack) {
+        super(compDb, pack);
     }
     preDrawNonBoxed(p) {
         this.style.opacity = (this.opacity.value());
@@ -26,15 +26,9 @@ export default class CompEngine extends CompEngineCore {
         return true;
     }
     canvasWidth() {
-        if (this._canvasWidth == null) {
-            throw new Error("init error");
-        }
         return this._canvasWidth;
     }
     canvasHeight() {
-        if (this._canvasHeight == null) {
-            throw new Error("init error");
-        }
         return this._canvasHeight;
     }
     draw(p) {

@@ -1,7 +1,7 @@
 import {AniNumber,AniBoolean,AniString,AniColor} from "../animations/animations.js";
 import Time from "./time.js";
 import Style from "../pack/style.js";
-import CompDb from "../compDb/compDb.js";
+import CorePropsDb from "../compDb/corePropsDb.js";
 import Pack from "../pack/pack.js";
 /////////////////////////////////////////////////////////
 export default class EngineCompCore {
@@ -39,8 +39,8 @@ public yRotate : 0|1|2;
 ////////////////////////////init props
 public id:string;
 
-private _canvasWidth :number; 
-private _canvasHeight :number; 
+protected _canvasWidth :number; 
+protected _canvasHeight :number; 
 
 protected style:Style; 
 public time :Time | null;
@@ -49,20 +49,20 @@ public time :Time | null;
 public charsWidth:((chars:string,fontSize:number,fontName:string)=>number) ;
 
 ////////////////////////////////
-constructor(compDb :CompDb,pack :Pack){
+constructor(corePropsDb :CorePropsDb , pack :Pack){
 
 //--Basic must props (Compunent API)
 this.charsWidth = pack.charsWidth;
 this._canvasWidth = pack.canvasWidth();
 this._canvasHeight = pack.canvasHeight();
 ////////////////////////////////////////
-this.id = compDb.id;
+this.id = corePropsDb.id;
 
-if (compDb.insertAction == "alwaysOn"){
+if (corePropsDb.insertAction == "alwaysOn"){
     this.time = new Time(0,1);
     this.alwaysOn = true;
 }else {
-    this.time = new Time( compDb.startTime ,compDb.endTime);
+    this.time = new Time( corePropsDb.startTime ,corePropsDb.endTime);
 }
 
 this.style = new Style(); 
@@ -71,56 +71,56 @@ this.style = new Style();
 ///////////////////////////animated core props
 /////////////////--Animated Props
 this.border = new AniNumber(0);
-this.border.set(compDb.border.value());
+this.border.set(corePropsDb.border.value());
 
 this.color = new AniColor("black");
-this.color.set(compDb.color.value());
+this.color.set(corePropsDb.color.value());
 
 this.colorBackground = new AniColor("white");
-this.colorBackground.set(compDb.colorBackground.value());
+this.colorBackground.set(corePropsDb.colorBackground.value());
 
-this.colorBorder.set(compDb.colorBorder.value());
 this.colorBorder = new AniColor("black");
+this.colorBorder.set(corePropsDb.colorBorder.value());
 
 
-this.drawLayer = compDb.drawLayer;
+this.drawLayer = corePropsDb.drawLayer;
 
 this.height = new AniNumber(10);
-this.height.set(compDb.height.value());
+this.height.set(corePropsDb.height.value());
 this.opacity = new AniNumber(100);
-this.opacity.set(compDb.opacity.value());
+this.opacity.set(corePropsDb.opacity.value());
 
 this.paddingTop = new AniNumber(0);
-this.paddingTop.set(compDb.paddingTop.value());
+this.paddingTop.set(corePropsDb.paddingTop.value());
 this.paddingBottom = new AniNumber(0);
-this.paddingBottom.set(compDb.paddingBottom.value());
+this.paddingBottom.set(corePropsDb.paddingBottom.value());
 this.paddingRight = new AniNumber(0);
-this.paddingRight.set(compDb.paddingRight.value());
+this.paddingRight.set(corePropsDb.paddingRight.value());
 this.paddingLeft = new AniNumber(0);
-this.paddingLeft.set(compDb.paddingLeft.value());
+this.paddingLeft.set(corePropsDb.paddingLeft.value());
 
 this.rotation = new AniNumber(0);
-this.rotation.set(compDb.rotation.value());
+this.rotation.set(corePropsDb.rotation.value());
 this.selected = false; //-----? 
 
 
 this.showBackground = new AniBoolean(false);
-this.showBackground.set(compDb.showBackground.value());
+this.showBackground.set(corePropsDb.showBackground.value());
 this.visible = new AniBoolean(true);
 ///---visisible in DB?????
-this.version = compDb.version ;
+this.version = corePropsDb.version ;
 
 this.width = new AniNumber(10);
-this.width.set(compDb.width.value());
+this.width.set(corePropsDb.width.value());
 this.x = new AniNumber(0);
-this.x.set(compDb.x.value());
+this.x.set(corePropsDb.x.value());
 this.y = new AniNumber(0);
-this.xAlign = (compDb.xAlign );
-this.yAlign = compDb.yAlign;
-this.y.set(compDb.y.value());
+this.xAlign = (corePropsDb.xAlign );
+this.yAlign = corePropsDb.yAlign;
+this.y.set(corePropsDb.y.value());
 
-this.xRotate = compDb.xRotate;
-this.yRotate = compDb.yRotate;
+this.xRotate = corePropsDb.xRotate;
+this.yRotate = corePropsDb.yRotate;
 
 
 //////////////

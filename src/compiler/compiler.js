@@ -1,6 +1,5 @@
 import Pack from "../pack/pack.js";
 import getEngine from "./getEngine.js";
-import getEngineComp from "../compCompiler/getEngineComp.js";
 export default class Compiler {
     constructor() {
     }
@@ -9,7 +8,7 @@ export default class Compiler {
         const comps = [];
         for (let i = 0; i < compsDb.length; i++) {
             const compDb = compsDb[i];
-            const engineComp = getEngineComp(compDb, pack);
+            const engineComp = compDb.getEngineComp(pack);
             comps.push(engineComp);
         }
         const bilza = getEngine(engineDb, pack, comps);

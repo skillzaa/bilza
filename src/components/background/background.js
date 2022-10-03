@@ -1,7 +1,7 @@
-import EngineComponent from "../../compEngine/compEngine.js";
-export default class Background extends EngineComponent {
-    constructor(color = "#efeee3") {
-        super();
+import CompEngine from "../../compEngine/compEngine.js";
+export default class Background extends CompEngine {
+    constructor(corePropsDb, pack, color = "#000000") {
+        super(corePropsDb, pack);
         this.drawLayer = 0;
         this.color.set(color);
     }

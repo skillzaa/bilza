@@ -1,9 +1,9 @@
 import Engine from "../engine/engine.js";
 import EngineDb from "../engine/engineDb.js";
 import Pack from "../pack/pack.js";
-import IEngineComp from "../compEngine/ICompEngine.js";
+import CompEngine from "../compEngine/compEngine.js";
 
-export default function getEngine(engineDb :EngineDb , pack :Pack,comps : EngineComponent []=[]){
+export default function getEngine(engineDb :EngineDb , pack :Pack,comps : CompEngine []=[]){
 
     const engine = new Engine (
         engineDb.canvasId,

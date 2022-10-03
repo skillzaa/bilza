@@ -1,13 +1,12 @@
-import ICompEngine from "./ICompEngine.js";
 import Pack from "../pack/pack.js";
 import CompEngineCore from "./compEngineCore.js";
+import CorePropsDb from "../compDb/corePropsDb";
 
-
-export default class CompEngine extends CompEngineCore implements ICompEngine{
+export default class CompEngine extends CompEngineCore {
 
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor(){
-super(); 
+constructor(compDb :CorePropsDb,pack :Pack){
+super(compDb,pack); 
 
 }
 protected preDrawNonBoxed(p :Pack){
@@ -40,12 +39,9 @@ update(msDelta :number,p :Pack): boolean {
 return true;    
 }
 public canvasWidth():number{
-if(this._canvasWidth ==null){throw new Error("init error");}    
     return this._canvasWidth;
 }
 public canvasHeight():number{
-if(this._canvasHeight ==null){throw new Error("init error");}    
-
 return this._canvasHeight;
 }
 public draw(p :Pack):boolean{

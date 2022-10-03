@@ -1,11 +1,11 @@
-import ComponentDb from "../../compDb/compDb.js";
+import CompDb from "../../compDb/compDb.js";
 import FillRect from "./fillRect.js";
-export default class FillRectDb extends ComponentDb {
+export default class FillRectDb extends CompDb {
     constructor(startTime, endTime, insertAction) {
         super(startTime, endTime, insertAction);
     }
-    getEngineCom() {
-        const comp = new FillRect("red");
+    getEngineCom(pack) {
+        const comp = new FillRect(this, pack, "red");
         return comp;
     }
 }

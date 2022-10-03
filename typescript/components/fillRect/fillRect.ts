@@ -1,16 +1,15 @@
 import Pack from "../../pack/pack.js";
-import EngineComponent from "../../compEngine/compEngine.js";
-import ComponentPack from "../../componentPack/componentPack.js";
+import CompEngine from "../../compEngine/compEngine.js";
+import CorePropsDb from "../../compDb/corePropsDb.js";
 
 
 //-14-july-2022 : There is no need to add any public prop width height and color are all added    
 //--16-jul-2022 : This is the first completed comp.
 
-export default class FillRect extends EngineComponent {
+export default class FillRect extends CompEngine {
 
-constructor (color :string="#000000"){ 
-
-super();
+constructor (corePropsDb :CorePropsDb,pack :Pack,color :string="#000000"){ 
+super(corePropsDb,pack);
 
 this.color.set(color) ; 
 }

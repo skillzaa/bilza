@@ -1,4 +1,4 @@
-import IComponent from "../compDb/ICorePropsDb.js";
+import IComponent from "../compDb/IComponent.js";
 export default class CompFactory {
     private readonly startTime;
     private readonly endTime;

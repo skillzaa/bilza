@@ -1,10 +1,9 @@
-// import IEngineComp from "../component/IEngineComp.js";
-import IEngineComp from "../compEngine/ICompEngine.js";
 import Background from "../components/background/background.js";
 import Pack from "../pack/pack.js";
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
 import Component from "../compEngine/compEngine.js";
+import CompEngine from "../compEngine/compEngine.js";
 //-------------------------------------------
 
 export default class Engine {
@@ -15,7 +14,7 @@ private set:Settings;
 private pack:Pack;
 private lastMsDelta:number;
 private duration:number;
-private comps :IEngineComp[];
+private comps :CompEngine[];
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 constructor (
@@ -74,7 +73,7 @@ let comp = this.comps[i];
 }
 return true;
 }
-private qualifyForDraw(comp :IEngineComp,msDelta :number):boolean{
+private qualifyForDraw(comp :CompEngine,msDelta :number):boolean{
 //-5-july-2022 : isnt this more coupling between engine and comp?    
 if (comp.visible.value() == false){
     return false;
@@ -83,6 +82,10 @@ if (comp.alwaysOn == true){
     return true;
 }
 //msDelta is always in ms so start/end time should also be 
+if (comp.time  == null){
+    throw new Error("time object was found null");
+    
+}
 if(comp.time.getStart(false) <= msDelta && comp.time.getEnd(false) > msDelta){
     return true;
 }

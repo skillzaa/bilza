@@ -22,7 +22,7 @@ this.canvasWidth =  pack.canvasWidth();
 this.canvasHeight = pack.canvasWidth();
 
 ///--we need to have a background object as well
-this.backgroundDb = new BackgroundDb("grey");
+this.backgroundDb = new BackgroundDb(0,1,"alwaysOn","grey");
 }
 
 

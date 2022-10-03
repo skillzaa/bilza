@@ -1,4 +1,4 @@
-import ICompDb  from "../compDb/ICorePropsDb.js";
+import CompDb  from "../compDb/compDb.js";
 import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
 import CompFactory from "./compFactory.js";
@@ -10,7 +10,7 @@ export default class Bilza {
 //--The background API just has 1 AniColorDb    
 public background: BackgroundDb;
 private engine:EngineDb;
-private comps :ICompDb[];
+private comps :CompDb[];
 private bil :Engine | null;
 
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){

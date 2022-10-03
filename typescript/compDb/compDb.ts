@@ -2,10 +2,11 @@ import CoreProps from "./corePropsDb.js";
 import Alignment from "./alignment.js";
 import Component from "../compEngine/compEngine.js";
 import CompEngine from "../compEngine/compEngine.js";
-import ICompDb from "./ICompDb.js";
+import IComponent from "./IComponent.js";
+import Pack from "../pack/pack.js";
 
 ///////////////////////////////////////////////////
-export default class CompDb extends CoreProps implements ICompDb {
+export default class CompDb extends CoreProps implements IComponent {
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn"){
@@ -163,7 +164,7 @@ goto(atFrame :number,x :number , y :number):boolean{
 ////////////////////////////////////////////    
 ////////////////////////////////////////////    
 //@ts-expect-error
-public getEngineComponent():CompEngine{
+public getEngineComp(pack :Pack):CompEngine{
 
 }
 ////////////////////////////////////////////    

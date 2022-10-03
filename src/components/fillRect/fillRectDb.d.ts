@@ -1,7 +1,8 @@
-import Component from "../../compEngine/compEngine.js";
-import ComponentDb from "../../compDb/compDb.js";
-export default class FillRectDb extends ComponentDb {
+import compEngine from "../../compEngine/compEngine.js";
+import CompDb from "../../compDb/compDb.js";
+import Pack from "../../pack/pack.js";
+export default class FillRectDb extends CompDb {
     constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn");
-    getEngineCom(): Component;
+    getEngineCom(pack: Pack): compEngine;
 }
 //# sourceMappingURL=fillRectDb.d.ts.map

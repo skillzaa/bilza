@@ -1,1 +1,0 @@
-{"version":3,"file":"skipXFrames.d.ts","sourceRoot":"","sources":["../../typescript/engineComponent/skipXFrames.ts"],"names":[],"mappings":"AACA,MAAM,CAAC,OAAO,OAAS,WAAW;IAElC,OAAO,CAAC,YAAY,CAAQ;IAC5B,OAAO,CAAC,iBAAiB,CAAS;gBAEtB,YAAY,GAAE,MAAQ;IAKlC,OAAO,IAAG,OAAO;CAShB"}

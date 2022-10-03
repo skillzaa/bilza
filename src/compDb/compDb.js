@@ -129,6 +129,6 @@ export default class CompDb extends CoreProps {
     goto(atFrame, x, y) {
         return true;
     }
-    getEngineComponent() {
+    getEngineComp(pack) {
     }
 }

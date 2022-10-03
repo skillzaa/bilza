@@ -1,8 +1,8 @@
-import ICompEngine from "./ICompEngine.js";
 import Pack from "../pack/pack.js";
 import CompEngineCore from "./compEngineCore.js";
-export default class CompEngine extends CompEngineCore implements ICompEngine {
-    constructor();
+import CorePropsDb from "../compDb/corePropsDb";
+export default class CompEngine extends CompEngineCore {
+    constructor(compDb: CorePropsDb, pack: Pack);
     protected preDrawNonBoxed(p: Pack): void;
     update(msDelta: number, p: Pack): boolean;
     canvasWidth(): number;
