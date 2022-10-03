@@ -1,5 +1,5 @@
 import Engine from "../engine/engine.js";
-export default function getEngine(engineDb, pack, comps = []) {
-    const engine = new Engine(engineDb.canvasId, engineDb.canvasWidthPerc, comps, null, 5, pack);
+export default function getEngine(engineDb, comps = [], background, duration, pack) {
+    const engine = new Engine(engineDb, comps, background, duration, pack);
     return engine;
 }

@@ -1,7 +1,7 @@
 import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
 export default class Engine {
-    constructor(canvasId, canvasWidthPerc, comps = [], background = null, duration, pack) {
+    constructor(engineDb, comps = [], background = null, duration, pack) {
         this.set = new Settings();
         this.stopWatch = new StopWatch();
         this.pack = pack;

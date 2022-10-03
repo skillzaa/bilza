@@ -23,6 +23,7 @@ export default class Bilza {
         return cf;
     }
     start() {
+        if (this.bil !== null){bil.start();}
     }
     stop() {
     }

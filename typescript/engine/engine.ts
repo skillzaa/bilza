@@ -4,6 +4,7 @@ import StopWatch from "./stopWatch.js";
 import Settings from "./settings.js";
 import Component from "../compEngine/compEngine.js";
 import CompEngine from "../compEngine/compEngine.js";
+import EngineDb from "./engineDb.js";
 //-------------------------------------------
 
 export default class Engine {
@@ -13,17 +14,16 @@ private set:Settings;
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 private pack:Pack;
 private lastMsDelta:number;
-private duration:number;
+public readonly duration:number;
 private comps :CompEngine[];
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 constructor (
-    canvasId :string,
-    canvasWidthPerc :number,
-    comps :Component[]=[],
-    background :Background | null =null,
+    engineDb :EngineDb,
+    comps : CompEngine []=[],
+    background :CompEngine | null =null,
     duration :number,
-    pack :Pack    
+    pack :Pack
 ){
 /////////////////////////////////////////////    
 this.set = new Settings();
