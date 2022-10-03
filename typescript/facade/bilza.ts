@@ -39,23 +39,30 @@ append(duration :number):CompFactory{
 const cf = new CompFactory(0,duration,this.comps,"append",this.engine.canvasWidth,this.engine.canvasHeight);
 return cf;
 }
-start(){
 
-} 
-stop(){
 
-}
-draw(timeSec :number=0){
+init(){
+if (this.bil !== null){return;}
 const compiler = new Compiler();
 this.bil = compiler.genApp(this.engine,this.comps);
-this.bil.draw();
-console.log("bil",this.bil);
+this.bil.init();
+}
+
+draw(timeSec :number=0){
+if (this.bil == null){throw new Error("init error"); }
+this.bil.draw(timeSec);
+}
+start(){
+    this.init();
+if (this.bil == null){throw new Error("init error"); }
+this.bil.start();
+}
+stop( ){
+if (this.bil == null){throw new Error("init error"); }
+this.bil.stop();
 }
 
 
-isRunning(){
-
-}
 
 resizeCanvas(){
 

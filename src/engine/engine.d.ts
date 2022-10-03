@@ -13,10 +13,14 @@ export default class Engine {
     constructor(engineDb: EngineDb, comps: Component[] | undefined, background: Component | null | undefined, duration: number, pack: Pack);
     draw(msDelta?: number): void;
     durationInMs(): number;
-    drawByDrawLayer(msDelta: number, drawLayer: 0 | 1 | 2 | 3 | 4, pack: Pack): boolean;
+    private drawByDrawLayer;
     private qualifyForDraw;
     start(): boolean;
+    private drawLoop;
+    drawEvent(msDelta: number): void;
     stop(): boolean;
     protected getLastMsDelta(): number;
+    init(): void;
+    isRunning(): boolean;
 }
 //# sourceMappingURL=engine.d.ts.map

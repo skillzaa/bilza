@@ -36,6 +36,10 @@ this.comps = comps;
 this.background = background;
 
 this.lastMsDelta =0;
+// if (this.set.loadSystemBackground == true){
+//     this._insert.alwaysOn(this.background);
+// }   
+
 
 } 
 
@@ -57,7 +61,7 @@ this.drawByDrawLayer(msDelta,3,this.pack);
 durationInMs():number{
   return this.duration * 1000;  
 }
-public drawByDrawLayer(msDelta :number,drawLayer :0|1|2|3|4,pack :Pack):boolean{ 
+private drawByDrawLayer(msDelta :number,drawLayer :0|1|2|3|4,pack :Pack):boolean{ 
 // console.log("drawByDrawLayer");    
 for (let i = 0; i < this.comps.length; i++) {
 let comp = this.comps[i];       
@@ -93,9 +97,56 @@ return false;
 }
 
 public start():boolean{
-    return true;
+// xxxxxxxxxxxxxxxxx--bil.start()--xxxxxxxxxxxxxxxxxxxxxxxxx
+if (this.stopWatch.isRunning() == true){return false;}
+this.stop();
+//--remove for now
+    // if (this.soundTrackElement !== null){
+    //     this.soundTrackElement.play();
+    // }
+ 
+this.init();
+this.stopWatch.start();
+this.drawLoop();
+return true;
+// xxxxxxxxxxxxxxxxx--bil.start-end-xxxxxxxxxxxxxxxxxxxxxxxxx
 }
-public stop():boolean{
+
+private drawLoop(){
+//-1
+if (this.stopWatch.isRunning()==false){return;}    
+//-2
+const msDelta = this.stopWatch.getMsDelta();
+//-3
+if(msDelta >= this.durationInMs() ){ this.stopWatch.stop();}             
+//-4
+if (this.set.clearCanvasBwFrames == true){
+this.pack.clearCanvas();          
+}
+//-5
+//---------------draw----------------------------
+    this.drawByDrawLayer(msDelta,0,this.pack);
+    this.drawByDrawLayer(msDelta,1,this.pack);
+    this.drawByDrawLayer(msDelta,2,this.pack);
+    this.drawByDrawLayer(msDelta,3,this.pack);
+    this.drawByDrawLayer(msDelta,4,this.pack);
+    ///-----connection with outer world
+//-6    
+    this.drawEvent(msDelta);
+    ///--finally
+//-7    
+    window.requestAnimationFrame(this.drawLoop.bind(this));
+}
+///////////////////////////////////////////////
+drawEvent(msDelta :number){
+console.log("msDelta",msDelta);
+}
+stop():boolean{
+    // if (this.soundTrackElement !== null){
+    //     this.soundTrackElement.pause();
+    //     this.soundTrackElement.currentTime = 0;
+    // }
+    this.stopWatch.stop();
     return true; 
 }
 
@@ -103,5 +154,12 @@ protected getLastMsDelta():number{
 return this.lastMsDelta;
 }
 
+init(){
+///////////nothing here---?????????????????????????????
+}
+isRunning():boolean{
+    return this.stopWatch.isRunning();
+}
+    
 ////////////////////////////////////engine ends
 }//ends

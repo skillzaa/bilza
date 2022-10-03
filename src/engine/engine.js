@@ -55,12 +55,47 @@ export default class Engine {
         return false;
     }
     start() {
+        if (this.stopWatch.isRunning() == true) {
+            return false;
+        }
+        this.stop();
+        this.init();
+        this.stopWatch.start();
+        this.drawLoop();
         return true;
     }
+    drawLoop() {
+        if (this.stopWatch.isRunning() == false) {
+            return;
+        }
+        const msDelta = this.stopWatch.getMsDelta();
+        if (msDelta >= this.durationInMs()) {
+            this.stopWatch.stop();
+        }
+        if (this.set.clearCanvasBwFrames == true) {
+            this.pack.clearCanvas();
+        }
+        this.drawByDrawLayer(msDelta, 0, this.pack);
+        this.drawByDrawLayer(msDelta, 1, this.pack);
+        this.drawByDrawLayer(msDelta, 2, this.pack);
+        this.drawByDrawLayer(msDelta, 3, this.pack);
+        this.drawByDrawLayer(msDelta, 4, this.pack);
+        this.drawEvent(msDelta);
+        window.requestAnimationFrame(this.drawLoop.bind(this));
+    }
+    drawEvent(msDelta) {
+        console.log("msDelta", msDelta);
+    }
     stop() {
+        this.stopWatch.stop();
         return true;
     }
     getLastMsDelta() {
         return this.lastMsDelta;
+    }
+    init() {
+    }
+    isRunning() {
+        return this.stopWatch.isRunning();
     }
 }

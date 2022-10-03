@@ -1,0 +1,1 @@
+{"version":3,"file":"ui.d.ts","sourceRoot":"","sources":["../../typescript/ui/ui.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,qBAAqB,CAAC;AAIzC,MAAM,CAAC,OAAO,OAAO,EAAE;IAEvB,KAAK,EAAE,WAAW,CAAC;IACnB,IAAI,EAAE,WAAW,CAAC;gBAEN,GAAG,EAAE,MAAM;CA+BtB"}
