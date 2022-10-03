@@ -3,6 +3,7 @@ import Ui from "./ui/ui.js";
 
 const bil = new Bilza("bilza");
 bil.background.color.set("green");
+
 const comp = bil.add(0,10).fillRect(hsl(120,90,80));
 comp.x.set(100);
 comp.y.set(100);
@@ -14,8 +15,11 @@ comp02.x.set(300);
 comp02.y.set(10);
 comp02.width.set(200);
 comp02.height.set(400);
-// bil.init();
-bil.start();
+
+
+
+bil.draw();
+// bil.draw();
 //@ts-expect-error
 const ui = new Ui(bil.bil );
 

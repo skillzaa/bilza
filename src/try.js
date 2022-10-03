@@ -12,6 +12,6 @@ comp02.x.set(300);
 comp02.y.set(10);
 comp02.width.set(200);
 comp02.height.set(400);
-bil.start();
+bil.draw();
 const ui = new Ui(bil.bil);
 console.log("bil", bil);

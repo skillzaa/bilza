@@ -59,7 +59,6 @@ export default class Engine {
             return false;
         }
         this.stop();
-        this.init();
         this.stopWatch.start();
         this.drawLoop();
         return true;
@@ -82,9 +81,9 @@ export default class Engine {
         this.drawByDrawLayer(msDelta, 4, this.pack);
         this.drawEvent(msDelta);
         window.requestAnimationFrame(this.drawLoop.bind(this));
+        this.lastMsDelta = msDelta;
     }
     drawEvent(msDelta) {
-        console.log("msDelta", msDelta);
     }
     stop() {
         this.stopWatch.stop();
@@ -92,8 +91,6 @@ export default class Engine {
     }
     getLastMsDelta() {
         return this.lastMsDelta;
-    }
-    init() {
     }
     isRunning() {
         return this.stopWatch.isRunning();

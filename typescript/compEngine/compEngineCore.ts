@@ -63,6 +63,7 @@ if (corePropsDb.insertAction == "alwaysOn"){
     this.alwaysOn = true;
 }else {
     this.time = new Time( corePropsDb.startTime ,corePropsDb.endTime);
+    this.alwaysOn =  false;
 }
 
 this.style = new Style(); 
@@ -125,7 +126,8 @@ this.yRotate = corePropsDb.yRotate;
 
 //////////////
 this.drawLayer =  2;  
-this.alwaysOn =  false;  
+//--caused me 1 hour
+//   
 this.xAlign =0;
 this.yAlign =0;
 this.xRotate =0;

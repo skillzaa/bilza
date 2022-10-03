@@ -13,6 +13,7 @@ export default class EngineCompCore {
         }
         else {
             this.time = new Time(corePropsDb.startTime, corePropsDb.endTime);
+            this.alwaysOn = false;
         }
         this.style = new Style();
         this.border = new AniNumber(0);
@@ -54,7 +55,6 @@ export default class EngineCompCore {
         this.xRotate = corePropsDb.xRotate;
         this.yRotate = corePropsDb.yRotate;
         this.drawLayer = 2;
-        this.alwaysOn = false;
         this.xAlign = 0;
         this.yAlign = 0;
         this.xRotate = 0;

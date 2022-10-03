@@ -20,6 +20,7 @@ this.engine = new EngineDb(canvasId,canvasWidthPerc);
 this.comps = [];
 //--this.background is in comps and avaialbe on top level also
 this.background = new BackgroundDb(0,0,"alwaysOn");
+this.background.alwaysOn = true;
 this.comps.push(this.background);
 // this.background.alwaysOn = true;
 
@@ -45,11 +46,11 @@ init(){
 if (this.bil !== null){return;}
 const compiler = new Compiler();
 this.bil = compiler.genApp(this.engine,this.comps);
-this.bil.init();
+// this.bil.init();
 }
 
 draw(timeSec :number=0){
-if (this.bil == null){throw new Error("init error"); }
+if (this.bil == null){this.init(); }
 this.bil.draw(timeSec);
 }
 start(){

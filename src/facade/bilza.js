@@ -7,6 +7,7 @@ export default class Bilza {
         this.engine = new EngineDb(canvasId, canvasWidthPerc);
         this.comps = [];
         this.background = new BackgroundDb(0, 0, "alwaysOn");
+        this.background.alwaysOn = true;
         this.comps.push(this.background);
         this.bil = null;
     }
@@ -28,11 +29,10 @@ export default class Bilza {
         }
         const compiler = new Compiler();
         this.bil = compiler.genApp(this.engine, this.comps);
-        this.bil.init();
     }
     draw(timeSec = 0) {
         if (this.bil == null) {
-            throw new Error("init error");
+            this.init();
         }
         this.bil.draw(timeSec);
     }

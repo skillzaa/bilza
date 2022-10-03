@@ -42,28 +42,34 @@ const stopExists = document.getElementById("stop");
 
 function sliderFn(bil :Engine){
   //------------slider---------
-const sliderExists = document.getElementById("slider");
+const counterDiv = document.getElementById("counterDiv");
+const sliderExists = document.getElementById("slider") as HTMLInputElement;
 if ( sliderExists== null){ throw new Error("slider error");
 }
 const slider  = sliderExists;
 
-//@ts-expect-error 
 slider.min = "0";
-//@ts-expect-error 
 slider.max = bil.duration.toString() ;
-//@ts-expect-error 
 slider.value = "0";
 
 setInterval(()=>{
     if (bil.isRunning()==true){
         //@ts-expect-error 
-        slider.value = Math.ceil(bil.getLastMsDelta()/1000);  
+        const v = Math.ceil(bil.getLastMsDelta()/1000).toString();
+        slider.value = v; 
+        if (counterDiv !== null){
+        counterDiv.innerHTML = v;
+        }
     }
 },500);    
 //..........
     slider.addEventListener("input",function(e){
     //@ts-expect-error
     bil.draw(e.target.value * 1000);
+    if (counterDiv !== null){
+        //@ts-expect-error
+        counterDiv.innerHTML = (e.target.value).toString();
+    }
     });
   
 }

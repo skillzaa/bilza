@@ -10,7 +10,7 @@ constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "
 
 super(startTime,endTime,insertAction);
    this.color.set(color);
-}
+} 
  
 getEngineComp(pack :Pack):compEngine{
    const comp = new FillRect(this,pack);

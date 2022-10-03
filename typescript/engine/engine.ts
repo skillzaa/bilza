@@ -105,7 +105,7 @@ this.stop();
     //     this.soundTrackElement.play();
     // }
  
-this.init();
+// this.init();
 this.stopWatch.start();
 this.drawLoop();
 return true;
@@ -133,13 +133,15 @@ this.pack.clearCanvas();
     ///-----connection with outer world
 //-6    
     this.drawEvent(msDelta);
-    ///--finally
 //-7    
     window.requestAnimationFrame(this.drawLoop.bind(this));
+//-8
+    this.lastMsDelta = msDelta;    
 }
 ///////////////////////////////////////////////
+
 drawEvent(msDelta :number){
-console.log("msDelta",msDelta);
+// console.log("msDelta",msDelta);
 }
 stop():boolean{
     // if (this.soundTrackElement !== null){
@@ -154,9 +156,7 @@ protected getLastMsDelta():number{
 return this.lastMsDelta;
 }
 
-init(){
-///////////nothing here---?????????????????????????????
-}
+
 isRunning():boolean{
     return this.stopWatch.isRunning();
 }

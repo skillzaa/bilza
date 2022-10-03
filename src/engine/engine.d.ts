@@ -20,7 +20,6 @@ export default class Engine {
     drawEvent(msDelta: number): void;
     stop(): boolean;
     protected getLastMsDelta(): number;
-    init(): void;
     isRunning(): boolean;
 }
 //# sourceMappingURL=engine.d.ts.map

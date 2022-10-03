@@ -26,6 +26,7 @@ export default class Ui {
     }
 }
 function sliderFn(bil) {
+    const counterDiv = document.getElementById("counterDiv");
     const sliderExists = document.getElementById("slider");
     if (sliderExists == null) {
         throw new Error("slider error");
@@ -36,10 +37,17 @@ function sliderFn(bil) {
     slider.value = "0";
     setInterval(() => {
         if (bil.isRunning() == true) {
-            slider.value = Math.ceil(bil.getLastMsDelta() / 1000);
+            const v = Math.ceil(bil.getLastMsDelta() / 1000).toString();
+            slider.value = v;
+            if (counterDiv !== null) {
+                counterDiv.innerHTML = v;
+            }
         }
     }, 500);
     slider.addEventListener("input", function (e) {
         bil.draw(e.target.value * 1000);
+        if (counterDiv !== null) {
+            counterDiv.innerHTML = (e.target.value).toString();
+        }
     });
 }
