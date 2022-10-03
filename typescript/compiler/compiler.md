@@ -1,4 +1,5 @@
 /*
+3-oct-2022
  * - Before init we do not know the width and height of the canvas. 
  * - So how do we get the right-edge and bottom-edge
  * - Why is it important to get the edges.

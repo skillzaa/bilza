@@ -1,9 +1,9 @@
 import Pack from "../pack/pack.js";
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 import ComponentPack from "../componentPack/componentPack.js";
 
-import SkipXFrames from "../engineComponent/skipXFrames.js";
-import XY from "../engineComponent/xy.js";
+import SkipXFrames from "../compEngine/skipXFrames.js";
+import XY from "../compEngine/xy.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 
@@ -20,7 +20,7 @@ private xyArray :XY[];
     public lineColor :AniColor;
 
 constructor (startTime :number,endTime :number,componentPack :ComponentPack,count :number= 20,color :string="#008000",delay :number=50) { 
-    super(startTime,endTime,componentPack);
+    super(componentPack);
     //!!!!!!!!!!!!!!!!!!!
     this.particleSize = new AniNumber(12);
     this.skipXFrames = new SkipXFrames(delay);

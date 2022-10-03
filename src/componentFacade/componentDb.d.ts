@@ -6,13 +6,7 @@ export default class ComponentDb extends CoreProps implements IComponent {
     readonly startTime: number;
     readonly endTime: number;
     readonly insertAction: "add" | "append" | "alwaysOn";
-    private readonly canvasWidth;
-    private readonly canvasHeight;
-    xAlign: 0 | 1 | 2;
-    yAlign: 0 | 1 | 2;
-    xRotate: 0 | 1 | 2;
-    yRotate: 0 | 1 | 2;
-    constructor(startTime: number, endTime: number, canvasWidth: number, canvasHeight: number, insertAction: "add" | "append" | "alwaysOn");
+    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn");
     align(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
     alignRotate(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
     xRotateAligned(): number;

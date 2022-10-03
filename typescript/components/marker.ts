@@ -5,7 +5,7 @@
 // export default class Marker extends Circle {
   
 // constructor (startTime :number,endTime :number,componentPack :ComponentPack,x :number=50,y :number=50,color :string="red",radius=2){ 
-// super(startTime,endTime,componentPack);
+// super(componentPack);
 
 // this.width.setNonResponsive()
 // this.height.setNonResponsive()

@@ -1,16 +1,16 @@
 import Pack from "../../pack/pack.js";
-import Component from "../../engineComponent/engineComponent.js";
+import EngineComponent from "../../compEngine/compEngine.js";
 import ComponentPack from "../../componentPack/componentPack.js";
 
 
 //-14-july-2022 : There is no need to add any public prop width height and color are all added    
 //--16-jul-2022 : This is the first completed comp.
 
-export default class FillRect extends Component {
+export default class FillRect extends EngineComponent {
 
-constructor (componentPack :ComponentPack,color :string="#000000"){ 
+constructor (color :string="#000000"){ 
 
-super(componentPack);
+super();
 
 this.color.set(color) ; 
 }

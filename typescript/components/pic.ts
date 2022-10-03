@@ -1,5 +1,5 @@
 import Pack from "../pack/pack.js";
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 import ComponentPack from "../componentPack/componentPack.js";
 
 
@@ -11,7 +11,7 @@ protected orignalHeight :number;
 
 constructor(startTime :number,endTime :number,componentPack :ComponentPack,imgUrl :string, width:number=25, height :number=25){
 
-super(startTime,endTime,componentPack);
+super(componentPack);
 
 this.width.set(width); 
 this.height.set(height); 

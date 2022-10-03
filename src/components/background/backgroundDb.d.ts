@@ -1,6 +1,10 @@
 import AniColorDb from "../../animationsFacade/AniColorDb.js";
-export default class BackgroundDb {
+import ComponentPack from "../../componentPack/componentPack.js";
+import ComponentDb from "../../componentFacade/componentDb.js";
+import EngineComponent from "../../engineComponent/engineComponent.js";
+export default class BackgroundDb extends ComponentDb {
     color: AniColorDb;
-    constructor(color?: string);
+    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", color?: string);
+    getEngineComponent(componentPack: ComponentPack): EngineComponent;
 }
 //# sourceMappingURL=backgroundDb.d.ts.map

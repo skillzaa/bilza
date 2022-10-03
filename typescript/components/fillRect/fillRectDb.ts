@@ -1,22 +1,19 @@
-import Component from "../../engineComponent/engineComponent.js";
-import ComponentDb from "../../componentFacade/componentDb.js";
-import ComponentPack from "../../componentPack/componentPack.js";
+import Component from "../../compEngine/compEngine.js";
+import ComponentDb from "../../compDb/compDb.js";
 import FillRect from "./fillRect.js";
-import corePropsToEngineComp from "../../componentFacade/corePropsToEngineComp.js";
+import ComponentPack from "../../componentPack/componentPack.js";
+import corePropsToEngineComp from "../../compCompiler/corePropsToEngineComp.js";
 
 
 export default class FillRectDb extends ComponentDb {
 
-constructor(startTime :number,
-endTime :number,canvasWidth :number,canvasHeight :number,insertAction :"add"|"append" | "alwaysOn"){
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn"){
 
-super(startTime,endTime,canvasWidth,canvasHeight,insertAction);
+super(startTime,endTime,insertAction);
 }
 
-getEngineComponent(componentPack :ComponentPack):Component{
-
-   const comp = new FillRect(componentPack,"red");
-   corePropsToEngineComp(this,comp);
+getEngineCom():Component{
+   const comp = new FillRect("red");
    return comp; 
 }
     

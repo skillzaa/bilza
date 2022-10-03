@@ -1,9 +1,10 @@
 import AniNumberDb from "../animationsFacade/AniNumberDb.js";
 import AniColorDb from "../animationsFacade/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/AniBooleanDb.js";
-import Time from "../engineComponent/time.js";
 export default interface IComponent {
     id: string;
+    startTime: number;
+    endTime: number;
     border: AniNumberDb;
     colorBackground: AniColorDb;
     colorBorder: AniColorDb;
@@ -42,6 +43,5 @@ export default interface IComponent {
     getEndTime(inMilliSec?: boolean): number;
     goto(atFrame: number, x: number, y: number): boolean;
     animate(secFrom: number, secTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
-    time: Time;
 }
 //# sourceMappingURL=IComponent.d.ts.map

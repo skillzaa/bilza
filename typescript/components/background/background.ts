@@ -1,16 +1,18 @@
 import Pack from "../../pack/pack.js";
-import Component from "../../engineComponent/engineComponent.js";
+import Component from "../../compEngine/compEngine.js";
 import ComponentPack from "../../componentPack/componentPack.js";
+
+import EngineComponent from "../../compEngine/compEngine.js";
 
 // import {AniNumber,AniPerc,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
 ////////////////////////////////////////////////////////
 
-export default class Background extends Component {
+export default class Background extends EngineComponent {
   
 
-constructor (startTime :number,endTime :number,componentPack :ComponentPack,color :string="#efeee3"){ 
+constructor (componentPack :ComponentPack,color :string="#efeee3"){ 
     
-super(startTime,endTime,componentPack);
+super(componentPack);
 
 this.drawLayer = 0;
 this.color.set(color); 

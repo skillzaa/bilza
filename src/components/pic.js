@@ -1,7 +1,7 @@
 import Component from "../engineComponent/engineComponent.js";
 export default class Pic extends Component {
     constructor(startTime, endTime, componentPack, imgUrl, width = 25, height = 25) {
-        super(startTime, endTime, componentPack);
+        super(componentPack);
         this.width.set(width);
         this.height.set(height);
         this.img = new Image();

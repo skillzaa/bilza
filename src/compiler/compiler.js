@@ -8,12 +8,12 @@ export default class Compiler {
         const pack = new Pack(engineDb.canvasId, engineDb.canvasWidthPerc);
         const comps = [];
         const componentPack = getComponentPack(pack);
-        componentPack.endTime = 60;
-        const compDb = compsDb[0];
-        componentPack.init(compDb);
-        const engineComp = compDb.getEngineComponent(componentPack);
-        comps.push(engineComp);
-        console.log("engineComp", engineComp);
+        for (let i = 0; i < compsDb.length; i++) {
+            const compDb = compsDb[i];
+            componentPack.init(compDb);
+            const engineComp = compDb.getEngineComponent(componentPack);
+            comps.push(engineComp);
+        }
         const bilza = getEngine(engineDb, pack, comps);
         return bilza;
     }

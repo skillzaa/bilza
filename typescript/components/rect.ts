@@ -1,5 +1,5 @@
 import Pack from "../pack/pack.js";
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 import ComponentPack from "../componentPack/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
@@ -13,7 +13,7 @@ public lineWidth :AniNumber;
 
 constructor (startTime :number,endTime :number,componentPack :ComponentPack,color :string="#000000"){ 
 
-    super(startTime,endTime,componentPack);
+    super(componentPack);
     this.color.set(color); 
     this.lineWidth = new AniNumber(1);
     

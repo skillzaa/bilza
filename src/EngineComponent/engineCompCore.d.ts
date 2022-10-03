@@ -28,8 +28,11 @@ export default class EngineCompCore {
     yAlign: 0 | 1 | 2;
     xRotate: 0 | 1 | 2;
     yRotate: 0 | 1 | 2;
+    insertAction: string;
+    startTime: number;
+    endTime: number;
     protected style: Style;
-    time: Time;
+    time: Time | null;
     charsWidth: (chars: string, fontSize: number, fontName: string) => number;
     constructor(componentPack: ComponentPack);
 }

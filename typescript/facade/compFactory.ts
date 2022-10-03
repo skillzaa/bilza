@@ -1,5 +1,5 @@
 import FillRectDB from "../components/fillRect/fillRectDb.js";
-import IComponent from "../componentFacade/IComponent.js";
+import IComponent from "../compDb/ICompDb.js";
 
 export default class CompFactory {
 private readonly startTime :number;
@@ -19,7 +19,7 @@ this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
 }
 fillRect(color :string="#000000"):IComponent{
-let g = new FillRectDB(this.startTime,this.endTime,this.canvasWidth,this.canvasHeight,this.insertAction);
+let g = new FillRectDB(this.startTime,this.endTime,this.insertAction);
 this.comps.push(g);
 return g;    
 }

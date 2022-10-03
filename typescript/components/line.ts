@@ -13,7 +13,7 @@
 
 // constructor (startTime :number,endTime :number,componentPack :ComponentPack,x1 :number=0,y1 :number=0,x2 :number=20,y2 :number=20,color :string ="#000000"){
 
-//     super(startTime,endTime,componentPack);
+//     super(componentPack);
     
 
 // this.x.set(x1); 

@@ -1,14 +1,13 @@
-import IEngineComp from "./IEngineComponent.js";
-// import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
+import ICompEngine from "./ICompEngine.js";
 import Pack from "../pack/pack.js";
-import EngineCompCore from "./engineCompCore.js";
-import ComponentPack from "../componentPack/componentPack.js";
+import CompEngineCore from "./compEngineCore.js";
 
-export default class Component extends EngineCompCore implements IEngineComp{
+
+export default class CompEngine extends CompEngineCore implements ICompEngine{
 
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-constructor(componentPack :ComponentPack){
-super(componentPack); 
+constructor(){
+super(); 
 
 }
 protected preDrawNonBoxed(p :Pack){
@@ -41,10 +40,13 @@ update(msDelta :number,p :Pack): boolean {
 return true;    
 }
 public canvasWidth():number{
-    return this.canvasWidth();
+if(this._canvasWidth ==null){throw new Error("init error");}    
+    return this._canvasWidth;
 }
 public canvasHeight():number{
-return this.canvasHeight();
+if(this._canvasHeight ==null){throw new Error("init error");}    
+
+return this._canvasHeight;
 }
 public draw(p :Pack):boolean{
     return true;

@@ -2,7 +2,7 @@ import Component from "../engineComponent/engineComponent.js";
 import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
 export default class Wave extends Component {
     constructor(id, startTime, endTime, componentPack, numberOfWaves = 3, color = "blue") {
-        super(id, startTime, endTime, componentPack);
+        super(componentPack);
         this.numberOfWaves = new AniNumber(numberOfWaves);
         this.color.set(color);
         this.midLineColor = new AniColor("red");

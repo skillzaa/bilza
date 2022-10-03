@@ -1,5 +1,5 @@
 import Pack from "../pack/pack.js";
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 import ComponentPack from "../componentPack/componentPack.js";
 
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
@@ -24,7 +24,7 @@ export default class Grid extends Component {
     showNumbers :AniBoolean ;   
 
 constructor (startTime :number,endTime :number,componentPack :ComponentPack,cellWidth :number=10,cellHeight :number=10,color :string="grey"){
-    super(startTime,endTime,componentPack);  
+    super(componentPack);  
 
 this.fontSize = new AniNumber(12);
 //--these 2 are settings but very imp since grid is normally used for entire screen

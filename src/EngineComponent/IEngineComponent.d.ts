@@ -29,6 +29,6 @@ export default interface IEngineComponent {
     yRotate: 0 | 1 | 2;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
-    time: Time;
+    time: Time | null;
 }
 //# sourceMappingURL=IEngineComponent.d.ts.map

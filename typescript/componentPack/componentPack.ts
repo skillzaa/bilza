@@ -1,6 +1,7 @@
-import IComponent from "../componentFacade/IComponent.js";
+import IComponent from "../compDb/ICompDb.js";
 import IComponentPack from "./IComponentPack.js";
-import Time from "../engineComponent/time.js";
+import Time from "../compEngine/time.js";
+import Component from "../compEngine/compEngine.js";
 
 /**
  * ComponentPack is used for packing all the required data for creation of a component. It is used so that the component API does not break
@@ -14,6 +15,7 @@ import Time from "../engineComponent/time.js";
 
 export default class ComponentPack implements IComponentPack{
 public id :string;    
+public insertAction :string;    
 public startTime :number;    
 public endTime :number;    
 public canvasWidth :number;    
@@ -29,16 +31,19 @@ constructor(
 this.id = "";
 this.startTime = 0;
 this.endTime = 0;    
+this.insertAction = "";    
 //////////////////////////
 this.canvasWidth = canvasWidth ;
 this.canvasHeight = canvasHeight ;
 this.charsWidth = charsWidth;
 }
 
-init(compDb :IComponent){
+init(compDb :Component){
 //compDb id is not readonly but engine comp id is 
-    compDb.id = this.id;
-compDb.time  = new Time(this.startTime , this.endTime);
+    this.id = compDb.id ;
+    this.startTime = compDb.startTime ;
+    this.endTime = compDb.endTime ;
+    this.insertAction = compDb.insertAction ;
 }
 ////////////////////////////////////    
 }

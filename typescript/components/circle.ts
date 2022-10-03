@@ -1,5 +1,5 @@
 import Pack from "../pack/pack.js";
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 import ComponentPack from "../componentPack/componentPack.js";
 
 
@@ -14,7 +14,7 @@ filled :AniBoolean;
 lineWidth :AniNumber;
 
 constructor (startTime :number,endTime :number,componentPack :ComponentPack,radius :number=10,color :string="#ff0000"){ 
-super(startTime,endTime,componentPack);
+super(componentPack);
 //--new props
 this.filled = new AniBoolean(true);
 this.startAngle = new AniNumber(0);

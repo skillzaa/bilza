@@ -1,7 +1,7 @@
-import Component from "../../engineComponent/engineComponent.js";
-export default class Background extends Component {
-    constructor(startTime, endTime, componentPack, color = "#efeee3") {
-        super(startTime, endTime, componentPack);
+import EngineComponent from "../../engineComponent/engineComponent.js";
+export default class Background extends EngineComponent {
+    constructor(componentPack, color = "#efeee3") {
+        super(componentPack);
         this.drawLayer = 0;
         this.color.set(color);
     }

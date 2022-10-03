@@ -2,7 +2,7 @@ import Component from "../engineComponent/engineComponent.js";
 import { AniNumber, AniBoolean, } from "../animations/animations.js";
 export default class Circle extends Component {
     constructor(startTime, endTime, componentPack, radius = 10, color = "#ff0000") {
-        super(startTime, endTime, componentPack);
+        super(componentPack);
         this.filled = new AniBoolean(true);
         this.startAngle = new AniNumber(0);
         this.endAngle = new AniNumber(360);

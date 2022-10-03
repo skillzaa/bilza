@@ -13,7 +13,7 @@ const charsWidth:(chars:string,fontSize:number,fontName:string)=>number
  const compPack = new ComponentPack(
     canvasWidth,
     canvasHeight,
-    charsWidth
+    charsWidth,
  );
  return compPack;
 }

@@ -1,16 +1,9 @@
 import CoreProps from "../coreProps/corePropsDb.js";
 export default class ComponentDb extends CoreProps {
-    constructor(startTime, endTime, canvasWidth, canvasHeight, insertAction) {
+    constructor(startTime, endTime, insertAction) {
         super();
-        this.xAlign = 0;
-        this.yAlign = 0;
-        this.xRotate = 0;
-        this.yRotate = 0;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.canvasWidth = canvasWidth;
-        this.canvasHeight = canvasHeight;
-        this.canvasHeight = canvasHeight;
         this.insertAction = insertAction;
     }
     align(x = null, y = null) {

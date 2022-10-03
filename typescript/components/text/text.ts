@@ -28,7 +28,7 @@
 // /////////////////////////////////////////
 // constructor (startTime :number,endTime :number,componentPack :ComponentPack,content :string="",colorHax :string="#000000"){
 
-//     super(startTime,endTime,componentPack);  
+//     super(componentPack);  
 
 // this.content = new AniString(content);
 // this.fontSize = new AniNumber(20);

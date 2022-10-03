@@ -5,7 +5,15 @@ export default class EngineCompCore {
     constructor(componentPack) {
         this.id = componentPack.id;
         this.charsWidth = componentPack.charsWidth;
-        this.time = new Time(componentPack.startTime, componentPack.endTime);
+        this.startTime = componentPack.startTime;
+        this.endTime = componentPack.endTime;
+        this.insertAction = componentPack.insertAction;
+        if (this.insertAction == "alwaysOn") {
+            this.time = null;
+        }
+        else {
+            this.time = new Time(this.startTime, this.endTime);
+        }
         this.style = new Style();
         this.border = new AniNumber(0);
         this.colorBackground = new AniColor("white");

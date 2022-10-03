@@ -1,8 +1,8 @@
-import IComponent from "./IComponent.js";
-import CoreProps from "../coreProps/corePropsDb.js";
+import IComponent from "./ICompDb.js";
+import CoreProps from "./corePropsDb.js";
 import Alignment from "./alignment.js";
 import ComponentPack from "../componentPack/componentPack.js";
-import Component from "../engineComponent/engineComponent.js";
+import Component from "../compEngine/compEngine.js";
 
 ///////////////////////////////////////////////////
 export default class ComponentDb extends CoreProps implements IComponent {
@@ -12,31 +12,21 @@ public readonly startTime :number;
 public readonly endTime :number ;
 public readonly insertAction :"add"|"append" | "alwaysOn";
 
-private readonly canvasWidth :number;
-private readonly canvasHeight :number;
-public xAlign  : 0|1|2;  
-public yAlign  : 0|1|2;  
-public xRotate : 0|1|2;  
-public yRotate : 0|1|2;  
+// public xAlign  : 0|1|2;  
+// public yAlign  : 0|1|2;  
+// public xRotate : 0|1|2;  
+// public yRotate : 0|1|2;  
 
 ////////////////////////////////////////
 // public alignObj :Alignment;
 // public alignRotateObj :Alignment;
 ///////////////////////////////////////////////////
-constructor(startTime :number,endTime :number,canvasWidth :number,canvasHeight :number,insertAction :"add"|"append" | "alwaysOn"){
+constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn"){
         
 super();
 
-this.xAlign = 0;        
-this.yAlign = 0;
-this.xRotate = 0;
-this.yRotate = 0;
-
 this.startTime = startTime;
 this.endTime = endTime;
-this.canvasWidth = canvasWidth;
-this.canvasHeight = canvasHeight;
-this.canvasHeight = canvasHeight;
 this.insertAction = insertAction;
 
 }

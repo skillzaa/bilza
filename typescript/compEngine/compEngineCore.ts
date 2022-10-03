@@ -1,9 +1,8 @@
 import {AniNumber,AniBoolean,AniString,AniColor} from "../animations/animations.js";
-import ComponentPack from "../componentPack/componentPack.js";
 import Time from "./time.js";
 import Style from "../pack/style.js";
 /////////////////////////////////////////////////////////
-export default class EngineCompCore{
+export default class EngineCompCore {
 ////////////////////////////////////////////
 //--30-9-2022 -- 21 CORE props 
 ////////////////////////////////////////////     
@@ -27,7 +26,6 @@ public width :AniNumber;
 public x :AniNumber;
 public y :AniNumber;
 /////////////////////
-public readonly id :string;
 public drawLayer : 0|1|2|3|4; 
 public alwaysOn : boolean; 
 
@@ -36,15 +34,35 @@ public yAlign  : 0|1|2;
 public xRotate : 0|1|2;  
 public yRotate : 0|1|2;  
 
+////////////////////////////init props
+public id:string | null;
+public insertAction:string | null;
+public startTime :number | null; 
+public endTime :number | null; 
+
+_canvasWidth :number | null; 
+_canvasHeight :number | null; 
+
 protected style:Style; 
-public time :Time;
-public charsWidth:(chars:string,fontSize:number,fontName:string)=>number
+public time :Time | null;
+
+//--strange line
+public charsWidth:((chars:string,fontSize:number,fontName:string)=>number) | null  ;
+
 ////////////////////////////////
-constructor(componentPack :ComponentPack){
+constructor(){
+
 //--Basic must props (Compunent API)
-this.id = componentPack.id;
-this.charsWidth = componentPack.charsWidth;
-this.time = new Time(componentPack.startTime,componentPack.endTime);
+this.id = null;
+this.charsWidth = null;
+this.startTime = 0;
+this.endTime = 0;
+this.time = null;
+this._canvasWidth = null;
+this._canvasHeight = null;
+//--keep for now
+this.insertAction = "";
+
 this.style = new Style(); 
 
 
