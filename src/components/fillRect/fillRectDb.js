@@ -4,7 +4,7 @@ export default class FillRectDb extends CompDb {
     constructor(startTime, endTime, insertAction) {
         super(startTime, endTime, insertAction);
     }
-    getEngineCom(pack) {
+    getEngineComp(pack) {
         const comp = new FillRect(this, pack, "red");
         return comp;
     }

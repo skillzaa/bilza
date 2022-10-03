@@ -4,6 +4,7 @@ import CompDb from "../../compDb/compDb.js";
 import CompEngine from "../../compEngine/compEngine.js";
 import Pack from "../../pack/pack.js";
 
+
 export default class BackgroundDb extends CompDb {
 public color:AniColorDb;
 
@@ -16,7 +17,7 @@ this.color = new AniColorDb(color);
 }
 
 
-getEngineCom(pack :Pack):CompEngine{
+getEngineComp(pack :Pack):CompEngine{
     const comp = new Background(this,pack,"red");
     return comp; 
  }

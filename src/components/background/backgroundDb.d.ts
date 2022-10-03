@@ -5,6 +5,6 @@ import Pack from "../../pack/pack.js";
 export default class BackgroundDb extends CompDb {
     color: AniColorDb;
     constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", color?: string);
-    getEngineCom(pack: Pack): CompEngine;
+    getEngineComp(pack: Pack): CompEngine;
 }
 //# sourceMappingURL=backgroundDb.d.ts.map

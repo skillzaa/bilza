@@ -6,7 +6,7 @@ export default class BackgroundDb extends CompDb {
         super(startTime, endTime, insertAction);
         this.color = new AniColorDb(color);
     }
-    getEngineCom(pack) {
+    getEngineComp(pack) {
         const comp = new Background(this, pack, "red");
         return comp;
     }
