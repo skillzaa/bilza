@@ -6,7 +6,6 @@ import BaseFilter from "../filters/baseFilter.js";
 export default class AniProp <T>  {
 //--this cant be null its not _ret_val of filter ITS aniProp    
 protected _value :T | null;                 
-// protected defaultValue :T;                 
 protected filtersArr :BaseFilter<T>[];       
 protected defaultValue :T;       
 //--now that we have default Filter there is no need for goto at zero in any case the aniProp will have a value it can never be null. However the animated value (from filter) can be null thus _value keep track between default value and animatedValue
@@ -53,7 +52,8 @@ public set(n :T):T{
 this.defaultValue = n;
  return this.defaultValue;
 } 
-protected getBaseFilter(rTimeMs :number):BaseFilter<T> | null{
+//--5-oct-2022  changed form protected
+private getBaseFilter(rTimeMs :number):BaseFilter<T> | null{
 //---shd it be here???    
 if (this.filtersArr.length < 1){return null;}    
 

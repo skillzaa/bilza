@@ -8,7 +8,7 @@ import Delay from "./delay.js";
  * During start state : Will return startValue unless _animatedValue == null.If and when _animatedValue !== null then _animatedValue is passed out (impl in filterValue).
  */
 export default class BaseFilter <T> {
-    
+//--do not convert them into private since then i need methods to expose them which will have same names as getStartTime get EndTime    
 public  readonly startTimeMs :number;
 public  readonly endTimeMs :number;
 
