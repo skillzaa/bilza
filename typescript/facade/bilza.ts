@@ -50,14 +50,20 @@ this.bil = compiler.genApp(this.engine,this.comps);
 }
 
 draw(timeSec :number=0){
-if (this.bil == null){this.init(); }
-this.bil.draw(timeSec);
+if (this.bil !== null){
+    this.bil.draw(timeSec);
+    }else {
+        this.init(); 
+        this.draw()
+    }
 }
+
 start(){
     this.init();
-if (this.bil == null){throw new Error("init error"); }
-this.bil.start();
+    if (this.bil == null){throw new Error("init error"); }
+    this.bil.start();
 }
+
 stop( ){
 if (this.bil == null){throw new Error("init error"); }
 this.bil.stop();

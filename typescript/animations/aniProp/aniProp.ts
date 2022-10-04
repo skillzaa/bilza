@@ -2,6 +2,9 @@ import IFilter from "../filters/IFilter";
 import IdentityFil from "../filters/identityFil.js";
 import JumpBetween from "../filters/jumpBetween.js";
  
+
+//-------------------------------------------
+
 export default class AniProp <T>  {
 //--this cant be null its not _ret_val of filter ITS aniProp    
 protected _value :T | null;                 
@@ -20,6 +23,7 @@ public update(rTimeMs :number):boolean{
 //---STEP-1--find current filter or return defaultValue
 const baseGoto = this.getBaseFilter(rTimeMs);
 if (baseGoto == null ){
+    //--4-sep-2022 
     // this.defaultFilter.update--???????
     this._value = this.defaultFilter.animatedValue();
     return false; //return

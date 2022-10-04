@@ -31,10 +31,13 @@ export default class Bilza {
         this.bil = compiler.genApp(this.engine, this.comps);
     }
     draw(timeSec = 0) {
-        if (this.bil == null) {
-            this.init();
+        if (this.bil !== null) {
+            this.bil.draw(timeSec);
         }
-        this.bil.draw(timeSec);
+        else {
+            this.init();
+            this.draw();
+        }
     }
     start() {
         this.init();
