@@ -13,35 +13,35 @@ this.incDecArray = [];
 this.setAfterValue(stopAt);
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 
-//--------------------
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 const noOfIter = Math.floor( this.timeDiff() / this.delay.delayValue);
-
-
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 let stratWithInc:boolean = (startValue < endValue) ? true : false;
 
 for (let i = 0; i < noOfIter ; i ++) {
 
-if (stratWithInc == true){
+if (stratWithInc == true)
+{
     stratWithInc = !stratWithInc; //change
     const thisStartTime = this.startTimeMs + (i * this.delay.delayValue);
     const thisEndTime = thisStartTime + this.delay.delayValue;
     let inc = new Increment(thisStartTime,thisEndTime,startValue ,endValue);
     this.incDecArray.push(inc);
-}else {
+}   else {
     stratWithInc = !stratWithInc; //change
     const thisStartTime = this.startTimeMs + (i * this.delay.delayValue);
     const thisEndTime = thisStartTime + this.delay.delayValue;
     let inc = new Decrement(thisStartTime,thisEndTime,endValue,startValue);
     this.incDecArray.push(inc);
 }
-// this.incDecArray[this.incDecArray.length -1].
+
 }
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 }
 
 public update(rTimeMs :number):boolean{
-    if (super.update(rTimeMs) == false ){ return false;}    
-    ////////////////////////////////////////////////    
+if (super.update(rTimeMs) == false ){ return false;}    
+////////////////////////////////////////////////    
 
 for (let i = 0; i < this.incDecArray.length; i++) {
     const elm = this.incDecArray[i];

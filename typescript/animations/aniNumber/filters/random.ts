@@ -4,15 +4,20 @@ export default class Random extends BaseFilter<number> {
 
 constructor(rTimeMsStart :number,rTimeMsEnd :number,min :number,max :number , delayInMS :number=1){
 
-super(rTimeMsStart,rTimeMsEnd,min,max,min,delayInMS);  
+super(rTimeMsStart,rTimeMsEnd,min,max,delayInMS);  
 }
 
-public update(rTimeMs :number):void{
-    if (this.delay.isSegChanged(rTimeMs) == true){
-        this._animatedValue = this.getRandom(this.startValue,this.endValue);
-        return;
+public update(rTimeMs :number):boolean{
+if (super.update(rTimeMs) == false ){ return false;}    
+////////////////////////////////////////////////    
+    
+if (this.delay.isSegChanged(rTimeMs) == true){
+        this.setAnimatedValue( 
+            this.getRandom(this.getStartValue(),this.getEndValue() ) 
+        );
+        return true;
     }
-return;    
+return true;    
 }
 
 }
