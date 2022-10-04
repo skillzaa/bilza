@@ -1,56 +1,49 @@
 import Delay from "./delay.js";
 export default class BaseFilter {
-    constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, delaySec = 0) {
+    constructor(startTimeMs, endTimeMs, startValue, endValue, afterValue = endValue, delaySec = 0) {
         this.delay = new Delay(delaySec);
-        this.startValue = startValue;
-        this._animatedValue = null;
-        this.endValue = endValue;
-        this.beyondValue = endValue;
         this.delaySec = delaySec;
-        if (rTimeMsStart < 0 || rTimeMsEnd < 0) {
+        this.startValue = startValue;
+        this.endValue = endValue;
+        this.afterValue = afterValue;
+        this._animatedValue = null;
+        if (startTimeMs < 0 || endTimeMs < 0) {
             throw new Error("time can not be negative");
         }
-        if (rTimeMsEnd <= rTimeMsStart) {
+        if (endTimeMs <= startTimeMs) {
             throw new Error("end Time can not be equal or smaller than start time");
         }
-        this.rTimeMsStart = rTimeMsStart;
-        this.rTimeMsEnd = rTimeMsEnd;
+        this.startTimeMs = startTimeMs;
+        this.endTimeMs = endTimeMs;
     }
     update(rTimeMs) {
-        false;
-        return true;
+        if (this.isBefore(rTimeMs) == true) {
+            this._animatedValue = null;
+            return;
+        }
+        if (this.isAfter(rTimeMs) == true) {
+            this._animatedValue = this.afterValue;
+            return;
+        }
+        return;
     }
-    isBeyond(rTimeMs) {
-        if (rTimeMs > this.rTimeMsEnd) {
-            this._animatedValue = this.beyondValue;
+    isAfter(rTimeMs) {
+        if (rTimeMs > this.endTimeMs) {
             return true;
         }
         else {
             return false;
         }
     }
-    setBaseValue(bv) {
-        this.startValue = bv;
-        return this.startValue;
+    isBefore(rTimeMs) {
+        if (rTimeMs < this.startTimeMs) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
-    getBaseValue() {
-        return this.startValue;
-    }
-    setBeyondValue(bv) {
-        this.beyondValue = bv;
-        return this.startValue;
-    }
-    getBeyondValue() {
-        return this.beyondValue;
-    }
-    setEndValue(ev) {
-        this.endValue = ev;
-        return this.endValue;
-    }
-    getEndValue() {
-        return this.endValue;
-    }
-    animatedValue() {
+    filterValue() {
         if (this._animatedValue == null) {
             return this.startValue;
         }

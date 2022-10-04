@@ -3,38 +3,32 @@ import JumpBetween from "../filters/jumpBetween.js";
 export default class AniProp {
     constructor(defaultValue) {
         this.filtersArr = [];
-        this.defaultFilter = new IdentityFil(0, 100, defaultValue, defaultValue);
+        this.defaultValue = defaultValue;
         this._value = null;
     }
     update(rTimeMs) {
         const baseGoto = this.getBaseFilter(rTimeMs);
         if (baseGoto == null) {
-            this._value = this.defaultFilter.animatedValue();
+            this._value = this.defaultValue;
             return false;
         }
         else {
             baseGoto.update(rTimeMs);
-            const animatedValue = baseGoto.animatedValue();
-            if (animatedValue !== null) {
-                this._value = animatedValue;
-            }
-            else {
-                this._value = this.defaultFilter.animatedValue();
-            }
+            this._value = baseGoto.value();
         }
         return true;
     }
     value() {
         if (this._value == null) {
-            return this.defaultFilter.animatedValue();
+            return this.defaultValue;
         }
         else {
             return this._value;
         }
     }
     set(n) {
-        this.defaultFilter.setBaseValue(n);
-        return n;
+        this.defaultValue = n;
+        return this.defaultValue;
     }
     getBaseFilter(rTimeMs) {
         if (this.filtersArr.length < 1) {

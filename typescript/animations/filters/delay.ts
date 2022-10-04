@@ -18,13 +18,13 @@ public isSegChanged(rTimeMs :number):boolean{
             return true;
         }    
 //-------------------------------------------
-//-- This result should not be negative since time moves backward. if it is -ve then we consider it as first time since some one is running the frames in junbled up form.
+//-- This result should not be negative since time does not moves backward. if it is -ve then we consider it as first time  some one is running the frames in jumbled up form.
 const lapsed = rTimeMs - this.lastFrameRun;        
         if (lapsed <= 0){ 
             return true; //again start fresh
         }    
-//--now that the lapsed has been calculated load the lastFrameRun for next run
-// this.lastFrameRun   = rTimeMs;       
+
+        
 //----now the actual segChange
         if (this.delayValue <= lapsed ){
             this.lastFrameRun   = rTimeMs;  

@@ -10,46 +10,41 @@ export default class AniProp <T>  {
 protected _value :T | null;                 
 // protected defaultValue :T;                 
 protected filtersArr :IFilter<T>[];       
-protected defaultFilter :IFilter<T>;       
+protected defaultValue :T;       
 //--now that we have default Filter there is no need for goto at zero in any case the aniProp will have a value it can never be null. However the animated value (from filter) can be null thus _value keep track between default value and animatedValue
 
 constructor(defaultValue :T){
 this.filtersArr  = []; 
-this.defaultFilter  = new IdentityFil(0,100,defaultValue,defaultValue); 
+this.defaultValue  = defaultValue; 
 this._value  = null; 
 }
-
+/**
+ * --1--Get the last applied filter. If there is a filter get its value (even if the filter is expired we get its beyond value).
+ * --2--If there is no filter inserted just return the AniProp default value.
+ * --3-- dont foget to update the filter.
+ * @param rTimeMs 
+ * @returns 
+ */
 public update(rTimeMs :number):boolean{
 //---STEP-1--find current filter or return defaultValue
 const baseGoto = this.getBaseFilter(rTimeMs);
 if (baseGoto == null ){
-    //--4-sep-2022 
-    // this.defaultFilter.update--???????
-    this._value = this.defaultFilter.animatedValue();
+    this._value = this.defaultValue;
     return false; //return
 }else {
     //--Step-2 --importantay-- VVVVVV
     baseGoto.update(rTimeMs);
     //---step-3:get value from AniFilter inside gotoObj
-    const animatedValue = baseGoto.animatedValue();
-            //.........................just to be over sure
-            //--just for safety a filter will never send out null
-            //---default filter is the baseValue of 
-            if (animatedValue !== null){
-                this._value = animatedValue;
-            }else {
-                //--this must not be null
-                //--why use animatedValue why not value?
-                this._value = this.defaultFilter.animatedValue();
-            }
+    this._value = baseGoto.value();
 }
 return true;
 }
+//--4-sep-2022-Dont change this method. This is the last place to stop AniProp giving out null. AniProp must never give a null since it reprsents a number / string etc which is never null.
 
 public value():T{
 //--do not return this._value that is null in start-- this will give a correct result even without an update  
 if (this._value == null){
-    return this.defaultFilter.animatedValue();
+    return this.defaultValue;
 } else {
     return this._value;
 } 
@@ -57,9 +52,8 @@ if (this._value == null){
 //--relationship between goto(0) and base value?
  
 public set(n :T):T{
-this.defaultFilter.setBaseValue(n);
-// this._value = this.defaultFilter.animatedValue();
- return n;
+this.defaultValue = n;
+ return this.defaultValue;
 } 
 protected getBaseFilter(rTimeMs :number):IFilter<T> | null{
 if (this.filtersArr.length < 1){return null;}    
