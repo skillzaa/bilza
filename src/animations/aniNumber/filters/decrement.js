@@ -10,6 +10,9 @@ export default class Decrement extends BaseNumberFilter {
         }
     }
     update(rTimeMs, baseGotoValue = 0) {
+        if (super.update(rTimeMs) == false) {
+            return false;
+        }
         const Xdiff = Math.abs(this.getStartValue() - this.getEndValue());
         const timeLapsed = Math.ceil(rTimeMs - this.startTimeMs);
         const timeLapPercent = (timeLapsed / (this.timeDiff())) * 100;

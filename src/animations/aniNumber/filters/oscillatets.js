@@ -5,9 +5,8 @@ export default class Oscillate extends BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter = 1, stopAt = endValue) {
         super(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter);
         this.incDecArray = [];
-        this.afterValue = stopAt;
-        const timeDiff = this.timeDiff();
-        const noOfIter = Math.floor(timeDiff / this.delay.delayValue);
+        this.setAfterValue(stopAt);
+        const noOfIter = Math.floor(this.timeDiff() / this.delay.delayValue);
         let stratWithInc = (startValue < endValue) ? true : false;
         for (let i = 0; i < noOfIter; i++) {
             if (stratWithInc == true) {
@@ -27,11 +26,14 @@ export default class Oscillate extends BaseFilter {
         }
     }
     update(rTimeMs) {
+        if (super.update(rTimeMs) == false) {
+            return false;
+        }
         for (let i = 0; i < this.incDecArray.length; i++) {
             const elm = this.incDecArray[i];
             if (elm.startTimeMs < rTimeMs && elm.endTimeMs > rTimeMs) {
                 elm.update(rTimeMs);
-                this._animatedValue = elm.filterValue();
+                this.setAnimatedValue(elm.filterValue());
                 return true;
             }
         }

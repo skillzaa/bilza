@@ -1,23 +1,20 @@
 import BaseFilter from "../../filters/baseFilter.js";  
 import Increment from "./increment.js";
 import Decrement from "./decrement.js";
-import IFilter from "../../filters/IFilter.js";
 
 export default class Oscillate extends BaseFilter<number> {
 
-public  incDecArray :IFilter<number>[];
+public  incDecArray :BaseFilter<number>[];
 
 constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :number, endValue :number,secPerIter :number= 1,stopAt:number=endValue){
 
 super(rTimeMsStart,rTimeMsEnd,startValue, endValue,secPerIter);  
 this.incDecArray = [];
-this.afterValue = stopAt;
+this.setAfterValue(stopAt);
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-//-- delay in sec
-const timeDiff = this.timeDiff();
 
 //--------------------
-const noOfIter = Math.floor( timeDiff / this.delay.delayValue);
+const noOfIter = Math.floor( this.timeDiff() / this.delay.delayValue);
 
 
 let stratWithInc:boolean = (startValue < endValue) ? true : false;
@@ -43,14 +40,14 @@ if (stratWithInc == true){
 }
 
 public update(rTimeMs :number):boolean{
-//--importanttay    
-// if(this.isBeyond(rTimeMs) == true){return false;}
+    if (super.update(rTimeMs) == false ){ return false;}    
+    ////////////////////////////////////////////////    
 
 for (let i = 0; i < this.incDecArray.length; i++) {
     const elm = this.incDecArray[i];
     if (elm.startTimeMs < rTimeMs && elm.endTimeMs > rTimeMs ){
         elm.update(rTimeMs);
-        this._animatedValue = elm.filterValue();
+        this.setAnimatedValue ( elm.filterValue());
         return true;
     }
 }

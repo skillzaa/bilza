@@ -17,11 +17,11 @@ if ( this.getStartValue() < 0 ){throw new Error("start value can not be less tha
 //------------------------------------
 
 }
-
+ 
 
 public update(rTimeMs :number,baseGotoValue :number=0):boolean{
-//--importanttay    
-// if(this.isBeyond(rTimeMs) == true){return false;}
+    if (super.update(rTimeMs) == false ){ return false;}    
+    ////////////////////////////////////////////////    
     
 const Xdiff = Math.abs( this.getStartValue() - this.getEndValue() );    
 const timeLapsed = Math.ceil(rTimeMs - this.startTimeMs);

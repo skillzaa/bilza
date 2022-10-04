@@ -1,7 +1,6 @@
 import BaseFilter from "../../filters/baseFilter.js";
-import IFilter from "../../filters/IFilter.js";
 export default class Oscillate extends BaseFilter<number> {
-    incDecArray: IFilter<number>[];
+    incDecArray: BaseFilter<number>[];
     constructor(rTimeMsStart: number, rTimeMsEnd: number, startValue: number, endValue: number, secPerIter?: number, stopAt?: number);
     update(rTimeMs: number): boolean;
 }
