@@ -8,10 +8,11 @@ constructor(
     rTimeMsEnd :number,
     startValue :string,
     endValue :string,
+    afterValue :string,
     delaySec :number=0)
 {
 
-super(rTimeMsStart,rTimeMsEnd,startValue,endValue,delaySec);
+super(rTimeMsStart,rTimeMsEnd,startValue,afterValue,endValue,delaySec);
 }
 
 //--Bad Design--but dont remove

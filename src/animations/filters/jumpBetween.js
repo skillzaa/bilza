@@ -1,21 +1,24 @@
 import BaseFilter from "./baseFilter.js";
 export default class JumpBetween extends BaseFilter {
-    constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, afterValue, delaySec = 0) {
-        super(rTimeMsStart, rTimeMsEnd, startValue, endValue, afterValue, delaySec);
+    constructor(startTimeMs, endTimeMs, startValue, endValue, delaySec = 0) {
+        super(startTimeMs, endTimeMs, startValue, endValue, delaySec);
     }
     update(rTimeMs) {
+        if (super.update(rTimeMs) == false) {
+            return false;
+        }
         if (this.delay.isSegChanged(rTimeMs) == false) {
-            return;
+            return true;
         }
-        if (this._animatedValue == null) {
-            this._animatedValue = this.startValue;
+        if (this.getAnimatedValue() == null) {
+            this.setAnimatedValue(this.getStartValue());
         }
-        if (this._animatedValue == this.startValue) {
-            this._animatedValue = this.endValue;
+        if (this.getAnimatedValue() == this.getStartValue()) {
+            this.setAnimatedValue(this.getEndValue());
         }
         else {
-            this._animatedValue = this.startValue;
+            this.setAnimatedValue(this.getStartValue());
         }
-        super.update(rTimeMs);
+        return true;
     }
 }

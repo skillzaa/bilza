@@ -6,9 +6,10 @@ constructor(
     rTimeMsStart :number,rTimeMsEnd :number,
     startValue :boolean,
     endValue :boolean,
+    afterValue :boolean,
     delaySec :number=0)
 {
-    super(rTimeMsStart,rTimeMsEnd,startValue,endValue,delaySec);
+    super(rTimeMsStart,rTimeMsEnd,startValue,endValue,afterValue,delaySec);
 }
 
 }

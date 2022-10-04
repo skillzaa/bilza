@@ -2,7 +2,6 @@ import IFilter from "../filters/IFilter";
 import IdentityFil from "../filters/identityFil.js";
 import JumpBetween from "../filters/jumpBetween.js";
  
-
 //-------------------------------------------
 
 export default class AniProp <T>  {
@@ -35,7 +34,7 @@ if (baseGoto == null ){
     //--Step-2 --importantay-- VVVVVV
     baseGoto.update(rTimeMs);
     //---step-3:get value from AniFilter inside gotoObj
-    this._value = baseGoto.value();
+    this._value = baseGoto.filterValue();
 }
 return true;
 }
@@ -56,6 +55,7 @@ this.defaultValue = n;
  return this.defaultValue;
 } 
 protected getBaseFilter(rTimeMs :number):IFilter<T> | null{
+//---shd it be here???    
 if (this.filtersArr.length < 1){return null;}    
 
 let lastFrameChecked = 0;
@@ -63,11 +63,11 @@ let rez : IFilter<T> | null = null;
 
     for (let i = 0; i < this.filtersArr.length; i++) {
         const fil = this.filtersArr[i];
-        if ( rTimeMs >= (fil.rTimeMsStart )  ){
+        if ( rTimeMs >= (fil.startTimeMs )  ){
             // why >= there hsd be no equal since a frame once checked shd not be present in gotoArray
-            if ( (fil.rTimeMsStart ) >= lastFrameChecked ) {
+            if ( (fil.startTimeMs ) >= lastFrameChecked ) {
                 //--for next iteration
-                lastFrameChecked = (fil.rTimeMsStart);
+                lastFrameChecked = (fil.startTimeMs);
                 //--the value                    
                     rez = fil;
             }
@@ -81,8 +81,8 @@ protected addFilter(bfil :IFilter<T>){
     //--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY 
     for (let i = 0; i < this.filtersArr.length; i++) {
         const fil = this.filtersArr[i];
-        if (fil.rTimeMsStart == bfil.rTimeMsStart ){
-            throw new Error( `There is another animation inserted at exectly this frame (number ${fil.rTimeMsStart}), please either remove the previous animation or change time for your new animation`);
+        if (fil.startTimeMs == bfil.startTimeMs ){
+            throw new Error( `There is another animation inserted at exectly this frame (number ${fil.startTimeMs}) for this prop, please either remove the previous animation or change time of your new animation`);
             
         }
     }
@@ -93,12 +93,12 @@ protected addFilter(bfil :IFilter<T>){
 ////////////////////////////////////////
 ////////////////////////////////////////
 public goto(atSec :number,value :T):boolean{
-    const v = new IdentityFil(atSec * 1000,(atSec * 1000) + 1000,value,value,0);
+    const v = new IdentityFil(atSec * 1000,(atSec * 1000) + 1000,value);
     this.addFilter(v);
     return false;//// new goto frame ADDED 
 }
 public jumpBetween(startSec :number,endSec :number,firstValue :T, secondValue :T,delayInMS :number=1000){
-  const jb = new JumpBetween(startSec * 1000,endSec * 1000,firstValue,secondValue,delayInMS * 1000);
+  const jb = new JumpBetween(startSec * 1000,endSec * 1000,firstValue,secondValue,secondValue,delayInMS);
   this.addFilter(jb);
 }
 

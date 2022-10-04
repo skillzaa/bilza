@@ -11,10 +11,10 @@ constructor(rTimeMsStart :number,rTimeMsEnd :number,startValue :number, endValue
 
 super(rTimeMsStart,rTimeMsEnd,startValue, endValue,secPerIter);  
 this.incDecArray = [];
-this.beyondValue = stopAt;
+this.afterValue = stopAt;
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 //-- delay in sec
-const timeDiff = this.rTimeMsEnd - this.rTimeMsStart;
+const timeDiff = this.timeDiff();
 
 //--------------------
 const noOfIter = Math.floor( timeDiff / this.delay.delayValue);
@@ -26,13 +26,13 @@ for (let i = 0; i < noOfIter ; i ++) {
 
 if (stratWithInc == true){
     stratWithInc = !stratWithInc; //change
-    const thisStartTime = this.rTimeMsStart + (i * this.delay.delayValue);
+    const thisStartTime = this.startTimeMs + (i * this.delay.delayValue);
     const thisEndTime = thisStartTime + this.delay.delayValue;
     let inc = new Increment(thisStartTime,thisEndTime,startValue ,endValue);
     this.incDecArray.push(inc);
 }else {
     stratWithInc = !stratWithInc; //change
-    const thisStartTime = this.rTimeMsStart + (i * this.delay.delayValue);
+    const thisStartTime = this.startTimeMs + (i * this.delay.delayValue);
     const thisEndTime = thisStartTime + this.delay.delayValue;
     let inc = new Decrement(thisStartTime,thisEndTime,endValue,startValue);
     this.incDecArray.push(inc);
@@ -44,13 +44,13 @@ if (stratWithInc == true){
 
 public update(rTimeMs :number):boolean{
 //--importanttay    
-if(this.isBeyond(rTimeMs) == true){return false;}
+// if(this.isBeyond(rTimeMs) == true){return false;}
 
 for (let i = 0; i < this.incDecArray.length; i++) {
     const elm = this.incDecArray[i];
-    if (elm.rTimeMsStart < rTimeMs && elm.rTimeMsEnd > rTimeMs ){
+    if (elm.startTimeMs < rTimeMs && elm.endTimeMs > rTimeMs ){
         elm.update(rTimeMs);
-        this._animatedValue = elm.animatedValue();
+        this._animatedValue = elm.filterValue();
         return true;
     }
 }

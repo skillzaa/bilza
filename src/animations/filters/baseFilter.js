@@ -1,11 +1,10 @@
 import Delay from "./delay.js";
 export default class BaseFilter {
-    constructor(startTimeMs, endTimeMs, startValue, endValue, afterValue = endValue, delaySec = 0) {
+    constructor(startTimeMs, endTimeMs, startValue, endValue, delaySec = 0) {
         this.delay = new Delay(delaySec);
-        this.delaySec = delaySec;
         this.startValue = startValue;
         this.endValue = endValue;
-        this.afterValue = afterValue;
+        this.afterValue = null;
         this._animatedValue = null;
         if (startTimeMs < 0 || endTimeMs < 0) {
             throw new Error("time can not be negative");
@@ -19,13 +18,13 @@ export default class BaseFilter {
     update(rTimeMs) {
         if (this.isBefore(rTimeMs) == true) {
             this._animatedValue = null;
-            return;
+            return false;
         }
         if (this.isAfter(rTimeMs) == true) {
-            this._animatedValue = this.afterValue;
-            return;
+            this._animatedValue = this.getAfterValue();
+            return false;
         }
-        return;
+        return true;
     }
     isAfter(rTimeMs) {
         if (rTimeMs > this.endTimeMs) {
@@ -50,6 +49,34 @@ export default class BaseFilter {
         else {
             return this._animatedValue;
         }
+    }
+    timeDiff() {
+        return Math.abs(this.startTimeMs - this.endTimeMs);
+    }
+    getStartValue() {
+        return this.startValue;
+    }
+    getEndValue() {
+        return this.endValue;
+    }
+    setAnimatedValue(val) {
+        this._animatedValue = val;
+        return this._animatedValue;
+    }
+    getAnimatedValue() {
+        return this._animatedValue;
+    }
+    getAfterValue() {
+        if (this.afterValue !== null) {
+            return this.afterValue;
+        }
+        else {
+            return this.endValue;
+        }
+    }
+    setAfterValue(val) {
+        this.afterValue = val;
+        return this.afterValue;
     }
     getRandom(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);

@@ -5,21 +5,21 @@ export default class Oscillate extends BaseFilter {
     constructor(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter = 1, stopAt = endValue) {
         super(rTimeMsStart, rTimeMsEnd, startValue, endValue, secPerIter);
         this.incDecArray = [];
-        this.beyondValue = stopAt;
-        const timeDiff = this.rTimeMsEnd - this.rTimeMsStart;
+        this.afterValue = stopAt;
+        const timeDiff = this.timeDiff();
         const noOfIter = Math.floor(timeDiff / this.delay.delayValue);
         let stratWithInc = (startValue < endValue) ? true : false;
         for (let i = 0; i < noOfIter; i++) {
             if (stratWithInc == true) {
                 stratWithInc = !stratWithInc;
-                const thisStartTime = this.rTimeMsStart + (i * this.delay.delayValue);
+                const thisStartTime = this.startTimeMs + (i * this.delay.delayValue);
                 const thisEndTime = thisStartTime + this.delay.delayValue;
                 let inc = new Increment(thisStartTime, thisEndTime, startValue, endValue);
                 this.incDecArray.push(inc);
             }
             else {
                 stratWithInc = !stratWithInc;
-                const thisStartTime = this.rTimeMsStart + (i * this.delay.delayValue);
+                const thisStartTime = this.startTimeMs + (i * this.delay.delayValue);
                 const thisEndTime = thisStartTime + this.delay.delayValue;
                 let inc = new Decrement(thisStartTime, thisEndTime, endValue, startValue);
                 this.incDecArray.push(inc);
@@ -27,14 +27,11 @@ export default class Oscillate extends BaseFilter {
         }
     }
     update(rTimeMs) {
-        if (this.isBeyond(rTimeMs) == true) {
-            return false;
-        }
         for (let i = 0; i < this.incDecArray.length; i++) {
             const elm = this.incDecArray[i];
-            if (elm.rTimeMsStart < rTimeMs && elm.rTimeMsEnd > rTimeMs) {
+            if (elm.startTimeMs < rTimeMs && elm.endTimeMs > rTimeMs) {
                 elm.update(rTimeMs);
-                this._animatedValue = elm.animatedValue();
+                this._animatedValue = elm.filterValue();
                 return true;
             }
         }

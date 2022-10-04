@@ -1,4 +1,3 @@
-import IFilter from "./IFilter.js";
 import Delay from "./delay.js";
 /**
  * Filter Mission
@@ -8,22 +7,23 @@ import Delay from "./delay.js";
  * 
  * During start state : Will return startValue unless _animatedValue == null.If and when _animatedValue !== null then _animatedValue is passed out (impl in filterValue).
  */
-export default class BaseFilter <T> implements IFilter<T> {
+export default class BaseFilter <T> {
     
 public  readonly startTimeMs :number;
 public  readonly endTimeMs :number;
 
-public delay :Delay;
+protected delay :Delay;
 //--this is the start/default value
-protected startValue :T;
+private startValue :T;
 //--This is the only value that can be null BUT if it is not then this is the first value that goes out--when the filter is running.
 //--The main purpose of update is to change _animatedValue.
-protected  _animatedValue :T | null;
+//--set it throught setAnimatedValue()
+private  _animatedValue :T | null;
 ///--most often the afterValue is the end value but if it is not the we have afterValue seperately also
-protected afterValue :T;
-protected endValue :T;
+private afterValue :T | null;
+private endValue :T;
 
-protected  readonly delaySec :number;
+// private  readonly delaySec :number;
 
 //-- It takes 3 values (start , end , after)
 constructor(
@@ -31,16 +31,15 @@ constructor(
     endTimeMs :number, //--end time
     startValue :T,       //--base value
     endValue :T,       //--end value
-    afterValue :T=endValue,       //--end value
     delaySec :number=0) // delay
 {
 ///--delay
 this.delay = new Delay(delaySec);  
-this.delaySec = delaySec;
+// this.delaySec = delaySec;
 
 this.startValue = startValue;
 this.endValue = endValue;
-this.afterValue = afterValue;
+this.afterValue = null;
 this._animatedValue = null;
 //////////////////////////////////////////////////////
 if (startTimeMs < 0 || endTimeMs < 0 ){throw new Error("time can not be negative");}
@@ -50,20 +49,28 @@ if (endTimeMs <= startTimeMs ){throw new Error("end Time can not be equal or sma
 this.startTimeMs = startTimeMs ; 
 this.endTimeMs = endTimeMs; 
 }
-//--calling this update is must at the end--this implements these rules for before and after
-public update(rTimeMs :number):void{  
+/**
+ *  -- The BaseFilter will check for before and after state and take action accordingly.
+ *  -- Incase of a before and after state it send back false which means the child class can stop running its update and return false also. 
+ * -- every child mustrun super.update on TOP of his update method and if the super.update return false the child should also return false and quit.
+ * --if (super.update(rTimeMs) == false ){ return false;}
+ * -- This way the child is just suppose to worry about _animatedValue 
+ */
+public update(rTimeMs :number):boolean{  
 // --Option 1: If isUnBord 
 if (this.isBefore(rTimeMs) == true){
-    this._animatedValue = null;
-    return;
+    this._animatedValue = null; //so send out startValue
+    return false;
 }
 //--Option 2: If isBoyond 
 if (this.isAfter(rTimeMs) == true){
-    this._animatedValue = this.afterValue;
-    return;
+    //--getAfterValue will send endValue since aftervalue is 
+    // by default null. but if we setAfterValue() then the after state gives that value
+    this._animatedValue = this.getAfterValue();
+    return false;
 }
 
-return;
+return true;
 }
 //-------------????????????????????????????????
 protected isAfter(rTimeMs :number):boolean{
@@ -91,30 +98,47 @@ public filterValue():T{
     }
 }
 ////////////////////////////////////////////////////
+timeDiff():number{
+return Math.abs(this.startTimeMs - this.endTimeMs);
+}
+getStartValue():T{
+return this.startValue;
+}
+getEndValue():T{
+return this.endValue;
+}
+
+//--A neat way to set animated value
+//--Remeber this can be null
+setAnimatedValue(val :T | null):T | null{
+this._animatedValue = val;
+return this._animatedValue;
+}
+getAnimatedValue():T | null{
+return this._animatedValue;
+}
+
+//////////////////////////
+//--after is added as a feature
+//--By default after value is null so when ever the filter is in after state the end value is sent out. but if we want we can change it .
+//getAfterValue shd be called by filterValue for internal use
+private getAfterValue():T{
+    if (this.afterValue !== null){
+        return this.afterValue;
+    }else {
+        return this.endValue;
+    }
+}
+//--for users
+public setAfterValue(val :T):T{
+    this.afterValue = val;
+    return this.afterValue;
+}
+    
+
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
-// public  setStartValue(sv :T):T{
-// this.startValue = sv;
-// return this.startValue;
-// }
-// public getStartValue():T{
-// return this.startValue;
-// }
-// public  setBeyondValue(bv :T):T{
-// this.beyondValue = bv;
-// return this.startValue;
-// }
-// public getBeyondValue():T{
-// return this.beyondValue;
-// }
-// public  setEndValue(ev :T):T{
-// this.endValue = ev;
-// return this.endValue;
-// }
-// public getEndValue():T{
-// return this.endValue;
-// }
 
 
 ///////////////////////////////////////////////
