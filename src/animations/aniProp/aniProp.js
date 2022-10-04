@@ -62,7 +62,7 @@ export default class AniProp {
         return false;
     }
     jumpBetween(startSec, endSec, firstValue, secondValue, delayInMS = 1000) {
-        const jb = new JumpBetween(startSec * 1000, endSec * 1000, firstValue, secondValue, secondValue, delayInMS);
+        const jb = new JumpBetween(startSec * 1000, endSec * 1000, firstValue, secondValue, delayInMS);
         this.addFilter(jb);
     }
 }

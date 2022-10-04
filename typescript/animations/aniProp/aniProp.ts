@@ -1,14 +1,13 @@
-import IFilter from "../filters/IFilter";
 import IdentityFil from "../filters/identityFil.js";
 import JumpBetween from "../filters/jumpBetween.js";
- 
+import BaseFilter from "../filters/baseFilter.js"; 
 //-------------------------------------------
 
 export default class AniProp <T>  {
 //--this cant be null its not _ret_val of filter ITS aniProp    
 protected _value :T | null;                 
 // protected defaultValue :T;                 
-protected filtersArr :IFilter<T>[];       
+protected filtersArr :BaseFilter<T>[];       
 protected defaultValue :T;       
 //--now that we have default Filter there is no need for goto at zero in any case the aniProp will have a value it can never be null. However the animated value (from filter) can be null thus _value keep track between default value and animatedValue
 
@@ -54,12 +53,12 @@ public set(n :T):T{
 this.defaultValue = n;
  return this.defaultValue;
 } 
-protected getBaseFilter(rTimeMs :number):IFilter<T> | null{
+protected getBaseFilter(rTimeMs :number):BaseFilter<T> | null{
 //---shd it be here???    
 if (this.filtersArr.length < 1){return null;}    
 
 let lastFrameChecked = 0;
-let rez : IFilter<T> | null = null;
+let rez : BaseFilter<T> | null = null;
 
     for (let i = 0; i < this.filtersArr.length; i++) {
         const fil = this.filtersArr[i];
@@ -76,7 +75,7 @@ let rez : IFilter<T> | null = null;
 //-------------
 return rez;
 }
-protected addFilter(bfil :IFilter<T>){
+protected addFilter(bfil :BaseFilter<T>){
     //----?? check if there is a filt;er at that frame
     //--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY 
     for (let i = 0; i < this.filtersArr.length; i++) {
@@ -98,12 +97,9 @@ public goto(atSec :number,value :T):boolean{
     return false;//// new goto frame ADDED 
 }
 public jumpBetween(startSec :number,endSec :number,firstValue :T, secondValue :T,delayInMS :number=1000){
-  const jb = new JumpBetween(startSec * 1000,endSec * 1000,firstValue,secondValue,secondValue,delayInMS);
+  const jb = new JumpBetween(startSec * 1000,endSec * 1000,firstValue,secondValue,delayInMS);
   this.addFilter(jb);
 }
-
-
-
 
 
 }
