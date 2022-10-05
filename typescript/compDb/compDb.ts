@@ -165,7 +165,11 @@ this.paddingBottom.setResp(tf);
 return tf;        
 }
 
-
+//--dont remove but its bad design
+//@ts-expect-error
+getEngineComp(pack :Pack):CompEngine{
+  
+ }
 
 ////////////////////////////////////////////    
 ////////////////////////////////////////////    

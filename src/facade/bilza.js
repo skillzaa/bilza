@@ -6,7 +6,7 @@ export default class Bilza {
     constructor(canvasId = "bilza", canvasWidthPerc = 70) {
         this.engine = new EngineDb(canvasId, canvasWidthPerc);
         this.comps = [];
-        this.background = new BackgroundDb(0, 0, "alwaysOn");
+        this.background = new BackgroundDb(0, 0, "alwaysOn", "#efeee3");
         this.background.alwaysOn = true;
         this.comps.push(this.background);
         this.bil = null;

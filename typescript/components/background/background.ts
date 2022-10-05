@@ -11,7 +11,7 @@ constructor (corePropsDb :CorePropsDb,pack :Pack){
 super(corePropsDb,pack);
    
 this.drawLayer = 0;
-// this.color.set(color); 
+// this.color.set(corePropsDb.color.value); 
 }
 
 draw(p:Pack):boolean{

@@ -1,5 +1,7 @@
 import CoreProps from "./corePropsDb.js";
+import CompEngine from "../compEngine/compEngine.js";
 import IComponent from "./IComponent.js";
+import Pack from "../pack/pack.js";
 export default class CompDb extends CoreProps implements IComponent {
     constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn");
     align(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
@@ -21,5 +23,6 @@ export default class CompDb extends CoreProps implements IComponent {
     getEndTime(inSec?: boolean): number;
     setRespLoc(tf: boolean): boolean;
     setRespDims(tf: boolean): boolean;
+    getEngineComp(pack: Pack): CompEngine;
 }
 //# sourceMappingURL=compDb.d.ts.map

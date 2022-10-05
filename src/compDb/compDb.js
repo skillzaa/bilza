@@ -130,4 +130,6 @@ export default class CompDb extends CoreProps {
         this.paddingBottom.setResp(tf);
         return tf;
     }
+    getEngineComp(pack) {
+    }
 }
