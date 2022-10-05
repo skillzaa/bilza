@@ -2,7 +2,9 @@ import Bilza,{hsl} from "./bilza.js";
 import Ui from "./ui/ui.js";
 
 const bil = new Bilza("bilza");
-bil.background.color.set(hsl(240,20,20));
+bil.background.color.set(hsl(60));
+
+
 
 const comp = bil.add(0,10).fillRect(hsl(120,90,80));
 comp.x.set(100);
@@ -10,12 +12,7 @@ comp.y.set(100);
 comp.width.set(200);
 comp.height.set(300);
 
-const comp02 = bil.add(10,20).fillRect(hsl(0));
-comp02.x.set(300);
-comp02.y.set(10);
-comp02.width.set(200);
-comp02.height.set(400);
-
+comp.x.goto(2,200);
 
 
 bil.draw();

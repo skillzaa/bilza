@@ -47,11 +47,11 @@ return this._canvasHeight;
 public draw(p :Pack):boolean{
     return true;
 }
-goto(atFrame: number, x: number, y: number): boolean {
-this.x.goto(atFrame,x);
-this.y.goto(atFrame,y);
-return true;    
-}
+// goto(atFrame: number, x: number, y: number): boolean {
+// this.x.goto(atFrame,x);
+// this.y.goto(atFrame,y);
+// return true;    
+// }
 // animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean {
 // this.x.animate(timeFrom,timeTo,xFrom,xTo);    
 // this.y.animate(timeFrom,timeTo,yFrom,yTo);    

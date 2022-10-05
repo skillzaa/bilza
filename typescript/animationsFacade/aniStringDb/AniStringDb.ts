@@ -1,4 +1,4 @@
-import AniPropDb from "./AniPropDb.js";
+import AniPropDb from "../aniPropDb/AniPropDb.js";
 
 
 export default class AniStringDb extends AniPropDb <string>{

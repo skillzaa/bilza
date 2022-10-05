@@ -34,11 +34,6 @@ export default class CompEngine extends CompEngineCore {
     draw(p) {
         return true;
     }
-    goto(atFrame, x, y) {
-        this.x.goto(atFrame, x);
-        this.y.goto(atFrame, y);
-        return true;
-    }
     preDraw(p) {
         this.style.opacity = (this.opacity.value());
         this.applyRotation(p);

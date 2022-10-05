@@ -9,7 +9,5 @@ constructor(initialValue :string=""){
 super(initialValue);
 }
 ///////////////////////////////////////////////////////////
-random(startSec :number,endSec :number,delay :number){
-//----not implemented yet
-}
+
 } 

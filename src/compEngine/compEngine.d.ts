@@ -8,7 +8,6 @@ export default class CompEngine extends CompEngineCore {
     canvasWidth(): number;
     canvasHeight(): number;
     draw(p: Pack): boolean;
-    goto(atFrame: number, x: number, y: number): boolean;
     protected preDraw(p: Pack): void;
     protected postDraw(p: Pack): void;
     protected contentX(): number;

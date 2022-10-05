@@ -1,5 +1,3 @@
-import IdentityFil from "../filters/identityFil.js";
-import JumpBetween from "../filters/jumpBetween.js";
 export default class AniProp {
     constructor(defaultValue) {
         this.filtersArr = [];
@@ -18,6 +16,10 @@ export default class AniProp {
         }
         return true;
     }
+    set(_value) {
+        this._value = _value;
+        return this._value;
+    }
     value() {
         if (this._value == null) {
             return this.defaultValue;
@@ -25,10 +27,6 @@ export default class AniProp {
         else {
             return this._value;
         }
-    }
-    set(n) {
-        this.defaultValue = n;
-        return this.defaultValue;
     }
     getBaseFilter(rTimeMs) {
         if (this.filtersArr.length < 1) {
@@ -46,23 +44,5 @@ export default class AniProp {
             }
         }
         return rez;
-    }
-    addFilter(bfil) {
-        for (let i = 0; i < this.filtersArr.length; i++) {
-            const fil = this.filtersArr[i];
-            if (fil.startTimeMs == bfil.startTimeMs) {
-                throw new Error(`There is another animation inserted at exectly this frame (number ${fil.startTimeMs}) for this prop, please either remove the previous animation or change time of your new animation`);
-            }
-        }
-        this.filtersArr.push(bfil);
-    }
-    goto(atSec, value) {
-        const v = new IdentityFil(atSec * 1000, (atSec * 1000) + 1000, value);
-        this.addFilter(v);
-        return false;
-    }
-    jumpBetween(startSec, endSec, firstValue, secondValue, delayInMS = 1000) {
-        const jb = new JumpBetween(startSec * 1000, endSec * 1000, firstValue, secondValue, delayInMS);
-        this.addFilter(jb);
     }
 }

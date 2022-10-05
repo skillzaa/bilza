@@ -1,7 +1,5 @@
-import IdentityFil from "../filters/identityFil.js";
-import JumpBetween from "../filters/jumpBetween.js";
-import BaseFilter from "../filters/baseFilter.js"; 
-//-------------------------------------------
+import BaseFilter from "../../animationsFacade/filters/baseFilter.js"; 
+// -------------------------------------------
 
 export default class AniProp <T>  {
 //--this cant be null its not _ret_val of filter ITS aniProp    
@@ -36,6 +34,10 @@ if (baseGoto == null ){
 }
 return true;
 }
+public set(_value :T):T{
+this._value = _value;    
+return this._value;
+}
 //--4-sep-2022-Dont change this method. This is the last place to stop AniProp giving out null. AniProp must never give a null since it reprsents a number / string etc which is never null.
 
 public value():T{
@@ -46,60 +48,30 @@ if (this._value == null){
     return this._value;
 } 
 }
-//--relationship between goto(0) and base value?
- 
-public set(n :T):T{
-this.defaultValue = n;
- return this.defaultValue;
-} 
 //--5-oct-2022  changed form protected
 private getBaseFilter(rTimeMs :number):BaseFilter<T> | null{
-//---shd it be here???    
-if (this.filtersArr.length < 1){return null;}    
-
-let lastFrameChecked = 0;
-let rez : BaseFilter<T> | null = null;
-
-    for (let i = 0; i < this.filtersArr.length; i++) {
-        const fil = this.filtersArr[i];
-        if ( rTimeMs >= (fil.startTimeMs )  ){
-            // why >= there hsd be no equal since a frame once checked shd not be present in gotoArray
-            if ( (fil.startTimeMs ) >= lastFrameChecked ) {
-                //--for next iteration
-                lastFrameChecked = (fil.startTimeMs);
-                //--the value                    
-                    rez = fil;
-            }
-        }   
-    }
+    //---shd it be here???    
+    if (this.filtersArr.length < 1){return null;}    
+    
+    let lastFrameChecked = 0;
+    let rez : BaseFilter<T> | null = null;
+    
+        for (let i = 0; i < this.filtersArr.length; i++) {
+            const fil = this.filtersArr[i];
+            if ( rTimeMs >= (fil.startTimeMs )  ){
+                // why >= there hsd be no equal since a frame once checked shd not be present in gotoArray
+                if ( (fil.startTimeMs ) >= lastFrameChecked ) {
+                    //--for next iteration
+                    lastFrameChecked = (fil.startTimeMs);
+                    //--the value                    
+                        rez = fil;
+                }
+            }   
+        }
 //-------------
 return rez;
 }
-protected addFilter(bfil :BaseFilter<T>){
-    //----?? check if there is a filt;er at that frame
-    //--NO DUBLICATE FRAME NUMBERS ALLOWED IN GOTOARRAY 
-    for (let i = 0; i < this.filtersArr.length; i++) {
-        const fil = this.filtersArr[i];
-        if (fil.startTimeMs == bfil.startTimeMs ){
-            throw new Error( `There is another animation inserted at exectly this frame (number ${fil.startTimeMs}) for this prop, please either remove the previous animation or change time of your new animation`);
-            
-        }
-    }
-
-    this.filtersArr.push(bfil);
-}
 ////////////////////////////////////////
-////////////////////////////////////////
-////////////////////////////////////////
-public goto(atSec :number,value :T):boolean{
-    const v = new IdentityFil(atSec * 1000,(atSec * 1000) + 1000,value);
-    this.addFilter(v);
-    return false;//// new goto frame ADDED 
-}
-public jumpBetween(startSec :number,endSec :number,firstValue :T, secondValue :T,delayInMS :number=1000){
-  const jb = new JumpBetween(startSec * 1000,endSec * 1000,firstValue,secondValue,delayInMS);
-  this.addFilter(jb);
-}
 
 
 }

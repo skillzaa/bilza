@@ -19,7 +19,6 @@ export default class EngineCompCore {
         this.border = new AniNumber(0);
         this.border.set(corePropsDb.border.value());
         this.color = new AniColor("black");
-        this.color.set(corePropsDb.color.value());
         this.colorBackground = new AniColor("white");
         this.colorBackground.set(corePropsDb.colorBackground.value());
         this.colorBorder = new AniColor("black");
@@ -47,7 +46,6 @@ export default class EngineCompCore {
         this.width = new AniNumber(10);
         this.width.set(corePropsDb.width.value());
         this.x = new AniNumber(0);
-        this.x.set(corePropsDb.x.value());
         this.y = new AniNumber(0);
         this.xAlign = (corePropsDb.xAlign);
         this.yAlign = corePropsDb.yAlign;

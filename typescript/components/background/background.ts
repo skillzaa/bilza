@@ -16,6 +16,7 @@ this.drawLayer = 0;
 
 draw(p:Pack):boolean{
 p.drawBackground(this.color.value());
+// p.drawBackground("blue");
 return true;
 }
  

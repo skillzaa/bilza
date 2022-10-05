@@ -1,4 +1,4 @@
-import AniColorDb from "../../animationsFacade/AniColorDb.js";
+import AniColorDb from "../../animationsFacade/aniColorDb/AniColorDb.js";
 import CompDb from "../../compDb/compDb.js";
 import CompEngine from "../../compEngine/compEngine.js";
 import Pack from "../../pack/pack.js";
