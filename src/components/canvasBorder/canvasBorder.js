@@ -1,10 +1,10 @@
-import CompEngine from "../compEngine/compEngine.js";
-import { AniNumber } from "../animations/animations.js";
+import CompEngine from "../../compEngine/compEngine.js";
+import { AniNumber } from "../../animations/animations.js";
 export default class CanvasBorder extends CompEngine {
-    constructor(startTime, endTime, componentPack, color = "grey", borderWidth = 0.5) {
-        super(componentPack);
-        this.borderWidth = new AniNumber(borderWidth);
-        this.color.set(color);
+    constructor(canvasBorderDb, pack) {
+        super(canvasBorderDb, pack);
+        this.borderWidth = new AniNumber(canvasBorderDb.borderWidth);
+        this.color.set(canvasBorderDb.color.value());
         this.drawLayer = 1;
     }
     update(msDelta, p) {

@@ -1,5 +1,7 @@
 import IComponent from "../compDb/IComponent.js";
 import IRect from "../components/rect/Irect.js";
+import ICanvasBorder from "../components/canvasBorder/ICanvasBorder.js";
+import IGrid from "../components/grid/IGrid.js";
 export default class CompFactory {
     private readonly startTime;
     private readonly endTime;
@@ -10,5 +12,7 @@ export default class CompFactory {
     constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
     fillRect(color?: string): IComponent;
     rect(color?: string): IRect;
+    canvasBorder(color?: string, width?: number): ICanvasBorder;
+    grid(color?: string, cellWidth?: number, cellHeight?: number): IGrid;
 }
 //# sourceMappingURL=compFactory.d.ts.map
