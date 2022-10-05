@@ -1,3 +1,4 @@
+import AniPropDb from "../../animationsFacade/aniPropDb/AniPropDb.js";
 import BaseFilter from "../../animationsFacade/filters/baseFilter.js"; 
 // -------------------------------------------
 
@@ -8,9 +9,9 @@ protected filtersArr :BaseFilter<T>[];
 protected defaultValue :T;       
 //--now that we have default Filter there is no need for goto at zero in any case the aniProp will have a value it can never be null. However the animated value (from filter) can be null thus _value keep track between default value and animatedValue
 
-constructor(defaultValue :T){
-this.filtersArr  = []; 
-this.defaultValue  = defaultValue; 
+constructor(aniPropDb :AniPropDb<T>){
+this.defaultValue  = aniPropDb.value(); 
+this.filtersArr  = aniPropDb.getFiltersArray(); 
 this._value  = null; 
 }
 /**

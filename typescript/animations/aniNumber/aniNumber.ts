@@ -1,12 +1,12 @@
 import AniProp from "../aniProp/aniProp.js";
+import AniPropDb from "../../animationsFacade/aniPropDb/AniPropDb.js";
 
-// import Vibrate from "./effFilters/vibrate.js";
 
 export default class AniNumber extends AniProp<number>  {
     
-constructor(initialValue :number=0){
+constructor(aniPropDb :AniPropDb<number>){
  
-super(initialValue);
+super(aniPropDb);
 
 
 }

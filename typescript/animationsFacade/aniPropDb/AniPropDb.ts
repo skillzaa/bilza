@@ -51,6 +51,9 @@ public jumpBetween(startSec :number,endSec :number,firstValue :T, secondValue :T
   this.addFilter(jb);
 }
 
+getFiltersArray():BaseFilter<T>[]{
+return this.filtersArr;
+}
 //////////////////////////////////////////
 
 // public getEngineProp():AniProp<T>{

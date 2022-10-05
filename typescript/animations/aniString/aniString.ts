@@ -1,16 +1,16 @@
 import AniProp from "../aniProp/aniProp.js";
+import AniPropDb from "../../animationsFacade/aniPropDb/AniPropDb.js";
+
 // import Increment from "./numberFilters/increment.js";
 // import JumpBetween from "./aniFilters/jumpBetween.js";
 // import cycleThrough from "./aniFilters/jumpBetween.js";
 
-
 export default class AniString extends AniProp<string>  {
-
-constructor(initialValue :string=""){
-
-super(initialValue);
-
+    
+constructor(aniPropDb :AniPropDb<string>){
+super(aniPropDb);
 }
+    
 ///////////////////////////////////////////////////////////
 
 } 
