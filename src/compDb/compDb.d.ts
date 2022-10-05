@@ -3,7 +3,7 @@ import CompEngine from "../compEngine/compEngine.js";
 import Pack from "../pack/pack.js";
 import IComponent from "./IComponent.js";
 export default class CompDb extends CoreProps implements IComponent {
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn");
+    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
     align(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
     alignRotate(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
     xRotateAligned(): number;

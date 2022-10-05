@@ -7,7 +7,7 @@ import Oscillate from "./filters/oscillatets.js";
 export default class AniNumberDb extends AniPropDb <number>{
 
 private _isResp :boolean;
-private theWhole :number | null;
+private theWhole : number | null;
      
 constructor(initialValue :number){
 super(initialValue)
@@ -15,17 +15,22 @@ this._isResp = false;
 this.theWhole = null;
 }
 //////////////////////////////////////////////
-private init(theWhole :number){
-this.theWhole = theWhole;
+// private init(theWhole :number){
+// this.theWhole = theWhole;
+// }
+init(theWhole :number | null =null){
+this.theWhole = theWhole;    
 }
-private setResp(tf :boolean){
+public setResp(tf :boolean , theWhole :number | null){
+if (tf == true && theWhole == null){
+    throw new Error("to set prop value responsive please give 'width' , 'height' or a number ");}    
+    this.theWhole = theWhole;
     this._isResp = tf;
 }
 
-isResponsive():boolean{
+isResp():boolean{
     return this._isResp;
 }
-
 
 public value():number{
         if (this._isResp == false){
@@ -39,12 +44,15 @@ public valueRaw():number{
     return super.value();
  
 }
-
 private responsiveValue(perc :number):number {
-if (this.theWhole == null){throw new Error("init error");}
-    return ((this.theWhole / 100) * perc);
+    if (this.theWhole == null){throw new Error("init error");}
+        return ((this.theWhole / 100) * perc);
 }
 
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+//////////////////////////////////////////////
 //////////////////////////////////////////////
 public animate( StartSec :number, endSec :number,startValue :number,endValue :number){
     if (startValue < endValue ){

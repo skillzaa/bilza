@@ -19,11 +19,9 @@ constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 this.engine = new EngineDb(canvasId,canvasWidthPerc);
 this.comps = [];
 //--this.background is in comps and avaialbe on top level also
-this.background = new BackgroundDb(0,0,"alwaysOn","#efeee3");
+this.background = this.engine.backgroundDb;
 this.background.alwaysOn = true;
 this.comps.push(this.background);
-// this.background.alwaysOn = true;
-
 //--collection of comp DB classes
 this.bil = null;
 }
@@ -45,6 +43,7 @@ return cf;
 init(){
 if (this.bil !== null){return;}
 const compiler = new Compiler();
+this.bil = null;
 this.bil = compiler.genApp(this.engine,this.comps);
 // this.bil.init();
 }

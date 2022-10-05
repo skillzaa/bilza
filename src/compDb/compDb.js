@@ -1,7 +1,9 @@
 import CoreProps from "./corePropsDb.js";
 export default class CompDb extends CoreProps {
-    constructor(startTime, endTime, insertAction) {
-        super(startTime, endTime, insertAction);
+    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight) {
+        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
+        this.setRespDims(true);
+        this.setRespLoc(true);
     }
     align(x = null, y = null) {
         if (x !== null) {
@@ -117,17 +119,17 @@ export default class CompDb extends CoreProps {
         return inSec ? this.endTime : (this.endTime * 1000);
     }
     setRespLoc(tf) {
-        this.x.setResp(tf);
-        this.y.setResp(tf);
+        this.x.setResp(tf, this.canvasWidth);
+        this.y.setResp(tf, this.canvasHeight);
         return tf;
     }
     setRespDims(tf) {
-        this.width.setResp(tf);
-        this.paddingLeft.setResp(tf);
-        this.paddingRight.setResp(tf);
-        this.height.setResp(tf);
-        this.paddingTop.setResp(tf);
-        this.paddingBottom.setResp(tf);
+        this.width.setResp(tf, this.canvasWidth);
+        this.height.setResp(tf, this.canvasHeight);
+        this.paddingLeft.setResp(tf, this.canvasWidth);
+        this.paddingRight.setResp(tf, this.canvasWidth);
+        this.paddingTop.setResp(tf, this.canvasWidth);
+        this.paddingBottom.setResp(tf, this.canvasWidth);
         return tf;
     }
     getEngineComp(pack) {

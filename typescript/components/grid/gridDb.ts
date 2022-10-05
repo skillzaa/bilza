@@ -24,13 +24,19 @@ showNumbers : AniBooleanDb;
 fontSize : AniNumberDb;
 
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn", color :string="grey",cellWidth :number=10,cellHeight :number=10){
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number, color :string="grey",cellWidth :number=10,cellHeight :number=10){
 
-super(startTime,endTime,insertAction);
+super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
 
 this.lineDash =  [];
+
+//---works likemagin-setResp
 this.cellWidth = new AniNumberDb(cellWidth);
+this.cellWidth.setResp(true,this.canvasWidth);
+//---works likemagin-setResp
 this.cellHeight = new AniNumberDb(cellHeight);
+this.cellHeight.setResp(true,this.canvasHeight);
+
 this.showHorizontalLines = new AniBooleanDb(true);
 this.showVerticalLines = new AniBooleanDb(true);
 this.lineWidthVertical = new AniNumberDb(1);
@@ -43,6 +49,8 @@ this.fontSize = new AniNumberDb(40);
 
 //////////////////////////////
 this.color.set(color);
+this.width.set(100);
+this.height.set(100);
 } 
  
 getEngineComp(pack :Pack):compEngine{

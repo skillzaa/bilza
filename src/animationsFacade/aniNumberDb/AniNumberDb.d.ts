@@ -3,9 +3,9 @@ export default class AniNumberDb extends AniPropDb<number> {
     private _isResp;
     private theWhole;
     constructor(initialValue: number);
-    private init;
-    private setResp;
-    isResponsive(): boolean;
+    init(theWhole?: number | null): void;
+    setResp(tf: boolean, theWhole: number | null): void;
+    isResp(): boolean;
     value(): number;
     valueRaw(): number;
     private responsiveValue;

@@ -2,8 +2,8 @@ import CompDb from "../../compDb/compDb.js";
 import Rect from "./rect.js";
 import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
 export default class RectDb extends CompDb {
-    constructor(startTime, endTime, insertAction, color) {
-        super(startTime, endTime, insertAction);
+    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, color) {
+        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
         this.lineWidth = new AniNumberDb(1);
         this.color.set(color);
     }

@@ -70,7 +70,8 @@ animate(secFrom :number,secTo :number,
     xFrom :number,xTo :number, 
     yFrom :number,yTo :number,
     ):boolean;
-
-
+///////////////////--put this in DB to end init once and for all
+readonly    canvasWidth :number;
+readonly    canvasHeight :number;
 ////////////////////////////////    
 }

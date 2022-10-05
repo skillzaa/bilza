@@ -29,24 +29,24 @@ this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
 }
 fillRect(color :string="#000000"):IComponent{
-let g = new FillRectDB(this.startTime,this.endTime,this.insertAction,color);
+let g = new FillRectDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
 this.comps.push(g);
 return g;    
 }
 rect(color :string="#000000"):IRect{
-let g = new RectDB(this.startTime,this.endTime,this.insertAction,color);
+let g = new RectDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
 this.comps.push(g);
 return g;    
 }
 canvasBorder(color :string="grey",width :number=0.25):ICanvasBorder{
 let g = new CanvasBorderDb (
-    this.startTime,this.endTime,this.insertAction,color,width
+    this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,width
     );
 this.comps.push(g);
 return g;    
 }
 grid(color :string="grey",cellWidth :number=10,cellHeight :number=10):IGrid{
-let g = new GridDb (this.startTime,this.endTime,this.insertAction,color,cellWidth,cellHeight);
+let g = new GridDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,cellWidth,cellHeight);
 this.comps.push(g);
 return g;    
 }

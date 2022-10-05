@@ -43,5 +43,7 @@ export default interface IComponent {
     getEndTime(inMilliSec?: boolean): number;
     goto(atFrame: number, x: number, y: number): boolean;
     animate(secFrom: number, secTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
+    readonly canvasWidth: number;
+    readonly canvasHeight: number;
 }
 //# sourceMappingURL=IComponent.d.ts.map

@@ -9,13 +9,17 @@ export default class AniNumberDb extends AniPropDb {
         this._isResp = false;
         this.theWhole = null;
     }
-    init(theWhole) {
+    init(theWhole = null) {
         this.theWhole = theWhole;
     }
-    setResp(tf) {
+    setResp(tf, theWhole) {
+        if (tf == true && theWhole == null) {
+            throw new Error("to set prop value responsive please give 'width' , 'height' or a number ");
+        }
+        this.theWhole = theWhole;
         this._isResp = tf;
     }
-    isResponsive() {
+    isResp() {
         return this._isResp;
     }
     value() {

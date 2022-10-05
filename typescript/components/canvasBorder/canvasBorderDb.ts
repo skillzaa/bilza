@@ -8,9 +8,10 @@ import CanvasBorder from "./canvasBorder.js";
 export default class CanvasBorderDb extends CompDb implements ICanvasBorder {
    public borderWidth :AniNumberDb;
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn", color :string="grey",width :number=0.25){
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn", canvasWidth :number,canvasHeight :number,color :string="grey",width :number=0.25){
 
-super(startTime,endTime,insertAction);
+super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+
 this.borderWidth = new AniNumberDb(width);
 this.color.set(color);
 } 

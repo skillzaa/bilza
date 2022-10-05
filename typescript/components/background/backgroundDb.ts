@@ -9,9 +9,9 @@ export default class BackgroundDb extends CompDb {
 public color:AniColorDb;
 
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn", color :string="#efeee3")
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number, color :string="#efeee3")
 {
-super(startTime,endTime,insertAction);
+super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
   
 this.color = new AniColorDb(color);
 }

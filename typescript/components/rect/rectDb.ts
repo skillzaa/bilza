@@ -9,9 +9,9 @@ import IRect from "./Irect.js";
 export default class RectDb extends CompDb implements IRect {
    public lineWidth :AniNumberDb;
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",  color :string){
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,  color :string){
 
-super(startTime,endTime,insertAction);
+super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
 this.lineWidth = new AniNumberDb(1);
 this.color.set(color);
 } 

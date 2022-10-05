@@ -2,7 +2,9 @@ import AniNumberDb from "../animationsFacade/aniNumberDb/AniNumberDb.js";
 import AniColorDb from "../animationsFacade/aniColorDb/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/aniBooleanDb/AniBooleanDb.js";
 export default class CorePropsDb {
-    constructor(startTime, endTime, insertAction) {
+    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight) {
+        this.canvasWidth = canvasWidth;
+        this.canvasHeight = canvasHeight;
         this.id = Math.random().toString(36).slice(2);
         this.startTime = startTime;
         this.endTime = endTime;

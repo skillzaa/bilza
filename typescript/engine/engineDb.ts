@@ -18,11 +18,14 @@ this.canvasId = canvasId;
 this.canvasWidthPerc = canvasWidthPerc;
 const pack = new Pack(this.canvasId,this.canvasWidthPerc);
 
+//---This is where the canvas width and height begin
 this.canvasWidth =  pack.canvasWidth();
-this.canvasHeight = pack.canvasWidth();
+this.canvasHeight = pack.canvasHeight(); //--took me one hour
 
 ///--we need to have a background object as well
-this.backgroundDb = new BackgroundDb(0,1,"alwaysOn","grey");
+this.backgroundDb = new BackgroundDb(0,0,"alwaysOn",
+this.canvasWidth,this.canvasHeight,"#efeee3");
+
 }
 
 

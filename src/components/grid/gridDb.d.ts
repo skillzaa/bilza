@@ -18,7 +18,7 @@ export default class GridDb extends CompDb implements IGrid {
     colorNumbers: AniColorDb;
     showNumbers: AniBooleanDb;
     fontSize: AniNumberDb;
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", color?: string, cellWidth?: number, cellHeight?: number);
+    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, color?: string, cellWidth?: number, cellHeight?: number);
     getEngineComp(pack: Pack): compEngine;
 }
 //# sourceMappingURL=gridDb.d.ts.map

@@ -1,12 +1,11 @@
 import EngineDb from "../engine/engineDb.js";
 import CompFactory from "./compFactory.js";
-import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidthPerc = 70) {
         this.engine = new EngineDb(canvasId, canvasWidthPerc);
         this.comps = [];
-        this.background = new BackgroundDb(0, 0, "alwaysOn", "#efeee3");
+        this.background = this.engine.backgroundDb;
         this.background.alwaysOn = true;
         this.comps.push(this.background);
         this.bil = null;
@@ -28,6 +27,7 @@ export default class Bilza {
             return;
         }
         const compiler = new Compiler();
+        this.bil = null;
         this.bil = compiler.genApp(this.engine, this.comps);
     }
     draw(timeSec = 0) {

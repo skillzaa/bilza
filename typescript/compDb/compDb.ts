@@ -7,8 +7,12 @@ import IComponent from "./IComponent.js";
 export default class CompDb extends CoreProps implements IComponent {
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
-constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn"){      
-super(startTime,endTime,insertAction);
+constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number, canvasHeight :number){      
+
+super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+////////--set some props as responsive by default
+this.setRespDims(true);
+this.setRespLoc(true);
 }
 ////////////////////////////////////////////////
 public align(x : 0|1|2|null=null, y :0|1|2|null=null){
@@ -142,26 +146,19 @@ getEndTime(inSec :boolean=true) :number{
 }
 
 setRespLoc(tf: boolean): boolean {
-//@ts-expect-error    
-this.x.setResp(tf);    
-//@ts-expect-error    
-this.y.setResp(tf);    
+this.x.setResp(tf, this.canvasWidth);    
+this.y.setResp(tf , this.canvasHeight);    
 return tf;    
 }
 
 setRespDims(tf: boolean): boolean {
-//@ts-expect-error    
-this.width.setResp(tf);    
-//@ts-expect-error    
-this.paddingLeft.setResp(tf);    
-//@ts-expect-error    
-this.paddingRight.setResp(tf);    
-//@ts-expect-error    
-this.height.setResp(tf);  
-//@ts-expect-error    
-this.paddingTop.setResp(tf);    
-//@ts-expect-error    
-this.paddingBottom.setResp(tf);    
+this.width.setResp(tf, this.canvasWidth);    
+this.height.setResp(tf , this.canvasHeight);    
+//--All padding are set resp to width since then they will be equal
+this.paddingLeft.setResp(tf,this.canvasWidth);    
+this.paddingRight.setResp(tf,this.canvasWidth);    
+this.paddingTop.setResp(tf,this.canvasWidth);    
+this.paddingBottom.setResp(tf,this.canvasWidth);    
 return tf;        
 }
 

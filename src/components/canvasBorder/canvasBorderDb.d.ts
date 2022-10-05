@@ -5,7 +5,7 @@ import Pack from "../../pack/pack.js";
 import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
 export default class CanvasBorderDb extends CompDb implements ICanvasBorder {
     borderWidth: AniNumberDb;
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", color?: string, width?: number);
+    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, color?: string, width?: number);
     getEngineComp(pack: Pack): compEngine;
 }
 //# sourceMappingURL=canvasBorderDb.d.ts.map

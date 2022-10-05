@@ -40,12 +40,18 @@ public yRotate : 0|1|2;
 
 
 ////////////////////////////////////
+canvasWidth :number;
+canvasHeight :number;
 startTime :number;
 endTime :number;
-insertAction :"add"|"append" | "alwaysOn";
+readonly insertAction :"add"|"append" | "alwaysOn";
 
 ////////////////////////////////////
-constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn"){
+constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number){
+
+this.canvasWidth = canvasWidth;
+this.canvasHeight = canvasHeight;
+//---------------------------------------------
 
 this.id = Math.random().toString(36).slice(2);
 this.startTime = startTime;
@@ -76,6 +82,7 @@ this.showBackground = new AniBooleanDb(false);
 this.visible = new AniBooleanDb(true);
 this.version = "0.1.2";
 this.width = new AniNumberDb(10);
+
 this.x = new AniNumberDb(0);
 this.y = new AniNumberDb(0);
 
@@ -84,7 +91,6 @@ this.xAlign =0;
 this.yAlign =0;
 this.xRotate =0;
 this.yRotate =0;
-
 
 }
 

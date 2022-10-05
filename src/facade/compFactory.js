@@ -12,22 +12,22 @@ export default class CompFactory {
         this.canvasHeight = canvasHeight;
     }
     fillRect(color = "#000000") {
-        let g = new FillRectDB(this.startTime, this.endTime, this.insertAction, color);
+        let g = new FillRectDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
         this.comps.push(g);
         return g;
     }
     rect(color = "#000000") {
-        let g = new RectDB(this.startTime, this.endTime, this.insertAction, color);
+        let g = new RectDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
         this.comps.push(g);
         return g;
     }
     canvasBorder(color = "grey", width = 0.25) {
-        let g = new CanvasBorderDb(this.startTime, this.endTime, this.insertAction, color, width);
+        let g = new CanvasBorderDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color, width);
         this.comps.push(g);
         return g;
     }
     grid(color = "grey", cellWidth = 10, cellHeight = 10) {
-        let g = new GridDb(this.startTime, this.endTime, this.insertAction, color, cellWidth, cellHeight);
+        let g = new GridDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color, cellWidth, cellHeight);
         this.comps.push(g);
         return g;
     }
