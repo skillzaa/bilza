@@ -12,5 +12,7 @@ export default class AniNumberDb extends AniPropDb<number> {
     animate(StartSec: number, endSec: number, startValue: number, endValue: number): void;
     random(StartSec: number, endSec: number, min?: number, max?: number, delayInMs?: number): void;
     oscillate(StartSec: number, endSec: number, startValue: number, endValue: number, secPerIter?: number, stopAt?: number): void;
+    goto(atSec: number, value: number): boolean;
+    jumpBetween(startSec: number, endSec: number, firstValue: number, secondValue: number, delayInMS?: number): void;
 }
 //# sourceMappingURL=AniNumberDb.d.ts.map

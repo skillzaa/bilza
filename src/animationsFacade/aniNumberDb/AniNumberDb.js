@@ -3,6 +3,8 @@ import Increment from "./filters/increment.js";
 import Decrement from "./filters/decrement.js";
 import Random from "./filters/random.js";
 import Oscillate from "./filters/oscillatets.js";
+import IdentityFil from "../filters/identityFil.js";
+import JumpBetween from "../filters/jumpBetween.js";
 export default class AniNumberDb extends AniPropDb {
     constructor(initialValue) {
         super(initialValue);
@@ -40,6 +42,10 @@ export default class AniNumberDb extends AniPropDb {
         return ((this.theWhole / 100) * perc);
     }
     animate(StartSec, endSec, startValue, endValue) {
+        if (this.isResp() == true) {
+            startValue = this.responsiveValue(startValue);
+            endValue = this.responsiveValue(endValue);
+        }
         if (startValue < endValue) {
             let inc = new Increment(StartSec * 1000, endSec * 1000, startValue, endValue, 0);
             this.addFilter(inc);
@@ -50,14 +56,38 @@ export default class AniNumberDb extends AniPropDb {
         }
     }
     random(StartSec, endSec, min = 0, max = 100, delayInMs = 10) {
+        if (this.isResp() == true) {
+            min = this.responsiveValue(min);
+            max = this.responsiveValue(max);
+        }
         const v = new Random(StartSec * 1000, endSec * 1000, min, max, delayInMs);
         this.addFilter(v);
     }
     oscillate(StartSec, endSec, startValue, endValue, secPerIter = 1, stopAt = endValue) {
+        if (this.isResp() == true) {
+            startValue = this.responsiveValue(startValue);
+            endValue = this.responsiveValue(endValue);
+        }
         if (startValue > endValue) {
             throw new Error("for oscillate operation the startValue can not be bigger than endValue, however in future this restriction may be lifted.");
         }
         const v = new Oscillate(StartSec * 1000, endSec * 1000, startValue, endValue, secPerIter * 1000, stopAt);
         this.addFilter(v);
+    }
+    goto(atSec, value) {
+        if (this.isResp() == true) {
+            value = this.responsiveValue(value);
+        }
+        const v = new IdentityFil(atSec * 1000, (atSec * 1000) + 1000, value);
+        this.addFilter(v);
+        return false;
+    }
+    jumpBetween(startSec, endSec, firstValue, secondValue, delayInMS = 1000) {
+        if (this.isResp() == true) {
+            firstValue = this.responsiveValue(firstValue);
+            secondValue = this.responsiveValue(secondValue);
+        }
+        const jb = new JumpBetween(startSec * 1000, endSec * 1000, firstValue, secondValue, delayInMS);
+        this.addFilter(jb);
     }
 }
