@@ -1,8 +1,8 @@
 import CoreProps from "./corePropsDb.js";
 import CompEngine from "../compEngine/compEngine.js";
-import IComponent from "./IComponent.js";
 import Pack from "../pack/pack.js";
 
+import IComponent from "./IComponent.js";
 ///////////////////////////////////////////////////
 export default class CompDb extends CoreProps implements IComponent {
 ///////////////////////////////////////////////////

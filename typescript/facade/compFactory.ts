@@ -1,9 +1,8 @@
-import IComponent from "../compDb/IComponent.js";
+// import IComponent from "../compDb/IComponent.js";
 import FillRectDB from "../components/fillRect/fillRectDb.js";
 import RectDB from "../components/rect/rectDb.js";
-
-
-
+import IComponent from "../compDb/IComponent.js";
+import IRect from "../components/rect/Irect.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -30,7 +29,7 @@ let g = new FillRectDB(this.startTime,this.endTime,this.insertAction,color);
 this.comps.push(g);
 return g;    
 }
-rect(color :string="#000000"):IComponent{
+rect(color :string="#000000"):IRect{
 let g = new RectDB(this.startTime,this.endTime,this.insertAction,color);
 this.comps.push(g);
 return g;    

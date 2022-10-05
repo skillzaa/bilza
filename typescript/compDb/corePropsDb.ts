@@ -4,7 +4,7 @@ import AniColorDb from "../animationsFacade/aniColorDb/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/aniBooleanDb/AniBooleanDb.js";
 
 
-export default class CorePropsDb  {
+export default class CorePropsDb   {
 ////////////////////////////////////////////
 //--25-9-2022 -- xx CORE props 
 ////////////////////////////////////////////    
