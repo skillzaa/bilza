@@ -30,4 +30,7 @@ export default class AniPropDb {
         const jb = new JumpBetween(startSec * 1000, endSec * 1000, firstValue, secondValue, delayInMS);
         this.addFilter(jb);
     }
+    getFiltersArray() {
+        return this.filtersArr;
+    }
 }

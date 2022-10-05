@@ -1,6 +1,6 @@
 import AniProp from "../aniProp/aniProp.js";
 export default class AniColor extends AniProp {
-    constructor(initialValue = "") {
-        super(initialValue);
+    constructor(aniPropDb) {
+        super(aniPropDb);
     }
 }

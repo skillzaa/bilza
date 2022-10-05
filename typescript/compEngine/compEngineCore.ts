@@ -71,81 +71,66 @@ this.style = new Style();
 
 ///////////////////////////animated core props
 /////////////////--Animated Props
-this.border = new AniNumber(0);
-this.border.set(corePropsDb.border.value());
+this.border = new AniNumber(corePropsDb.border);
+// this.border.set(corePropsDb.border.value());
 
 // this.color = corePropsDb.color.getEngineProp();
-this.color = new AniColor("black");
+this.color = new AniColor(corePropsDb.color);
 // this.color.set(corePropsDb.color.value());
 
-this.colorBackground = new AniColor("white");
-this.colorBackground.set(corePropsDb.colorBackground.value());
+this.colorBackground = new AniColor(corePropsDb.colorBackground);
 
-this.colorBorder = new AniColor("black");
-this.colorBorder.set(corePropsDb.colorBorder.value());
+this.colorBorder = new AniColor(corePropsDb.colorBorder);
+// this.colorBorder.set(corePropsDb.colorBorder.value());
 
 
 this.drawLayer = corePropsDb.drawLayer;
 
-this.height = new AniNumber(10);
-this.height.set(corePropsDb.height.value());
-this.opacity = new AniNumber(100);
-this.opacity.set(corePropsDb.opacity.value());
+this.height = new AniNumber(corePropsDb.height);
+// this.height.set(corePropsDb.height.value());
+this.opacity = new AniNumber(corePropsDb.opacity);
+// this.opacity.set(corePropsDb.opacity.value());
 
-this.paddingTop = new AniNumber(0);
-this.paddingTop.set(corePropsDb.paddingTop.value());
-this.paddingBottom = new AniNumber(0);
-this.paddingBottom.set(corePropsDb.paddingBottom.value());
-this.paddingRight = new AniNumber(0);
-this.paddingRight.set(corePropsDb.paddingRight.value());
-this.paddingLeft = new AniNumber(0);
-this.paddingLeft.set(corePropsDb.paddingLeft.value());
+this.paddingTop = new AniNumber(corePropsDb.paddingTop);
+// this.paddingTop.set(corePropsDb.paddingTop.value());
+this.paddingBottom = new AniNumber(corePropsDb.paddingBottom);
+// this.paddingBottom.set(corePropsDb.paddingBottom.value());
+this.paddingRight = new AniNumber(corePropsDb.paddingRight);
+// this.paddingRight.set(corePropsDb.paddingRight.value());
+this.paddingLeft = new AniNumber(corePropsDb.paddingLeft);
+// this.paddingLeft.set(corePropsDb.paddingLeft.value());
 
-this.rotation = new AniNumber(0);
-this.rotation.set(corePropsDb.rotation.value());
+this.rotation = new AniNumber(corePropsDb.rotation);
+// this.rotation.set(corePropsDb.rotation.value());
 this.selected = false; //-----? 
 
 
-this.showBackground = new AniBoolean(false);
-this.showBackground.set(corePropsDb.showBackground.value());
-this.visible = new AniBoolean(true);
+this.showBackground = new AniBoolean(corePropsDb.showBackground);
+// this.showBackground.set(corePropsDb.showBackground.value());
+this.visible = new AniBoolean(corePropsDb.visible);
 ///---visisible in DB?????
 this.version = corePropsDb.version ;
 
-this.width = new AniNumber(10);
-this.width.set(corePropsDb.width.value());
+this.width = new AniNumber( corePropsDb.width );
+// this.width.set(corePropsDb.width.value());
 
 
-this.x = new AniNumber(0);
+this.x = new AniNumber( corePropsDb.x );
 // this.x.set(corePropsDb.x.value());
 // this.x = corePropsDb.x.getEngineProp();
 
 
-this.y = new AniNumber(0);
+this.y = new AniNumber( corePropsDb.y );
+// this.y.set(corePropsDb.y.value());
 this.xAlign = (corePropsDb.xAlign );
 this.yAlign = corePropsDb.yAlign;
-this.y.set(corePropsDb.y.value());
 
 this.xRotate = corePropsDb.xRotate;
 this.yRotate = corePropsDb.yRotate;
 
-
-//////////////
-this.drawLayer =  2;  
-//--caused me 1 hour
-//   
-this.xAlign =0;
-this.yAlign =0;
-this.xRotate =0;
-this.yRotate =0;
-
-
 ///////////////////////
 ///////////////////////
 ///////////////////////
-
 }
-
-
 /////////////////////////////////////////////////////    
 }

@@ -1,7 +1,7 @@
 export default class AniProp {
-    constructor(defaultValue) {
-        this.filtersArr = [];
-        this.defaultValue = defaultValue;
+    constructor(aniPropDb) {
+        this.defaultValue = aniPropDb.value();
+        this.filtersArr = aniPropDb.getFiltersArray();
         this._value = null;
     }
     update(rTimeMs) {
