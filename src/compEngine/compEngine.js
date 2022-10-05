@@ -45,10 +45,10 @@ export default class CompEngine extends CompEngineCore {
         this.removeRotation(p);
     }
     contentX() {
-        return this.yAligned() + this.paddingTop.value();
+        return this.xAligned() + this.paddingTop.value();
     }
     contentY() {
-        return this.xAligned() + this.paddingLeft.value();
+        return this.yAligned() + this.paddingLeft.value();
     }
     applyRotation(p) {
         p.save();

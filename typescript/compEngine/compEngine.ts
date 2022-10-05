@@ -47,16 +47,6 @@ return this._canvasHeight;
 public draw(p :Pack):boolean{
     return true;
 }
-// goto(atFrame: number, x: number, y: number): boolean {
-// this.x.goto(atFrame,x);
-// this.y.goto(atFrame,y);
-// return true;    
-// }
-// animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean {
-// this.x.animate(timeFrom,timeTo,xFrom,xTo);    
-// this.y.animate(timeFrom,timeTo,yFrom,yTo);    
-// return true;    
-// }
 ///////////////////protected 
 protected preDraw(p :Pack){
 this.style.opacity = (this.opacity.value());
@@ -70,10 +60,10 @@ this.style.opacity = 100;
 this.removeRotation(p);
 }
 protected contentX():number{
-    return this.yAligned() + this.paddingTop.value(); 
+    return this.xAligned() + this.paddingTop.value(); 
 }
 protected contentY():number{
-    return this.xAligned() + this.paddingLeft.value();
+    return this.yAligned() + this.paddingLeft.value();
 }
 ///////////////////////////////////////////    
 protected applyRotation(p :Pack){

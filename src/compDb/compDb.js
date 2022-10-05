@@ -102,12 +102,11 @@ export default class CompDb extends CoreProps {
         return this.endTime - this.startTime;
     }
     goto(atFrame, x, y) {
+        this.x.goto(atFrame, x);
+        this.y.goto(atFrame, y);
         return true;
     }
-    setxy(x, y = null) {
-        if (y == null) {
-            y = x;
-        }
+    setxy(x, y) {
         this.x.set(x);
         this.y.set(y);
     }
@@ -130,7 +129,5 @@ export default class CompDb extends CoreProps {
         this.paddingTop.setResp(tf);
         this.paddingBottom.setResp(tf);
         return tf;
-    }
-    getEngineComp(pack) {
     }
 }

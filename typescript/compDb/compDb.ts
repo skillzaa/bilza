@@ -124,11 +124,13 @@ getDuration():number{
 }
 ///?????????????????????????????????????????????????????????????
 goto(atFrame :number,x :number , y :number):boolean{
-    return true;
+this.x.goto(atFrame,x);    
+this.y.goto(atFrame,y);    
+return true;
 }
 
-public setxy(x :number, y :number | null=null){
-    if (y ==null){y=x;}
+public setxy(x :number, y :number){
+    // if (y ==null){y=x;}
 this.x.set(x);
 this.y.set(y);
 }
@@ -167,10 +169,7 @@ return tf;
 
 ////////////////////////////////////////////    
 ////////////////////////////////////////////    
-//@ts-expect-error
-public getEngineComp(pack :Pack):CompEngine{
 
-}
 ////////////////////////////////////////////    
 ////////////////////////////////////////////    
 }

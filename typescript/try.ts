@@ -12,8 +12,9 @@ comp.y.set(100);
 comp.width.set(200);
 comp.height.set(300);
 
-comp.y.goto(2,400);
-
+// comp.x.goto(2,400);
+comp.x.animate(1,5,100,500);
+comp.color.goto(2,"red");
 
 bil.draw();
 // bil.draw();
