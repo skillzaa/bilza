@@ -1,5 +1,12 @@
-import FillRectDB from "../components/fillRect/fillRectDb.js";
 import IComponent from "../compDb/IComponent.js";
+import FillRectDB from "../components/fillRect/fillRectDb.js";
+import RectDB from "../components/rect/rectDb.js";
+
+
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 export default class CompFactory {
 private readonly startTime :number;
@@ -20,6 +27,11 @@ this.canvasHeight = canvasHeight;
 }
 fillRect(color :string="#000000"):IComponent{
 let g = new FillRectDB(this.startTime,this.endTime,this.insertAction,color);
+this.comps.push(g);
+return g;    
+}
+rect(color :string="#000000"):IComponent{
+let g = new RectDB(this.startTime,this.endTime,this.insertAction,color);
 this.comps.push(g);
 return g;    
 }

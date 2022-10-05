@@ -8,5 +8,6 @@ export default class CompFactory {
     private comps;
     constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
     fillRect(color?: string): IComponent;
+    rect(color?: string): IComponent;
 }
 //# sourceMappingURL=compFactory.d.ts.map

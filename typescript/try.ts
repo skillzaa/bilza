@@ -9,13 +9,16 @@ bil.background.color.set(hsl(240,60,30));
 const comp = bil.add(0,60).fillRect(hsl(60,70,50));
 comp.x.set(100);
 comp.y.set(100);
-comp.width.set(200);
-comp.height.set(300);
+comp.width.set(100);
+comp.height.set(100);
 
-// comp.x.goto(2,400);
-// comp.x.animate(1,5,100,500);
-comp.x.oscillate(1,50,100,500,2,100);
-comp.color.goto(2,"red");
+const comp2 = bil.add(0,60).rect(hsl(0,70,50));
+comp2.x.set(400);
+comp2.y.set(100);
+comp2.width.set(100);
+comp2.height.set(100);
+
+comp2.lineWidth.set(12);
 
 bil.draw();
 // bil.draw();

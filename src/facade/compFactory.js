@@ -1,4 +1,5 @@
 import FillRectDB from "../components/fillRect/fillRectDb.js";
+import RectDB from "../components/rect/rectDb.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight) {
         this.comps = comps;
@@ -10,6 +11,11 @@ export default class CompFactory {
     }
     fillRect(color = "#000000") {
         let g = new FillRectDB(this.startTime, this.endTime, this.insertAction, color);
+        this.comps.push(g);
+        return g;
+    }
+    rect(color = "#000000") {
+        let g = new RectDB(this.startTime, this.endTime, this.insertAction, color);
         this.comps.push(g);
         return g;
     }
