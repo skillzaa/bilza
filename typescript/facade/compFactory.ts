@@ -1,12 +1,14 @@
 // import IComponent from "../compDb/IComponent.js";
+import IComponent from "../compDb/IComponent.js";
 import FillRectDB from "../components/fillRect/fillRectDb.js";
 import RectDB from "../components/rect/rectDb.js";
-import IComponent from "../compDb/IComponent.js";
 import IRect from "../components/rect/Irect.js";
 import CanvasBorderDb from "../components/canvasBorder/canvasBorderDb.js";
 import ICanvasBorder from "../components/canvasBorder/ICanvasBorder.js";
 import GridDb from "../components/grid/gridDb.js";
 import IGrid from "../components/grid/IGrid.js";
+import CircleDb from "../components/circle/circleDb.js";
+import ICircle from "../components/circle/ICircle.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -47,6 +49,11 @@ return g;
 }
 grid(color :string="grey",cellWidth :number=10,cellHeight :number=10):IGrid{
 let g = new GridDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,cellWidth,cellHeight);
+this.comps.push(g);
+return g;    
+}
+circle(radius :number=5,color :string="black"):ICircle{
+let g = new CircleDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,radius,color);
 this.comps.push(g);
 return g;    
 }

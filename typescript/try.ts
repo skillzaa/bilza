@@ -6,15 +6,15 @@ const bil = new Bilza("bilza");
 
 bil.alwaysOn().canvasBorder();
 const grid = bil.alwaysOn().grid();
+grid.colorVerticalLines.set("red");
 
-
-const comp = bil.add(0,60).fillRect(hsl(60,70,50));
-comp.x.set(10);
-comp.y.set(10);
-comp.width.set(10);
-comp.height.set(10);
-
-comp.x.jumpBetween(2,20,10,40,1000);
+const circle = bil.add(0,200).circle(10,"red");
+circle.lineWidth.set(10);
+circle.y.set(50);
+circle.filled.set(true);
+circle.x.animate(0,100,0,90);
+circle.strokeWidth.set(10);
+circle.strokeColor.set("green");
 
 const comp2 = bil.add(0,60).rect(hsl(0,70,50));
 comp2.x.set(10);

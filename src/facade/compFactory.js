@@ -2,6 +2,7 @@ import FillRectDB from "../components/fillRect/fillRectDb.js";
 import RectDB from "../components/rect/rectDb.js";
 import CanvasBorderDb from "../components/canvasBorder/canvasBorderDb.js";
 import GridDb from "../components/grid/gridDb.js";
+import CircleDb from "../components/circle/circleDb.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight) {
         this.comps = comps;
@@ -28,6 +29,11 @@ export default class CompFactory {
     }
     grid(color = "grey", cellWidth = 10, cellHeight = 10) {
         let g = new GridDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color, cellWidth, cellHeight);
+        this.comps.push(g);
+        return g;
+    }
+    circle(radius = 5, color = "black") {
+        let g = new CircleDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, radius, color);
         this.comps.push(g);
         return g;
     }

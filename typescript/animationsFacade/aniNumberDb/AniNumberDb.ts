@@ -104,6 +104,8 @@ public goto(atSec :number,value :number):boolean{
     this.addFilter(v);
     return false;//// new goto frame ADDED 
 }
+
+////////////////////////////////////
 public jumpBetween(startSec :number,endSec :number,firstValue :number, secondValue :number,delayInMS :number=1000){
     if (this.isResp()== true){
         firstValue = this.responsiveValue(firstValue);
