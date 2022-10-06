@@ -9,6 +9,8 @@ import GridDb from "../components/grid/gridDb.js";
 import IGrid from "../components/grid/IGrid.js";
 import CircleDb from "../components/circle/circleDb.js";
 import ICircle from "../components/circle/ICircle.js";
+import PicDb from "../components/pic/picDb.js";
+import IPic from "../components/pic/IPic.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -54,6 +56,11 @@ return g;
 }
 circle(radius :number=5,color :string="black"):ICircle{
 let g = new CircleDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,radius,color);
+this.comps.push(g);
+return g;    
+}
+pic(imgUrl :string,width :number=25,height:number=25):IPic{
+let g = new PicDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,imgUrl,width,height);
 this.comps.push(g);
 return g;    
 }

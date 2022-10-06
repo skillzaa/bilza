@@ -183,7 +183,7 @@ return (this.canvasWidth() - this.compWidth());
 //@ts-expect-error
 getEngineComp(pack :Pack):CompEngine{
   
- }
+}
 
 ////////////////////////////////////////////    
 ////////////////////////////////////////////    

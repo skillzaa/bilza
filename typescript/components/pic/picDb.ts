@@ -1,61 +1,43 @@
-// import compEngine from "../../compEngine/compEngine.js";
-// import CompDb from "../../compDb/compDb.js";
-// import IGrid from "./IPic.js";
-// import Pack from "../../pack/pack.js";
-// import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
-// import AniColorDb from "../../animationsFacade/aniColorDb/AniColorDb.js";
-// import AniBooleanDb from "../../animationsFacade/aniBooleanDb/AniBooleanDb.js";
+import compEngine from "../../compEngine/compEngine.js";
+import CompDb from "../../compDb/compDb.js";
+import IPic from "./IPic.js";
+import Pack from "../../pack/pack.js";
+import {AniNumberDb,AniColorDb,AniBooleanDb} from "../../animationsFacade/animationsDb.js";
 
-// import Grid from "./grid.js";
+import Pic from "./pic.js";
 
-// export default class GridDb extends CompDb implements IGrid {
-
-// lineDash =  [];
-// cellWidth : AniNumberDb;
-// cellHeight : AniNumberDb;
-// showHorizontalLines  : AniBooleanDb;
-// showVerticalLines : AniBooleanDb;
-// lineWidthVertical : AniNumberDb;
-// lineWidthHorizontal : AniNumberDb;
-// colorHorizontalLines : AniColorDb;
-// colorVerticalLines : AniColorDb;
-// colorNumbers : AniColorDb;
-// showNumbers : AniBooleanDb;
-// fontSize : AniNumberDb;
-
-
-// constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number, color :string="grey",cellWidth :number=10,cellHeight :number=10){
-
-// super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
-
-// this.lineDash =  [];
-
-// //---works likemagin-setResp
-// this.cellWidth = new AniNumberDb(cellWidth);
-// this.cellWidth.setResp(true,this.canvasWidth);
-// //---works likemagin-setResp
-// this.cellHeight = new AniNumberDb(cellHeight);
-// this.cellHeight.setResp(true,this.canvasHeight);
-
-// this.showHorizontalLines = new AniBooleanDb(true);
-// this.showVerticalLines = new AniBooleanDb(true);
-// this.lineWidthVertical = new AniNumberDb(1);
-// this.lineWidthHorizontal = new AniNumberDb(1);
-// this.colorHorizontalLines = new AniColorDb(color);
-// this.colorVerticalLines = new AniColorDb(color);
-// this.colorNumbers = new AniColorDb("black");
-// this.showNumbers = new AniBooleanDb(false);
-// this.fontSize = new AniNumberDb(40);
-
-// //////////////////////////////
-// this.color.set(color);
-// this.width.set(100);
-// this.height.set(100);
-// } 
- 
-// getEngineComp(pack :Pack):compEngine{
-//    const comp = new Grid(this,pack);
-//    return comp; 
-// }
+export default class PicDb extends CompDb implements IPic {
+public readonly img :HTMLImageElement;
+public readonly orignalWidth :number;
+public readonly orignalHeight :number;
     
-// }
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,imgUrl :string,width :number=25,height:number=25){
+
+super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+
+this.width.set(width); 
+this.height.set(height); 
+    
+    this.img = new Image();
+    this.img.src = imgUrl;
+        if (this.img == null){
+            throw new Error("image could not be found");
+        }else {
+            //--before clientHeight we need appendChild
+            //--we need to save these since once display == none then they are 0
+            document.body.appendChild(this.img);
+            this.orignalWidth = this.img.clientWidth;
+            this.orignalHeight = this.img.clientHeight;
+            this.img.style.display = "none";
+        }
+    
+    //--Draw Layer
+    this.drawLayer = 2;    
+} 
+ 
+getEngineComp(pack :Pack):compEngine{
+   const comp = new Pic(this,pack);
+   return comp; 
+}
+    
+}

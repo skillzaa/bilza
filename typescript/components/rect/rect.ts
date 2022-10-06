@@ -1,6 +1,5 @@
 import Pack from "../../pack/pack.js";
 import CompEngine from "../../compEngine/compEngine.js";
-import CorePropsDb from "../../compDb/corePropsDb.js";
 import { AniNumber } from "../../animations/animations.js";
 import RectDb from "./rectDb.js";
 //--------no interfaces here

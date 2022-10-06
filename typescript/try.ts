@@ -9,13 +9,14 @@ bil.alwaysOn().canvasBorder( hsl(0,70,20) ,0.5);
 const grid = bil.alwaysOn().grid();
 grid.colorVerticalLines.set("red");
 
-const circle = bil.add(0,25).circle(10,"red");
-circle.filled.set(true);
-circle.showBackground.set(true);
-circle.colorBackground.set(hsl(120));
-circle.setxy(0,0);
-circle.align(1,1);
-circle.goto(2,50,50);
+
+const comp = bil.add(0,60).pic("../images/cat.jpg");
+////////////////////////
+comp.x.animate(0,5,   0,                    comp.rightEdge() );
+comp.y.animate(6,10,  0,                    comp.bottomEdge() );
+comp.x.animate(11,15, comp.rightEdge() ,  0 );
+comp.y.animate(16,20, comp.bottomEdge() , 0);
+
 ////////////////////////
 bil.draw();
 
