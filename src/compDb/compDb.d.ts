@@ -13,9 +13,13 @@ export default class CompDb extends CoreProps implements IComponent {
     setPaddings(n: number): void;
     animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
     compWidth(): number;
+    compWidthRaw(): number;
     compHeight(): number;
+    compHeightRaw(): number;
     contentHeight(): number;
+    contentHeightRaw(): number;
     contentWidth(): number;
+    contentWidthRaw(): number;
     getDuration(): number;
     goto(atFrame: number, x: number, y: number): boolean;
     setxy(x: number, y: number): void;
@@ -23,6 +27,8 @@ export default class CompDb extends CoreProps implements IComponent {
     getEndTime(inSec?: boolean): number;
     setRespLoc(tf: boolean): boolean;
     setRespDims(tf: boolean): boolean;
+    bottomEdge(): number;
+    rightEdge(): number;
     getEngineComp(pack: Pack): CompEngine;
 }
 //# sourceMappingURL=compDb.d.ts.map

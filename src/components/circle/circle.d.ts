@@ -10,8 +10,8 @@ export default class Circle extends CompEngine {
     strokeColor: AniColor;
     strokeWidth: AniNumber;
     constructor(circleDb: CircleDb, pack: Pack);
-    contentHeight(): number;
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
+    contentHeight(): number;
 }
 //# sourceMappingURL=circle.d.ts.map

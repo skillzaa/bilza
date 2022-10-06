@@ -3,8 +3,8 @@ import AniColorDb from "../animationsFacade/aniColorDb/AniColorDb.js";
 import AniBooleanDb from "../animationsFacade/aniBooleanDb/AniBooleanDb.js";
 export default class CorePropsDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight) {
-        this.canvasWidth = canvasWidth;
-        this.canvasHeight = canvasHeight;
+        this._canvasWidth = canvasWidth;
+        this._canvasHeight = canvasHeight;
         this.id = Math.random().toString(36).slice(2);
         this.startTime = startTime;
         this.endTime = endTime;
@@ -38,5 +38,11 @@ export default class CorePropsDb {
         this.yAlign = 0;
         this.xRotate = 0;
         this.yRotate = 0;
+    }
+    canvasWidth() {
+        return this._canvasWidth;
+    }
+    canvasHeight() {
+        return this._canvasHeight;
     }
 }

@@ -49,12 +49,16 @@ align(x : 0|1|2|null, y :0|1|2|null):void;
 alignRotate(x : 0|1|2|null, y :0|1|2|null):void;
 
 compWidth():number;
+compWidthRaw():number;
 compHeight():number;
+compHeightRaw():number;
 
 //--At times the width / height may not be equal to contentWidth and contentHeight so we have these functions. 
 //--They will always return the correct content width/height even in case of text.
 contentWidth():number;
+contentWidthRaw():number;
 contentHeight():number;
+contentHeightRaw():number;
 
 setRespDims(tf :boolean):boolean;
 setRespLoc(tf :boolean):boolean;
@@ -71,7 +75,11 @@ animate(secFrom :number,secTo :number,
     yFrom :number,yTo :number,
     ):boolean;
 ///////////////////--put this in DB to end init once and for all
-readonly    canvasWidth :number;
-readonly    canvasHeight :number;
+canvasWidth() :number;
+canvasHeight() :number;
+rightEdge() :number;
+bottomEdge() :number;
 ////////////////////////////////    
+setxy(x :number, y :number):void;
+
 }

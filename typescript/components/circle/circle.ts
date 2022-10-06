@@ -29,16 +29,19 @@ this.strokeColor = new AniColor(circleDb.strokeColor);
 }
 
 //-------------------------over ride
-contentHeight(): number {
-return this.width.value();//since its circle and height = width     
-}
+
 update(msDelta: number, p: Pack): boolean {
     super.update(msDelta,p);
+    //---just for circle
+    // debugger;
+    // this.heightHack(); 
+    // this.height.set(this.width.value());
+
     this.startAngle.update(msDelta);
     this.endAngle.update(msDelta);
     this.lineWidth.update(msDelta);
     //---??
-    this.height.set(this.width.value());
+    
     return true;
 }
 
@@ -47,10 +50,8 @@ draw(p:Pack):boolean{
 this.preDraw(p);
 //--------------
 this.style.fillStyle = this.color.value();    
-// this.style.strokeStyle = this.color.value(); 
 this.style.strokeStyle = this.strokeColor.value(); 
-// this.style.lineWidth = this.lineWidth.value(); 
-this.style.lineWidth = 1;
+this.style.lineWidth = this.lineWidth.value(); 
 //---------------------------------------
 p.beginPath();
 /*
@@ -75,5 +76,12 @@ this.postDraw(p);
 //----------------------------
 return true;
 }
+
+contentHeight(): number {
+    // const ht  = (this.width.value() / this.canvasHeight()) * 100;
+    return this.width.value();
+ }
+
+
 
 }

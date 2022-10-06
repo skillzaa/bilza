@@ -91,14 +91,26 @@ export default class CompDb extends CoreProps {
     compWidth() {
         return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
     }
+    compWidthRaw() {
+        return this.contentWidthRaw() + this.paddingLeft.valueRaw() + this.paddingRight.valueRaw();
+    }
     compHeight() {
         return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+    }
+    compHeightRaw() {
+        return this.contentHeightRaw() + this.paddingTop.valueRaw() + this.paddingBottom.valueRaw();
     }
     contentHeight() {
         return this.height.value();
     }
+    contentHeightRaw() {
+        return this.height.valueRaw();
+    }
     contentWidth() {
         return this.width.value();
+    }
+    contentWidthRaw() {
+        return this.width.valueRaw();
     }
     getDuration() {
         return this.endTime - this.startTime;
@@ -119,18 +131,24 @@ export default class CompDb extends CoreProps {
         return inSec ? this.endTime : (this.endTime * 1000);
     }
     setRespLoc(tf) {
-        this.x.setResp(tf, this.canvasWidth);
-        this.y.setResp(tf, this.canvasHeight);
+        this.x.setResp(tf, this.canvasWidth());
+        this.y.setResp(tf, this.canvasHeight());
         return tf;
     }
     setRespDims(tf) {
-        this.width.setResp(tf, this.canvasWidth);
-        this.height.setResp(tf, this.canvasHeight);
-        this.paddingLeft.setResp(tf, this.canvasWidth);
-        this.paddingRight.setResp(tf, this.canvasWidth);
-        this.paddingTop.setResp(tf, this.canvasWidth);
-        this.paddingBottom.setResp(tf, this.canvasWidth);
+        this.width.setResp(tf, this.canvasWidth());
+        this.height.setResp(tf, this.canvasHeight());
+        this.paddingLeft.setResp(tf, this.canvasWidth());
+        this.paddingRight.setResp(tf, this.canvasWidth());
+        this.paddingTop.setResp(tf, this.canvasWidth());
+        this.paddingBottom.setResp(tf, this.canvasWidth());
         return tf;
+    }
+    bottomEdge() {
+        return (this.canvasHeight() - this.compHeight());
+    }
+    rightEdge() {
+        return (this.canvasWidth() - this.compWidth());
     }
     getEngineComp(pack) {
     }

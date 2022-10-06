@@ -9,9 +9,9 @@ export default class GridDb extends CompDb {
         this.lineDash = [];
         this.lineDash = [];
         this.cellWidth = new AniNumberDb(cellWidth);
-        this.cellWidth.setResp(true, this.canvasWidth());
+        this.cellWidth.setResp(true, this.canvasWidth);
         this.cellHeight = new AniNumberDb(cellHeight);
-        this.cellHeight.setResp(true, this.canvasHeight());
+        this.cellHeight.setResp(true, this.canvasHeight);
         this.showHorizontalLines = new AniBooleanDb(true);
         this.showVerticalLines = new AniBooleanDb(true);
         this.lineWidthVertical = new AniNumberDb(1);

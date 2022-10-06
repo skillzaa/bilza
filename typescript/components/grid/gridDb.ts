@@ -32,10 +32,10 @@ this.lineDash =  [];
 
 //---works likemagin-setResp
 this.cellWidth = new AniNumberDb(cellWidth);
-this.cellWidth.setResp(true,this.canvasWidth);
+this.cellWidth.setResp(true,this.canvasWidth());
 //---works likemagin-setResp
 this.cellHeight = new AniNumberDb(cellHeight);
-this.cellHeight.setResp(true,this.canvasHeight);
+this.cellHeight.setResp(true,this.canvasHeight());
 
 this.showHorizontalLines = new AniBooleanDb(true);
 this.showVerticalLines = new AniBooleanDb(true);

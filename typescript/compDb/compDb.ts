@@ -110,16 +110,28 @@ compWidth(): number {
     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
     return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
 }   
+compWidthRaw(): number {
+return  this.contentWidthRaw() + this.paddingLeft.valueRaw() + this.paddingRight.valueRaw();
+}   
 compHeight(): number {
 //--Border is not included    
 return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+}
+compHeightRaw(): number {
+return this.contentHeightRaw() + this.paddingTop.valueRaw() + this.paddingBottom.valueRaw();
 }
 //--if the comp with and height is not = to width/height then override
 contentHeight(): number {
     return this.height.value();
 }
+contentHeightRaw(): number {
+    return this.height.valueRaw();
+}
 contentWidth(): number {
     return this.width.value();
+}
+contentWidthRaw(): number {
+    return this.width.valueRaw();
 }
 
 ////////----//////////////
@@ -146,22 +158,27 @@ getEndTime(inSec :boolean=true) :number{
 }
 
 setRespLoc(tf: boolean): boolean {
-this.x.setResp(tf, this.canvasWidth);    
-this.y.setResp(tf , this.canvasHeight);    
+this.x.setResp(tf, this.canvasWidth());    
+this.y.setResp(tf , this.canvasHeight());    
 return tf;    
 }
 
 setRespDims(tf: boolean): boolean {
-this.width.setResp(tf, this.canvasWidth);    
-this.height.setResp(tf , this.canvasHeight);    
+this.width.setResp(tf, this.canvasWidth());    
+this.height.setResp(tf , this.canvasHeight());    
 //--All padding are set resp to width since then they will be equal
-this.paddingLeft.setResp(tf,this.canvasWidth);    
-this.paddingRight.setResp(tf,this.canvasWidth);    
-this.paddingTop.setResp(tf,this.canvasWidth);    
-this.paddingBottom.setResp(tf,this.canvasWidth);    
+this.paddingLeft.setResp(tf,this.canvasWidth());    
+this.paddingRight.setResp(tf,this.canvasWidth());    
+this.paddingTop.setResp(tf,this.canvasWidth());    
+this.paddingBottom.setResp(tf,this.canvasWidth());    
 return tf;        
 }
-
+bottomEdge():number{
+return (this.canvasHeight() - this.compHeight()); 
+}
+rightEdge():number{
+return (this.canvasWidth() - this.compWidth()); 
+}
 //--dont remove but its bad design
 //@ts-expect-error
 getEngineComp(pack :Pack):CompEngine{

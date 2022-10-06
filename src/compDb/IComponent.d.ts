@@ -33,9 +33,13 @@ export default interface IComponent {
     align(x: 0 | 1 | 2 | null, y: 0 | 1 | 2 | null): void;
     alignRotate(x: 0 | 1 | 2 | null, y: 0 | 1 | 2 | null): void;
     compWidth(): number;
+    compWidthRaw(): number;
     compHeight(): number;
+    compHeightRaw(): number;
     contentWidth(): number;
+    contentWidthRaw(): number;
     contentHeight(): number;
+    contentHeightRaw(): number;
     setRespDims(tf: boolean): boolean;
     setRespLoc(tf: boolean): boolean;
     getDuration(): number;
@@ -43,7 +47,10 @@ export default interface IComponent {
     getEndTime(inMilliSec?: boolean): number;
     goto(atFrame: number, x: number, y: number): boolean;
     animate(secFrom: number, secTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
-    readonly canvasWidth: number;
-    readonly canvasHeight: number;
+    canvasWidth(): number;
+    canvasHeight(): number;
+    rightEdge(): number;
+    bottomEdge(): number;
+    setxy(x: number, y: number): void;
 }
 //# sourceMappingURL=IComponent.d.ts.map

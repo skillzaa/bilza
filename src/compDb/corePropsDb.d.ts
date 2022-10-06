@@ -27,11 +27,13 @@ export default class CorePropsDb {
     yAlign: 0 | 1 | 2;
     xRotate: 0 | 1 | 2;
     yRotate: 0 | 1 | 2;
-    canvasWidth: number;
-    canvasHeight: number;
+    private _canvasWidth;
+    private _canvasHeight;
     startTime: number;
     endTime: number;
     readonly insertAction: "add" | "append" | "alwaysOn";
     constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
+    canvasWidth(): number;
+    canvasHeight(): number;
 }
 //# sourceMappingURL=corePropsDb.d.ts.map

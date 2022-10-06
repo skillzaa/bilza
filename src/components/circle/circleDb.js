@@ -12,7 +12,12 @@ export default class CircleDb extends CompDb {
         this.strokeWidth = new AniNumberDb(1);
         this.color.set(color);
         this.width.set(Math.floor(radius * 2));
-        this.height.setResp(true, this.canvasWidth);
+    }
+    contentHeight() {
+        return this.width.value();
+    }
+    contentHeightRaw() {
+        return this.width.valueRaw();
     }
     getEngineComp(pack) {
         const comp = new Circle(this, pack);

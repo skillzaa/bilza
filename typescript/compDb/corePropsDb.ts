@@ -40,8 +40,8 @@ public yRotate : 0|1|2;
 
 
 ////////////////////////////////////
-canvasWidth :number;
-canvasHeight :number;
+private _canvasWidth :number;
+private _canvasHeight :number;
 startTime :number;
 endTime :number;
 readonly insertAction :"add"|"append" | "alwaysOn";
@@ -49,8 +49,8 @@ readonly insertAction :"add"|"append" | "alwaysOn";
 ////////////////////////////////////
 constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number){
 
-this.canvasWidth = canvasWidth;
-this.canvasHeight = canvasHeight;
+this._canvasWidth = canvasWidth;
+this._canvasHeight = canvasHeight;
 //---------------------------------------------
 
 this.id = Math.random().toString(36).slice(2);
@@ -93,6 +93,11 @@ this.xRotate =0;
 this.yRotate =0;
 
 }
-
+canvasWidth():number{
+return this._canvasWidth;
+}
+canvasHeight():number{
+return this._canvasHeight;
+}
 /////////////////////////////////////////////////////    
 }
