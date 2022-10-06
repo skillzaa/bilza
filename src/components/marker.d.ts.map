@@ -1,1 +1,1 @@
-{"version":3,"file":"marker.d.ts","sourceRoot":"","sources":["../../typescript/components/marker.ts"],"names":[],"mappings":""}
+{"version":3,"file":"marker.d.ts","sourceRoot":"","sources":["../../typescript/components/marker.ts"],"names":[],"mappings":"AACA,OAAO,MAAM,MAAM,oBAAoB,CAAC;AACxC,OAAO,aAAa,MAAM,8BAA8B,CAAC;AAEzD,MAAM,CAAC,OAAO,OAAO,MAAO,SAAQ,MAAM;gBAE7B,SAAS,EAAE,MAAM,EAAC,OAAO,EAAE,MAAM,EAAC,aAAa,EAAE,aAAa,EAAC,CAAC,GAAE,MAAS,EAAC,CAAC,GAAE,MAAS,EAAC,KAAK,GAAE,MAAY,EAAC,MAAM,SAAE;CAcjI"}

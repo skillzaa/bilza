@@ -18,6 +18,7 @@ export default class CompFactory {
     canvasBorder(color?: string, width?: number): ICanvasBorder;
     grid(color?: string, cellWidth?: number, cellHeight?: number): IGrid;
     circle(radius?: number, color?: string): ICircle;
+    marker(radius?: number, color?: string): ICircle;
     pic(imgUrl: string, width?: number, height?: number): IPic;
     line(x1: number, y1: number, x2: number, y2: number, color?: string): ILine;
 }

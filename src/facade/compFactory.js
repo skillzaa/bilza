@@ -3,6 +3,7 @@ import RectDB from "../components/rect/rectDb.js";
 import CanvasBorderDb from "../components/canvasBorder/canvasBorderDb.js";
 import GridDb from "../components/grid/gridDb.js";
 import CircleDb from "../components/circle/circleDb.js";
+import MarkerDb from "../components/circle/markerDb.js";
 import PicDb from "../components/pic/picDb.js";
 import LineDb from "../components/line/lineDb.js";
 export default class CompFactory {
@@ -36,6 +37,11 @@ export default class CompFactory {
     }
     circle(radius = 5, color = "black") {
         let g = new CircleDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, radius, color);
+        this.comps.push(g);
+        return g;
+    }
+    marker(radius = 5, color = "black") {
+        let g = new MarkerDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, radius, color);
         this.comps.push(g);
         return g;
     }

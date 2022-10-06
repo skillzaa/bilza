@@ -8,6 +8,7 @@ import ICanvasBorder from "../components/canvasBorder/ICanvasBorder.js";
 import GridDb from "../components/grid/gridDb.js";
 import IGrid from "../components/grid/IGrid.js";
 import CircleDb from "../components/circle/circleDb.js";
+import MarkerDb from "../components/circle/markerDb.js";
 import ICircle from "../components/circle/ICircle.js";
 import PicDb from "../components/pic/picDb.js";
 import IPic from "../components/pic/IPic.js";
@@ -58,6 +59,11 @@ return g;
 }
 circle(radius :number=5,color :string="black"):ICircle{
 let g = new CircleDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,radius,color);
+this.comps.push(g);
+return g;    
+}
+marker(radius :number=5,color :string="black"):ICircle{
+let g = new MarkerDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,radius,color);
 this.comps.push(g);
 return g;    
 }

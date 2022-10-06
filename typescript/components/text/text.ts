@@ -1,16 +1,16 @@
-// import Component from "../../component/component.js";
 // import Pack from "../../pack/pack.js";
-// import ComponentPack from "../../compiler/componentPack.js";
+// import CompEngine from "../../compEngine/compEngine.js";
+
 
 // import {FontFamily}  from "../../pack/fontFamily.js";
 // import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js"; 
 
 
 
-// import TextTempl from "./textTempl.js";
-// import TextTheme from "./textTheme.js";
+// // import TextTempl from "./textTempl.js";
+// // import TextTheme from "./textTheme.js";
 // //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-// export default class Text extends Component {
+// export default class Text extends CompEngine {
 // private _oldWidth :null|number;
 // private _oldHeight :null|number;
 
@@ -22,8 +22,8 @@
 // public fitToHeight :AniBoolean; 
 // public respFontSize :AniBoolean; 
 // /////////////////////////////////////////
-// public templ :TextTempl; 
-// public theme :TextTheme;
+// // public templ :TextTempl; 
+// // public theme :TextTheme;
 // // public static compClassName:string = "Text";
 // /////////////////////////////////////////
 // constructor (startTime :number,endTime :number,componentPack :ComponentPack,content :string="",colorHax :string="#000000"){
@@ -40,8 +40,8 @@
 // //-----------------------------
 // this.drawLayer = 2;//its default but for safety
 // //-----------------------------
-// this.templ = new TextTempl(this);
-// this.theme = new TextTheme(this);
+// // this.templ = new TextTempl(this);
+// // this.theme = new TextTheme(this);
 // //-----------------------------
 // this._oldWidth = null;
 // this._oldHeight = null;
