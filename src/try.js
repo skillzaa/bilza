@@ -10,6 +10,7 @@ circle.filled.set(true);
 circle.showBackground.set(true);
 circle.colorBackground.set(hsl(120));
 circle.setxy(0, 0);
+circle.align(1, 1);
 circle.goto(2, 50, 50);
 bil.draw();
 const ui = new Ui(bil.bil);

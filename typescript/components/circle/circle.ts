@@ -76,11 +76,10 @@ this.postDraw(p);
 //----------------------------
 return true;
 }
-
+ 
 contentHeight(): number {
-    // const ht  = (this.width.value() / this.canvasHeight()) * 100;
-    return this.width.value();
- }
+return this.width.value();
+}
 
 
 

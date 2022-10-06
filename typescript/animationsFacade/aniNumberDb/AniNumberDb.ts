@@ -79,7 +79,15 @@ const v = new Oscillate(StartSec * 1000,endSec * 1000,startValue,endValue,secPer
 this.addFilter(v);  
 }//oscialte
 
-///////////////////////////////////////////
+///--goto overridden from AniPropDb since it takes percentages
+public goto(atSec :number,value :number):boolean{
+     if (this.isResp()== true){
+        value = this.responsiveValue(value);
+    }
+    const v = new IdentityFil(atSec * 1000,(atSec * 1000) + 1000,value);
+    this.addFilter(v);
+    return false;//// new goto frame ADDED 
+}
 
 ///////////////////////////////////////////
 ///////////////////////////////////////////

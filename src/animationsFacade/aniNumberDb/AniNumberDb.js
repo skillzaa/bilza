@@ -3,6 +3,7 @@ import Increment from "./filters/increment.js";
 import Decrement from "./filters/decrement.js";
 import Random from "./filters/random.js";
 import Oscillate from "./filters/oscillatets.js";
+import IdentityFil from "../filters/identityFil.js";
 export default class AniNumberDb extends AniPropDb {
     constructor(initialValue) {
         super(initialValue);
@@ -59,5 +60,13 @@ export default class AniNumberDb extends AniPropDb {
         }
         const v = new Oscillate(StartSec * 1000, endSec * 1000, startValue, endValue, secPerIter * 1000, stopAt);
         this.addFilter(v);
+    }
+    goto(atSec, value) {
+        if (this.isResp() == true) {
+            value = this.responsiveValue(value);
+        }
+        const v = new IdentityFil(atSec * 1000, (atSec * 1000) + 1000, value);
+        this.addFilter(v);
+        return false;
     }
 }

@@ -17,7 +17,7 @@ export default class CircleDb extends CompDb implements ICircle {
 constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,radius :number,  color :string){
 
 super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
-
+ 
 this.lineWidth = new AniNumberDb(1);
 this.startAngle = new AniNumberDb(0);
 this.endAngle = new AniNumberDb(360);
