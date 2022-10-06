@@ -3,7 +3,7 @@ import CompDb from "../../compDb/compDb.js";
 import Rect from "./rect.js";
 import Pack from "../../pack/pack.js";
 import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
-import IRect from "./Irect.js";
+import IRect from "./IRect.js";
 
 
 export default class RectDb extends CompDb implements IRect {

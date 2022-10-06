@@ -1,0 +1,42 @@
+import compEngine from "../../compEngine/compEngine.js";
+import CompDb from "../../compDb/compDb.js";
+
+import ParticalSystem from "./particleSystem.js";
+import IParticleSystem from "./IParticleSystem.js";
+
+import Pack from "../../pack/pack.js";
+import {AniNumberDb,AniBooleanDb,AniColorDb} from "../../animationsFacade/animationsDb.js";
+ 
+//////////////////////////////////////////
+export default class ParticleSystemDb extends CompDb implements IParticleSystem {
+
+   public count :AniNumberDb;
+   public particleSize :AniNumberDb;
+   public lineWidth :AniNumberDb;
+   public filled :AniBooleanDb;
+   public lineColor :AniColorDb;
+
+
+
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,count :number= 20,color :string="#008000",delay :number=50){
+
+super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+this.count = new AniNumberDb( count );
+this.particleSize = new AniNumberDb( 5 );
+this.lineWidth = new AniNumberDb(1);
+this.delay = new AniNumberDb(delay);
+this.filled = new AniBooleanDb(true);
+this.lineColor = new AniColorDb(color);
+//---core prop
+this.color.set(color);
+} 
+ 
+getEngineComp(pack :Pack):compEngine{
+   const comp = new ParticalSystem(this,pack);
+   return comp; 
+}
+    
+}

@@ -1,5 +1,5 @@
 import IComponent from "../compDb/IComponent.js";
-import IRect from "../components/rect/Irect.js";
+import IRect from "../components/rect/IRect.js";
 import ICanvasBorder from "../components/canvasBorder/ICanvasBorder.js";
 import IGrid from "../components/grid/IGrid.js";
 import ICircle from "../components/circle/ICircle.js";
