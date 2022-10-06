@@ -4,6 +4,7 @@ import ICanvasBorder from "../components/canvasBorder/ICanvasBorder.js";
 import IGrid from "../components/grid/IGrid.js";
 import ICircle from "../components/circle/ICircle.js";
 import IPic from "../components/pic/IPic.js";
+import ILine from "../components/line/ILine.js";
 export default class CompFactory {
     private readonly startTime;
     private readonly endTime;
@@ -18,5 +19,6 @@ export default class CompFactory {
     grid(color?: string, cellWidth?: number, cellHeight?: number): IGrid;
     circle(radius?: number, color?: string): ICircle;
     pic(imgUrl: string, width?: number, height?: number): IPic;
+    line(x1: number, y1: number, x2: number, y2: number, color?: string): ILine;
 }
 //# sourceMappingURL=compFactory.d.ts.map

@@ -8,7 +8,6 @@ constructor(aniPropDb :AniPropDb<number>){
  
 super(aniPropDb);
 
-
 }
     
 ///////////////////////////////////////////////////////////

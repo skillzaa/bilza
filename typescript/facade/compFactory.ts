@@ -11,6 +11,8 @@ import CircleDb from "../components/circle/circleDb.js";
 import ICircle from "../components/circle/ICircle.js";
 import PicDb from "../components/pic/picDb.js";
 import IPic from "../components/pic/IPic.js";
+import LineDb from "../components/line/lineDb.js";
+import ILine from "../components/line/ILine.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -61,6 +63,11 @@ return g;
 }
 pic(imgUrl :string,width :number=25,height:number=25):IPic{
 let g = new PicDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,imgUrl,width,height);
+this.comps.push(g);
+return g;    
+}
+line( x1 :number , y1 :number , x2 :number ,y2 :number,color:string="black"):ILine{
+let g = new LineDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,x1,y1,x2,y2,color);
 this.comps.push(g);
 return g;    
 }
