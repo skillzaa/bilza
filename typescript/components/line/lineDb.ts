@@ -35,6 +35,10 @@ getEngineComp(pack :Pack):compEngine{
    const comp = new Line(this,pack);
    return comp; 
 }
+/**
+ * line comp is drawn differently- so we do not want to change align at all since that will add extra addition/sub in calc.
+ * in the rotate align as well we should just change x value and not y
+ */
 
 public align(x: number | null=null, y: number | null=null): void {
    //--we do not align line comp so there is no add / sub in the x/y value    

@@ -68,7 +68,9 @@ if (this.bil == null){throw new Error("init error"); }
 this.bil.stop();
 }
 
-
+getEngine():Engine | null{    
+return this.bil;    
+}
 
 resizeCanvas(){
 

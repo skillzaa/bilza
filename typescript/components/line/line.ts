@@ -56,9 +56,6 @@ return Math.floor(Math.abs(this.x2.value() - this.x.value()));
 compHeight(): number {
     return this.lineWidth.value();
 }
-/**
- * line comp is drawn differently- so we do not want to change align at all since that will add extra addition/sub in calc.
- * in the rotate align as well we should just change x value and not y
- */
+
 
 }//class

@@ -1,3 +1,4 @@
+import Engine from "../engine/engine.js";
 import CompFactory from "./compFactory.js";
 import BackgroundDb from "../components/background/backgroundDb.js";
 export default class Bilza {
@@ -13,6 +14,7 @@ export default class Bilza {
     draw(timeSec?: number): void;
     start(): void;
     stop(): void;
+    getEngine(): Engine | null;
     resizeCanvas(): void;
 }
 //# sourceMappingURL=bilza.d.ts.map
