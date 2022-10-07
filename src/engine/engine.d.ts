@@ -21,5 +21,6 @@ export default class Engine {
     stop(): boolean;
     protected getLastMsDelta(): number;
     isRunning(): boolean;
+    resizeCanvas(width: number, height: number | null): void;
 }
 //# sourceMappingURL=engine.d.ts.map

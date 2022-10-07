@@ -14,12 +14,15 @@ public charsWidth : (chars:string,fontSize:number,fontName:string)=> number;
 
 // public readonly pack:Pack;
 public backgroundDb :BackgroundDb;
+
+// /------------------------
+private responsiveMode :boolean;
 //////////////////////////////////////////////
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 this.canvasId = canvasId;
 this.canvasWidthPerc = canvasWidthPerc;
 const pack = new Pack(this.canvasId,this.canvasWidthPerc);
-
+this.responsiveMode = true;
 //---This is where the canvas width and height begin
 this.canvasWidth =  pack.canvasWidth();
 this.canvasHeight = pack.canvasHeight(); //--took me one hour
@@ -31,6 +34,14 @@ this.canvasWidth,this.canvasHeight,"#efeee3");
 
 }
 
+// setResponsiveMode(responsiveMode :boolean,canvasWidth :number| null=null, canvasHeight :number | null=null){
+// if (responsiveMode==true && canvasWidth == null){throw new Error("for responsive mode providing canvas width is must");}
+// this.responsiveMode = responsiveMode;
+// }
 
-    
+
+
+
+
+///////////////////////////////////////////
 }

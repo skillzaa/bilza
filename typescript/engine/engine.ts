@@ -115,7 +115,7 @@ return true;
 private drawLoop(){
 //-1
 if (this.stopWatch.isRunning()==false){return;}    
-//-2
+//-2 
 const msDelta = this.stopWatch.getMsDelta();
 //-3
 if(msDelta >= this.durationInMs() ){ this.stopWatch.stop();}             
@@ -160,6 +160,10 @@ return this.lastMsDelta;
 isRunning():boolean{
     return this.stopWatch.isRunning();
 }
-    
+  
+
+public resizeCanvas(width :number, height :number | null){
+    this.pack.resizeCanvas(width, height);    
+}
 ////////////////////////////////////engine ends
 }//ends

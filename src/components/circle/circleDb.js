@@ -16,9 +16,6 @@ export default class CircleDb extends CompDb {
     contentHeight() {
         return this.width.value();
     }
-    contentHeightRaw() {
-        return this.width.valueRaw();
-    }
     getEngineComp(pack) {
         const comp = new Circle(this, pack);
         return comp;

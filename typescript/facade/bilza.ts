@@ -73,9 +73,10 @@ getEngine():Engine | null{
 return this.bil;    
 }
 
-resizeCanvas(){
+// resizeCanvas(){
+// // this.bil.resi
+// }
 
-}
 
 ////////////////////////////////////
 }

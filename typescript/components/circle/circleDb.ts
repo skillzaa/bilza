@@ -28,19 +28,16 @@ this.strokeWidth = new AniNumberDb(1);
 this.color.set(color);
 this.width.set(Math.floor(radius * 2));
 
-//--special for circle
-// this.height.setResp(true,this.canvasWidth);
-// this.height.set(this.width.valueRaw());
 } 
-//--This is always in pix 
+
 contentHeight(): number {
    // const ht  = (this.width.value() / this.canvasHeight()) * 100;
    return this.width.value();
 }
 //--This may be Pix (if prop is non-responsive) or may be percentage (if prop is responsive)
-contentHeightRaw(): number {
-   return this.width.valueRaw();
-}
+// contentHeightRaw(): number {
+//    return this.width.valueRaw();
+// }
    
 getEngineComp(pack :Pack):compEngine{
    const comp = new Circle(this,pack);

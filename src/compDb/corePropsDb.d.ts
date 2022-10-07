@@ -1,6 +1,4 @@
-import AniNumberDb from "../animationsFacade/aniNumberDb/AniNumberDb.js";
-import AniColorDb from "../animationsFacade/aniColorDb/AniColorDb.js";
-import AniBooleanDb from "../animationsFacade/aniBooleanDb/AniBooleanDb.js";
+import { AniNumberDb, AniPercDb, AniBooleanDb, AniColorDb } from "../animationsFacade/animationsDb.js";
 export default class CorePropsDb {
     readonly id: string;
     border: AniNumberDb;
@@ -9,7 +7,7 @@ export default class CorePropsDb {
     color: AniColorDb;
     drawLayer: 0 | 1 | 2 | 3 | 4;
     selected: boolean;
-    height: AniNumberDb;
+    height: AniPercDb;
     rotation: AniNumberDb;
     opacity: AniNumberDb;
     paddingTop: AniNumberDb;
@@ -19,9 +17,9 @@ export default class CorePropsDb {
     showBackground: AniBooleanDb;
     visible: AniBooleanDb;
     version: string;
-    width: AniNumberDb;
-    x: AniNumberDb;
-    y: AniNumberDb;
+    width: AniPercDb;
+    x: AniPercDb;
+    y: AniPercDb;
     alwaysOn: boolean;
     xAlign: 0 | 1 | 2;
     yAlign: 0 | 1 | 2;

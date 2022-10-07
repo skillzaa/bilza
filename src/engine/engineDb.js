@@ -5,6 +5,7 @@ export default class EngineDb {
         this.canvasId = canvasId;
         this.canvasWidthPerc = canvasWidthPerc;
         const pack = new Pack(this.canvasId, this.canvasWidthPerc);
+        this.responsiveMode = true;
         this.canvasWidth = pack.canvasWidth();
         this.canvasHeight = pack.canvasHeight();
         this.charsWidth = pack.charsWidth.bind(pack);

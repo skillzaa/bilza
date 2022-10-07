@@ -6,6 +6,7 @@ export default class EngineDb {
     readonly canvasHeight: number;
     charsWidth: (chars: string, fontSize: number, fontName: string) => number;
     backgroundDb: BackgroundDb;
+    private responsiveMode;
     constructor(canvasId?: string, canvasWidthPerc?: number);
 }
 //# sourceMappingURL=engineDb.d.ts.map

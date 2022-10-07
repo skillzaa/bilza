@@ -95,4 +95,7 @@ export default class Engine {
     isRunning() {
         return this.stopWatch.isRunning();
     }
+    resizeCanvas(width, height) {
+        this.pack.resizeCanvas(width, height);
+    }
 }

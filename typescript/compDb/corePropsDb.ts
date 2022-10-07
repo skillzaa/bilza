@@ -1,7 +1,4 @@
-import AniNumberDb from "../animationsFacade/aniNumberDb/AniNumberDb.js";
-import AniStringDb from "../animationsFacade/aniStringDb/AniStringDb.js";
-import AniColorDb from "../animationsFacade/aniColorDb/AniColorDb.js";
-import AniBooleanDb from "../animationsFacade/aniBooleanDb/AniBooleanDb.js";
+import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../animationsFacade/animationsDb.js";
 
 
 export default class CorePropsDb   {
@@ -16,7 +13,7 @@ public colorBorder :AniColorDb;
 public color :AniColorDb;
 public drawLayer :0|1|2|3|4;
 public selected: boolean;
-public height :AniNumberDb;
+public height :AniPercDb;  //AniPercDb
 public rotation :AniNumberDb;
 public opacity :AniNumberDb;
 public paddingTop    :AniNumberDb;        
@@ -26,9 +23,9 @@ public paddingLeft   :AniNumberDb;
 public showBackground :AniBooleanDb;
 public visible: AniBooleanDb;
 public version :string;
-public width :AniNumberDb;
-public x :AniNumberDb;
-public y :AniNumberDb;
+public width :AniPercDb; //AniPercDb
+public x :AniPercDb; //AniPercDb
+public y :AniPercDb; //AniPercDb 
 /////////////////////////////////////////////
 public alwaysOn :boolean;
 
@@ -70,7 +67,7 @@ this.border = new AniNumberDb(0);
 this.colorBackground = new AniColorDb("white");
 this.colorBorder = new AniColorDb("black");
 this.color = new AniColorDb("black");
-this.height = new AniNumberDb(10);
+this.height = new AniPercDb(10,this.canvasHeight());
 this.opacity = new AniNumberDb(100);
 this.paddingTop = new AniNumberDb(0);
 this.paddingBottom = new AniNumberDb(0);
@@ -81,10 +78,10 @@ this.selected = false;
 this.showBackground = new AniBooleanDb(false);
 this.visible = new AniBooleanDb(true);
 this.version = "0.1.2";
-this.width = new AniNumberDb(10);
 
-this.x = new AniNumberDb(0);
-this.y = new AniNumberDb(0);
+this.width = new AniPercDb(10,this.canvasWidth() );
+this.x = new AniPercDb(0 , this.canvasWidth() );
+this.y = new AniPercDb(0 , this.canvasHeight());
 
 /////////////////
 this.xAlign =0;

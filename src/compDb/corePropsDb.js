@@ -1,6 +1,4 @@
-import AniNumberDb from "../animationsFacade/aniNumberDb/AniNumberDb.js";
-import AniColorDb from "../animationsFacade/aniColorDb/AniColorDb.js";
-import AniBooleanDb from "../animationsFacade/aniBooleanDb/AniBooleanDb.js";
+import { AniNumberDb, AniPercDb, AniBooleanDb, AniColorDb } from "../animationsFacade/animationsDb.js";
 export default class CorePropsDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight) {
         this._canvasWidth = canvasWidth;
@@ -20,7 +18,7 @@ export default class CorePropsDb {
         this.colorBackground = new AniColorDb("white");
         this.colorBorder = new AniColorDb("black");
         this.color = new AniColorDb("black");
-        this.height = new AniNumberDb(10);
+        this.height = new AniPercDb(10, this.canvasHeight());
         this.opacity = new AniNumberDb(100);
         this.paddingTop = new AniNumberDb(0);
         this.paddingBottom = new AniNumberDb(0);
@@ -31,9 +29,9 @@ export default class CorePropsDb {
         this.showBackground = new AniBooleanDb(false);
         this.visible = new AniBooleanDb(true);
         this.version = "0.1.2";
-        this.width = new AniNumberDb(10);
-        this.x = new AniNumberDb(0);
-        this.y = new AniNumberDb(0);
+        this.width = new AniPercDb(10, this.canvasWidth());
+        this.x = new AniPercDb(0, this.canvasWidth());
+        this.y = new AniPercDb(0, this.canvasHeight());
         this.xAlign = 0;
         this.yAlign = 0;
         this.xRotate = 0;

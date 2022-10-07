@@ -55,6 +55,4 @@ export default class Bilza {
     getEngine() {
         return this.bil;
     }
-    resizeCanvas() {
-    }
 }
