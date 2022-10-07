@@ -1,5 +1,5 @@
 import CompDb from "../../compDb/compDb.js";
-import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
+import { AniNumberDb, AniPercDb } from "../../animationsFacade/animationsDb.js";
 import Line from "./line.js";
 export default class LineDb extends CompDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, x1, y1, x2, y2, color = "black") {
@@ -8,12 +8,8 @@ export default class LineDb extends CompDb {
         this.lineWidth = new AniNumberDb(1);
         this.x.set(x1);
         this.y.set(y1);
-        this.x.setResp(true, this.canvasWidth());
-        this.y.setResp(true, this.canvasHeight());
-        this.x2 = new AniNumberDb(x2);
-        this.x2.setResp(true, this.canvasWidth());
-        this.y2 = new AniNumberDb(y2);
-        this.y2.setResp(true, this.canvasHeight());
+        this.x2 = new AniPercDb(x2, this.canvasWidth());
+        this.y2 = new AniPercDb(y2, this.canvasHeight());
     }
     getEngineComp(pack) {
         const comp = new Line(this, pack);

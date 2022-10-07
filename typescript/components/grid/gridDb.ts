@@ -2,9 +2,8 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import IGrid from "./IGrid.js";
 import Pack from "../../pack/pack.js";
-import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
-import AniColorDb from "../../animationsFacade/aniColorDb/AniColorDb.js";
-import AniBooleanDb from "../../animationsFacade/aniBooleanDb/AniBooleanDb.js";
+
+import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../../animationsFacade/animationsDb.js";
 
 import Grid from "./grid.js";
 
@@ -31,11 +30,11 @@ super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
 this.lineDash =  [];
 
 //---works likemagin-setResp
-this.cellWidth = new AniNumberDb(cellWidth);
-this.cellWidth.setResp(true,this.canvasWidth());
+this.cellWidth = new AniPercDb(cellWidth,this.canvasWidth());
+// this.cellWidth.setResp(true,this.canvasWidth());
 //---works likemagin-setResp
-this.cellHeight = new AniNumberDb(cellHeight);
-this.cellHeight.setResp(true,this.canvasHeight());
+this.cellHeight = new AniPercDb(cellHeight , this.canvasHeight());
+// this.cellHeight.setResp(true,this.canvasHeight());
 
 this.showHorizontalLines = new AniBooleanDb(true);
 this.showVerticalLines = new AniBooleanDb(true);

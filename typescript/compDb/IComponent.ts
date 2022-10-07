@@ -48,20 +48,24 @@ alwaysOn :boolean;
 align(x : 0|1|2|null, y :0|1|2|null):void;
 alignRotate(x : 0|1|2|null, y :0|1|2|null):void;
 
-compWidth():number;
-compWidthRaw():number;
-compHeight():number;
-compHeightRaw():number;
 
 //--At times the width / height may not be equal to contentWidth and contentHeight so we have these functions. 
 //--They will always return the correct content width/height even in case of text.
-contentWidth():number;
-contentWidthRaw():number;
-contentHeight():number;
-contentHeightRaw():number;
+contentWidthPerc():number;
+contentWidthPix():number;
 
-setRespDims(tf :boolean):boolean;
-setRespLoc(tf :boolean):boolean;
+contentHeightPerc():number;
+contentHeightPix():number;
+
+compHeightPerc():number;
+compHeightPix():number;
+
+compWidthPerc():number;
+compWidthPix():number;
+
+
+// setRespDims(tf :boolean):boolean;
+// setRespLoc(tf :boolean):boolean;
 
 getDuration():number
 getStartTime(inMilliSec ?:boolean) :number;
@@ -77,8 +81,10 @@ animate(secFrom :number,secTo :number,
 ///////////////////--put this in DB to end init once and for all
 canvasWidth() :number;
 canvasHeight() :number;
-rightEdge() :number;
-bottomEdge() :number;
+rightEdgePix() :number;
+rightEdgePerc() :number;
+bottomEdgePix() :number;
+bottomEdgePerc() :number;
 ////////////////////////////////    
 setxy(x :number, y :number):void;
 setPaddings(n :number):void;

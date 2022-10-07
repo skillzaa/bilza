@@ -8,7 +8,7 @@ import ICanvasBorder from "../components/canvasBorder/ICanvasBorder.js";
 import GridDb from "../components/grid/gridDb.js";
 import IGrid from "../components/grid/IGrid.js";
 import CircleDb from "../components/circle/circleDb.js";
-import MarkerDb from "../components/circle/markerDb.js";
+// import MarkerDb from "../components/circle/markerDb.js";
 import ICircle from "../components/circle/ICircle.js";
 import PicDb from "../components/pic/picDb.js";
 import IPic from "../components/pic/IPic.js";
@@ -20,8 +20,8 @@ import IParticleSystem from "../components/particleSystem/IParticleSystem.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 import IText from "../components/text/IText.js";
 import TextDB from "../components/text/textDb.js";
-import IArc from "../components/arc/IArc.js";
-import ArcDb from "../components/arc/arcDb.js";
+// import IArc from "../components/arc/IArc.js";
+// import ArcDb from "../components/arc/arcDb.js";
 import ICurve from "../components/curve/ICurve.js";
 import CurveDb from "../components/curve/curveDb.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -52,12 +52,12 @@ this.charsWidth = charsWidth;
 
 
 ///////////////////////////////////////////////
-arc(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):IArc{
+// arc(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):IArc{
 
-let g = new ArcDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, startX,startY,midX,midY,endX,endY, color);
-this.comps.push(g);
-return g;    
-}
+// let g = new ArcDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, startX,startY,midX,midY,endX,endY, color);
+// this.comps.push(g);
+// return g;    
+// }
 curve(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):ICurve{
 
 let g = new CurveDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, startX,startY,midX,midY,endX,endY, color);
@@ -110,11 +110,11 @@ let g = new CircleDb (this.startTime,this.endTime,this.insertAction,this.canvasW
 this.comps.push(g);
 return g;    
 }
-marker(radius :number=5,color :string="black"):ICircle{
-let g = new MarkerDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,radius,color);
-this.comps.push(g);
-return g;    
-}
+// marker(radius :number=5,color :string="black"):ICircle{
+// let g = new MarkerDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,radius,color);
+// this.comps.push(g);
+// return g;    
+// }
 pic(imgUrl :string,width :number=25,height:number=25):IPic{
 let g = new PicDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,imgUrl,width,height);
 this.comps.push(g);

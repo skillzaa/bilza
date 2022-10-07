@@ -3,13 +3,11 @@ import RectDB from "../components/rect/rectDb.js";
 import CanvasBorderDb from "../components/canvasBorder/canvasBorderDb.js";
 import GridDb from "../components/grid/gridDb.js";
 import CircleDb from "../components/circle/circleDb.js";
-import MarkerDb from "../components/circle/markerDb.js";
 import PicDb from "../components/pic/picDb.js";
 import LineDb from "../components/line/lineDb.js";
 import ArrowDb from "../components/arrow/arrowDb.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 import TextDB from "../components/text/textDb.js";
-import ArcDb from "../components/arc/arcDb.js";
 import CurveDb from "../components/curve/curveDb.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight, charsWidth) {
@@ -20,11 +18,6 @@ export default class CompFactory {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
         this.charsWidth = charsWidth;
-    }
-    arc(startX, startY, midX, midY, endX, endY, color = "black") {
-        let g = new ArcDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, startX, startY, midX, midY, endX, endY, color);
-        this.comps.push(g);
-        return g;
     }
     curve(startX, startY, midX, midY, endX, endY, color = "black") {
         let g = new CurveDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, startX, startY, midX, midY, endX, endY, color);
@@ -68,11 +61,6 @@ export default class CompFactory {
     }
     circle(radius = 5, color = "black") {
         let g = new CircleDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, radius, color);
-        this.comps.push(g);
-        return g;
-    }
-    marker(radius = 5, color = "black") {
-        let g = new MarkerDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, radius, color);
         this.comps.push(g);
         return g;
     }

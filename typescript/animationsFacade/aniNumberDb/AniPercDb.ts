@@ -20,7 +20,7 @@ public value():number{
     return this.responsiveValue(super.value());        
 }
 
-public valueRaw():number{
+public valuePerc():number{
     return super.value();
  
 }

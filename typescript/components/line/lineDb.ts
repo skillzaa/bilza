@@ -1,7 +1,9 @@
 import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import Pack from "../../pack/pack.js";
-import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
+
+import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../../animationsFacade/animationsDb.js";
+
 import Line from "./line.js";
 import ILine from "./ILine.js";
 
@@ -20,14 +22,14 @@ this.lineWidth = new AniNumberDb(1);
 this.x.set(x1);
 this.y.set(y1);
 
-this.x.setResp(true,this.canvasWidth()); //for-safety
-this.y.setResp(true,this.canvasHeight()); //for-safety
+// this.x.setResp(true,this.canvasWidth()); //for-safety
+// this.y.setResp(true,this.canvasHeight()); //for-safety
 
-this.x2 = new AniNumberDb(x2);
-this.x2.setResp(true,this.canvasWidth());
+this.x2 = new AniPercDb(x2,this.canvasWidth());
+// this.x2.setResp(true,this.canvasWidth());
 
-this.y2 = new AniNumberDb(y2);
-this.y2.setResp(true,this.canvasHeight());
+this.y2 = new AniPercDb(y2 , this.canvasHeight());
+// this.y2.setResp(true,this.canvasHeight());
 
 } 
  

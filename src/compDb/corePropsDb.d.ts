@@ -10,10 +10,10 @@ export default class CorePropsDb {
     height: AniPercDb;
     rotation: AniNumberDb;
     opacity: AniNumberDb;
-    paddingTop: AniNumberDb;
-    paddingBottom: AniNumberDb;
-    paddingRight: AniNumberDb;
-    paddingLeft: AniNumberDb;
+    paddingTop: AniPercDb;
+    paddingBottom: AniPercDb;
+    paddingRight: AniPercDb;
+    paddingLeft: AniPercDb;
     showBackground: AniBooleanDb;
     visible: AniBooleanDb;
     version: string;

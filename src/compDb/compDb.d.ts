@@ -12,23 +12,23 @@ export default class CompDb extends CoreProps implements IComponent {
     yAligned(): number;
     setPaddings(n: number): void;
     animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
-    compWidth(): number;
-    compWidthRaw(): number;
-    compHeight(): number;
-    compHeightRaw(): number;
-    contentHeight(): number;
-    contentHeightRaw(): number;
-    contentWidth(): number;
-    contentWidthRaw(): number;
+    compWidthPix(): number;
+    compWidthPerc(): number;
+    compHeightPix(): number;
+    compHeightPerc(): number;
+    contentHeightPix(): number;
+    contentHeightPerc(): number;
+    contentWidthPix(): number;
+    contentWidthPerc(): number;
     getDuration(): number;
     goto(atFrame: number, x: number, y: number): boolean;
     setxy(x: number, y: number): void;
     getStartTime(inSec?: boolean): number;
     getEndTime(inSec?: boolean): number;
-    setRespLoc(tf: boolean): boolean;
-    setRespDims(tf: boolean): boolean;
-    bottomEdge(): number;
-    rightEdge(): number;
+    bottomEdgePix(): number;
+    bottomEdgePerc(): number;
+    rightEdgePix(): number;
+    rightEdgePerc(): number;
     getEngineComp(pack: Pack): CompEngine;
 }
 //# sourceMappingURL=compDb.d.ts.map

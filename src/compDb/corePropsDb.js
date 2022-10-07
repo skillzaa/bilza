@@ -20,10 +20,10 @@ export default class CorePropsDb {
         this.color = new AniColorDb("black");
         this.height = new AniPercDb(10, this.canvasHeight());
         this.opacity = new AniNumberDb(100);
-        this.paddingTop = new AniNumberDb(0);
-        this.paddingBottom = new AniNumberDb(0);
-        this.paddingRight = new AniNumberDb(0);
-        this.paddingLeft = new AniNumberDb(0);
+        this.paddingTop = new AniPercDb(0, this.canvasHeight());
+        this.paddingBottom = new AniPercDb(0, this.canvasHeight());
+        this.paddingRight = new AniPercDb(0, this.canvasWidth());
+        this.paddingLeft = new AniPercDb(0, this.canvasWidth());
         this.rotation = new AniNumberDb(0);
         this.selected = false;
         this.showBackground = new AniBooleanDb(false);

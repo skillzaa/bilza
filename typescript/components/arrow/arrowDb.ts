@@ -1,14 +1,19 @@
+import Pack from "../../pack/pack.js";
+
 import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
+
 import Arrow from "./arrow.js";
-import Pack from "../../pack/pack.js";
-import {AniNumberDb,AniColorDb,AniBooleanDb} from "../../animationsFacade/animationsDb.js";
 import IArrow from "./IArrow.js";
 
+import {AniNumberDb,AniPercDb,AniColorDb,AniBooleanDb} from "../../animationsFacade/animationsDb.js";
+
+
+/////----------------------------------------------------------
 
 export default class ArrowDb extends CompDb implements IArrow {
-   x2 : AniNumberDb;
-   y2 : AniNumberDb;
+   x2 : AniPercDb;
+   y2 : AniPercDb;
    headWidth :AniNumberDb;
    headHeight :AniNumberDb;
    headFilled :AniBooleanDb;
@@ -23,11 +28,9 @@ super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
 this.x.set(x1);
 this.y.set(y1);
 
-this.x2 = new AniNumberDb(x2);
-this.y2 = new AniNumberDb(y2);
+this.x2 = new AniPercDb(x2 , this.canvasWidth());
+this.y2 = new AniPercDb(y2 , this.canvasHeight());
 
-this.x2.setResp(true,this.canvasWidth() );
-this.y2.setResp(true,this.canvasHeight() );
 
 this.headWidth = new AniNumberDb(75);
 this.headHeight = new AniNumberDb(40);

@@ -2,8 +2,6 @@ import CoreProps from "./corePropsDb.js";
 export default class CompDb extends CoreProps {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight) {
         super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
-        this.setRespDims(true);
-        this.setRespLoc(true);
     }
     align(x = null, y = null) {
         if (x !== null) {
@@ -27,10 +25,10 @@ export default class CompDb extends CoreProps {
             case 0:
                 break;
             case 1:
-                x = x + (this.compWidth() / 2);
+                x = x + (this.compWidthPix() / 2);
                 break;
             case 2:
-                x = x + this.compWidth();
+                x = x + this.compWidthPix();
                 break;
         }
         return x;
@@ -41,10 +39,10 @@ export default class CompDb extends CoreProps {
             case 0:
                 break;
             case 1:
-                y = y - (this.compHeight() / 2);
+                y = y - (this.compHeightPix() / 2);
                 break;
             case 2:
-                y = y - this.compHeight();
+                y = y - this.compHeightPix();
                 break;
         }
         return y;
@@ -55,10 +53,10 @@ export default class CompDb extends CoreProps {
             case 0:
                 break;
             case 1:
-                x = x - (this.compWidth() / 2);
+                x = x - (this.compWidthPix() / 2);
                 break;
             case 2:
-                x = x - this.compWidth();
+                x = x - this.compWidthPix();
                 break;
         }
         return x;
@@ -69,10 +67,10 @@ export default class CompDb extends CoreProps {
             case 0:
                 break;
             case 1:
-                y = y - (this.compHeight() / 2);
+                y = y - (this.compHeightPix() / 2);
                 break;
             case 2:
-                y = y - this.compHeight();
+                y = y - this.compHeightPix();
                 break;
         }
         return y;
@@ -88,29 +86,29 @@ export default class CompDb extends CoreProps {
         this.y.animate(timeFrom, timeTo, yFrom, yTo);
         return true;
     }
-    compWidth() {
-        return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
+    compWidthPix() {
+        return this.contentWidthPix() + this.paddingLeft.value() + this.paddingRight.value();
     }
-    compWidthRaw() {
-        return this.contentWidthRaw() + this.paddingLeft.valueRaw() + this.paddingRight.valueRaw();
+    compWidthPerc() {
+        return this.contentWidthPerc() + this.paddingLeft.valuePerc() + this.paddingRight.valuePerc();
     }
-    compHeight() {
-        return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+    compHeightPix() {
+        return this.contentHeightPix() + this.paddingTop.value() + this.paddingBottom.value();
     }
-    compHeightRaw() {
-        return this.contentHeightRaw() + this.paddingTop.valueRaw() + this.paddingBottom.valueRaw();
+    compHeightPerc() {
+        return this.contentHeightPerc() + this.paddingTop.valuePerc() + this.paddingBottom.valuePerc();
     }
-    contentHeight() {
+    contentHeightPix() {
         return this.height.value();
     }
-    contentHeightRaw() {
-        return this.height.valueRaw();
+    contentHeightPerc() {
+        return this.height.valuePerc();
     }
-    contentWidth() {
+    contentWidthPix() {
         return this.width.value();
     }
-    contentWidthRaw() {
-        return this.width.valueRaw();
+    contentWidthPerc() {
+        return this.width.valuePerc();
     }
     getDuration() {
         return this.endTime - this.startTime;
@@ -130,25 +128,17 @@ export default class CompDb extends CoreProps {
     getEndTime(inSec = true) {
         return inSec ? this.endTime : (this.endTime * 1000);
     }
-    setRespLoc(tf) {
-        this.x.setResp(tf, this.canvasWidth());
-        this.y.setResp(tf, this.canvasHeight());
-        return tf;
+    bottomEdgePix() {
+        return (this.canvasHeight() - this.compHeightPix());
     }
-    setRespDims(tf) {
-        this.width.setResp(tf, this.canvasWidth());
-        this.height.setResp(tf, this.canvasHeight());
-        this.paddingLeft.setResp(tf, this.canvasWidth());
-        this.paddingRight.setResp(tf, this.canvasWidth());
-        this.paddingTop.setResp(tf, this.canvasWidth());
-        this.paddingBottom.setResp(tf, this.canvasWidth());
-        return tf;
+    bottomEdgePerc() {
+        return (100 - this.compHeightPerc());
     }
-    bottomEdge() {
-        return (this.canvasHeight() - this.compHeight());
+    rightEdgePix() {
+        return (this.canvasWidth() - this.compWidthPix());
     }
-    rightEdge() {
-        return (this.canvasWidth() - this.compWidth());
+    rightEdgePerc() {
+        return (100 - this.compWidthPerc());
     }
     getEngineComp(pack) {
     }

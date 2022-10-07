@@ -11,8 +11,8 @@ constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "al
 
 super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
 ////////--set some props as responsive by default
-this.setRespDims(true);
-this.setRespLoc(true);
+// this.setRespDims(true);
+// this.setRespLoc(true);
 }
 ////////////////////////////////////////////////
 public align(x : 0|1|2|null=null, y :0|1|2|null=null){
@@ -39,10 +39,10 @@ switch (this.xRotate) {
     //--nothing        
     break;
     case 1:
-    x = x + (this.compWidth()/2);    
+    x = x + (this.compWidthPix()/2);    
     break;
     case 2:
-    x = x + this.compWidth();    
+    x = x + this.compWidthPix();    
     break;
 }
 return x;    
@@ -54,10 +54,10 @@ switch (this.yRotate) {
     //--nothing        
     break;
     case 1:
-    y = y - (this.compHeight()/2);    
+    y = y - (this.compHeightPix()/2);    
     break;
     case 2:
-    y = y - this.compHeight();    
+    y = y - this.compHeightPix();    
     break;
 }
 return y;    
@@ -70,10 +70,10 @@ switch (this.xAlign) {
     //--nothing        
     break;
     case 1:
-    x = x - (this.compWidth()/2);    
+    x = x - (this.compWidthPix()/2);    
     break;
     case 2:
-    x = x - this.compWidth();    
+    x = x - this.compWidthPix();    
     break;
 }
 return x;    
@@ -85,10 +85,10 @@ switch (this.yAlign) {
     //--nothing        
     break;
     case 1:
-    y = y - (this.compHeight()/2);    
+    y = y - (this.compHeightPix()/2);    
     break;
     case 2:
-    y = y - this.compHeight();    
+    y = y - this.compHeightPix();    
     break;
 }
 return y;    
@@ -106,32 +106,32 @@ this.y.animate(timeFrom,timeTo,yFrom,yTo);
 return true;    
 }
 
-compWidth(): number {
+compWidthPix(): number {
     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
-    return this.contentWidth() + this.paddingLeft.value() + this.paddingRight.value();
+    return this.contentWidthPix() + this.paddingLeft.value() + this.paddingRight.value();
 }   
-compWidthRaw(): number {
-return  this.contentWidthRaw() + this.paddingLeft.valueRaw() + this.paddingRight.valueRaw();
+compWidthPerc(): number {
+return  this.contentWidthPerc() + this.paddingLeft.valuePerc() + this.paddingRight.valuePerc();
 }   
-compHeight(): number {
+compHeightPix(): number {
 //--Border is not included    
-return this.contentHeight() + this.paddingTop.value() + this.paddingBottom.value();
+return this.contentHeightPix() + this.paddingTop.value() + this.paddingBottom.value();
 }
-compHeightRaw(): number {
-return this.contentHeightRaw() + this.paddingTop.valueRaw() + this.paddingBottom.valueRaw();
+compHeightPerc(): number {
+return this.contentHeightPerc() + this.paddingTop.valuePerc() + this.paddingBottom.valuePerc();
 }
 //--if the comp with and height is not = to width/height then override
-contentHeight(): number {
+contentHeightPix(): number {
     return this.height.value();
 }
-contentHeightRaw(): number {
-    return this.height.valueRaw();
+contentHeightPerc(): number {
+    return this.height.valuePerc();
 }
-contentWidth(): number {
+contentWidthPix(): number {
     return this.width.value();
 }
-contentWidthRaw(): number {
-    return this.width.valueRaw();
+contentWidthPerc(): number {
+    return this.width.valuePerc();
 }
 
 ////////----//////////////
@@ -157,28 +157,22 @@ getEndTime(inSec :boolean=true) :number{
     return inSec ? this.endTime : (this.endTime * 1000);
 }
 
-setRespLoc(tf: boolean): boolean {
-this.x.setResp(tf, this.canvasWidth());    
-this.y.setResp(tf , this.canvasHeight());    
-return tf;    
+
+bottomEdgePix():number{
+return (this.canvasHeight() - this.compHeightPix()); 
 }
 
-setRespDims(tf: boolean): boolean {
-this.width.setResp(tf, this.canvasWidth());    
-this.height.setResp(tf , this.canvasHeight());    
-//--All padding are set resp to width since then they will be equal
-this.paddingLeft.setResp(tf,this.canvasWidth());    
-this.paddingRight.setResp(tf,this.canvasWidth());    
-this.paddingTop.setResp(tf,this.canvasWidth());    
-this.paddingBottom.setResp(tf,this.canvasWidth());    
-return tf;        
+bottomEdgePerc():number{
+return  ( 100 - this.compHeightPerc() );     
 }
-bottomEdge():number{
-return (this.canvasHeight() - this.compHeight()); 
+
+rightEdgePix():number{
+    return (this.canvasWidth() - this.compWidthPix()); 
 }
-rightEdge():number{
-return (this.canvasWidth() - this.compWidth()); 
+rightEdgePerc():number{
+return  ( 100 - this.compWidthPerc() );     
 }
+
 //--dont remove but its bad design
 //@ts-expect-error
 getEngineComp(pack :Pack):CompEngine{

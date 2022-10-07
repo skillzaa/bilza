@@ -12,7 +12,7 @@ export default class AniPercDb extends AniPropDb {
     value() {
         return this.responsiveValue(super.value());
     }
-    valueRaw() {
+    valuePerc() {
         return super.value();
     }
     responsiveValue(perc) {

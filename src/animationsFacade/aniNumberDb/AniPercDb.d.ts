@@ -3,7 +3,7 @@ export default class AniPercDb extends AniPropDb<number> {
     private theWhole;
     constructor(value: number, theWhole: number);
     value(): number;
-    valueRaw(): number;
+    valuePerc(): number;
     private responsiveValue;
     animate(StartSec: number, endSec: number, startValue: number, endValue: number): void;
     random(StartSec: number, endSec: number, min?: number, max?: number, delayInMs?: number): void;

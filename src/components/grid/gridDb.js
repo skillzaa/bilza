@@ -1,17 +1,13 @@
 import CompDb from "../../compDb/compDb.js";
-import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
-import AniColorDb from "../../animationsFacade/aniColorDb/AniColorDb.js";
-import AniBooleanDb from "../../animationsFacade/aniBooleanDb/AniBooleanDb.js";
+import { AniNumberDb, AniPercDb, AniBooleanDb, AniColorDb } from "../../animationsFacade/animationsDb.js";
 import Grid from "./grid.js";
 export default class GridDb extends CompDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, color = "grey", cellWidth = 10, cellHeight = 10) {
         super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
         this.lineDash = [];
         this.lineDash = [];
-        this.cellWidth = new AniNumberDb(cellWidth);
-        this.cellWidth.setResp(true, this.canvasWidth());
-        this.cellHeight = new AniNumberDb(cellHeight);
-        this.cellHeight.setResp(true, this.canvasHeight());
+        this.cellWidth = new AniPercDb(cellWidth, this.canvasWidth());
+        this.cellHeight = new AniPercDb(cellHeight, this.canvasHeight());
         this.showHorizontalLines = new AniBooleanDb(true);
         this.showVerticalLines = new AniBooleanDb(true);
         this.lineWidthVertical = new AniNumberDb(1);

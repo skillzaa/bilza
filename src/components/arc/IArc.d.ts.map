@@ -1,1 +1,1 @@
-{"version":3,"file":"IArc.d.ts","sourceRoot":"","sources":["../../../typescript/components/arc/IArc.ts"],"names":[],"mappings":"AAAA,OAAO,UAAU,MAAM,4BAA4B,CAAC;AACpD,OAAO,WAAW,MAAM,mDAAmD,CAAC;AAI5E,MAAM,CAAC,OAAO,WAAW,IAAK,SAAQ,UAAU;IAG5C,IAAI,EAAU,WAAW,CAAC;IAC1B,IAAI,EAAU,WAAW,CAAC;IAC1B,IAAI,EAAU,WAAW,CAAC;IAC1B,IAAI,EAAU,WAAW,CAAC;IAC1B,SAAS,EAAK,WAAW,CAAC;CAC7B"}
+{"version":3,"file":"IArc.d.ts","sourceRoot":"","sources":["../../../typescript/components/arc/IArc.ts"],"names":[],"mappings":""}
