@@ -20,6 +20,8 @@ import IParticleSystem from "../components/particleSystem/IParticleSystem.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 import IText from "../components/text/IText.js";
 import TextDB from "../components/text/textDb.js";
+import IArc from "../components/arc/IArc.js";
+import ArcDb from "../components/arc/arcDb.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -48,6 +50,12 @@ this.charsWidth = charsWidth;
 
 
 ///////////////////////////////////////////////
+arc(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):IArc{
+
+let g = new ArcDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, startX,startY,midX,midY,endX,endY, color);
+this.comps.push(g);
+return g;    
+}
 arrow(x1 :number, y1 :number, x2 :number, y2 :number,color :string="black"):IArrow{
 let g = new ArrowDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, x1, y1, x2, y2,color);
 this.comps.push(g);

@@ -101,9 +101,9 @@ export default class Pack {
         this.commitCtxData(incomCtx);
         this.ctx.fillRect(x, y, width, height);
     }
-    arcTo(start, end, style, radius = 20) {
+    arcTo(startX, startY, endX, endY, radius = 20, style) {
         this.commitCtxData(style);
-        this.ctx.arcTo(start.x, start.y, end.x, end.y, radius);
+        this.ctx.arcTo(startX, startY, endX, endY, radius);
     }
     drawCircle(x = 0, y = 0, radius = 25, fill = false, startAngle = 0, endAngle = (2 * Math.PI), incomCtx) {
         this.commitCtxData(incomCtx);

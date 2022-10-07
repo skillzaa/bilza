@@ -27,7 +27,7 @@ export default class Pack {
     stroke(): void;
     drawRect(x: number, y: number, width: number, height: number, incomCtx: Style): void;
     drawFillRect(x: number, y: number, width: number, height: number, incomCtx: Style): void;
-    arcTo(start: Position, end: Position, style: Style, radius?: number): void;
+    arcTo(startX: number, startY: number, endX: number, endY: number, radius: number | undefined, style: Style): void;
     drawCircle(x: number | undefined, y: number | undefined, radius: number | undefined, fill: boolean | undefined, startAngle: number | undefined, endAngle: number | undefined, incomCtx: Style): void;
     textBaseline(opt: string): void;
     drawText(content: string, x: number, y: number, incomCtx: Style): void;

@@ -11,4 +11,4 @@ export default class Arc extends Component {
     height(p: Pack): number;
     draw(p: Pack): boolean;
 }
-//# sourceMappingURL=arcTo.d.ts.map
+//# sourceMappingURL=arc.d.ts.map

@@ -8,6 +8,7 @@ import ILine from "../components/line/ILine.js";
 import IArrow from "../components/arrow/IArrow.js";
 import IParticleSystem from "../components/particleSystem/IParticleSystem.js";
 import IText from "../components/text/IText.js";
+import IArc from "../components/arc/IArc.js";
 export default class CompFactory {
     private readonly startTime;
     private readonly endTime;
@@ -17,6 +18,7 @@ export default class CompFactory {
     private comps;
     private charsWidth;
     constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, charsWidth: (chars: string, fontSize: number, fontName: string) => number);
+    arc(startX: number, startY: number, midX: number, midY: number, endX: number, endY: number, color?: string): IArc;
     arrow(x1: number, y1: number, x2: number, y2: number, color?: string): IArrow;
     canvasBorder(color?: string, width?: number): ICanvasBorder;
     fillRect(color?: string): IComponent;

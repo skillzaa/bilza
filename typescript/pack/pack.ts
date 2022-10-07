@@ -143,10 +143,10 @@ public drawFillRect(x :number, y:number, width:number,height:number,incomCtx:Sty
     this.commitCtxData(incomCtx);
     this.ctx.fillRect(x,y,width,height);
 }
-public arcTo(start:Position,end:Position,style :Style,radius :number=20){
+public arcTo(startX:number,startY:number,endX:number,endY:number,radius :number=20,style :Style){
 this.commitCtxData(style);
 
-this.ctx.arcTo(start.x,start.y,end.x,end.y,radius);    
+this.ctx.arcTo(startX,startY,endX,endY,radius);    
 }
 
 public drawCircle(x :number=0, y:number=0, radius:number=25,fill :boolean = false, startAngle=0 , endAngle:number = (2 * Math.PI),incomCtx:Style){
