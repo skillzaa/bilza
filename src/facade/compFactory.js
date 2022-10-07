@@ -6,6 +6,7 @@ import CircleDb from "../components/circle/circleDb.js";
 import MarkerDb from "../components/circle/markerDb.js";
 import PicDb from "../components/pic/picDb.js";
 import LineDb from "../components/line/lineDb.js";
+import ArrowDb from "../components/arrow/arrowDb.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight) {
         this.comps = comps;
@@ -14,6 +15,11 @@ export default class CompFactory {
         this.insertAction = insertAction;
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
+    }
+    arrow(x1, y1, x2, y2, color = "black") {
+        let g = new ArrowDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, x1, y1, x2, y2, color);
+        this.comps.push(g);
+        return g;
     }
     fillRect(color = "#000000") {
         let g = new FillRectDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);

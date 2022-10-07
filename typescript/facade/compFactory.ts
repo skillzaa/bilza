@@ -14,6 +14,8 @@ import PicDb from "../components/pic/picDb.js";
 import IPic from "../components/pic/IPic.js";
 import LineDb from "../components/line/lineDb.js";
 import ILine from "../components/line/ILine.js";
+import ArrowDb from "../components/arrow/arrowDb.js";
+import IArrow from "../components/arrow/IArrow.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -34,6 +36,15 @@ this.endTime = endTime;
 this.insertAction = insertAction;
 this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
+}
+
+
+
+///////////////////////////////////////////////
+arrow(x1 :number, y1 :number, x2 :number, y2 :number,color :string="black"):IArrow{
+let g = new ArrowDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, x1, y1, x2, y2,color);
+this.comps.push(g);
+return g;    
 }
 fillRect(color :string="#000000"):IComponent{
 let g = new FillRectDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
