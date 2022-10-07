@@ -1,5 +1,4 @@
 import Style from "./style.js";
-import Position from "./Position.js";
 export default class Pack {
     private canvas;
     private ctx;
@@ -10,7 +9,7 @@ export default class Pack {
     drawBackground(color?: string): string;
     canvasWidth(): number;
     canvasHeight(): number;
-    quadraticCurveTo(start: Position, end: Position, controlPoint: Position, style: Style): void;
+    quadraticCurveTo(startX: number, startY: number, midX: number, midY: number, endX: number, endY: number, style: Style): void;
     restore(): void;
     save(): void;
     drawImage(image: HTMLImageElement, x: number, y: number, width: number, height: number): void;

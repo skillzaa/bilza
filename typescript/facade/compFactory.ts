@@ -22,6 +22,8 @@ import IText from "../components/text/IText.js";
 import TextDB from "../components/text/textDb.js";
 import IArc from "../components/arc/IArc.js";
 import ArcDb from "../components/arc/arcDb.js";
+import ICurve from "../components/curve/ICurve.js";
+import CurveDb from "../components/curve/curveDb.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -53,6 +55,12 @@ this.charsWidth = charsWidth;
 arc(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):IArc{
 
 let g = new ArcDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, startX,startY,midX,midY,endX,endY, color);
+this.comps.push(g);
+return g;    
+}
+curve(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):ICurve{
+
+let g = new CurveDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, startX,startY,midX,midY,endX,endY, color);
 this.comps.push(g);
 return g;    
 }

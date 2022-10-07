@@ -34,10 +34,10 @@ update(msDelta: number, p: Pack): boolean {
 }
 
 draw(p:Pack):boolean{
-// this.style.fillStyle = this.color.value();    
-// this.style.strokeStyle = this.color.value(); 
-this.style.fillStyle = "red";    
-this.style.strokeStyle = "green"; 
+this.style.fillStyle = this.color.value();    
+this.style.strokeStyle = this.color.value(); 
+// this.style.fillStyle = "red";    
+// this.style.strokeStyle = "red"; 
 this.style.lineWidth = this.lineWidth.value(); 
 
 this.preDraw(p);
@@ -57,19 +57,20 @@ this.preDraw(p);
 // }
 
 p.beginPath();
-// p.moveTo(this.x.value(),this.y.value());
-p.moveTo(100,100);
+p.ctx.lineWidth = 6;
+p.ctx.strokeStyle = "red";
+p.ctx.moveTo(100, 100);
+p.ctx.quadraticCurveTo(300, 300, 500, 100);
+p.ctx.stroke();
 
-p.arcTo(
-    400,
-    200,
 
-    100,
-    300,
-    
-    109,
-    this.style
-    );
+p.ctx.strokeStyle = "yellow";
+p.ctx.lineWidth = 2;
+p.beginPath();
+p.ctx.moveTo(100,100);
+p.ctx.lineTo(300,300);
+p.ctx.lineTo(500,100);
+p.ctx.stroke();
 // p.arcTo(
 //     this.midX.value(),
 //     this.midX.value(),

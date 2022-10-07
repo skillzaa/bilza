@@ -10,6 +10,7 @@ import ArrowDb from "../components/arrow/arrowDb.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 import TextDB from "../components/text/textDb.js";
 import ArcDb from "../components/arc/arcDb.js";
+import CurveDb from "../components/curve/curveDb.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight, charsWidth) {
         this.comps = comps;
@@ -22,6 +23,11 @@ export default class CompFactory {
     }
     arc(startX, startY, midX, midY, endX, endY, color = "black") {
         let g = new ArcDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, startX, startY, midX, midY, endX, endY, color);
+        this.comps.push(g);
+        return g;
+    }
+    curve(startX, startY, midX, midY, endX, endY, color = "black") {
+        let g = new CurveDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, startX, startY, midX, midY, endX, endY, color);
         this.comps.push(g);
         return g;
     }

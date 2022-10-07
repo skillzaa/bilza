@@ -42,11 +42,11 @@ return this.canvas.width;
 public canvasHeight():number{
 return this.canvas.height;
 }
-public quadraticCurveTo(start :Position,end :Position,controlPoint :Position, style :Style){
+public quadraticCurveTo(startX :number,startY :number,midX :number,midY :number,endX :number,endY :number, style :Style){
     this.commitCtxData(style);
     this.beginPath();
-this.moveTo(start.x,start.y);
-this.ctx.quadraticCurveTo(controlPoint.x, controlPoint.y, end.x, end.y);
+this.moveTo(startX,startY);
+this.ctx.quadraticCurveTo(midX, midY, endX, endY);
 this.stroke();
 }
 public restore(){

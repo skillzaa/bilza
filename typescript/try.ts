@@ -10,9 +10,24 @@ const grid = bil.alwaysOn().grid();
 grid.colorVerticalLines.set("red");
 
 
-const comp = bil.add(0,60).arc(10,10,30,30,90,90,"red");
+const comp = bil.add(0,60).curve( 90,10, 0,50, 90,90,"red");
+// const comp = bil.add(0,60).curve( 100,100, 250,200, 400,400,"red");
 comp.lineWidth.set(10);
-console.log(comp.contentWidth());
+comp.showBackground.set(true);
+comp.colorBackground.set( hsl(240,20,15));
+
+
+comp.width.animate(0,10,30,800);
+comp.height.animate(11,20,30,400);
+// console.log("leftMost" , comp.leftMost());
+// console.log("rightMost" , comp.rightMost());
+// console.log("topMost" , comp.topMost());
+// console.log("bottomMost" , comp.bottomMost());
+
+// comp.midX.animate(1,5,300,800);
+// comp.midY.oscillate(1,60,0,400,10,0);
+// comp.midX.oscillate(0,60,0,800,5);
+
 // comp.width.set(20);
 // comp.height.set(20);
 // comp.showBackground.set(true);

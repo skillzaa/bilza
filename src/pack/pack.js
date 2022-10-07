@@ -29,11 +29,11 @@ export default class Pack {
     canvasHeight() {
         return this.canvas.height;
     }
-    quadraticCurveTo(start, end, controlPoint, style) {
+    quadraticCurveTo(startX, startY, midX, midY, endX, endY, style) {
         this.commitCtxData(style);
         this.beginPath();
-        this.moveTo(start.x, start.y);
-        this.ctx.quadraticCurveTo(controlPoint.x, controlPoint.y, end.x, end.y);
+        this.moveTo(startX, startY);
+        this.ctx.quadraticCurveTo(midX, midY, endX, endY);
         this.stroke();
     }
     restore() {
