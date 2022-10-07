@@ -11,15 +11,15 @@ export default class Bilza {
         this.bil = null;
     }
     add(secStart, secEnd) {
-        const cf = new CompFactory(secStart, secEnd, this.comps, "add", this.engine.canvasWidth, this.engine.canvasHeight);
+        const cf = new CompFactory(secStart, secEnd, this.comps, "add", this.engine.canvasWidth, this.engine.canvasHeight, this.engine.charsWidth);
         return cf;
     }
     alwaysOn() {
-        const cf = new CompFactory(0, 1, this.comps, "alwaysOn", this.engine.canvasWidth, this.engine.canvasHeight);
+        const cf = new CompFactory(0, 1, this.comps, "alwaysOn", this.engine.canvasWidth, this.engine.canvasHeight, this.engine.charsWidth);
         return cf;
     }
     append(duration) {
-        const cf = new CompFactory(0, duration, this.comps, "append", this.engine.canvasWidth, this.engine.canvasHeight);
+        const cf = new CompFactory(0, duration, this.comps, "append", this.engine.canvasWidth, this.engine.canvasHeight, this.engine.charsWidth);
         return cf;
     }
     init() {

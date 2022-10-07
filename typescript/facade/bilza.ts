@@ -13,6 +13,7 @@ private engine:EngineDb;
 private comps :CompDb[];
 private bil :Engine | null;
 
+
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 
 
@@ -27,15 +28,15 @@ this.bil = null;
 }
 //--does not need ComponentPack since this is DB object
 add(secStart :number,secEnd :number):CompFactory{
-const cf = new CompFactory(secStart,secEnd,this.comps,"add",this.engine.canvasWidth,this.engine.canvasHeight);
+const cf = new CompFactory(secStart,secEnd,this.comps,"add",this.engine.canvasWidth,this.engine.canvasHeight,this.engine.charsWidth);
 return cf;
 }
 alwaysOn():CompFactory{
-const cf = new CompFactory(0,1,this.comps,"alwaysOn",this.engine.canvasWidth,this.engine.canvasHeight);
+const cf = new CompFactory(0,1,this.comps,"alwaysOn",this.engine.canvasWidth,this.engine.canvasHeight,this.engine.charsWidth);
 return cf;
 }
 append(duration :number):CompFactory{
-const cf = new CompFactory(0,duration,this.comps,"append",this.engine.canvasWidth,this.engine.canvasHeight);
+const cf = new CompFactory(0,duration,this.comps,"append",this.engine.canvasWidth,this.engine.canvasHeight,this.engine.charsWidth);
 return cf;
 }
 

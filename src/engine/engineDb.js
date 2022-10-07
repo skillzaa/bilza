@@ -7,6 +7,7 @@ export default class EngineDb {
         const pack = new Pack(this.canvasId, this.canvasWidthPerc);
         this.canvasWidth = pack.canvasWidth();
         this.canvasHeight = pack.canvasHeight();
+        this.charsWidth = pack.charsWidth.bind(pack);
         this.backgroundDb = new BackgroundDb(0, 0, "alwaysOn", this.canvasWidth, this.canvasHeight, "#efeee3");
     }
 }

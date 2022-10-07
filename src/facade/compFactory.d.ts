@@ -7,6 +7,7 @@ import IPic from "../components/pic/IPic.js";
 import ILine from "../components/line/ILine.js";
 import IArrow from "../components/arrow/IArrow.js";
 import IParticleSystem from "../components/particleSystem/IParticleSystem.js";
+import IText from "../components/text/IText.js";
 export default class CompFactory {
     private readonly startTime;
     private readonly endTime;
@@ -14,12 +15,14 @@ export default class CompFactory {
     private readonly canvasHeight;
     private insertAction;
     private comps;
-    constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
+    private charsWidth;
+    constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, charsWidth: (chars: string, fontSize: number, fontName: string) => number);
     arrow(x1: number, y1: number, x2: number, y2: number, color?: string): IArrow;
     canvasBorder(color?: string, width?: number): ICanvasBorder;
     fillRect(color?: string): IComponent;
     particleSystem(count?: number, color?: string, delay?: number): IParticleSystem;
     rect(color?: string): IRect;
+    text(content: string, color?: string): IText;
     grid(color?: string, cellWidth?: number, cellHeight?: number): IGrid;
     circle(radius?: number, color?: string): ICircle;
     marker(radius?: number, color?: string): ICircle;

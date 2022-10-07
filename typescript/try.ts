@@ -10,14 +10,15 @@ const grid = bil.alwaysOn().grid();
 grid.colorVerticalLines.set("red");
 
 
-const comp = bil.add(0,60).particleSystem(20,"red",2);
-comp.width.set(20);
-comp.height.set(20);
+const comp = bil.add(0,60).text("Text Online","red");
+console.log(comp.contentWidth());
+// comp.width.set(20);
+// comp.height.set(20);
 comp.showBackground.set(true);
 comp.colorBackground.set(hsl(60,40,80));
 comp.border.set(1);
 comp.colorBorder.set("red");
-comp.setPaddings(1);
+// comp.setPaddings(1);
 ////////////////////////
 comp.x.animate(0,5,   0,                    comp.rightEdge() );
 comp.y.animate(6,10,  0,                    comp.bottomEdge() );

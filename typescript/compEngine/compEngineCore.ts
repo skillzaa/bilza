@@ -52,7 +52,7 @@ public charsWidth:((chars:string,fontSize:number,fontName:string)=>number) ;
 constructor(corePropsDb :CorePropsDb , pack :Pack){
 
 //--Basic must props (Compunent API)
-this.charsWidth = pack.charsWidth;
+this.charsWidth = pack.charsWidth.bind(pack);
 this._canvasWidth = pack.canvasWidth();
 this._canvasHeight = pack.canvasHeight();
 ////////////////////////////////////////

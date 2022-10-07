@@ -18,6 +18,8 @@ import ArrowDb from "../components/arrow/arrowDb.js";
 import IArrow from "../components/arrow/IArrow.js";
 import IParticleSystem from "../components/particleSystem/IParticleSystem.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
+import IText from "../components/text/IText.js";
+import TextDB from "../components/text/textDb.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -29,8 +31,10 @@ private readonly canvasWidth :number;
 private readonly canvasHeight :number;
 private insertAction :"add"|"append" | "alwaysOn";
 private comps :IComponent[];
+private charsWidth : (chars:string,fontSize:number,fontName:string)=> number;
+
 ////////////////////////////////////////////////////
-constructor(startTime :number,endTime :number,comps :IComponent[],insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number){
+constructor(startTime :number,endTime :number,comps :IComponent[],insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,charsWidth : (chars:string,fontSize:number,fontName:string)=> number ){
 
 this.comps = comps;
 this.startTime = startTime;
@@ -38,6 +42,7 @@ this.endTime = endTime;
 this.insertAction = insertAction;
 this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
+this.charsWidth = charsWidth;
 }
 
 
@@ -70,6 +75,11 @@ return g;
 }
 rect(color :string="#000000"):IRect{
 let g = new RectDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+this.comps.push(g);
+return g;    
+}
+text(content :string,color :string="#000000"):IText{
+let g = new TextDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,this.charsWidth,content,color);
 this.comps.push(g);
 return g;    
 }

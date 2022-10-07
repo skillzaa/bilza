@@ -4,6 +4,7 @@ export default class EngineDb {
     readonly canvasWidthPerc: number;
     readonly canvasWidth: number;
     readonly canvasHeight: number;
+    charsWidth: (chars: string, fontSize: number, fontName: string) => number;
     backgroundDb: BackgroundDb;
     constructor(canvasId?: string, canvasWidthPerc?: number);
 }

@@ -8,14 +8,16 @@ import PicDb from "../components/pic/picDb.js";
 import LineDb from "../components/line/lineDb.js";
 import ArrowDb from "../components/arrow/arrowDb.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
+import TextDB from "../components/text/textDb.js";
 export default class CompFactory {
-    constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight) {
+    constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight, charsWidth) {
         this.comps = comps;
         this.startTime = startTime;
         this.endTime = endTime;
         this.insertAction = insertAction;
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
+        this.charsWidth = charsWidth;
     }
     arrow(x1, y1, x2, y2, color = "black") {
         let g = new ArrowDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, x1, y1, x2, y2, color);
@@ -39,6 +41,11 @@ export default class CompFactory {
     }
     rect(color = "#000000") {
         let g = new RectDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
+        this.comps.push(g);
+        return g;
+    }
+    text(content, color = "#000000") {
+        let g = new TextDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, this.charsWidth, content, color);
         this.comps.push(g);
         return g;
     }

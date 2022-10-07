@@ -3,7 +3,7 @@ import Time from "./time.js";
 import Style from "../pack/style.js";
 export default class EngineCompCore {
     constructor(corePropsDb, pack) {
-        this.charsWidth = pack.charsWidth;
+        this.charsWidth = pack.charsWidth.bind(pack);
         this._canvasWidth = pack.canvasWidth();
         this._canvasHeight = pack.canvasHeight();
         this.id = corePropsDb.id;
