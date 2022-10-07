@@ -1,23 +1,20 @@
-import Component from "../compEngine/compEngine.js";
-import SkipXFrames from "../compEngine/skipXFrames.js";
-import XY from "../compEngine/xy.js";
-import { AniNumber, AniBoolean, AniColor, } from "../animations/animations.js";
-export default class ParticleSystem extends Component {
-    constructor(startTime, endTime, count = 20, color = "#008000", delay = 50) {
-        super(componentPack);
-        this.particleSize = new AniNumber(12);
-        this.skipXFrames = new SkipXFrames(delay);
+import CompEngine from "../../compEngine/compEngine.js";
+import SkipXFrames from "../../compEngine/skipXFrames.js";
+import XY from "../../compEngine/xy.js";
+import { AniNumber, AniBoolean, AniColor, } from "../../animations/animations.js";
+export default class ParticleSystem extends CompEngine {
+    constructor(propsDb, pack) {
+        super(propsDb, pack);
+        this.particleSize = new AniNumber(propsDb.particleSize);
+        this.skipXFrames = new SkipXFrames(propsDb.delay.value());
         this.xyArray = [];
-        this.lineWidth = new AniNumber(1);
-        this.filled = new AniBoolean(true);
+        this.lineWidth = new AniNumber(propsDb.lineWidth);
+        this.filled = new AniBoolean(propsDb.filled);
         this.drawLayer = 2;
-        this.count = new AniNumber(count);
-        this.color.set(color);
-        this.lineColor = new AniColor(color);
-    }
-    init(p) {
+        this.count = new AniNumber(propsDb.count);
+        this.color.set(propsDb.color.value());
+        this.lineColor = new AniColor(propsDb.color);
         this.getRandomXY();
-        return true;
     }
     update(msDelta, p) {
         this.count.update(msDelta);

@@ -7,6 +7,7 @@ import MarkerDb from "../components/circle/markerDb.js";
 import PicDb from "../components/pic/picDb.js";
 import LineDb from "../components/line/lineDb.js";
 import ArrowDb from "../components/arrow/arrowDb.js";
+import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight) {
         this.comps = comps;
@@ -21,18 +22,23 @@ export default class CompFactory {
         this.comps.push(g);
         return g;
     }
+    canvasBorder(color = "grey", width = 0.25) {
+        let g = new CanvasBorderDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color, width);
+        this.comps.push(g);
+        return g;
+    }
     fillRect(color = "#000000") {
         let g = new FillRectDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
         this.comps.push(g);
         return g;
     }
-    rect(color = "#000000") {
-        let g = new RectDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
+    particleSystem(count = 20, color = "#008000", delay = 50) {
+        let g = new ParticleSystemDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, count, color, delay);
         this.comps.push(g);
         return g;
     }
-    canvasBorder(color = "grey", width = 0.25) {
-        let g = new CanvasBorderDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color, width);
+    rect(color = "#000000") {
+        let g = new RectDB(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
         this.comps.push(g);
         return g;
     }

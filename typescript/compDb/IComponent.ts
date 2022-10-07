@@ -81,5 +81,5 @@ rightEdge() :number;
 bottomEdge() :number;
 ////////////////////////////////    
 setxy(x :number, y :number):void;
-
+setPaddings(n :number):void;
 }

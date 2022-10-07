@@ -16,6 +16,8 @@ import LineDb from "../components/line/lineDb.js";
 import ILine from "../components/line/ILine.js";
 import ArrowDb from "../components/arrow/arrowDb.js";
 import IArrow from "../components/arrow/IArrow.js";
+import IParticleSystem from "../components/particleSystem/IParticleSystem.js";
+import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -46,8 +48,23 @@ let g = new ArrowDb (this.startTime,this.endTime,this.insertAction,this.canvasWi
 this.comps.push(g);
 return g;    
 }
+canvasBorder(color :string="grey",width :number=0.25):ICanvasBorder{
+let g = new CanvasBorderDb (
+    this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,width
+    );
+this.comps.push(g);
+return g;    
+}
 fillRect(color :string="#000000"):IComponent{
 let g = new FillRectDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+this.comps.push(g);
+return g;    
+}
+
+particleSystem(count :number= 20,color :string="#008000",delay :number=50):IParticleSystem{
+
+let g = new ParticleSystemDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,count,color,delay);
+
 this.comps.push(g);
 return g;    
 }
@@ -56,13 +73,7 @@ let g = new RectDB(this.startTime,this.endTime,this.insertAction,this.canvasWidt
 this.comps.push(g);
 return g;    
 }
-canvasBorder(color :string="grey",width :number=0.25):ICanvasBorder{
-let g = new CanvasBorderDb (
-    this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,width
-    );
-this.comps.push(g);
-return g;    
-}
+
 grid(color :string="grey",cellWidth :number=10,cellHeight :number=10):IGrid{
 let g = new GridDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,cellWidth,cellHeight);
 this.comps.push(g);

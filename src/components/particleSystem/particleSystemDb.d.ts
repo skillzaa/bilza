@@ -6,6 +6,7 @@ import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animationsFacade/an
 export default class ParticleSystemDb extends CompDb implements IParticleSystem {
     count: AniNumberDb;
     particleSize: AniNumberDb;
+    delay: AniNumberDb;
     lineWidth: AniNumberDb;
     filled: AniBooleanDb;
     lineColor: AniColorDb;

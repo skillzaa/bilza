@@ -52,5 +52,6 @@ export default interface IComponent {
     rightEdge(): number;
     bottomEdge(): number;
     setxy(x: number, y: number): void;
+    setPaddings(n: number): void;
 }
 //# sourceMappingURL=IComponent.d.ts.map

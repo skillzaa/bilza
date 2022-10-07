@@ -1,14 +1,13 @@
-import Pack from "../pack/pack.js";
-import Component from "../compEngine/compEngine.js";
-import ComponentPack from "../componentPack/componentPack.js";
+import Pack from "../../pack/pack.js";
+import CompEngine from "../../compEngine/compEngine.js";
 
-import SkipXFrames from "../compEngine/skipXFrames.js";
-import XY from "../compEngine/xy.js";
+import SkipXFrames from "../../compEngine/skipXFrames.js";
+import XY from "../../compEngine/xy.js";
 
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../animations/animations.js";
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js";
+import ParticleSystemDb from "./particleSystemDb.js";
 
-
-export default class ParticleSystem extends Component {
+export default class ParticleSystem extends CompEngine {
 private skipXFrames :SkipXFrames;
 private xyArray :XY[];
 
@@ -18,32 +17,29 @@ private xyArray :XY[];
     public lineWidth :AniNumber;
     public filled :AniBoolean;
     public lineColor :AniColor;
-
-constructor (startTime :number,endTime :number,count :number= 20,color :string="#008000",delay :number=50) { 
-    super(componentPack);
+ 
+constructor (propsDb :ParticleSystemDb ,pack :Pack){ 
+    super(propsDb,pack);    
     //!!!!!!!!!!!!!!!!!!!
-    this.particleSize = new AniNumber(12);
-    this.skipXFrames = new SkipXFrames(delay);
+    this.particleSize = new AniNumber(propsDb.particleSize);
+    this.skipXFrames = new SkipXFrames(propsDb.delay.value());
     this.xyArray = [];
     //!!!!!!!!!!!!!!!!!!!
-    this.lineWidth = new AniNumber(1);
-    this.filled = new AniBoolean(true);
+    this.lineWidth = new AniNumber(propsDb.lineWidth);
+    this.filled = new AniBoolean(propsDb.filled);
     this.drawLayer = 2;
-    this.count = new AniNumber(count) ;  
-    this.color.set(color); // we will animate this 
-    this.lineColor = new AniColor(color);
-}
-init(p: Pack): boolean {
-    // super.init(p);
+    this.count = new AniNumber(propsDb.count) ;  
+    this.color.set(propsDb.color.value());  
+    this.lineColor = new AniColor(propsDb.color);
     this.getRandomXY();
- return true;   
 }
+
 update(msDelta: number, p: Pack): boolean {
     this.count.update(msDelta);
     this.particleSize.update(msDelta);
     this.lineWidth.update(msDelta);
     this.filled.update(msDelta);
-    //---this could be in draw as well
+    
     super.update(msDelta,p);
     return true;
 }

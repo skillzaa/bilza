@@ -1,7 +1,8 @@
-import Pack from "../pack/pack.js";
-import Component from "../compEngine/compEngine.js";
-import { AniNumber, AniBoolean, AniColor } from "../animations/animations.js";
-export default class ParticleSystem extends Component {
+import Pack from "../../pack/pack.js";
+import CompEngine from "../../compEngine/compEngine.js";
+import { AniNumber, AniBoolean, AniColor } from "../../animations/animations.js";
+import ParticleSystemDb from "./particleSystemDb.js";
+export default class ParticleSystem extends CompEngine {
     private skipXFrames;
     private xyArray;
     count: AniNumber;
@@ -9,8 +10,7 @@ export default class ParticleSystem extends Component {
     lineWidth: AniNumber;
     filled: AniBoolean;
     lineColor: AniColor;
-    constructor(startTime: number, endTime: number, count?: number, color?: string, delay?: number);
-    init(p: Pack): boolean;
+    constructor(propsDb: ParticleSystemDb, pack: Pack);
     update(msDelta: number, p: Pack): boolean;
     draw(p: Pack): boolean;
     private getRandomXY;
