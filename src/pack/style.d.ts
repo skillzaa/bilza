@@ -1,4 +1,3 @@
-import { LineCapStyle } from "./lineCapStyle.js";
 import { FontFamily } from "./fontFamily.js";
 export default class Style {
     fontSize: number;
@@ -11,8 +10,9 @@ export default class Style {
     shadowOffsetY: number;
     shadowBlur: number;
     opacity: number;
-    lineCap: LineCapStyle;
-    lineDash: number[];
+    lineCap: 0 | 1 | 2;
+    lineJoin: 0 | 1 | 2;
+    lineDash: [line: number, gap: number];
     constructor();
     merge(incom: Style): void;
 }

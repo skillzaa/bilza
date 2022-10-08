@@ -1,4 +1,3 @@
-import { LineCapStyle } from "./lineCapStyle.js";
 import { FontFamily } from "./fontFamily.js";
 export default class Style {
     constructor() {
@@ -12,8 +11,9 @@ export default class Style {
         this.shadowOffsetY = 0;
         this.shadowBlur = 0;
         this.opacity = 1;
-        this.lineCap = LineCapStyle.Round;
-        this.lineDash = [];
+        this.lineCap = 0;
+        this.lineDash = [1, 0];
+        this.lineJoin = 0;
     }
     merge(incom) {
         if (incom.lineCap !== null) {

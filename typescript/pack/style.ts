@@ -13,9 +13,9 @@ shadowOffsetX:number ;
 shadowOffsetY:number ;
 shadowBlur :number ;
 opacity :number ;
-lineCap : LineCapStyle ;
-lineDash :number[];
-
+lineCap  :0 | 1 | 2;    
+lineJoin :0 | 1 | 2;    
+lineDash :[line:number, gap:number];
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
@@ -31,8 +31,9 @@ this.shadowOffsetX = 0;
 this.shadowOffsetY = 0;
 this.shadowBlur = 0;
 this.opacity = 1;
-this.lineCap = LineCapStyle.Round;
-this.lineDash = [];
+this.lineCap = 0;
+this.lineDash = [1,0];
+this.lineJoin = 0;
 } 
 // This merge fn merges 2 Style object --where as the commitCtxData fn in pack merges a style with actual ctx saved in pack.
 //--the commitCtxData fn of the pack is coupling of my style data and ctx

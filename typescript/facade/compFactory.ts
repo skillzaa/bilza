@@ -14,6 +14,8 @@ import PicDb from "../components/pic/picDb.js";
 import IPic from "../components/pic/IPic.js";
 import LineDb from "../components/line/lineDb.js";
 import ILine from "../components/line/ILine.js";
+import LinesDb from "../components/lines/linesDb.js";
+import ILines from "../components/lines/ILines.js";
 import ArrowDb from "../components/arrow/arrowDb.js";
 import IArrow from "../components/arrow/IArrow.js";
 import IParticleSystem from "../components/particleSystem/IParticleSystem.js";
@@ -118,6 +120,11 @@ return g;
 
 line( x1 :number , y1 :number , x2 :number ,y2 :number,color:string="black"):ILine{
 let g = new LineDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,x1,y1,x2,y2,color);
+this.comps.push(g);
+return g;    
+}
+lines(color:string="black"):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight);
 this.comps.push(g);
 return g;    
 }
