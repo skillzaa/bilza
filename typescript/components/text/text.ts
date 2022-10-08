@@ -5,13 +5,11 @@ import {FontFamily}  from "../../pack/fontFamily.js";
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js"; 
 // import TextTempl from "./textTempl.js";
 // import TextTheme from "./textTheme.js";
-
-
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 export default class Text extends CompEngine {
 private _oldWidth :null|number;
 private _oldHeight :null|number;
-
+//-----------------------------
 public content :AniString;
 public fontFamily :FontFamily;
 public fontSize :AniNumber;
@@ -254,6 +252,5 @@ private hasHeightChanged():boolean{
 }
 
 }//class
-
 ///////////////////////////////////////////
 
