@@ -10,15 +10,19 @@ const grid = bil.alwaysOn().grid();
 grid.colorVerticalLines.set("red");
 
 
-const comp = bil.add(0,60).curve( 90,10, 0,50, 90,90,"red");
+const comp = bil.add(0,60).fillRect(hsl(0));
 // const comp = bil.add(0,60).curve( 100,100, 250,200, 400,400,"red");
-comp.lineWidth.set(10);
+// comp.lineWidth.set(10);
 comp.showBackground.set(true);
 comp.colorBackground.set( hsl(240,20,15));
+// comp.align(1,0);
 
-
-comp.width.animate(0,10,30,800);
-comp.height.animate(11,20,30,400);
+comp.x.animate(0,5,0,comp.rightEdge());
+// comp.y.animate(6,10,0, comp.bottomEdgePerc());
+comp.x.animate(11,15,100,0 );
+comp.y.animate(16,20,100, 0);
+// comp.width.animate(0,5,10,100);
+// comp.height.animate(6,10,10,100);
 // console.log("leftMost" , comp.leftMost());
 // console.log("rightMost" , comp.rightMost());
 // console.log("topMost" , comp.topMost());

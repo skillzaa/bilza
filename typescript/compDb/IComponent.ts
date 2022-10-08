@@ -51,17 +51,17 @@ alignRotate(x : 0|1|2|null, y :0|1|2|null):void;
 
 //--At times the width / height may not be equal to contentWidth and contentHeight so we have these functions. 
 //--They will always return the correct content width/height even in case of text.
-contentWidthPerc():number;
-contentWidthPix():number;
+contentWidth():number;
+// contentWidthPix():number;
 
-contentHeightPerc():number;
-contentHeightPix():number;
+contentHeight():number;
+// contentHeightPix():number;
 
-compHeightPerc():number;
-compHeightPix():number;
+compHeight():number;
+// compHeightPix():number;
 
-compWidthPerc():number;
-compWidthPix():number;
+compWidth():number;
+// compWidthPix():number;
 
 
 // setRespDims(tf :boolean):boolean;
@@ -81,10 +81,10 @@ animate(secFrom :number,secTo :number,
 ///////////////////--put this in DB to end init once and for all
 canvasWidth() :number;
 canvasHeight() :number;
-rightEdgePix() :number;
-rightEdgePerc() :number;
-bottomEdgePix() :number;
-bottomEdgePerc() :number;
+// rightEdgePix() :number;
+rightEdge() :number;
+// bottomEdgePix() :number;
+bottomEdge() :number;
 ////////////////////////////////    
 setxy(x :number, y :number):void;
 setPaddings(n :number):void;

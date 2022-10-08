@@ -39,10 +39,10 @@ switch (this.xRotate) {
     //--nothing        
     break;
     case 1:
-    x = x + (this.compWidthPix()/2);    
+    x = x + (this.compWidth()/2);    
     break;
     case 2:
-    x = x + this.compWidthPix();    
+    x = x + this.compWidth();    
     break;
 }
 return x;    
@@ -54,10 +54,10 @@ switch (this.yRotate) {
     //--nothing        
     break;
     case 1:
-    y = y - (this.compHeightPix()/2);    
+    y = y - (this.compHeight()/2);    
     break;
     case 2:
-    y = y - this.compHeightPix();    
+    y = y - this.compHeight();    
     break;
 }
 return y;    
@@ -70,10 +70,10 @@ switch (this.xAlign) {
     //--nothing        
     break;
     case 1:
-    x = x - (this.compWidthPix()/2);    
+    x = x - (this.compWidth()/2);    
     break;
     case 2:
-    x = x - this.compWidthPix();    
+    x = x - this.compWidth();    
     break;
 }
 return x;    
@@ -85,10 +85,10 @@ switch (this.yAlign) {
     //--nothing        
     break;
     case 1:
-    y = y - (this.compHeightPix()/2);    
+    y = y - (this.compHeight()/2);    
     break;
     case 2:
-    y = y - this.compHeightPix();    
+    y = y - this.compHeight();    
     break;
 }
 return y;    
@@ -106,31 +106,31 @@ this.y.animate(timeFrom,timeTo,yFrom,yTo);
 return true;    
 }
 
-compWidthPix(): number {
-    //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
-    return this.contentWidthPix() + this.paddingLeft.value() + this.paddingRight.value();
+// compWidth(): number {
+//     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
+//     return this.contentWidthPix() + this.paddingLeft.value() + this.paddingRight.value();
+// }   
+compWidth(): number {
+return  this.contentWidth() + this.paddingLeft.valuePerc() + this.paddingRight.valuePerc();
 }   
-compWidthPerc(): number {
-return  this.contentWidthPerc() + this.paddingLeft.valuePerc() + this.paddingRight.valuePerc();
-}   
-compHeightPix(): number {
-//--Border is not included    
-return this.contentHeightPix() + this.paddingTop.value() + this.paddingBottom.value();
-}
-compHeightPerc(): number {
-return this.contentHeightPerc() + this.paddingTop.valuePerc() + this.paddingBottom.valuePerc();
+// compHeight(): number {
+// //--Border is not included    
+// return this.contentHeightPix() + this.paddingTop.value() + this.paddingBottom.value();
+// }
+compHeight(): number {
+return this.contentHeight() + this.paddingTop.valuePerc() + this.paddingBottom.valuePerc();
 }
 //--if the comp with and height is not = to width/height then override
-contentHeightPix(): number {
-    return this.height.value();
-}
-contentHeightPerc(): number {
+// contentHeightPix(): number {
+//     return this.height.value();
+// }
+contentHeight(): number {
     return this.height.valuePerc();
 }
-contentWidthPix(): number {
-    return this.width.value();
-}
-contentWidthPerc(): number {
+// contentWidthPix(): number {
+//     return this.width.value();
+// }
+contentWidth(): number {
     return this.width.valuePerc();
 }
 
@@ -158,30 +158,36 @@ getEndTime(inSec :boolean=true) :number{
 }
 
 
-bottomEdgePix():number{
-return (this.canvasHeight() - this.compHeightPix()); 
-}
+// bottomEdgePix():number{
+// return (this.canvasHeight() - this.compHeight()); 
+// }
 
-bottomEdgePerc():number{
-return  ( 100 - this.compHeightPerc() );     
+bottomEdge():number{
+return  ( 100 - this.compHeight() );     
 }
-
-rightEdgePix():number{
-    return (this.canvasWidth() - this.compWidthPix()); 
+/**
+ * rightEdge : This will remove the effects of "align". The returned number is the percent of screen width (on x axis) at which the comp will have its fathest edge touching the canvas right edge.
+ *  
+ */
+rightEdge():number{
+let x = this.x.value();     
+switch (this.xAlign) {
+    case 0 :
+    //--nothing        
+    break;
+    case 1:
+    x = x + (this.compWidth()/2);    
+    break;
+    case 2:
+    x = x + this.compWidth();    
+    break;
 }
-rightEdgePerc():number{
-return  ( 100 - this.compWidthPerc() );     
+return 100 - x;    
+// return  ( 100 - this.compWidth() );     
 }
 
 //--dont remove but its bad design
 //@ts-expect-error
-getEngineComp(pack :Pack):CompEngine{
-  
-}
-
-////////////////////////////////////////////    
-////////////////////////////////////////////    
-
-////////////////////////////////////////////    
+getEngineComp(pack :Pack):CompEngine{}
 ////////////////////////////////////////////    
 }

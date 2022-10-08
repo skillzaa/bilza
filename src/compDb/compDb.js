@@ -25,10 +25,10 @@ export default class CompDb extends CoreProps {
             case 0:
                 break;
             case 1:
-                x = x + (this.compWidthPix() / 2);
+                x = x + (this.compWidth() / 2);
                 break;
             case 2:
-                x = x + this.compWidthPix();
+                x = x + this.compWidth();
                 break;
         }
         return x;
@@ -39,10 +39,10 @@ export default class CompDb extends CoreProps {
             case 0:
                 break;
             case 1:
-                y = y - (this.compHeightPix() / 2);
+                y = y - (this.compHeight() / 2);
                 break;
             case 2:
-                y = y - this.compHeightPix();
+                y = y - this.compHeight();
                 break;
         }
         return y;
@@ -53,10 +53,10 @@ export default class CompDb extends CoreProps {
             case 0:
                 break;
             case 1:
-                x = x - (this.compWidthPix() / 2);
+                x = x - (this.compWidth() / 2);
                 break;
             case 2:
-                x = x - this.compWidthPix();
+                x = x - this.compWidth();
                 break;
         }
         return x;
@@ -67,10 +67,10 @@ export default class CompDb extends CoreProps {
             case 0:
                 break;
             case 1:
-                y = y - (this.compHeightPix() / 2);
+                y = y - (this.compHeight() / 2);
                 break;
             case 2:
-                y = y - this.compHeightPix();
+                y = y - this.compHeight();
                 break;
         }
         return y;
@@ -86,28 +86,16 @@ export default class CompDb extends CoreProps {
         this.y.animate(timeFrom, timeTo, yFrom, yTo);
         return true;
     }
-    compWidthPix() {
-        return this.contentWidthPix() + this.paddingLeft.value() + this.paddingRight.value();
+    compWidth() {
+        return this.contentWidth() + this.paddingLeft.valuePerc() + this.paddingRight.valuePerc();
     }
-    compWidthPerc() {
-        return this.contentWidthPerc() + this.paddingLeft.valuePerc() + this.paddingRight.valuePerc();
+    compHeight() {
+        return this.contentHeight() + this.paddingTop.valuePerc() + this.paddingBottom.valuePerc();
     }
-    compHeightPix() {
-        return this.contentHeightPix() + this.paddingTop.value() + this.paddingBottom.value();
-    }
-    compHeightPerc() {
-        return this.contentHeightPerc() + this.paddingTop.valuePerc() + this.paddingBottom.valuePerc();
-    }
-    contentHeightPix() {
-        return this.height.value();
-    }
-    contentHeightPerc() {
+    contentHeight() {
         return this.height.valuePerc();
     }
-    contentWidthPix() {
-        return this.width.value();
-    }
-    contentWidthPerc() {
+    contentWidth() {
         return this.width.valuePerc();
     }
     getDuration() {
@@ -128,18 +116,22 @@ export default class CompDb extends CoreProps {
     getEndTime(inSec = true) {
         return inSec ? this.endTime : (this.endTime * 1000);
     }
-    bottomEdgePix() {
-        return (this.canvasHeight() - this.compHeightPix());
+    bottomEdge() {
+        return (100 - this.compHeight());
     }
-    bottomEdgePerc() {
-        return (100 - this.compHeightPerc());
+    rightEdge() {
+        let x = this.x.value();
+        switch (this.xAlign) {
+            case 0:
+                break;
+            case 1:
+                x = x + (this.compWidth() / 2);
+                break;
+            case 2:
+                x = x + this.compWidth();
+                break;
+        }
+        return 100 - x;
     }
-    rightEdgePix() {
-        return (this.canvasWidth() - this.compWidthPix());
-    }
-    rightEdgePerc() {
-        return (100 - this.compWidthPerc());
-    }
-    getEngineComp(pack) {
-    }
+    getEngineComp(pack) { }
 }

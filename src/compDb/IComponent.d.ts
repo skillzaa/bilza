@@ -32,14 +32,10 @@ export default interface IComponent {
     alwaysOn: boolean;
     align(x: 0 | 1 | 2 | null, y: 0 | 1 | 2 | null): void;
     alignRotate(x: 0 | 1 | 2 | null, y: 0 | 1 | 2 | null): void;
-    contentWidthPerc(): number;
-    contentWidthPix(): number;
-    contentHeightPerc(): number;
-    contentHeightPix(): number;
-    compHeightPerc(): number;
-    compHeightPix(): number;
-    compWidthPerc(): number;
-    compWidthPix(): number;
+    contentWidth(): number;
+    contentHeight(): number;
+    compHeight(): number;
+    compWidth(): number;
     getDuration(): number;
     getStartTime(inMilliSec?: boolean): number;
     getEndTime(inMilliSec?: boolean): number;
@@ -47,10 +43,8 @@ export default interface IComponent {
     animate(secFrom: number, secTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
     canvasWidth(): number;
     canvasHeight(): number;
-    rightEdgePix(): number;
-    rightEdgePerc(): number;
-    bottomEdgePix(): number;
-    bottomEdgePerc(): number;
+    rightEdge(): number;
+    bottomEdge(): number;
     setxy(x: number, y: number): void;
     setPaddings(n: number): void;
 }
