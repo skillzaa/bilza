@@ -3,10 +3,6 @@ export default class CompEngine extends CompEngineCore {
     constructor(compDb, pack) {
         super(compDb, pack);
     }
-    preDrawNonBoxed(p) {
-        this.style.opacity = (this.opacity.value());
-        this.applyRotation(p);
-    }
     update(msDelta, p) {
         this.color.update(msDelta);
         this.x.update(msDelta);

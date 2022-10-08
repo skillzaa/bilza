@@ -3,7 +3,6 @@ import CompEngineCore from "./compEngineCore.js";
 import CorePropsDb from "../compDb/corePropsDb";
 export default class CompEngine extends CompEngineCore {
     constructor(compDb: CorePropsDb, pack: Pack);
-    protected preDrawNonBoxed(p: Pack): void;
     update(msDelta: number, p: Pack): boolean;
     canvasWidth(): number;
     canvasHeight(): number;

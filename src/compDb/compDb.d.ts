@@ -18,7 +18,7 @@ export default class CompDb extends CoreProps implements IComponent {
     contentWidth(): number;
     getDuration(): number;
     goto(atFrame: number, x: number, y: number): boolean;
-    setxy(x: number, y: number): void;
+    setxy(x: number, y?: number | null): void;
     getStartTime(inSec?: boolean): number;
     getEndTime(inSec?: boolean): number;
     rightEdge(): number;

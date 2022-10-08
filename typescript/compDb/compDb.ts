@@ -1,11 +1,10 @@
 import CoreProps from "./corePropsDb.js";
 import CompEngine from "../compEngine/compEngine.js";
 import Pack from "../pack/pack.js";
-
 import IComponent from "./IComponent.js";
+
 ///////////////////////////////////////////////////
 export default class CompDb extends CoreProps implements IComponent {
-///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number, canvasHeight :number){      
 
@@ -99,42 +98,23 @@ this.paddingRight.set(n);
 this.paddingTop.set(n);
 this.paddingBottom.set(n);
 }
-
 animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean {
 this.x.animate(timeFrom,timeTo,xFrom,xTo);    
 this.y.animate(timeFrom,timeTo,yFrom,yTo);    
 return true;    
 }
-
-// compWidth(): number {
-//     //--Border is not included so border will grow outward where as the internal area of box is just padding from 4 sides and the content area in between.
-//     return this.contentWidthPix() + this.paddingLeft.value() + this.paddingRight.value();
-// }   
 compWidth(): number {
 return  this.contentWidth() + this.paddingLeft.valuePerc() + this.paddingRight.valuePerc();
 }   
-// compHeight(): number {
-// //--Border is not included    
-// return this.contentHeightPix() + this.paddingTop.value() + this.paddingBottom.value();
-// }
 compHeight(): number {
 return this.contentHeight() + this.paddingTop.valuePerc() + this.paddingBottom.valuePerc();
 }
-//--if the comp with and height is not = to width/height then override
-// contentHeightPix(): number {
-//     return this.height.value();
-// }
 contentHeight(): number {
     return this.height.valuePerc();
 }
-// contentWidthPix(): number {
-//     return this.width.value();
-// }
 contentWidth(): number {
     return this.width.valuePerc();
 }
-
-////////----//////////////
 getDuration():number{
     return this.endTime - this.startTime;
 }
@@ -145,8 +125,8 @@ this.y.goto(atFrame,y);
 return true;
 }
 
-public setxy(x :number, y :number){
-    // if (y ==null){y=x;}
+public setxy(x :number, y :number | null =null){
+    if (y ==null){y=x;}
 this.x.set(x);
 this.y.set(y);
 }
@@ -156,13 +136,6 @@ getStartTime(inSec :boolean=true) :number{
 getEndTime(inSec :boolean=true) :number{
     return inSec ? this.endTime : (this.endTime * 1000);
 }
-
-
-// bottomEdgePix():number{
-// return (this.canvasHeight() - this.compHeight()); 
-// }
-
-
 /**
  * rightEdge : This will remove the effects of "align". The returned number is the percent of screen width (on x axis) at which the comp will have its fathest edge touching the canvas right edge.
  *  
@@ -178,11 +151,9 @@ switch (this.xAlign) {
     x = x - (this.compWidth()/2);    
     break;
     case 2:
-    // x = x + this.compWidth();    
     break;
 }
 return x;    
-// return  ( 100 - this.compWidth() );     
 }
 bottomEdge():number{
 let x = 100;     
@@ -195,13 +166,10 @@ switch (this.yAlign) {
     x = x - (this.compHeight()/2);    
     break;
     case 2:
-    // x = x + this.compHeight();    
     break;
 }
 return x;    
-// return  ( 100 - this.compWidth() );     
 }
-
 //--dont remove but its bad design
 //@ts-expect-error
 getEngineComp(pack :Pack):CompEngine{}

@@ -106,7 +106,10 @@ export default class CompDb extends CoreProps {
         this.y.goto(atFrame, y);
         return true;
     }
-    setxy(x, y) {
+    setxy(x, y = null) {
+        if (y == null) {
+            y = x;
+        }
         this.x.set(x);
         this.y.set(y);
     }

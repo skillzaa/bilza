@@ -2,16 +2,12 @@ import Pack from "../pack/pack.js";
 import CompEngineCore from "./compEngineCore.js";
 import CorePropsDb from "../compDb/corePropsDb";
 
+////////////////////////////////////////////
 export default class CompEngine extends CompEngineCore {
 
 // /xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 constructor(compDb :CorePropsDb,pack :Pack){
 super(compDb,pack); 
-
-}
-protected preDrawNonBoxed(p :Pack){
-this.style.opacity = (this.opacity.value());
-this.applyRotation(p);
 }
 //////////////////////////////////////////
 update(msDelta :number,p :Pack): boolean {
@@ -50,7 +46,6 @@ public draw(p :Pack):boolean{
 ///////////////////protected 
 protected preDraw(p :Pack){
 this.style.opacity = (this.opacity.value());
-// this.style.opacity = 100;    
 this.applyRotation(p);
 this.drawBackground(p);
 this.drawBorder(p);    
@@ -179,7 +174,5 @@ contentHeight(): number {
 contentWidth(): number {
     return this.width.value();
 }
-
-
 ///////////////////////////////////////////    
 }//class
