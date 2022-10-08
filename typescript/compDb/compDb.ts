@@ -162,27 +162,43 @@ getEndTime(inSec :boolean=true) :number{
 // return (this.canvasHeight() - this.compHeight()); 
 // }
 
-bottomEdge():number{
-return  ( 100 - this.compHeight() );     
-}
+
 /**
  * rightEdge : This will remove the effects of "align". The returned number is the percent of screen width (on x axis) at which the comp will have its fathest edge touching the canvas right edge.
  *  
  */
 rightEdge():number{
-let x = this.x.value();     
+let x = 100;     
 switch (this.xAlign) {
     case 0 :
+    x = x - this.compWidth();         
     //--nothing        
     break;
     case 1:
-    x = x + (this.compWidth()/2);    
+    x = x - (this.compWidth()/2);    
     break;
     case 2:
-    x = x + this.compWidth();    
+    // x = x + this.compWidth();    
     break;
 }
-return 100 - x;    
+return x;    
+// return  ( 100 - this.compWidth() );     
+}
+bottomEdge():number{
+let x = 100;     
+switch (this.yAlign) {
+    case 0 :
+    x = x - this.compHeight();         
+    //--nothing        
+    break;
+    case 1:
+    x = x - (this.compHeight()/2);    
+    break;
+    case 2:
+    // x = x + this.compHeight();    
+    break;
+}
+return x;    
 // return  ( 100 - this.compWidth() );     
 }
 

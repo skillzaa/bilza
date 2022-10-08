@@ -116,22 +116,33 @@ export default class CompDb extends CoreProps {
     getEndTime(inSec = true) {
         return inSec ? this.endTime : (this.endTime * 1000);
     }
-    bottomEdge() {
-        return (100 - this.compHeight());
-    }
     rightEdge() {
-        let x = this.x.value();
+        let x = 100;
         switch (this.xAlign) {
             case 0:
+                x = x - this.compWidth();
                 break;
             case 1:
-                x = x + (this.compWidth() / 2);
+                x = x - (this.compWidth() / 2);
                 break;
             case 2:
-                x = x + this.compWidth();
                 break;
         }
-        return 100 - x;
+        return x;
+    }
+    bottomEdge() {
+        let x = 100;
+        switch (this.yAlign) {
+            case 0:
+                x = x - this.compHeight();
+                break;
+            case 1:
+                x = x - (this.compHeight() / 2);
+                break;
+            case 2:
+                break;
+        }
+        return x;
     }
     getEngineComp(pack) { }
 }

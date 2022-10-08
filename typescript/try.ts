@@ -9,42 +9,14 @@ bil.alwaysOn().canvasBorder( hsl(0,70,20) ,0.5);
 const grid = bil.alwaysOn().grid();
 grid.colorVerticalLines.set("red");
 
-
 const comp = bil.add(0,60).fillRect(hsl(0));
-// const comp = bil.add(0,60).curve( 100,100, 250,200, 400,400,"red");
-// comp.lineWidth.set(10);
 comp.showBackground.set(true);
 comp.colorBackground.set( hsl(240,20,15));
-// comp.align(1,0);
+comp.align(1,2);
+comp.y.set(10);
 
 comp.x.animate(0,5,0,comp.rightEdge());
-// comp.y.animate(6,10,0, comp.bottomEdgePerc());
-comp.x.animate(11,15,100,0 );
-comp.y.animate(16,20,100, 0);
-// comp.width.animate(0,5,10,100);
-// comp.height.animate(6,10,10,100);
-// console.log("leftMost" , comp.leftMost());
-// console.log("rightMost" , comp.rightMost());
-// console.log("topMost" , comp.topMost());
-// console.log("bottomMost" , comp.bottomMost());
-
-// comp.midX.animate(1,5,300,800);
-// comp.midY.oscillate(1,60,0,400,10,0);
-// comp.midX.oscillate(0,60,0,800,5);
-
-// comp.width.set(20);
-// comp.height.set(20);
-// comp.showBackground.set(true);
-// comp.colorBackground.set(hsl(60,40,80));
-// comp.border.set(1);
-// comp.colorBorder.set("red");
-// comp.setPaddings(1);
-////////////////////////
-// comp.x.animate(0,5,   0,                    comp.rightEdge() );
-// comp.y.animate(6,10,  0,                    comp.bottomEdge() );
-// comp.x.animate(11,15, comp.rightEdge() ,  0 );
-// comp.y.animate(16,20, comp.bottomEdge() , 0);
-
+comp.y.animate(6,10,10, comp.bottomEdge());
 ////////////////////////
 bil.draw();
 
