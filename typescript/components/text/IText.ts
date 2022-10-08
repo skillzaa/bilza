@@ -6,11 +6,8 @@ import {FontFamily}  from "../../pack/fontFamily.js";
 
 export default interface IRect extends IComponent{
 
- content :AniStringDb;
- fontFamily :FontFamily;
- fontSize :AniNumberDb;
- maxDisplayChars :AniNumberDb; 
- fitToWidth :AniBooleanDb; 
- fitToHeight :AniBooleanDb; 
- respFontSize :AniBooleanDb; 
+    content :AniStringDb;
+    fontFamily :FontFamily;
+    maxDisplayChars :AniNumberDb; 
+    fitToWidth :AniBooleanDb; 
 }

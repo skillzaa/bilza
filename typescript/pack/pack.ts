@@ -208,7 +208,7 @@ public drawTextstroke(content:string,x:number,y:number, incomCtx:Style){
     this.ctx.strokeText(content, x, y);
 }
 
-public commitCtxData(incomCtx:Style){
+private commitCtxData(incomCtx:Style){
     
     if (incomCtx.lineCap !== null){
         this.ctx.lineCap = "round";
@@ -251,35 +251,8 @@ public commitCtxData(incomCtx:Style){
 
 }
 private setFont(fontSize:number,fontName:string){
-// let f = fontSize + "px " + fontName;
 let f = `${fontSize}px ${fontName}`;
-// let f = `${fontSize}px fantasy`;
-// let f = "200px Charcoal";
 this.ctx.font = f;
-}
-public xPerc(perc :number):number{
-let checked = this.setBwZeroNhundred(perc);
-return Math.ceil(( this.canvas.width /100) * checked); 
-}
-public pixToXPerc(pix :number):number{
-// if (this.canvasWidth == null) { throw new Error("init error");}    
-const pixDiv = pix/this.canvasWidth();    
-return Math.ceil(( pixDiv  * 100) ); 
-}
-public pixToYPerc(pix :number):number{
-// if (this.canvasWidth == null) { throw new Error("init error");}    
-const pixDiv = pix/this.canvasHeight();    
-return Math.ceil(( pixDiv  * 100) ); 
-}
-public yPerc(perc :number):number{
-let checked = this.setBwZeroNhundred(perc);    
-return ((this.canvas.height /100) * checked); 
-}
-
-private setBwZeroNhundred(n:number):number{
-  if (n < 0 ){return 0;}  
-  if (n > 100 ){return 100;}
-  return n;  
 }
 public dynCanvasWidth(widthInPercent :number = 80):number{
     return window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
@@ -291,6 +264,13 @@ public dynCanvasHeight(widthInPix :number,heightInPercent :number | null=null):n
 }else {
     return aspectRatioHeight(widthInPix);
 }
+}
+measureText(txt :string,style :Style):TextMetrics{
+this.ctx.save();
+    this.commitCtxData(style);
+const metric =  this.ctx.measureText(txt);
+this.ctx.restore();    
+return metric;
 }
 //--this is old setCanvas
 //--TO RESIZE CANVAS TO SOME SPECIFIC PIX WIDTH HEIGHT
@@ -328,9 +308,5 @@ this.ctx.translate(x,y);
 setTransform( a:number=1, b:number=0, c:number=0, d:number=1, e:number=0, f:number=0){
 this.ctx.setTransform(a, b, c, d, e, f);    
 }
-
-// applyOpacity(n :number){
-// this.ctx.globalAlpha = (n/100);
-// }
 /////////////////////////////////////////////////////////////
 }

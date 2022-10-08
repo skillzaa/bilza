@@ -15,5 +15,6 @@ export default class Bilza {
     start(): void;
     stop(): void;
     getEngine(): Engine | null;
+    resizeCanvas(wd: number, ht: number | null): void;
 }
 //# sourceMappingURL=bilza.d.ts.map

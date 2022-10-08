@@ -32,15 +32,11 @@ export default class Pack {
     drawText(content: string, x: number, y: number, incomCtx: Style): void;
     drawIcon(code: number, x: number, y: number, incomCtx: Style): void;
     drawTextstroke(content: string, x: number, y: number, incomCtx: Style): void;
-    commitCtxData(incomCtx: Style): void;
+    private commitCtxData;
     private setFont;
-    xPerc(perc: number): number;
-    pixToXPerc(pix: number): number;
-    pixToYPerc(pix: number): number;
-    yPerc(perc: number): number;
-    private setBwZeroNhundred;
     dynCanvasWidth(widthInPercent?: number): number;
     dynCanvasHeight(widthInPix: number, heightInPercent?: number | null): number;
+    measureText(txt: string, style: Style): TextMetrics;
     resizeCanvas(width: number, height: number | null): void;
     dynamicCanvas(widthInPercent?: number, heightInPercent?: number | null): boolean;
     rotate(degrees: number, reverse?: boolean): void;

@@ -192,31 +192,6 @@ export default class Pack {
         let f = `${fontSize}px ${fontName}`;
         this.ctx.font = f;
     }
-    xPerc(perc) {
-        let checked = this.setBwZeroNhundred(perc);
-        return Math.ceil((this.canvas.width / 100) * checked);
-    }
-    pixToXPerc(pix) {
-        const pixDiv = pix / this.canvasWidth();
-        return Math.ceil((pixDiv * 100));
-    }
-    pixToYPerc(pix) {
-        const pixDiv = pix / this.canvasHeight();
-        return Math.ceil((pixDiv * 100));
-    }
-    yPerc(perc) {
-        let checked = this.setBwZeroNhundred(perc);
-        return ((this.canvas.height / 100) * checked);
-    }
-    setBwZeroNhundred(n) {
-        if (n < 0) {
-            return 0;
-        }
-        if (n > 100) {
-            return 100;
-        }
-        return n;
-    }
     dynCanvasWidth(widthInPercent = 80) {
         return window.innerWidth / 100 * setBWzeroNhundred(widthInPercent);
     }
@@ -227,6 +202,13 @@ export default class Pack {
         else {
             return aspectRatioHeight(widthInPix);
         }
+    }
+    measureText(txt, style) {
+        this.ctx.save();
+        this.commitCtxData(style);
+        const metric = this.ctx.measureText(txt);
+        this.ctx.restore();
+        return metric;
     }
     resizeCanvas(width, height) {
         this.canvas.width = width;

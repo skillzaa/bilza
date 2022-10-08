@@ -3,6 +3,7 @@ import RectDB from "../components/rect/rectDb.js";
 import CanvasBorderDb from "../components/canvasBorder/canvasBorderDb.js";
 import GridDb from "../components/grid/gridDb.js";
 import CircleDb from "../components/circle/circleDb.js";
+import MarkerDb from "../components/circle/markerDb.js";
 import PicDb from "../components/pic/picDb.js";
 import LineDb from "../components/line/lineDb.js";
 import ArrowDb from "../components/arrow/arrowDb.js";
@@ -64,13 +65,18 @@ export default class CompFactory {
         this.comps.push(g);
         return g;
     }
-    pic(imgUrl, width = 25, height = 25) {
-        let g = new PicDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, imgUrl, width, height);
+    marker(x, y, color = "red", radius = 1) {
+        let g = new MarkerDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, x, y, color, radius);
         this.comps.push(g);
         return g;
     }
     line(x1, y1, x2, y2, color = "black") {
         let g = new LineDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, x1, y1, x2, y2, color);
+        this.comps.push(g);
+        return g;
+    }
+    pic(imgUrl, width = 25, height = 25) {
+        let g = new PicDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, imgUrl, width, height);
         this.comps.push(g);
         return g;
     }

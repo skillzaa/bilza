@@ -55,4 +55,10 @@ export default class Bilza {
     getEngine() {
         return this.bil;
     }
+    resizeCanvas(wd, ht) {
+        if (this.bil == null) {
+            throw new Error("init error");
+        }
+        this.bil.resizeCanvas(wd, ht);
+    }
 }

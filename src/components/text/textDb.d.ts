@@ -7,11 +7,8 @@ import { FontFamily } from "../../pack/fontFamily.js";
 export default class TextDb extends CompDb implements IText {
     content: AniStringDb;
     fontFamily: FontFamily;
-    fontSize: AniNumberDb;
     maxDisplayChars: AniNumberDb;
     fitToWidth: AniBooleanDb;
-    fitToHeight: AniBooleanDb;
-    respFontSize: AniBooleanDb;
     private charsWidth;
     constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, charsWidth: (chars: string, fontSize: number, fontName: string) => number, content: string, color: string);
     contentHeight(): number;

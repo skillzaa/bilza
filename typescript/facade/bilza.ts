@@ -73,9 +73,10 @@ getEngine():Engine | null{
 return this.bil;    
 }
 
-// resizeCanvas(){
-// // this.bil.resi
-// }
+resizeCanvas(wd :number,ht :number | null){
+if (this.bil == null){throw new Error("init error");}    
+this.bil.resizeCanvas(wd,ht);
+}
 
 
 ////////////////////////////////////

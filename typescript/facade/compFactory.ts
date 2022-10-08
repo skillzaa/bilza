@@ -8,7 +8,7 @@ import ICanvasBorder from "../components/canvasBorder/ICanvasBorder.js";
 import GridDb from "../components/grid/gridDb.js";
 import IGrid from "../components/grid/IGrid.js";
 import CircleDb from "../components/circle/circleDb.js";
-// import MarkerDb from "../components/circle/markerDb.js";
+import MarkerDb from "../components/circle/markerDb.js";
 import ICircle from "../components/circle/ICircle.js";
 import PicDb from "../components/pic/picDb.js";
 import IPic from "../components/pic/IPic.js";
@@ -110,21 +110,23 @@ let g = new CircleDb (this.startTime,this.endTime,this.insertAction,this.canvasW
 this.comps.push(g);
 return g;    
 }
-// marker(radius :number=5,color :string="black"):ICircle{
-// let g = new MarkerDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,radius,color);
-// this.comps.push(g);
-// return g;    
-// }
-pic(imgUrl :string,width :number=25,height:number=25):IPic{
-let g = new PicDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,imgUrl,width,height);
+marker(x :number,y :number, color :string="red",radius :number= 1):ICircle{
+let g = new MarkerDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,x,y,color,radius);
 this.comps.push(g);
 return g;    
 }
+
 line( x1 :number , y1 :number , x2 :number ,y2 :number,color:string="black"):ILine{
 let g = new LineDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,x1,y1,x2,y2,color);
 this.comps.push(g);
 return g;    
 }
+pic(imgUrl :string,width :number=25,height:number=25):IPic{
+let g = new PicDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,imgUrl,width,height);
+this.comps.push(g);
+return g;    
+}
+
 /////////--------components functions---///////////
     
 }

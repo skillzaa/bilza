@@ -4,58 +4,40 @@ export default class Text extends CompEngine {
     constructor(propsDb, pack) {
         super(propsDb, pack);
         this.content = new AniString(propsDb.content);
-        this.fontSize = new AniNumber(propsDb.fontSize);
         this.maxDisplayChars = new AniNumber(propsDb.maxDisplayChars);
         this.fontFamily = propsDb.fontFamily;
         this.fitToWidth = new AniBoolean(propsDb.fitToWidth);
-        this.fitToHeight = new AniBoolean(propsDb.fitToHeight);
-        this.respFontSize = new AniBoolean(propsDb.respFontSize);
         this.drawLayer = 2;
         this._oldWidth = null;
         this._oldHeight = null;
         this.color.set(propsDb.color.value());
-        this.width.set(300);
-        this.height.set(300);
+        this.width.set(20);
+        this.height.set(10);
+        this._fontSize = this.height.value();
     }
     update(msDelta, p) {
-        if (this.fitToHeight.value() == true) {
-            if (this.hasHeightChanged() == true) {
-                this.fitToHeightFn(p);
-            }
-        }
-        else {
-            this.shrinkToHeightFn(p);
-        }
         if (this.fitToWidth.value() == true) {
             if (this.hasWidthChanged() == true) {
                 this.fitToWidthFn(p);
             }
         }
         else {
-            this.shrinkToWidthFn(p);
+            this._fontSize = this.height.value();
         }
         super.update(msDelta, p);
-        if (this.fitToWidth.value() == false && this.fitToHeight.value() == false) {
-            this.fontSize.update(msDelta);
-        }
         this.content.update(msDelta);
         this.maxDisplayChars.update(msDelta);
-        this.respFontSize.update(msDelta);
         this.fitToWidth.update(msDelta);
-        this.fitToHeight.update(msDelta);
         return true;
     }
     contentHeight() {
         if (this.maxDisplayChars.value() < 1) {
             return 0;
         }
-        return this.charsWidth("W", this.fontSize.value(), this.fontFamily);
+        return this.charsWidth("W", this._fontSize, this.fontFamily);
     }
     contentWidth() {
-        if (this.charsWidth == null) {
-            throw new Error("init error");
-        }
-        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.fontSize.value(), this.fontFamily);
+        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this._fontSize, this.fontFamily);
     }
     draw(p) {
         this.preDraw(p);
@@ -66,67 +48,29 @@ export default class Text extends CompEngine {
     drawContent(p) {
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
-        this.style.fontSize = this.fontSize.value();
+        this.style.fontSize = this._fontSize;
         this.style.fontFamily = this.fontFamily;
         p.drawText(this.content.value().substring(0, this.maxDisplayChars.value()), this.contentX(), this.contentY(), this.style);
     }
     fitToWidthFn(p) {
         const reqWdInPix = (this.width.value());
-        this.style.fontSize = this.fontSize.value();
+        this.style.fontSize = this.height.value();
         this.style.fontFamily = this.fontFamily;
         for (let i = 1; i < 900; i++) {
             const newWidthInPix = p.charsWidth(this.content.value(), i, this.style.fontFamily);
             if (newWidthInPix >= (reqWdInPix)) {
-                this.fontSize.set(i);
+                this.height.set(i);
                 this.style.fontSize = i;
-                return this.fontSize.value();
+                return this.height.value();
             }
         }
         return null;
     }
     fitToHeightFn(p) {
         const reqHtInPix = (this.height.value()) * 1.12;
-        this.fontSize.set(reqHtInPix);
-        this.style.fontSize = this.fontSize.value();
+        this.height.set(reqHtInPix);
+        this.style.fontSize = this.height.value();
         return reqHtInPix;
-    }
-    shrinkToHeightFn(p) {
-        this.style.fontFamily = this.fontFamily;
-        const reqHtInPix = (this.height.value());
-        const contentHeight = p.charsWidth("W", this.fontSize.value(), this.style.fontFamily);
-        if (contentHeight < reqHtInPix) {
-            return true;
-        }
-        for (let i = 300; i > 0; i--) {
-            const newHeightInPix = p.charsWidth("W", i, this.style.fontFamily);
-            if (newHeightInPix <= reqHtInPix) {
-                this.fontSize.set(i);
-                this.style.fontSize = i;
-                return true;
-            }
-        }
-        return true;
-    }
-    shrinkToWidthFn(p) {
-        if (this.charsWidth == null) {
-            throw new Error("init error");
-        }
-        this.style.fontFamily = this.fontFamily;
-        this.style.fontSize = this.fontSize.value();
-        const reqWdInPix = (this.width.value());
-        const contentWidth = p.charsWidth(this.content.value(), this.fontSize.value(), this.style.fontFamily);
-        if (contentWidth < reqWdInPix) {
-            return true;
-        }
-        for (let i = 400; i > 0; i--) {
-            const newWidthInPix = p.charsWidth(this.content.value(), i, this.style.fontFamily);
-            if (newWidthInPix <= reqWdInPix) {
-                this.fontSize.set(i);
-                this.style.fontSize = i;
-                return true;
-            }
-        }
-        return true;
     }
     hasWidthChanged() {
         if (this._oldWidth == null) {

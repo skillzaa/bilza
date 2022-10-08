@@ -56,7 +56,7 @@ update(msDelta: number, p: Pack): boolean {
 }
 
 draw(p:Pack):boolean{
-this.preDrawNonBoxed(p);
+this.preDraw(p);
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value(); 
 this.style.lineWidth = this.lineWidth.value(); 

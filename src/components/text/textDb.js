@@ -7,11 +7,8 @@ export default class TextDb extends CompDb {
         super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
         this.content = new AniStringDb(content);
         this.fontFamily = FontFamily.Calibri;
-        this.maxDisplayChars = new AniNumberDb(200);
-        this.fontSize = new AniNumberDb(40);
+        this.maxDisplayChars = new AniNumberDb(500);
         this.fitToWidth = new AniBooleanDb(false);
-        this.fitToHeight = new AniBooleanDb(false);
-        this.respFontSize = new AniBooleanDb(true);
         this.charsWidth = charsWidth;
         this.color.set(color);
     }
@@ -19,13 +16,13 @@ export default class TextDb extends CompDb {
         if (this.maxDisplayChars.value() < 1) {
             return 0;
         }
-        return this.charsWidth("W", this.fontSize.value(), this.fontFamily);
+        return this.charsWidth("W", this.height.value(), this.fontFamily);
     }
     contentWidth() {
         if (this.charsWidth == null) {
             throw new Error("init error");
         }
-        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.fontSize.value(), this.fontFamily);
+        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.height.value(), this.fontFamily);
     }
     getEngineComp(pack) {
         const comp = new Text(this, pack);

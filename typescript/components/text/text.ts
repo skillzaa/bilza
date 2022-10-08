@@ -2,38 +2,33 @@ import Pack from "../../pack/pack.js";
 import CompEngine from "../../compEngine/compEngine.js";
 import TextDb from "./textDb.js";
 import {FontFamily}  from "../../pack/fontFamily.js";
-import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js"; 
+import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js";
+ 
 // import TextTempl from "./textTempl.js";
 // import TextTheme from "./textTheme.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 export default class Text extends CompEngine {
 private _oldWidth :null|number;
 private _oldHeight :null|number;
+private _fontSize :number;
 //-----------------------------
 public content :AniString;
 public fontFamily :FontFamily;
-public fontSize :AniNumber;
 public maxDisplayChars :AniNumber; 
 public fitToWidth :AniBoolean; 
-public fitToHeight :AniBoolean; 
-public respFontSize :AniBoolean; 
 /////////////////////////////////////////
-// public templ :TextTempl; 
-// public theme :TextTheme;
+// public templ :TextTempl;  
+// public theme :TextTheme; 
 // public static compClassName:string = "Text";
 
 /////////////////////////////////////////
 constructor (propsDb :TextDb ,pack :Pack){ 
     super(propsDb,pack);
-// this.charsWidth = pack.charsWidth.bind(pack);
-
+//--------------------------------------------------------
 this.content = new AniString(propsDb.content);
-this.fontSize = new AniNumber(propsDb.fontSize);
 this.maxDisplayChars = new AniNumber(propsDb.maxDisplayChars);
 this.fontFamily = propsDb.fontFamily; //waoooooooo
 this.fitToWidth = new AniBoolean(propsDb.fitToWidth); 
-this.fitToHeight = new AniBoolean(propsDb.fitToHeight); 
-this.respFontSize = new AniBoolean(propsDb.respFontSize); 
 //-----------------------------
 this.drawLayer = 2;//its default but for safety
 //-----------------------------
@@ -44,54 +39,39 @@ this._oldWidth = null;
 this._oldHeight = null;
 //-----------------------------
 this.color.set( propsDb.color.value() ); 
-this.width.set(300);
-this.height.set(300);
+this.width.set(20);
+this.height.set(10);
+//--in the start this font size = height value
+this._fontSize = this.height.value();
 }
 
 update(msDelta: number, p: Pack): boolean {
-    /////////////////////////////////////////
-    if (this.fitToHeight.value() == true){
-        if (this.hasHeightChanged()==true){
-            this.fitToHeightFn(p);
-        }
-    } else {
-        this.shrinkToHeightFn(p);
-    }
-    /////////////////////////////////////////
+//------///////////////////////////////////////
     if (this.fitToWidth.value() == true){
         if (this.hasWidthChanged() == true){
             //--dont run it on every step
             this.fitToWidthFn(p);
         }
-    }else {
-        this.shrinkToWidthFn(p);
-    }   
+    } else {
+        this._fontSize = this.height.value();
+    }  
     ////////-------------------------
     
 super.update(msDelta,p);
-//--Disable fontSize --update it internally
-if (this.fitToWidth.value() == false && this.fitToHeight.value()==false){
-    this.fontSize.update(msDelta); 
-}
 this.content.update(msDelta); 
 this.maxDisplayChars.update(msDelta);
-this.respFontSize.update(msDelta);
 this.fitToWidth.update(msDelta);
-this.fitToHeight.update(msDelta);
 return true;
 }
  
 contentHeight():number {
 //--Abstraction
 if (this.maxDisplayChars.value() < 1) {return 0;}
-// return this.compPack.charsWidth("W",this.adjestFontSize(this.fontSize.value()),this.fontFamily);
-return this.charsWidth("W",this.fontSize.value(),this.fontFamily);
+return this.charsWidth("W",this._fontSize,this.fontFamily);
 }
 //--contentWidth has to return the actual width of the content area. If we use fitTextToWidth in text this method does not need to change it stil is correct just the fontSize change.
 contentWidth():number {
-if (this.charsWidth == null){throw new Error("init error");}        
-// return this.compPack.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this.adjestFontSize(this.fontSize.value()),this.fontFamily)
-return this.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this.fontSize.value(),this.fontFamily)
+return this.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this._fontSize,this.fontFamily)
 }
    
 //-ideal draw function
@@ -99,6 +79,7 @@ draw(p:Pack):boolean{
 this.preDraw(p);
 this.drawContent(p);
 this.postDraw(p);
+// console.log(p.measureText(this.content.value(), this.style));
 return true;
 } 
 
@@ -106,8 +87,8 @@ drawContent(p :Pack){
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value();     
 
-// this.style.fontSize = this.adjestFontSize(this.fontSize.value());
-this.style.fontSize = this.fontSize.value();
+this.style.fontSize = this._fontSize;
+// this.style.fontSize = this.height.value();
 this.style.fontFamily = this.fontFamily;
     
  p.drawText(
@@ -116,14 +97,16 @@ this.style.fontFamily = this.fontFamily;
      this.contentY(),
      this.style);   
  } 
+
 //---------------------------------- 
 //---------------------------------- 
 protected fitToWidthFn(p :Pack):number | null{
 //----required with should exclude padding     
- const reqWdInPix = (this.width.value());
+//valuePer() is percentage and value = pix
+ const reqWdInPix = (this.width.value()); 
  
  //if not already in sync
- this.style.fontSize = this.fontSize.value(); 
+ this.style.fontSize = this.height.value(); 
  this.style.fontFamily = this.fontFamily; 
 
  //--------------------The Process
@@ -132,9 +115,9 @@ protected fitToWidthFn(p :Pack):number | null{
      const newWidthInPix = p.charsWidth(this.content.value(), i ,this.style.fontFamily);
  //----------------------------
      if (newWidthInPix >= (reqWdInPix) ){
-         this.fontSize.set(i); 
+         this.height.set(i); 
          this.style.fontSize = i; //important
-         return this.fontSize.value();
+         return this.height.value();
      } 
  }//for end  
  return null; 
@@ -144,8 +127,8 @@ protected fitToHeightFn(p :Pack):number | null{
 //----required with should exclude padding     
  const reqHtInPix = (this.height.value())* 1.12;
  
- this.fontSize.set(reqHtInPix); 
- this.style.fontSize = this.fontSize.value(); 
+ this.height.set(reqHtInPix); 
+ this.style.fontSize = this.height.value(); 
  return reqHtInPix;
 //  if not already in sync
 //  this.style.fontSize = this.fontSize.value(); 
@@ -174,54 +157,53 @@ protected fitToHeightFn(p :Pack):number | null{
 //         return n;
 //     }   
 // } 
-protected shrinkToHeightFn(p :Pack){
-//--must sync Both
-this.style.fontFamily = this.fontFamily;
+// protected shrinkToHeightFn(p :Pack){
+// //--must sync Both
+// this.style.fontFamily = this.fontFamily;
 
-const reqHtInPix =  (this.height.value());
+// const reqHtInPix =  (this.height.value());
 
-const contentHeight = p.charsWidth("W",this.fontSize.value(),this.style.fontFamily);
-if ( contentHeight < reqHtInPix){return true;}
-//-----------------------------------------
-    for (let i = 300; i > 0; i--) {
-    // this.style.fontSize = i; 
-    const newHeightInPix = p.charsWidth("W",i,this.style.fontFamily);
-//----------------------------
-// if (i < 100){debugger;}
-    if (newHeightInPix <= reqHtInPix ){
-        this.fontSize.set(i); 
-        this.style.fontSize = i;//may not be required
-        return true;
-    }
-}
-return true;
-}
-protected shrinkToWidthFn(p :Pack){
-if (this.charsWidth==null){throw new Error("init error");
-}    
-//--must sync Both
-this.style.fontFamily = this.fontFamily;
-this.style.fontSize = this.fontSize.value();
-const reqWdInPix =  (this.width.value());
-//--why not
-const contentWidth = p.charsWidth(this.content.value() , this.fontSize.value(),this.style.fontFamily);
+// const contentHeight = p.charsWidth("W",this.height.value(),this.style.fontFamily);
+// if ( contentHeight < reqHtInPix){return true;}
+// //-----------------------------------------
+//     for (let i = 300; i > 0; i--) {
+//     // this.style.fontSize = i; 
+//     const newHeightInPix = p.charsWidth("W",i,this.style.fontFamily);
+// //----------------------------
+// // if (i < 100){debugger;}
+//     if (newHeightInPix <= reqHtInPix ){
+//         this.height.set(i); 
+//         this.style.fontSize = i;//may not be required
+//         return true;
+//     }
+// }
+// return true;
+// }
+// protected shrinkToWidthFn(p :Pack){
+// if (this.charsWidth==null){throw new Error("init error");
+// }    
+// //--must sync Both
+// this.style.fontFamily = this.fontFamily;
+// this.style.fontSize = this.height.value();
+// const reqWdInPix =  (this.width.value());
+// //--why not
+// const contentWidth = p.charsWidth(this.content.value() , this.height.value(),this.style.fontFamily);
 
-if ( contentWidth < reqWdInPix){return true;}
-//-----------------------------------------
-    for (let i = 400; i > 0; i--) {
-    // this.style.fontSize = i; 
-    const newWidthInPix = p.charsWidth(this.content.value(),i,this.style.fontFamily);
-//----------------------------
-// if (i < 75){debugger;}
-    if (newWidthInPix <= reqWdInPix ){
-        this.fontSize.set(i); 
-        this.style.fontSize = i;//may not be required
-        return true;
-    }
-}
-return true;
-}
-
+// if ( contentWidth < reqWdInPix){return true;}
+// //-----------------------------------------
+//     for (let i = 400; i > 0; i--) {
+//     // this.style.fontSize = i; 
+//     const newWidthInPix = p.charsWidth(this.content.value(),i,this.style.fontFamily);
+// //----------------------------
+// // if (i < 75){debugger;}
+//     if (newWidthInPix <= reqWdInPix ){
+//         this.height.set(i); 
+//         this.style.fontSize = i;//may not be required
+//         return true;
+//     }
+// }
+// return true;
+// }
 private hasWidthChanged():boolean{
 //--first time    
         if(this._oldWidth == null){

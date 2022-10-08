@@ -6,13 +6,11 @@ import { AniNumber, AniString, AniBoolean } from "../../animations/animations.js
 export default class Text extends CompEngine {
     private _oldWidth;
     private _oldHeight;
+    private _fontSize;
     content: AniString;
     fontFamily: FontFamily;
-    fontSize: AniNumber;
     maxDisplayChars: AniNumber;
     fitToWidth: AniBoolean;
-    fitToHeight: AniBoolean;
-    respFontSize: AniBoolean;
     constructor(propsDb: TextDb, pack: Pack);
     update(msDelta: number, p: Pack): boolean;
     contentHeight(): number;
@@ -21,8 +19,6 @@ export default class Text extends CompEngine {
     drawContent(p: Pack): void;
     protected fitToWidthFn(p: Pack): number | null;
     protected fitToHeightFn(p: Pack): number | null;
-    protected shrinkToHeightFn(p: Pack): boolean;
-    protected shrinkToWidthFn(p: Pack): boolean;
     private hasWidthChanged;
     private hasHeightChanged;
 }

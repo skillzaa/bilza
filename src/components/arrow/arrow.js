@@ -24,7 +24,7 @@ export default class Arrow extends CompEngine {
         return true;
     }
     draw(p) {
-        this.preDrawNonBoxed(p);
+        this.preDraw(p);
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
         this.style.lineWidth = this.lineWidth.value();
