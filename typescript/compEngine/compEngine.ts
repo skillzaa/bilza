@@ -94,8 +94,10 @@ this.style.fillStyle = this.colorBackground.value();
 this.style.strokeStyle = this.colorBackground.value();  
 
 p.drawFillRect (this.xAligned(), this.yAligned(),
-    toPix(this.compWidth(),this.canvasWidth()), 
-    toPix(this.compHeight(),this.canvasHeight()), 
+    // toPix(this.compWidth(),this.canvasWidth()), 
+    this.compWidth(), 
+    this.compHeight(), 
+    // toPix(this.compHeight(),this.canvasHeight()), 
 this.style);
 }
 

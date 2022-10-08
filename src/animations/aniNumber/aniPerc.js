@@ -3,7 +3,6 @@ export default class AniPerc extends AniProp {
     constructor(aniPercDb) {
         super(aniPercDb);
         this.defaultValue = aniPercDb.valuePerc();
-        this._value = aniPercDb.valuePerc();
         this.theWhole = aniPercDb.getTheWhole();
     }
     value() {

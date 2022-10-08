@@ -1,5 +1,5 @@
 import IComponent from "../../compDb/IComponent.js";
-import { AniNumberDb, AniColorDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animationsFacade/animationsDb.js";
 export default interface ICurve extends IComponent {
     startX: AniNumberDb;
     startY: AniNumberDb;
@@ -9,6 +9,7 @@ export default interface ICurve extends IComponent {
     endY: AniNumberDb;
     lineWidth: AniNumberDb;
     bracketWidth: AniNumberDb;
+    showBracket: AniBooleanDb;
     colorBracket: AniColorDb;
 }
 //# sourceMappingURL=ICurve.d.ts.map
