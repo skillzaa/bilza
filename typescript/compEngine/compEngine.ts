@@ -1,7 +1,7 @@
 import Pack from "../pack/pack.js";
 import CompEngineCore from "./compEngineCore.js";
 import CorePropsDb from "../compDb/corePropsDb";
-
+import toPix from "../functions/toPix.js";
 ////////////////////////////////////////////
 export default class CompEngine extends CompEngineCore {
 
@@ -94,8 +94,8 @@ this.style.fillStyle = this.colorBackground.value();
 this.style.strokeStyle = this.colorBackground.value();  
 
 p.drawFillRect (this.xAligned(), this.yAligned(),
-this.compWidth(), 
-this.compHeight(),
+    toPix(this.compWidth(),this.canvasWidth()), 
+    toPix(this.compHeight(),this.canvasHeight()), 
 this.style);
 }
 

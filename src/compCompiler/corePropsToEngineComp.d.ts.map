@@ -1,1 +1,0 @@
-{"version":3,"file":"corePropsToEngineComp.d.ts","sourceRoot":"","sources":["../../typescript/compCompiler/corePropsToEngineComp.ts"],"names":[],"mappings":"AAAA,OAAO,WAAW,MAAM,8BAA8B,CAAC;AACvD,OAAO,IAAI,MAAM,iBAAiB,CAAC;AAEnC,OAAO,OAAO,MAAM,sBAAsB,CAAC;AAQ3C,MAAM,CAAC,OAAO,UAAU,qBAAqB,CAAC,MAAM,EAAE,OAAO,EAAC,UAAU,EAAE,WAAW,EAAC,IAAI,EAAE,IAAI,GAAE,WAAW,CA6C5G"}

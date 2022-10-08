@@ -9,10 +9,17 @@ export default class TextDb extends CompDb implements IText {
     fontFamily: FontFamily;
     maxDisplayChars: AniNumberDb;
     fitToWidth: AniBooleanDb;
+    private _oldWidth;
+    private _oldHeight;
+    heightFineTune: number;
     private charsWidth;
     constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, charsWidth: (chars: string, fontSize: number, fontName: string) => number, content: string, color: string);
     contentHeight(): number;
     contentWidth(): number;
     getEngineComp(pack: Pack): compEngine;
+    private getFontSize;
+    protected widthFontSize(): number;
+    private heightFontSize;
+    private hasWidthChanged;
 }
 //# sourceMappingURL=textDb.d.ts.map

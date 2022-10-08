@@ -3,6 +3,7 @@ import CompEngine from "../../compEngine/compEngine.js";
 import TextDb from "./textDb.js";
 import {FontFamily}  from "../../pack/fontFamily.js";
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js";
+import toPerc from "../../functions/toPerc.js";
  
 // import TextTempl from "./textTempl.js";
 // import TextTheme from "./textTheme.js";
@@ -10,12 +11,13 @@ import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animati
 export default class Text extends CompEngine {
 private _oldWidth :null|number;
 private _oldHeight :null|number;
-private _fontSize :number;
+public heightFineTune :number;
 //-----------------------------
 public content :AniString;
 public fontFamily :FontFamily;
 public maxDisplayChars :AniNumber; 
 public fitToWidth :AniBoolean; 
+
 /////////////////////////////////////////
 // public templ :TextTempl;  
 // public theme :TextTheme; 
@@ -37,24 +39,18 @@ this.drawLayer = 2;//its default but for safety
 //-----------------------------
 this._oldWidth = null;
 this._oldHeight = null;
+this.heightFineTune = 5;
 //-----------------------------
 this.color.set( propsDb.color.value() ); 
-this.width.set(20);
-this.height.set(10);
+// this.width.set(20); --BIG MISTAKE THIS WILL OVER WRITE THE DB VALUES
+// this.height.set(10);
 //--in the start this font size = height value
-this._fontSize = this.height.value();
+// this._fontSize = this.height.value();
 }
 
 update(msDelta: number, p: Pack): boolean {
 //------///////////////////////////////////////
-    if (this.fitToWidth.value() == true){
-        if (this.hasWidthChanged() == true){
-            //--dont run it on every step
-            this.fitToWidthFn(p);
-        }
-    } else {
-        this._fontSize = this.height.value();
-    }  
+// this.updateFontSize(p);  //--font size is always updated    
     ////////-------------------------
     
 super.update(msDelta,p);
@@ -65,21 +61,27 @@ return true;
 }
  
 contentHeight():number {
-//--Abstraction
-if (this.maxDisplayChars.value() < 1) {return 0;}
-return this.charsWidth("W",this._fontSize,this.fontFamily);
+let heightInPic =  this.charsWidth(
+            "W",
+            this.getFontSize(),
+            this.fontFamily);
+return toPerc(heightInPic, this.canvasHeight() );    
 }
 //--contentWidth has to return the actual width of the content area. If we use fitTextToWidth in text this method does not need to change it stil is correct just the fontSize change.
 contentWidth():number {
-return this.charsWidth(this.content.value().substring(0,this.maxDisplayChars.value()),this._fontSize,this.fontFamily)
+let widthInPix = this.charsWidth(
+    this.content.value().substring(0,this.maxDisplayChars.value()),
+    this.getFontSize(),
+    this.fontFamily);
+return toPerc(widthInPix,this.canvasWidth());        
 }
    
 //-ideal draw function
 draw(p:Pack):boolean{
-this.preDraw(p);
-this.drawContent(p);
-this.postDraw(p);
-// console.log(p.measureText(this.content.value(), this.style));
+    this.preDraw(p);
+    this.drawContent(p);
+    this.postDraw(p);
+    // console.log(p.measureText(this.content.value(), this.style));
 return true;
 } 
 
@@ -87,7 +89,7 @@ drawContent(p :Pack){
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value();     
 
-this.style.fontSize = this._fontSize;
+this.style.fontSize = this.getFontSize();
 // this.style.fontSize = this.height.value();
 this.style.fontFamily = this.fontFamily;
     
@@ -99,111 +101,43 @@ this.style.fontFamily = this.fontFamily;
  } 
 
 //---------------------------------- 
-//---------------------------------- 
-protected fitToWidthFn(p :Pack):number | null{
-//----required with should exclude padding     
+private getFontSize():number{
+    if (this.fitToWidth.value() == true){
+        if (this.hasWidthChanged() == true){
+            //--dont run it on every step
+            return this.widthFontSize();
+        }
+    }     
+return this.heightFontSize();
+}
+//--check again --666 error
+protected widthFontSize( ):number{
+//----required width should exclude padding     
 //valuePer() is percentage and value = pix
  const reqWdInPix = (this.width.value()); 
  
  //if not already in sync
- this.style.fontSize = this.height.value(); 
+ this.style.fontSize = this.getFontSize(); 
  this.style.fontFamily = this.fontFamily; 
-
  //--------------------The Process
      for (let i = 1; i < 900; i++) {
      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
-     const newWidthInPix = p.charsWidth(this.content.value(), i ,this.style.fontFamily);
+     const newWidthInPix = this.charsWidth(this.content.value(), i ,this.style.fontFamily);
  //----------------------------
      if (newWidthInPix >= (reqWdInPix) ){
-         this.height.set(i); 
-         this.style.fontSize = i; //important
-         return this.height.value();
+        //  this._fontSize = i; 
+        //  this.style.fontSize = i; //important
+         return i; ///is this so simple----
      } 
- }//for end  
- return null; 
+    }//for end  
+return 666;     
 }//dynamic font size
 
-protected fitToHeightFn(p :Pack):number | null{
-//----required with should exclude padding     
- const reqHtInPix = (this.height.value())* 1.12;
- 
- this.height.set(reqHtInPix); 
- this.style.fontSize = this.height.value(); 
- return reqHtInPix;
-//  if not already in sync
-//  this.style.fontSize = this.fontSize.value(); 
-//  this.style.fontFamily = this.fontFamily; 
+private heightFontSize():number{
+return this.height.value() + 
+( (this.height.value()/100) * this.heightFineTune);
+}
 
-//  //--------------------The Process
-//      for (let i = 1; i < 900; i++) {
-//      //----Big secret found in the code txt.d.fontSize vs text.style.fontSize--in update txt.d.fontSize is sync with tst.style.fontSize
-//      const newHeightInPix = p.charsWidth( "Xi", i , this.style.fontFamily);
-//  //----------------------------
-//      if (newHeightInPix >= (reqHtInPix) ){
-//          this.fontSize.set(i); 
-//          this.style.fontSize = i; //important
-//          return this.fontSize.value();
-//      } 
-//  }//for end  
-//  return null; 
-}//fitToHeight
-//---------------------------------- 
-// protected adjestFontSize(n :number):number{
-//     if (this.canvasWidth == null){
-//         throw new Error("init error");}    
-//     if (this.respFontSize.value()== true){
-//         return (n/1000) * this.canvasWidth();
-//     } else {
-//         return n;
-//     }   
-// } 
-// protected shrinkToHeightFn(p :Pack){
-// //--must sync Both
-// this.style.fontFamily = this.fontFamily;
-
-// const reqHtInPix =  (this.height.value());
-
-// const contentHeight = p.charsWidth("W",this.height.value(),this.style.fontFamily);
-// if ( contentHeight < reqHtInPix){return true;}
-// //-----------------------------------------
-//     for (let i = 300; i > 0; i--) {
-//     // this.style.fontSize = i; 
-//     const newHeightInPix = p.charsWidth("W",i,this.style.fontFamily);
-// //----------------------------
-// // if (i < 100){debugger;}
-//     if (newHeightInPix <= reqHtInPix ){
-//         this.height.set(i); 
-//         this.style.fontSize = i;//may not be required
-//         return true;
-//     }
-// }
-// return true;
-// }
-// protected shrinkToWidthFn(p :Pack){
-// if (this.charsWidth==null){throw new Error("init error");
-// }    
-// //--must sync Both
-// this.style.fontFamily = this.fontFamily;
-// this.style.fontSize = this.height.value();
-// const reqWdInPix =  (this.width.value());
-// //--why not
-// const contentWidth = p.charsWidth(this.content.value() , this.height.value(),this.style.fontFamily);
-
-// if ( contentWidth < reqWdInPix){return true;}
-// //-----------------------------------------
-//     for (let i = 400; i > 0; i--) {
-//     // this.style.fontSize = i; 
-//     const newWidthInPix = p.charsWidth(this.content.value(),i,this.style.fontFamily);
-// //----------------------------
-// // if (i < 75){debugger;}
-//     if (newWidthInPix <= reqWdInPix ){
-//         this.height.set(i); 
-//         this.style.fontSize = i;//may not be required
-//         return true;
-//     }
-// }
-// return true;
-// }
 private hasWidthChanged():boolean{
 //--first time    
         if(this._oldWidth == null){
@@ -218,21 +152,6 @@ private hasWidthChanged():boolean{
             }
         }
 }
-private hasHeightChanged():boolean{
-//--first time    
-        if(this._oldHeight == null){
-            this._oldHeight = this.height.value();
-            return true;
-        }else {
-            if (this._oldHeight == this.height.value()){
-                return false;
-            }else {
-                this._oldHeight = this.height.value();
-                return true;
-            }
-        }
-}
-
 }//class
 ///////////////////////////////////////////
 

@@ -4,7 +4,7 @@ import BaseFilter from "../../animationsFacade/filters/baseFilter.js";
 
 export default class AniProp <T>  {
 //--this cant be null its not _ret_val of filter ITS aniProp    
-protected _value :T | null;                 
+private _value :T | null;                 
 protected filtersArr :BaseFilter<T>[];       
 protected defaultValue :T;       
 //--now that we have default Filter there is no need for goto at zero in any case the aniProp will have a value it can never be null. However the animated value (from filter) can be null thus _value keep track between default value and animatedValue

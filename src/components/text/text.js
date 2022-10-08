@@ -1,5 +1,6 @@
 import CompEngine from "../../compEngine/compEngine.js";
 import { AniNumber, AniString, AniBoolean, } from "../../animations/animations.js";
+import toPerc from "../../functions/toPerc.js";
 export default class Text extends CompEngine {
     constructor(propsDb, pack) {
         super(propsDb, pack);
@@ -10,20 +11,10 @@ export default class Text extends CompEngine {
         this.drawLayer = 2;
         this._oldWidth = null;
         this._oldHeight = null;
+        this.heightFineTune = 5;
         this.color.set(propsDb.color.value());
-        this.width.set(20);
-        this.height.set(10);
-        this._fontSize = this.height.value();
     }
     update(msDelta, p) {
-        if (this.fitToWidth.value() == true) {
-            if (this.hasWidthChanged() == true) {
-                this.fitToWidthFn(p);
-            }
-        }
-        else {
-            this._fontSize = this.height.value();
-        }
         super.update(msDelta, p);
         this.content.update(msDelta);
         this.maxDisplayChars.update(msDelta);
@@ -31,13 +22,12 @@ export default class Text extends CompEngine {
         return true;
     }
     contentHeight() {
-        if (this.maxDisplayChars.value() < 1) {
-            return 0;
-        }
-        return this.charsWidth("W", this._fontSize, this.fontFamily);
+        let heightInPic = this.charsWidth("W", this.getFontSize(), this.fontFamily);
+        return toPerc(heightInPic, this.canvasHeight());
     }
     contentWidth() {
-        return this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this._fontSize, this.fontFamily);
+        let widthInPix = this.charsWidth(this.content.value().substring(0, this.maxDisplayChars.value()), this.getFontSize(), this.fontFamily);
+        return toPerc(widthInPix, this.canvasWidth());
     }
     draw(p) {
         this.preDraw(p);
@@ -48,29 +38,33 @@ export default class Text extends CompEngine {
     drawContent(p) {
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
-        this.style.fontSize = this._fontSize;
+        this.style.fontSize = this.getFontSize();
         this.style.fontFamily = this.fontFamily;
         p.drawText(this.content.value().substring(0, this.maxDisplayChars.value()), this.contentX(), this.contentY(), this.style);
     }
-    fitToWidthFn(p) {
-        const reqWdInPix = (this.width.value());
-        this.style.fontSize = this.height.value();
-        this.style.fontFamily = this.fontFamily;
-        for (let i = 1; i < 900; i++) {
-            const newWidthInPix = p.charsWidth(this.content.value(), i, this.style.fontFamily);
-            if (newWidthInPix >= (reqWdInPix)) {
-                this.height.set(i);
-                this.style.fontSize = i;
-                return this.height.value();
+    getFontSize() {
+        if (this.fitToWidth.value() == true) {
+            if (this.hasWidthChanged() == true) {
+                return this.widthFontSize();
             }
         }
-        return null;
+        return this.heightFontSize();
     }
-    fitToHeightFn(p) {
-        const reqHtInPix = (this.height.value()) * 1.12;
-        this.height.set(reqHtInPix);
-        this.style.fontSize = this.height.value();
-        return reqHtInPix;
+    widthFontSize() {
+        const reqWdInPix = (this.width.value());
+        this.style.fontSize = this.getFontSize();
+        this.style.fontFamily = this.fontFamily;
+        for (let i = 1; i < 900; i++) {
+            const newWidthInPix = this.charsWidth(this.content.value(), i, this.style.fontFamily);
+            if (newWidthInPix >= (reqWdInPix)) {
+                return i;
+            }
+        }
+        return 666;
+    }
+    heightFontSize() {
+        return this.height.value() +
+            ((this.height.value() / 100) * this.heightFineTune);
     }
     hasWidthChanged() {
         if (this._oldWidth == null) {
@@ -83,21 +77,6 @@ export default class Text extends CompEngine {
             }
             else {
                 this._oldWidth = this.width.value();
-                return true;
-            }
-        }
-    }
-    hasHeightChanged() {
-        if (this._oldHeight == null) {
-            this._oldHeight = this.height.value();
-            return true;
-        }
-        else {
-            if (this._oldHeight == this.height.value()) {
-                return false;
-            }
-            else {
-                this._oldHeight = this.height.value();
                 return true;
             }
         }

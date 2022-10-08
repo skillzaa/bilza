@@ -1,1 +1,0 @@
-{"version":3,"file":"marker.d.ts","sourceRoot":"","sources":["../../../typescript/components/circle/marker.ts"],"names":[],"mappings":"AAKA,OAAO,QAAQ,MAAM,eAAe,CAAC;AAGrC,MAAM,CAAC,OAAO,OAAO,QAAS,SAAQ,QAAQ;gBAGlC,SAAS,EAAE,MAAM,EAAE,OAAO,EAAE,MAAM,EAAE,YAAY,EAAE,KAAK,GAAC,QAAQ,GAAG,UAAU,EAAC,WAAW,EAAE,MAAM,EAAC,YAAY,EAAE,MAAM,EAAC,MAAM,GAAE,MAAQ,EAAG,KAAK,GAAE,MAAY;CAOxK"}

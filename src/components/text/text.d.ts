@@ -6,7 +6,7 @@ import { AniNumber, AniString, AniBoolean } from "../../animations/animations.js
 export default class Text extends CompEngine {
     private _oldWidth;
     private _oldHeight;
-    private _fontSize;
+    heightFineTune: number;
     content: AniString;
     fontFamily: FontFamily;
     maxDisplayChars: AniNumber;
@@ -17,9 +17,9 @@ export default class Text extends CompEngine {
     contentWidth(): number;
     draw(p: Pack): boolean;
     drawContent(p: Pack): void;
-    protected fitToWidthFn(p: Pack): number | null;
-    protected fitToHeightFn(p: Pack): number | null;
+    private getFontSize;
+    protected widthFontSize(): number;
+    private heightFontSize;
     private hasWidthChanged;
-    private hasHeightChanged;
 }
 //# sourceMappingURL=text.d.ts.map

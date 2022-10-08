@@ -33,8 +33,8 @@ private responsiveValue(perc :number):number {
 //////////////////////////////////////////////
 //////////////////////////////////////////////
 public animate( StartSec :number, endSec :number,startValue :number,endValue :number){
-    startValue = this.responsiveValue(startValue);
-    endValue = this.responsiveValue(endValue);
+    // startValue = this.responsiveValue(startValue);
+    // endValue = this.responsiveValue(endValue);
 
     if (startValue < endValue ){
         let inc = new Increment(StartSec * 1000,endSec * 1000,startValue,endValue,0);
@@ -46,8 +46,8 @@ public animate( StartSec :number, endSec :number,startValue :number,endValue :nu
 }
 
 public random(StartSec :number,endSec :number,min :number=0, max :number=100, delayInMs :number=10){    
-    min = this.responsiveValue(min);
-    max = this.responsiveValue(max);
+    // min = this.responsiveValue(min);
+    // max = this.responsiveValue(max);
 
 const v = new Random(StartSec * 1000, endSec * 1000, min,max,delayInMs);
 this.addFilter(v);
@@ -55,9 +55,9 @@ this.addFilter(v);
 
 public oscillate(StartSec :number,endSec :number,startValue :number, endValue :number,secPerIter :number= 1,stopAt=endValue){
 
-    startValue = this.responsiveValue(startValue);
-    endValue = this.responsiveValue(endValue);
-    stopAt = this.responsiveValue(stopAt);
+    // startValue = this.responsiveValue(startValue);
+    // endValue = this.responsiveValue(endValue);
+    // stopAt = this.responsiveValue(stopAt);
 
     if (startValue > endValue ){
 throw new Error("for oscillate operation the startValue can not be bigger than endValue, however in future this restriction may be lifted.");   
@@ -68,12 +68,14 @@ this.addFilter(v);
 
 ///--goto overridden from AniPropDb since it takes percentages
 public goto(atSec :number,value :number):boolean{
-        value = this.responsiveValue(value);
+        // value = this.responsiveValue(value);
     const v = new IdentityFil(atSec * 1000,(atSec * 1000) + 1000,value);
     this.addFilter(v);
     return false;//// new goto frame ADDED 
 }
-
+getTheWhole():number{
+return this.theWhole;
+}
 ///////////////////////////////////////////
 ///////////////////////////////////////////
 ///////////////////////////////////////////

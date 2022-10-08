@@ -1,7 +1,7 @@
 import AniPropDb from "../../animationsFacade/aniPropDb/AniPropDb.js";
 import BaseFilter from "../../animationsFacade/filters/baseFilter.js";
 export default class AniProp<T> {
-    protected _value: T | null;
+    private _value;
     protected filtersArr: BaseFilter<T>[];
     protected defaultValue: T;
     constructor(aniPropDb: AniPropDb<T>);

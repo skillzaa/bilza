@@ -1,4 +1,5 @@
 import CompEngineCore from "./compEngineCore.js";
+import toPix from "../functions/toPix.js";
 export default class CompEngine extends CompEngineCore {
     constructor(compDb, pack) {
         super(compDb, pack);
@@ -70,7 +71,7 @@ export default class CompEngine extends CompEngineCore {
         }
         this.style.fillStyle = this.colorBackground.value();
         this.style.strokeStyle = this.colorBackground.value();
-        p.drawFillRect(this.xAligned(), this.yAligned(), this.compWidth(), this.compHeight(), this.style);
+        p.drawFillRect(this.xAligned(), this.yAligned(), toPix(this.compWidth(), this.canvasWidth()), toPix(this.compHeight(), this.canvasHeight()), this.style);
     }
     xRotateAligned() {
         let x = this.xAligned();
