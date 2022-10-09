@@ -8,7 +8,13 @@ export default class CompFactory {
     private insertAction;
     private comps;
     constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
-    starOfDavid(color?: string): ILines;
-    triangle(color?: string): ILines;
+    starOfDavid(color: string | undefined, lineWidth: number): ILines;
+    triangle(color: string | undefined, lineWidth: number): ILines;
+    cross(color: string | undefined, lineWidth: number): ILines;
+    tickRight(color: string | undefined, lineWidth: number): ILines;
+    tickLeft(color: string | undefined, lineWidth: number): ILines;
+    graphInc(color: string | undefined, lineWidth: number): ILines;
+    rectangle(color: string | undefined, lineWidth: number): ILines;
+    rightTriangle(color: string | undefined, lineWidth: number): ILines;
 }
 //# sourceMappingURL=lineShapesFactory.d.ts.map

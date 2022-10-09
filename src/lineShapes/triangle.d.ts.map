@@ -1,1 +1,1 @@
-{"version":3,"file":"triangle.d.ts","sourceRoot":"","sources":["../../typescript/lineShapes/triangle.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,+BAA+B,CAAC;AAGnD,MAAM,CAAC,OAAO,UAAU,QAAQ,CAAE,KAAK,EAAE,MAAM,GAAE,MAAM,CAYtD"}
+{"version":3,"file":"triangle.d.ts","sourceRoot":"","sources":["../../typescript/lineShapes/triangle.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,+BAA+B,CAAC;AAGnD,MAAM,CAAC,OAAO,UAAU,QAAQ,CAAE,KAAK,EAAE,MAAM,EAC3C,SAAS,GAAE,MAAU,GACnB,MAAM,CAYX"}

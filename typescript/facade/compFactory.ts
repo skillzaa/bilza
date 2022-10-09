@@ -26,7 +26,7 @@ import TextDB from "../components/text/textDb.js";
 // import ArcDb from "../components/arc/arcDb.js";
 import ICurve from "../components/curve/ICurve.js";
 import CurveDb from "../components/curve/curveDb.js";
-import starOfDavid from "../lineShapes/startOfDavid.js";
+import starOfDavid from "../lineShapes/starOfDavid.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

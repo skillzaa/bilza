@@ -11,7 +11,7 @@ import ArrowDb from "../components/arrow/arrowDb.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 import TextDB from "../components/text/textDb.js";
 import CurveDb from "../components/curve/curveDb.js";
-import starOfDavid from "../lineShapes/startOfDavid.js";
+import starOfDavid from "../lineShapes/starOfDavid.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight, charsWidth) {
         this.comps = comps;

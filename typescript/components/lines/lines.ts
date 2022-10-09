@@ -4,12 +4,12 @@ import CurveDb from "./linesDb.js";
 import {AniNumber,AniString,AniBoolean,AniPerc,AniColor,} from "../../animations/animations.js";
 import LineStruct from "./lineStruct.js";
 import LinesDb from "./linesDb.js";
-
+import IPrimtive from "../../primtivecomps/IPrimtive.js";
 
 ///////////////
 export default class Lines extends CompEngine {
 
-data : LineStruct[];    
+data : IPrimtive[];    
     
 constructor ( linesDb :LinesDb ,pack :Pack){ 
 super(linesDb,pack);
@@ -24,28 +24,8 @@ draw(p:Pack):boolean{
 this.preDraw(p);
 //------------------------------------------
 for (let i = 0; i < this.data.length; i++) {
-    const line = this.data[i];
-    this.style.fillStyle = line.color;    
-    this.style.strokeStyle = line.color; 
+    const item = this.data[i];
     
-    this.style.lineWidth = line.lineWidth; 
-    
-    // this.style.opacity = line.opacity; 
-    
-    this.style.lineCap =     line.lineCap;
-    this.style.lineJoin =    line.lineJoin;
-    this.style.lineDash =    line.lineDash;
-
-    p.drawLine(
-        
-        this.xAligned() + this.resolveX(line.x1) ,
-        this.yAligned() + this.resolveY(line.y1) ,
-
-        this.xAligned() + this.resolveX(line.x2) ,
-        this.yAligned() + this.resolveY(line.y2) ,
-        
-        this.style
-    );
     
 }
 

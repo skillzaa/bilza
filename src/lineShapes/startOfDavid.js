@@ -1,4 +1,4 @@
-export default function starOfDavid(lines) {
+export default function starOfDavid(lines, x, y, lineWidth = 4, lineCap = 0, lineJoin = 0, lineDash = [1, 0]) {
     lines.setxy(0);
     lines.width.set(20);
     lines.height.set(35);
