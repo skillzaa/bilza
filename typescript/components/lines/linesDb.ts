@@ -17,18 +17,19 @@ constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "
 
 super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
 this.data = [];
-this.width.set(30); ///its ok to set core props in DB contructor but not in compEngine constructor
-this.height.set(30);
+
 } 
  
 getEngineComp(pack :Pack):compEngine{
    const comp = new Line(this,pack);
    return comp; 
 }
+// --- --- --- --- //
 public add(x1 :number,y1 :number,x2 :number,y2 :number,
-   color :string="black",lineWidth :number = 1,opacity :number=100,lineCap :0|1|2,lineJoin :0|1|2=0,
-   lineDash:[number,number] = [1,0]){
-const line = new LineStruct(x1,y1,x2,y2,color,lineWidth,opacity,lineCap,lineJoin,lineDash);
+   color :string="black",lineWidth :number = 4,lineCap :0|1|2,lineJoin :0|1|2=0, lineDash:[number,number] = [1,0]){
+
+const line = new LineStruct(x1,y1,x2,y2,color,lineWidth,lineCap,lineJoin,lineDash);
+
 this.data.push(line);
 }
 

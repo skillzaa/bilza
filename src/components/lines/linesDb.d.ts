@@ -7,6 +7,6 @@ export default class LinesDb extends CompDb implements ILine {
     data: LineStruct[];
     constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
     getEngineComp(pack: Pack): compEngine;
-    add(x1: number, y1: number, x2: number, y2: number, color: string | undefined, lineWidth: number | undefined, opacity: number | undefined, lineCap: 0 | 1 | 2, lineJoin?: 0 | 1 | 2, lineDash?: [number, number]): void;
+    add(x1: number, y1: number, x2: number, y2: number, color: string | undefined, lineWidth: number | undefined, lineCap: 0 | 1 | 2, lineJoin?: 0 | 1 | 2, lineDash?: [number, number]): void;
 }
 //# sourceMappingURL=linesDb.d.ts.map

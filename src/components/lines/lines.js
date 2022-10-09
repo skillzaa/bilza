@@ -11,11 +11,10 @@ export default class Lines extends CompEngine {
             this.style.fillStyle = line.color;
             this.style.strokeStyle = line.color;
             this.style.lineWidth = line.lineWidth;
-            this.style.opacity = line.opacity;
             this.style.lineCap = line.lineCap;
             this.style.lineJoin = line.lineJoin;
             this.style.lineDash = line.lineDash;
-            p.drawLine(line.x1, line.y1, line.x2, line.y2, this.style);
+            p.drawLine(this.xAligned() + this.resolveX(line.x1), this.yAligned() + this.resolveY(line.y1), this.xAligned() + this.resolveX(line.x2), this.yAligned() + this.resolveY(line.y2), this.style);
         }
         this.postDraw(p);
         return true;

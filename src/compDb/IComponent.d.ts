@@ -45,7 +45,7 @@ export default interface IComponent {
     canvasHeight(): number;
     rightEdge(): number;
     bottomEdge(): number;
-    setxy(x: number, y: number | null): void;
+    setxy(x: number, y?: number | null): void;
     setPaddings(n: number): void;
 }
 //# sourceMappingURL=IComponent.d.ts.map

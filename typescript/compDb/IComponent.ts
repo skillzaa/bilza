@@ -45,7 +45,7 @@ endTime :number;
 insertAction :string;
 alwaysOn :boolean;
 //////////////////////////
-align(x : 0|1|2|null, y :0|1|2|null):void;
+align(x : 0|1|2|null, y:0|1|2|null):void;
 alignRotate(x : 0|1|2|null, y :0|1|2|null):void;
 
 //--At times the width / height may not be equal to contentWidth and contentHeight so we have these functions. 
@@ -73,6 +73,6 @@ canvasHeight() :number;
 rightEdge() :number;
 bottomEdge() :number;
 ////////////////////////////////    
-setxy(x :number, y :number|null):void;
+setxy(x :number, y? :number|null):void;
 setPaddings(n :number):void;
 }
