@@ -7,18 +7,18 @@ x1 :number;
 y1 :number;    
 x2 :number;    
 y2 :number;    
+color :string;    
 lineWidth :number;    
 // opacity :number;    
 lineCap  :0 | 1 | 2;    
 lineJoin :0 | 1 | 2;    
 lineDash :[line:number, gap:number];
-color :string;
 
 //.....
 constructor(
     x1 :number,y1 :number,x2 :number,y2 :number,
     color :string = "black",
-    lineWidth :number = 5,
+    lineWidth :number = 4,
     lineCap :0|1|2,
     lineJoin :0|1|2 = 0,
     lineDash:[number,number] = [1,0]

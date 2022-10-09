@@ -15,11 +15,11 @@ import Seg from "./seg.js";
 export default class LinesDb extends CompDb implements ILine {
 data :LineStruct[];
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number){
+constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,color :string="black"){
 
 super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
 this.data = [];
-
+this.color.set(color);
 } 
  
 getEngineComp(pack :Pack):compEngine{
@@ -28,20 +28,20 @@ getEngineComp(pack :Pack):compEngine{
 }
 //--this is add line method not the seg.add
 public add(x1 :number,y1 :number,x2 :number,y2 :number,
-   color :string="black",lineWidth :number = 4,lineCap :0|1|2,lineJoin :0|1|2=0, lineDash:[number,number] = [1,0]){
+   lineWidth :number = 4,lineCap :0|1|2,lineJoin :0|1|2=0, lineDash:[number,number] = [1,0]){
 
-const line = new LineStruct(x1,y1,x2,y2,color,lineWidth,lineCap,lineJoin,lineDash);
+const line = new LineStruct(x1,y1,x2,y2,this.color.value(),lineWidth,lineCap,lineJoin,lineDash);
 
 this.data.push(line);
 }
 
-public seg( x :number,y :number,color:string="black", 
+public seg( x :number,y :number, 
    lineWidth :number = 4,
    lineCap :0|1|2 = 0,
    lineJoin :0|1|2 = 0,
    lineDash:[number,number] = [1,0] ):Seg{
 
-const sg = new Seg(this.data,x,y,color,lineWidth,lineCap,
+const sg = new Seg(this.data,x,y,this.color.value(),lineWidth,lineCap,
 lineJoin, lineDash);
 return sg;
 }

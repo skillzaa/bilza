@@ -46,6 +46,7 @@ export default interface IComponent {
     rightEdge(): number;
     bottomEdge(): number;
     setxy(x: number, y?: number | null): void;
+    sexy(x: number, y?: number | null): void;
     setPaddings(n: number): void;
 }
 //# sourceMappingURL=IComponent.d.ts.map

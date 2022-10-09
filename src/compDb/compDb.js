@@ -113,6 +113,9 @@ export default class CompDb extends CoreProps {
         this.x.set(x);
         this.y.set(y);
     }
+    sexy(x, y = null) {
+        this.setxy(x, y);
+    }
     getStartTime(inSec = true) {
         return inSec ? this.startTime : (this.startTime * 1000);
     }

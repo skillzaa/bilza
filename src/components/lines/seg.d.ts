@@ -10,7 +10,7 @@ export default class Seg {
     private data;
     private localData;
     constructor(data: LineStruct[], x: number, y: number, color?: string, lineWidth?: number, lineCap?: 0 | 1 | 2, lineJoin?: 0 | 1 | 2, lineDash?: [number, number]);
-    add(x: number, y: number, color?: string, lineWidth?: number, lineCap?: 0 | 1 | 2, lineJoin?: 0 | 1 | 2, lineDash?: [number, number]): Seg;
+    add(x: number, y: number, lineWidth?: number, lineCap?: 0 | 1 | 2, lineJoin?: 0 | 1 | 2, lineDash?: [number, number]): Seg;
     save(): void;
 }
 //# sourceMappingURL=seg.d.ts.map

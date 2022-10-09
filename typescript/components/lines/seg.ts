@@ -44,7 +44,6 @@ this.localData = [];
 
 
 add(x :number,y  :number,
-    color :string = this.color,
     lineWidth :number = this.lineWidth,
     lineCap :0|1|2 = this.lineCap,
     lineJoin :0|1|2 = this.lineJoin,
@@ -53,7 +52,7 @@ add(x :number,y  :number,
 
 if (this.localData.length == 0){
     const l = new LineStruct (this.startX,this.startY,
-        x,y,color,lineWidth,lineCap,lineJoin,lineDash);
+        x,y, this.color ,lineWidth,lineCap,lineJoin,lineDash);
         this.localData.push(l);
 
 }else {
@@ -62,7 +61,7 @@ if (this.localData.length == 0){
     const endY = this.localData[this.localData.length-1].y2;
 
     const l = new LineStruct (endX,endY,
-        x,y,color,lineWidth,lineCap,lineJoin,lineDash);
+        x,y,this.color,lineWidth,lineCap,lineJoin,lineDash);
     this.localData.push(l);
 }
 return this;

@@ -11,15 +11,15 @@ export default class Seg {
         this.lineDash = lineDash;
         this.localData = [];
     }
-    add(x, y, color = this.color, lineWidth = this.lineWidth, lineCap = this.lineCap, lineJoin = this.lineJoin, lineDash = this.lineDash) {
+    add(x, y, lineWidth = this.lineWidth, lineCap = this.lineCap, lineJoin = this.lineJoin, lineDash = this.lineDash) {
         if (this.localData.length == 0) {
-            const l = new LineStruct(this.startX, this.startY, x, y, color, lineWidth, lineCap, lineJoin, lineDash);
+            const l = new LineStruct(this.startX, this.startY, x, y, this.color, lineWidth, lineCap, lineJoin, lineDash);
             this.localData.push(l);
         }
         else {
             const endX = this.localData[this.localData.length - 1].x2;
             const endY = this.localData[this.localData.length - 1].y2;
-            const l = new LineStruct(endX, endY, x, y, color, lineWidth, lineCap, lineJoin, lineDash);
+            const l = new LineStruct(endX, endY, x, y, this.color, lineWidth, lineCap, lineJoin, lineDash);
             this.localData.push(l);
         }
         return this;

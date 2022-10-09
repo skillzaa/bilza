@@ -4,6 +4,7 @@ import Engine from "../engine/engine.js";
 import CompFactory from "./compFactory.js";
 import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
+import LineShapes from "./lineShapes.js";
 
 //--30-9-2022-This level does not export any object just API
 export default class Bilza {
@@ -13,6 +14,7 @@ private engine:EngineDb;
 private comps :CompDb[];
 private bil :Engine | null;
 
+public lineShapes :LineShapes;
 
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 
@@ -25,6 +27,8 @@ this.background.alwaysOn = true;
 this.comps.push(this.background);
 //--collection of comp DB classes
 this.bil = null;
+this.lineShapes = new LineShapes(this.engine.canvasWidth,this.engine.canvasHeight,this.comps);
+
 }
 //--does not need ComponentPack since this is DB object
 add(secStart :number,secEnd :number):CompFactory{

@@ -26,6 +26,7 @@ import TextDB from "../components/text/textDb.js";
 // import ArcDb from "../components/arc/arcDb.js";
 import ICurve from "../components/curve/ICurve.js";
 import CurveDb from "../components/curve/curveDb.js";
+import starOfDavid from "../lineShapes/startOfDavid.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -126,6 +127,12 @@ return g;
 lines(color:string="black"):ILines{
 let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight);
 this.comps.push(g);
+return g;    
+}
+starOfDavid(color:string="black"):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight);
+this.comps.push(g);
+starOfDavid(g);
 return g;    
 }
 pic(imgUrl :string,width :number=25,height:number=25):IPic{
