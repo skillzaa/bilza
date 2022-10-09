@@ -15,8 +15,8 @@ export default class LinesDb extends CompDb {
         const line = new LineStruct(x1, y1, x2, y2, color, lineWidth, lineCap, lineJoin, lineDash);
         this.data.push(line);
     }
-    seg(x, y, color = "black") {
-        const sg = new Seg(x, y, color, this.data);
+    seg(x, y, color = "black", lineWidth = 4, lineCap = 0, lineJoin = 0, lineDash = [1, 0]) {
+        const sg = new Seg(this.data, x, y, color, lineWidth, lineCap, lineJoin, lineDash);
         return sg;
     }
 }

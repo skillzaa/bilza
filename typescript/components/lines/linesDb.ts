@@ -26,7 +26,7 @@ getEngineComp(pack :Pack):compEngine{
    const comp = new Line(this,pack);
    return comp; 
 }
-// --- --- --- --- //
+//--this is add line method not the seg.add
 public add(x1 :number,y1 :number,x2 :number,y2 :number,
    color :string="black",lineWidth :number = 4,lineCap :0|1|2,lineJoin :0|1|2=0, lineDash:[number,number] = [1,0]){
 
@@ -34,8 +34,15 @@ const line = new LineStruct(x1,y1,x2,y2,color,lineWidth,lineCap,lineJoin,lineDas
 
 this.data.push(line);
 }
-public seg(x :number,y :number,color :string="black"):Seg{
-const sg = new Seg(x,y,color,this.data);
+
+public seg( x :number,y :number,color:string="black", 
+   lineWidth :number = 4,
+   lineCap :0|1|2 = 0,
+   lineJoin :0|1|2 = 0,
+   lineDash:[number,number] = [1,0] ):Seg{
+
+const sg = new Seg(this.data,x,y,color,lineWidth,lineCap,
+lineJoin, lineDash);
 return sg;
 }
 /////////////////////////////
