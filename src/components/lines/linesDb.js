@@ -1,6 +1,7 @@
 import CompDb from "../../compDb/compDb.js";
 import Line from "./lines.js";
 import LineStruct from "./lineStruct.js";
+import Seg from "./seg.js";
 export default class LinesDb extends CompDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight) {
         super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
@@ -13,5 +14,9 @@ export default class LinesDb extends CompDb {
     add(x1, y1, x2, y2, color = "black", lineWidth = 4, lineCap, lineJoin = 0, lineDash = [1, 0]) {
         const line = new LineStruct(x1, y1, x2, y2, color, lineWidth, lineCap, lineJoin, lineDash);
         this.data.push(line);
+    }
+    seg(x, y, color = "black") {
+        const sg = new Seg(x, y, color, this.data);
+        return sg;
     }
 }

@@ -76,7 +76,6 @@ export default class Grid extends CompEngine {
     }
     drawGridLine(p, x1, y1, x2, y2, theNumber, hv) {
         this.style.opacity = this.opacity.value();
-        this.style.lineDash = this.lineDash;
         if (hv == "vertical") {
             this.style.fillStyle = this.colorVerticalLines.value();
             this.style.strokeStyle = this.colorVerticalLines.value();

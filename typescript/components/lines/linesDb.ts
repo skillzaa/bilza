@@ -3,12 +3,14 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import checkZeroToHundred from "../../functions/checkZeroToHundred.js";
 import {AniNumberDb,AniBooleanDb,AniPercDb, AniColorDb} from "../../animationsFacade/animationsDb.js";
-import toPix from "../../functions/toPix.js";
 
 
 import Line from "./lines.js";
 import ILine from "./ILines.js";
 import LineStruct from "./lineStruct.js";
+import Seg from "./seg.js";
+
+
 
 export default class LinesDb extends CompDb implements ILine {
 data :LineStruct[];
@@ -32,7 +34,10 @@ const line = new LineStruct(x1,y1,x2,y2,color,lineWidth,lineCap,lineJoin,lineDas
 
 this.data.push(line);
 }
-
+public seg(x :number,y :number,color :string="black"):Seg{
+const sg = new Seg(x,y,color,this.data);
+return sg;
+}
 /////////////////////////////
 
 }

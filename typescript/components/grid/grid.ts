@@ -139,7 +139,8 @@ if (lastLineDrawn == false){
 //--keep in mind contentX and Y is added by default
 drawGridLine(p :Pack,x1 :number,y1 :number,x2 :number,y2 :number, theNumber :number, hv :string){
  this.style.opacity = this.opacity.value();       
- this.style.lineDash = this.lineDash;        
+ //@ts-expect-erro r
+//  this.style.lineDash = this.lineDash;        
  if (hv == "vertical"){
     this.style.fillStyle = this.colorVerticalLines.value();        
     this.style.strokeStyle = this.colorVerticalLines.value();

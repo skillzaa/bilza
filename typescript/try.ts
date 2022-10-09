@@ -24,6 +24,10 @@ lines.add(0,25,100,25,"red");
 lines.add(0,25,50,100,"red"); 
 lines.add(100,25,50,100,"red"); 
 //----------------------------------------
+const seg = lines.seg(0,0,"green");
+
+seg.add(0,0).add(100,100).add(0,100).add(100,0).save();
+//----------------------------------------
 // lines.showBackground.set(true);
 lines.colorBackground.set( hsl(0,25, 90) );
 // lines.align(1,1);
