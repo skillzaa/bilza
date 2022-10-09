@@ -27,6 +27,10 @@ export default class Seg {
     draw(p, compX, compY, compWidth, compHeight, compColor) {
         const wdFactor = compWidth / 100;
         const htFactor = compHeight / 100;
+        this.style.lineWidth = this.lineWidth;
+        this.style.lineCap = this.lineCap;
+        this.style.lineJoin = this.lineJoin;
+        this.style.lineDash = this.lineDash;
         if (this.color == null) {
             this.style.fillStyle = compColor;
             this.style.strokeStyle = compColor;

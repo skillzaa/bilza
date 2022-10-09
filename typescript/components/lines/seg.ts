@@ -72,6 +72,13 @@ draw(p :Pack,compX :number, compY :number, compWidth :number,compHeight :number,
 const wdFactor = compWidth/100;    
 const htFactor = compHeight/100;  
 //------------------------------------------
+//---------------------style---------------
+this.style.lineWidth = this.lineWidth;
+this.style.lineCap = this.lineCap;
+this.style.lineJoin = this.lineJoin;
+this.style.lineDash = this.lineDash;
+//------------------------------------------
+
 if (this.color == null){
     this.style.fillStyle = compColor;
     this.style.strokeStyle = compColor;

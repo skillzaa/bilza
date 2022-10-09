@@ -8,7 +8,7 @@ export default function cross (
     lineWidth :number = 4
     ):ILines{
 
-    lines.setxy(0);
+    // lines.setxy(0);
     lines.width.set(20);
     lines.height.set(35);
     //--------------------------------

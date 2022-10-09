@@ -8,7 +8,7 @@ export default function tickRight (
     lineWidth :number = 4
     ):ILines{
 
-    lines.setxy(0);
+    // lines.setxy(0);
     lines.width.set(10);
     lines.height.set(25);
     //--------------------------------

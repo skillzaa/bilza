@@ -11,12 +11,14 @@ const grid = bil.alwaysOn().grid();
 
 bil.lineShapes.add(0,10).triangle(120,true).sexy(10);
 bil.lineShapes.add(0,10).starOfDavid(300,true).setxy(30,60);
-bil.lineShapes.add(0,10).cross(180,true).sexy(30,20);
-// bil.lineShapes.add(0,10).tickRight("green",10).sexy(60,10);
-// bil.lineShapes.add(0,10).tickLeft("red",10).sexy(75,10);
-// bil.lineShapes.add(0,10).graphInc("green",5).sexy(5,30);
-// bil.lineShapes.add(0,10).rectangle("green",5).sexy(5,30);
-// bil.lineShapes.add(0,10).rightTriangle("red",5).sexy(25,10);
+const cross = bil.lineShapes.add(0,10).cross(0,true,50);
+// cross.sexy(30,20);
+// cross.width.animate(0,10,10,70);
+bil.lineShapes.add(0,10).tickRight(300,true);//.sexy(60,10);
+// bil.lineShapes.add(0,10).tickLeft(300,true).sexy(75,10);
+// bil.lineShapes.add(0,10).graphInc(300,true).sexy(5,30);
+// bil.lineShapes.add(0,10).rectangle(300,true).sexy(5,30);
+// bil.lineShapes.add(0,10).rightTriangle(300,true).sexy(25,10);
 //--------------------------------------
 // starOfDavid(lines);
 ////////////////////////
