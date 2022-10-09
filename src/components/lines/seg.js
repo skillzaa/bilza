@@ -1,33 +1,42 @@
 import LineStruct from "./lineStruct.js";
+import Style from "../../pack/style.js";
 export default class Seg {
-    constructor(data, x, y, color = "black", lineWidth = 4, lineCap = 0, lineJoin = 0, lineDash = [1, 0]) {
+    constructor(x, y, color = "black", filled = true, lineWidth = 4, lineCap = 0, lineJoin = 0, lineDash = [1, 0]) {
+        this.data = [];
         this.startX = x;
         this.startY = y;
         this.color = color;
-        this.data = data;
+        this.filled = filled;
         this.lineWidth = lineWidth,
             this.lineCap = lineCap;
         this.lineJoin = lineJoin;
         this.lineDash = lineDash;
-        this.localData = [];
+        this.style = new Style();
     }
     add(x, y, lineWidth = this.lineWidth, lineCap = this.lineCap, lineJoin = this.lineJoin, lineDash = this.lineDash) {
-        if (this.localData.length == 0) {
+        if (this.data.length == 0) {
             const l = new LineStruct(this.startX, this.startY, x, y, this.color, lineWidth, lineCap, lineJoin, lineDash);
-            this.localData.push(l);
+            this.data.push(l);
         }
         else {
-            const endX = this.localData[this.localData.length - 1].x2;
-            const endY = this.localData[this.localData.length - 1].y2;
-            const l = new LineStruct(endX, endY, x, y, this.color, lineWidth, lineCap, lineJoin, lineDash);
-            this.localData.push(l);
+            const l = new LineStruct(this.data[this.data.length - 1].x2, this.data[this.data.length - 1].y2, x, y, this.color, lineWidth, lineCap, lineJoin, lineDash);
+            this.data.push(l);
         }
         return this;
     }
-    save() {
-        for (let i = 0; i < this.localData.length; i++) {
-            const line = this.localData[i];
-            this.data.push(line);
+    draw(p, compX, compY, compWidth, compHeight) {
+        const wdFactor = compWidth / 100;
+        const htFactor = compHeight / 100;
+        this.style.fillStyle = "red";
+        this.style.strokeStyle = "red";
+        p.moveTo(compX + (wdFactor * this.startX), compY + (htFactor * this.startY));
+        p.beginPath();
+        for (let i = 0; i < this.data.length; i++) {
+            const item = this.data[i];
+            p.lineTo(compX + (wdFactor * item.x2), compY + (htFactor * item.y2), this.style);
         }
+        p.ctx.fill();
+        p.ctx.stroke();
+        return;
     }
 }

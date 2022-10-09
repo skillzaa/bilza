@@ -8,6 +8,7 @@ export default class Lines extends CompEngine {
         this.preDraw(p);
         for (let i = 0; i < this.data.length; i++) {
             const item = this.data[i];
+            item.draw(p, this.xAligned(), this.yAligned(), this.compWidth(), this.compHeight());
         }
         this.postDraw(p);
         return true;

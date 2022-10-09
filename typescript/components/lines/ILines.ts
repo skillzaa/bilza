@@ -9,12 +9,16 @@ add(x1 :number,y1 :number,x2 :number,y2 :number,
     lineWidth? :number,lineCap? :0|1|2,lineJoin? :0|1|2,lineDash? :[number,number]):void;    
     
     
-seg( x :number,y :number,
-    // color? :string,
-    lineWidth? :number,
-    lineCap? :0|1|2,
-    lineJoin? :0|1|2,
-    lineDash? :[number,number]
+seg(
+x :number,
+y :number,
+//////////////////////////
+color:string,
+filled:boolean, 
+lineWidth :number,
+lineCap :0|1|2,
+lineJoin :0|1|2,
+lineDash:[number,number]//8 args
     ):Seg;
 
 

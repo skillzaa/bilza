@@ -1,8 +1,9 @@
 import Pack from "../../pack/pack.js";
 import Style from "../../pack/style.js";
-import IPrimtive from "../IPrimtive.js";
+// import IPrimtive from "../IPrimtive.js";
+import ILinePrimtive from "./ILinePrimtive.js";
 
-export default class LinePrim implements IPrimtive {
+export default class LinePrimtive implements ILinePrimtive {
     x1 :number;    
     y1 :number;    
     x2 :number;    

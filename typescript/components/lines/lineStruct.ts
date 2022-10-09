@@ -18,7 +18,7 @@ lineDash :[line:number, gap:number];
 constructor(
     x1 :number,y1 :number,x2 :number,y2 :number,
     color :string = "black",
-    lineWidth :number = 4,
+    lineWidth :number = 3,
     lineCap :0|1|2,
     lineJoin :0|1|2 = 0,
     lineDash:[number,number] = [1,0]
