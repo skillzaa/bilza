@@ -16,17 +16,25 @@ lines.setxy(0);
 lines.width.set(20);
 lines.height.set(35);
 //--------------------------------
-lines.add(0,75, 100,75,"red"); 
-lines.add(0,75,50,0,"red"); 
-lines.add(50,0,100,75,"red"); 
+lines.seg(0,75,"black")
+.add(100,75)
+.add(50,0)
+.add(0,75)
+.save();
+// lines.add(0,75, 100,75,"red"); 
+// lines.add(0,75,50,0,"red"); 
+// lines.add(50,0,100,75,"red"); 
 
 lines.add(0,25,100,25,"red"); 
 lines.add(0,25,50,100,"red"); 
 lines.add(100,25,50,100,"red"); 
 //----------------------------------------
-const seg = lines.seg(0,0,"green");
-
-seg.add(0,0).add(100,100).add(0,100).add(100,0).save();
+lines.seg(0,0,"green")
+    .add(0,0)
+    .add(100,100)
+    .add(0,100)
+    .add(100,0)
+.save();
 //----------------------------------------
 // lines.showBackground.set(true);
 lines.colorBackground.set( hsl(0,25, 90) );
