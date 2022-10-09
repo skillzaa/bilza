@@ -1,4 +1,5 @@
-export default class LineStruct {
+import Style from "../../pack/style.js";
+export default class LinePrimtive {
     constructor(x1, y1, x2, y2, color = null, lineWidth = 3, lineCap, lineJoin = 0, lineDash = [1, 0]) {
         this.x1 = x1;
         this.y1 = y1;
@@ -9,6 +10,7 @@ export default class LineStruct {
         this.lineCap = lineCap;
         this.lineJoin = lineJoin;
         this.lineDash = lineDash;
+        this.style = new Style();
     }
     draw(p, compX, compY, compWidth, compHeight, compColor) {
         const wdFactor = compWidth / 100;
@@ -21,19 +23,11 @@ export default class LineStruct {
             this.style.fillStyle = this.color;
             this.style.strokeStyle = this.color;
         }
-        p.moveTo(compX + (wdFactor * this.startX), compY + (htFactor * this.startY));
         p.beginPath();
-        for (let i = 0; i < this.data.length; i++) {
-            const item = this.data[i];
-            p.lineTo(compX + (wdFactor * item.x2), compY + (htFactor * item.y2), this.style);
-        }
-        if (this.filled == true) {
-            p.fill(this.style);
-        }
-        else {
-            p.closePath();
-            p.stroke();
-        }
+        p.moveTo(compX + (wdFactor * this.x1), compY + (htFactor * this.y1));
+        p.lineTo(compX + (wdFactor * this.x2), compY + (htFactor * this.y2), this.style);
+        p.stroke();
+        p.closePath();
         return;
     }
 }

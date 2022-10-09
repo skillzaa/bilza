@@ -15,7 +15,7 @@ this.data = linesDb.data;
 //---------------------------------------------------------------
 }  
 draw(p:Pack):boolean{
-    
+     
 this.preDraw(p);
 //------------------------------------------
 for (let i = 0; i < this.data.length; i++) {

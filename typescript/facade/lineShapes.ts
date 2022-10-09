@@ -1,16 +1,22 @@
 import LineShapeFactory from "./lineShapesFactory.js";
 import CompDb from "../compDb/compDb.js";
 
-
+/**
+ * LineShapes Assets:
+ * This is a group of Assets based on Lines component. 
+ * The purpose of LineShapes is to present simple shapes created with grouping lines and segmented-lines.
+ * We can create new assets using the Lines comp however in LineShapes assets we have provided very limited options to edit and most of the decisions are made by the artist who created the asset.
+ * An asset is ready to be consumed with min modifications.
+ */
 export default class LineShapes {
 private comps :CompDb[];
 private _canvasHeight :number;
 private _canvasWidth :number;
 
 constructor(canvasWidth :number, canvasHeight :number, comps :CompDb[] ){
-this.comps = comps;
-this._canvasWidth = canvasWidth;
-this._canvasHeight = canvasHeight;
+    this.comps = comps;
+    this._canvasWidth = canvasWidth;
+    this._canvasHeight = canvasHeight;
 }
 
 //--does not need ComponentPack since this is DB object

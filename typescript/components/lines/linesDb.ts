@@ -4,7 +4,7 @@ import CompDb from "../../compDb/compDb.js";
 import ILinesSubComp from "./ILinesSubComp.js";
 import Lines from "./lines.js";
 import ILines from "./ILines.js";
-import LineStruct from "./lineStruct.js";
+import LinePrimtive from "./linePrimtive.js";
 import Seg from "./seg.js";
 
 
@@ -30,9 +30,9 @@ getEngineComp(pack :Pack):compEngine{
 public add(x1 :number,y1 :number,x2 :number,y2 :number,
    color :string | null=null,lineWidth :number = 4,lineCap :0|1|2,lineJoin :0|1|2=0, lineDash:[number,number] = [1,0]){
 
-const line = new LineStruct(x1,y1,x2,y2, color ,lineWidth,lineCap,lineJoin,lineDash);
+const line = new LinePrimtive(x1,y1,x2,y2, color ,lineWidth,lineCap,lineJoin,lineDash);
 
-// this.data.push(line);
+this.data.push(line);
 }
 
 public seg( 

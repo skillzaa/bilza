@@ -1,4 +1,4 @@
-import LineStruct from "./lineStruct.js";
+import LineStruct from "./linePrimtive.js";
 import Pack from "../../pack/pack.js";
 import ILinesSubComp from "./ILinesSubComp.js";
 import Style from "../../pack/style.js";

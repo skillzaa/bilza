@@ -38,46 +38,46 @@ this.comps.push(g);
 starOfDavid(g,hue_0_360,filled,lineWidth);
 return g;    
 }
-triangle(color:string="black",lineWidth :number):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+triangle(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 this.comps.push(g);
-triangle(g,lineWidth);
+triangle(g,hue_0_360,filled,lineWidth);
 return g;    
 }
-cross(color:string="black",lineWidth :number):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+cross(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 this.comps.push(g);
-cross(g,lineWidth);
+cross(g,hue_0_360,filled,lineWidth);
 return g;    
 }
-tickRight(color:string="black",lineWidth :number):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+tickRight(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 this.comps.push(g);
-tickRight(g,lineWidth);
+tickRight(g,hue_0_360,filled,lineWidth);
 return g;    
 }
-tickLeft(color:string="black",lineWidth :number):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+tickLeft(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 this.comps.push(g);
-tickLeft(g,lineWidth);
+tickLeft(g,hue_0_360,filled,lineWidth);
 return g;    
 }
-graphInc(color:string="black",lineWidth :number):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+graphInc(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 this.comps.push(g);
-graphInc(g,lineWidth);
+graphInc(g,hue_0_360,filled,lineWidth);
 return g;    
 }
-rectangle(color:string="black",lineWidth :number):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+rectangle(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 this.comps.push(g);
-rectangle(g,lineWidth);
+rectangle(g,hue_0_360,filled,lineWidth);
 return g;    
 }
-rightTriangle(color:string="black",lineWidth :number):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+rightTriangle(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 this.comps.push(g);
-rightTriangle(g,lineWidth);
+rightTriangle(g,hue_0_360,filled,lineWidth);
 return g;    
 }
 

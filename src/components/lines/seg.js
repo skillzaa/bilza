@@ -1,4 +1,4 @@
-import LineStruct from "./lineStruct.js";
+import LineStruct from "./linePrimtive.js";
 import Style from "../../pack/style.js";
 export default class Seg {
     constructor(x, y, filled = true, color = null, lineWidth = 4, lineCap = 0, lineJoin = 0, lineDash = [1, 0]) {

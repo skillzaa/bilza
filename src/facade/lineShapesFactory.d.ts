@@ -9,12 +9,12 @@ export default class CompFactory {
     private comps;
     constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
     starOfDavid(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
-    triangle(color: string | undefined, lineWidth: number): ILines;
-    cross(color: string | undefined, lineWidth: number): ILines;
-    tickRight(color: string | undefined, lineWidth: number): ILines;
-    tickLeft(color: string | undefined, lineWidth: number): ILines;
-    graphInc(color: string | undefined, lineWidth: number): ILines;
-    rectangle(color: string | undefined, lineWidth: number): ILines;
-    rightTriangle(color: string | undefined, lineWidth: number): ILines;
+    triangle(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
+    cross(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
+    tickRight(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
+    tickLeft(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
+    graphInc(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
+    rectangle(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
+    rightTriangle(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
 }
 //# sourceMappingURL=lineShapesFactory.d.ts.map

@@ -1,1 +1,1 @@
-{"version":3,"file":"tickRight.d.ts","sourceRoot":"","sources":["../../typescript/lineShapes/tickRight.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,+BAA+B,CAAC;AAGnD,MAAM,CAAC,OAAO,UAAU,SAAS,CAAE,KAAK,EAAE,MAAM,EAC5C,SAAS,GAAE,MAAU,GACnB,MAAM,CAaX"}
+{"version":3,"file":"tickRight.d.ts","sourceRoot":"","sources":["../../typescript/lineShapes/tickRight.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,+BAA+B,CAAC;AAGnD,MAAM,CAAC,OAAO,UAAU,SAAS,CAC7B,KAAK,EAAE,MAAM,EACb,SAAS,GAAG,MAAY,EACxB,MAAM,GAAE,OAAY,EACpB,SAAS,GAAE,MAAU,GACnB,MAAM,CAYX"}
