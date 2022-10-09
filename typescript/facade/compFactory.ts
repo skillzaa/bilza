@@ -125,16 +125,11 @@ this.comps.push(g);
 return g;    
 }
 lines(color:string="black"):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight);
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
 this.comps.push(g);
 return g;    
 }
-starOfDavid(color:string="black"):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight);
-this.comps.push(g);
-starOfDavid(g);
-return g;    
-}
+
 pic(imgUrl :string,width :number=25,height:number=25):IPic{
 let g = new PicDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,imgUrl,width,height);
 this.comps.push(g);

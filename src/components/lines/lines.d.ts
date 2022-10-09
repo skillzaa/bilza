@@ -6,7 +6,5 @@ export default class Lines extends CompEngine {
     data: ILinesSubComp[];
     constructor(linesDb: LinesDb, pack: Pack);
     draw(p: Pack): boolean;
-    private resolveX;
-    private resolveY;
 }
 //# sourceMappingURL=lines.d.ts.map

@@ -8,7 +8,7 @@ export default class CompFactory {
     private insertAction;
     private comps;
     constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
-    starOfDavid(color: string | undefined, lineWidth: number): ILines;
+    starOfDavid(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
     triangle(color: string | undefined, lineWidth: number): ILines;
     cross(color: string | undefined, lineWidth: number): ILines;
     tickRight(color: string | undefined, lineWidth: number): ILines;

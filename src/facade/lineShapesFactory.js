@@ -1,3 +1,4 @@
+import { hsl } from "../bilza.js";
 import LinesDb from "../components/lines/linesDb.js";
 import starOfDavid from "../lineShapes/starOfDavid.js";
 import triangle from "../lineShapes/triangle.js";
@@ -16,10 +17,10 @@ export default class CompFactory {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
     }
-    starOfDavid(color = "black", lineWidth) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
+    starOfDavid(hue_0_360 = 240, filled = true, lineWidth = 4) {
+        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
         this.comps.push(g);
-        starOfDavid(g, lineWidth);
+        starOfDavid(g, hue_0_360, filled, lineWidth);
         return g;
     }
     triangle(color = "black", lineWidth) {

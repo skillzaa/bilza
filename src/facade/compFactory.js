@@ -11,7 +11,6 @@ import ArrowDb from "../components/arrow/arrowDb.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 import TextDB from "../components/text/textDb.js";
 import CurveDb from "../components/curve/curveDb.js";
-import starOfDavid from "../lineShapes/starOfDavid.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight, charsWidth) {
         this.comps = comps;
@@ -78,14 +77,8 @@ export default class CompFactory {
         return g;
     }
     lines(color = "black") {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight);
+        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
         this.comps.push(g);
-        return g;
-    }
-    starOfDavid(color = "black") {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight);
-        this.comps.push(g);
-        starOfDavid(g);
         return g;
     }
     pic(imgUrl, width = 25, height = 25) {

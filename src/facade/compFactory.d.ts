@@ -31,7 +31,6 @@ export default class CompFactory {
     marker(x: number, y: number, color?: string, radius?: number): ICircle;
     line(x1: number, y1: number, x2: number, y2: number, color?: string): ILine;
     lines(color?: string): ILines;
-    starOfDavid(color?: string): ILines;
     pic(imgUrl: string, width?: number, height?: number): IPic;
 }
 //# sourceMappingURL=compFactory.d.ts.map

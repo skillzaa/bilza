@@ -1,15 +1,15 @@
-
 import LineStruct from "./lineStruct.js";
 import Pack from "../../pack/pack.js";
 import ILinesSubComp from "./ILinesSubComp.js";
-
 import Style from "../../pack/style.js";
 
-
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 export default class Seg implements ILinesSubComp{    
 private readonly startX :number;
 private readonly startY :number;
-public color :string;
+public color :string |null;
 public lineWidth :number;
 public filled :boolean;
 public lineCap :0|1|2;
@@ -23,8 +23,8 @@ constructor(
 x :number,
 y :number,
 //////////////////////////
-color:string="black",
 filled:boolean=true, 
+color:string | null= null,
 lineWidth :number = 4,
 lineCap :0|1|2 = 0,
 lineJoin :0|1|2 = 0,
@@ -43,7 +43,7 @@ this.lineDash = lineDash;
 //---
 this.style = new Style();
 }
-
+//---The is seg add not the lines add
 add(x :number,y  :number,
     lineWidth :number = this.lineWidth,
     lineCap :0|1|2 = this.lineCap,
@@ -68,13 +68,17 @@ if (this.data.length == 0){
 return this;
 }
 
-draw(p :Pack,compX :number, compY :number, compWidth :number,compHeight :number):void{
+draw(p :Pack,compX :number, compY :number, compWidth :number,compHeight :number,compColor :string):void{
 const wdFactor = compWidth/100;    
 const htFactor = compHeight/100;  
 //------------------------------------------
-
-this.style.fillStyle = "red";
-this.style.strokeStyle = "red";
+if (this.color == null){
+    this.style.fillStyle = compColor;
+    this.style.strokeStyle = compColor;
+}else{
+    this.style.fillStyle = this.color;
+    this.style.strokeStyle = this.color;
+}
 
 p.moveTo(
     compX + (wdFactor *  this.startX),
@@ -89,16 +93,14 @@ for (let i = 0; i < this.data.length; i++) {
         compX + (wdFactor *  item.x2),
         compY + (htFactor *  item.y2),
         this.style);
-    
-    // item.y2
-    // this.x.value() + this.resolveX( this.startX.value() ) , 
-    // this.y.value() + this.resolveY( this.startY.value() ) ,
-
 }
-//@ts-expect-error
-p.ctx.fill();
-//@ts-expect-error
-  p.ctx.stroke();
+        if (this.filled == true){
+            //--if this line create problems just use p.ctx.fill()
+            p.fill(this.style); 
+        }else {
+            p.closePath();
+            p.stroke();
+        }
 return;
 }
 

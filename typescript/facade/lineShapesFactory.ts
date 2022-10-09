@@ -1,4 +1,4 @@
-// import IComponent from "../compDb/IComponent.js";
+import { hsl } from "../bilza.js";
 import IComponent from "../compDb/IComponent.js";
 import LinesDb from "../components/lines/linesDb.js";
 import ILines from "../components/lines/ILines.js";
@@ -32,10 +32,10 @@ this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
 }
 
-starOfDavid(color:string="black",lineWidth :number):ILines{
-let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
+starOfDavid(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
+let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 this.comps.push(g);
-starOfDavid(g,lineWidth);
+starOfDavid(g,hue_0_360,filled,lineWidth);
 return g;    
 }
 triangle(color:string="black",lineWidth :number):ILines{
