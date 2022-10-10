@@ -1,23 +1,34 @@
-import ILines from "../components/lines/ILines.js";
+import ILineSeg from "../components/lineSeg/ILineSeg.js";
 import { hsl } from "../bilza.js";
-//-dont pass color here pass it to linesDb
+
+
 export default function rectangle (
-    lines :ILines,
-    hue_0_360 : number = 360,
-    filled :boolean=true, 
-    lineWidth :number = 4
-    ):ILines{
+    lineSeg :ILineSeg,
+    filled :boolean
+    ):ILineSeg{
+//---I can get lineWidth , filled , closed etc
 
-    lines.setxy(0);
-    lines.width.set(40);
-    lines.height.set(40);
-    //--------------------------------
-    lines.seg(0,0,filled,hsl(hue_0_360),lineWidth)
+//--step-01--its defaultbut just to be safe        
+lineSeg.startX = 0;
+lineSeg.startY = 0;
 
-    .add(100,0) //top
-    .add(100,100)
-    .add(0,100)
-    .add(0,0)
+//--step-02 --set default width and height
+lineSeg.setWdHt(20,20);
+
+//--step-03--the vertices
+lineSeg.add(100,0);
+lineSeg.add(100,100);
+lineSeg.add(0,100);
+lineSeg.add(0,0);
+        
+        
+//--step-04--seg other settings
+lineSeg.setLineJoin("round");
+//--step-05--we can decide to use user send filled or not
+lineSeg.setFilled(filled);
+//--step-06--set closed--totally creator decision no need for giving it to user--better to draw closing line ur self
+// lineSeg.setClosed(true);
+        
     //----------------------------------------
-return lines;
+return lineSeg;
 }

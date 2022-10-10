@@ -4,7 +4,7 @@ import Decrement from "./filters/decrement.js";
 import Random from    "./filters/random.js";
 import Oscillate from "./filters/oscillatets.js"; 
 import IdentityFil from "../filters/identityFil.js";
-import JumpBetween from "../filters/jumpBetween.js";
+import JumpBetween from "../filters/jumpBetween.js"; 
 
 //--------------------------------------------
 export default class AniNumberDb extends AniPropDb <number>{

@@ -5,15 +5,15 @@ export default class Style {
         this.fontFamily = FontFamily.Luminari;
         this.fillStyle = "green";
         this.strokeStyle = "red";
-        this.lineWidth = 2;
         this.shadowColor = "black";
         this.shadowOffsetX = 0;
         this.shadowOffsetY = 0;
         this.shadowBlur = 0;
         this.opacity = 100;
-        this.lineCap = 0;
+        this.lineCap = "round";
+        this.lineWidth = 2;
         this.lineDash = [1, 0];
-        this.lineJoin = 0;
+        this.lineJoin = "miter";
     }
     merge(incom) {
         if (incom.lineCap !== null) {
@@ -51,6 +51,9 @@ export default class Style {
         }
         if (incom.lineDash !== null) {
             this.lineDash = incom.lineDash;
+        }
+        if (incom.lineJoin !== null) {
+            this.lineJoin = incom.lineJoin;
         }
     }
 }

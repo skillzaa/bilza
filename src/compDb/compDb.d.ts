@@ -10,7 +10,7 @@ export default class CompDb extends CoreProps implements IComponent {
     yRotateAligned(): number;
     xAligned(): number;
     yAligned(): number;
-    setPaddings(n: number): void;
+    setPaddings(n: number): IComponent;
     animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean;
     compWidth(): number;
     compHeight(): number;
@@ -18,8 +18,9 @@ export default class CompDb extends CoreProps implements IComponent {
     contentWidth(): number;
     getDuration(): number;
     goto(atFrame: number, x: number, y: number): boolean;
-    setxy(x: number, y?: number | null): void;
-    sexy(x: number, y?: number | null): void;
+    setxy(x: number, y?: number | null): IComponent;
+    setWdHt(width?: number | null, height?: number | null): IComponent;
+    sexy(x: number, y?: number | null): IComponent;
     getStartTime(inSec?: boolean): number;
     getEndTime(inSec?: boolean): number;
     rightEdge(): number;

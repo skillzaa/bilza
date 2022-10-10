@@ -1,13 +1,5 @@
-import { hsl } from "../bilza.js";
-import LinesDb from "../components/lines/linesDb.js";
-import starOfDavid from "../lineShapes/starOfDavid.js";
-import triangle from "../lineShapes/triangle.js";
-import cross from "../lineShapes/cross.js";
-import tickRight from "../lineShapes/tickRight.js";
-import tickLeft from "../lineShapes/tickLeft.js";
-import graphInc from "../lineShapes/graphInc.js";
+import LineSegDb from "../components/lineSeg/lineSegDb.js";
 import rectangle from "../lineShapes/rectangle.js";
-import rightTriangle from "../lineShapes/rightTriangle.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight) {
         this.comps = comps;
@@ -17,52 +9,10 @@ export default class CompFactory {
         this.canvasWidth = canvasWidth;
         this.canvasHeight = canvasHeight;
     }
-    starOfDavid(hue_0_360 = 240, filled = true, lineWidth = 4) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
+    rectangle(hue_0_360 = 0, filled = false, lineWidth = 4) {
+        let g = new LineSegDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, 0, 0, hue_0_360, lineWidth);
         this.comps.push(g);
-        starOfDavid(g, hue_0_360, filled, lineWidth);
-        return g;
-    }
-    triangle(hue_0_360 = 240, filled = true, lineWidth = 4) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
-        this.comps.push(g);
-        triangle(g, hue_0_360, filled, lineWidth);
-        return g;
-    }
-    cross(hue_0_360 = 240, filled = true, lineWidth = 4) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
-        this.comps.push(g);
-        cross(g, hue_0_360, filled, lineWidth);
-        return g;
-    }
-    tickRight(hue_0_360 = 240, filled = true, lineWidth = 4) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
-        this.comps.push(g);
-        tickRight(g, hue_0_360, filled, lineWidth);
-        return g;
-    }
-    tickLeft(hue_0_360 = 240, filled = true, lineWidth = 4) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
-        this.comps.push(g);
-        tickLeft(g, hue_0_360, filled, lineWidth);
-        return g;
-    }
-    graphInc(hue_0_360 = 240, filled = true, lineWidth = 4) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
-        this.comps.push(g);
-        graphInc(g, hue_0_360, filled, lineWidth);
-        return g;
-    }
-    rectangle(hue_0_360 = 240, filled = true, lineWidth = 4) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
-        this.comps.push(g);
-        rectangle(g, hue_0_360, filled, lineWidth);
-        return g;
-    }
-    rightTriangle(hue_0_360 = 240, filled = true, lineWidth = 4) {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, hsl(hue_0_360));
-        this.comps.push(g);
-        rightTriangle(g, hue_0_360, filled, lineWidth);
+        rectangle(g, filled);
         return g;
     }
 }

@@ -5,10 +5,10 @@ import IGrid from "../components/grid/IGrid.js";
 import ICircle from "../components/circle/ICircle.js";
 import IPic from "../components/pic/IPic.js";
 import ILine from "../components/line/ILine.js";
-import ILines from "../components/lines/ILines.js";
 import IArrow from "../components/arrow/IArrow.js";
 import IParticleSystem from "../components/particleSystem/IParticleSystem.js";
 import IText from "../components/text/IText.js";
+import ILineSeg from "../components/lineSeg/ILineSeg.js";
 import ICurve from "../components/curve/ICurve.js";
 export default class CompFactory {
     private readonly startTime;
@@ -30,7 +30,7 @@ export default class CompFactory {
     circle(radius?: number, color?: string): ICircle;
     marker(x: number, y: number, color?: string, radius?: number): ICircle;
     line(x1: number, y1: number, x2: number, y2: number, color?: string): ILine;
-    lines(color?: string): ILines;
+    lineSeg(x: number, y: number, hue_0_360?: number, lineWidth?: number): ILineSeg;
     pic(imgUrl: string, width?: number, height?: number): IPic;
 }
 //# sourceMappingURL=compFactory.d.ts.map

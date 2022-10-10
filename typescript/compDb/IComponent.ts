@@ -73,7 +73,8 @@ canvasHeight() :number;
 rightEdge() :number;
 bottomEdge() :number;
 ////////////////////////////////    
-setxy(x :number, y? :number|null):void;
-sexy(x :number, y? :number|null):void;
-setPaddings(n :number):void;
+setxy(x :number, y? :number|null):IComponent;
+sexy(x :number, y? :number|null):IComponent;
+setWdHt(width :number | null, height :number | null):IComponent;
+setPaddings(n :number):IComponent;
 }

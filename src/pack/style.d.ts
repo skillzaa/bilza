@@ -10,8 +10,8 @@ export default class Style {
     shadowOffsetY: number;
     shadowBlur: number;
     opacity: number;
-    lineCap: 0 | 1 | 2;
-    lineJoin: 0 | 1 | 2;
+    lineCap: "butt" | "square" | "round";
+    lineJoin: "round" | "bevel" | "miter";
     lineDash: [line: number, gap: number];
     constructor();
     merge(incom: Style): void;

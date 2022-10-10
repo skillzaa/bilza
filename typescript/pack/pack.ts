@@ -208,46 +208,57 @@ public drawTextstroke(content:string,x:number,y:number, incomCtx:Style){
     this.ctx.strokeText(content, x, y);
 }
 
-private commitCtxData(incomCtx:Style){
+private commitCtxData(style:Style){
     
-    if (incomCtx.lineCap !== null){
-        this.ctx.lineCap = "round";
+    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    //-----shadow variables 4 
+    if (style.shadowBlur !== null){
+        this.ctx.shadowBlur = style.shadowBlur;
     }
-    if (incomCtx.opacity !== null){
+    if (style.shadowOffsetY !== null){
+        this.ctx.shadowOffsetY = style.shadowOffsetY;
+    }
+    if (style.shadowOffsetX !== null){
+        this.ctx.shadowOffsetX = style.shadowOffsetX;
+    }
+    if (style.shadowColor !== null){
+        this.ctx.shadowColor = style.shadowColor;
+    }
+    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    //-----colors variables 2 --total 6
+    if (style.strokeStyle !== null){
+        this.ctx.strokeStyle = style.strokeStyle;
+    }
+    if (style.fillStyle !== null){
+        this.ctx.fillStyle = style.fillStyle;
+    }
+    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    //-----line variables 4 --total 10
+    if (style.lineDash !== null){
+        this.ctx.setLineDash(style.lineDash);
+    }
+    if (style.lineCap !== null){
+        this.ctx.lineCap = style.lineCap;
+    }
+    if (style.lineWidth !== null){
+        this.ctx.lineWidth = style.lineWidth;
+    }
+    if (style.lineJoin !== null){
+        this.ctx.lineJoin = style.lineJoin;
+    }
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    //-----opacity variables 1 --total 11
+    if (style.opacity !== null){
         if (this.disableOpacity == true){
             //--full opacity all the time;
             this.ctx.globalAlpha = 1;       
         }else {
-            this.ctx.globalAlpha = incomCtx.opacity/100;
+            this.ctx.globalAlpha = style.opacity/100;
         }
     }
-    if (incomCtx.shadowBlur !== null){
-        this.ctx.shadowBlur = incomCtx.shadowBlur;
-    }
-    if (incomCtx.shadowOffsetY !== null){
-        this.ctx.shadowOffsetY = incomCtx.shadowOffsetY;
-    }
-    if (incomCtx.shadowOffsetX !== null){
-        this.ctx.shadowOffsetX = incomCtx.shadowOffsetX;
-    }
-    if (incomCtx.lineWidth !== null){
-        this.ctx.lineWidth = incomCtx.lineWidth;
-    }
-    if (incomCtx.shadowColor !== null){
-        this.ctx.shadowColor = incomCtx.shadowColor;
-    }
-    if (incomCtx.strokeStyle !== null){
-        this.ctx.strokeStyle = incomCtx.strokeStyle;
-    }
-    if (incomCtx.fillStyle !== null){
-        this.ctx.fillStyle = incomCtx.fillStyle;
-    }
-    if (incomCtx.lineDash !== null){
-        this.ctx.setLineDash(incomCtx.lineDash);
-    }
-    
+    //---font 2 varables -total 13
     //---important change
-    this.setFont(incomCtx.fontSize,incomCtx.fontFamily);
+    this.setFont(style.fontSize,style.fontFamily);
 
 }
 private setFont(fontSize:number,fontName:string){

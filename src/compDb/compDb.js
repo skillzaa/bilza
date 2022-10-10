@@ -80,6 +80,7 @@ export default class CompDb extends CoreProps {
         this.paddingRight.set(n);
         this.paddingTop.set(n);
         this.paddingBottom.set(n);
+        return this;
     }
     animate(timeFrom, timeTo, xFrom, xTo, yFrom, yTo) {
         this.x.animate(timeFrom, timeTo, xFrom, xTo);
@@ -112,9 +113,20 @@ export default class CompDb extends CoreProps {
         }
         this.x.set(x);
         this.y.set(y);
+        return this;
+    }
+    setWdHt(width = null, height = null) {
+        if (width !== null) {
+            this.width.set(width);
+        }
+        if (height !== null) {
+            this.height.set(height);
+        }
+        return this;
     }
     sexy(x, y = null) {
         this.setxy(x, y);
+        return this;
     }
     getStartTime(inSec = true) {
         return inSec ? this.startTime : (this.startTime * 1000);

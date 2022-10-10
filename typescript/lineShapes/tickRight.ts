@@ -1,6 +1,8 @@
 import ILines from "../components/lines/ILines.js";
 import { hsl } from "../bilza.js";
-
+/**
+ * Use seg for close shapes and lines for open lines
+ */
 export default function tickRight (
     lines :ILines,
     hue_0_360 : number = 360,
@@ -8,14 +10,10 @@ export default function tickRight (
     lineWidth :number = 4
     ):ILines{
 
-    // lines.setxy(0);
     lines.width.set(10);
     lines.height.set(25);
     //--------------------------------
-    // lines.add(0,0,100,100,lineWidth);
-    // lines.add(0,100,100,0,lineWidth);
-    lines.seg(0,80,filled,hsl(hue_0_360),lineWidth)
-    .add(20,100)
-    .add(100,0)
+    lines.add(0,80,20,100,hsl(hue_0_360),lineWidth);
+    lines.add(20,100,100,0,hsl(hue_0_360),lineWidth);
 return lines;
 }

@@ -92,11 +92,12 @@ switch (this.yAlign) {
 }
 return y;    
 }
-public setPaddings(n :number){
+public setPaddings(n :number):IComponent{
 this.paddingLeft.set(n);
 this.paddingRight.set(n);
 this.paddingTop.set(n);
 this.paddingBottom.set(n);
+return this;
 }
 animate(timeFrom: number, timeTo: number, xFrom: number, xTo: number, yFrom: number, yTo: number): boolean {
 this.x.animate(timeFrom,timeTo,xFrom,xTo);    
@@ -125,13 +126,20 @@ this.y.goto(atFrame,y);
 return true;
 }
 
-public setxy(x :number, y :number | null =null){
+public setxy(x :number, y :number | null =null):IComponent{
     if (y ==null){y=x;}
 this.x.set(x);
 this.y.set(y);
+return this;
 }
-public sexy(x :number, y :number | null =null){
+public setWdHt(width :number | null=null, height :number | null =null):IComponent{
+if (width !==null){this.width.set(width);}
+if (height !==null){this.height.set(height);}
+return this;
+}
+public sexy(x :number, y :number | null =null):IComponent{
     this.setxy(x,y);
+    return this;
 }
 getStartTime(inSec :boolean=true) :number{
     return  inSec ? this.startTime : (this.startTime * 1000);

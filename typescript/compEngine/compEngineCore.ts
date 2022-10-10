@@ -72,48 +72,38 @@ this.style = new Style();
 ///////////////////////////animated core props
 /////////////////--Animated Props
 this.border = new AniNumber(corePropsDb.border);
-// this.border.set(corePropsDb.border.value());
 
-// this.color = corePropsDb.color.getEngineProp();
 this.color = new AniColor(corePropsDb.color);
-// this.color.set(corePropsDb.color.value());
 
 this.colorBackground = new AniColor(corePropsDb.colorBackground);
 
 this.colorBorder = new AniColor(corePropsDb.colorBorder);
-// this.colorBorder.set(corePropsDb.colorBorder.value());
-
 
 this.drawLayer = corePropsDb.drawLayer;
 
 this.height = new AniPerc(corePropsDb.height);
-// this.height.set(corePropsDb.height.value());
+
 this.opacity = new AniNumber(corePropsDb.opacity);
-// this.opacity.set(corePropsDb.opacity.value());
 
 this.paddingTop = new AniPerc(corePropsDb.paddingTop);
-// this.paddingTop.set(corePropsDb.paddingTop.value());
+
 this.paddingBottom = new AniPerc(corePropsDb.paddingBottom);
-// this.paddingBottom.set(corePropsDb.paddingBottom.value());
+
 this.paddingRight = new AniPerc(corePropsDb.paddingRight);
-// this.paddingRight.set(corePropsDb.paddingRight.value());
+
 this.paddingLeft = new AniPerc(corePropsDb.paddingLeft);
-// this.paddingLeft.set(corePropsDb.paddingLeft.value());
 
 this.rotation = new AniNumber(corePropsDb.rotation);
-// this.rotation.set(corePropsDb.rotation.value());
+
 this.selected = false; //-----? 
 
-
 this.showBackground = new AniBoolean(corePropsDb.showBackground);
-// this.showBackground.set(corePropsDb.showBackground.value());
+
 this.visible = new AniBoolean(corePropsDb.visible);
-///---visisible in DB?????
+
 this.version = corePropsDb.version ;
 
 this.width = new AniPerc( corePropsDb.width );
-// this.width.set(corePropsDb.width.value());
-
 
 this.x = new AniPerc( corePropsDb.x );
 this.y = new AniPerc( corePropsDb.y );

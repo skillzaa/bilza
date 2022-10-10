@@ -1,8 +1,7 @@
 import LineStruct from "./linePrimtive.js";
 import Style from "../../pack/style.js";
 export default class Seg {
-    constructor(x, y, filled = true, color = null, lineWidth = 4, lineCap = 0, lineJoin = 0, lineDash = [1, 0]) {
-        this.data = [];
+    constructor(x, y, filled = true, color = "black", lineWidth = 4, lineCap = 0, lineJoin = 0, lineDash = [1, 0]) {
         this.startX = x;
         this.startY = y;
         this.color = color;
@@ -11,6 +10,7 @@ export default class Seg {
             this.lineCap = lineCap;
         this.lineJoin = lineJoin;
         this.lineDash = lineDash;
+        this.closed = true;
         this.style = new Style();
     }
     add(x, y, lineWidth = this.lineWidth, lineCap = this.lineCap, lineJoin = this.lineJoin, lineDash = this.lineDash) {
@@ -39,19 +39,30 @@ export default class Seg {
             this.style.fillStyle = this.color;
             this.style.strokeStyle = this.color;
         }
-        p.moveTo(compX + (wdFactor * this.startX), compY + (htFactor * this.startY));
         p.beginPath();
+        p.moveTo(compX + (wdFactor * this.startX), compY + (htFactor * this.startY));
         for (let i = 0; i < this.data.length; i++) {
             const item = this.data[i];
             p.lineTo(compX + (wdFactor * item.x2), compY + (htFactor * item.y2), this.style);
         }
         if (this.filled == true) {
             p.fill(this.style);
+            p.closePath();
         }
         else {
-            p.closePath();
+            if (this.closed == true) {
+                p.closePath();
+            }
             p.stroke();
         }
         return;
+    }
+    setFilled(filled = true) {
+        this.filled = filled;
+        return this.filled;
+    }
+    setClosed(closed = true) {
+        this.closed = closed;
+        return this.closed;
     }
 }

@@ -13,27 +13,32 @@ shadowOffsetX:number ;
 shadowOffsetY:number ;
 shadowBlur :number ;
 opacity :number ;
-lineCap  :0 | 1 | 2;    
-lineJoin :0 | 1 | 2;    
+lineCap  :"butt" | "square" | "round";    
+lineJoin : "round" | "bevel" | "miter";    
 lineDash :[line:number, gap:number];
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
-constructor(){
-
+constructor(){ 
+    //-13 PROPS
+//---font 2 varables -total 2
 this.fontSize = 25;
 this.fontFamily = FontFamily.Luminari;
+//---color 2 varables -total 4
 this.fillStyle = "green";
 this.strokeStyle = "red";
-this.lineWidth = 2;
+//---shadow 4 varables -total 8
 this.shadowColor = "black";
 this.shadowOffsetX = 0;
 this.shadowOffsetY = 0;
 this.shadowBlur = 0;
+//---opacity 1 varables -total 9
 this.opacity = 100;
-this.lineCap = 0;
+//---line 4 varables -total 13
+this.lineCap =  "round";
+this.lineWidth = 2;
 this.lineDash = [1,0];
-this.lineJoin = 0;
+this.lineJoin =   "miter";
 } 
 // This merge fn merges 2 Style object --where as the commitCtxData fn in pack merges a style with actual ctx saved in pack.
 //--the commitCtxData fn of the pack is coupling of my style data and ctx
@@ -85,6 +90,10 @@ merge(incom :Style){//---12 prop excl msStart
 //--12    
     if (incom.lineDash !== null){
         this.lineDash = incom.lineDash;
+    }
+//--13    
+    if (incom.lineJoin !== null){
+        this.lineJoin = incom.lineJoin;
     }
    
 }

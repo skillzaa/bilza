@@ -1,3 +1,1 @@
-import ILines from "../components/lines/ILines.js";
-export default function graphInc(lines: ILines, hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
 //# sourceMappingURL=graphInc.d.ts.map

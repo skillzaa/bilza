@@ -8,7 +8,8 @@ import RectDb from "./rectDb.js";
  * Actually it is just the box system of bilza library. 
  */
 export default class Rect extends CompEngine  {
-public lineWidth :AniNumber;
+//--why should this be public??
+    public lineWidth :AniNumber;
 
 //--Here instead of CorePropsDb we gave RectDb which is ok since it has  CorePropsDb as base and that is required 
 constructor (corePropsDb :RectDb ,pack :Pack){ 

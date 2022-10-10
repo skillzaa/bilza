@@ -1,5 +1,5 @@
 import IComponent from "../../compDb/IComponent.js";
-import Seg from "./seg.js";
+import Seg from "../lineSeg/lineSegDb.js";
 
 
 /////////////////////////////////////////////////////

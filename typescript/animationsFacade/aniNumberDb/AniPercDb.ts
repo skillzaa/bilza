@@ -72,7 +72,7 @@ public goto(atSec :number,value :number):boolean{
     const v = new IdentityFil(atSec * 1000,(atSec * 1000) + 1000,value);
     this.addFilter(v);
     return false;//// new goto frame ADDED 
-}
+} 
 getTheWhole():number{
 return this.theWhole;
 }

@@ -6,10 +6,10 @@ import CircleDb from "../components/circle/circleDb.js";
 import MarkerDb from "../components/circle/markerDb.js";
 import PicDb from "../components/pic/picDb.js";
 import LineDb from "../components/line/lineDb.js";
-import LinesDb from "../components/lines/linesDb.js";
 import ArrowDb from "../components/arrow/arrowDb.js";
 import ParticleSystemDB from "../components/particleSystem/particleSystemDb.js";
 import TextDB from "../components/text/textDb.js";
+import LineSegDb from "../components/lineSeg/lineSegDb.js";
 import CurveDb from "../components/curve/curveDb.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight, charsWidth) {
@@ -76,8 +76,8 @@ export default class CompFactory {
         this.comps.push(g);
         return g;
     }
-    lines(color = "black") {
-        let g = new LinesDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, color);
+    lineSeg(x, y, hue_0_360 = 0, lineWidth = 4) {
+        let g = new LineSegDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, x, y, hue_0_360, lineWidth);
         this.comps.push(g);
         return g;
     }

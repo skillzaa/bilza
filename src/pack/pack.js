@@ -150,43 +150,46 @@ export default class Pack {
         this.ctx.textBaseline = "top";
         this.ctx.strokeText(content, x, y);
     }
-    commitCtxData(incomCtx) {
-        if (incomCtx.lineCap !== null) {
-            this.ctx.lineCap = "round";
+    commitCtxData(style) {
+        if (style.shadowBlur !== null) {
+            this.ctx.shadowBlur = style.shadowBlur;
         }
-        if (incomCtx.opacity !== null) {
+        if (style.shadowOffsetY !== null) {
+            this.ctx.shadowOffsetY = style.shadowOffsetY;
+        }
+        if (style.shadowOffsetX !== null) {
+            this.ctx.shadowOffsetX = style.shadowOffsetX;
+        }
+        if (style.shadowColor !== null) {
+            this.ctx.shadowColor = style.shadowColor;
+        }
+        if (style.strokeStyle !== null) {
+            this.ctx.strokeStyle = style.strokeStyle;
+        }
+        if (style.fillStyle !== null) {
+            this.ctx.fillStyle = style.fillStyle;
+        }
+        if (style.lineDash !== null) {
+            this.ctx.setLineDash(style.lineDash);
+        }
+        if (style.lineCap !== null) {
+            this.ctx.lineCap = style.lineCap;
+        }
+        if (style.lineWidth !== null) {
+            this.ctx.lineWidth = style.lineWidth;
+        }
+        if (style.lineJoin !== null) {
+            this.ctx.lineJoin = style.lineJoin;
+        }
+        if (style.opacity !== null) {
             if (this.disableOpacity == true) {
                 this.ctx.globalAlpha = 1;
             }
             else {
-                this.ctx.globalAlpha = incomCtx.opacity / 100;
+                this.ctx.globalAlpha = style.opacity / 100;
             }
         }
-        if (incomCtx.shadowBlur !== null) {
-            this.ctx.shadowBlur = incomCtx.shadowBlur;
-        }
-        if (incomCtx.shadowOffsetY !== null) {
-            this.ctx.shadowOffsetY = incomCtx.shadowOffsetY;
-        }
-        if (incomCtx.shadowOffsetX !== null) {
-            this.ctx.shadowOffsetX = incomCtx.shadowOffsetX;
-        }
-        if (incomCtx.lineWidth !== null) {
-            this.ctx.lineWidth = incomCtx.lineWidth;
-        }
-        if (incomCtx.shadowColor !== null) {
-            this.ctx.shadowColor = incomCtx.shadowColor;
-        }
-        if (incomCtx.strokeStyle !== null) {
-            this.ctx.strokeStyle = incomCtx.strokeStyle;
-        }
-        if (incomCtx.fillStyle !== null) {
-            this.ctx.fillStyle = incomCtx.fillStyle;
-        }
-        if (incomCtx.lineDash !== null) {
-            this.ctx.setLineDash(incomCtx.lineDash);
-        }
-        this.setFont(incomCtx.fontSize, incomCtx.fontFamily);
+        this.setFont(style.fontSize, style.fontFamily);
     }
     setFont(fontSize, fontName) {
         let f = `${fontSize}px ${fontName}`;
