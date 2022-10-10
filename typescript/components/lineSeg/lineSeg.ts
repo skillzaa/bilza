@@ -22,11 +22,7 @@ constructor (lineSegDb :LineSegDb ,pack :Pack){
     this.style.lineDash = lineSegDb.getLineDash(); 
     this.style.lineJoin = lineSegDb.getLineJoin(); 
     this.style.lineWidth = lineSegDb.lineWidth; 
-    //--
-    this.style.fillStyle = this.color.value();    
-    this.style.strokeStyle = this.color.value(); 
-
-    //--
+        //--
     this.filled = lineSegDb.filled;
     this.closed = lineSegDb.closed;
     //--- there is some error the x is not being set
@@ -44,14 +40,9 @@ constructor (lineSegDb :LineSegDb ,pack :Pack){
 
 draw(p:Pack):boolean{
 this.preDraw(p);    
-// const wdFactor = compWidth/100;    
-// const htFactor = compHeight/100;  
 //---------------------style---------------
-//---These are set once in contructor
-// this.style.lineWidth = this.lineWidth;
-// this.style.lineCap = this.lineCap;
-// this.style.lineJoin = this.lineJoin;
-// this.style.lineDash = this.lineDash;
+this.style.fillStyle = this.color.value();    
+this.style.strokeStyle = this.color.value(); 
 //------------------------------------------
 const wdFactor = this.width.value()/100;
 const htFactor = this.height.value()/100;
@@ -65,11 +56,24 @@ p.moveTo(
 for (let i = 0; i < this.data.length; i++) {
     const item = this.data[i];
 
-    p.lineTo(
-        this.x.value() + (wdFactor *  item.x),
-        this.y.value() + (htFactor *  item.y),
-        this.style);
-}
+    if (item.command == "lineTo"){
+        p.lineTo(
+            this.x.value() + (wdFactor *  item.x),
+            this.y.value() + (htFactor *  item.y),
+            this.style);
+    }else if (item.command == "moveTo"){
+        p.moveTo(
+            this.x.value() + (wdFactor *  item.x),
+            this.y.value() + (htFactor *  item.y),
+            );
+    }else if (item.command == "fill"){
+        if (this.filled == true){ //if not filled dont run local fill
+            p.fill(this.style);
+        }
+    }
+        
+}    
+////////////////--closing--sequence
         if (this.filled == true){
             //--if this line create problems just use p.ctx.fill()
             p.fill(this.style);
@@ -85,4 +89,6 @@ for (let i = 0; i < this.data.length; i++) {
 this.postDraw(p);
 return true;
 }
+
+
 }

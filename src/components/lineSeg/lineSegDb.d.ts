@@ -24,7 +24,9 @@ export default class SegDb extends CompDb implements ISeg {
     getFilled(): boolean;
     setClosed(closed?: boolean): boolean;
     getClosed(): boolean;
-    add(x: number, y: number): void;
+    lineTo(x: number, y: number): void;
+    moveTo(x: number, y: number): void;
+    fill(): void;
     getEngineComp(pack: Pack): LineSeg;
 }
 //# sourceMappingURL=lineSegDb.d.ts.map

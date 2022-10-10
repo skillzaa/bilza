@@ -50,10 +50,18 @@ export default class SegDb extends CompDb {
     getClosed() {
         return this.closed;
     }
-    add(x, y) {
+    lineTo(x, y) {
         checkZeroToHundred(x);
         checkZeroToHundred(y);
-        this.data.push({ x: x, y: y });
+        this.data.push({ x: x, y: y, command: "lineTo" });
+    }
+    moveTo(x, y) {
+        checkZeroToHundred(x);
+        checkZeroToHundred(y);
+        this.data.push({ x: x, y: y, command: "moveTo" });
+    }
+    fill() {
+        this.data.push({ x: 0, y: 0, command: "fill" });
     }
     getEngineComp(pack) {
         const comp = new LineSeg(this, pack);

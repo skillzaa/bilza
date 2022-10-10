@@ -1,14 +1,14 @@
 import Pack from "../../pack/pack.js";
 import CompEngine from "../../compEngine/compEngine.js";
-import { AniNumber,AniBoolean,AniColor } from "../../animations/animations.js";
+import { AniNumber,AniBoolean,AniColor,AniPerc } from "../../animations/animations.js";
 
 import IGrid from "./IGrid.js";
 import GridDb from "./gridDb.js";
 
 export default class Grid extends CompEngine {
     lineDash :number[];
-    cellWidth : AniNumber;    
-    cellHeight :AniNumber;
+    cellWidth : AniPerc;    
+    cellHeight :AniPerc;
     showHorizontalLines :AniBoolean ;   
     showVerticalLines :AniBoolean ;   
     lineWidthVertical :AniNumber;
@@ -22,12 +22,12 @@ export default class Grid extends CompEngine {
 constructor (gridDb :GridDb ,pack :Pack){
     super( gridDb ,pack );  
 
-this.width.set(gridDb.width.value());
-this.height.set(gridDb.height.value());
+// this.width.set(gridDb.width.value());
+// this.height.set(gridDb.height.value());
 
-this.cellWidth = new AniNumber(gridDb.cellWidth);    
+this.cellWidth = new AniPerc(gridDb.cellWidth);    
 // this.cellWidth.setResponsive()
-this.cellHeight = new AniNumber(gridDb.cellHeight);
+this.cellHeight = new AniPerc(gridDb.cellHeight);
 // this.cellHeight.setResponsive()
 
 this.colorHorizontalLines = new AniColor(gridDb.color);   

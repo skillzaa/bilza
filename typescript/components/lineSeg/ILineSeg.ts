@@ -7,7 +7,9 @@ startX :number;
 startY :number;
 lineWidth  :number;
 
-add(x :number, y :number):void;
+lineTo(x :number, y :number):void;
+moveTo(x :number, y :number):void;
+fill():void;
 
 setLineCap(lineCap :"butt" | "square" | "round"):void;
 getLineCap( ):"butt" | "square" | "round";

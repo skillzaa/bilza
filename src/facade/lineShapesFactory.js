@@ -1,4 +1,5 @@
 import LineSegDb from "../components/lineSeg/lineSegDb.js";
+import starOfDavid from "../lineShapes/starOfDavid.js";
 import rectangle from "../lineShapes/rectangle.js";
 export default class CompFactory {
     constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight) {
@@ -13,6 +14,12 @@ export default class CompFactory {
         let g = new LineSegDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, 0, 0, hue_0_360, lineWidth);
         this.comps.push(g);
         rectangle(g, filled);
+        return g;
+    }
+    starOfDavid(hue_0_360 = 0, filled = false, lineWidth = 4) {
+        let g = new LineSegDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, 0, 0, hue_0_360, lineWidth);
+        this.comps.push(g);
+        starOfDavid(g, filled);
         return g;
     }
 }

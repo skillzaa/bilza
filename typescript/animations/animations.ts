@@ -8,7 +8,7 @@ import AniBooleanDb from "./aniBoolean/aniBooleanDb.js";
 import AniColorDb from   "./aniColor/aniColorDb.js";
 import AniNumberDb from  "./aniNumber/aniNumberDb.js";
 import AniPercDb from  "./aniNumber/aniPercDb.js";
-import AniStringDb from  "./aniString/aniString.js";
+import AniStringDb from  "./aniString/aniStringDb.js";
 
 export {
 AniNumber,

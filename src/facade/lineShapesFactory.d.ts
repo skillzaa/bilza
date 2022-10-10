@@ -9,5 +9,6 @@ export default class CompFactory {
     private comps;
     constructor(startTime: number, endTime: number, comps: IComponent[], insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
     rectangle(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILineSeg;
+    starOfDavid(hue_0_360?: number, filled?: boolean, lineWidth?: number): ILineSeg;
 }
 //# sourceMappingURL=lineShapesFactory.d.ts.map

@@ -10,8 +10,8 @@ import Grid from "./grid.js";
 export default class GridDb extends CompDb implements IGrid {
 
 lineDash =  [];
-cellWidth : AniNumberDb;
-cellHeight : AniNumberDb;
+cellWidth : AniPercDb;
+cellHeight : AniPercDb;
 showHorizontalLines  : AniBooleanDb;
 showVerticalLines : AniBooleanDb;
 lineWidthVertical : AniNumberDb;

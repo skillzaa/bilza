@@ -1,11 +1,11 @@
 import Pack from "../../pack/pack.js";
 import CompEngine from "../../compEngine/compEngine.js";
-import { AniNumber, AniBoolean, AniColor } from "../../animations/animations.js";
+import { AniNumber, AniBoolean, AniColor, AniPerc } from "../../animations/animations.js";
 import GridDb from "./gridDb.js";
 export default class Grid extends CompEngine {
     lineDash: number[];
-    cellWidth: AniNumber;
-    cellHeight: AniNumber;
+    cellWidth: AniPerc;
+    cellHeight: AniPerc;
     showHorizontalLines: AniBoolean;
     showVerticalLines: AniBoolean;
     lineWidthVertical: AniNumber;

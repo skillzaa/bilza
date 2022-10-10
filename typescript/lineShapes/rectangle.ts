@@ -16,10 +16,10 @@ lineSeg.startY = 0;
 lineSeg.setWdHt(20,20);
 
 //--step-03--the vertices
-lineSeg.add(100,0);
-lineSeg.add(100,100);
-lineSeg.add(0,100);
-lineSeg.add(0,0);
+lineSeg.lineTo(100,0);
+lineSeg.lineTo(100,100);
+lineSeg.lineTo(0,100);
+lineSeg.lineTo(0,0);
         
         
 //--step-04--seg other settings

@@ -44,15 +44,10 @@ this.heightFineTune = 5;
 this.color.set( propsDb.color.value() ); 
 // this.width.set(20); --BIG MISTAKE THIS WILL OVER WRITE THE DB VALUES
 // this.height.set(10);
-//--in the start this font size = height value
-// this._fontSize = this.height.value();
 }
 
 update(msDelta: number, p: Pack): boolean {
-//------///////////////////////////////////////
-// this.updateFontSize(p);  //--font size is always updated    
-    ////////-------------------------
-    
+ 
 super.update(msDelta,p);
 this.content.update(msDelta); 
 this.maxDisplayChars.update(msDelta);

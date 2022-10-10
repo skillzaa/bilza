@@ -1,12 +1,10 @@
 import CompEngine from "../../compEngine/compEngine.js";
-import { AniNumber, AniBoolean, AniColor } from "../../animations/animations.js";
+import { AniNumber, AniBoolean, AniColor, AniPerc } from "../../animations/animations.js";
 export default class Grid extends CompEngine {
     constructor(gridDb, pack) {
         super(gridDb, pack);
-        this.width.set(gridDb.width.value());
-        this.height.set(gridDb.height.value());
-        this.cellWidth = new AniNumber(gridDb.cellWidth);
-        this.cellHeight = new AniNumber(gridDb.cellHeight);
+        this.cellWidth = new AniPerc(gridDb.cellWidth);
+        this.cellHeight = new AniPerc(gridDb.cellHeight);
         this.colorHorizontalLines = new AniColor(gridDb.color);
         this.colorVerticalLines = new AniColor(gridDb.color);
         this.colorNumbers = new AniColor(gridDb.colorNumbers);

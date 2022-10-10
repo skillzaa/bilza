@@ -2,11 +2,11 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import IGrid from "./IGrid.js";
 import Pack from "../../pack/pack.js";
-import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
+import { AniNumberDb, AniPercDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
 export default class GridDb extends CompDb implements IGrid {
     lineDash: never[];
-    cellWidth: AniNumberDb;
-    cellHeight: AniNumberDb;
+    cellWidth: AniPercDb;
+    cellHeight: AniPercDb;
     showHorizontalLines: AniBooleanDb;
     showVerticalLines: AniBooleanDb;
     lineWidthVertical: AniNumberDb;

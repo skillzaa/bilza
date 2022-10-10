@@ -88,10 +88,18 @@ getClosed():boolean{
     return this.closed;
 }
 
-add(x :number,y  :number):void{
+lineTo(x :number,y  :number):void{
 checkZeroToHundred(x);
 checkZeroToHundred(y);    
-this.data.push({ x: x , y :y});
+this.data.push({ x: x , y :y, command : "lineTo"});
+}
+moveTo(x :number,y  :number):void{
+checkZeroToHundred(x);
+checkZeroToHundred(y);    
+this.data.push({ x: x , y :y, command : "moveTo"});
+}
+fill():void{
+this.data.push({ x: 0 , y :0, command : "fill"});
 }
 getEngineComp(pack :Pack):LineSeg{
 const comp = new LineSeg(this,pack);

@@ -4,7 +4,7 @@ import IComponent from "../compDb/IComponent.js";
 import ILineSeg from "../components/lineSeg/ILineSeg.js";
 import LineSegDb from "../components/lineSeg/lineSegDb.js";
 
-// import starOfDavid from "../lineShapes/starOfDavid.js";
+import starOfDavid from "../lineShapes/starOfDavid.js";
 // import triangle from "../lineShapes/triangle.js";
 // import cross from "../lineShapes/cross.js";
 // import tickRight from "../lineShapes/tickRight.js";
@@ -34,12 +34,6 @@ this.canvasWidth = canvasWidth;
 this.canvasHeight = canvasHeight;
 }
 
-// starOfDavid(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
-// let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
-// this.comps.push(g);
-// starOfDavid(g,hue_0_360,filled,lineWidth);
-// return g;    
-// }
 // triangle(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
 // let g = new LinesDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,hsl(hue_0_360));
 // this.comps.push(g);
@@ -75,6 +69,13 @@ let g = new LineSegDb (this.startTime,this.endTime,this.insertAction,this.canvas
 this.comps.push(g);
 //--we only need filled and color from THE USER OF ASSET
 rectangle(g,filled);
+return g;    
+}
+starOfDavid(hue_0_360:number =0,filled:boolean=false,lineWidth :number = 4,):ILineSeg{
+let g = new LineSegDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,0, 0, hue_0_360,lineWidth);
+this.comps.push(g);
+//--we only need filled and color from THE USER OF ASSET
+starOfDavid(g,filled);
 return g;    
 }
 // rightTriangle(hue_0_360 : number = 240,filled :boolean=true,lineWidth :number = 4):ILines{
