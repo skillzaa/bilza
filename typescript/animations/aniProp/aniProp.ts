@@ -1,11 +1,14 @@
 import BaseAniProp from "./baseAniProp.js";
 import BaseFilter from "../../animations/filters/baseFilter.js"; 
+import AniPropDb from "./aniPropDb.js";
 // -------------------------------------------
 
 export default class AniProp <T> extends BaseAniProp<T>  {
 
-constructor(value :T){
-super(value);    
+constructor( aniPropDb :AniPropDb<T>){
+super(aniPropDb.getBaseValue());
+this.filtersArr = aniPropDb.getFiltersArray();
+//---_filterValue is set to null on new      
 }
 /**
  * --1--Get the last applied filter. If there is a filter get its value (even if the filter is expired we get its beyond value).

@@ -1,7 +1,8 @@
 import BaseAniProp from "./baseAniProp.js";
 export default class AniProp extends BaseAniProp {
-    constructor(value) {
-        super(value);
+    constructor(aniPropDb) {
+        super(aniPropDb.getBaseValue());
+        this.filtersArr = aniPropDb.getFiltersArray();
     }
     update(rTimeMs) {
         const baseGoto = this.getBaseFilter(rTimeMs);

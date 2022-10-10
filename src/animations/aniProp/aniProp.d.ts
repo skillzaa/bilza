@@ -1,6 +1,7 @@
 import BaseAniProp from "./baseAniProp.js";
+import AniPropDb from "./aniPropDb.js";
 export default class AniProp<T> extends BaseAniProp<T> {
-    constructor(value: T);
+    constructor(aniPropDb: AniPropDb<T>);
     update(rTimeMs: number): boolean;
     private getBaseFilter;
 }

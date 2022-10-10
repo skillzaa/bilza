@@ -1,6 +1,6 @@
 import AniPropDb from "../aniProp/aniPropDb.js";
 export default class AniBooleanDb extends AniPropDb {
-    constructor(initialValue) {
-        super(initialValue);
+    constructor(value) {
+        super(value);
     }
 }

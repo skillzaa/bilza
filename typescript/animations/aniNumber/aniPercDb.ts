@@ -19,11 +19,11 @@ this.theWhole = theWhole;
 public value():number{
     return this.responsiveValue(super.value());        
 }
-
+//---?????
 public valuePerc():number{
-    return super.value();
- 
+    return super.value(); 
 }
+
 private responsiveValue(perc :number):number {
     if (this.theWhole == null){throw new Error("init error");}
         return ((this.theWhole / 100) * perc);

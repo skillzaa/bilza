@@ -2,8 +2,6 @@ import AniProp from "../aniProp/aniProp.js";
 export default class AniPerc extends AniProp {
     constructor(aniPercDb) {
         super(aniPercDb);
-        this.defaultValue = aniPercDb.valuePerc();
-        this._value = null;
         this.theWhole = aniPercDb.getTheWhole();
     }
     value() {

@@ -3,25 +3,22 @@ import { AniPercDb } from "../../animations/animations.js";
 
 export default class AniPerc extends AniProp <number>{
 
-private theWhole : number;
+private readonly theWhole : number;
 // ---------------------------------     
 constructor(aniPercDb :AniPercDb){
-//--here when we feed aniPercDb to super the AniProp will get its value but that is the wrong value so we again give it the Percentage value    
-super(aniPercDb)
-this.defaultValue = aniPercDb.valuePerc(); 
-//@ts-expect-error
-this._value = null;
+    super(aniPercDb);
+//--This makes this the AniPerc    
 this.theWhole = aniPercDb.getTheWhole();
 }
 //////////////////////////////////////////////
 public value():number{
     return this.responsiveValue(super.value());        
 }
-
+//---? what does this do
 public valuePerc():number{
-    return super.value();
- 
+    return super.value(); 
 }
+
 private responsiveValue(perc :number):number {
     if (this.theWhole == null){throw new Error("init error");}
         return ((this.theWhole / 100) * perc);

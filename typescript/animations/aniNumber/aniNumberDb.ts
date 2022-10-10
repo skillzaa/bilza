@@ -4,7 +4,6 @@ import Decrement from "./filters/decrement.js";
 import Random from    "./filters/random.js";
 import Oscillate from "./filters/oscillatets.js"; 
 import IdentityFil from "../filters/identityFil.js";
-import JumpBetween from "../filters/jumpBetween.js"; 
 
 //--------------------------------------------
 export default class AniNumberDb extends AniPropDb <number>{
@@ -15,10 +14,6 @@ super(value)
 }
 //////////////////////////////////////////////
 
-//////////////////////////////////////////////
-//////////////////////////////////////////////
-//////////////////////////////////////////////
-//////////////////////////////////////////////
 public animate( StartSec :number, endSec :number,startValue :number,endValue :number){
     if (startValue < endValue ){
         let inc = new Increment(StartSec * 1000,endSec * 1000,startValue,endValue,0);

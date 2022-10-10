@@ -24,10 +24,10 @@ lineSeg.setxy(50,50);
 // lineSeg.setFilled(false);
 
 
-lineSeg.x.animate(0,5,   0,                    lineSeg.rightEdge() );
-lineSeg.y.animate(6,10,  0,                    lineSeg.bottomEdge() );
-lineSeg.x.animate(11,15, lineSeg.rightEdge() ,  0 );
-lineSeg.y.animate(16,20, lineSeg.bottomEdge() , 0);
+// lineSeg.x.animate(0,5,   0,                    lineSeg.rightEdge() );
+// lineSeg.y.animate(6,10,  0,                    lineSeg.bottomEdge() );
+// lineSeg.x.animate(11,15, lineSeg.rightEdge() ,  0 );
+// lineSeg.y.animate(16,20, lineSeg.bottomEdge() , 0);
 
 // bil.lineShapes.add(0,10).triangle(120,true).sexy(10);
 // bil.lineShapes.add(0,10).starOfDavid(300,true).setxy(30,60);

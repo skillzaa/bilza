@@ -1,13 +1,10 @@
 import AniProp from "../aniProp/aniProp.js";
-import AniPropDb from "../aniProp/aniPropDb.js";
-
+import AniNumberDb from "./aniNumberDb.js";
 
 export default class AniNumber extends AniProp<number>  {
     
-constructor(aniPropDb :AniPropDb<number>){
- 
-super(aniPropDb);
-
+constructor(aniNumberDb :AniNumberDb){
+super(aniNumberDb);
 }
     
 ///////////////////////////////////////////////////////////

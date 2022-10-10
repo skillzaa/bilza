@@ -1,6 +1,6 @@
 import AniProp from "../aniProp/aniProp.js";
-import AniPropDb from "../aniProp/aniPropDb.js";
+import AniNumberDb from "./aniNumberDb.js";
 export default class AniNumber extends AniProp<number> {
-    constructor(aniPropDb: AniPropDb<number>);
+    constructor(aniNumberDb: AniNumberDb);
 }
 //# sourceMappingURL=aniNumber.d.ts.map
