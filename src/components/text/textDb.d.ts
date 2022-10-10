@@ -1,7 +1,7 @@
 import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import Pack from "../../pack/pack.js";
-import { AniNumberDb, AniStringDb, AniBooleanDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb, AniStringDb, AniBooleanDb } from "../../animations/animations.js";
 import IText from "./IText.js";
 import { FontFamily } from "../../pack/fontFamily.js";
 export default class TextDb extends CompDb implements IText {

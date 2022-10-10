@@ -1,4 +1,4 @@
-import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../animationsFacade/animationsDb.js";
+import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../animations/animations.js";
 
 
 export default class CorePropsDb   {

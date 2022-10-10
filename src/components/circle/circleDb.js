@@ -1,5 +1,5 @@
 import CompDb from "../../compDb/compDb.js";
-import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
 import Circle from "./circle.js";
 export default class CircleDb extends CompDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, radius, color) {

@@ -1,7 +1,7 @@
 import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import Pack from "../../pack/pack.js";
-import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
+import { AniNumberDb } from "../../animations/animations.js";
 import IRect from "./IRect.js";
 export default class RectDb extends CompDb implements IRect {
     lineWidth: AniNumberDb;

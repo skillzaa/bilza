@@ -2,7 +2,7 @@ import Pack from "../../pack/pack.js";
 import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import checkZeroToHundred from "../../functions/checkZeroToHundred.js";
-import {AniNumberDb,AniBooleanDb,AniPercDb, AniColorDb} from "../../animationsFacade/animationsDb.js";
+import {AniNumberDb,AniBooleanDb,AniPercDb, AniColorDb} from "../../animations/animations.js";
 import toPix from "../../functions/toPix.js";
 
 

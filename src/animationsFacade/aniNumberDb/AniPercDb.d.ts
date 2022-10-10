@@ -1,4 +1,4 @@
-import AniPropDb from "../aniPropDb/AniPropDb.js";
+import AniPropDb from "../../animations/aniProp/AniPropDb.js";
 export default class AniPercDb extends AniPropDb<number> {
     private theWhole;
     constructor(value: number, theWhole: number);

@@ -1,7 +1,7 @@
 import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import Pack from "../../pack/pack.js";
-import { AniNumberDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb } from "../../animations/animations.js";
 import ILine from "./ILine.js";
 export default class LineDb extends CompDb implements ILine {
     lineWidth: AniNumberDb;

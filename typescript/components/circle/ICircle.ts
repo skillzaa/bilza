@@ -1,6 +1,6 @@
 import IComponent from "../../compDb/IComponent.js";
 
-import {AniBooleanDb , AniColorDb , AniNumberDb} from "../../animationsFacade/animationsDb.js";
+import {AniBooleanDb , AniColorDb , AniNumberDb} from "../../animations/animations.js";
 //---------------------------------------------------
  
 

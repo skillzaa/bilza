@@ -1,6 +1,4 @@
-import AniNumberDb from "../animationsFacade/aniNumberDb/AniNumberDb.js";
-import AniColorDb from "../animationsFacade/aniColorDb/AniColorDb.js";
-import AniBooleanDb from "../animationsFacade/aniBooleanDb/AniBooleanDb.js";
+import { AniNumberDb, AniColorDb, AniBooleanDb } from "../animations/animations.js";
 export default interface IComponent {
     border: AniNumberDb;
     colorBackground: AniColorDb;

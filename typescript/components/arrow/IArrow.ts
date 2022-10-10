@@ -1,5 +1,5 @@
 import IComponent from "../../compDb/IComponent.js";
-import {AniNumberDb,AniColorDb , AniBooleanDb} from "../../animationsFacade/animationsDb.js";
+import {AniNumberDb,AniColorDb , AniBooleanDb} from "../../animations/animations.js";
 ///////////////////////////////////////
 export default interface IArrow extends IComponent{
 

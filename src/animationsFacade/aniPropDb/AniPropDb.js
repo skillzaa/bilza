@@ -2,15 +2,24 @@ import IdentityFil from "../filters/identityFil.js";
 import JumpBetween from "../filters/jumpBetween.js";
 export default class AniPropDb {
     constructor(value) {
+        this.baseValue = value;
         this.filtersArr = [];
-        this._value = value;
+        this._filterValue = null;
     }
-    set(_value) {
-        this._value = _value;
-        return this._value;
+    getBaseValue() {
+        return this.baseValue;
+    }
+    set(value) {
+        this._filterValue = value;
+        return this._filterValue;
     }
     value() {
-        return this._value;
+        if (this._filterValue == null) {
+            return this.baseValue;
+        }
+        else {
+            return this._filterValue;
+        }
     }
     addFilter(bfil) {
         for (let i = 0; i < this.filtersArr.length; i++) {

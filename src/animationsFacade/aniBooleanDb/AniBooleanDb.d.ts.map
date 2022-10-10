@@ -1,1 +1,1 @@
-{"version":3,"file":"AniBooleanDb.d.ts","sourceRoot":"","sources":["../../../typescript/animationsFacade/aniBooleanDb/AniBooleanDb.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,2BAA2B,CAAC;AAGlD,MAAM,CAAC,OAAO,OAAO,YAAa,SAAQ,SAAS,CAAE,OAAO,CAAC;gBAGjD,YAAY,EAAE,OAAO;CAIhC"}
+{"version":3,"file":"AniBooleanDb.d.ts","sourceRoot":"","sources":["../../../typescript/animationsFacade/aniBooleanDb/AniBooleanDb.ts"],"names":[],"mappings":"AAAA,OAAO,SAAS,MAAM,uCAAuC,CAAC;AAG9D,MAAM,CAAC,OAAO,OAAO,YAAa,SAAQ,SAAS,CAAE,OAAO,CAAC;gBAGjD,YAAY,EAAE,OAAO;CAIhC"}

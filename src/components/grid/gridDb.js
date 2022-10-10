@@ -1,5 +1,5 @@
 import CompDb from "../../compDb/compDb.js";
-import { AniNumberDb, AniPercDb, AniBooleanDb, AniColorDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb, AniPercDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
 import Grid from "./grid.js";
 export default class GridDb extends CompDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, color = "grey", cellWidth = 10, cellHeight = 10) {

@@ -2,7 +2,7 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import Text from "./text.js";
 import Pack from "../../pack/pack.js";
-import {AniNumberDb,AniColorDb,AniStringDb,AniBooleanDb} from "../../animationsFacade/animationsDb.js";
+import {AniNumberDb,AniColorDb,AniStringDb,AniBooleanDb} from "../../animations/animations.js";
 import IText from "./IText.js";
 import {FontFamily}  from "../../pack/fontFamily.js";
 import toPerc from "../../functions/toPerc.js";

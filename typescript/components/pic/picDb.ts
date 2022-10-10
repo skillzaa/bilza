@@ -2,7 +2,7 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import IPic from "./IPic.js";
 import Pack from "../../pack/pack.js";
-import {AniNumberDb,AniColorDb,AniBooleanDb} from "../../animationsFacade/animationsDb.js";
+import {AniNumberDb,AniColorDb,AniBooleanDb} from "../../animations/animations.js";
 
 import Pic from "./pic.js";
 

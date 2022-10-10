@@ -1,7 +1,7 @@
-import AniNumberDb from "../animationsFacade/aniNumberDb/AniNumberDb.js";
-import AniStringDb from "../animationsFacade/aniStringDb/AniStringDb.js";
-import AniColorDb from  "../animationsFacade/aniColorDb/AniColorDb.js";
-import AniBooleanDb from "../animationsFacade/aniBooleanDb/AniBooleanDb.js";
+import AniNumberDb from "../animations/aniNumberDb/aniNumberDb.js";
+import AniStringDb from "../animations/aniStringDb/AniStringDb.js";
+import AniColorDb from  "../animations/aniColorDb/AniColorDb.js";
+import AniBooleanDb from "../animations/aniBooleanDb/AniBooleanDb.js";
 //--This is actuall IFsacadeComp but since its for public to appropriate name
 
 export default interface IComponent{

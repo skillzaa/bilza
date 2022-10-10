@@ -1,5 +1,5 @@
 import AniProp from "../aniProp/aniProp.js";
-import { AniPercDb } from "../../animationsFacade/animationsDb.js";
+import { AniPercDb } from "../../animations/animations.js";
 export default class AniPerc extends AniProp<number> {
     private theWhole;
     constructor(aniPercDb: AniPercDb);

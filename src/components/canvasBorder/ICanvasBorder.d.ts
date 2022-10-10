@@ -1,5 +1,5 @@
 import IComponent from "../../compDb/IComponent.js";
-import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
+import { AniNumberDb } from "../../animations/animations.js";
 export default interface ICanvasBorder extends IComponent {
     borderWidth: AniNumberDb;
 }

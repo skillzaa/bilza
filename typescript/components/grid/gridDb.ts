@@ -3,7 +3,7 @@ import CompDb from "../../compDb/compDb.js";
 import IGrid from "./IGrid.js";
 import Pack from "../../pack/pack.js";
 
-import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../../animationsFacade/animationsDb.js";
+import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../../animations/animations.js";
 
 import Grid from "./grid.js";
 

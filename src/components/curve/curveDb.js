@@ -1,6 +1,6 @@
 import CompDb from "../../compDb/compDb.js";
 import checkZeroToHundred from "../../functions/checkZeroToHundred.js";
-import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
 import Arc from "./curve.js";
 export default class CurveDb extends CompDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, startX, startY, midX, midY, endX, endY, color = "black") {

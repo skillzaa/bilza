@@ -1,5 +1,5 @@
 import AniProp from "../aniProp/aniProp.js";
-import AniPropDb from "../../animationsFacade/aniPropDb/AniPropDb.js";
+import AniPropDb from "../aniProp/aniPropDb.js";
 
 // import Increment from "./numberFilters/increment.js";
 // import JumpBetween from "./aniFilters/jumpBetween.js";

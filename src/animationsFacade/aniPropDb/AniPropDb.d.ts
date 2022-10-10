@@ -1,9 +1,11 @@
 import BaseFilter from "../filters/baseFilter.js";
 export default class AniPropDb<T> {
-    protected _value: T;
-    protected filtersArr: BaseFilter<T>[];
+    private baseValue;
+    private _filterValue;
+    private filtersArr;
     constructor(value: T);
-    set(_value: T): T;
+    getBaseValue(): T;
+    set(value: T): T;
     value(): T;
     protected addFilter(bfil: BaseFilter<T>): void;
     goto(atSec: number, value: T): boolean;

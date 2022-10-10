@@ -2,8 +2,8 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import ICanvasBorder from "./ICanvasBorder.js";
 import Pack from "../../pack/pack.js";
-import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
 import CanvasBorder from "./canvasBorder.js";
+import {AniNumberDb,AniStringDb,AniColorDb,AniBooleanDb} from "../../animations/animations.js";
 
 export default class CanvasBorderDb extends CompDb implements ICanvasBorder {
    public borderWidth :AniNumberDb;

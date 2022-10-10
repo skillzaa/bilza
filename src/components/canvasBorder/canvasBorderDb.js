@@ -1,6 +1,6 @@
 import CompDb from "../../compDb/compDb.js";
-import AniNumberDb from "../../animationsFacade/aniNumberDb/AniNumberDb.js";
 import CanvasBorder from "./canvasBorder.js";
+import { AniNumberDb } from "../../animations/animations.js";
 export default class CanvasBorderDb extends CompDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, color = "grey", width = 0.25) {
         super(startTime, endTime, insertAction, canvasWidth, canvasHeight);

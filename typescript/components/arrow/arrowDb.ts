@@ -6,7 +6,7 @@ import CompDb from "../../compDb/compDb.js";
 import Arrow from "./arrow.js";
 import IArrow from "./IArrow.js";
 
-import {AniNumberDb,AniPercDb,AniColorDb,AniBooleanDb} from "../../animationsFacade/animationsDb.js";
+import {AniNumberDb,AniPercDb,AniColorDb,AniBooleanDb} from "../../animations/animations.js";
 
 
 /////----------------------------------------------------------

@@ -1,6 +1,6 @@
 import CompDb from "../../compDb/compDb.js";
 import Text from "./text.js";
-import { AniNumberDb, AniStringDb, AniBooleanDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb, AniStringDb, AniBooleanDb } from "../../animations/animations.js";
 import { FontFamily } from "../../pack/fontFamily.js";
 import toPerc from "../../functions/toPerc.js";
 export default class TextDb extends CompDb {

@@ -1,5 +1,5 @@
 import AniProp from "../aniProp/aniProp.js";
-import { AniPercDb } from "../../animationsFacade/animationsDb.js";
+import { AniPercDb } from "../../animations/animations.js";
 
 export default class AniPerc extends AniProp <number>{
 
@@ -9,8 +9,8 @@ constructor(aniPercDb :AniPercDb){
 //--here when we feed aniPercDb to super the AniProp will get its value but that is the wrong value so we again give it the Percentage value    
 super(aniPercDb)
 this.defaultValue = aniPercDb.valuePerc(); 
-// -//@ts-expect-error
-// this._value = aniPercDb.valuePerc();
+//@ts-expect-error
+this._value = null;
 this.theWhole = aniPercDb.getTheWhole();
 }
 //////////////////////////////////////////////

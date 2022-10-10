@@ -1,32 +1,18 @@
-export default class AniProp {
-    constructor(aniPropDb) {
-        this.defaultValue = aniPropDb.value();
-        this.filtersArr = aniPropDb.getFiltersArray();
-        this._value = null;
+import BaseAniProp from "./baseAniProp.js";
+export default class AniProp extends BaseAniProp {
+    constructor(value) {
+        super(value);
     }
     update(rTimeMs) {
         const baseGoto = this.getBaseFilter(rTimeMs);
         if (baseGoto == null) {
-            this._value = this.defaultValue;
             return false;
         }
         else {
             baseGoto.update(rTimeMs);
-            this._value = baseGoto.filterValue();
+            this.setFilterValue(baseGoto.filterValue());
         }
         return true;
-    }
-    set(_value) {
-        this._value = _value;
-        return this._value;
-    }
-    value() {
-        if (this._value == null) {
-            return this.defaultValue;
-        }
-        else {
-            return this._value;
-        }
     }
     getBaseFilter(rTimeMs) {
         if (this.filtersArr.length < 1) {

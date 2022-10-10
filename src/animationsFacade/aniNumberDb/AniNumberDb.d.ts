@@ -1,4 +1,4 @@
-import AniPropDb from "../aniPropDb/AniPropDb.js";
+import AniPropDb from "../../animations/aniProp/AniPropDb.js";
 export default class AniNumberDb extends AniPropDb<number> {
     constructor(value: number);
     animate(StartSec: number, endSec: number, startValue: number, endValue: number): void;

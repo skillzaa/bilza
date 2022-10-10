@@ -2,7 +2,7 @@ import Pack from "../../pack/pack.js";
 import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import IArrow from "./IArrow.js";
-import { AniNumberDb, AniPercDb, AniColorDb, AniBooleanDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb, AniPercDb, AniColorDb, AniBooleanDb } from "../../animations/animations.js";
 export default class ArrowDb extends CompDb implements IArrow {
     x2: AniPercDb;
     y2: AniPercDb;

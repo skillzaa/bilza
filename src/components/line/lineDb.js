@@ -1,5 +1,5 @@
 import CompDb from "../../compDb/compDb.js";
-import { AniNumberDb, AniPercDb } from "../../animationsFacade/animationsDb.js";
+import { AniNumberDb, AniPercDb } from "../../animations/animations.js";
 import Line from "./line.js";
 export default class LineDb extends CompDb {
     constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, x1, y1, x2, y2, color = "black") {

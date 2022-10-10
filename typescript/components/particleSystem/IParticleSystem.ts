@@ -1,5 +1,5 @@
 import IComponent from "../../compDb/IComponent.js";
-import {AniNumberDb,AniBooleanDb,AniColorDb} from "../../animationsFacade/animationsDb.js";
+import {AniNumberDb,AniBooleanDb,AniColorDb} from "../../animations/animations.js";
 
 
  

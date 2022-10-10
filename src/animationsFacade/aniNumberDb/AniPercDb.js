@@ -1,4 +1,4 @@
-import AniPropDb from "../aniPropDb/AniPropDb.js";
+import AniPropDb from "../../animations/aniProp/AniPropDb.js";
 import Increment from "./filters/increment.js";
 import Decrement from "./filters/decrement.js";
 import Random from "./filters/random.js";
