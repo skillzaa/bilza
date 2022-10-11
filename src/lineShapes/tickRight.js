@@ -1,8 +1,10 @@
-import { hsl } from "../bilza.js";
-export default function tickRight(lines, hue_0_360 = 360, filled = true, lineWidth = 4) {
-    lines.width.set(10);
-    lines.height.set(25);
-    lines.add(0, 80, 20, 100, hsl(hue_0_360), lineWidth);
-    lines.add(20, 100, 100, 0, hsl(hue_0_360), lineWidth);
-    return lines;
+export default function tickRight(lineSeg, filled = false) {
+    lineSeg.startX = 5;
+    lineSeg.startY = 70;
+    lineSeg.setWdHt(10, 20);
+    lineSeg.lineTo(10, 90);
+    lineSeg.lineTo(95, 0);
+    lineSeg.setLineJoin("round");
+    lineSeg.setFilled(false);
+    return lineSeg;
 }

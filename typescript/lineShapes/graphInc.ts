@@ -1,29 +1,37 @@
-// import ILines from "../components/lines/ILines.js";
-// import { hsl } from "../bilza.js";
+import ILineSeg from "../components/lineSeg/ILineSeg.js";
+import { hsl } from "../bilza.js";
 
-// export default function graphInc (
-//     lines :ILines,
-//     hue_0_360 : number = 360,
-//     filled :boolean=true, 
-//     lineWidth :number = 4
-//     ):ILines{
 
-//     lines.setxy(0);
-//     lines.width.set(60);
-//     lines.height.set(40);
-//     // lines.showBackground.set(true);
-//     //--------------------------------
-//     // lines.add(0,0,100,100,lineWidth);
-//     // lines.add(0,100,100,0,lineWidth);
-//     lines.seg(
-//     0,100,false,hsl(hue_0_360),lineWidth)
-//     .add(33,55)
-    
-//     .add(33,90) //drop
+export default function graphInc (
+    lineSeg :ILineSeg,
+    filled :boolean=false
+    ):ILineSeg{
 
-//     .add(66,33) // rise 
-//     .add(66,66)
+//--step-02 --set default width and height
+lineSeg.setWdHt(30,20);
+//--step-01--its defaultbut just to be safe        
+lineSeg.startX = 2;
+lineSeg.startY = 90;
 
-//     .add(99,0)
-// return lines;
-// }
+//--step-03--the vertices
+lineSeg.lineTo(30,50); 
+lineSeg.lineTo(30,85);
+lineSeg.lineTo(60,30);
+lineSeg.lineTo(60,70);
+lineSeg.lineTo(95,5);
+
+
+lineSeg.moveTo(0,0);
+lineSeg.lineTo(0,95);
+lineSeg.lineTo( 95 , 95 );
+
+//--step-04--seg other settings
+lineSeg.setLineJoin("round");
+//--step-05--we can decide to use user send filled or not
+lineSeg.setFilled(false);
+
+// lineSeg.setClosed(true);
+
+//----------------------------------------
+return lineSeg;
+}

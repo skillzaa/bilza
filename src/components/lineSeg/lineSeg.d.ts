@@ -7,6 +7,7 @@ export default class LineSeg extends CompEngine {
     protected closed: boolean;
     protected startX: number;
     protected startY: number;
+    private lineWidth;
     data: Vertex[];
     constructor(lineSegDb: LineSegDb, pack: Pack);
     draw(p: Pack): boolean;

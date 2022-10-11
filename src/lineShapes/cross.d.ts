@@ -1,3 +1,3 @@
-import ILines from "../components/lines/ILines.js";
-export default function cross(lines: ILines, hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
+import ILineSeg from "../components/lineSeg/ILineSeg.js";
+export default function cross(lineSeg: ILineSeg, filled?: boolean): ILineSeg;
 //# sourceMappingURL=cross.d.ts.map

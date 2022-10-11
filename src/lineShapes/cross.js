@@ -1,8 +1,11 @@
-import { hsl } from "../bilza.js";
-export default function cross(lines, hue_0_360 = 360, filled = true, lineWidth = 4) {
-    lines.width.set(20);
-    lines.height.set(35);
-    lines.add(0, 0, 100, 100, hsl(hue_0_360), lineWidth);
-    lines.add(0, 100, 100, 0, hsl(hue_0_360), lineWidth);
-    return lines;
+export default function cross(lineSeg, filled = false) {
+    lineSeg.startX = 5;
+    lineSeg.startY = 5;
+    lineSeg.setWdHt(20, 30);
+    lineSeg.lineTo(95, 95);
+    lineSeg.moveTo(5, 95);
+    lineSeg.lineTo(95, 5);
+    lineSeg.setLineJoin("round");
+    lineSeg.setFilled(false);
+    return lineSeg;
 }

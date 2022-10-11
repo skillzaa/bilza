@@ -21,7 +21,9 @@ lineSeg.lineTo(50,0);
 lineSeg.lineTo(0,75);
 
 //---fill
-lineSeg.fill();
+//This is fill for seq sub segment--will only run if main -filled ==true
+//--This is a command just like moveTo and lineTo
+lineSeg.fill(); 
 ////--move to 
 lineSeg.moveTo(0,25);
 

@@ -8,6 +8,8 @@ protected filled :boolean;
 protected closed :boolean;
 protected startX :number;
 protected startY :number;
+
+private lineWidth :number;
 public data :Vertex[];
 
 constructor (lineSegDb :LineSegDb ,pack :Pack){ 
@@ -21,7 +23,7 @@ constructor (lineSegDb :LineSegDb ,pack :Pack){
     this.style.lineCap = lineSegDb.getLineCap(); 
     this.style.lineDash = lineSegDb.getLineDash(); 
     this.style.lineJoin = lineSegDb.getLineJoin(); 
-    this.style.lineWidth = lineSegDb.lineWidth; 
+    this.lineWidth = lineSegDb.lineWidth; 
         //--
     this.filled = lineSegDb.filled;
     this.closed = lineSegDb.closed;
@@ -43,14 +45,15 @@ this.preDraw(p);
 //---------------------style---------------
 this.style.fillStyle = this.color.value();    
 this.style.strokeStyle = this.color.value(); 
+this.style.lineWidth = this.lineWidth;
 //------------------------------------------
 const wdFactor = this.width.value()/100;
 const htFactor = this.height.value()/100;
 //--first command after beginPath is always considered as goto
 p.beginPath();
 p.moveTo(
-    this.x.value() + (wdFactor *  this.startX),
-    this.y.value() + (htFactor *  this.startY)
+    this.contentX() + (wdFactor *  this.startX),
+    this.contentY() + (htFactor *  this.startY)
     );
     
 for (let i = 0; i < this.data.length; i++) {
@@ -58,13 +61,13 @@ for (let i = 0; i < this.data.length; i++) {
 
     if (item.command == "lineTo"){
         p.lineTo(
-            this.x.value() + (wdFactor *  item.x),
-            this.y.value() + (htFactor *  item.y),
+            this.contentX() + (wdFactor *  item.x),
+            this.contentY() + (htFactor *  item.y),
             this.style);
     }else if (item.command == "moveTo"){
         p.moveTo(
-            this.x.value() + (wdFactor *  item.x),
-            this.y.value() + (htFactor *  item.y),
+            this.contentX() + (wdFactor *  item.x),
+            this.contentY() + (htFactor *  item.y),
             );
     }else if (item.command == "fill"){
         if (this.filled == true){ //if not filled dont run local fill

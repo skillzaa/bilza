@@ -1,3 +1,3 @@
-import ILines from "../components/lines/ILines.js";
-export default function tickLeft(lines: ILines, hue_0_360?: number, filled?: boolean, lineWidth?: number): ILines;
+import ILineSeg from "../components/lineSeg/ILineSeg.js";
+export default function rightTriangle(lineSeg: ILineSeg, filled?: boolean): ILineSeg;
 //# sourceMappingURL=tickLeft.d.ts.map

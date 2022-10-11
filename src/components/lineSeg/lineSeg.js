@@ -8,7 +8,7 @@ export default class LineSeg extends CompEngine {
         this.style.lineCap = lineSegDb.getLineCap();
         this.style.lineDash = lineSegDb.getLineDash();
         this.style.lineJoin = lineSegDb.getLineJoin();
-        this.style.lineWidth = lineSegDb.lineWidth;
+        this.lineWidth = lineSegDb.lineWidth;
         this.filled = lineSegDb.filled;
         this.closed = lineSegDb.closed;
     }
@@ -16,17 +16,18 @@ export default class LineSeg extends CompEngine {
         this.preDraw(p);
         this.style.fillStyle = this.color.value();
         this.style.strokeStyle = this.color.value();
+        this.style.lineWidth = this.lineWidth;
         const wdFactor = this.width.value() / 100;
         const htFactor = this.height.value() / 100;
         p.beginPath();
-        p.moveTo(this.x.value() + (wdFactor * this.startX), this.y.value() + (htFactor * this.startY));
+        p.moveTo(this.contentX() + (wdFactor * this.startX), this.contentY() + (htFactor * this.startY));
         for (let i = 0; i < this.data.length; i++) {
             const item = this.data[i];
             if (item.command == "lineTo") {
-                p.lineTo(this.x.value() + (wdFactor * item.x), this.y.value() + (htFactor * item.y), this.style);
+                p.lineTo(this.contentX() + (wdFactor * item.x), this.contentY() + (htFactor * item.y), this.style);
             }
             else if (item.command == "moveTo") {
-                p.moveTo(this.x.value() + (wdFactor * item.x), this.y.value() + (htFactor * item.y));
+                p.moveTo(this.contentX() + (wdFactor * item.x), this.contentY() + (htFactor * item.y));
             }
             else if (item.command == "fill") {
                 if (this.filled == true) {
