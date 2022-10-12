@@ -1,5 +1,5 @@
-import Bilza, { hsl } from "./bilza.js";
-import Ui from "./ui/ui.js";
+import Bilza, { hsl } from "../bilza.js";
+import Ui from "../ui/ui.js";
 const bil = new Bilza("bilza");
 bil.alwaysOn().grid(hsl(240, 90, 92));
 bil.background.color.set(hsl(240, 90, 95));

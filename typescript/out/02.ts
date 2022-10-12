@@ -1,5 +1,5 @@
-import Bilza,{hsl} from "./bilza.js";
-import Ui from "./ui/ui.js";
+import Bilza,{hsl} from "../bilza.js";
+import Ui from "../ui/ui.js";
 
 ///////////////////////////////////////////////////
 const bil = new Bilza("bilza");
