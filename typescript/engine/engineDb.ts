@@ -16,13 +16,13 @@ public charsWidth : (chars:string,fontSize:number,fontName:string)=> number;
 public backgroundDb :BackgroundDb;
 
 // /------------------------
-private responsiveMode :boolean;
+// private responsiveMode :boolean;
 //////////////////////////////////////////////
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 this.canvasId = canvasId;
 this.canvasWidthPerc = canvasWidthPerc;
 const pack = new Pack(this.canvasId,this.canvasWidthPerc);
-this.responsiveMode = true;
+// this.responsiveMode = true;
 //---This is where the canvas width and height begin
 this.canvasWidth =  pack.canvasWidth();
 this.canvasHeight = pack.canvasHeight(); //--took me one hour

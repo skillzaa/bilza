@@ -1,7 +1,8 @@
 import Engine from "../engine/engine.js";
-import CompFactory from "./compFactory.js";
+import CompFactory from "../compFactory/compFactory.js";
 import BackgroundDb from "../components/background/backgroundDb.js";
-import LineShapes from "./lineShapes.js";
+import LineShapes from "../compFactory/lineShapes.js";
+import ScenePack from "../scene/scenePack.js";
 export default class Bilza {
     background: BackgroundDb;
     private engine;
@@ -18,5 +19,6 @@ export default class Bilza {
     stop(): void;
     getEngine(): Engine | null;
     resizeCanvas(wd: number, ht: number | null): void;
+    getScenePack(startTime: number, endTime: number): ScenePack;
 }
 //# sourceMappingURL=bilza.d.ts.map

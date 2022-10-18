@@ -1,7 +1,8 @@
 import EngineDb from "../engine/engineDb.js";
-import CompFactory from "./compFactory.js";
+import CompFactory from "../compFactory/compFactory.js";
 import Compiler from "../compiler/compiler.js";
-import LineShapes from "./lineShapes.js";
+import LineShapes from "../compFactory/lineShapes.js";
+import ScenePack from "../scene/scenePack.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidthPerc = 70) {
         this.engine = new EngineDb(canvasId, canvasWidthPerc);
@@ -62,5 +63,9 @@ export default class Bilza {
             throw new Error("init error");
         }
         this.bil.resizeCanvas(wd, ht);
+    }
+    getScenePack(startTime, endTime) {
+        const sp = new ScenePack(startTime, endTime, this);
+        return sp;
     }
 }

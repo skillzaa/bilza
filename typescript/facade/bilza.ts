@@ -1,10 +1,11 @@
 import CompDb  from "../compDb/compDb.js";
 import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
-import CompFactory from "./compFactory.js";
+import CompFactory from "../compFactory/compFactory.js";
 import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
-import LineShapes from "./lineShapes.js";
+import LineShapes from "../compFactory/lineShapes.js";
+import ScenePack from "../scene/scenePack.js";
 
 //--30-9-2022-This level does not export any object just API
 export default class Bilza {
@@ -15,7 +16,7 @@ private comps :CompDb[];
 private bil :Engine | null;
 
 public lineShapes :LineShapes;
-
+//----------------------------------------------------
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 
 
@@ -25,6 +26,7 @@ this.comps = [];
 this.background = this.engine.backgroundDb;
 this.background.alwaysOn = true;
 this.comps.push(this.background);
+
 //--collection of comp DB classes
 this.bil = null;
 this.lineShapes = new LineShapes(this.engine.canvasWidth,this.engine.canvasHeight,this.comps);
@@ -82,6 +84,9 @@ if (this.bil == null){throw new Error("init error");}
 this.bil.resizeCanvas(wd,ht);
 }
 
-
+getScenePack(startTime :number, endTime :number):ScenePack{
+const sp = new ScenePack(startTime,endTime,this);
+return sp;    
+}
 ////////////////////////////////////
 }

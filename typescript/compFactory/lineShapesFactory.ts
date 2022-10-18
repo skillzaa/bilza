@@ -50,7 +50,7 @@ let g = new LineSegDb (this.startTime,this.endTime,this.insertAction,this.canvas
 this.comps.push(g);
 questionMark(g,filled);
 return g;    
-}
+} 
 arrow(hue_0_360:number =0,filled:boolean=false,lineWidth :number = 4,):ILineSeg{
 let g = new LineSegDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,0, 0, hue_0_360,lineWidth);
 this.comps.push(g);

@@ -84,7 +84,7 @@ arrow(x1 :number, y1 :number, x2 :number, y2 :number,color :string="black"):IArr
 let g = new ArrowDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, x1, y1, x2, y2,color);
 this.comps.push(g);
 return g;    
-}
+} 
 canvasBorder(color :string="grey",width :number=0.25):ICanvasBorder{
 let g = new CanvasBorderDb (
     this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,width
