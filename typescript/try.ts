@@ -4,15 +4,21 @@ import Ui from "./ui/ui.js";
 ///////////////////////////////////////////////////
 const bil = new Bilza("bilza");
 
-// bil.alwaysOn().grid(hsl(240,90,92));
 bil.background.color.set(hsl(240,90,95));
 bil.alwaysOn().canvasBorder( hsl(0,70,20) ,0.5);
 //----------------------------------------------//
 const scenePack = bil.getScenePack(0,10);
 scenePack.add(0,5).grid("red");
 scenePack.add().text("Scene 001");
-console.log(scenePack);
 
+scenePack.addLineShape().cross();
+
+bil.add(11,20).text("Scene Ended","red");
+
+console.log("scenePack" , scenePack);
+console.log("bil",bil);
+
+// const home = scenePack.lineShapes. .add(0,60).home(0,true,10).sexy(2,10);
 // const home = bil.lineShapes.add(0,60).home(0,true,10).sexy(2,10);
 // home.setPaddings(1).setWdHt(20,20).border.set(1);
 

@@ -13,6 +13,15 @@ export default class ScreenPack {
         const cf = this.bilzaObj.add(itemStartTime, itemEndTime);
         return cf;
     }
+    addLineShape(startTimePlus = 0, endTimeMinus = 0) {
+        const itemStartTime = this.startTimePlus(startTimePlus);
+        const itemEndTime = this.endTimeMinus(endTimeMinus);
+        if (itemStartTime >= itemEndTime) {
+            throw new Error("item StartTime is larger than or equal to item EndTime");
+        }
+        const ls = this.bilzaObj.lineShapes.add(this.startTime, this.endTime);
+        return ls;
+    }
     startTimePlus(sec) {
         return this.startTime + sec;
     }

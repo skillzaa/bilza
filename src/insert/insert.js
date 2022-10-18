@@ -8,9 +8,9 @@ export default class Insert {
             throw new Error("Time object = null");
         }
         if (comp.time.getStart(false) > this.duration.len(false)) {
-            this.duration.set(comp.time.getStart(false));
+            this.duration.set(comp.time.getStart(true));
         }
-        if (comp.time.getEnd(true) > this.duration.len(true)) {
+        if (comp.time.getEnd(false) > this.duration.len(false)) {
             let overlap = comp.time.getEnd(true) - this.duration.len(true);
             this.duration.extend(overlap);
         }
