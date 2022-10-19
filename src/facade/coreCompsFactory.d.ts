@@ -28,4 +28,4 @@ export default class CompFactory {
     lineSeg(x: number, y: number, hue_0_360?: number, lineWidth?: number): ILineSeg;
     pic(imgUrl: string, width?: number, height?: number): IPic;
 }
-//# sourceMappingURL=compFactory.d.ts.map
+//# sourceMappingURL=coreCompsFactory.d.ts.map

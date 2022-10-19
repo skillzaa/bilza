@@ -1,12 +1,12 @@
 import CompDb  from "../compDb/compDb.js";
 import EngineDb from "../engine/engineDb.js";
 import Engine from "../engine/engine.js";
-import CompFactory from "../compFactory/compFactory.js";
+import CompFactory from "./coreCompsFactory.js";
 import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
-import LineShapes from "../compFactory/lineShapes.js";
+import LineShapes from "./lineShapes.js";
 import ScenePack from "../scene/scenePack.js";
-
+import Linker from "./linker.js";
 //--30-9-2022-This level does not export any object just API
 export default class Bilza {
 //--The background API just has 1 AniColorDb    
@@ -32,18 +32,20 @@ this.bil = null;
 this.lineShapes = new LineShapes(this.engine.canvasWidth,this.engine.canvasHeight,this.comps);
 
 }
+
+
 //--does not need ComponentPack since this is DB object
 add(secStart :number,secEnd :number):CompFactory{
-const cf = new CompFactory(secStart,secEnd,this.comps,"add",this.engine.canvasWidth,this.engine.canvasHeight,this.engine.charsWidth);
+const cf = new CompFactory(this.getLinker(secStart,secEnd,"add"));
 return cf;
 }
 alwaysOn():CompFactory{
-const cf = new CompFactory(0,1,this.comps,"alwaysOn",this.engine.canvasWidth,this.engine.canvasHeight,this.engine.charsWidth);
+const cf = new CompFactory(this.getLinker(0,1,"alwaysOn"));
 return cf;
 }
 append(duration :number):CompFactory{
-const cf = new CompFactory(0,duration,this.comps,"append",this.engine.canvasWidth,this.engine.canvasHeight,this.engine.charsWidth);
-return cf;
+const cf = new CompFactory(this.getLinker(0,duration,"append"));
+return cf;    
 }
 
 
@@ -87,6 +89,11 @@ this.bil.resizeCanvas(wd,ht);
 getScenePack(startTime :number, endTime :number):ScenePack{
 const sp = new ScenePack(startTime,endTime,this);
 return sp;    
+}
+
+private getLinker(startTime :number, endTime :number, insertAction :"add"|"append" | "alwaysOn"):Linker{
+const linker = new Linker(startTime,endTime,this.comps,insertAction,this.engine.canvasWidth,this.engine.canvasHeight,this.engine.charsWidth);
+return linker;    
 }
 ////////////////////////////////////
 }

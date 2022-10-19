@@ -12,18 +12,12 @@ import TextDB from "../components/text/textDb.js";
 import LineSegDb from "../components/lineSeg/lineSegDb.js";
 import CurveDb from "../components/curve/curveDb.js";
 export default class CompFactory {
-    constructor(startTime, endTime, comps, insertAction, canvasWidth, canvasHeight, charsWidth) {
-        this.comps = comps;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.insertAction = insertAction;
-        this.canvasWidth = canvasWidth;
-        this.canvasHeight = canvasHeight;
-        this.charsWidth = charsWidth;
+    constructor(linker) {
+        this.linker = linker;
     }
     curve(startX, startY, midX, midY, endX, endY, color = "black") {
-        let g = new CurveDb(this.startTime, this.endTime, this.insertAction, this.canvasWidth, this.canvasHeight, startX, startY, midX, midY, endX, endY, color);
-        this.comps.push(g);
+        let g = new CurveDb(this.linker.startTime(), this.linker.endTime(), this.linker.insertAction(), this.linker.canvasWidth(), this.linker.canvasHeight(), startX, startY, midX, midY, endX, endY, color);
+        this.linker.push(g);
         return g;
     }
     arrow(x1, y1, x2, y2, color = "black") {

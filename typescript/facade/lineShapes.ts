@@ -1,6 +1,5 @@
 import LineShapeFactory from "./lineShapesFactory.js";
-import CompDb from "../compDb/compDb.js";
-
+import Linker from "./linker.js";
 /**
  * LineShapes Assets:
  * This is a group of Assets based on Lines component. 
@@ -9,31 +8,23 @@ import CompDb from "../compDb/compDb.js";
  * An asset is ready to be consumed with min modifications.
  */
 export default class LineShapes {
-private comps :CompDb[];
-private _canvasHeight :number;
-private _canvasWidth :number;
-
-constructor(canvasWidth :number, canvasHeight :number, comps :CompDb[] ){
-    this.comps = comps;
-    this._canvasWidth = canvasWidth;
-    this._canvasHeight = canvasHeight;
+private linker :Linker;
+constructor(linker :Linker){
+this.linker = linker;
 }
 
-//--does not need ComponentPack since this is DB object
 add(secStart :number,secEnd :number):LineShapeFactory{
-const cf = new LineShapeFactory(secStart,secEnd,this.comps,"add",this._canvasWidth,this._canvasHeight);
+const cf = new LineShapeFactory(this.getLinker(secStart,secEnd,"add"));
 return cf;
 }
-
 alwaysOn():LineShapeFactory{
-const cf = new LineShapeFactory(0,1,this.comps,"alwaysOn",this._canvasWidth,this._canvasHeight);
+const cf = new LineShapeFactory(this.getLinker(0,1,"alwaysOn"));
 return cf;
 }
-
 append(duration :number):LineShapeFactory{
-const cf = new LineShapeFactory(0,duration,this.comps,"append",this._canvasWidth,this._canvasHeight);
-return cf;
+const cf = new LineShapeFactory(this.getLinker(0,duration,"append"));
+return cf;    
 }
-
+//////////////////////////////////////////////////
 
 }

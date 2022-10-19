@@ -7,15 +7,14 @@ const bil = new Bilza("bilza");
 bil.background.color.set(hsl(240,90,95));
 bil.alwaysOn().canvasBorder( hsl(0,70,20) ,0.5);
 //----------------------------------------------//
-const scenePack = bil.getScenePack(0,10);
-scenePack.add(0,5).grid("red");
-scenePack.add().text("Scene 001");
+// const scenePack = bil.getScenePack(0,10);
+// scenePack.add(0,5).grid("red");
+// scenePack.add().text("Scene 001");
+// scenePack.addLineShape().cross();
+// console.log("scenePack" , scenePack);
 
-scenePack.addLineShape().cross();
+bil.add(1,5).text("Scene Ended","red");
 
-bil.add(11,20).text("Scene Ended","red");
-
-console.log("scenePack" , scenePack);
 console.log("bil",bil);
 
 // const home = scenePack.lineShapes. .add(0,60).home(0,true,10).sexy(2,10);

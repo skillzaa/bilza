@@ -18,10 +18,6 @@ genApp(engineDb :EngineDb,compsDb :CompDb[]):Engine{
 const pack = new Pack(engineDb.canvasId,engineDb.canvasWidthPerc); 
 const comps :CompEngine[] = [];
 ///////////////////////////////////
-// const bg = new BackgroundDb(0,1,"alwaysOn",engineDb.backgroundDb.color.value());
-// const bgEngine = bg.getEngineComp(pack); 
-// comps.push(bgEngine);
-///////////////////////////////////
 const insert = new Insert();
 
 ///--get comps loop

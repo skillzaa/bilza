@@ -1,5 +1,5 @@
 import IComponent from "../compDb/IComponent.js";
-import CompFactory from "../compFactory/compFactory.js";
+import CompFactory from "../facade/coreCompsFactory.js";
 import IScene from "./IScene.js";
 
 

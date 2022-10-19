@@ -40,113 +40,94 @@ import LineSegDb from "../components/lineSeg/lineSegDb.js";
 
 import ICurve from "../components/curve/ICurve.js";
 import CurveDb from "../components/curve/curveDb.js";
+import Linker from "./linker.js";
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 export default class CompFactory {
-private readonly startTime :number;
-private readonly endTime :number;
-private readonly canvasWidth :number;
-private readonly canvasHeight :number;
-private insertAction :"add"|"append" | "alwaysOn";
-private comps :IComponent[];
-private charsWidth : (chars:string,fontSize:number,fontName:string)=> number;
-
-////////////////////////////////////////////////////
-constructor(startTime :number,endTime :number,comps :IComponent[],insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,charsWidth : (chars:string,fontSize:number,fontName:string)=> number ){
-
-this.comps = comps;
-this.startTime = startTime;
-this.endTime = endTime;
-this.insertAction = insertAction;
-this.canvasWidth = canvasWidth;
-this.canvasHeight = canvasHeight;
-this.charsWidth = charsWidth;
+private linker :Linker;
+constructor(linker :Linker){
+this.linker = linker;
 }
-
 
 
 ///////////////////////////////////////////////
-// arc(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):IArc{
-
-// let g = new ArcDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, startX,startY,midX,midY,endX,endY, color);
-// this.comps.push(g);
-// return g;    
-// }
 curve(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):ICurve{
 
-let g = new CurveDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, startX,startY,midX,midY,endX,endY, color);
-this.comps.push(g);
+let g = new CurveDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(), startX,startY,midX,midY,endX,endY, color);
+this.linker.push(g);
 return g;    
 }
 arrow(x1 :number, y1 :number, x2 :number, y2 :number,color :string="black"):IArrow{
-let g = new ArrowDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight, x1, y1, x2, y2,color);
-this.comps.push(g);
+let g = new ArrowDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(), x1, y1, x2, y2,color);
+this.linker.push(g);
 return g;    
 } 
 canvasBorder(color :string="grey",width :number=0.25):ICanvasBorder{
 let g = new CanvasBorderDb (
-    this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,width
-    );
-this.comps.push(g);
+    this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(), color,width);
+this.linker.push(g);
 return g;    
 }
+
 fillRect(color :string="#000000"):IComponent{
-let g = new FillRectDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
-this.comps.push(g);
+let g = new FillRectDB(this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),color);
+this.linker.push(g);
 return g;    
 }
 
 particleSystem(count :number= 20,color :string="#008000",delay :number=50):IParticleSystem{
 
-let g = new ParticleSystemDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,count,color,delay);
+let g = new ParticleSystemDB(this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),count,color,delay);
 
-this.comps.push(g);
+this.linker.push(g);
 return g;    
 }
+
 rect(color :string="#000000"):IRect{
-let g = new RectDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color);
-this.comps.push(g);
+let g = new RectDB(this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),color);
+this.linker.push(g);
 return g;    
 }
+
 text(content :string,color :string="#000000"):IText{
-let g = new TextDB(this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,this.charsWidth,content,color);
-this.comps.push(g);
+let g = new TextDB(this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),this.linker.charsWidth,content,color);
+this.linker.push(g);
 return g;    
 }
 
 grid(color :string="grey",cellWidth :number=10,cellHeight :number=10):IGrid{
-let g = new GridDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,color,cellWidth,cellHeight);
-this.comps.push(g);
+let g = new GridDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),color,cellWidth,cellHeight);
+this.linker.push(g);
 return g;    
 }
 circle(radius :number=5,color :string="black"):ICircle{
-let g = new CircleDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,radius,color);
-this.comps.push(g);
+let g = new CircleDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),radius,color);
+this.linker.push(g);
 return g;    
 }
 marker(x :number,y :number, color :string="red",radius :number= 1):ICircle{
-let g = new MarkerDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,x,y,color,radius);
-this.comps.push(g);
+let g = new MarkerDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),x,y,color,radius);
+this.linker.push(g);
 return g;    
 }
 
 line( x1 :number , y1 :number , x2 :number ,y2 :number,color:string="black"):ILine{
-let g = new LineDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,x1,y1,x2,y2,color);
-this.comps.push(g);
+let g = new LineDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),x1,y1,x2,y2,color);
+this.linker.push(g);
 return g;    
 }
 lineSeg(x :number,y :number,hue_0_360:number = 0,lineWidth :number = 4,):ILineSeg{
-let g = new LineSegDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,
+let g = new LineSegDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),
     x,y,hue_0_360,lineWidth);
-this.comps.push(g);
+this.linker.push(g);
 return g;    
 }
 
 pic(imgUrl :string,width :number=25,height:number=25):IPic{
-let g = new PicDb (this.startTime,this.endTime,this.insertAction,this.canvasWidth,this.canvasHeight,imgUrl,width,height);
-this.comps.push(g);
+let g = new PicDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),imgUrl,width,height);
+this.linker.push(g);
 return g;    
 }
 

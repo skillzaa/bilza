@@ -1,5 +1,5 @@
 import Bilza from "../bilza.js";
-import CompFactory from "../compFactory/compFactory.js";
+import CompFactory from "../facade/coreCompsFactory.js";
 import LineShapeFactory from "../compFactory/lineShapesFactory.js";
 
 ///////////////////////////////////////////////////////

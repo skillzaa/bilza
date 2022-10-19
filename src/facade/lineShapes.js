@@ -1,20 +1,18 @@
 import LineShapeFactory from "./lineShapesFactory.js";
 export default class LineShapes {
-    constructor(canvasWidth, canvasHeight, comps) {
-        this.comps = comps;
-        this._canvasWidth = canvasWidth;
-        this._canvasHeight = canvasHeight;
+    constructor(linker) {
+        this.linker = linker;
     }
     add(secStart, secEnd) {
-        const cf = new LineShapeFactory(secStart, secEnd, this.comps, "add", this._canvasWidth, this._canvasHeight);
+        const cf = new LineShapeFactory(this.getLinker(secStart, secEnd, "add"));
         return cf;
     }
     alwaysOn() {
-        const cf = new LineShapeFactory(0, 1, this.comps, "alwaysOn", this._canvasWidth, this._canvasHeight);
+        const cf = new LineShapeFactory(this.getLinker(0, 1, "alwaysOn"));
         return cf;
     }
     append(duration) {
-        const cf = new LineShapeFactory(0, duration, this.comps, "append", this._canvasWidth, this._canvasHeight);
+        const cf = new LineShapeFactory(this.getLinker(0, duration, "append"));
         return cf;
     }
 }

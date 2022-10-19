@@ -1,8 +1,9 @@
 import EngineDb from "../engine/engineDb.js";
-import CompFactory from "../compFactory/compFactory.js";
+import CompFactory from "./coreCompsFactory.js";
 import Compiler from "../compiler/compiler.js";
-import LineShapes from "../compFactory/lineShapes.js";
+import LineShapes from "./lineShapes.js";
 import ScenePack from "../scene/scenePack.js";
+import Linker from "./linker.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidthPerc = 70) {
         this.engine = new EngineDb(canvasId, canvasWidthPerc);
@@ -14,15 +15,15 @@ export default class Bilza {
         this.lineShapes = new LineShapes(this.engine.canvasWidth, this.engine.canvasHeight, this.comps);
     }
     add(secStart, secEnd) {
-        const cf = new CompFactory(secStart, secEnd, this.comps, "add", this.engine.canvasWidth, this.engine.canvasHeight, this.engine.charsWidth);
+        const cf = new CompFactory(this.getLinker(secStart, secEnd, "add"));
         return cf;
     }
     alwaysOn() {
-        const cf = new CompFactory(0, 1, this.comps, "alwaysOn", this.engine.canvasWidth, this.engine.canvasHeight, this.engine.charsWidth);
+        const cf = new CompFactory(this.getLinker(0, 1, "alwaysOn"));
         return cf;
     }
     append(duration) {
-        const cf = new CompFactory(0, duration, this.comps, "append", this.engine.canvasWidth, this.engine.canvasHeight, this.engine.charsWidth);
+        const cf = new CompFactory(this.getLinker(0, duration, "append"));
         return cf;
     }
     init() {
@@ -67,5 +68,9 @@ export default class Bilza {
     getScenePack(startTime, endTime) {
         const sp = new ScenePack(startTime, endTime, this);
         return sp;
+    }
+    getLinker(startTime, endTime, insertAction) {
+        const linker = new Linker(startTime, endTime, this.comps, insertAction, this.engine.canvasWidth, this.engine.canvasHeight, this.engine.charsWidth);
+        return linker;
     }
 }

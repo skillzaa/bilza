@@ -1,6 +1,7 @@
 import Bilza from "./facade/bilza.js";
 import hsl from "./functions/hsl.js";
 import Ui from "./ui/ui.js";
+import IComponent from "./compDb/IComponent.js";
 export default Bilza;
-export { hsl, Ui };
+export { hsl, IComponent, Ui };
 //# sourceMappingURL=bilza.d.ts.map

@@ -1,4 +1,4 @@
-import CompFactory from "../compFactory/compFactory.js";
+import CompFactory from "../facade/coreCompsFactory.js";
 export default class Scene {
     constructor(startTime, endTime) {
         this.comps = [];

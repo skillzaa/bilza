@@ -1,5 +1,5 @@
 import IComponent from "../compDb/IComponent.js";
-import CompFactory from "../compFactory/compFactory.js";
+import CompFactory from "../facade/coreCompsFactory.js";
 export default interface IScene {
     getComps(): IComponent[];
     getStartTime(): number;
