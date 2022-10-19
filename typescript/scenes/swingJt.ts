@@ -1,10 +1,11 @@
-import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
+import  {hsl} from "../bilza.js";
 
-export default function swingJt ( startTime :number,endTime :number,content :string="Welcome To Bilza.js", hslColorNo :number= 0 ):Scene{
+import Scene from "../scene/scene.js";
 
-//----------------------------------------------
-    const scene = new Scene(startTime,endTime);
-//----------------------------------------------
+
+export default function swingJt ( scene :Scene,content :string="Welcome To Bilza.js", hslColorNo :number= 0 ):Scene{
+
+
     const txt = scene.add().text(content);
 
     txt.templ.jumbotron();

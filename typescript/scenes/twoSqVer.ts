@@ -1,10 +1,9 @@
-import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
+import  {hsl} from "../bilza.js";
 
-export default function twoSqVer ( startTime :number,endTime :number,colorSq1 :string= hsl(0),colorSq2 :string= hsl(120)):Scene{
+import Scene from "../scene/scene.js";
 
-//----------------------------------------------
-    const scene = new Scene(startTime,endTime);
-//----------------------------------------------
+export default function twoSqVer ( scene :Scene,colorSq1 :string= hsl(0),colorSq2 :string= hsl(120)):Scene{
+
         const sq1 =  scene.add().fillRect(colorSq1);
         sq1.setxy(0,0);
         sq1.width.set(50);

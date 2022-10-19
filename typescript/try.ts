@@ -1,17 +1,18 @@
 import Bilza,{hsl} from "./bilza.js";
 import Ui from "./ui/ui.js";
-
+import towSqHor from "./scenes/twoSqHor.js";
 ///////////////////////////////////////////////////
 const bil = new Bilza("bilza");
 
 bil.background.color.set(hsl(240,90,95));
 bil.add(0,30).canvasBorder( hsl(0,70,20) ,0.5);
 //----------------------------------------------//
-const scene = bil.addScene(3,10);
+// towSqHor( bil.getScene(3,10) );
+bil.addScene(2,10).sixSq();
 // scene.add().
-scene.add( ).grid("red");
-scene.add(2,2).text("Scene 001");
-scene.addLineShape().arrow(0).sexy(50);
+// scene.add( ).grid("red");
+// scene.add(2,2).text("Scene 001");
+// scene.addLineShape().arrow(0).sexy(50);
 // scene.addLineShape().cross();
 // console.log("scenePack" , scenePack);
 

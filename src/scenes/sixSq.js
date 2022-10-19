@@ -1,6 +1,5 @@
-import { hsl, Scene } from "../bilza.js";
-export default function sixSq(startTime, endTime, colorSq1 = hsl(0), colorSq2 = hsl(120), colorSq3 = hsl(240), colorSq4 = hsl(60), colorSq5 = hsl(0), colorSq6 = hsl(180)) {
-    const scene = new Scene(startTime, endTime);
+import { hsl } from "../bilza.js";
+export default function sixSq(scene, colorSq1 = hsl(0), colorSq2 = hsl(120), colorSq3 = hsl(240), colorSq4 = hsl(60), colorSq5 = hsl(0), colorSq6 = hsl(180)) {
     const sq1 = getRect(scene, colorSq1, 0, 0);
     const sq2 = getRect(scene, colorSq2, 33, 0);
     const sq3 = getRect(scene, colorSq3, 66, 0);

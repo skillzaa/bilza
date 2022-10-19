@@ -1,12 +1,8 @@
 import Bilza, {Ui,hsl} from "../bilza.js";
-import Scene from "../scene-old/scene.js";
+import Scene from "../scene/scene.js";
 
 
-export default function eightSq ( startTime :number,endTime :number,colorSq1 :string= hsl(0),colorSq2 :string= hsl(120),colorSq3 :string= hsl(240),colorSq4 :string= hsl(60),colorSq5 :string= hsl(0),colorSq6 :string= hsl(180),colorSq7 :string= hsl(0),colorSq8 :string= hsl(100) ):Scene{
-
-//----------------------------------------------
-    const scene = new Scene(startTime,endTime);
-//----------------------------------------------
+export default function eightSq ( scene :Scene,colorSq1 :string= hsl(0),colorSq2 :string= hsl(120),colorSq3 :string= hsl(240),colorSq4 :string= hsl(60),colorSq5 :string= hsl(0),colorSq6 :string= hsl(180),colorSq7 :string= hsl(0),colorSq8 :string= hsl(100) ):Scene{
 
     //-----------Row - 1
     const sq1 = getRect(scene,colorSq1,0,0);

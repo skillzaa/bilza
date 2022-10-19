@@ -1,7 +1,5 @@
 import { hsl } from "../bilza.js";
-import Scene from "../scene-old/scene.js";
-export default function eightSq(startTime, endTime, colorSq1 = hsl(0), colorSq2 = hsl(120), colorSq3 = hsl(240), colorSq4 = hsl(60), colorSq5 = hsl(0), colorSq6 = hsl(180), colorSq7 = hsl(0), colorSq8 = hsl(100)) {
-    const scene = new Scene(startTime, endTime);
+export default function eightSq(scene, colorSq1 = hsl(0), colorSq2 = hsl(120), colorSq3 = hsl(240), colorSq4 = hsl(60), colorSq5 = hsl(0), colorSq6 = hsl(180), colorSq7 = hsl(0), colorSq8 = hsl(100)) {
     const sq1 = getRect(scene, colorSq1, 0, 0);
     const sq2 = getRect(scene, colorSq2, 25, 0);
     const sq3 = getRect(scene, colorSq3, 50, 0);

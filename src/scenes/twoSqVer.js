@@ -1,6 +1,5 @@
-import { hsl, Scene } from "../bilza.js";
-export default function twoSqVer(startTime, endTime, colorSq1 = hsl(0), colorSq2 = hsl(120)) {
-    const scene = new Scene(startTime, endTime);
+import { hsl } from "../bilza.js";
+export default function twoSqVer(scene, colorSq1 = hsl(0), colorSq2 = hsl(120)) {
     const sq1 = scene.add().fillRect(colorSq1);
     sq1.setxy(0, 0);
     sq1.width.set(50);

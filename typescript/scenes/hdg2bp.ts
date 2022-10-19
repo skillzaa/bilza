@@ -1,11 +1,8 @@
-import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
-/**
-
-
-*/
+// import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
+import Scene from "../scene/scene.js";
 
 export default function h12bp ( 
-    startTime :number,endTime :number, 
+    scene :Scene, 
     //------------------   
     hslColorNo :number =240, 
     //------------------   
@@ -22,9 +19,7 @@ export default function h12bp (
     //------------------
     titleY :number= 5
     ):Scene{
-//----------------------------------------------
-    const scene = new Scene(startTime,endTime);
-//-----------------------------Title
+
 if (titleContent !== ""){
     const txt = scene.add().text(titleContent).templ.hdg();
     txt.y.set(titleY);

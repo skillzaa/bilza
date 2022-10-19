@@ -1,6 +1,4 @@
-import { Scene } from "../bilza.js";
-export default function hdg1bp(startTime, endTime, hslColorNo = 240, titleContent = "", bp1Content = "", bp1EntryTime = 0, ftNoteContent = "", ftNoteEntryTime = 0, titleY = 25) {
-    const scene = new Scene(startTime, endTime);
+export default function hdg1bp(scene, hslColorNo = 240, titleContent = "", bp1Content = "", bp1EntryTime = 0, ftNoteContent = "", ftNoteEntryTime = 0, titleY = 25) {
     if (titleContent !== "") {
         const txt = scene.add().text(titleContent).templ.hdg(1, titleY);
         txt.theme.color(hslColorNo);

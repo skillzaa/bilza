@@ -1,6 +1,5 @@
-import { hsl, Scene } from "../bilza.js";
-export default function fourSq(startTime, endTime, colorSq1 = hsl(0), colorSq2 = hsl(120), colorSq3 = hsl(240), colorSq4 = hsl(300)) {
-    const scene = new Scene(startTime, endTime);
+import { hsl } from "../bilza.js";
+export default function fourSq(scene, colorSq1 = hsl(0), colorSq2 = hsl(120), colorSq3 = hsl(240), colorSq4 = hsl(300)) {
     const sq1 = getRect(scene, colorSq1, 0, 0);
     const sq2 = getRect(scene, colorSq2, 50, 0);
     const sq3 = getRect(scene, colorSq3, 0, 50);
@@ -13,7 +12,5 @@ function getRect(scene, color, x, y) {
     rect.y.set(y);
     rect.width.set(50);
     rect.height.set(50);
-    rect.entryAni.fadeIn();
-    rect.exitAni.fadeOut();
     return rect;
 }

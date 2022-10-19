@@ -1,3 +1,3 @@
-import { Scene } from "../bilza.js";
-export default function towSqHor(startTime: number, endTime: number, colorSq1?: string, colorSq2?: string): Scene;
+import Scene from "../scene/scene.js";
+export default function towSqHor(scene: Scene, colorSq1?: string, colorSq2?: string): void;
 //# sourceMappingURL=twoSqHor.d.ts.map

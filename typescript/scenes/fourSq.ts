@@ -1,10 +1,7 @@
-import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
+import Bilza, {hsl} from "../bilza.js";
+import Scene from "../scene/scene.js";
 
-export default function fourSq ( startTime :number,endTime :number,colorSq1 :string= hsl(0),colorSq2 :string= hsl(120),colorSq3 :string= hsl(240),colorSq4 :string= hsl(300) ):Scene{
-
-//----------------------------------------------
-    const scene = new Scene(startTime,endTime);
-//----------------------------------------------
+export default function fourSq ( scene :Scene,colorSq1 :string= hsl(0),colorSq2 :string= hsl(120),colorSq3 :string= hsl(240),colorSq4 :string= hsl(300) ):Scene{
 
     const sq1 = getRect(scene,colorSq1,0,0);
     const sq2 = getRect(scene,colorSq2,50,0);
@@ -21,7 +18,7 @@ function getRect(scene :Scene,color :string,x :number,y :number){
     rect.y.set(y);
     rect.width.set(50);
     rect.height.set(50);
-    rect.entryAni.fadeIn();
-    rect.exitAni.fadeOut();
+    // rect.entryAni.fadeIn();
+    // rect.exitAni.fadeOut();
     return rect;
 }

@@ -4,6 +4,7 @@ import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
 import LineShapes from "./lineShapes.js";
 import Scene from "../scene/scene.js";
+import Scenes from "../scene/scenes.js";
 import Linker from "./linker.js";
 export default class Bilza {
     constructor(canvasId = "bilza", canvasWidthPerc = 70) {
@@ -66,10 +67,14 @@ export default class Bilza {
         }
         this.bil.resizeCanvas(wd, ht);
     }
-    addScene(startTime, endTime) {
+    getScene(startTime, endTime) {
         const l = this.getLinker(startTime, endTime, "add");
         const sp = new Scene(l);
         return sp;
+    }
+    addScene(startTime, endTime) {
+        const scene = this.getScene(startTime, endTime);
+        return new Scenes(scene);
     }
     getLinker(startTime, endTime, insertAction) {
         const linker = new Linker(startTime, endTime, this.comps, insertAction, this.engine.canvasWidth, this.engine.canvasHeight, this.engine.charsWidth);

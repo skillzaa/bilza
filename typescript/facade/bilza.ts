@@ -6,6 +6,7 @@ import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
 import LineShapes from "./lineShapes.js";
 import Scene from "../scene/scene.js";
+import Scenes from "../scene/scenes.js";
 import Linker from "./linker.js";
 //--30-9-2022-This level does not export any object just API
 export default class Bilza {
@@ -87,10 +88,14 @@ if (this.bil == null){throw new Error("init error");}
 this.bil.resizeCanvas(wd,ht);
 }
 
-addScene(startTime :number, endTime :number):Scene{
+getScene(startTime :number, endTime :number):Scene{
 const l = this.getLinker(startTime,endTime,"add");    
 const sp = new Scene( l );
 return sp;    
+}
+addScene(startTime :number, endTime :number):Scenes{
+const scene = this.getScene(startTime,endTime);    
+return new Scenes( scene );
 }
 
 private getLinker(startTime :number, endTime :number, insertAction :"add"|"append" | "alwaysOn"):Linker{

@@ -1,10 +1,9 @@
-import Bilza, {Ui, CompFactory as cf,hsl,Scene,getRandom} from "../bilza.js";
+import Scene from "../scene/scene.js";
+import  {hsl} from "../bilza.js";
 
-export default function sixSq ( startTime :number,endTime :number,colorSq1 :string= hsl(0),colorSq2 :string= hsl(120),colorSq3 :string= hsl(240),colorSq4 :string= hsl(60),colorSq5 :string= hsl(0),colorSq6 :string= hsl(180) ):Scene{
+export default function sixSq ( scene :Scene,colorSq1 :string= hsl(0),colorSq2 :string= hsl(120),colorSq3 :string= hsl(240),colorSq4 :string= hsl(60),colorSq5 :string= hsl(0),colorSq6 :string= hsl(180) ):Scene{
 
-//----------------------------------------------
-    const scene = new Scene(startTime,endTime);
-//----------------------------------------------
+
     //-----------Row - 1
     const sq1 = getRect(scene,colorSq1,0,0);
     const sq2 = getRect(scene,colorSq2,33,0);
