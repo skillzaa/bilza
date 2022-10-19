@@ -4,6 +4,7 @@ const bil = new Bilza("bilza");
 bil.background.color.set(hsl(240, 90, 95));
 bil.alwaysOn().canvasBorder(hsl(0, 70, 20), 0.5);
 bil.add(1, 5).text("Scene Ended", "red");
+bil.lineShapes.add(2, 10).home(60, true, 6);
 console.log("bil", bil);
 bil.draw();
 console.log("bil", bil);

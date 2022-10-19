@@ -3,6 +3,7 @@ import Vertex from "./vertex.js";
 import ISeg from "./ILineSeg.js";
 import LineSeg from "./lineSeg.js";
 import Pack from "../../pack/pack.js";
+import Linker from "../../facade/linker.js";
 export default class SegDb extends CompDb implements ISeg {
     startX: number;
     startY: number;
@@ -13,7 +14,7 @@ export default class SegDb extends CompDb implements ISeg {
     lineJoin: "round" | "bevel" | "miter";
     lineDash: [number, number];
     data: Vertex[];
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, x: number, y: number, hue_0_360?: number, lineWidth?: number);
+    constructor(linker: Linker, x: number, y: number, hue_0_360?: number, lineWidth?: number);
     setLineCap(lineCap: "butt" | "square" | "round"): void;
     getLineCap(): "butt" | "square" | "round";
     setLineJoin(lineJoin?: "round" | "bevel" | "miter"): void;

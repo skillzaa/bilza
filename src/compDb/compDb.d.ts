@@ -2,8 +2,9 @@ import CoreProps from "./corePropsDb.js";
 import CompEngine from "../compEngine/compEngine.js";
 import Pack from "../pack/pack.js";
 import IComponent from "./IComponent.js";
+import Linker from "../facade/linker.js";
 export default class CompDb extends CoreProps implements IComponent {
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
+    constructor(linker: Linker);
     align(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
     alignRotate(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
     xRotateAligned(): number;

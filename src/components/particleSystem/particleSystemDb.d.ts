@@ -3,6 +3,7 @@ import CompDb from "../../compDb/compDb.js";
 import IParticleSystem from "./IParticleSystem.js";
 import Pack from "../../pack/pack.js";
 import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
+import Linker from "../../facade/linker.js";
 export default class ParticleSystemDb extends CompDb implements IParticleSystem {
     count: AniNumberDb;
     particleSize: AniNumberDb;
@@ -10,7 +11,7 @@ export default class ParticleSystemDb extends CompDb implements IParticleSystem 
     lineWidth: AniNumberDb;
     filled: AniBooleanDb;
     lineColor: AniColorDb;
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, count?: number, color?: string, delay?: number);
+    constructor(linker: Linker, count?: number, color?: string, delay?: number);
     getEngineComp(pack: Pack): compEngine;
 }
 //# sourceMappingURL=particleSystemDb.d.ts.map

@@ -6,7 +6,7 @@ import IParticleSystem from "./IParticleSystem.js";
 
 import Pack from "../../pack/pack.js";
 import {AniNumberDb,AniBooleanDb,AniColorDb} from "../../animations/animations.js";
- 
+ import Linker from "../../facade/linker.js";
 //////////////////////////////////////////
 export default class ParticleSystemDb extends CompDb implements IParticleSystem {
 
@@ -17,9 +17,9 @@ export default class ParticleSystemDb extends CompDb implements IParticleSystem 
    public filled :AniBooleanDb;
    public lineColor :AniColorDb;
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,count :number= 20,color :string="#008000",delay :number=50){
+constructor(linker :Linker,count :number= 20,color :string="#008000",delay :number=50){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super(linker);
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxx
 

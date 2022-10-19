@@ -4,13 +4,13 @@ import { AniNumberDb, AniStringDb, AniBooleanDb } from "../../animations/animati
 import { FontFamily } from "../../pack/fontFamily.js";
 import toPerc from "../../functions/toPerc.js";
 export default class TextDb extends CompDb {
-    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, charsWidth, content, color) {
-        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
+    constructor(linker, content, color) {
+        super(linker);
         this.content = new AniStringDb(content);
         this.fontFamily = FontFamily.Calibri;
         this.maxDisplayChars = new AniNumberDb(500);
         this.fitToWidth = new AniBooleanDb(false);
-        this.charsWidth = charsWidth;
+        this.charsWidth = linker.charsWidth;
         this.color.set(color);
         this._oldWidth = null;
         this._oldHeight = null;

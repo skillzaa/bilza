@@ -23,13 +23,14 @@ constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 this.engine = new EngineDb(canvasId,canvasWidthPerc);
 this.comps = [];
 //--this.background is in comps and avaialbe on top level also
-this.background = this.engine.backgroundDb;
+this.background = new BackgroundDb( this.getLinker(0,1,"alwaysOn") ,"#efeee3");
+
 this.background.alwaysOn = true;
 this.comps.push(this.background);
 
 //--collection of comp DB classes
 this.bil = null;
-this.lineShapes = new LineShapes(this.engine.canvasWidth,this.engine.canvasHeight,this.comps);
+this.lineShapes = new LineShapes( this.getLinker(0,1,"add") );
 
 }
 

@@ -1,5 +1,4 @@
 import Pack  from "../pack/pack.js";
-import Background from "../components/background/background.js";
 import BackgroundDb from "../components/background/backgroundDb.js";
 
 
@@ -13,10 +12,8 @@ public readonly canvasHeight :number;
 public charsWidth : (chars:string,fontSize:number,fontName:string)=> number;
 
 // public readonly pack:Pack;
-public backgroundDb :BackgroundDb;
+// public backgroundDb :BackgroundDb;
 
-// /------------------------
-// private responsiveMode :boolean;
 //////////////////////////////////////////////
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
 this.canvasId = canvasId;
@@ -29,8 +26,8 @@ this.canvasHeight = pack.canvasHeight(); //--took me one hour
 //---The engineDb gets charsWidth 
 this.charsWidth = pack.charsWidth.bind(pack);
 ///--we need to have a background object as well
-this.backgroundDb = new BackgroundDb(0,0,"alwaysOn",
-this.canvasWidth,this.canvasHeight,"#efeee3");
+// this.backgroundDb = new BackgroundDb(0,0,"alwaysOn",
+// this.canvasWidth,this.canvasHeight,"#efeee3");
 
 }
 

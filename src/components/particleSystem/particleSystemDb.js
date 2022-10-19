@@ -2,8 +2,8 @@ import CompDb from "../../compDb/compDb.js";
 import ParticalSystem from "./particleSystem.js";
 import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
 export default class ParticleSystemDb extends CompDb {
-    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, count = 20, color = "#008000", delay = 50) {
-        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
+    constructor(linker, count = 20, color = "#008000", delay = 50) {
+        super(linker);
         this.count = new AniNumberDb(count);
         this.particleSize = new AniNumberDb(5);
         this.lineWidth = new AniNumberDb(1);

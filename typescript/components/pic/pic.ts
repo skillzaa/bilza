@@ -2,10 +2,12 @@ import Pack from "../../pack/pack.js";
 import CompEngine from "../../compEngine/compEngine.js";
 import PicDb from "./picDb.js";
 
+//------------------------------------------
 export default class Pic extends CompEngine {
 public readonly img :HTMLImageElement;
 public readonly orignalWidth :number;
 public readonly orignalHeight :number;
+
 
 constructor (corePropsDb :PicDb ,pack :Pack){ 
     super(corePropsDb,pack);

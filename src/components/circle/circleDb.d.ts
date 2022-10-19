@@ -3,6 +3,7 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
 import ICircle from "./ICircle.js";
+import Linker from "../../facade/linker.js";
 export default class CircleDb extends CompDb implements ICircle {
     startAngle: AniNumberDb;
     endAngle: AniNumberDb;
@@ -10,7 +11,7 @@ export default class CircleDb extends CompDb implements ICircle {
     lineWidth: AniNumberDb;
     strokeColor: AniColorDb;
     strokeWidth: AniNumberDb;
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, radius: number, color: string);
+    constructor(linker: Linker, radius: number, color: string);
     contentHeight(): number;
     getEngineComp(pack: Pack): compEngine;
 }

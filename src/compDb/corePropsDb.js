@@ -1,12 +1,12 @@
 import { AniNumberDb, AniPercDb, AniBooleanDb, AniColorDb } from "../animations/animations.js";
 export default class CorePropsDb {
-    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight) {
-        this._canvasWidth = canvasWidth;
-        this._canvasHeight = canvasHeight;
+    constructor(linker) {
+        this._canvasWidth = linker.canvasWidth();
+        this._canvasHeight = linker.canvasHeight();
         this.id = Math.random().toString(36).slice(2);
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.insertAction = insertAction;
+        this.startTime = linker.startTime();
+        this.endTime = linker.endTime();
+        this.insertAction = linker.insertAction();
         if (this.insertAction == "alwaysOn") {
             this.alwaysOn = true;
         }

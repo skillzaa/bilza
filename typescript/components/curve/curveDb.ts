@@ -9,6 +9,8 @@ import toPix from "../../functions/toPix.js";
 import Arc from "./curve.js";
 import IArc from "./ICurve.js";
 
+import Linker from "../../facade/linker.js";
+
 export default class CurveDb extends CompDb implements IArc {
 
    startX            : AniNumberDb;
@@ -22,9 +24,9 @@ export default class CurveDb extends CompDb implements IArc {
    showBracket       : AniBooleanDb;
    colorBracket      : AniColorDb;
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,  startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"){
+constructor(linker :Linker,  startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super( linker );
 
 checkZeroToHundred(startX);
 checkZeroToHundred(startY);

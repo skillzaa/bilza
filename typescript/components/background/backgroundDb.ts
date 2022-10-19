@@ -4,15 +4,15 @@ import Background from "./background.js";
 import CompDb from "../../compDb/compDb.js";
 import CompEngine from "../../compEngine/compEngine.js";
 import Pack from "../../pack/pack.js";
-
+import Linker from "../../facade/linker.js";
 
 export default class BackgroundDb extends CompDb {
 public color:AniColorDb;
 
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number, color :string="#efeee3")
+constructor(linker :Linker, color :string="#efeee3")
 {
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super(linker);
   
 this.color = new AniColorDb(color);
 }

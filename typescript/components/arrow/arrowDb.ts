@@ -8,7 +8,7 @@ import IArrow from "./IArrow.js";
 
 import {AniNumberDb,AniPercDb,AniColorDb,AniBooleanDb} from "../../animations/animations.js";
 
-
+import Linker from "../../facade/linker.js";
 /////----------------------------------------------------------
 
 export default class ArrowDb extends CompDb implements IArrow {
@@ -20,10 +20,10 @@ export default class ArrowDb extends CompDb implements IArrow {
    colorHead :AniColorDb;
    lineWidth :AniNumberDb;    
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,
+constructor(linker :Linker,
 x1 :number, y1 :number,x2 :number, y2 :number,color :string){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super(linker);
 
 this.x.set(x1);
 this.y.set(y1);

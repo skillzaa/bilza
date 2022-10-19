@@ -3,8 +3,8 @@ import CompDb from "../compDb/compDb.js";
 
 //-------------------------------------------
 export default class Linker {
-private readonly _startTime :number;
-private readonly _endTime :number;
+private _startTime :number;
+private _endTime :number;
 private _insertAction :"add"|"append" | "alwaysOn";
 private readonly _canvasWidth :number;
 private readonly _canvasHeight :number;
@@ -31,7 +31,12 @@ public endTime():number {return this._endTime;}
 public insertAction():"add"|"append" | "alwaysOn" {
     return this._insertAction;
 }
-
+public setStartTime(startTime :number){
+this._startTime = startTime;
+}
+public setEndTime(endTime :number){
+this._endTime = endTime;
+}
 public setInsertAction(insertAction :"add"|"append" | "alwaysOn"){
 this._insertAction = insertAction;
 }

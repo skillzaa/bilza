@@ -4,6 +4,7 @@ import IGrid from "./IGrid.js";
 import Pack from "../../pack/pack.js";
 
 import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../../animations/animations.js";
+import Linker from "../../facade/linker.js";
 
 import Grid from "./grid.js";
 
@@ -23,9 +24,11 @@ showNumbers : AniBooleanDb;
 fontSize : AniNumberDb;
 
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number, color :string="grey",cellWidth :number=10,cellHeight :number=10){
+constructor(linker :Linker, color :string="grey",cellWidth :number=10,cellHeight :number=10){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+
+
+super(linker);
 
 this.lineDash =  [];
 

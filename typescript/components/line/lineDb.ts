@@ -6,6 +6,7 @@ import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../../animations/a
 
 import Line from "./line.js";
 import ILine from "./ILine.js";
+import Linker from "../../facade/linker.js";
 
 
 export default class LineDb extends CompDb implements ILine {
@@ -13,9 +14,9 @@ export default class LineDb extends CompDb implements ILine {
    public x2 :AniNumberDb;
    public y2 :AniNumberDb;
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,  x1 :number , y1 :number , x2 :number ,y2 :number,color:string="black"){
+constructor(linker :Linker ,  x1 :number , y1 :number , x2 :number ,y2 :number,color:string="black"){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super(linker);
 
 this.color.set(color);
 this.lineWidth = new AniNumberDb(1);

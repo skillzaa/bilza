@@ -55,78 +55,78 @@ this.linker = linker;
 ///////////////////////////////////////////////
 curve(startX :number ,startY :number,midX :number,midY :number,endX :number,endY :number, color:string="black"):ICurve{
 
-let g = new CurveDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(), startX,startY,midX,midY,endX,endY, color);
+let g = new CurveDb ( this.linker , startX,startY,midX,midY,endX,endY, color);
 this.linker.push(g);
 return g;    
 }
 arrow(x1 :number, y1 :number, x2 :number, y2 :number,color :string="black"):IArrow{
-let g = new ArrowDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(), x1, y1, x2, y2,color);
+let g = new ArrowDb ( this.linker , x1, y1, x2, y2,color);
 this.linker.push(g);
 return g;    
 } 
 canvasBorder(color :string="grey",width :number=0.25):ICanvasBorder{
 let g = new CanvasBorderDb (
-    this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(), color,width);
+     this.linker , color,width);
 this.linker.push(g);
 return g;    
 }
 
 fillRect(color :string="#000000"):IComponent{
-let g = new FillRectDB(this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),color);
+let g = new FillRectDB( this.linker ,color);
 this.linker.push(g);
 return g;    
 }
 
 particleSystem(count :number= 20,color :string="#008000",delay :number=50):IParticleSystem{
 
-let g = new ParticleSystemDB(this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),count,color,delay);
+let g = new ParticleSystemDB( this.linker ,count,color,delay);
 
 this.linker.push(g);
 return g;    
 }
 
 rect(color :string="#000000"):IRect{
-let g = new RectDB(this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),color);
+let g = new RectDB( this.linker ,color);
 this.linker.push(g);
 return g;    
 }
 
 text(content :string,color :string="#000000"):IText{
-let g = new TextDB(this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),this.linker.charsWidth,content,color);
+let g = new TextDB( this.linker,content,color);
 this.linker.push(g);
 return g;    
 }
 
 grid(color :string="grey",cellWidth :number=10,cellHeight :number=10):IGrid{
-let g = new GridDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),color,cellWidth,cellHeight);
+let g = new GridDb ( this.linker ,color,cellWidth,cellHeight);
 this.linker.push(g);
 return g;    
 }
 circle(radius :number=5,color :string="black"):ICircle{
-let g = new CircleDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),radius,color);
+let g = new CircleDb ( this.linker ,radius,color);
 this.linker.push(g);
 return g;    
 }
 marker(x :number,y :number, color :string="red",radius :number= 1):ICircle{
-let g = new MarkerDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),x,y,color,radius);
+let g = new MarkerDb ( this.linker ,x,y,color,radius);
 this.linker.push(g);
 return g;    
 }
 
 line( x1 :number , y1 :number , x2 :number ,y2 :number,color:string="black"):ILine{
-let g = new LineDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),x1,y1,x2,y2,color);
+let g = new LineDb ( this.linker ,x1,y1,x2,y2,color);
 this.linker.push(g);
 return g;    
 }
 lineSeg(x :number,y :number,hue_0_360:number = 0,lineWidth :number = 4,):ILineSeg{
-let g = new LineSegDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),
+let g = new LineSegDb ( this.linker ,
     x,y,hue_0_360,lineWidth);
 this.linker.push(g);
 return g;    
 }
 
 pic(imgUrl :string,width :number=25,height:number=25):IPic{
-let g = new PicDb (this.linker.startTime(),this.linker.endTime(),this.linker.insertAction(),this.linker.canvasWidth(),this.linker.canvasHeight(),imgUrl,width,height);
+let g = new PicDb ( this.linker ,imgUrl,width,height);
 this.linker.push(g);
 return g;    
 }

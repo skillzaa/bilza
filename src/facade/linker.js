@@ -15,6 +15,12 @@ export default class Linker {
     insertAction() {
         return this._insertAction;
     }
+    setStartTime(startTime) {
+        this._startTime = startTime;
+    }
+    setEndTime(endTime) {
+        this._endTime = endTime;
+    }
     setInsertAction(insertAction) {
         this._insertAction = insertAction;
     }

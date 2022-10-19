@@ -4,6 +4,7 @@ import Pack from "../../pack/pack.js";
 import { AniNumberDb, AniStringDb, AniBooleanDb } from "../../animations/animations.js";
 import IText from "./IText.js";
 import { FontFamily } from "../../pack/fontFamily.js";
+import Linker from "../../facade/linker.js";
 export default class TextDb extends CompDb implements IText {
     content: AniStringDb;
     fontFamily: FontFamily;
@@ -13,7 +14,7 @@ export default class TextDb extends CompDb implements IText {
     private _oldHeight;
     heightFineTune: number;
     private charsWidth;
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, charsWidth: (chars: string, fontSize: number, fontName: string) => number, content: string, color: string);
+    constructor(linker: Linker, content: string, color: string);
     contentHeight(): number;
     contentWidth(): number;
     getEngineComp(pack: Pack): compEngine;

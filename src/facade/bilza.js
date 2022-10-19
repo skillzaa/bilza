@@ -1,5 +1,6 @@
 import EngineDb from "../engine/engineDb.js";
 import CompFactory from "./coreCompsFactory.js";
+import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
 import LineShapes from "./lineShapes.js";
 import ScenePack from "../scene/scenePack.js";
@@ -8,11 +9,11 @@ export default class Bilza {
     constructor(canvasId = "bilza", canvasWidthPerc = 70) {
         this.engine = new EngineDb(canvasId, canvasWidthPerc);
         this.comps = [];
-        this.background = this.engine.backgroundDb;
+        this.background = new BackgroundDb(this.getLinker(0, 1, "alwaysOn"), "#efeee3");
         this.background.alwaysOn = true;
         this.comps.push(this.background);
         this.bil = null;
-        this.lineShapes = new LineShapes(this.engine.canvasWidth, this.engine.canvasHeight, this.comps);
+        this.lineShapes = new LineShapes(this.getLinker(0, 1, "add"));
     }
     add(secStart, secEnd) {
         const cf = new CompFactory(this.getLinker(secStart, secEnd, "add"));

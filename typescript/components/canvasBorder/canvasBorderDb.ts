@@ -4,13 +4,15 @@ import ICanvasBorder from "./ICanvasBorder.js";
 import Pack from "../../pack/pack.js";
 import CanvasBorder from "./canvasBorder.js";
 import {AniNumberDb,AniStringDb,AniColorDb,AniBooleanDb} from "../../animations/animations.js";
+import Linker from "../../facade/linker.js";
+
 
 export default class CanvasBorderDb extends CompDb implements ICanvasBorder {
    public borderWidth :AniNumberDb;
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn", canvasWidth :number,canvasHeight :number,color :string="grey",width :number=0.25){
+constructor(linker :Linker,color :string="grey",width :number=0.25){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super(linker);
 
 this.borderWidth = new AniNumberDb(width);
 this.color.set(color);

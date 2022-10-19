@@ -1,8 +1,8 @@
 import CompDb from "../../compDb/compDb.js";
 import Pic from "./pic.js";
 export default class PicDb extends CompDb {
-    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, imgUrl, width = 25, height = 25) {
-        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
+    constructor(linker, imgUrl, width = 25, height = 25) {
+        super(linker);
         this.width.set(width);
         this.height.set(height);
         this.img = new Image();

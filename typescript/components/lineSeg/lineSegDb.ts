@@ -5,6 +5,7 @@ import LineSeg from "./lineSeg.js";
 import Pack from "../../pack/pack.js";
 import checkZeroToHundred from "../../functions/checkZeroToHundred.js";
 import { hsl } from "../../bilza.js";
+import Linker from "../../facade/linker.js";
 /**
  * Segment drawn a segmented line. This draw all the segments in the   same color, lineWidth etc.
  *  
@@ -25,14 +26,14 @@ public lineDash:[number,number];
 public data :Vertex[]; 
 //----------------------constructor
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,
+constructor(linker :Linker,
 x :number,
 y :number,
 hue_0_360:number = 0,
 lineWidth :number = 4,
 ){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super( linker );
             checkZeroToHundred(x);
             checkZeroToHundred(y);
 this.startX= x;

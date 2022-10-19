@@ -6,6 +6,7 @@ import {AniNumberDb,AniColorDb,AniStringDb,AniBooleanDb} from "../../animations/
 import IText from "./IText.js";
 import {FontFamily}  from "../../pack/fontFamily.js";
 import toPerc from "../../functions/toPerc.js";
+import Linker from "../../facade/linker.js";
 
 
 export default class TextDb extends CompDb implements IText {
@@ -21,18 +22,17 @@ public heightFineTune :number;
 //----------------------------------------
 private charsWidth : (chars:string,fontSize:number,fontName:string)=> number;
 
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,
-charsWidth : (chars:string,fontSize:number,fontName:string)=> number,
+constructor(linker :Linker,
 content :string,  color :string){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super(linker);
 //xxxxxxxxx
 this.content = new AniStringDb(content);
 this.fontFamily = FontFamily.Calibri;
 this.maxDisplayChars = new AniNumberDb(500);
 this.fitToWidth  = new AniBooleanDb(false);
 
-this.charsWidth = charsWidth;
+this.charsWidth = linker.charsWidth;
 this.color.set(color);
 /////////////
 this._oldWidth = null;

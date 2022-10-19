@@ -2,6 +2,7 @@ import Pack from "../../pack/pack.js";
 import CompEngine from "../../compEngine/compEngine.js";
 import CircleDb from "./circleDb.js";
 import {AniNumber,AniString,AniBoolean,AniColor,} from "../../animations/animations.js";
+import Linker from "../../facade/linker.js";
 
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

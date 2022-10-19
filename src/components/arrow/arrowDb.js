@@ -2,8 +2,8 @@ import CompDb from "../../compDb/compDb.js";
 import Arrow from "./arrow.js";
 import { AniNumberDb, AniPercDb, AniColorDb, AniBooleanDb } from "../../animations/animations.js";
 export default class ArrowDb extends CompDb {
-    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, x1, y1, x2, y2, color) {
-        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
+    constructor(linker, x1, y1, x2, y2, color) {
+        super(linker);
         this.x.set(x1);
         this.y.set(y1);
         this.x2 = new AniPercDb(x2, this.canvasWidth());

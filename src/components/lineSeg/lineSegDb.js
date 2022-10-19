@@ -3,8 +3,8 @@ import LineSeg from "./lineSeg.js";
 import checkZeroToHundred from "../../functions/checkZeroToHundred.js";
 import { hsl } from "../../bilza.js";
 export default class SegDb extends CompDb {
-    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, x, y, hue_0_360 = 0, lineWidth = 4) {
-        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
+    constructor(linker, x, y, hue_0_360 = 0, lineWidth = 4) {
+        super(linker);
         checkZeroToHundred(x);
         checkZeroToHundred(y);
         this.startX = x;

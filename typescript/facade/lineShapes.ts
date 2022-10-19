@@ -13,16 +13,25 @@ constructor(linker :Linker){
 this.linker = linker;
 }
 
-add(secStart :number,secEnd :number):LineShapeFactory{
-const cf = new LineShapeFactory(this.getLinker(secStart,secEnd,"add"));
+add( startTime :number, endTime :number):LineShapeFactory{
+this.linker.setStartTime(startTime);    
+this.linker.setEndTime(endTime);    
+this.linker.setInsertAction("add");    
+const cf = new LineShapeFactory(this.linker);
 return cf;
 }
 alwaysOn():LineShapeFactory{
-const cf = new LineShapeFactory(this.getLinker(0,1,"alwaysOn"));
+this.linker.setStartTime(0); //will not be used   
+this.linker.setEndTime(1);    //will not be used
+    this.linker.setInsertAction("alwaysOn");    
+    const cf = new LineShapeFactory(this.linker);    
 return cf;
 }
 append(duration :number):LineShapeFactory{
-const cf = new LineShapeFactory(this.getLinker(0,duration,"append"));
+    this.linker.setStartTime(0);   //will not be used 
+    this.linker.setEndTime(duration);        
+    this.linker.setInsertAction("append");    
+    const cf = new LineShapeFactory(this.linker);    
 return cf;    
 }
 //////////////////////////////////////////////////

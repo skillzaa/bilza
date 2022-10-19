@@ -1,4 +1,5 @@
 import { AniNumberDb, AniPercDb, AniBooleanDb, AniColorDb } from "../animations/animations.js";
+import Linker from "../facade/linker.js";
 export default class CorePropsDb {
     readonly id: string;
     border: AniNumberDb;
@@ -30,7 +31,7 @@ export default class CorePropsDb {
     startTime: number;
     endTime: number;
     readonly insertAction: "add" | "append" | "alwaysOn";
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number);
+    constructor(linker: Linker);
     canvasWidth(): number;
     canvasHeight(): number;
 }

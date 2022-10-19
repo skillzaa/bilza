@@ -1,7 +1,7 @@
 import CoreProps from "./corePropsDb.js";
 export default class CompDb extends CoreProps {
-    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight) {
-        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
+    constructor(linker) {
+        super(linker);
     }
     align(x = null, y = null) {
         if (x !== null) {

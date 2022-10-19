@@ -3,6 +3,7 @@ import CompDb from "../../compDb/compDb.js";
 import IPic from "./IPic.js";
 import Pack from "../../pack/pack.js";
 import {AniNumberDb,AniColorDb,AniBooleanDb} from "../../animations/animations.js";
+import Linker from "../../facade/linker.js";
 
 import Pic from "./pic.js";
 
@@ -11,9 +12,9 @@ public readonly img :HTMLImageElement;
 public readonly orignalWidth :number;
 public readonly orignalHeight :number;
     
-constructor(startTime :number, endTime :number ,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number,imgUrl :string,width :number=25,height:number=25){
+constructor(linker :Linker,imgUrl :string,width :number=25,height:number=25){
 
-super(startTime,endTime,insertAction,canvasWidth,canvasHeight);
+super(linker);
 
 this.width.set(width); 
 this.height.set(height); 

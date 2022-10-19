@@ -3,6 +3,7 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import IArrow from "./IArrow.js";
 import { AniNumberDb, AniPercDb, AniColorDb, AniBooleanDb } from "../../animations/animations.js";
+import Linker from "../../facade/linker.js";
 export default class ArrowDb extends CompDb implements IArrow {
     x2: AniPercDb;
     y2: AniPercDb;
@@ -11,7 +12,7 @@ export default class ArrowDb extends CompDb implements IArrow {
     headFilled: AniBooleanDb;
     colorHead: AniColorDb;
     lineWidth: AniNumberDb;
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, x1: number, y1: number, x2: number, y2: number, color: string);
+    constructor(linker: Linker, x1: number, y1: number, x2: number, y2: number, color: string);
     getEngineComp(pack: Pack): compEngine;
     align(x?: 0 | 1 | 2 | null, y?: number | null): void;
     alignRotate(x?: 0 | 1 | 2 | null, y?: number | null): void;

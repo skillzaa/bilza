@@ -1,5 +1,5 @@
 import {AniNumberDb,AniPercDb,AniBooleanDb, AniColorDb} from "../animations/animations.js";
-
+import Linker from "../facade/linker.js";
 
 export default class CorePropsDb   {
 ////////////////////////////////////////////
@@ -44,16 +44,17 @@ endTime :number;
 readonly insertAction :"add"|"append" | "alwaysOn";
 
 ////////////////////////////////////
-constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number){
+// constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number){
+constructor(linker :Linker){
 
-this._canvasWidth = canvasWidth;
-this._canvasHeight = canvasHeight;
+this._canvasWidth = linker.canvasWidth();
+this._canvasHeight = linker.canvasHeight();
 //---------------------------------------------
 
 this.id = Math.random().toString(36).slice(2);
-this.startTime = startTime;
-this.endTime = endTime;
-this.insertAction = insertAction;
+this.startTime = linker.startTime();
+this.endTime = linker.endTime();
+this.insertAction = linker.insertAction();
 if (this.insertAction == "alwaysOn"){
     this.alwaysOn = true;
 }else {

@@ -3,6 +3,7 @@ import compEngine from "../../compEngine/compEngine.js";
 import CompDb from "../../compDb/compDb.js";
 import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
 import IArc from "./ICurve.js";
+import Linker from "../../facade/linker.js";
 export default class CurveDb extends CompDb implements IArc {
     startX: AniNumberDb;
     startY: AniNumberDb;
@@ -14,7 +15,7 @@ export default class CurveDb extends CompDb implements IArc {
     bracketWidth: AniNumberDb;
     showBracket: AniBooleanDb;
     colorBracket: AniColorDb;
-    constructor(startTime: number, endTime: number, insertAction: "add" | "append" | "alwaysOn", canvasWidth: number, canvasHeight: number, startX: number, startY: number, midX: number, midY: number, endX: number, endY: number, color?: string);
+    constructor(linker: Linker, startX: number, startY: number, midX: number, midY: number, endX: number, endY: number, color?: string);
     getEngineComp(pack: Pack): compEngine;
 }
 //# sourceMappingURL=curveDb.d.ts.map

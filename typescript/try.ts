@@ -14,7 +14,7 @@ bil.alwaysOn().canvasBorder( hsl(0,70,20) ,0.5);
 // console.log("scenePack" , scenePack);
 
 bil.add(1,5).text("Scene Ended","red");
-
+bil.lineShapes.add(2,10).home(60,true,6);
 console.log("bil",bil);
 
 // const home = scenePack.lineShapes. .add(0,60).home(0,true,10).sexy(2,10);

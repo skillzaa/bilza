@@ -2,8 +2,8 @@ import CompDb from "../../compDb/compDb.js";
 import { AniNumberDb, AniBooleanDb, AniColorDb } from "../../animations/animations.js";
 import Circle from "./circle.js";
 export default class CircleDb extends CompDb {
-    constructor(startTime, endTime, insertAction, canvasWidth, canvasHeight, radius, color) {
-        super(startTime, endTime, insertAction, canvasWidth, canvasHeight);
+    constructor(linker, radius, color) {
+        super(linker);
         this.lineWidth = new AniNumberDb(1);
         this.startAngle = new AniNumberDb(0);
         this.endAngle = new AniNumberDb(360);
