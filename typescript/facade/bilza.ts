@@ -19,39 +19,33 @@ private bil :Engine | null;
 public lineShapes :LineShapes;
 //----------------------------------------------------
 constructor(canvasId :string="bilza",canvasWidthPerc :number=70){
-
-
 this.engine = new EngineDb(canvasId,canvasWidthPerc);
 this.comps = [];
 //--this.background is in comps and avaialbe on top level also
 this.background = new BackgroundDb( this.getLinker(0,1,"alwaysOn") ,"#efeee3");
-
 this.background.alwaysOn = true;
 this.comps.push(this.background);
-
 //--collection of comp DB classes
 this.bil = null;
 this.lineShapes = new LineShapes( this.getLinker(0,1,"add") );
-
 }
 
-
 //--does not need ComponentPack since this is DB object
-add(secStart :number,secEnd :number):CompFactory{
+public add(secStart :number,secEnd :number):CompFactory{
 const cf = new CompFactory(this.getLinker(secStart,secEnd,"add"));
 return cf;
 }
-alwaysOn():CompFactory{
+public alwaysOn():CompFactory{
 const cf = new CompFactory(this.getLinker(0,1,"alwaysOn"));
 return cf;
 }
-append(duration :number):CompFactory{
+public append(duration :number):CompFactory{
 const cf = new CompFactory(this.getLinker(0,duration,"append"));
 return cf;    
 }
 
 
-init(){
+private init(){
 if (this.bil !== null){return;}
 const compiler = new Compiler();
 this.bil = null;
@@ -59,7 +53,7 @@ this.bil = compiler.genApp(this.engine,this.comps);
 // this.bil.init();
 }
 
-draw(timeSec :number=0){
+public draw(timeSec :number=0){
 if (this.bil !== null){
     this.bil.draw(timeSec);
     }else {
@@ -68,13 +62,13 @@ if (this.bil !== null){
     }
 }
 
-start(){
+public start(){
     this.init();
     if (this.bil == null){throw new Error("init error"); }
     this.bil.start();
 }
 
-stop( ){
+public stop( ){
 if (this.bil == null){throw new Error("init error"); }
 this.bil.stop();
 }
@@ -83,17 +77,17 @@ getEngine():Engine | null{
 return this.bil;    
 }
 
-resizeCanvas(wd :number,ht :number | null){
+public resizeCanvas(wd :number,ht :number | null){
 if (this.bil == null){throw new Error("init error");}    
 this.bil.resizeCanvas(wd,ht);
 }
 
-getScene(startTime :number, endTime :number):Scene{
+public getScene(startTime :number, endTime :number):Scene{
 const l = this.getLinker(startTime,endTime,"add");    
 const sp = new Scene( l );
 return sp;    
 }
-addScene(startTime :number, endTime :number):Scenes{
+public addScene(startTime :number, endTime :number):Scenes{
 const scene = this.getScene(startTime,endTime);    
 return new Scenes( scene );
 }

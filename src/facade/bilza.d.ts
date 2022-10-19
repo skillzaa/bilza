@@ -14,7 +14,7 @@ export default class Bilza {
     add(secStart: number, secEnd: number): CompFactory;
     alwaysOn(): CompFactory;
     append(duration: number): CompFactory;
-    init(): void;
+    private init;
     draw(timeSec?: number): void;
     start(): void;
     stop(): void;
