@@ -1,18 +1,19 @@
-import Bilza from "../bilza.js";
 import CompFactory from "../facade/coreCompsFactory.js";
-import LineShapeFactory from "../compFactory/lineShapesFactory.js";
-
+import LineShapeFactory from "../facade/lineShapesFactory.js";
+import Linker from "../facade/linker.js";
 ///////////////////////////////////////////////////////
-export default class ScreenPack{
+export default class Scene {
 //...........................................
 public readonly startTime :number;    
-public readonly endTime :number;    
-private bilzaObj :Bilza;
+public readonly endTime :number;  
+private linker :Linker;  
 //...........................................
-constructor(startTime :number , endTime :number,bilzaObj :Bilza){
-this.startTime = startTime;    
-this.endTime = endTime;    
-this.bilzaObj = bilzaObj; 
+constructor(linker :Linker){
+this.linker = linker;   
+this.linker.setInsertAction("add");
+//--read and save the orignal start and end time
+this.startTime = linker.startTime();    
+this.endTime = linker.endTime();    
 }
 
 public add(startTimePlus :number = 0,endTimeMinus :number = 0):CompFactory{
@@ -23,10 +24,11 @@ if (itemStartTime >= itemEndTime ){
     throw new Error("item StartTime is larger than or equal to item EndTime");
 }
 //------------------------------------------------------    
-const cf = this.bilzaObj.add( itemStartTime,itemEndTime);
+this.linker.setStartTime(itemStartTime);
+this.linker.setEndTime(itemEndTime);
+const cf = new CompFactory(this.linker);
 return cf;
 }
-
 public addLineShape(startTimePlus :number = 0,endTimeMinus :number = 0):LineShapeFactory{
 //---check
 const itemStartTime  = this.startTimePlus (startTimePlus);
@@ -35,8 +37,10 @@ if (itemStartTime >= itemEndTime ){
     throw new Error("item StartTime is larger than or equal to item EndTime");
 }
 //------------------------------------------------------    
-const ls = this.bilzaObj.lineShapes.add(this.startTime,this.endTime);    
-return ls;
+this.linker.setStartTime(itemStartTime);
+this.linker.setEndTime(itemEndTime);
+const cf = new LineShapeFactory(this.linker);
+return cf;
 }
 //...........................................
 protected startTimePlus(sec :number):number{

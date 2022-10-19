@@ -1,14 +1,14 @@
+import Bilza from "../bilza.js";
 import CompFactory from "../facade/coreCompsFactory.js";
-import LineShapeFactory from "../facade/lineShapesFactory.js";
-import Linker from "../facade/linker.js";
-export default class Scene {
+import LineShapeFactory from "../compFactory/lineShapesFactory.js";
+export default class ScreenPack {
     readonly startTime: number;
     readonly endTime: number;
-    private linker;
-    constructor(linker: Linker);
+    private bilzaObj;
+    constructor(startTime: number, endTime: number, bilzaObj: Bilza);
     add(startTimePlus?: number, endTimeMinus?: number): CompFactory;
     addLineShape(startTimePlus?: number, endTimeMinus?: number): LineShapeFactory;
     protected startTimePlus(sec: number): number;
     protected endTimeMinus(sec: number): number;
 }
-//# sourceMappingURL=scene.d.ts.map
+//# sourceMappingURL=scenePack.d.ts.map

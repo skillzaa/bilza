@@ -1,11 +1,8 @@
-import CompFactory from "../facade/coreCompsFactory.js";
-import LineShapeFactory from "../facade/lineShapesFactory.js";
-export default class Scene {
-    constructor(linker) {
-        this.linker = linker;
-        this.linker.setInsertAction("add");
-        this.startTime = linker.startTime();
-        this.endTime = linker.endTime();
+export default class ScreenPack {
+    constructor(startTime, endTime, bilzaObj) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.bilzaObj = bilzaObj;
     }
     add(startTimePlus = 0, endTimeMinus = 0) {
         const itemStartTime = this.startTimePlus(startTimePlus);
@@ -13,9 +10,7 @@ export default class Scene {
         if (itemStartTime >= itemEndTime) {
             throw new Error("item StartTime is larger than or equal to item EndTime");
         }
-        this.linker.setStartTime(itemStartTime);
-        this.linker.setEndTime(itemEndTime);
-        const cf = new CompFactory(this.linker);
+        const cf = this.bilzaObj.add(itemStartTime, itemEndTime);
         return cf;
     }
     addLineShape(startTimePlus = 0, endTimeMinus = 0) {
@@ -24,10 +19,8 @@ export default class Scene {
         if (itemStartTime >= itemEndTime) {
             throw new Error("item StartTime is larger than or equal to item EndTime");
         }
-        this.linker.setStartTime(itemStartTime);
-        this.linker.setEndTime(itemEndTime);
-        const cf = new LineShapeFactory(this.linker);
-        return cf;
+        const ls = this.bilzaObj.lineShapes.add(this.startTime, this.endTime);
+        return ls;
     }
     startTimePlus(sec) {
         return this.startTime + sec;

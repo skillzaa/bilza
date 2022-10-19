@@ -5,16 +5,16 @@ import Ui from "./ui/ui.js";
 const bil = new Bilza("bilza");
 
 bil.background.color.set(hsl(240,90,95));
-bil.alwaysOn().canvasBorder( hsl(0,70,20) ,0.5);
+bil.add(0,30).canvasBorder( hsl(0,70,20) ,0.5);
 //----------------------------------------------//
-// const scenePack = bil.getScenePack(0,10);
-// scenePack.add(0,5).grid("red");
-// scenePack.add().text("Scene 001");
-// scenePack.addLineShape().cross();
+const scene = bil.addScene(3,10);
+// scene.add().
+scene.add( ).grid("red");
+scene.add(2,2).text("Scene 001");
+scene.addLineShape().arrow(0).sexy(50);
+// scene.addLineShape().cross();
 // console.log("scenePack" , scenePack);
 
-bil.add(1,5).text("Scene Ended","red");
-bil.lineShapes.add(2,10).home(60,true,6);
 console.log("bil",bil);
 
 // const home = scenePack.lineShapes. .add(0,60).home(0,true,10).sexy(2,10);

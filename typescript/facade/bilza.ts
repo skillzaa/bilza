@@ -5,7 +5,7 @@ import CompFactory from "./coreCompsFactory.js";
 import BackgroundDb from "../components/background/backgroundDb.js";
 import Compiler from "../compiler/compiler.js";
 import LineShapes from "./lineShapes.js";
-import ScenePack from "../scene/scenePack.js";
+import Scene from "../scene/scene.js";
 import Linker from "./linker.js";
 //--30-9-2022-This level does not export any object just API
 export default class Bilza {
@@ -87,8 +87,9 @@ if (this.bil == null){throw new Error("init error");}
 this.bil.resizeCanvas(wd,ht);
 }
 
-getScenePack(startTime :number, endTime :number):ScenePack{
-const sp = new ScenePack(startTime,endTime,this);
+addScene(startTime :number, endTime :number):Scene{
+const l = this.getLinker(startTime,endTime,"add");    
+const sp = new Scene( l );
 return sp;    
 }
 
