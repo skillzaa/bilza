@@ -1,5 +1,6 @@
 import {AniNumberDb,AniStringDb,AniColorDb,AniBooleanDb} from "../animations/animations.js";
-
+import EntryAni from "../aniTempl/entryAni.js";
+import ExitAni from "../aniTempl/exitAni.js";
 //--This is actuall IFsacadeComp but since its for public to appropriate name
 
 export default interface IComponent{
@@ -75,4 +76,8 @@ setxy(x :number, y? :number|null):IComponent;
 sexy(x :number, y? :number|null):IComponent;
 setWdHt(width :number | null, height :number | null):IComponent;
 setPaddings(n :number):IComponent;
+
+//----------------objects
+entryAni : EntryAni;
+exitAni : ExitAni;
 }

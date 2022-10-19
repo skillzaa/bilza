@@ -44,7 +44,6 @@ endTime :number;
 readonly insertAction :"add"|"append" | "alwaysOn";
 
 ////////////////////////////////////
-// constructor(startTime :number,endTime :number,insertAction :"add"|"append" | "alwaysOn",canvasWidth :number,canvasHeight :number){
 constructor(linker :Linker){
 
 this._canvasWidth = linker.canvasWidth();
@@ -91,8 +90,8 @@ this.xAlign =0;
 this.yAlign =0;
 this.xRotate =0;
 this.yRotate =0;
+}//constructor
 
-}
 canvasWidth():number{
 return this._canvasWidth;
 }

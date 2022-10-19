@@ -7,8 +7,22 @@ const bil = new Bilza("bilza");
 bil.background.color.set(hsl(240,90,95));
 bil.add(0,30).canvasBorder( hsl(0,70,20) ,0.5);
 //----------------------------------------------//
+const comp = bil.add(0,5).fillRect("red").sexy(50);
+// comp.entryAni.leftIn();
+// comp.entryAni.rightIn();
+// comp.entryAni.bottomIn();
+// comp.entryAni.topIn();
+// comp.entryAni.fadeIn();
+
+// comp.exitAni.fadeOut();
+// comp.exitAni.leftOut();
+// comp.exitAni.rightOut();
+// comp.exitAni.topOut();
+comp.exitAni.bottomOut();
+
+
 // towSqHor( bil.getScene(3,10) );
-bil.addScene(2,10).sixSq();
+// bil.addScene(2,10).sixSq();
 // scene.add().
 // scene.add( ).grid("red");
 // scene.add(2,2).text("Scene 001");

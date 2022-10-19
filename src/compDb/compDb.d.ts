@@ -3,7 +3,11 @@ import CompEngine from "../compEngine/compEngine.js";
 import Pack from "../pack/pack.js";
 import IComponent from "./IComponent.js";
 import Linker from "../facade/linker.js";
+import EntryAni from "../aniTempl/entryAni.js";
+import ExitAni from "../aniTempl/exitAni.js";
 export default class CompDb extends CoreProps implements IComponent {
+    entryAni: EntryAni;
+    exitAni: ExitAni;
     constructor(linker: Linker);
     align(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;
     alignRotate(x?: 0 | 1 | 2 | null, y?: 0 | 1 | 2 | null): void;

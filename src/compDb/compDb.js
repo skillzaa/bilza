@@ -1,7 +1,11 @@
 import CoreProps from "./corePropsDb.js";
+import EntryAni from "../aniTempl/entryAni.js";
+import ExitAni from "../aniTempl/exitAni.js";
 export default class CompDb extends CoreProps {
     constructor(linker) {
         super(linker);
+        this.entryAni = new EntryAni(this);
+        this.exitAni = new ExitAni(this);
     }
     align(x = null, y = null) {
         if (x !== null) {

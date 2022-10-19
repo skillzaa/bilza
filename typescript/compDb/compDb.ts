@@ -3,15 +3,21 @@ import CompEngine from "../compEngine/compEngine.js";
 import Pack from "../pack/pack.js";
 import IComponent from "./IComponent.js";
 import Linker from "../facade/linker.js";
+import EntryAni from "../aniTempl/entryAni.js";
+import ExitAni from "../aniTempl/exitAni.js";
 ///////////////////////////////////////////////////
 export default class CompDb extends CoreProps implements IComponent {
 ///////////////////////////////////////////////////
+public entryAni :EntryAni;
+public exitAni :ExitAni;
+
 constructor(linker :Linker){      
 
 super(linker);
-////////--set some props as responsive by default
-// this.setRespDims(true);
-// this.setRespLoc(true);
+//---Objects
+this.entryAni = new EntryAni(this);
+this.exitAni = new ExitAni(this);
+
 }
 ////////////////////////////////////////////////
 public align(x : 0|1|2|null=null, y :0|1|2|null=null){

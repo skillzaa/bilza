@@ -1,4 +1,6 @@
 import { AniNumberDb, AniColorDb, AniBooleanDb } from "../animations/animations.js";
+import EntryAni from "../aniTempl/entryAni.js";
+import ExitAni from "../aniTempl/exitAni.js";
 export default interface IComponent {
     border: AniNumberDb;
     colorBackground: AniColorDb;
@@ -47,5 +49,7 @@ export default interface IComponent {
     sexy(x: number, y?: number | null): IComponent;
     setWdHt(width: number | null, height: number | null): IComponent;
     setPaddings(n: number): IComponent;
+    entryAni: EntryAni;
+    exitAni: ExitAni;
 }
 //# sourceMappingURL=IComponent.d.ts.map
